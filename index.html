@@ -2551,8 +2551,11 @@ function showPage(id) {
   const target = document.getElementById('page-' + id);
   if (target) {
     target.classList.add('active');
-    target.querySelectorAll('.reveal').forEach(el => {
-      setTimeout(() => el.classList.add('visible'), 50);
+    // Force all reveal elements visible immediately + with slight stagger
+    const revealEls = target.querySelectorAll('.reveal');
+    revealEls.forEach(el => el.classList.remove('visible'));
+    revealEls.forEach((el, i) => {
+      setTimeout(() => el.classList.add('visible'), 30 + i * 20);
     });
   }
   const link = document.querySelector(`.sb-link[data-page="${id}"]`);
@@ -2752,6 +2755,11 @@ function updateCountdowns() {
 showPage('dashboard');
 initTabs('products');
 updateCountdowns();
+
+// Also ensure any pre-marked visible elements on non-active pages get cleared
+document.querySelectorAll('.page-section:not(.active) .reveal').forEach(el => {
+  el.classList.remove('visible');
+});
 // Also update country FR countdown
 const elC = document.getElementById('days-fr-mandate-c');
 if (elC) {
