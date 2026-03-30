@@ -1,1 +1,1 @@
-id= type=error role= stop= blocks=0
+ERROR_TYPE=invalid_request_error ERROR_MSG=Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits. HTTP=400
