@@ -2388,11 +2388,66 @@ function copyELT() {
   });
 }
 
+// ══════ LIVE SIGNALS FETCH ══════
+const SIGNALS_URL = 'https://raw.githubusercontent.com/lewisvines/wise-intel-hub/signals/signals.json';
+
+function categoryTag(cat) {
+  const map = {'Competitive':'t-red','Regulatory':'t-teal','AI':'t-purple','Pricing':'t-amber'};
+  return `<span class="tag ${map[cat]||'t-grey'}">${cat||'Signal'}</span>`;
+}
+function marketTag(mkt) {
+  const map = {'FR':'🇫🇷 FR','ES':'🇪🇸 ES','DE':'🇩🇪 DE','PT':'🇵🇹 PT','EU':'🌍 EU'};
+  return `<span class="tag t-grey">${map[mkt]||mkt||'EU'}</span>`;
+}
+
+async function loadLiveSignals() {
+  const list = document.getElementById('signal-list');
+  if (!list) return;
+  try {
+    const r = await fetch(SIGNALS_URL + '?v=' + Date.now());
+    if (!r.ok) return;
+    const signals = await r.json();
+    if (!Array.isArray(signals) || signals.length === 0) return;
+
+    // Insert live signals at the top with a "LIVE" header
+    const liveSection = document.createElement('div');
+    liveSection.id = 'live-signals-block';
+    liveSection.innerHTML = `
+      <div style="font-family:var(--font);font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--g);margin-bottom:10px;display:flex;align-items:center;gap:8px;">
+        <span class="pulse-dot"></span>LIVE SIGNALS — Updated ${new Date(signals[0]?.date||Date.now()).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'})}
+      </div>`;
+
+    signals.forEach(sig => {
+      const card = document.createElement('div');
+      card.className = 'signal-card';
+      card.style.borderLeft = '2px solid var(--g)';
+      card.innerHTML = `
+        <div class="sc-top">
+          <div class="sc-tags">${categoryTag(sig.category)}${marketTag(sig.market)}</div>
+          <span class="sc-date">${sig.date||''}</span>
+        </div>
+        <div class="sc-title"><strong>${sig.title||'Signal'}</strong></div>
+        <div class="sc-body">${sig.body||''}</div>
+        ${sig.implication ? `<div class="sc-implication"><div class="sc-impl-label">WiSE implication</div><div class="sc-impl-body">${sig.implication}</div></div>` : ''}`;
+      liveSection.appendChild(card);
+    });
+
+    // Prepend before existing static signals
+    list.insertBefore(liveSection, list.firstChild);
+    liveSection.querySelectorAll('.signal-card').forEach(el => el.classList.add('visible'));
+  } catch(e) {
+    console.log('Live signals not yet available:', e.message);
+  }
+}
+
 // Init first page
 showPage('signals');
 document.querySelectorAll('#page-signals .reveal').forEach(el => {
   setTimeout(() => el.classList.add('visible'), 100);
 });
+
+// Load live signals on startup
+loadLiveSignals();
 </script>
 </body>
 </html>
