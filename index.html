@@ -58,11 +58,11 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.5;transform:scale(1.4)}}
 
 /* ── MAIN CONTENT ── */
-#main{margin-left:220px;min-height:100vh;position:relative;}
+#main{margin-left:220px;min-height:100vh;padding-top:48px;}
 
 /* ── TOP BAR ── */
 #topbar{
-  position:sticky;top:0;z-index:100;
+  position:fixed;top:0;left:220px;right:0;z-index:100;
   background:rgba(8,12,8,0.92);backdrop-filter:blur(20px);
   border-bottom:1px solid var(--border);
   padding:0 32px;height:48px;
@@ -77,8 +77,8 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:
 .tb-btn.primary:hover{background:var(--g2);}
 
 /* ── PAGE SECTIONS ── */
-.page-section{display:none;padding:24px 40px 80px;position:absolute;top:0;left:0;right:0;min-height:100vh;}
-.page-section.active{display:block;position:relative;top:auto;left:auto;right:auto;}
+.page-section{display:none;padding:24px 40px 80px;}
+.page-section.active{display:block;}
 
 /* ── SECTION HEADERS ── */
 .page-header{margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid var(--border);}
