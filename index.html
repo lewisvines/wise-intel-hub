@@ -2562,7 +2562,7 @@ function showPage(id) {
   if (link) link.classList.add('active');
   const bc = document.getElementById('tb-current');
   if (bc) bc.textContent = titles[id] || id;
-  window.scrollTo(0,0);
+  window.scrollTo(0, target.offsetTop);
 }
 
 navLinks.forEach(link => {
