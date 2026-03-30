@@ -45,6 +45,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:
 .sb-logo-text{font-family:var(--font);font-size:14px;font-weight:800;letter-spacing:0.5px;color:var(--text);}
 .sb-logo-text span{color:var(--g);}
 .sb-badge{display:inline-flex;align-items:center;gap:4px;margin-top:6px;background:var(--gdim);border:1px solid rgba(0,176,80,0.25);color:var(--g);font-family:var(--font);font-size:9px;font-weight:700;padding:2px 7px;border-radius:3px;letter-spacing:0.8px;text-transform:uppercase;}
+.sb-divider{border:none;border-top:1px solid var(--border);margin:8px 12px;}
 .sb-section-label{font-family:var(--font);font-size:9px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--text4);padding:10px 20px 4px;}
 .sb-link{display:flex;align-items:center;gap:9px;padding:7px 20px;font-family:var(--font);font-size:12px;font-weight:500;color:var(--text3);text-decoration:none;border-radius:0;transition:all 0.12s;cursor:pointer;border:none;background:none;width:100%;text-align:left;}
 .sb-link:hover{color:var(--text);background:rgba(255,255,255,0.04);}
@@ -317,6 +318,73 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:
 /* ── RESPONSIVE ── */
 @media(max-width:1100px){.grid-3{grid-template-columns:1fr 1fr;}.grid-4{grid-template-columns:1fr 1fr;}}
 @media(max-width:900px){#sidebar{display:none;}#main{margin-left:0;}.persona-grid,.grid-2{grid-template-columns:1fr;}.stat-row{grid-template-columns:repeat(2,1fr);}}
+
+/* ══ INNER TABS ══ */
+.tab-bar{display:flex;gap:2px;background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:3px;margin-bottom:24px;}
+.tab-btn{font-family:var(--font);font-size:11px;font-weight:600;padding:7px 14px;border-radius:6px;border:none;background:transparent;color:var(--text3);cursor:pointer;transition:all 0.15s;white-space:nowrap;}
+.tab-btn.active{background:var(--bg1);color:var(--g);box-shadow:0 1px 3px rgba(0,0,0,0.3);}
+.tab-btn:hover:not(.active){color:var(--text);background:rgba(255,255,255,0.04);}
+.tab-panel{display:none;}.tab-panel.active{display:block;}
+
+/* ══ DASHBOARD ══ */
+.dash-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:28px;}
+.dash-card{background:var(--bg1);border:1px solid var(--border);border-radius:12px;padding:20px;position:relative;overflow:hidden;}
+.dash-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;}
+.dash-card.green::before{background:linear-gradient(90deg,var(--g),var(--g3));}
+.dash-card.red::before{background:linear-gradient(90deg,var(--red),#f97316);}
+.dash-card.amber::before{background:linear-gradient(90deg,var(--amber),#f97316);}
+.dash-card.blue::before{background:linear-gradient(90deg,var(--blue),var(--purple));}
+.dash-card.teal::before{background:linear-gradient(90deg,var(--teal),var(--blue));}
+.dash-card.purple::before{background:linear-gradient(90deg,var(--purple),var(--pink));}
+.dash-metric{font-family:var(--serif);font-size:36px;font-style:italic;color:var(--g);line-height:1;margin-bottom:4px;}
+.dash-metric.red{color:var(--red);}
+.dash-metric.amber{color:var(--amber);}
+.dash-metric.blue{color:var(--blue);}
+.dash-metric.teal{color:var(--teal);}
+.dash-metric.purple{color:var(--purple);}
+.dash-label{font-family:var(--font);font-size:10px;font-weight:700;letter-spacing:0.6px;text-transform:uppercase;color:var(--text3);margin-bottom:6px;}
+.dash-sub{font-size:11px;color:var(--text4);line-height:1.5;}
+.dash-trend{display:flex;align-items:center;gap:4px;margin-top:8px;font-family:var(--font);font-size:10px;font-weight:600;}
+.dash-trend.up{color:var(--g);}
+.dash-trend.down{color:var(--red);}
+.dash-trend.warn{color:var(--amber);}
+.dash-wide{grid-column:1/-1;}
+.dash-2col{grid-column:span 2;}
+.progress-bar{height:6px;background:var(--bg2);border-radius:3px;overflow:hidden;margin-top:10px;}
+.progress-fill{height:100%;border-radius:3px;transition:width 0.6s ease;}
+.okr-row{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--border);}
+.okr-row:last-child{border-bottom:none;}
+.okr-name{font-family:var(--font);font-size:12px;font-weight:600;color:var(--text);flex:1;}
+.okr-val{font-family:var(--font);font-size:11px;color:var(--text3);white-space:nowrap;}
+.okr-bar{flex:2;height:5px;background:var(--bg2);border-radius:3px;overflow:hidden;}
+.okr-bar-fill{height:100%;border-radius:3px;}
+.rag-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+.rag-g{background:var(--g);box-shadow:0 0 5px var(--g);}
+.rag-a{background:var(--amber);box-shadow:0 0 5px var(--amber);}
+.rag-r{background:var(--red);box-shadow:0 0 5px var(--red);}
+.timeline-row{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid var(--border);align-items:flex-start;}
+.timeline-row:last-child{border-bottom:none;}
+.timeline-date{font-family:var(--font);font-size:10px;font-weight:700;color:var(--text4);width:70px;flex-shrink:0;padding-top:2px;}
+.timeline-content{flex:1;}
+.timeline-title{font-size:12px;font-weight:600;color:var(--text);margin-bottom:2px;}
+.timeline-desc{font-size:11px;color:var(--text3);}
+
+/* ══ COUNTRY CARDS ══ */
+.country-hero{background:linear-gradient(135deg,var(--bg2),var(--bg1));border:1px solid var(--border2);border-radius:12px;padding:24px;margin-bottom:20px;display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:16px;}
+.ch-stat{text-align:center;}
+.ch-n{font-family:var(--serif);font-size:28px;font-style:italic;color:var(--g);line-height:1;}
+.ch-l{font-family:var(--font);font-size:9px;font-weight:700;letter-spacing:0.6px;text-transform:uppercase;color:var(--text4);margin-top:4px;}
+.country-section-label{font-family:var(--font);font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--g);margin:20px 0 10px;}
+.country-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px;}
+.country-block{background:var(--bg1);border:1px solid var(--border);border-radius:9px;padding:16px;}
+.cb-title{font-family:var(--font);font-size:12px;font-weight:700;color:var(--text);margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+.cb-body{font-size:11px;color:var(--text2);line-height:1.65;}
+.reg-row{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border);}
+.reg-row:last-child{border-bottom:none;}
+.reg-date{font-family:var(--font);font-size:10px;font-weight:700;color:var(--text4);width:80px;flex-shrink:0;}
+.reg-event{font-size:12px;color:var(--text2);flex:1;}
+.reg-tag{flex-shrink:0;}
+
 </style>
 </head>
 <body>
@@ -328,6 +396,9 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:
     <div class="sb-badge"><span class="pulse-dot"></span>Live · Weekly</div>
   </div>
 
+  <div class="sb-section-label">Overview</div>
+  <button class="sb-link" data-page="dashboard"><span class="sb-dot"></span>Dashboard</button>
+  <hr class="sb-divider">
   <div class="sb-section-label">Intelligence</div>
   <button class="sb-link active" data-page="signals"><span class="sb-dot"></span>Signals</button>
   <button class="sb-link" data-page="competitors"><span class="sb-dot"></span>Competitors</button>
@@ -338,7 +409,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:
 
   <hr class="sb-divider">
   <div class="sb-section-label">Products</div>
-  <button class="sb-link" data-page="sage-active"><span class="sb-dot"></span>Sage Active</button>
+  <button class="sb-link" data-page="products"><span class="sb-dot"></span>Products Overview</button>
 
   <hr class="sb-divider">
   <div class="sb-section-label">Personas</div>
@@ -354,6 +425,15 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:
   <hr class="sb-divider">
   <div class="sb-section-label">Enablement</div>
   <button class="sb-link" data-page="sales-enablement"><span class="sb-dot"></span>Sales Enablement</button>
+
+  <hr class="sb-divider">
+  <div class="sb-section-label">Countries</div>
+  <button class="sb-link" data-page="country-fr"><span class="sb-dot"></span>🇫🇷 France</button>
+  <button class="sb-link" data-page="country-es"><span class="sb-dot"></span>🇪🇸 Spain</button>
+  <button class="sb-link" data-page="country-de"><span class="sb-dot"></span>🇩🇪 Germany</button>
+  <button class="sb-link" data-page="country-pt"><span class="sb-dot"></span>🇵🇹 Portugal</button>
+  <button class="sb-link" data-page="country-uk"><span class="sb-dot"></span>🇬🇧 United Kingdom</button>
+  <button class="sb-link" data-page="country-us"><span class="sb-dot"></span>🇺🇸 United States</button>
 
   <div class="sb-meta" style="margin-top:20px;">
     FR · ES · DE · PT<br>
@@ -374,6 +454,389 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:
   </div>
 </div>
 <!-- ══════ SIGNALS PAGE ══════ -->
+<!-- ══════ DASHBOARD ══════ -->
+<div class="page-section" id="page-dashboard">
+  <div class="page-header reveal">
+    <div class="page-eyebrow">00 · Command Centre</div>
+    <div class="page-title">WiSE PMM <em>Dashboard</em></div>
+    <div class="page-subtitle">Live performance, OKR health, competitive pressure and mandate countdown — everything in one view.</div>
+  </div>
+
+  <!-- MANDATE COUNTDOWN -->
+  <div class="dash-card green reveal" style="margin-bottom:20px;display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:20px;padding:24px;">
+    <div>
+      <div class="dash-label">France PA Mandate</div>
+      <div class="dash-metric" id="days-fr-mandate">—</div>
+      <div class="dash-sub">Days to Sept 1 2026<br>DGFiP registration required</div>
+    </div>
+    <div>
+      <div class="dash-label">Spain Verifactu (Corporate)</div>
+      <div class="dash-metric amber">276</div>
+      <div class="dash-sub">Days to Jan 1 2027<br>Royal Decreto-ley 15/2025</div>
+    </div>
+    <div>
+      <div class="dash-label">Germany XRechnung Issue</div>
+      <div class="dash-metric blue">641</div>
+      <div class="dash-sub">Days to Jan 1 2028<br>E-invoicing mandate issuers</div>
+    </div>
+    <div>
+      <div class="dash-label">Portugal SAF-T</div>
+      <div class="dash-metric teal">641</div>
+      <div class="dash-sub">Days to Jan 1 2028<br>Full SAF-T accounting requirement</div>
+    </div>
+  </div>
+
+  <!-- MAIN METRIC GRID -->
+  <div class="dash-grid reveal">
+    <div class="dash-card green">
+      <div class="dash-label">Active Units FR Target</div>
+      <div class="dash-metric">25k</div>
+      <div class="dash-sub">FY26 OKR · Accountant channel only</div>
+      <div class="progress-bar"><div class="progress-fill" style="width:12%;background:var(--g);"></div></div>
+      <div class="dash-trend warn">⚠ ~3k est. current · 22k gap to close</div>
+    </div>
+    <div class="dash-card amber">
+      <div class="dash-label">Active Units ES Target</div>
+      <div class="dash-metric amber">2,200</div>
+      <div class="dash-sub">FY26 OKR · 797 already committed pre-launch</div>
+      <div class="progress-bar"><div class="progress-fill" style="width:36%;background:var(--amber);"></div></div>
+      <div class="dash-trend up">↑ 36% of target secured early</div>
+    </div>
+    <div class="dash-card teal">
+      <div class="dash-label">AutoEntry Units FR</div>
+      <div class="dash-metric teal">22k</div>
+      <div class="dash-sub">FY26 OKR · DGFiP PA compliance bridge</div>
+      <div class="progress-bar"><div class="progress-fill" style="width:20%;background:var(--teal);"></div></div>
+      <div class="dash-trend warn">⚠ Pipeline build critical pre-Sept 2026</div>
+    </div>
+    <div class="dash-card red">
+      <div class="dash-label">GE Base Onboarded to SfA</div>
+      <div class="dash-metric red">36%</div>
+      <div class="dash-sub">691 of 2,249 practices connected · Target: 90%</div>
+      <div class="progress-bar"><div class="progress-fill" style="width:36%;background:var(--red);"></div></div>
+      <div class="dash-trend down">↓ Critical gap — Cegid 100 reps arriving Q2</div>
+    </div>
+    <div class="dash-card blue">
+      <div class="dash-label">PA Clients Registered</div>
+      <div class="dash-metric blue">8</div>
+      <div class="dash-sub">vs 100% target · 5 months to mandate</div>
+      <div class="progress-bar"><div class="progress-fill" style="width:1%;background:var(--red);"></div></div>
+      <div class="dash-trend down">↓ Most critical single metric in WiSE</div>
+    </div>
+    <div class="dash-card purple">
+      <div class="dash-label">Sage Market Share FR</div>
+      <div class="dash-metric purple">12.2%</div>
+      <div class="dash-sub">Down from 17.8% in 2019 · Market CAGR 12-13%</div>
+      <div class="progress-bar"><div class="progress-fill" style="width:12%;background:var(--purple);"></div></div>
+      <div class="dash-trend down">↓ Share erosion ongoing · Must reverse FY27</div>
+    </div>
+  </div>
+
+  <!-- OKR HEALTH + COMPETITIVE PRESSURE side by side -->
+  <div class="grid-2 reveal" style="margin-bottom:20px;">
+    <div class="dash-card">
+      <div class="dash-label" style="margin-bottom:12px;">FY26 OKR Health</div>
+      <div class="okr-row">
+        <div class="rag-dot rag-r"></div>
+        <div class="okr-name">E-Invoicing: PA Registration</div>
+        <div class="okr-bar"><div class="okr-bar-fill" style="width:1%;background:var(--red);"></div></div>
+        <div class="okr-val">1%</div>
+      </div>
+      <div class="okr-row">
+        <div class="rag-dot rag-r"></div>
+        <div class="okr-name">GE→SfA Onboarding</div>
+        <div class="okr-bar"><div class="okr-bar-fill" style="width:36%;background:var(--red);"></div></div>
+        <div class="okr-val">36%</div>
+      </div>
+      <div class="okr-row">
+        <div class="rag-dot rag-a"></div>
+        <div class="okr-name">Active Units Spain</div>
+        <div class="okr-bar"><div class="okr-bar-fill" style="width:36%;background:var(--amber);"></div></div>
+        <div class="okr-val">797/2200</div>
+      </div>
+      <div class="okr-row">
+        <div class="rag-dot rag-a"></div>
+        <div class="okr-name">Active Units France</div>
+        <div class="okr-bar"><div class="okr-bar-fill" style="width:12%;background:var(--amber);"></div></div>
+        <div class="okr-val">~3k/25k</div>
+      </div>
+      <div class="okr-row">
+        <div class="rag-dot rag-a"></div>
+        <div class="okr-name">AutoEntry Units FR</div>
+        <div class="okr-bar"><div class="okr-bar-fill" style="width:20%;background:var(--amber);"></div></div>
+        <div class="okr-val">~4k/22k</div>
+      </div>
+      <div class="okr-row">
+        <div class="rag-dot rag-g"></div>
+        <div class="okr-name">SfA Spain GTM Brief</div>
+        <div class="okr-bar"><div class="okr-bar-fill" style="width:100%;background:var(--g);"></div></div>
+        <div class="okr-val">Live</div>
+      </div>
+      <div class="okr-row">
+        <div class="rag-dot rag-g"></div>
+        <div class="okr-name">Competitive Intelligence Hub</div>
+        <div class="okr-bar"><div class="okr-bar-fill" style="width:100%;background:var(--g);"></div></div>
+        <div class="okr-val">Live</div>
+      </div>
+    </div>
+
+    <div class="dash-card">
+      <div class="dash-label" style="margin-bottom:12px;">Competitive Pressure Index</div>
+      <div class="okr-row">
+        <div class="rag-dot rag-r"></div>
+        <div class="okr-name">Pennylane (FR + ES H2 2026)</div>
+        <div class="okr-bar"><div class="okr-bar-fill" style="width:95%;background:var(--red);"></div></div>
+        <div class="okr-val">Critical</div>
+      </div>
+      <div class="okr-row">
+        <div class="rag-dot rag-r"></div>
+        <div class="okr-name">Cegid 100 reps → GE base</div>
+        <div class="okr-bar"><div class="okr-bar-fill" style="width:90%;background:var(--red);"></div></div>
+        <div class="okr-val">Critical</div>
+      </div>
+      <div class="okr-row">
+        <div class="rag-dot rag-r"></div>
+        <div class="okr-name">Holded direct-to-SME ES</div>
+        <div class="okr-bar"><div class="okr-bar-fill" style="width:80%;background:var(--red);"></div></div>
+        <div class="okr-val">Critical</div>
+      </div>
+      <div class="okr-row">
+        <div class="rag-dot rag-a"></div>
+        <div class="okr-name">Xero JAX AI (EU compliance gap)</div>
+        <div class="okr-bar"><div class="okr-bar-fill" style="width:55%;background:var(--amber);"></div></div>
+        <div class="okr-val">Watch</div>
+      </div>
+      <div class="okr-row">
+        <div class="rag-dot rag-a"></div>
+        <div class="okr-name">Dext EU expansion</div>
+        <div class="okr-bar"><div class="okr-bar-fill" style="width:45%;background:var(--amber);"></div></div>
+        <div class="okr-val">Watch</div>
+      </div>
+      <div class="okr-row">
+        <div class="rag-dot rag-a"></div>
+        <div class="okr-name">Lexoffice DE cloud layer</div>
+        <div class="okr-bar"><div class="okr-bar-fill" style="width:40%;background:var(--amber);"></div></div>
+        <div class="okr-val">Watch</div>
+      </div>
+      <div class="okr-row">
+        <div class="rag-dot rag-g"></div>
+        <div class="okr-name">DATEV (strategic partner)</div>
+        <div class="okr-bar"><div class="okr-bar-fill" style="width:20%;background:var(--g);"></div></div>
+        <div class="okr-val">Partner</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MANDATE TIMELINE -->
+  <div class="dash-card reveal">
+    <div class="dash-label" style="margin-bottom:14px;">Critical Mandate Timeline — Next 30 Months</div>
+    <div class="timeline-row">
+      <div class="timeline-date" style="color:var(--red);font-size:11px;">Sept 1 2026</div>
+      <div class="timeline-content"><div class="timeline-title">🇫🇷 France PA Mandate — ALL businesses receive via DGFiP PA</div><div class="timeline-desc">7.9M businesses in scope. €15/invoice penalty. Sage is registered PA. GE practices must choose now.</div></div>
+      <span class="tag t-red">5 months</span>
+    </div>
+    <div class="timeline-row">
+      <div class="timeline-date" style="color:var(--red);font-size:11px;">Jan 1 2027</div>
+      <div class="timeline-content"><div class="timeline-title">🇪🇸 Spain Verifactu — Corporate taxpayers</div><div class="timeline-desc">Royal Decreto-ley 15/2025 confirmed. €50k/yr per non-compliant taxpayer. Sage Active Verifactu-certified today.</div></div>
+      <span class="tag t-red">9 months</span>
+    </div>
+    <div class="timeline-row">
+      <div class="timeline-date" style="color:var(--amber);font-size:11px;">Jul 1 2027</div>
+      <div class="timeline-content"><div class="timeline-title">🇪🇸 Spain Verifactu — Autónomos (sole traders)</div><div class="timeline-desc">Second phase. Self-employed must comply. Massive opportunity for accountant channel to drive Active adoption.</div></div>
+      <span class="tag t-amber">15 months</span>
+    </div>
+    <div class="timeline-row">
+      <div class="timeline-date" style="color:var(--amber);font-size:11px;">Sept 2027</div>
+      <div class="timeline-content"><div class="timeline-title">🇫🇷 France PA Mandate — SME/micro must ISSUE</div><div class="timeline-desc">Phase 2. All SMEs must issue via PA. Full ecosystem compliance. Active + AutoEntry/AKAO complete solution.</div></div>
+      <span class="tag t-amber">17 months</span>
+    </div>
+    <div class="timeline-row">
+      <div class="timeline-date" style="color:var(--text3);font-size:11px;">Jan 2028</div>
+      <div class="timeline-content"><div class="timeline-title">🇩🇪 Germany E-invoicing — All businesses must issue</div><div class="timeline-desc">XRechnung/ZUGFeRD format. DATEV cooperation required. Cloud management layer opportunity for Sage Active.</div></div>
+      <span class="tag t-grey">21 months</span>
+    </div>
+    <div class="timeline-row">
+      <div class="timeline-date" style="color:var(--text3);font-size:11px;">Jan 2028</div>
+      <div class="timeline-content"><div class="timeline-title">🇵🇹 Portugal SAF-T Accounting</div><div class="timeline-desc">Full SAF-T accounting requirement. QES for PDF documents. B2G live since 2024. OCC accountant channel critical.</div></div>
+      <span class="tag t-grey">21 months</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══════ PRODUCTS (TABBED) ══════ -->
+<div class="page-section" id="page-products">
+  <div class="page-header reveal">
+    <div class="page-eyebrow">07 · Product Portfolio</div>
+    <div class="page-title">Sage for Accountants — <em>full stack</em></div>
+    <div class="page-subtitle">Four product lines. One accountant channel. The complete WiSE product architecture.</div>
+  </div>
+
+  <div class="tab-bar reveal">
+    <button class="tab-btn active" data-tab="tab-active">Sage Active</button>
+    <button class="tab-btn" data-tab="tab-sfa">SfA · GE &amp; Despachos</button>
+    <button class="tab-btn" data-tab="tab-challengers">AutoEntry · AKAO · GoProposal · Prévision</button>
+    <button class="tab-btn" data-tab="tab-legacy">Sage 50 &amp; 100</button>
+  </div>
+
+  <!-- TAB: SAGE ACTIVE -->
+  <div class="tab-panel active" id="tab-active">
+    <div class="stat-row reveal">
+      <div class="stat-cell"><div class="stat-n">€6</div><div class="stat-l">Starter/month via accountants<br>(€25 direct)</div></div>
+      <div class="stat-cell"><div class="stat-n">€12</div><div class="stat-l">Essentials/month via accountants<br>(€49 direct)</div></div>
+      <div class="stat-cell"><div class="stat-n">75%</div><div class="stat-l">Accountant discount<br>3-month free period</div></div>
+      <div class="stat-cell"><div class="stat-n">€1,211</div><div class="stat-l">New monthly revenue<br>for 50 Essentials clients</div></div>
+    </div>
+    <div class="ifyrne reveal">
+      <div class="ifyrne-label">Strategic positioning</div>
+      <p>Active is the NCA (Net Customer Acquisition) engine — <strong>not</strong> a migration path from S50/100/200. Cloud-native, AI-first, Copilot embedded. PA-registered in France, Verifactu-certified in Spain. The product that wins net-new SMB clients for accountant practices.</p>
+    </div>
+    <div class="grid-2 reveal" style="margin-bottom:20px;">
+      <div style="background:var(--bg1);border:1px solid var(--border);border-top:3px solid var(--g);border-radius:9px;padding:18px;">
+        <div style="font-family:var(--font);font-size:11px;font-weight:700;color:var(--g);margin-bottom:10px;text-transform:uppercase;letter-spacing:0.6px;">Active Starter — €6/mo</div>
+        <div style="font-size:12px;color:var(--text2);line-height:1.7;">· Up to 3 users · Core accounting · Invoicing · Basic reporting · Mobile app · Copilot AI · Factur-X / Verifactu processing · DGFiP PA certified</div>
+        <div style="margin-top:10px;padding:8px 12px;background:var(--gdim2);border-left:2px solid var(--g);border-radius:0 5px 5px 0;font-size:11px;color:var(--text2);">Best for: new autónomo clients, micro-businesses entering compliance</div>
+      </div>
+      <div style="background:var(--bg1);border:1px solid var(--g);border-top:3px solid var(--g);border-radius:9px;padding:18px;">
+        <div style="font-family:var(--font);font-size:11px;font-weight:700;color:var(--g);margin-bottom:10px;text-transform:uppercase;letter-spacing:0.6px;">Active Essentials — €12/mo ★ Recommended</div>
+        <div style="font-size:12px;color:var(--text2);line-height:1.7;">· Up to 10 users · Full accounting · Payroll (Modelo 303/DSN) · Multi-currency · Advanced reporting · Copilot AI · Verifactu + PA certified · Cash flow forecasting</div>
+        <div style="margin-top:10px;padding:8px 12px;background:var(--gdim2);border-left:2px solid var(--g);border-radius:0 5px 5px 0;font-size:11px;color:var(--text2);">Best for: SMEs 5–50 employees. Beats Holded Advanced (€49.50) on price, users AND payroll.</div>
+      </div>
+    </div>
+    <div class="reveal" style="font-family:var(--font);font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--g);margin-bottom:12px;">Three Product Horizons</div>
+    <div class="grid-3 reveal">
+      <div style="background:var(--bg1);border:1px solid var(--g);border-radius:9px;padding:16px;">
+        <div style="font-family:var(--font);font-size:9px;font-weight:700;color:var(--g);text-transform:uppercase;margin-bottom:6px;">H1 · Live Now</div>
+        <div style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:6px;">Pre-accounting + E-invoicing</div>
+        <div style="font-size:11px;color:var(--text3);">Replaces Regate. 25k FR FY26 target. DGFiP PA registered. Verifactu-certified. AutoEntry + AKAO bridge.</div>
+      </div>
+      <div style="background:var(--bg1);border:1px solid var(--amber);border-radius:9px;padding:16px;">
+        <div style="font-family:var(--font);font-size:9px;font-weight:700;color:var(--amber);text-transform:uppercase;margin-bottom:6px;">H2 · FY27</div>
+        <div style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:6px;">Full SMB Management</div>
+        <div style="font-size:11px;color:var(--text3);">Full Pennylane/Holded competitive feature parity. CRM, inventory, projects. HR. Banking integration. Pan-EU.</div>
+      </div>
+      <div style="background:var(--bg1);border:1px solid var(--border);border-radius:9px;padding:16px;">
+        <div style="font-family:var(--font);font-size:9px;font-weight:700;color:var(--text3);text-transform:uppercase;margin-bottom:6px;">H3 · FY27+</div>
+        <div style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:6px;">Mid-Market Edition</div>
+        <div style="font-size:11px;color:var(--text3);">Upmarket from Active Essentials. Future migration path from S50/100. Competes with Cegid mid-market.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB: SfA + GE + DESPACHOS -->
+  <div class="tab-panel" id="tab-sfa">
+    <div class="stat-row reveal">
+      <div class="stat-cell"><div class="stat-n">Free</div><div class="stat-l">SfA practice plan · Always</div></div>
+      <div class="stat-cell"><div class="stat-n">2,713</div><div class="stat-l">GE practices (France)<br>Génération Expert</div></div>
+      <div class="stat-cell"><div class="stat-n">5,200</div><div class="stat-l">Despachos practices (Spain)<br>Despachos Connected</div></div>
+      <div class="stat-cell"><div class="stat-n">36%</div><div class="stat-l">GE currently connected to SfA<br>Target: 90% by FY26 end</div></div>
+    </div>
+    <div class="ifyrne reveal">
+      <div class="ifyrne-label">The migration-free moat</div>
+      <p>GE data stays in GE. Despachos stays Despachos. SfA is the cloud management layer on top — not a replacement. This is the <strong>only migration-free path</strong> to September 2026 PA compliance. Every competitor (EBP, Pennylane, MyUnisoft) requires clients to migrate their accounting history. Sage does not. This is the single most defensible competitive advantage in France.</p>
+    </div>
+    <div class="grid-2 reveal" style="margin-bottom:20px;">
+      <div style="background:var(--bg1);border:1px solid var(--border);border-top:3px solid var(--g);border-radius:9px;padding:18px;">
+        <div style="font-family:var(--font);font-size:11px;font-weight:700;color:var(--g);margin-bottom:10px;text-transform:uppercase;letter-spacing:0.6px;">🇫🇷 SfA + Génération Expert (GE)</div>
+        <div style="font-size:12px;color:var(--text2);line-height:1.7;">· Client management dashboard · AE (100 docs/50 bank statements) · GoProposal (1 free) · Active provisioning gateway · Copilot · GE data sync (bi-directional) · DGFiP PA bridge via AKAO · SSO with GE</div>
+        <div style="margin-top:10px;padding:8px 12px;background:rgba(239,68,68,0.06);border-left:2px solid var(--red);border-radius:0 5px 5px 0;font-size:11px;color:var(--text2);"><strong style="color:var(--red);">Critical gap:</strong> GE-Active bi-directional sync in pre-discovery. PA registration at 8 clients vs 100% target. Both must be resolved before Sept 2026.</div>
+      </div>
+      <div style="background:var(--bg1);border:1px solid var(--border);border-top:3px solid var(--amber);border-radius:9px;padding:18px;">
+        <div style="font-family:var(--font);font-size:11px;font-weight:700;color:var(--amber);margin-bottom:10px;text-transform:uppercase;letter-spacing:0.6px;">🇪🇸 SfA + Despachos Connected</div>
+        <div style="font-size:12px;color:var(--text2);line-height:1.7;">· 5,200 Despachos practices · 250k client entities · 3-step journey: Despachos → SfA → Active provisioning · Sage ID SSO (friction being resolved) · Quantyca OCR integration (98-99% accuracy) · Verifactu-certified Active clients</div>
+        <div style="margin-top:10px;padding:8px 12px;background:var(--gdim2);border-left:2px solid var(--g);border-radius:0 5px 5px 0;font-size:11px;color:var(--text2);">Key message: "Despachos no va a ningún lado. Lo que cambia es que ahora puedes activar Sage Active para tus clientes desde Despachos."</div>
+      </div>
+    </div>
+    <div class="table-wrap reveal">
+      <table class="data-table">
+        <thead><tr><th>Included in SfA (Free)</th><th>AutoEntry Credits</th><th>GoProposal</th><th>Active (Client licence)</th></tr></thead>
+        <tbody>
+          <tr><td>Client management · Practice dashboard · Copilot access · SSO</td><td>100 docs + 50 bank statements/month included</td><td>1 proposal included · €12/overage</td><td>€6/mo Starter · €12/mo Essentials (accountant price)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- TAB: CHALLENGER BRANDS -->
+  <div class="tab-panel" id="tab-challengers">
+    <div class="grid-2 reveal" style="margin-bottom:20px;">
+      <!-- AutoEntry / AKAO -->
+      <div style="background:var(--bg1);border:1px solid var(--border);border-top:3px solid var(--teal);border-radius:9px;padding:20px;">
+        <div style="font-family:var(--font);font-size:10px;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:0.8px;margin-bottom:6px;">Document Capture + PA Bridge</div>
+        <div style="font-family:var(--font);font-size:17px;font-weight:700;color:var(--text);margin-bottom:4px;">AutoEntry / AKAO</div>
+        <div style="font-size:12px;color:var(--text3);margin-bottom:14px;">OCR with human verification layer. AKAO (acquired Jan 2026) = DGFiP-registered PA. The only complete e-invoicing compliance bridge for French accountants.</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px;">
+          <div style="background:var(--bg2);border-radius:6px;padding:10px;text-align:center;"><div style="font-family:var(--serif);font-size:18px;font-style:italic;color:var(--teal);">€0.15</div><div style="font-size:9px;color:var(--text3);font-family:var(--font);text-transform:uppercase;font-weight:700;margin-top:2px;">per document</div></div>
+          <div style="background:var(--bg2);border-radius:6px;padding:10px;text-align:center;"><div style="font-family:var(--serif);font-size:18px;font-style:italic;color:var(--teal);">€0.45</div><div style="font-size:9px;color:var(--text3);font-family:var(--font);text-transform:uppercase;font-weight:700;margin-top:2px;">per bank statement</div></div>
+        </div>
+        <div style="font-size:11px;color:var(--text2);line-height:1.65;margin-bottom:10px;">· DGFiP PA registration via AKAO · Factur-X / UBL / CII processing · Human verification layer (not AI-only) · Native GE + Active + SfA integration</div>
+        <div style="padding:8px 12px;background:rgba(20,184,166,0.07);border-left:2px solid var(--teal);border-radius:0 5px 5px 0;font-size:11px;color:var(--text2);">Vs Dext / Conciliator: Neither has PA certification, Factur-X, or DGFiP registration. "AutoEntry isn't capture — it's the certified e-invoicing compliance layer."</div>
+      </div>
+      <!-- GoProposal -->
+      <div style="background:var(--bg1);border:1px solid var(--border);border-top:3px solid var(--purple);border-radius:9px;padding:20px;">
+        <div style="font-family:var(--font);font-size:10px;font-weight:700;color:var(--purple);text-transform:uppercase;letter-spacing:0.8px;margin-bottom:6px;">Practice Pricing + Proposals</div>
+        <div style="font-family:var(--font);font-size:17px;font-weight:700;color:var(--text);margin-bottom:4px;">GoProposal</div>
+        <div style="font-size:12px;color:var(--text3);margin-bottom:14px;">Pricing, proposals, engagement letters + AML/KYC. Critical for Spain — Verifactu mandates accountants to reprice every client service as a new compliance obligation.</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px;">
+          <div style="background:var(--bg2);border-radius:6px;padding:10px;text-align:center;"><div style="font-family:var(--serif);font-size:18px;font-style:italic;color:var(--purple);">1 free</div><div style="font-size:9px;color:var(--text3);font-family:var(--font);text-transform:uppercase;font-weight:700;margin-top:2px;">proposal included</div></div>
+          <div style="background:var(--bg2);border-radius:6px;padding:10px;text-align:center;"><div style="font-family:var(--serif);font-size:18px;font-style:italic;color:var(--purple);">€12</div><div style="font-size:9px;color:var(--text3);font-family:var(--font);text-transform:uppercase;font-weight:700;margin-top:2px;">per additional proposal</div></div>
+        </div>
+        <div style="font-size:11px;color:var(--text2);line-height:1.65;margin-bottom:10px;">· Proposal builder · Engagement letters · AML/KYC compliance workflows · Practice repricing for compliance mandates · Recurring revenue model for software margin</div>
+        <div style="padding:8px 12px;background:rgba(139,92,246,0.07);border-left:2px solid var(--purple);border-radius:0 5px 5px 0;font-size:11px;color:var(--text2);">Revenue unlock: 50 Essentials clients × €34.30 = €1,211/month net new practice revenue. GoProposal is how you price and sell it systematically.</div>
+      </div>
+    </div>
+    <!-- Sage Prévision -->
+    <div style="background:var(--bg1);border:1px solid var(--border);border-top:3px solid var(--blue);border-radius:9px;padding:20px;" class="reveal">
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;align-items:start;">
+        <div>
+          <div style="font-family:var(--font);font-size:10px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:0.8px;margin-bottom:6px;">Advisory + Forecasting</div>
+          <div style="font-family:var(--font);font-size:17px;font-weight:700;color:var(--text);margin-bottom:6px;">Sage Prévision</div>
+          <div style="font-size:12px;color:var(--text3);line-height:1.5;">Rebranded for EU (always Prévision, never Futrli). GE integration targeted FY26. Cash flow, scenario planning, advisory dashboards.</div>
+        </div>
+        <div>
+          <div style="font-family:var(--font);font-size:10px;font-weight:700;color:var(--text4);text-transform:uppercase;margin-bottom:8px;">Capabilities</div>
+          <div style="font-size:11px;color:var(--text2);line-height:1.7;">· 3-way cash flow forecasting · Scenario modelling · KPI tracking + variance analysis · Advisory dashboards for clients · GE integration roadmap FY26</div>
+        </div>
+        <div>
+          <div style="font-family:var(--font);font-size:10px;font-weight:700;color:var(--text4);text-transform:uppercase;margin-bottom:8px;">Positioning Note</div>
+          <div style="font-size:11px;color:var(--text2);line-height:1.7;margin-bottom:8px;">Always <strong style="color:var(--g);">Sage Prévision</strong> in EU. Never "Futrli". Huge untapped commercial potential — Pennylane's advisory dashboards are already a selling point with French accountants.</div>
+          <span class="tag t-amber">FY26: GE integration target</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB: SAGE 50 & 100 -->
+  <div class="tab-panel" id="tab-legacy">
+    <div class="ifyrne reveal" style="border-left-color:var(--amber);">
+      <div class="ifyrne-label" style="color:var(--amber);">⚠ Critical commercial guardrail</div>
+      <p>Active is the NCA engine for <strong>new clients</strong>. Sage 50 and 100 are the installed base. Never pitch Active as a migration path from S50/100/200 — this cannibalises existing ARR and creates internal commercial conflict. S50/Active commercial teams must align before any joint conversation.</p>
+    </div>
+    <div class="grid-2 reveal" style="margin-bottom:20px;">
+      <div style="background:var(--bg1);border:1px solid var(--amberborder);border-radius:9px;padding:18px;">
+        <div style="font-family:var(--font);font-size:11px;font-weight:700;color:var(--amber);text-transform:uppercase;margin-bottom:8px;">Sage 50 — Spain + France + Portugal</div>
+        <div style="font-size:12px;color:var(--text2);line-height:1.7;margin-bottom:10px;">Strong installed base. Cegid EBP actively targeting S50 France users. Spain: cannibalisation risk if Active is pitched to existing S50 clients. Align S50 + Active commercial teams before any Spain campaign involving both.</div>
+        <div style="padding:8px 12px;background:var(--redbg);border-left:2px solid var(--red);border-radius:0 5px 5px 0;font-size:11px;color:var(--text2);">❌ Never say: "Upgrade from Sage 50 to Active." ✓ Say: "Active is for new clients — your Sage 50 clients stay as they are."</div>
+      </div>
+      <div style="background:var(--bg1);border:1px solid var(--border);border-radius:9px;padding:18px;">
+        <div style="font-family:var(--font);font-size:11px;font-weight:700;color:var(--text3);text-transform:uppercase;margin-bottom:8px;">Sage 100 — Mid-Market Hold</div>
+        <div style="font-size:12px;color:var(--text2);line-height:1.7;margin-bottom:10px;">Mid-market installed base. H3 Active (FY27+) is the future migration path when product reaches parity. Not an FY26 priority. Monitor reseller switching risk: 68% of S50/100/200 revenue switching to cloud = NCA impact risk.</div>
+        <div style="padding:8px 12px;background:var(--gdim2);border-left:2px solid var(--g);border-radius:0 5px 5px 0;font-size:11px;color:var(--text2);">Strategy: protect existing S100 ARR. Plan H3 Active migration narrative for FY27 comms. Align mid-market messaging separately.</div>
+      </div>
+    </div>
+    <div class="table-wrap reveal">
+      <table class="data-table">
+        <thead><tr><th>Product</th><th>Markets</th><th>Risk Level</th><th>Action Required</th><th>Active Relationship</th></tr></thead>
+        <tbody>
+          <tr><td class="td-name">Sage 50 Spain</td><td>ES</td><td><span class="tag t-red">High cannibalisation</span></td><td>Align S50 + Active commercial teams before any pitch</td><td>NOT a migration — separate NCA motion only</td></tr>
+          <tr><td class="td-name">Sage 50 France</td><td>FR</td><td><span class="tag t-amber">Watch</span></td><td>Cegid EBP targeting S50 base — protect proactively</td><td>Active for new clients only</td></tr>
+          <tr><td class="td-name">Sage 50 Portugal</td><td>PT</td><td><span class="tag t-grey">Low</span></td><td>SAF-T 2027 compliance narrative needed</td><td>Monitor H3 roadmap</td></tr>
+          <tr><td class="td-name">Sage 100</td><td>FR/ES/PT</td><td><span class="tag t-grey">Monitor</span></td><td>68% reseller switching risk to cloud</td><td>H3 Active migration path — FY27+</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
 <div class="page-section active" id="page-signals">
   <div class="page-header reveal">
     <div class="page-eyebrow"><span class="pulse-dot"></span>01 · Weekly Intelligence</div>
@@ -2440,8 +2903,36 @@ async function loadLiveSignals() {
   }
 }
 
+// ══ INNER TAB SWITCHING ══
+function initTabs(pageId) {
+  const page = document.getElementById('page-' + pageId);
+  if (!page) return;
+  const btns = page.querySelectorAll('.tab-btn');
+  btns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      btns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const target = btn.dataset.tab;
+      page.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      const panel = document.getElementById(target);
+      if (panel) panel.classList.add('active');
+    });
+  });
+}
+
+// ══ MANDATE COUNTDOWN ══
+function updateCountdowns() {
+  const now = new Date();
+  const mandate = new Date('2026-09-01');
+  const days = Math.ceil((mandate - now) / (1000 * 60 * 60 * 24));
+  const el = document.getElementById('days-fr-mandate');
+  if (el) { el.textContent = days; el.style.color = days < 90 ? 'var(--red)' : days < 180 ? 'var(--amber)' : 'var(--g)'; }
+}
+
 // Init first page
 showPage('signals');
+initTabs('products');
+updateCountdowns();
 document.querySelectorAll('#page-signals .reveal').forEach(el => {
   setTimeout(() => el.classList.add('visible'), 100);
 });
@@ -2449,5 +2940,412 @@ document.querySelectorAll('#page-signals .reveal').forEach(el => {
 // Load live signals on startup
 loadLiveSignals();
 </script>
+
+<!-- ══════ FRANCE ══════ -->
+<div class="page-section" id="page-country-fr">
+  <div class="page-header reveal">
+    <div class="page-eyebrow">🇫🇷 Country Intelligence</div>
+    <div class="page-title">France — <em>Most Urgent Market</em></div>
+    <div class="page-subtitle">Sage #2 behind Cegid. Market share eroding. September 2026 PA mandate is the single biggest commercial forcing function in a generation.</div>
+  </div>
+
+  <div class="country-hero reveal">
+    <div class="ch-stat"><div class="ch-n">12.2%</div><div class="ch-l">Market Share 2025<br>(was 17.8% in 2019)</div></div>
+    <div class="ch-stat"><div class="ch-n">2,713</div><div class="ch-l">GE Practices<br>Génération Expert</div></div>
+    <div class="ch-stat"><div class="ch-n">36%</div><div class="ch-l">GE Connected to SfA<br>Target: 90%</div></div>
+    <div class="ch-stat"><div class="ch-n" style="color:var(--red);">155</div><div class="ch-l">Days to PA Mandate<br>Sept 1 2026</div></div>
+  </div>
+
+  <div class="country-grid reveal">
+    <div class="country-block">
+      <div class="cb-title"><span class="tag t-red">Critical</span>E-Invoicing: PA Mandate</div>
+      <div class="cb-body">September 1 2026: ALL businesses must receive e-invoices via a DGFiP-registered PA. Large/ETI must also issue. PPF no longer free. Formats: Factur-X, UBL, CII, PEPPOL. Penalty: €15/invoice capped €15k/year. 7.9 million businesses in scope. <strong style="color:var(--g);">Sage is a registered PA via AKAO.</strong> PA registration currently at 8 live clients vs 100% target — critical escalation required.</div>
+    </div>
+    <div class="country-block">
+      <div class="cb-title"><span class="tag t-amber">Strategy</span>FY26 Priorities</div>
+      <div class="cb-body"><strong>PROTECT:</strong> Stand up SfA, fix GE↔Active sync, train accountants on PA tools.<br><strong>AMPLIFY (FY27):</strong> 100% Regate migrated, scale Copilot, compliance events.<br><strong>EXPAND (FY28):</strong> Full Active edition vs Pennylane, target #1 NCA in Europe.<br><br>France ARR target 2028: £275M (largest of 4 markets).</div>
+    </div>
+  </div>
+
+  <div class="country-section-label reveal">Competitive Landscape</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;" class="reveal">
+    <div class="country-block" style="border-top:2px solid var(--red);">
+      <div class="cb-title">Pennylane <span class="tag t-red">Critical</span></div>
+      <div class="cb-body">€115M ARR (doubled 2025). $4.25B valuation. 800k SMBs, 6,000+ firms. PA-certified. 100 engineers hired for Germany. Spain, Belgium, Poland H2 2026. 95% of enterprise clients arrive via accounting firms. CEO explicitly targets "historical accounting software that hasn't made the SaaS shift" — GE is the implied target.</div>
+    </div>
+    <div class="country-block" style="border-top:2px solid var(--red);">
+      <div class="cb-title">Cegid + Shine <span class="tag t-red">Critical</span></div>
+      <div class="cb-body">€967M revenue. EBP (275k clients) + Shine (400k SMBs, banking). 100 new sales reps arriving Q2 2026, explicitly targeting GE practices. Now 1M+ SMBs, 15k accountants across FR/DE/ES/PT. Shine banking integration gives them a Pennylane-style embedded finance play.</div>
+    </div>
+    <div class="country-block" style="border-top:2px solid var(--amber);">
+      <div class="cb-title">MyUnisoft / Conciliator <span class="tag t-amber">Watch</span></div>
+      <div class="cb-body">MyUnisoft: cloud-native accountant production suite, strong UX, fast growing. Conciliator: OCR + bank reconciliation, direct AE competitor. Both are PA-registered. Neither has the breadth of Sage's product suite or GE's practice integration depth.</div>
+    </div>
+  </div>
+
+  <div class="country-section-label reveal">WiSE Products Active in France</div>
+  <div class="country-grid reveal">
+    <div class="country-block" style="border-left:3px solid var(--g);">
+      <div class="cb-title">SfA + Génération Expert (GE)</div>
+      <div class="cb-body">Free practice hub. GE bi-directional sync (in pre-discovery). Client management, AE 100 docs included, GoProposal 1 free. Gateway to Active provisioning. <span class="tag t-red">Gap: GE-Active sync not live</span></div>
+    </div>
+    <div class="country-block" style="border-left:3px solid var(--teal);">
+      <div class="cb-title">AutoEntry + AKAO (PA)</div>
+      <div class="cb-body">DGFiP-registered PA via AKAO (acquired Jan 2026). €0.15/doc, €0.45/bank statement. Factur-X, UBL, CII processing. Human verification layer. The only compliance bridge for GE practices pre-Sept 2026. <span class="tag t-green">FY26 target: 22k units</span></div>
+    </div>
+    <div class="country-block" style="border-left:3px solid var(--g);">
+      <div class="cb-title">Sage Active (FR)</div>
+      <div class="cb-body">Starter €6/mo, Essentials €12/mo via accountants. PA-certified. Copilot embedded. Regate migration target: 100% by FY27. <span class="tag t-amber">FY26 target: 25k units</span></div>
+    </div>
+    <div class="country-block" style="border-left:3px solid var(--purple);">
+      <div class="cb-title">Sage Prévision</div>
+      <div class="cb-body">GE integration target FY26. Susanne Clark lead. Advisory + cash flow forecasting for accountant practices. Significant commercial untapped potential vs Pennylane's advisory dashboards.</div>
+    </div>
+  </div>
+
+  <div class="country-section-label reveal">Accountant Personas — France</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;" class="reveal">
+    <div class="country-block">
+      <div class="cb-title">🧑‍💼 Cabinet Principal (Solo–5 staff)</div>
+      <div class="cb-body">Uses GE daily. PA compliance is urgent but resource-limited. Needs one trusted partner to handle it. Core message: "Your clients need a PA. Sage already is one. One conversation, zero migration." AE + Active Starter is the entry motion.</div>
+    </div>
+    <div class="country-block">
+      <div class="cb-title">👔 Mid-Size Cabinet (6–20 staff)</div>
+      <div class="cb-body">Evaluating Pennylane seriously. Has clients asking about it. Needs competitive proof and a roadmap. Wants SfA as a management layer, not a replacement. Full SfA + Active Essentials + GoProposal bundle is the target.</div>
+    </div>
+    <div class="country-block">
+      <div class="cb-title">🏢 Grand Cabinet (21+ staff)</div>
+      <div class="cb-body">Multiple partners. Already under Pennylane pressure from younger associates. Needs executive-level Sage briefing. ROI model for practice revenue unlock. Prévision advisory dashboard is the differentiator.</div>
+    </div>
+  </div>
+
+  <div class="country-section-label reveal">Key Dates — France</div>
+  <div class="country-block reveal">
+    <div class="reg-row"><div class="reg-date" style="color:var(--red);">Sept 1 2026</div><div class="reg-event"><strong>PA Mandate Phase 1</strong> — ALL businesses receive e-invoices via PA. Large/ETI must also issue. Sage PA via AKAO.</div><span class="tag t-red">Hard deadline</span></div>
+    <div class="reg-row"><div class="reg-date" style="color:var(--amber);">Sept 2027</div><div class="reg-event"><strong>PA Mandate Phase 2</strong> — SMEs and micro-businesses must issue via PA. Full ecosystem compliance required.</div><span class="tag t-amber">Phase 2</span></div>
+    <div class="reg-row"><div class="reg-date">Oct 2026</div><div class="reg-event"><strong>Ordre des Experts-Comptables — 81st Congrès</strong> — Theme: [RE]FONDATION DES CABINETS. Sage Atelier submitted (co-present Isabelle Michaud + Jonathan Brun).</div><span class="tag t-teal">Event</span></div>
+    <div class="reg-row"><div class="reg-date">Q2 2026</div><div class="reg-event"><strong>Cegid 100 reps arrive</strong> — LinkedIn confirmed 100 new commercial hires (Lyon + Boulogne) targeting GE practices directly.</div><span class="tag t-red">Competitive</span></div>
+    <div class="reg-row"><div class="reg-date">Ongoing</div><div class="reg-event"><strong>Regate migration</strong> — Qonto acquired Regate. Migration of Regate clients to Active is an FY26 strategic imperative.</div><span class="tag t-amber">Ongoing</span></div>
+  </div>
+</div>
+
+<!-- ══════ SPAIN ══════ -->
+<div class="page-section" id="page-country-es">
+  <div class="page-header reveal">
+    <div class="page-eyebrow">🇪🇸 Country Intelligence</div>
+    <div class="page-title">Spain — <em>H2 FY26 Launch</em></div>
+    <div class="page-subtitle">5,200 Despachos practices. 797 Active units already committed before SfA launched. Verifactu Jan 2027 is the commercial catalyst. Pennylane arrives H2 2026 — same window.</div>
+  </div>
+
+  <div class="country-hero reveal">
+    <div class="ch-stat"><div class="ch-n">5,200</div><div class="ch-l">Despachos Practices<br>Connected</div></div>
+    <div class="ch-stat"><div class="ch-n">797</div><div class="ch-l">Active Units Committed<br>Pre-Launch</div></div>
+    <div class="ch-stat"><div class="ch-n">2,200</div><div class="ch-l">FY26 Active Unit<br>Target</div></div>
+    <div class="ch-stat"><div class="ch-n" style="color:var(--amber);">276</div><div class="ch-l">Days to Verifactu<br>Jan 1 2027</div></div>
+  </div>
+
+  <div class="country-grid reveal">
+    <div class="country-block">
+      <div class="cb-title"><span class="tag t-amber">Regulatory</span>Verifactu 2027</div>
+      <div class="cb-body">Royal Decreto-ley 15/2025 confirmed second delay. Corporate: Jan 1 2027. Autónomos: Jul 1 2027. B2B e-invoicing (Crea y Crece): 2027-2028. Fine for non-compliant software: up to €50k/yr per taxpayer, up to €150k/yr for software vendors. <strong style="color:var(--g);">Sage Active is Verifactu-certified today.</strong></div>
+    </div>
+    <div class="country-block">
+      <div class="cb-title"><span class="tag t-green">Strategy</span>GTM Principle (Xavi Vila)</div>
+      <div class="cb-body">Don't repeat France. Don't sell SfA as a new product. Lead with Active, hide SfA. Position as the enabler that makes Active + Despachos work seamlessly. Verbatim: <em>"Despachos no va a ningún lado. Lo que cambia es que ahora puedes activar Sage Active para tus clientes desde Despachos — sin cambiar cómo trabajas hoy."</em></div>
+    </div>
+  </div>
+
+  <div class="country-section-label reveal">Competitive Landscape</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;" class="reveal">
+    <div class="country-block" style="border-top:2px solid var(--red);">
+      <div class="cb-title">Holded / Visma <span class="tag t-red">Critical</span></div>
+      <div class="cb-body">80k+ customers. All-in-one: accounting, CRM, inventory, HR. 700+ integrations. Best-in-class UI. Verifactu support in progress. 12-18 month window before they consolidate Spanish accountant base ahead of 2027 mandate. "Streamlined Clarity" positioning — hardest UI competitor Sage faces.</div>
+    </div>
+    <div class="country-block" style="border-top:2px solid var(--red);">
+      <div class="cb-title">Pennylane <span class="tag t-red">Critical H2 2026</span></div>
+      <div class="cb-body">Spain arrival confirmed H2 2026 — same window as Sage SfA Spain launch. Zero Spain presence today but moving fast. 100% accountant-first GTM. Backed by €175M Series E. Every Despachos practice converted before H2 2026 is defended territory.</div>
+    </div>
+    <div class="country-block" style="border-top:2px solid var(--amber);">
+      <div class="cb-title">A3 / Wolters Kluwer <span class="tag t-amber">Watch</span></div>
+      <div class="cb-body">Strong in TicketBAI (Basque Country only). Limited Verifactu-national presence. A3con installed base but not a strong cloud offering. Main risk: bundled accounting + software deals locking out Sage in northern regions.</div>
+    </div>
+    <div class="country-block" style="border-top:2px solid var(--text3);">
+      <div class="cb-title">Contasol / Delsol <span class="tag t-grey">Price threat</span></div>
+      <div class="cb-body">FREE desktop software. Biggest objection from price-sensitive practices. Counter: "Free doesn't do Verifactu. Free doesn't do Active client provisioning. Free doesn't generate new practice revenue."</div>
+    </div>
+    <div class="country-block" style="border-top:2px solid var(--text3);">
+      <div class="cb-title">Quipu / Billin / Anfix <span class="tag t-grey">Autónomo tier</span></div>
+      <div class="cb-body">Low-end autónomo tools. Verifactu-ready versions in development. Limited accountant channel. Active Starter €6/mo is competitive at this tier via accountant channel. Not the primary ICP but upgrade targets.</div>
+    </div>
+    <div class="country-block" style="border-top:2px solid var(--teal);">
+      <div class="cb-title">Quantyca / Ubyquo <span class="tag t-teal">Partner</span></div>
+      <div class="cb-body">Strategic ISV for Despachos Connected. OCR/ICR + ML. 98-99% accuracy. €132–€4,716/month range. Work alongside, not against. Understand pricing before positioning AutoEntry vs Quantyca — they serve different tiers.</div>
+    </div>
+  </div>
+
+  <div class="country-section-label reveal">WiSE Products Active in Spain</div>
+  <div class="country-grid reveal">
+    <div class="country-block" style="border-left:3px solid var(--amber);">
+      <div class="cb-title">SfA + Despachos Connected</div>
+      <div class="cb-body">Free. 5,200 practices, 250k clients. 3-step journey: Despachos → SfA → Active provisioning. Sage ID SSO friction being resolved. Weekly Spain meeting: Xavi Vila, Antonio Roldán, Juan Miguel Rueda, Zoraida Gil.</div>
+    </div>
+    <div class="country-block" style="border-left:3px solid var(--g);">
+      <div class="cb-title">Sage Active (ES)</div>
+      <div class="cb-body">Starter €6/mo, Essentials €12/mo. Verifactu-certified. 797 units already committed. Target 2,200 FY26. 300 SfA partners target. New revenue model: 50 Essentials clients = €1,211/month for practice. <span class="tag t-red">Cannibalisation risk: align S50 Spain first</span></div>
+    </div>
+    <div class="country-block" style="border-left:3px solid var(--purple);">
+      <div class="cb-title">GoProposal</div>
+      <div class="cb-body">Critical for Spain. Verifactu means accountants must reprice all client services as a new compliance obligation. GoProposal is the systematic way to do this. 1 free proposal included, €12/overage. AML/KYC workflows.</div>
+    </div>
+    <div class="country-block" style="border-left:3px solid var(--teal);">
+      <div class="cb-title">AutoEntry (ES)</div>
+      <div class="cb-body">€0.15/doc, €0.45/bank statement. 100 docs included in SfA. Position alongside (not against) Quantyca for mid/enterprise tier. For smaller practices, AutoEntry is the full solution.</div>
+    </div>
+  </div>
+
+  <div class="country-section-label reveal">Accountant Personas — Spain</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;" class="reveal">
+    <div class="country-block">
+      <div class="cb-title">🧑‍💼 Despacho Tradicional (Solo–3 staff)</div>
+      <div class="cb-body">Deeply embedded in Despachos. Needs compliance assurance, not disruption. Message: "Despachos no va a ningún lado." Simple 3-step journey. Active Starter for price-sensitive clients. Verifactu readiness is the hook.</div>
+    </div>
+    <div class="country-block">
+      <div class="cb-title">👔 Despacho Moderno (4–15 staff)</div>
+      <div class="cb-body">Open to technology if it generates revenue. Evaluating Holded for clients. GoProposal repricing model is the revenue story. Active Essentials bundle at €1,211/month for 50 clients is the commercial anchor.</div>
+    </div>
+    <div class="country-block">
+      <div class="cb-title">🏢 Firma Contable (16+ staff)</div>
+      <div class="cb-body">Multiple partners, complex client base. Already has some Verifactu anxiety. Needs Sage to show a complete compliance + growth roadmap. Full SfA + Active + GoProposal + Prévision advisory suite is the pitch.</div>
+    </div>
+  </div>
+
+  <div class="country-section-label reveal">Key Dates — Spain</div>
+  <div class="country-block reveal">
+    <div class="reg-row"><div class="reg-date" style="color:var(--amber);">Jan 1 2027</div><div class="reg-event"><strong>Verifactu — Corporate taxpayers</strong> — Software must generate Verifactu-compliant invoicing records. €50k/yr penalty per non-compliant taxpayer.</div><span class="tag t-amber">9 months</span></div>
+    <div class="reg-row"><div class="reg-date" style="color:var(--amber);">Jul 1 2027</div><div class="reg-event"><strong>Verifactu — Autónomos</strong> — Self-employed phase. Massive accountant channel opportunity to drive Active adoption.</div><span class="tag t-amber">15 months</span></div>
+    <div class="reg-row"><div class="reg-date">2027–2028</div><div class="reg-event"><strong>B2B E-invoicing (Crea y Crece)</strong> — Business-to-business e-invoicing mandate. Full compliance ecosystem required.</div><span class="tag t-grey">18+ months</span></div>
+    <div class="reg-row"><div class="reg-date" style="color:var(--red);">H2 2026</div><div class="reg-event"><strong>Pennylane Spain launch</strong> — Same window as Sage SfA Spain GTM. Every practice converted before is defended territory.</div><span class="tag t-red">Competitive</span></div>
+    <div class="reg-row"><div class="reg-date">Weekly</div><div class="reg-event"><strong>Spain GTM Meeting</strong> — Xavi Vila, Antonio Roldán, Lewis, Juan Miguel Rueda, Zoraida Gil. Facilitated by Zoraida.</div><span class="tag t-teal">Internal</span></div>
+  </div>
+</div>
+
+<!-- ══════ GERMANY ══════ -->
+<div class="page-section" id="page-country-de">
+  <div class="page-header reveal">
+    <div class="page-eyebrow">🇩🇪 Country Intelligence</div>
+    <div class="page-title">Germany — <em>Explore &amp; Define</em></div>
+    <div class="page-subtitle">Sage #3-4. DATEV owns 70-80% of tax advisor market. Strategy: work alongside DATEV in the cloud management layer — not against it. E-invoicing receive mandate is live now.</div>
+  </div>
+
+  <div class="country-hero reveal">
+    <div class="ch-stat"><div class="ch-n">3–5%</div><div class="ch-l">Sage Market Share<br>Germany</div></div>
+    <div class="ch-stat"><div class="ch-n">77%</div><div class="ch-l">German SMBs Using<br>Bookkeeping Software</div></div>
+    <div class="ch-stat"><div class="ch-n">DATEV</div><div class="ch-l">70-80% Tax Advisor<br>Market — Partner</div></div>
+    <div class="ch-stat"><div class="ch-n">Jan 2025</div><div class="ch-l">E-invoice Receive<br>Mandate — Live Now</div></div>
+  </div>
+
+  <div class="country-grid reveal">
+    <div class="country-block">
+      <div class="cb-title"><span class="tag t-blue">Strategic</span>DATEV — Cooperate, Not Compete</div>
+      <div class="cb-body">DATEV is a cooperative: 8,900 employees, €1.44B revenue, 2.8M businesses, 620k customers. Members are owners — loyalty is financial, not habitual. Cannot displace DATEV. Strategy: ensure DATEV export compatibility, position Sage Active as the cloud management layer above DATEV's compliance core. Explore partnership FY26.</div>
+    </div>
+    <div class="country-block">
+      <div class="cb-title"><span class="tag t-amber">Regulatory</span>E-invoicing Mandate</div>
+      <div class="cb-body"><strong>Live now (Jan 2025):</strong> All businesses must be able to RECEIVE e-invoices in XRechnung/ZUGFeRD format. <strong>Jan 2027:</strong> Large companies must ISSUE. <strong>Jan 2028:</strong> All businesses must issue. This creates a defined cloud adoption window Sage can target via the accountant channel — above the DATEV compliance layer.</div>
+    </div>
+  </div>
+
+  <div class="country-section-label reveal">Competitive Landscape</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;" class="reveal">
+    <div class="country-block" style="border-top:2px solid var(--blue);">
+      <div class="cb-title">DATEV <span class="tag t-blue">Strategic Partner</span></div>
+      <div class="cb-body">Cooperative model. Members pay annual membership — switching = financial loss. XRechnung/ZUGFeRD native. 70-80% market. Work with, not against. Sage must guarantee DATEV export compatibility in all German materials.</div>
+    </div>
+    <div class="country-block" style="border-top:2px solid var(--amber);">
+      <div class="cb-title">Lexoffice / Haufe <span class="tag t-amber">Watch</span></div>
+      <div class="cb-body">Lexoffice cloud accounting: 350k+ customers. Fast growing in SMB cloud. XRechnung-ready. Haufe Group backing. The primary cloud competitor Sage faces in Germany for the mid-market layer above DATEV.</div>
+    </div>
+    <div class="country-block" style="border-top:2px solid var(--red);">
+      <div class="cb-title">SevDesk (now Cegid) <span class="tag t-red">Watch</span></div>
+      <div class="cb-body">Acquired by Cegid April 2025. Integration of SevDesk into Cegid's European platform means Cegid now has a German cloud footprint. Pennylane also launched DE Nov 2025 with 100 engineers. German cloud market suddenly much more competitive.</div>
+    </div>
+  </div>
+
+  <div class="country-section-label reveal">WiSE Strategy — Germany FY26</div>
+  <div class="country-block reveal">
+    <div class="cb-title">Definition Year — No Hard Launch Targets</div>
+    <div class="cb-body" style="font-size:12px;line-height:1.8;">
+      FY26 OKR for Germany: <strong>explore and define the accountant opportunity with DATEV.</strong> No SfA unit targets. No Active ARR target. This is a discovery and positioning year.<br><br>
+      Key questions to answer: (1) What does the cloud management layer above DATEV look like? (2) What accountant practices are currently underserved by DATEV's tools? (3) What is the SfA proposition for German practices — and how does Génération Expert's DE equivalent (GE has no direct German equivalent) factor in? (4) Where does Active fit vs Lexoffice in the mid-market?<br><br>
+      <strong style="color:var(--g);">Mark Leven</strong> is the GE Product Manager — key internal partner for any DE expansion involving GE-style tools. Susanne Clark (Prévision) for advisory layer.
+    </div>
+  </div>
+
+  <div class="country-section-label reveal">Key Dates — Germany</div>
+  <div class="country-block reveal">
+    <div class="reg-row"><div class="reg-date" style="color:var(--g);">Jan 2025</div><div class="reg-event"><strong>E-invoice RECEIVE mandate — Live</strong> — All German businesses must be able to receive XRechnung/ZUGFeRD format e-invoices. Already in force.</div><span class="tag t-green">Live now</span></div>
+    <div class="reg-row"><div class="reg-date" style="color:var(--amber);">Jan 2027</div><div class="reg-event"><strong>E-invoice ISSUE mandate — Large companies</strong> — Companies above €800k revenue must issue e-invoices. XRechnung/ZUGFeRD.</div><span class="tag t-amber">21 months</span></div>
+    <div class="reg-row"><div class="reg-date" style="color:var(--text3);">Jan 2028</div><div class="reg-event"><strong>E-invoice ISSUE mandate — All companies</strong> — Universal B2B e-invoicing. Full ecosystem compliance. Major cloud adoption trigger.</div><span class="tag t-grey">33 months</span></div>
+    <div class="reg-row"><div class="reg-date" style="color:var(--red);">Nov 2025</div><div class="reg-event"><strong>Pennylane launches Germany</strong> — 100 engineers hired. Accounting-first cloud platform targeting German SMBs via accountants.</div><span class="tag t-red">Competitive</span></div>
+  </div>
+</div>
+
+<!-- ══════ PORTUGAL ══════ -->
+<div class="page-section" id="page-country-pt">
+  <div class="page-header reveal">
+    <div class="page-eyebrow">🇵🇹 Country Intelligence</div>
+    <div class="page-title">Portugal — <em>Define Proposition</em></div>
+    <div class="page-subtitle">By law, every Portuguese business must have a certified accountant. 70,000 certified accountants. The most structurally powerful accountant channel of the 4 WiSE markets.</div>
+  </div>
+
+  <div class="country-hero reveal">
+    <div class="ch-stat"><div class="ch-n">~15%</div><div class="ch-l">Sage Market Share<br>Portugal</div></div>
+    <div class="ch-stat"><div class="ch-n">70,000</div><div class="ch-l">Certified Accountants<br>(Contabilistas)</div></div>
+    <div class="ch-stat"><div class="ch-n">8–10k</div><div class="ch-l">Accounting Firms<br>in Portugal</div></div>
+    <div class="ch-stat"><div class="ch-n">100%</div><div class="ch-l">Businesses Must Have<br>Certified Accountant (Law)</div></div>
+  </div>
+
+  <div class="country-grid reveal">
+    <div class="country-block">
+      <div class="cb-title"><span class="tag t-blue">Structural advantage</span>Legal Accountant Requirement</div>
+      <div class="cb-body">Every Portuguese business is legally required to have a certified Contabilista Certificado. This makes the accountant channel <strong>structurally non-optional</strong> — unlike France/Spain/Germany where accountants are chosen, not required. The channel moat is the deepest of all 4 markets. OCC (Ordem dos Contabilistas Certificados) is the professional body.</div>
+    </div>
+    <div class="country-block">
+      <div class="cb-title"><span class="tag t-amber">Risk</span>TOConline Threat</div>
+      <div class="cb-body">OCC's own platform — TOConline — is free to accountants and widely used. Backed by the professional body itself, making it politically difficult to displace. Erodes the low end of the market. Sage must position on compliance quality and practice growth revenue, not on basic functionality where TOConline competes free.</div>
+    </div>
+  </div>
+
+  <div class="country-section-label reveal">Competitive Landscape</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;" class="reveal">
+    <div class="country-block" style="border-top:2px solid var(--red);">
+      <div class="cb-title">Primavera (Cegid) <span class="tag t-red">Primary</span></div>
+      <div class="cb-body">Cegid acquired Primavera (PT/Iberia) in 2022. Dominant force in Portuguese accountant market. Long-established brand, deeply integrated with OCC workflows. The main incumbent Sage must displace. Cegid's European integration gives Primavera new cloud capabilities.</div>
+    </div>
+    <div class="country-block" style="border-top:2px solid var(--amber);">
+      <div class="cb-title">PHC Software <span class="tag t-amber">Watch</span></div>
+      <div class="cb-body">35k+ companies. Portuguese-native ERP. Strong mid-market presence. PHC CS (accountant version) is widely used. Not a cloud-first competitor but has strong local brand trust similar to how GE is trusted in France.</div>
+    </div>
+    <div class="country-block" style="border-top:2px solid var(--text3);">
+      <div class="cb-title">TOConline (OCC) <span class="tag t-grey">Free tier</span></div>
+      <div class="cb-body">Free platform backed by the professional body. Widely adopted at the low end. Counter: "TOConline handles compliance basics. Sage handles compliance AND growth — practice revenue, client management, advisory." Cannot compete on price; must compete on value.</div>
+    </div>
+  </div>
+
+  <div class="country-section-label reveal">Key Dates — Portugal</div>
+  <div class="country-block reveal">
+    <div class="reg-row"><div class="reg-date" style="color:var(--g);">Since 2024</div><div class="reg-event"><strong>B2G E-invoicing</strong> — Business-to-government e-invoicing already live. Public sector suppliers must issue structured invoices.</div><span class="tag t-green">Live</span></div>
+    <div class="reg-row"><div class="reg-date" style="color:var(--text3);">Jan 2027</div><div class="reg-event"><strong>SAF-T Accounting</strong> — Full SAF-T accounting requirement expands. Real-time reporting implications for all businesses.</div><span class="tag t-grey">21 months</span></div>
+    <div class="reg-row"><div class="reg-date" style="color:var(--text3);">2027</div><div class="reg-event"><strong>QES for PDF invoices</strong> — Qualified Electronic Signatures required for PDF invoice format. Drives need for certified software.</div><span class="tag t-grey">2027</span></div>
+    <div class="reg-row"><div class="reg-date">FY26</div><div class="reg-event"><strong>WiSE Deliverable: Define SfA Portugal proposition</strong> — No hard unit targets. Understand channel, build positioning, identify ICP.</div><span class="tag t-blue">OKR</span></div>
+  </div>
+</div>
+
+<!-- ══════ UK ══════ -->
+<div class="page-section" id="page-country-uk">
+  <div class="page-header reveal">
+    <div class="page-eyebrow">🇬🇧 Market Context</div>
+    <div class="page-title">United Kingdom — <em>Benchmark Market</em></div>
+    <div class="page-subtitle">Sage's home market and global HQ. Not in WiSE scope but provides the benchmark model for accountant-channel GTM and the product maturity target for EU markets.</div>
+  </div>
+
+  <div class="country-hero reveal">
+    <div class="ch-stat"><div class="ch-n">Sage HQ</div><div class="ch-l">Newcastle upon Tyne<br>Global Headquarters</div></div>
+    <div class="ch-stat"><div class="ch-n">MTD</div><div class="ch-l">Making Tax Digital<br>HMRC Mandate Live</div></div>
+    <div class="ch-stat"><div class="ch-n">Xero</div><div class="ch-l">Primary Competitor<br>Accountant Channel</div></div>
+    <div class="ch-stat"><div class="ch-n">Benchmark</div><div class="ch-l">EU Markets Mirror<br>UK GTM Playbook</div></div>
+  </div>
+
+  <div class="country-grid reveal">
+    <div class="country-block">
+      <div class="cb-title"><span class="tag t-blue">Benchmark</span>Why UK Matters for WiSE</div>
+      <div class="cb-body">The UK SfA launch is the template EU markets are being modelled on. Making Tax Digital (MTD) is the regulatory-forcing-function equivalent of France's PA mandate. The accountant channel playbook — free SfA practice hub, AE OCR layer, Active cloud accounting — was proven in the UK first. EU markets are 18-24 months behind UK maturity.</div>
+    </div>
+    <div class="country-block">
+      <div class="cb-title"><span class="tag t-amber">Competitive intel</span>Xero + QuickBooks UK</div>
+      <div class="cb-body">Xero dominates UK accountant channel with ~30% share. QuickBooks (Intuit) ~15%. Both are expanding to EU. Xero launched JAX AI (Jobs to be Done AI model) — first major AI-first accountant platform play. Sage's Copilot must be positioned as the EU-compliance-aware AI, not just a generic copilot.</div>
+    </div>
+  </div>
+
+  <div class="country-section-label reveal">Key UK Products (Benchmark for EU)</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:12px;" class="reveal">
+    <div class="country-block" style="border-top:2px solid var(--g);">
+      <div class="cb-title">Sage for Accountants UK</div>
+      <div class="cb-body">Free practice hub. Most mature of all markets. MTD-compliant. AE + Active integration live. Template for EU builds.</div>
+    </div>
+    <div class="country-block" style="border-top:2px solid var(--teal);">
+      <div class="cb-title">AutoEntry UK</div>
+      <div class="cb-body">OCR + capture. MTD bridge. Most mature AE market. Benchmark for FR/ES feature expectations.</div>
+    </div>
+    <div class="country-block" style="border-top:2px solid var(--purple);">
+      <div class="cb-title">GoProposal UK</div>
+      <div class="cb-body">Most mature GP market. AML/KYC workflows live. UK pricing templates inform ES/FR GoProposal positioning.</div>
+    </div>
+    <div class="country-block" style="border-top:2px solid var(--blue);">
+      <div class="cb-title">Sage Copilot UK</div>
+      <div class="cb-body">Most mature Copilot integration. AI-first positioning live. EU Copilot launches in SfA use UK as the reference architecture.</div>
+    </div>
+  </div>
+
+  <div class="country-section-label reveal">Key Dates — UK</div>
+  <div class="country-block reveal">
+    <div class="reg-row"><div class="reg-date" style="color:var(--g);">Live</div><div class="reg-event"><strong>Making Tax Digital (MTD) for VAT</strong> — All VAT-registered businesses must use MTD-compatible software. Sage is fully compliant.</div><span class="tag t-green">Live</span></div>
+    <div class="reg-row"><div class="reg-date" style="color:var(--amber);">Apr 2026</div><div class="reg-event"><strong>MTD for Income Tax Self-Assessment (ITSA)</strong> — Phase 1: sole traders and landlords above £50k threshold. Major accountant channel event.</div><span class="tag t-amber">Upcoming</span></div>
+    <div class="reg-row"><div class="reg-date" style="color:var(--text3);">Apr 2027</div><div class="reg-event"><strong>MTD ITSA Phase 2</strong> — Threshold drops to £30k. Further expands MTD scope. Additional accountant migration event.</div><span class="tag t-grey">2027</span></div>
+    <div class="reg-row"><div class="reg-date">Ongoing</div><div class="reg-event"><strong>ICAEW + ACCA Annual Accountancy Events</strong> — Key brand and channel events. Benchmark for EU accountant congress strategy.</div><span class="tag t-teal">Events</span></div>
+  </div>
+</div>
+
+<!-- ══════ USA ══════ -->
+<div class="page-section" id="page-country-us">
+  <div class="page-header reveal">
+    <div class="page-eyebrow">🇺🇸 Market Context</div>
+    <div class="page-title">United States — <em>Product Origin &amp; Competitive Intel</em></div>
+    <div class="page-subtitle">Not in WiSE scope but key for product intelligence. QuickBooks, Xero and Gusto define the AI + payments + accountant-channel benchmark that EU competitors aspire to match.</div>
+  </div>
+
+  <div class="country-hero reveal">
+    <div class="ch-stat"><div class="ch-n">~80%</div><div class="ch-l">QuickBooks US Market<br>Share SMB Accounting</div></div>
+    <div class="ch-stat"><div class="ch-n">10–15%</div><div class="ch-l">QBO Payments Revenue<br>as % of Total</div></div>
+    <div class="ch-stat"><div class="ch-n">~4%</div><div class="ch-l">Sage Payments<br>Revenue — Gap</div></div>
+    <div class="ch-stat"><div class="ch-n">JAX AI</div><div class="ch-l">Xero AI Platform<br>Competitive Threat</div></div>
+  </div>
+
+  <div class="country-grid reveal">
+    <div class="country-block">
+      <div class="cb-title"><span class="tag t-blue">Intel</span>Why US Matters for WiSE PMM</div>
+      <div class="cb-body">QuickBooks Online is the product benchmark EU competitors — especially Pennylane and Holded — are explicitly trying to build. QBO's 10–15% payments revenue vs Sage's ~4% is the clearest commercial gap. Pennylane's French banking + payment cards are a direct import of the QBO embedded finance model. WiSE must track this benchmark to anticipate competitive feature roadmaps.</div>
+    </div>
+    <div class="country-block">
+      <div class="cb-title"><span class="tag t-amber">Competitive Intel</span>Xero JAX AI Platform</div>
+      <div class="cb-body">Xero's JAX (Jobs to be Done AI) platform — announced 2025 — is an AI model trained specifically on accounting workflows. First-mover in AI-native accountant platforms. Being watched closely by Pennylane and Cegid for EU application. Sage Copilot must articulate its EU compliance advantage vs JAX's generic JTBD approach.</div>
+    </div>
+  </div>
+
+  <div class="country-section-label reveal">US Competitor Benchmarks — EU Implications</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;" class="reveal">
+    <div class="country-block" style="border-top:2px solid var(--amber);">
+      <div class="cb-title">QuickBooks (Intuit)</div>
+      <div class="cb-body">~80% US SMB. Payments integration (10-15% revenue). AI-assisted bookkeeping. The product Pennylane and Holded are reverse-engineering for EU. Sage payments gap vs QBO is a strategic weakness that embedded finance roadmap must address.</div>
+    </div>
+    <div class="country-block" style="border-top:2px solid var(--blue);">
+      <div class="cb-title">Xero + JAX AI</div>
+      <div class="cb-body">~30% UK + growing EU. JAX AI platform. Accountant-first GTM — identical to WiSE. Expanding Germany and France. Their JAX AI is the benchmark Sage Copilot is being measured against by UK/EU accountants. Compliance gap: JAX has no HMRC/DGFiP certification.</div>
+    </div>
+    <div class="country-block" style="border-top:2px solid var(--purple);">
+      <div class="cb-title">Gusto + Rippling</div>
+      <div class="cb-body">US payroll + HR platforms expanding to EU. Gusto UK launched 2023. Payroll-as-a-service model used by accountants. Watch for EU expansion: if Gusto enters FR/ES, it competes with the payroll module inside Active Essentials.</div>
+    </div>
+  </div>
+
+  <div class="country-section-label reveal">Key US → EU Intelligence Signals to Track</div>
+  <div class="country-block reveal">
+    <div class="reg-row"><div class="reg-date">Payments</div><div class="reg-event"><strong>Embedded payments revenue gap</strong> — QBO at 10-15% vs Sage ~4%. Pennylane's French IBAN + cards is the EU answer. Sage fintech roadmap must close this gap.</div><span class="tag t-amber">Watch</span></div>
+    <div class="reg-row"><div class="reg-date">AI</div><div class="reg-event"><strong>Xero JAX AI EU expansion</strong> — JAX trained on accounting JTBD. If/when JAX launches in FR/ES with local compliance training, it becomes a direct Copilot competitor.</div><span class="tag t-red">Monitor</span></div>
+    <div class="reg-row"><div class="reg-date">Payroll</div><div class="reg-event"><strong>Gusto EU expansion</strong> — Payroll-as-a-service via accountant channel. Direct Active Essentials payroll module threat if Gusto enters FR or ES.</div><span class="tag t-amber">Watch</span></div>
+    <div class="reg-row"><div class="reg-date">M&amp;A</div><div class="reg-event"><strong>Intuit EU acquisitions</strong> — Intuit has capital and appetite. Any EU accounting software acquisition by Intuit would reshape competitive dynamics immediately.</div><span class="tag t-grey">Background</span></div>
+  </div>
+</div>
+
 </body>
 </html>
