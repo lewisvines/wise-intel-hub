@@ -2551,18 +2551,21 @@ function showPage(id) {
   const target = document.getElementById('page-' + id);
   if (target) {
     target.classList.add('active');
-    // Force all reveal elements visible immediately + with slight stagger
-    const revealEls = target.querySelectorAll('.reveal');
-    revealEls.forEach(el => el.classList.remove('visible'));
-    revealEls.forEach((el, i) => {
-      setTimeout(() => el.classList.add('visible'), 30 + i * 20);
+    // Scroll after layout reflow so offsetTop is correct
+    requestAnimationFrame(() => {
+      window.scrollTo(0, target.offsetTop);
+      // Reveal elements after scroll
+      const revealEls = target.querySelectorAll('.reveal');
+      revealEls.forEach(el => el.classList.remove('visible'));
+      revealEls.forEach((el, i) => {
+        setTimeout(() => el.classList.add('visible'), 30 + i * 20);
+      });
     });
   }
   const link = document.querySelector(`.sb-link[data-page="${id}"]`);
   if (link) link.classList.add('active');
   const bc = document.getElementById('tb-current');
   if (bc) bc.textContent = titles[id] || id;
-  window.scrollTo(0, target.offsetTop);
 }
 
 navLinks.forEach(link => {
