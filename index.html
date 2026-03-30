@@ -58,7 +58,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.5;transform:scale(1.4)}}
 
 /* ── MAIN CONTENT ── */
-#main{margin-left:220px;min-height:100vh;}
+#main{margin-left:220px;min-height:100vh;height:100vh;overflow-y:auto;position:relative;}
 
 /* ── TOP BAR ── */
 #topbar{
@@ -2562,7 +2562,7 @@ function showPage(id) {
   if (link) link.classList.add('active');
   const bc = document.getElementById('tb-current');
   if (bc) bc.textContent = titles[id] || id;
-  window.scrollTo(0,0);
+  const mainEl = document.getElementById("main"); if(mainEl) mainEl.scrollTop = 0; else window.scrollTo(0,0);
 }
 
 navLinks.forEach(link => {
@@ -2571,10 +2571,7 @@ navLinks.forEach(link => {
 
 // ── PROGRESS BAR ──
 const progress = document.getElementById('progress');
-window.addEventListener('scroll', () => {
-  const h = document.documentElement;
-  progress.style.width = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100 + '%';
-});
+const mainScroll = document.getElementById('main'); if(mainScroll) { mainScroll.addEventListener('scroll', () => { progress.style.width = (mainScroll.scrollTop / (mainScroll.scrollHeight - mainScroll.clientHeight)) * 100 + '%'; }); }
 
 // ── REVEAL ON SCROLL ──
 const revealObs = new IntersectionObserver(entries => {
