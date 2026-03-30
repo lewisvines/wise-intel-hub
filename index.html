@@ -22,8 +22,8 @@
   --font:'Syne',sans-serif;--body:'DM Sans',sans-serif;--serif:'DM Serif Display',Georgia,serif;
 }
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;font-size:15px;}
-body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:clip;}
+html{font-size:15px;height:100vh;overflow:hidden;}
+body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:1.65;-webkit-font-smoothing:antialiased;overflow:hidden;height:100vh;}
 
 /* SCROLLBAR */
 ::-webkit-scrollbar{width:4px;height:4px;}
@@ -58,11 +58,11 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.5;transform:scale(1.4)}}
 
 /* ── MAIN CONTENT ── */
-#main{margin-left:220px;min-height:100vh;padding-top:48px;}
+#main{position:fixed;left:220px;right:0;top:0;bottom:0;overflow-y:auto;}
 
 /* ── TOP BAR ── */
 #topbar{
-  position:fixed;top:0;left:220px;right:0;z-index:100;
+  position:sticky;top:0;z-index:100;
   background:rgba(8,12,8,0.92);backdrop-filter:blur(20px);
   border-bottom:1px solid var(--border);
   padding:0 32px;height:48px;
@@ -2553,7 +2553,7 @@ function showPage(id) {
     target.classList.add('active');
     // Scroll after layout reflow so offsetTop is correct
     requestAnimationFrame(() => {
-      window.scrollTo(0, target.offsetTop);
+      const mainEl=document.getElementById('main'); if(mainEl) mainEl.scrollTop=0;
       // Reveal elements after scroll
       const revealEls = target.querySelectorAll('.reveal');
       revealEls.forEach(el => el.classList.remove('visible'));
@@ -2574,7 +2574,7 @@ navLinks.forEach(link => {
 
 // ── PROGRESS BAR ──
 const progress = document.getElementById('progress');
-window.addEventListener('scroll', () => { const h = document.documentElement; progress.style.width = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100 + '%'; });
+const mainForScroll=document.getElementById('main'); if(mainForScroll){mainForScroll.addEventListener('scroll',()=>{if(mainForScroll.scrollHeight-mainForScroll.clientHeight>0){progress.style.width=(mainForScroll.scrollTop/(mainForScroll.scrollHeight-mainForScroll.clientHeight))*100+'%';}}); }
 
 // ── REVEAL ON SCROLL ──
 const revealObs = new IntersectionObserver(entries => {
