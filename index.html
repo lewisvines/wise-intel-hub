@@ -431,52 +431,8 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:
 }
 #search-btn:hover{border-color:var(--g);color:var(--g);}
 
-/* ── LANGUAGE SWITCHER ── */
-#lang-switcher{display:flex;align-items:center;gap:4px;}
-.lang-btn{
-  background:transparent;border:1px solid var(--border);
-  border-radius:5px;color:var(--text3);font-family:var(--font);
-  font-size:11px;font-weight:600;padding:4px 8px;cursor:pointer;
-  transition:border-color 0.15s,color 0.15s,background 0.15s;
-  letter-spacing:0.3px;
-}
-.lang-btn:hover{border-color:var(--g);color:var(--g);}
-.lang-btn.active{background:var(--gdim2);border-color:var(--g);color:var(--g);}
-.lang-divider{color:var(--border);font-size:10px;user-select:none;}
 
-/* ── LANGUAGE SWITCHER ── */
-#lang-switcher{
-  display:flex;align-items:center;gap:2px;
-  background:var(--bg2);border:1px solid var(--border);border-radius:6px;
-  padding:3px;
-}
-.lang-btn{
-  background:none;border:none;border-radius:4px;
-  color:var(--text3);font-family:var(--font);font-size:11px;font-weight:600;
-  padding:4px 8px;cursor:pointer;letter-spacing:0.5px;
-  transition:background 0.15s,color 0.15s;
-}
-.lang-btn:hover{color:var(--text);background:var(--bg1);}
-.lang-btn.active{background:var(--g);color:#fff;}
 
-/* ── LANGUAGE SWITCHER ── */
-#lang-switcher {
-  display:flex;align-items:center;gap:4px;
-  background:var(--bg2);border:1px solid var(--border);
-  border-radius:6px;padding:3px;
-}
-.lang-btn {
-  font-family:var(--font);font-size:11px;font-weight:600;
-  padding:4px 9px;border-radius:4px;border:none;
-  cursor:pointer;transition:background 0.15s,color 0.15s;
-  background:transparent;color:var(--text3);letter-spacing:0.3px;
-}
-.lang-btn.active {
-  background:var(--g);color:#fff;
-}
-.lang-btn:hover:not(.active) {
-  background:var(--bg3,#2a2a2a);color:var(--text);
-}
 </style>
 </head>
 <body>
@@ -552,14 +508,6 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:
 <div id="topbar">
   <div class="tb-breadcrumb" data-i18n="hub_name">WiSE Intel Hub &nbsp;/&nbsp; <span id="tb-current">Signals</span></div>
   <div class="tb-actions" style="display:flex;align-items:center;gap:10px;">
-    <div id="lang-switcher">
-      <button class="lang-btn active" id="lang-en" onclick="setLang('en')" id="lang-en">EN</button>
-      <span class="lang-divider">|</span>
-      <button class="lang-btn" id="lang-fr" onclick="setLang('fr')" id="lang-fr">FR</button>
-      <span class="lang-divider">|</span>
-      <button class="lang-btn" id="lang-es" onclick="setLang('es')" id="lang-es">ES</button>
-    </div>
-    
     <button id="search-btn" onclick="openSearch()" title="Search hub (Ctrl+K)" data-i18n="Search" data-fr="Rechercher" data-es="Buscar" data-i18n="btn_search">Search</button>
     <button class="tb-btn" onclick="openELT()" data-i18n="⬆ ELT Export" data-fr="⬆ Export DG" data-es="⬆ Exportar DG">⬆ ELT Export</button>
     <button class="tb-btn primary" onclick="window.print()" data-i18n="btn_share">Share Brief</button>
@@ -633,10 +581,10 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:
         <div class="okr-val">Building</div>
       </div>
       <div class="okr-row">
-        <div class="rag-dot rag-g"></div>
+        <div class="rag-dot rag-a"></div>
         <div class="okr-name">SfA Spain GTM</div>
-        <div class="okr-bar"><div class="okr-bar-fill" style="width:100%;background:var(--g);"></div></div>
-        <div class="okr-val">Live</div>
+        <div class="okr-bar"><div class="okr-bar-fill" style="width:50%;background:var(--amber);"></div></div>
+        <div class="okr-val">On track</div>
       </div>
       <div class="okr-row">
         <div class="rag-dot rag-g"></div>
@@ -4495,144 +4443,7 @@ document.addEventListener('keydown', e => {
 });
 </script>
 
-<script>
-// ── LANGUAGE SWITCHER (clean rebuild) ────────────────────────────────
-let currentLang = 'en';
 
-function setLang(lang) {
-  currentLang = lang;
-
-  // Update button states
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.classList.toggle('active', btn.dataset.lang === lang);
-  });
-
-  // Translate all tagged elements using data-[lang] attributes
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    const translation = el.getAttribute('data-' + lang);
-    if (translation) {
-      el.textContent = translation;
-    } else if (lang === 'en') {
-      const original = el.getAttribute('data-en');
-      if (original) el.textContent = original;
-    }
-  });
-
-  // Translate topbar buttons
-  const searchBtn = document.getElementById('search-btn');
-  if (searchBtn) {
-    const translations = {en: 'Search', fr: 'Rechercher', es: 'Buscar'};
-    searchBtn.textContent = translations[lang] || 'Search';
-  }
-  document.querySelectorAll('.tb-btn').forEach(btn => {
-    const orig = btn.getAttribute('data-en');
-    if (orig) {
-      const frMap = {'ELT Export':'Export ELT', 'Share Brief':'Partager le brief'};
-      const esMap = {'ELT Export':'Exportar ELT', 'Share Brief':'Compartir brief'};
-      if (lang === 'fr' && frMap[orig]) btn.textContent = frMap[orig];
-      else if (lang === 'es' && esMap[orig]) btn.textContent = esMap[orig];
-      else btn.textContent = orig;
-    }
-  });
-
-  try { localStorage.setItem('wise_lang', lang); } catch(e) {}
-}
-
-// Tag nav elements with data attributes on load
-document.addEventListener('DOMContentLoaded', () => {
-  // Nav translations map - using escaped apostrophes
-  const navTranslations = {
-    'Dashboard':            {fr: 'Tableau de bord',        es: 'Panel de control'},
-    'Signals':              {fr: 'Signaux',                es: 'Se\u00f1ales'},
-    'Competitors':          {fr: 'Concurrents',            es: 'Competidores'},
-    'AI Watch':             {fr: 'Veille IA',              es: 'Vigilancia IA'},
-    'Brand Positioning':    {fr: 'Positionnement de marque', es: 'Posicionamiento de marca'},
-    'Hiring Signals':       {fr: 'Signaux recrutement',    es: 'Se\u00f1ales de contrataci\u00f3n'},
-    'Regulatory Calendar':  {fr: 'Calendrier r\u00e9glementaire', es: 'Calendario regulatorio'},
-    'Products Overview':    {fr: 'Vue produits',           es: 'Resumen de productos'},
-    'Accountant Personas':  {fr: 'Personas expert-comptable', es: 'Personas de contable'},
-    'SMB Client Segments':  {fr: 'Segments clients PME',   es: 'Segmentos clientes PYME'},
-    'Battle Cards':         {fr: 'Fiches concurrentielles', es: 'Fichas competitivas'},
-    'Deal Intelligence':    {fr: 'Intelligence commerciale', es: 'Inteligencia comercial'},
-    'Campaign Alerts':      {fr: 'Alertes campagnes',      es: 'Alertas de campa\u00f1a'},
-    'Sales Enablement':     {fr: 'Aide \u00e0 la vente',  es: 'Habilitaci\u00f3n de ventas'},
-    'Messaging Library':    {fr: 'Biblioth\u00e8que de messages', es: 'Biblioteca de mensajes'},
-    'Win / Loss Intel':     {fr: 'Gains / Pertes',         es: 'Ganancias / P\u00e9rdidas'},
-    'Campaign Calendar':    {fr: 'Calendrier campagnes',   es: 'Calendario de campa\u00f1as'},
-    'SMB Direct Playbook':  {fr: 'Playbook canal direct',  es: 'Playbook canal directo'},
-    'Competitor Compare':   {fr: 'Comparatif concurrents', es: 'Comparativa competidores'},
-  };
-
-  const sectionTranslations = {
-    'OVERVIEW':          {fr: 'VUE D\u2019ENSEMBLE', es: 'RESUMEN'},
-    'INTELLIGENCE':      {fr: 'INTELLIGENCE',          es: 'INTELIGENCIA'},
-    'PRODUCTS':          {fr: 'PRODUITS',              es: 'PRODUCTOS'},
-    'PERSONAS':          {fr: 'PERSONAS',              es: 'PERSONAS'},
-    'SALES TOOLS':       {fr: 'OUTILS COMMERCIAUX',   es: 'HERRAMIENTAS DE VENTAS'},
-    'ENABLEMENT':        {fr: 'ENABLEMENT',            es: 'HABILITACI\u00d3N'},
-    'COUNTRIES':         {fr: 'MARCH\u00c9S',         es: 'MERCADOS'},
-    'STRATEGY':          {fr: 'STRAT\u00c9GIE',       es: 'ESTRATEGIA'},
-    'DIRECT CHANNEL':    {fr: 'CANAL DIRECT',          es: 'CANAL DIRECTO'},
-  };
-
-  // Tag sidebar nav links
-  document.querySelectorAll('.sb-link').forEach(btn => {
-    const dot = btn.querySelector('.sb-dot');
-    if (!dot) return;
-    let textNode = null;
-    btn.childNodes.forEach(n => {
-      if (n.nodeType === 3 && n.textContent.trim()) textNode = n;
-    });
-    if (!textNode) {
-      // Already wrapped in span
-      const existingSpan = btn.querySelector('span[data-i18n]');
-      if (existingSpan) {
-        const key = existingSpan.textContent.trim();
-        if (navTranslations[key]) {
-          existingSpan.setAttribute('data-en', key);
-          existingSpan.setAttribute('data-fr', navTranslations[key].fr);
-          existingSpan.setAttribute('data-es', navTranslations[key].es);
-        }
-        return;
-      }
-    }
-    if (textNode) {
-      const key = textNode.textContent.trim();
-      const span = document.createElement('span');
-      span.setAttribute('data-i18n', '');
-      span.setAttribute('data-en', key);
-      if (navTranslations[key]) {
-        span.setAttribute('data-fr', navTranslations[key].fr);
-        span.setAttribute('data-es', navTranslations[key].es);
-      }
-      span.textContent = key;
-      btn.replaceChild(span, textNode);
-    }
-  });
-
-  // Tag sidebar section labels
-  document.querySelectorAll('.sb-section-label').forEach(el => {
-    const key = el.textContent.trim();
-    if (sectionTranslations[key]) {
-      el.setAttribute('data-i18n', '');
-      el.setAttribute('data-en', key);
-      el.setAttribute('data-fr', sectionTranslations[key].fr);
-      el.setAttribute('data-es', sectionTranslations[key].es);
-    }
-  });
-
-  // Tag topbar buttons with data-en for restoration
-  document.querySelectorAll('.tb-btn').forEach(btn => {
-    btn.setAttribute('data-en', btn.textContent.trim());
-  });
-
-  // Restore language preference
-  try {
-    const saved = localStorage.getItem('wise_lang');
-    if (saved && saved !== 'en') setLang(saved);
-  } catch(e) {}
-});
-</script>
 
 
 
