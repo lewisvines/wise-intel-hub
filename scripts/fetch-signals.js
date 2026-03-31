@@ -265,76 +265,139 @@ function matches(item, kws) {
   return kws.some(k => t.includes(k.toLowerCase()));
 }
 
-// ── SEMANTIC DEDUPLICATION ───────────────────────────────────────────────────
-// Removes duplicate stories across sources using two methods:
-// 1. Exact: normalised title fingerprint (catches identical headlines)
-// 2. Semantic: keyword Jaccard similarity (catches same story, different words)
-//    e.g. "Pennylane raises €50M" and "Pennylane announces €50 million funding"
-//    are the same story and should not both appear
+// ── SEMANTIC DEDUPLICATION v2 ────────────────────────────────────────────────
+// Three-pass deduplication to catch same-story duplicates across sources:
+// 1. Exact fingerprint on cleaned title
+// 2. Named entity overlap (same competitor name + same amount/date = same story)
+// 3. Keyword Jaccard on cleaned titles (strips source suffixes like "- Le Monde")
 
 const seenFingerprints = new Set();
+const storedSignals = []; // { cleanTitle, entities, keywords }
 
-// Extract meaningful keywords from text for semantic comparison
+// Strip common title suffixes added by Google News and RSS aggregators
+// e.g. "Pennylane raises $200M - tech.eu" → "Pennylane raises $200M"
+function cleanTitle(title) {
+  return title
+    .replace(/\s*[-|–—]\s*[A-Za-z][^-|–—]{0,40}$/, '')   // "- Source Name" suffix
+    .replace(/\s*\([^)]{0,30}\)$/, '')                       // "(Source Name)" suffix
+    .toLowerCase()
+    .replace(/[€$£](\d+[.,]?\d*)\s*(m|million|mn|mio|millionen)/gi, ' MONEY$1M ')
+    .replace(/[€$£](\d+[.,]?\d*)\s*(b|billion|mrd|milliard)/gi, ' MONEY$1B ')
+    .replace(/(\d+[.,]?\d*)\s*(million|millions|mio|millionen)\s*[€$£]/gi, ' MONEY$1M ')
+    .replace(/(\d+[.,]?\d*)\s*(milliard|milliards|billion|billions)\s*[€$£]/gi, ' MONEY$1B ')
+    .trim();
+}
+
+// Extract named entities relevant to WiSE deduplication
+function extractEntities(text) {
+  const t = text.toLowerCase();
+  const entities = new Set();
+  
+  // Competitor names
+  ['pennylane','cegid','holded','datev','regate','qonto','xero','quickbooks',
+   'lexoffice','sevdesk','myunisoft','conciliator','akao','shine','ageras',
+   'visma','wolters','intuit','sage'].forEach(name => {
+    if (t.includes(name)) entities.add(name);
+  });
+  
+  // Regulatory terms
+  ['verifactu','xrechnung','zugferd','dgfip','aeat','facturation electronique',
+   'facturacion electronica','e-rechnung','saf-t','vida','einvoic'].forEach(term => {
+    if (t.includes(term)) entities.add(term);
+  });
+  
+  // Money amounts (normalised) — treat $200M and €175M as same entity since
+  // Google News US vs EU converts currencies
+  const moneyMatch = t.match(/(\d+)\s*(?:m|million|mn|mio|millionen|milliard|billion|mrd|b)/gi);
+  if (moneyMatch) {
+    // Normalise: take the number, round to nearest 25M to catch currency conversion
+    moneyMatch.forEach(m => {
+      const num = parseInt(m.replace(/[^0-9]/g, ''));
+      if (num > 0) entities.add('AMOUNT_' + Math.round(num / 25) * 25);
+    });
+  }
+  
+  // Key action words
+  ['raises','raised','secures','secured','lève','acquires','acquired','rachète',
+   'acquiert','launches','launched','expands','delayed','postponed','retrasar',
+   'aplaza','verschoben','partners','partnership'].forEach(verb => {
+    if (t.includes(verb)) entities.add('ACTION_' + verb);
+  });
+  
+  return entities;
+}
+
+// Stopwords for Jaccard
+const STOPWORDS = new Set([
+  'the','a','an','is','are','was','were','be','been','have','has','had',
+  'will','would','could','should','may','might','can','of','in','on','at',
+  'to','for','with','by','from','and','or','but','as','this','that','its',
+  'it','they','we','what','how','when','where','which','who','new','one',
+  'also','more','just','now','than','then','so','all','any','not','no',
+  'very','over','after','into','up','out','its','their','our','your',
+  // French
+  'le','la','les','de','du','des','un','une','et','en','au','aux','pour',
+  'avec','sur','dans','par','que','qui','est','sont','pas','plus','très',
+  // Spanish
+  'el','los','las','del','una','por','con','que','sus','para','los','las',
+  'una','este','esta','son','hay','más','pero','como','cuando','donde',
+  // German
+  'der','die','das','und','ist','von','mit','bei','für','auf','nach','aus',
+  'im','am','zur','zum','des','ein','eine','einem','einer',
+  // Portuguese
+  'os','as','do','da','dos','das','em','ao','pelos','pelas','num','numa',
+]);
+
 function extractKeywords(text) {
-  const stopwords = new Set([
-    'the','a','an','is','are','was','were','be','been','being','have','has','had',
-    'do','does','did','will','would','could','should','may','might','shall','can',
-    'of','in','on','at','to','for','with','by','from','up','about','into','through',
-    'and','or','but','if','as','this','that','its','it','their','they','we','our',
-    'i','you','he','she','us','them','his','her','your','my','what','how','when',
-    'where','which','who','whom','new','one','two','three','also','more','just',
-    'now','than','then','so','all','any','not','no','only','both','very','over',
-    'le','la','les','de','du','des','un','une','et','en','au','aux','pour',
-    'el','los','las','del','los','una','por','con','que','sus','para',
-    'der','die','das','und','ist','von','mit','bei','für','auf','nach','aus',
-    'o','a','os','as','do','da','dos','das','em','ao','para','com',
-  ]);
-
   return new Set(
     text.toLowerCase()
-      .replace(/[^a-z0-9\s€$£]/g, ' ')
+      .replace(/[-–—]/g, ' ')
+      .replace(/[^a-z0-9\s]/g, ' ')
       .split(/\s+/)
-      .filter(w => w.length > 3 && !stopwords.has(w))
+      .filter(w => w.length > 3 && !STOPWORDS.has(w))
   );
 }
 
-// Jaccard similarity between two keyword sets
 function jaccardSimilarity(setA, setB) {
   if (!setA.size || !setB.size) return 0;
-  const intersection = new Set([...setA].filter(x => setB.has(x)));
-  const union = new Set([...setA, ...setB]);
-  return intersection.size / union.size;
+  let inter = 0;
+  for (const x of setA) if (setB.has(x)) inter++;
+  return inter / (setA.size + setB.size - inter);
 }
 
-// Stored signals for semantic comparison
-const storedSignalKeywords = [];
-
 function isDuplicateSignal(title, bodyText) {
-  const combinedText = `${title} ${bodyText}`;
+  const clean = cleanTitle(title);
   
-  // Method 1: Exact title fingerprint
-  const fingerprint = title.toLowerCase().replace(/[^a-z0-9]/g, '').slice(0, 80);
-  if (seenFingerprints.has(fingerprint)) return true;
+  // Pass 1: Exact fingerprint on cleaned title
+  const fp = clean.replace(/[^a-z0-9]/g, '').slice(0, 70);
+  if (fp.length > 10 && seenFingerprints.has(fp)) return true;
   
-  // Method 2: Semantic similarity
-  const keywords = extractKeywords(combinedText);
+  const entities = extractEntities(clean + ' ' + bodyText);
+  const kws = extractKeywords(clean);
   
-  for (const stored of storedSignalKeywords) {
-    const sim = jaccardSimilarity(keywords, stored.keywords);
-    // 40% keyword overlap = same story, keep only the first (higher priority) one
-    if (sim >= 0.40) return true;
-    // Also check title-only similarity at tighter threshold
-    const titleSim = jaccardSimilarity(extractKeywords(title), stored.titleKeywords);
-    if (titleSim >= 0.55) return true;
+  for (const stored of storedSignals) {
+    // Pass 2: Entity overlap — if 2+ key entities match, it's the same story
+    // e.g. both mention "pennylane" + "AMOUNT_175M" = same funding story
+    if (entities.size >= 2 && stored.entities.size >= 2) {
+      let sharedEntities = 0;
+      for (const e of entities) if (stored.entities.has(e)) sharedEntities++;
+      if (sharedEntities >= 2) return true;
+      // One competitor + one action verb on same topic = same story
+      const competitorNames = ['pennylane','cegid','holded','datev','regate','qonto','xero','sevdesk'];
+      const hasSharedCompetitor = competitorNames.some(n => entities.has(n) && stored.entities.has(n));
+      if (hasSharedCompetitor && sharedEntities >= 1) return true;
+    }
+    
+    // Pass 3: Jaccard on cleaned title keywords (lowered threshold: 0.30)
+    if (kws.size >= 3 && stored.keywords.size >= 3) {
+      const sim = jaccardSimilarity(kws, stored.keywords);
+      if (sim >= 0.30) return true;
+    }
   }
   
-  // Not a duplicate — register it
-  seenFingerprints.add(fingerprint);
-  storedSignalKeywords.push({
-    keywords,
-    titleKeywords: extractKeywords(title),
-  });
-  
+  // Not a duplicate — register
+  seenFingerprints.add(fp);
+  storedSignals.push({ cleanTitle: clean, entities, keywords: kws });
   return false;
 }
 
