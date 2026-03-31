@@ -439,14 +439,12 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:
   <div class="sb-section-label">Strategy</div>
   <button class="sb-link" data-page="messaging-library"><span class="sb-dot"></span>Messaging Library</button>
   <button class="sb-link" data-page="win-loss"><span class="sb-dot"></span>Win / Loss Intel</button>
-  <button class="sb-link" data-page="gtm-readiness"><span class="sb-dot"></span>GTM Readiness</button>
   <button class="sb-link" data-page="campaign-calendar"><span class="sb-dot"></span>Campaign Calendar</button>
 
   <hr class="sb-divider">
   <div class="sb-section-label">Direct Channel</div>
   <button class="sb-link" data-page="smb-direct"><span class="sb-dot"></span>SMB Direct Playbook</button>
   <button class="sb-link" data-page="competitor-compare"><span class="sb-dot"></span>Competitor Compare</button>
-  <button class="sb-link" data-page="pricing-strategy"><span class="sb-dot"></span>Pricing Strategy</button>
 
   <div class="sb-meta" style="margin-top:20px;">
     FR · ES · DE · PT<br>
@@ -2560,11 +2558,9 @@ const titles = {
   'country-us':'🇺🇸 US Intelligence',
   'messaging-library':'Strategy — Messaging Library',
   'win-loss':'Strategy — Win / Loss Intel',
-  'gtm-readiness':'Strategy — GTM Readiness',
   'campaign-calendar':'Strategy — Campaign Calendar',
   'smb-direct':'Direct Channel — SMB Direct Playbook',
   'competitor-compare':'Direct Channel — Competitor Compare',
-  'pricing-strategy':'Direct Channel — Pricing Strategy'
 };
 
 function showPage(id) {
@@ -3822,180 +3818,6 @@ loadLiveSignals();
 </div>
 
 <!-- ══════ GTM READINESS ══════ -->
-<div class="page-section" id="page-gtm-readiness">
-  <div class="page-header reveal">
-    <div class="page-eyebrow">Strategy — GTM Readiness</div>
-    <div class="page-title">Launch readiness — <em>market by market</em></div>
-    <div class="page-subtitle">The 5Ds framework applied live. Where each market is across Discover, Define, Develop, Deliver, Drive. Use this for Steerco conversations, prioritisation decisions and resourcing calls.</div>
-  </div>
-
-  <div class="ifyrne reveal">
-    <div class="ifyrne-label">The 5Ds GTM Framework</div>
-    <p><strong>Discover</strong> — Market sizing, ICP definition, JTBD research complete. <strong>Define</strong> — Positioning, messaging and CVP confirmed. <strong>Develop</strong> — Sales enablement, battlecards, demo scripts built. <strong>Deliver</strong> — Technical readiness, legal/commercial, partner readiness confirmed. <strong>Drive</strong> — Live in market, KPIs active, adoption tracked, win/loss loop running.</p>
-  </div>
-
-  <!-- FRANCE READINESS -->
-  <div class="country-section-label reveal">🇫🇷 France — PA Mandate September 2026</div>
-  <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr 1fr;gap:10px;" class="reveal">
-    <div class="country-block" style="border-top:3px solid var(--g);text-align:center;">
-      <div class="cb-title" style="text-align:center;">Discover</div>
-      <div style="font-size:28px;margin:8px 0;">✅</div>
-      <div class="cb-body" style="font-size:11px;">Market sized. GE base mapped. ICP defined. Premium Club verbatims captured. Competitor landscape complete.</div>
-      <div style="margin-top:8px;"><span class="tag t-green">Complete</span></div>
-    </div>
-    <div class="country-block" style="border-top:3px solid var(--g);text-align:center;">
-      <div class="cb-title" style="text-align:center;">Define</div>
-      <div style="font-size:28px;margin:8px 0;">✅</div>
-      <div class="cb-body" style="font-size:11px;">SfA France Strategic Positioning FINAL complete. CVP defined. GE governing sentence approved. E-invoicing GTM brief published.</div>
-      <div style="margin-top:8px;"><span class="tag t-green">Complete</span></div>
-    </div>
-    <div class="country-block" style="border-top:3px solid var(--amber);text-align:center;">
-      <div class="cb-title" style="text-align:center;">Develop</div>
-      <div style="font-size:28px;margin:8px 0;">⚡</div>
-      <div class="cb-body" style="font-size:11px;">Battle cards built. Sales enablement deck in progress. GE-to-SfA onboarding guide needed. Congrès Atelier presentation in preparation.</div>
-      <div style="margin-top:8px;"><span class="tag t-amber">In progress</span></div>
-    </div>
-    <div class="country-block" style="border-top:3px solid var(--red);text-align:center;">
-      <div class="cb-title" style="text-align:center;">Deliver</div>
-      <div style="font-size:28px;margin:8px 0;">⚠️</div>
-      <div class="cb-body" style="font-size:11px;">PA via AKAO: live. GE-Active sync: pre-discovery — critical blocker. PA client registration: 50% of target. GMO resourcing risk.</div>
-      <div style="margin-top:8px;"><span class="tag t-red">Blocked</span></div>
-    </div>
-    <div class="country-block" style="border-top:3px solid var(--red);text-align:center;">
-      <div class="cb-title" style="text-align:center;">Drive</div>
-      <div style="font-size:28px;margin:8px 0;">🔴</div>
-      <div class="cb-body" style="font-size:11px;">Cannot fully activate until Deliver gates are cleared. Regate migration in progress. Active adoption building. PA registration pipeline must accelerate.</div>
-      <div style="margin-top:8px;"><span class="tag t-red">Not ready</span></div>
-    </div>
-  </div>
-
-  <!-- SPAIN READINESS -->
-  <div class="country-section-label reveal">🇪🇸 Spain — SfA Launch H2 FY26</div>
-  <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr 1fr;gap:10px;" class="reveal">
-    <div class="country-block" style="border-top:3px solid var(--g);text-align:center;">
-      <div class="cb-title" style="text-align:center;">Discover</div>
-      <div style="font-size:28px;margin:8px 0;">✅</div>
-      <div class="cb-body" style="font-size:11px;">Despachos base mapped. 20 competitor briefs complete. Verifactu regulatory analysis done. Xavi Vila ICP guidance incorporated.</div>
-      <div style="margin-top:8px;"><span class="tag t-green">Complete</span></div>
-    </div>
-    <div class="country-block" style="border-top:3px solid var(--g);text-align:center;">
-      <div class="cb-title" style="text-align:center;">Define</div>
-      <div style="font-size:28px;margin:8px 0;">✅</div>
-      <div class="cb-body" style="font-size:11px;">Spain GTM Brief v1.1 complete. Despachos governing sentence approved. Positioning vs Holded and Pennylane defined. Quantyca positioning confirmed.</div>
-      <div style="margin-top:8px;"><span class="tag t-green">Complete</span></div>
-    </div>
-    <div class="country-block" style="border-top:3px solid var(--amber);text-align:center;">
-      <div class="cb-title" style="text-align:center;">Develop</div>
-      <div style="font-size:28px;margin:8px 0;">⚡</div>
-      <div class="cb-body" style="font-size:11px;">Battle cards built. GoProposal revenue model brief needed. Spanish verbatims in development. Despachos→SfA onboarding guide in progress.</div>
-      <div style="margin-top:8px;"><span class="tag t-amber">In progress</span></div>
-    </div>
-    <div class="country-block" style="border-top:3px solid var(--amber);text-align:center;">
-      <div class="cb-title" style="text-align:center;">Deliver</div>
-      <div style="font-size:28px;margin:8px 0;">⚡</div>
-      <div class="cb-body" style="font-size:11px;">Active Verifactu-certified: ✅. Sage ID SSO: in resolution. Early adopter units committed. Despachos integration: functional. Launch event pending.</div>
-      <div style="margin-top:8px;"><span class="tag t-amber">Near ready</span></div>
-    </div>
-    <div class="country-block" style="border-top:3px solid var(--amber);text-align:center;">
-      <div class="cb-title" style="text-align:center;">Drive</div>
-      <div style="font-size:28px;margin:8px 0;">⚡</div>
-      <div class="cb-body" style="font-size:11px;">Early Active units live. Weekly Spain GTM meeting active. Target: 2,200 units via accountants by year end. Pennylane arrives H2 — Drive must launch before they do.</div>
-      <div style="margin-top:8px;"><span class="tag t-amber">Activating</span></div>
-    </div>
-  </div>
-
-  <!-- GERMANY READINESS -->
-  <div class="country-section-label reveal">🇩🇪 Germany — Definition Year FY26</div>
-  <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr 1fr;gap:10px;" class="reveal">
-    <div class="country-block" style="border-top:3px solid var(--amber);text-align:center;">
-      <div class="cb-title" style="text-align:center;">Discover</div>
-      <div style="font-size:28px;margin:8px 0;">⚡</div>
-      <div class="cb-body" style="font-size:11px;">DATEV landscape mapped. Lexoffice/SevDesk/Cegid positioned. XRechnung mandate understood. Accountant ICP not yet confirmed.</div>
-      <div style="margin-top:8px;"><span class="tag t-amber">Partial</span></div>
-    </div>
-    <div class="country-block" style="border-top:3px solid var(--red);text-align:center;">
-      <div class="cb-title" style="text-align:center;">Define</div>
-      <div style="font-size:28px;margin:8px 0;">🔴</div>
-      <div class="cb-body" style="font-size:11px;">SfA Germany proposition not yet defined. DATEV partnership model not confirmed. No CVP. Accountant ICP not agreed. FY26 priority: complete this gate.</div>
-      <div style="margin-top:8px;"><span class="tag t-red">Not started</span></div>
-    </div>
-    <div class="country-block" style="border-top:3px solid var(--text3);text-align:center;">
-      <div class="cb-title" style="text-align:center;">Develop</div>
-      <div style="font-size:28px;margin:8px 0;">⏳</div>
-      <div class="cb-body" style="font-size:11px;">Cannot develop until Define is complete.</div>
-      <div style="margin-top:8px;"><span class="tag t-grey">Pending</span></div>
-    </div>
-    <div class="country-block" style="border-top:3px solid var(--text3);text-align:center;">
-      <div class="cb-title" style="text-align:center;">Deliver</div>
-      <div style="font-size:28px;margin:8px 0;">⏳</div>
-      <div class="cb-body" style="font-size:11px;">XRechnung/ZUGFeRD readiness to be confirmed. DATEV export compatibility critical before any commercial activity.</div>
-      <div style="margin-top:8px;"><span class="tag t-grey">Pending</span></div>
-    </div>
-    <div class="country-block" style="border-top:3px solid var(--text3);text-align:center;">
-      <div class="cb-title" style="text-align:center;">Drive</div>
-      <div style="font-size:28px;margin:8px 0;">⏳</div>
-      <div class="cb-body" style="font-size:11px;">FY27 target. Jan 2028 e-invoice mandate is the commercial catalyst. FY26 = definition only.</div>
-      <div style="margin-top:8px;"><span class="tag t-grey">FY27</span></div>
-    </div>
-  </div>
-
-  <!-- PORTUGAL READINESS -->
-  <div class="country-section-label reveal">🇵🇹 Portugal — Proposition Definition FY26</div>
-  <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr 1fr;gap:10px;" class="reveal">
-    <div class="country-block" style="border-top:3px solid var(--amber);text-align:center;">
-      <div class="cb-title" style="text-align:center;">Discover</div>
-      <div style="font-size:28px;margin:8px 0;">⚡</div>
-      <div class="cb-body" style="font-size:11px;">OCC landscape mapped. Primavera/Cegid, PHC, TOConline positioned. SAF-T mandate understood. Accountant ICP not yet confirmed.</div>
-      <div style="margin-top:8px;"><span class="tag t-amber">Partial</span></div>
-    </div>
-    <div class="country-block" style="border-top:3px solid var(--red);text-align:center;">
-      <div class="cb-title" style="text-align:center;">Define</div>
-      <div style="font-size:28px;margin:8px 0;">🔴</div>
-      <div class="cb-body" style="font-size:11px;">SfA Portugal proposition not yet defined. OCC engagement not started. No CVP. SAF-T certification status unclear. FY26 priority.</div>
-      <div style="margin-top:8px;"><span class="tag t-red">Not started</span></div>
-    </div>
-    <div class="country-block" style="border-top:3px solid var(--text3);text-align:center;">
-      <div class="cb-title" style="text-align:center;">Develop</div><div style="font-size:28px;margin:8px 0;">⏳</div>
-      <div class="cb-body" style="font-size:11px;">Pending Define completion.</div>
-      <div style="margin-top:8px;"><span class="tag t-grey">Pending</span></div>
-    </div>
-    <div class="country-block" style="border-top:3px solid var(--text3);text-align:center;">
-      <div class="cb-title" style="text-align:center;">Deliver</div><div style="font-size:28px;margin:8px 0;">⏳</div>
-      <div class="cb-body" style="font-size:11px;">SAF-T, IES and B2G compliance required. Must be certified before any Portuguese accountant conversation.</div>
-      <div style="margin-top:8px;"><span class="tag t-grey">Pending</span></div>
-    </div>
-    <div class="country-block" style="border-top:3px solid var(--text3);text-align:center;">
-      <div class="cb-title" style="text-align:center;">Drive</div><div style="font-size:28px;margin:8px 0;">⏳</div>
-      <div class="cb-body" style="font-size:11px;">SAF-T 2027 is the commercial catalyst. GTM must be ready H1 FY27 before mandate window opens.</div>
-      <div style="margin-top:8px;"><span class="tag t-grey">FY27</span></div>
-    </div>
-  </div>
-
-  <!-- PRIORITY ACTIONS -->
-  <div class="country-section-label reveal">Priority Actions by Gate</div>
-  <div class="country-block reveal">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
-      <div>
-        <div style="font-family:var(--font);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--red);margin-bottom:10px;">🔴 Blocked — Immediate Action</div>
-        <div style="font-size:12px;line-height:1.9;color:var(--text2);">
-          <strong>FR: GE-Active bi-directional sync</strong> — still pre-discovery. Single biggest OKR3 blocker. Must be unblocked before Cegid's 100 reps reach GE practices in Q2.<br><br>
-          <strong>FR: PA client registration</strong> — 50% of target with 155 days to mandate. Needs crisis-level commercial activation, not a PMM campaign.<br><br>
-          <strong>DE/PT: Define gate</strong> — no CVP, no ICP, no governing sentence. Cannot build enablement materials or have accountant conversations without this foundation.
-        </div>
-      </div>
-      <div>
-        <div style="font-family:var(--font);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--amber);margin-bottom:10px;">🟡 In Progress — Accelerate</div>
-        <div style="font-size:12px;line-height:1.9;color:var(--text2);">
-          <strong>ES: Sage ID SSO resolution</strong> — must be complete before launch event. Any friction at first practice login travels through the Despachos network instantly.<br><br>
-          <strong>ES: GoProposal revenue model brief</strong> — Verifactu repricing conversation needs a systematic enablement tool. This is the commercial accelerator for Spain.<br><br>
-          <strong>FR: Congrès Atelier preparation</strong> — October 2026 is post-mandate. Sage's Atelier must be the definitive "what comes next" conversation, not a compliance pitch.
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ══════ CAMPAIGN CALENDAR ══════ -->
 <div class="page-section" id="page-campaign-calendar">
   <div class="page-header reveal">
     <div class="page-eyebrow">Strategy — Campaign Calendar</div>
@@ -4344,92 +4166,6 @@ loadLiveSignals();
 </div>
 
 <!-- ══════ PRICING STRATEGY ══════ -->
-<div class="page-section" id="page-pricing-strategy">
-  <div class="page-header reveal">
-    <div class="page-eyebrow">Direct Channel — Pricing Strategy</div>
-    <div class="page-title">How Sage prices to win — <em>the commercial logic</em></div>
-    <div class="page-subtitle">No specific prices here — this page explains the packaging logic, the channel model economics, and how to position Sage's value against competitors in pricing conversations. The goal: every accountant understands why Sage's channel pricing model is a commercial advantage for their practice.</div>
-  </div>
-
-  <div class="ifyrne reveal">
-    <div class="ifyrne-label">The core pricing principle</div>
-    <p>Sage's pricing model is structured around one insight: <strong>the accountant channel is the most efficient distribution model in European SME software</strong>. By giving accountants the economic incentive to recommend Sage, the cost of customer acquisition is dramatically lower than direct competitors who rely on digital advertising and sales teams. This lower acquisition cost is reinvested in product depth — compliance, AI, ecosystem — rather than marketing spend. Challengers spend to acquire. Sage builds to retain.</p>
-  </div>
-
-  <!-- CHANNEL MODEL ECONOMICS -->
-  <div class="country-section-label reveal">The Channel Model — How the Economics Work</div>
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;" class="reveal">
-    <div class="country-block" style="border-top:3px solid var(--g);">
-      <div class="cb-title">The accountant discount model — explained simply</div>
-      <div class="cb-body" style="font-size:12px;line-height:1.9;">
-        Sage Active is available direct to SMEs at a standard rate. When provisioned through a Sage for Accountants practice, the rate is significantly discounted — reflecting the fact that the accountant provides first-line support, client relationship management, and compliance advisory that Sage would otherwise need to provide directly.<br><br>
-        <strong>For the accountant:</strong> Ability to offer a competitive, modern cloud accounting platform to clients at a rate that allows the practice to build in their advisory fee on top. The software becomes a revenue line, not a cost.<br><br>
-        <strong>For the SMB client:</strong> They access best-in-class cloud accounting software at a rate they could not get directly — with their accountant as the relationship manager. Better software, better advice, better value.<br><br>
-        <strong>For Sage:</strong> Dramatically lower customer acquisition cost vs direct digital, stickier clients (accountant-managed clients churn at lower rates), and scalable distribution through an established channel.
-      </div>
-    </div>
-    <div class="country-block" style="border-top:3px solid var(--amber);">
-      <div class="cb-title">The new practice revenue model — GoProposal</div>
-      <div class="cb-body" style="font-size:12px;line-height:1.9;">
-        GoProposal is how accounting practices turn software provisioning into a systematic recurring revenue stream. The model:<br><br>
-        <strong>Step 1 — Mandate trigger:</strong> The PA mandate (FR) or Verifactu mandate (ES) creates the reason to have a repricing conversation with every client.<br><br>
-        <strong>Step 2 — GoProposal packaging:</strong> The practice uses GoProposal to build a proposal combining the Active subscription cost, a compliance advisory fee, and (optionally) an advisory service fee using Sage Prévision data.<br><br>
-        <strong>Step 3 — Client engagement letter:</strong> The proposal becomes a signed engagement letter with AML/KYC compliance built in. This creates a formal, recurring commercial relationship that is significantly more valuable than ad-hoc compliance work.<br><br>
-        <strong>The result:</strong> Every Active client generates predictable monthly practice revenue. The mandate becomes a revenue opportunity, not a compliance headache.
-      </div>
-    </div>
-  </div>
-
-  <!-- COMPETITIVE PRICING POSITIONING -->
-  <div class="country-section-label reveal">Competitive Pricing Positioning — How to Win the Conversation</div>
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;" class="reveal">
-    <div class="signal-card" style="border-left:3px solid var(--amber);">
-      <div class="sc-top"><div class="sc-tags"><span class="tag t-amber">Spain</span></div><span class="sc-date">vs Holded</span></div>
-      <div class="sc-title">Holded Advanced vs Sage Active Essentials — the right comparison</div>
-      <div class="sc-body">
-        When accountants compare Holded and Sage Active on price, the comparison is often made at the wrong tier. The correct comparison: <strong>Holded Advanced (the tier with multi-user and full features) vs Sage Active Essentials (channel pricing, via accountant)</strong>. The comparison then changes significantly.<br><br>
-        Holded Advanced is priced for up to 7 users. Sage Active Essentials (channel) covers up to 10 users with payroll included. Holded Advanced does not include payroll at comparable specification. When the accountant calculates total cost (software + payroll solution + advisory time), Sage Active Essentials is not more expensive — it is structurally more efficient.<br><br>
-        <strong>The frame:</strong> "You're comparing Holded for 7 users without payroll against Sage Active for 10 users with Modelo 303, RPF, and Verifactu certification. Those are different products at different price points. And one of them goes to your clients directly."
-      </div>
-    </div>
-    <div class="signal-card" style="border-left:3px solid var(--text3);">
-      <div class="sc-top"><div class="sc-tags"><span class="tag t-grey">Spain</span></div><span class="sc-date">vs Free tools</span></div>
-      <div class="sc-title">Contasol / Delsol free vs Sage Active — the TCO conversation</div>
-      <div class="sc-body">
-        The "it's free" objection is the most common pricing objection in Spain. The answer is never to compete on price — it is to reframe the total cost of ownership and the total commercial opportunity.<br><br>
-        <strong>The free tool TCO:</strong> Software is free. But accountant time to process non-Verifactu-compliant invoices after January 2027 is not free. Client communication about non-compliance is not free. The liability of missing the mandate is not free. And the practice revenue that GoProposal would generate does not exist with a free tool.<br><br>
-        <strong>The Active TCO:</strong> Channel pricing means the software cost is covered by the practice fee. GoProposal generates a new monthly income from every client. The mandate is handled. The accountant's advisory time shifts from compliance processing to client strategy.<br><br>
-        <strong>The frame:</strong> "Free software costs your practice in accountant time, liability exposure, and lost practice revenue. Active costs your clients a small monthly fee and generates your practice a new income stream. Which model is actually free?"
-      </div>
-    </div>
-  </div>
-
-  <!-- PACKAGING LOGIC -->
-  <div class="country-section-label reveal">Packaging Logic — Starter vs Essentials</div>
-  <div class="country-block reveal">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
-      <div>
-        <div style="font-family:var(--font);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--teal);margin-bottom:10px;">Active Starter — Who it's for</div>
-        <div style="font-size:12px;color:var(--text2);line-height:1.8;">
-          <strong>ICP:</strong> New businesses, autónomos (ES), auto-entrepreneurs (FR), micro-entreprises, businesses in their first 1-2 years.<br><br>
-          <strong>What it does:</strong> E-invoicing (PA or Verifactu), basic bookkeeping, bank reconciliation, expense management. The pre-accounting layer.<br><br>
-          <strong>Why Starter, not Essentials:</strong> Price sensitivity at entry level. The goal is to get them into the Active ecosystem with minimal friction. Upsell to Essentials when payroll or multi-currency becomes a need.<br><br>
-          <strong>Channel logic:</strong> Accountant provisions Starter. As the business grows and needs more — payroll, VAT returns, more users — the accountant upgrades them to Essentials. The practice revenue grows with the client.
-        </div>
-      </div>
-      <div>
-        <div style="font-family:var(--font);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--g);margin-bottom:10px;">Active Essentials — Who it's for</div>
-        <div style="font-size:12px;color:var(--text2);line-height:1.8;">
-          <strong>ICP:</strong> SMEs with 1+ employees, businesses with payroll obligations, growing businesses needing cash flow management, businesses with complex VAT requirements.<br><br>
-          <strong>What it does:</strong> Everything in Starter plus payroll (DSN in FR, Modelo 303/RPF in ES), multi-user access (up to 10), cash flow forecasting via Sage Prévision integration, Copilot AI full access.<br><br>
-          <strong>Why Essentials, not Starter:</strong> Payroll is the decisive functional differentiator. When an SME has employees, Essentials is the only product in the Active range that covers the full compliance picture.<br><br>
-          <strong>Channel logic:</strong> Essentials is the primary GoProposal proposal product. The practice packages Essentials + their advisory fee + compliance service into a GoProposal engagement letter. This creates the new monthly practice revenue model.
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
 
 
 </div><!-- /#main -->
