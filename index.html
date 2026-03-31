@@ -435,10 +435,23 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:
   <button class="sb-link" data-page="country-uk"><span class="sb-dot"></span>🇬🇧 United Kingdom</button>
   <button class="sb-link" data-page="country-us"><span class="sb-dot"></span>🇺🇸 United States</button>
 
+  <hr class="sb-divider">
+  <div class="sb-section-label">Strategy</div>
+  <button class="sb-link" data-page="messaging-library"><span class="sb-dot"></span>Messaging Library</button>
+  <button class="sb-link" data-page="win-loss"><span class="sb-dot"></span>Win / Loss Intel</button>
+  <button class="sb-link" data-page="gtm-readiness"><span class="sb-dot"></span>GTM Readiness</button>
+  <button class="sb-link" data-page="campaign-calendar"><span class="sb-dot"></span>Campaign Calendar</button>
+
+  <hr class="sb-divider">
+  <div class="sb-section-label">Direct Channel</div>
+  <button class="sb-link" data-page="smb-direct"><span class="sb-dot"></span>SMB Direct Playbook</button>
+  <button class="sb-link" data-page="competitor-compare"><span class="sb-dot"></span>Competitor Compare</button>
+  <button class="sb-link" data-page="pricing-strategy"><span class="sb-dot"></span>Pricing Strategy</button>
+
   <div class="sb-meta" style="margin-top:20px;">
     FR · ES · DE · PT<br>
     Sage Europe · Small Business &amp; Accountants<br>
-    Updated: March 30, 2026
+    Updated: March 31, 2026
   </div>
 </div>
 
@@ -2544,7 +2557,14 @@ const titles = {
   'country-de':'🇩🇪 Germany Intelligence',
   'country-pt':'🇵🇹 Portugal Intelligence',
   'country-uk':'🇬🇧 UK Intelligence',
-  'country-us':'🇺🇸 US Intelligence'
+  'country-us':'🇺🇸 US Intelligence',
+  'messaging-library':'Strategy — Messaging Library',
+  'win-loss':'Strategy — Win / Loss Intel',
+  'gtm-readiness':'Strategy — GTM Readiness',
+  'campaign-calendar':'Strategy — Campaign Calendar',
+  'smb-direct':'Direct Channel — SMB Direct Playbook',
+  'competitor-compare':'Direct Channel — Competitor Compare',
+  'pricing-strategy':'Direct Channel — Pricing Strategy'
 };
 
 function showPage(id) {
@@ -3534,6 +3554,883 @@ loadLiveSignals();
     </div>
   </div>
 </div>
+
+
+<!-- ══════ MESSAGING LIBRARY ══════ -->
+<div class="page-section" id="page-messaging-library">
+  <div class="page-header reveal">
+    <div class="page-eyebrow">Strategy — Messaging Library</div>
+    <div class="page-title">What to say — <em>and what never to say</em></div>
+    <div class="page-subtitle">Approved verbatims by audience, market and product. Use these directly. Adapt the framing, never the substance. Every line has been tested against the competitive landscape.</div>
+  </div>
+
+  <div class="ifyrne reveal">
+    <div class="ifyrne-label">How to use this page</div>
+    <p>This is your messaging source of truth for FR, ES, DE and PT. The verbatims below are outcome-led, compliance-aware and channel-first. Start with the governing sentence for each market — it is the single line that unlocks every conversation. Then use the audience-specific messages beneath it.</p>
+  </div>
+
+  <!-- GOVERNING SENTENCES -->
+  <div class="country-section-label reveal">Governing Sentences — One Per Market</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;" class="reveal">
+    <div class="country-block" style="border-left:4px solid var(--g);">
+      <div class="cb-title">🇫🇷 France — The GE governing sentence</div>
+      <div class="cb-body" style="font-family:var(--serif);font-size:14px;font-style:italic;color:var(--text);line-height:1.7;margin-bottom:12px;">"Votre GE reste votre GE. Ce qui change, c'est que vous pouvez maintenant activer Sage Active pour vos clients — sans changer votre façon de travailler aujourd'hui."</div>
+      <div class="cb-body"><strong>In English:</strong> "Your GE stays your GE. What changes is that you can now activate Sage Active for your clients — without changing how you work today."<br><br><strong>When to use:</strong> Every first conversation with a GE practice. Before any product demo. In all France accountant marketing copy.</div>
+    </div>
+    <div class="country-block" style="border-left:4px solid var(--amber);">
+      <div class="cb-title">🇪🇸 Spain — The Despachos governing sentence</div>
+      <div class="cb-body" style="font-family:var(--serif);font-size:14px;font-style:italic;color:var(--text);line-height:1.7;margin-bottom:12px;">"Despachos no va a ningún lado. Lo que cambia es que ahora puedes activar Sage Active para tus clientes desde Despachos — sin cambiar cómo trabajas hoy."</div>
+      <div class="cb-body"><strong>In English:</strong> "Despachos isn't going anywhere. What changes is that you can now activate Sage Active for your clients through Despachos — without changing how you work today."<br><br><strong>When to use:</strong> Every first conversation with a Despachos practice. SfA Spain launch materials. All Spain commercial conversations.</div>
+    </div>
+    <div class="country-block" style="border-left:4px solid var(--blue);">
+      <div class="cb-title">🇩🇪 Germany — The DATEV governing sentence</div>
+      <div class="cb-body" style="font-family:var(--serif);font-size:14px;font-style:italic;color:var(--text);line-height:1.7;margin-bottom:12px;">"Sage Active is the modern business management platform DATEV accountants recommend to clients — above the compliance layer, not competing with it."</div>
+      <div class="cb-body"><strong>When to use:</strong> Every Germany conversation. Must establish immediately that Sage works alongside DATEV, not against it. This sentence defines the entire Germany go-to-market position.<br><br><strong>In German (working draft):</strong> "Sage Active ist die moderne Unternehmensmanagement-Plattform, die DATEV-Steuerberater ihren Mandanten empfehlen — ergänzend zur Compliance-Ebene, nicht konkurrierend."</div>
+    </div>
+    <div class="country-block" style="border-left:4px solid var(--teal);">
+      <div class="cb-title">🇵🇹 Portugal — The OCC governing sentence</div>
+      <div class="cb-body" style="font-family:var(--serif);font-size:14px;font-style:italic;color:var(--text);line-height:1.7;margin-bottom:12px;">"TOConline handles compliance. Sage handles compliance AND practice growth — so your clients see you as their most valuable business advisor, not just their accountant."</div>
+      <div class="cb-body"><strong>When to use:</strong> Every Portugal conversation where TOConline is the incumbent. Positions Sage not against compliance tools but above them — on practice value and advisory revenue.<br><br><strong>In Portuguese (working draft):</strong> "O TOConline trata da conformidade. O Sage trata da conformidade E do crescimento do seu despacho."</div>
+    </div>
+  </div>
+
+  <!-- BY AUDIENCE -->
+  <div class="country-section-label reveal">Messaging by Audience</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;" class="reveal">
+    <div class="country-block" style="border-top:3px solid var(--g);">
+      <div class="cb-title">When speaking to Practice Partners / Owners</div>
+      <div class="cb-body" style="font-size:12px;line-height:1.8;">
+        <strong style="color:var(--g);">Open with new practice revenue:</strong><br>"Every client you onboard to Active becomes a new monthly income stream for your practice — not a service fee, a software revenue line. GoProposal makes it systematic."<br><br>
+        <strong style="color:var(--g);">Then compliance confidence:</strong><br>"September 2026 [or January 2027 in ES] is handled. Your clients are covered from day one. You don't need to explain the mandate — Sage does that."<br><br>
+        <strong style="color:var(--g);">Close with channel protection:</strong><br>"Pennylane and Holded are going directly to your clients. We come through you. That's a strategic choice we're committed to."<br><br>
+        <strong style="color:var(--red);">Never say:</strong> Feature lists, product names before outcomes, anything that sounds like a migration pitch.
+      </div>
+    </div>
+    <div class="country-block" style="border-top:3px solid var(--teal);">
+      <div class="cb-title">When speaking to Individual Accountants</div>
+      <div class="cb-body" style="font-size:12px;line-height:1.8;">
+        <strong style="color:var(--g);">Open with time savings:</strong><br>"Copilot checks your clients' PA submissions before they go out — flagging Factur-X errors automatically. You review, confirm, move on. The AI does the checking."<br><br>
+        <strong style="color:var(--g);">Then career relevance:</strong><br>"The practices hiring right now are asking 'do you know Active?' The ones not asking yet will be asking in 12 months. Being the person who already knows it puts you ahead."<br><br>
+        <strong style="color:var(--g);">Close with trust:</strong><br>"Sage has been doing French [or Spanish / German] compliance for 40 years. The AI knows the rules from the inside — not from the internet."<br><br>
+        <strong style="color:var(--red);">Never say:</strong> "It's easy to use," "it's intuitive" (let them experience it), or any comparison that sounds defensive.
+      </div>
+    </div>
+    <div class="country-block" style="border-top:3px solid var(--purple);">
+      <div class="cb-title">When speaking to SMB Clients (via accountant)</div>
+      <div class="cb-body" style="font-size:12px;line-height:1.8;">
+        <strong style="color:var(--g);">Open with certainty:</strong><br>"Your invoices go out correctly. Your accounts are done. Your tax compliance is handled. You run your business — Sage handles the rest."<br><br>
+        <strong style="color:var(--g);">Then mandate reassurance:</strong><br>"Your accountant has made sure you're covered for the new rules — you don't need to do anything differently."<br><br>
+        <strong style="color:var(--g);">Close with trust shortcut:</strong><br>"Sage has handled European business compliance for 40 years. Your finances are in safe hands."<br><br>
+        <strong style="color:var(--red);">Never say:</strong> PA, DGFiP, Factur-X, Verifactu, SIF, XRechnung, or any compliance acronym. SMB clients care about confidence — not the mechanics.
+      </div>
+    </div>
+  </div>
+
+  <!-- BY PRODUCT -->
+  <div class="country-section-label reveal">Product Messaging — What Each Product Does (Not Is)</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;" class="reveal">
+    <div class="country-block" style="border-left:3px solid var(--g);">
+      <div class="cb-title">Sage Active — How to introduce it</div>
+      <div class="cb-body" style="font-size:12px;line-height:1.8;">
+        <strong>Don't say:</strong> "Sage Active is a cloud accounting platform with Copilot AI..."<br><br>
+        <strong>Say instead:</strong> "Active is how your clients manage their business finances in the cloud — invoicing, expenses, payroll, cash flow — while staying connected to your practice. You provision it for them, they use it daily, and you stay at the centre of every financial decision they make."<br><br>
+        <strong>Compliance version (FR):</strong> "Active is PA-certified — so every invoice your client issues or receives goes through a DGFiP-registered platform automatically. September 2026 is covered."<br><br>
+        <strong>Compliance version (ES):</strong> "Active is Verifactu-certified today — so when January 2027 arrives, your clients are already compliant. Nothing to change."
+      </div>
+    </div>
+    <div class="country-block" style="border-left:3px solid var(--teal);">
+      <div class="cb-title">AutoEntry + AKAO — How to introduce it</div>
+      <div class="cb-body" style="font-size:12px;line-height:1.8;">
+        <strong>Don't say:</strong> "AutoEntry is an OCR document capture tool with DGFiP PA registration via AKAO..."<br><br>
+        <strong>Say instead:</strong> "AutoEntry is how your clients' invoices get into your system — scanned, verified by a human, categorised correctly, and ready for you to review. No manual data entry. No missing documents. And from September 2026, it's also your clients' PA — the platform that receives their e-invoices from DGFiP."<br><br>
+        <strong>The one-liner:</strong> "The tool that turns your clients' paper and digital invoices into clean accounting data — and handles PA compliance at the same time."
+      </div>
+    </div>
+    <div class="country-block" style="border-left:3px solid var(--purple);">
+      <div class="cb-title">GoProposal — How to introduce it</div>
+      <div class="cb-body" style="font-size:12px;line-height:1.8;">
+        <strong>Don't say:</strong> "GoProposal is a proposal, engagement letter and AML/KYC compliance platform..."<br><br>
+        <strong>Say instead:</strong> "GoProposal is how your practice turns software into a monthly income stream. Every client you onboard to Active gets a proposal built in GoProposal — with the software fee, your advisory fee, and your compliance service packaged together. Verifactu [or the PA mandate] means every client needs repricing anyway. GoProposal is how you do it systematically and professionally."<br><br>
+        <strong>The one-liner:</strong> "The tool that turns the mandate into a revenue conversation."
+      </div>
+    </div>
+    <div class="country-block" style="border-left:3px solid var(--blue);">
+      <div class="cb-title">Sage Prévision — How to introduce it</div>
+      <div class="cb-body" style="font-size:12px;line-height:1.8;">
+        <strong>Don't say:</strong> "Sage Prévision is our advisory and forecasting platform, formerly known as Futrli..."<br><br>
+        <strong>Say instead:</strong> "Sage Prévision is what turns your clients' numbers into conversations. Every month, your clients see an AI-generated view of their cash position, their forecast versus actual, and three things to watch. You review it in 10 minutes. You deliver it in a 20-minute advisory call. That's a new revenue conversation every single month — with every single client."<br><br>
+        <strong>Never say:</strong> Futrli. In EU contexts, always Sage Prévision.<br><br>
+        <strong>The one-liner:</strong> "The tool that makes every accountant an advisor."
+      </div>
+    </div>
+  </div>
+
+  <!-- WHAT NOT TO SAY -->
+  <div class="country-section-label reveal">What Never to Say — Across All Markets</div>
+  <div class="country-block reveal">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+      <div>
+        <div style="font-family:var(--font);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--red);margin-bottom:12px;">✗ Never say these</div>
+        <div style="font-size:12px;color:var(--text2);line-height:2.0;">
+          "It's a migration" — Active is never a migration from anything<br>
+          "Futrli" — always Sage Prévision in EU<br>
+          "SFA" — always SfA<br>
+          "PDP" — always PA<br>
+          "Easy to use" — show it, don't claim it<br>
+          "All-in-one" — Holded owns that phrase<br>
+          "AI-powered" (without specifics) — too generic<br>
+          Any price in a shareable document<br>
+          Any OKR number or ARR target<br>
+          "We're better than Pennylane" — show, don't compare
+        </div>
+      </div>
+      <div>
+        <div style="font-family:var(--font);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--g);margin-bottom:12px;">✓ Always say these instead</div>
+        <div style="font-size:12px;color:var(--text2);line-height:2.0;">
+          "Active is for new clients" — not a migration, not a replacement<br>
+          "Sage Prévision" — always, in all EU materials<br>
+          "SfA" — correct capitalisation always<br>
+          "PA" — the current term<br>
+          "Try it with one client" — lower the activation bar<br>
+          "Compliance + growth" — our positioning<br>
+          "AI that knows [country] compliance" — specific, defensible<br>
+          Outcome-led descriptions — what it does, not what it is<br>
+          "Through you, not around you" — channel model<br>
+          "40 years of European compliance" — the trust proof point
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════ WIN / LOSS ══════ -->
+<div class="page-section" id="page-win-loss">
+  <div class="page-header reveal">
+    <div class="page-eyebrow">Strategy — Win / Loss Intelligence</div>
+    <div class="page-title">Why we win — and <em>why we lose</em></div>
+    <div class="page-subtitle">Based on market signals, accountant verbatims, competitor analysis and public win/loss patterns. Updated as new intelligence arrives. Use this to coach conversations, build battlecards and prioritise product gaps.</div>
+  </div>
+
+  <div class="ifyrne reveal">
+    <div class="ifyrne-label">How to read this page</div>
+    <p>The patterns below are drawn from public signals — accountant community feedback, LinkedIn commentary, competitor positioning, and conference intelligence. They represent the observable patterns in why accountants choose Sage or choose something else. This is not internal pipeline data — it is structured competitive intelligence that should inform every commercial conversation.</p>
+  </div>
+
+  <!-- WHY WE WIN -->
+  <div class="country-section-label reveal">Why Sage Wins — By Market</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;" class="reveal">
+    <div class="country-block" style="border-top:3px solid var(--g);">
+      <div class="cb-title">🇫🇷 France — Why Sage wins</div>
+      <div class="cb-body" style="font-size:12px;line-height:1.9;">
+        <strong style="color:var(--g);">1. Migration-free compliance.</strong> No competitor can offer DGFiP PA registration combined with GE data staying in GE. Pennylane requires data migration. Cegid/EBP requires data migration. Sage does not. This is the #1 win factor when directly competitive.<br><br>
+        <strong style="color:var(--g);">2. 40-year relationship trust.</strong> Established GE practices — particularly those over 15 years old — have deep Sage loyalty built through decades of compliance updates, software support, and practice-specific customisation. Newer challengers cannot buy this trust.<br><br>
+        <strong style="color:var(--g);">3. Full ecosystem vs single product.</strong> Sage offers AE+AKAO+GoProposal+Prévision+Active as an integrated suite. Pennylane is a single platform. When practices evaluate total cost and total capability, Sage's ecosystem wins.<br><br>
+        <strong style="color:var(--g);">4. September 2026 readiness today.</strong> Sage is PA-registered via AKAO. Pennylane is also registered, but GE practices can activate Sage's PA without touching their existing workflow. That "zero disruption" argument is unique.
+      </div>
+    </div>
+    <div class="country-block" style="border-top:3px solid var(--amber);">
+      <div class="cb-title">🇪🇸 Spain — Why Sage wins</div>
+      <div class="cb-body" style="font-size:12px;line-height:1.9;">
+        <strong style="color:var(--g);">1. Verifactu-certified today, competitors still building.</strong> Active is Verifactu-certified. Holded "is working on it." A3's national position is unclear. First-mover certification in a mandate-driven market is a significant close advantage.<br><br>
+        <strong style="color:var(--g);">2. Despachos channel loyalty.</strong> 5,200 practices with an established Despachos relationship represent an enormous conversion opportunity. Pennylane has zero Spain presence. Holded bypasses the channel entirely.<br><br>
+        <strong style="color:var(--g);">3. Payroll in the box.</strong> Active Essentials includes payroll (Modelo 303, RPF). Holded Advanced does not include payroll at comparable specification. In a country where payroll compliance is the #1 reason SMEs need an accountant, this is a decisive functional advantage.<br><br>
+        <strong style="color:var(--g);">4. GoProposal revenue model.</strong> Verifactu forces every practice to reprice every client. Sage offers the only systematic tool — GoProposal — to do this profitably. No competitor in Spain offers this alongside the compliance software.
+      </div>
+    </div>
+  </div>
+
+  <!-- WHY WE LOSE -->
+  <div class="country-section-label reveal">Why Sage Loses — By Competitor</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;" class="reveal">
+    <div class="signal-card" style="border-left:3px solid var(--red);">
+      <div class="sc-top"><div class="sc-tags"><span class="tag t-red">Most common</span><span class="tag t-grey">FR · ES</span></div><span class="sc-date">vs Pennylane</span></div>
+      <div class="sc-title">Why practices choose Pennylane over Sage</div>
+      <div class="sc-body">
+        <strong>1. Modern UX perception.</strong> Pennylane's interface looks newer. Accountants — particularly those under 35 — associate modern UX with modern thinking. GE's interface is not winning design comparisons. Verbatim: "Pennylane is becoming a pre-requisite when hiring" (Premium Club, Nov 2025).<br><br>
+        <strong>2. Speed of getting started.</strong> Pennylane onboards a new client in minutes from a browser. SfA onboarding has had friction points — Sage ID SSO, GE connectivity delays, product gaps. When "getting started" is compared side by side, Pennylane wins on immediacy.<br><br>
+        <strong>3. AI-first narrative.</strong> Pennylane's AI co-pilot is visible, immediate, and outcome-demonstrable in the first session. Sage Copilot's compliance advantages are real but require more explanation to land.<br><br>
+        <strong>4. Banking integration narrative.</strong> French IBAN, expense cards, and payment flows give Pennylane a "one platform" story Sage doesn't have without AutoEntry + Active combined.
+      </div>
+      <div class="sc-implication">
+        <div class="sc-impl-label">What to do about it</div>
+        <div class="sc-impl-body">Lead with migration-free and PA compliance before Pennylane raises the UX argument. If UX is raised: "Pennylane's design is great. When a specific Factur-X field fails PA validation, whose compliance team do you call?" That conversation ends the UX debate.</div>
+      </div>
+    </div>
+    <div class="signal-card" style="border-left:3px solid var(--red);">
+      <div class="sc-top"><div class="sc-tags"><span class="tag t-red">Growing threat</span><span class="tag t-grey">FR</span></div><span class="sc-date">vs Cegid + EBP</span></div>
+      <div class="sc-title">Why practices choose Cegid/EBP over Sage</div>
+      <div class="sc-body">
+        <strong>1. Existing EBP familiarity.</strong> 275,000 French SME clients are already on EBP. For GE practices with EBP clients, the "stay in the Cegid ecosystem" argument has surface-level logic — even though EBP migration is required.<br><br>
+        <strong>2. 100 sales reps on the ground.</strong> Cegid is deploying 100 commercial hires in France from Q2 2026. Human contact from a well-resourced commercial team is a loss factor when Sage's own commercial coverage is thinner.<br><br>
+        <strong>3. Banking + accounting narrative.</strong> Cegid/Shine gives practices a "complete financial platform" story — accounting + banking + payroll in one. The narrative is compelling even if the product integration is still being built post-acquisition.
+      </div>
+      <div class="sc-implication">
+        <div class="sc-impl-label">What to do about it</div>
+        <div class="sc-impl-body">"Cegid built their network through acquisitions. EBP is a separate product requiring full client migration. GE stays as GE — your clients don't move. That's not a migration risk, that's a migration guarantee with Cegid." Speed of reach matters — Sage must contact GE practices before Cegid's 100 reps do in Q2.</div>
+      </div>
+    </div>
+    <div class="signal-card" style="border-left:3px solid var(--amber);">
+      <div class="sc-top"><div class="sc-tags"><span class="tag t-amber">Spain primary</span><span class="tag t-grey">ES</span></div><span class="sc-date">vs Holded</span></div>
+      <div class="sc-title">Why businesses choose Holded over Sage Active</div>
+      <div class="sc-body">
+        <strong>1. UI/UX wins the demo.</strong> Holded is genuinely the most visually modern product in the Spanish market. In a demo context where both products are shown side by side, Holded's UI creates a stronger first impression — particularly for SME owners who are also consumers of design-led apps.<br><br>
+        <strong>2. Direct-to-SME marketing.</strong> Holded reaches SMEs directly through digital marketing, content and brand. SMEs who find Holded before they ask their accountant represent a channel bypass — the accountant then supports what the client already chose.<br><br>
+        <strong>3. "All-in-one" positioning resonates.</strong> 700+ integrations and a broad feature set makes Holded feel complete. Active's current H1 proposition is more focused — which is strategically correct but can feel narrower in a direct feature comparison.
+      </div>
+      <div class="sc-implication">
+        <div class="sc-impl-label">What to do about it</div>
+        <div class="sc-impl-body">"Holded is reaching your clients directly. We come through you. Which model keeps you at the centre of the relationship in 5 years?" Never compete on UI — compete on channel model and payroll specification. Payroll is the decisive functional gap: "Can Holded do Modelo 303 and RPF natively? Active can."</div>
+      </div>
+    </div>
+    <div class="signal-card" style="border-left:3px solid var(--text3);">
+      <div class="sc-top"><div class="sc-tags"><span class="tag t-grey">Price signal</span><span class="tag t-grey">ES</span></div><span class="sc-date">vs Contasol / Delsol</span></div>
+      <div class="sc-title">Why practices don't switch away from free tools</div>
+      <div class="sc-body">
+        <strong>1. "It's free and it works."</strong> Contasol and Delsol are free and functional for basic Spanish bookkeeping. The switching cost — time, learning, client communication — feels high when the current tool has no monetary cost.<br><br>
+        <strong>2. No Verifactu urgency yet.</strong> With the mandate delayed to January 2027, the urgency to switch is reduced. Practices that aren't yet feeling commercial pressure to change have no forcing function.<br><br>
+        <strong>3. Practice inertia.</strong> Small Despachos (1-3 staff) have the least time to evaluate new tools. Free tools that work adequately persist by default.
+      </div>
+      <div class="sc-implication">
+        <div class="sc-impl-label">What to do about it</div>
+        <div class="sc-impl-body">"Free doesn't do Verifactu. Free doesn't provision Active for clients. Free doesn't generate new practice revenue. The mandate arrives regardless — the question is whether you're the practice that told clients about it first, or the one scrambling in December 2026." Mandate urgency is the only effective counter to free tool inertia.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DEAL PATTERNS -->
+  <div class="country-section-label reveal">Deal Patterns — What Accelerates and Stalls</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;" class="reveal">
+    <div class="country-block" style="border-left:3px solid var(--g);">
+      <div class="cb-title">✅ What accelerates a deal</div>
+      <div class="cb-body" style="font-size:12px;line-height:1.9;">
+        <strong>A specific mandate deadline conversation.</strong> When the accountant has a specific client with a specific PA or Verifactu question, the conversation becomes concrete. Generic product pitches stall. Specific compliance conversations close.<br><br>
+        <strong>A practice partner who's already seen a demo.</strong> Deals that involve the practice owner / managing partner in the first meeting close significantly faster than those that start with a junior accountant.<br><br>
+        <strong>A peer reference from within their network.</strong> Accountant networks are tight. One converted GE practice whose colleagues hear about it is worth ten cold outreach conversations. Identifying and activating reference customers is the highest-ROI activity.<br><br>
+        <strong>GoProposal in the conversation.</strong> When GoProposal's new revenue model is introduced early — "here is how your practice earns money from the software your clients use" — conversion accelerates because the conversation moves from cost to revenue.
+      </div>
+    </div>
+    <div class="country-block" style="border-left:3px solid var(--red);">
+      <div class="cb-title">⛔ What stalls or kills a deal</div>
+      <div class="cb-body" style="font-size:12px;line-height:1.9;">
+        <strong>GE-Active sync not working.</strong> If a practice asks to see GE and Active working together and the demo doesn't deliver, the deal stalls immediately. This is the #1 product gap driving deal losses in France.<br><br>
+        <strong>"We'll evaluate it next quarter."</strong> Without a specific mandate trigger or a commercial reason to decide now, practices default to delay. September 2026 is the trigger — use it explicitly with a countdown: "You have 155 days."<br><br>
+        <strong>Sage ID SSO friction at onboarding.</strong> In Spain, if the first accountant experience of SfA involves login friction or Sage ID SSO issues, the deal can reverse before it has started. Technical blockers must be pre-cleared.<br><br>
+        <strong>A Pennylane or Cegid conversation that happened first.</strong> When a practice has already been pitched by a competitor and adopted their framing, Sage must deconstruct that framing before building its own. Not doing so results in defending rather than positioning.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════ GTM READINESS ══════ -->
+<div class="page-section" id="page-gtm-readiness">
+  <div class="page-header reveal">
+    <div class="page-eyebrow">Strategy — GTM Readiness</div>
+    <div class="page-title">Launch readiness — <em>market by market</em></div>
+    <div class="page-subtitle">The 5Ds framework applied live. Where each market is across Discover, Define, Develop, Deliver, Drive. Use this for Steerco conversations, prioritisation decisions and resourcing calls.</div>
+  </div>
+
+  <div class="ifyrne reveal">
+    <div class="ifyrne-label">The 5Ds GTM Framework</div>
+    <p><strong>Discover</strong> — Market sizing, ICP definition, JTBD research complete. <strong>Define</strong> — Positioning, messaging and CVP confirmed. <strong>Develop</strong> — Sales enablement, battlecards, demo scripts built. <strong>Deliver</strong> — Technical readiness, legal/commercial, partner readiness confirmed. <strong>Drive</strong> — Live in market, KPIs active, adoption tracked, win/loss loop running.</p>
+  </div>
+
+  <!-- FRANCE READINESS -->
+  <div class="country-section-label reveal">🇫🇷 France — PA Mandate September 2026</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr 1fr;gap:10px;" class="reveal">
+    <div class="country-block" style="border-top:3px solid var(--g);text-align:center;">
+      <div class="cb-title" style="text-align:center;">Discover</div>
+      <div style="font-size:28px;margin:8px 0;">✅</div>
+      <div class="cb-body" style="font-size:11px;">Market sized. GE base mapped. ICP defined. Premium Club verbatims captured. Competitor landscape complete.</div>
+      <div style="margin-top:8px;"><span class="tag t-green">Complete</span></div>
+    </div>
+    <div class="country-block" style="border-top:3px solid var(--g);text-align:center;">
+      <div class="cb-title" style="text-align:center;">Define</div>
+      <div style="font-size:28px;margin:8px 0;">✅</div>
+      <div class="cb-body" style="font-size:11px;">SfA France Strategic Positioning FINAL complete. CVP defined. GE governing sentence approved. E-invoicing GTM brief published.</div>
+      <div style="margin-top:8px;"><span class="tag t-green">Complete</span></div>
+    </div>
+    <div class="country-block" style="border-top:3px solid var(--amber);text-align:center;">
+      <div class="cb-title" style="text-align:center;">Develop</div>
+      <div style="font-size:28px;margin:8px 0;">⚡</div>
+      <div class="cb-body" style="font-size:11px;">Battle cards built. Sales enablement deck in progress. GE-to-SfA onboarding guide needed. Congrès Atelier presentation in preparation.</div>
+      <div style="margin-top:8px;"><span class="tag t-amber">In progress</span></div>
+    </div>
+    <div class="country-block" style="border-top:3px solid var(--red);text-align:center;">
+      <div class="cb-title" style="text-align:center;">Deliver</div>
+      <div style="font-size:28px;margin:8px 0;">⚠️</div>
+      <div class="cb-body" style="font-size:11px;">PA via AKAO: live. GE-Active sync: pre-discovery — critical blocker. PA client registration: 50% of target. GMO resourcing risk.</div>
+      <div style="margin-top:8px;"><span class="tag t-red">Blocked</span></div>
+    </div>
+    <div class="country-block" style="border-top:3px solid var(--red);text-align:center;">
+      <div class="cb-title" style="text-align:center;">Drive</div>
+      <div style="font-size:28px;margin:8px 0;">🔴</div>
+      <div class="cb-body" style="font-size:11px;">Cannot fully activate until Deliver gates are cleared. Regate migration in progress. Active adoption building. PA registration pipeline must accelerate.</div>
+      <div style="margin-top:8px;"><span class="tag t-red">Not ready</span></div>
+    </div>
+  </div>
+
+  <!-- SPAIN READINESS -->
+  <div class="country-section-label reveal">🇪🇸 Spain — SfA Launch H2 FY26</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr 1fr;gap:10px;" class="reveal">
+    <div class="country-block" style="border-top:3px solid var(--g);text-align:center;">
+      <div class="cb-title" style="text-align:center;">Discover</div>
+      <div style="font-size:28px;margin:8px 0;">✅</div>
+      <div class="cb-body" style="font-size:11px;">Despachos base mapped. 20 competitor briefs complete. Verifactu regulatory analysis done. Xavi Vila ICP guidance incorporated.</div>
+      <div style="margin-top:8px;"><span class="tag t-green">Complete</span></div>
+    </div>
+    <div class="country-block" style="border-top:3px solid var(--g);text-align:center;">
+      <div class="cb-title" style="text-align:center;">Define</div>
+      <div style="font-size:28px;margin:8px 0;">✅</div>
+      <div class="cb-body" style="font-size:11px;">Spain GTM Brief v1.1 complete. Despachos governing sentence approved. Positioning vs Holded and Pennylane defined. Quantyca positioning confirmed.</div>
+      <div style="margin-top:8px;"><span class="tag t-green">Complete</span></div>
+    </div>
+    <div class="country-block" style="border-top:3px solid var(--amber);text-align:center;">
+      <div class="cb-title" style="text-align:center;">Develop</div>
+      <div style="font-size:28px;margin:8px 0;">⚡</div>
+      <div class="cb-body" style="font-size:11px;">Battle cards built. GoProposal revenue model brief needed. Spanish verbatims in development. Despachos→SfA onboarding guide in progress.</div>
+      <div style="margin-top:8px;"><span class="tag t-amber">In progress</span></div>
+    </div>
+    <div class="country-block" style="border-top:3px solid var(--amber);text-align:center;">
+      <div class="cb-title" style="text-align:center;">Deliver</div>
+      <div style="font-size:28px;margin:8px 0;">⚡</div>
+      <div class="cb-body" style="font-size:11px;">Active Verifactu-certified: ✅. Sage ID SSO: in resolution. Early adopter units committed. Despachos integration: functional. Launch event pending.</div>
+      <div style="margin-top:8px;"><span class="tag t-amber">Near ready</span></div>
+    </div>
+    <div class="country-block" style="border-top:3px solid var(--amber);text-align:center;">
+      <div class="cb-title" style="text-align:center;">Drive</div>
+      <div style="font-size:28px;margin:8px 0;">⚡</div>
+      <div class="cb-body" style="font-size:11px;">Early Active units live. Weekly Spain GTM meeting active. Target: 2,200 units via accountants by year end. Pennylane arrives H2 — Drive must launch before they do.</div>
+      <div style="margin-top:8px;"><span class="tag t-amber">Activating</span></div>
+    </div>
+  </div>
+
+  <!-- GERMANY READINESS -->
+  <div class="country-section-label reveal">🇩🇪 Germany — Definition Year FY26</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr 1fr;gap:10px;" class="reveal">
+    <div class="country-block" style="border-top:3px solid var(--amber);text-align:center;">
+      <div class="cb-title" style="text-align:center;">Discover</div>
+      <div style="font-size:28px;margin:8px 0;">⚡</div>
+      <div class="cb-body" style="font-size:11px;">DATEV landscape mapped. Lexoffice/SevDesk/Cegid positioned. XRechnung mandate understood. Accountant ICP not yet confirmed.</div>
+      <div style="margin-top:8px;"><span class="tag t-amber">Partial</span></div>
+    </div>
+    <div class="country-block" style="border-top:3px solid var(--red);text-align:center;">
+      <div class="cb-title" style="text-align:center;">Define</div>
+      <div style="font-size:28px;margin:8px 0;">🔴</div>
+      <div class="cb-body" style="font-size:11px;">SfA Germany proposition not yet defined. DATEV partnership model not confirmed. No CVP. Accountant ICP not agreed. FY26 priority: complete this gate.</div>
+      <div style="margin-top:8px;"><span class="tag t-red">Not started</span></div>
+    </div>
+    <div class="country-block" style="border-top:3px solid var(--text3);text-align:center;">
+      <div class="cb-title" style="text-align:center;">Develop</div>
+      <div style="font-size:28px;margin:8px 0;">⏳</div>
+      <div class="cb-body" style="font-size:11px;">Cannot develop until Define is complete.</div>
+      <div style="margin-top:8px;"><span class="tag t-grey">Pending</span></div>
+    </div>
+    <div class="country-block" style="border-top:3px solid var(--text3);text-align:center;">
+      <div class="cb-title" style="text-align:center;">Deliver</div>
+      <div style="font-size:28px;margin:8px 0;">⏳</div>
+      <div class="cb-body" style="font-size:11px;">XRechnung/ZUGFeRD readiness to be confirmed. DATEV export compatibility critical before any commercial activity.</div>
+      <div style="margin-top:8px;"><span class="tag t-grey">Pending</span></div>
+    </div>
+    <div class="country-block" style="border-top:3px solid var(--text3);text-align:center;">
+      <div class="cb-title" style="text-align:center;">Drive</div>
+      <div style="font-size:28px;margin:8px 0;">⏳</div>
+      <div class="cb-body" style="font-size:11px;">FY27 target. Jan 2028 e-invoice mandate is the commercial catalyst. FY26 = definition only.</div>
+      <div style="margin-top:8px;"><span class="tag t-grey">FY27</span></div>
+    </div>
+  </div>
+
+  <!-- PORTUGAL READINESS -->
+  <div class="country-section-label reveal">🇵🇹 Portugal — Proposition Definition FY26</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr 1fr;gap:10px;" class="reveal">
+    <div class="country-block" style="border-top:3px solid var(--amber);text-align:center;">
+      <div class="cb-title" style="text-align:center;">Discover</div>
+      <div style="font-size:28px;margin:8px 0;">⚡</div>
+      <div class="cb-body" style="font-size:11px;">OCC landscape mapped. Primavera/Cegid, PHC, TOConline positioned. SAF-T mandate understood. Accountant ICP not yet confirmed.</div>
+      <div style="margin-top:8px;"><span class="tag t-amber">Partial</span></div>
+    </div>
+    <div class="country-block" style="border-top:3px solid var(--red);text-align:center;">
+      <div class="cb-title" style="text-align:center;">Define</div>
+      <div style="font-size:28px;margin:8px 0;">🔴</div>
+      <div class="cb-body" style="font-size:11px;">SfA Portugal proposition not yet defined. OCC engagement not started. No CVP. SAF-T certification status unclear. FY26 priority.</div>
+      <div style="margin-top:8px;"><span class="tag t-red">Not started</span></div>
+    </div>
+    <div class="country-block" style="border-top:3px solid var(--text3);text-align:center;">
+      <div class="cb-title" style="text-align:center;">Develop</div><div style="font-size:28px;margin:8px 0;">⏳</div>
+      <div class="cb-body" style="font-size:11px;">Pending Define completion.</div>
+      <div style="margin-top:8px;"><span class="tag t-grey">Pending</span></div>
+    </div>
+    <div class="country-block" style="border-top:3px solid var(--text3);text-align:center;">
+      <div class="cb-title" style="text-align:center;">Deliver</div><div style="font-size:28px;margin:8px 0;">⏳</div>
+      <div class="cb-body" style="font-size:11px;">SAF-T, IES and B2G compliance required. Must be certified before any Portuguese accountant conversation.</div>
+      <div style="margin-top:8px;"><span class="tag t-grey">Pending</span></div>
+    </div>
+    <div class="country-block" style="border-top:3px solid var(--text3);text-align:center;">
+      <div class="cb-title" style="text-align:center;">Drive</div><div style="font-size:28px;margin:8px 0;">⏳</div>
+      <div class="cb-body" style="font-size:11px;">SAF-T 2027 is the commercial catalyst. GTM must be ready H1 FY27 before mandate window opens.</div>
+      <div style="margin-top:8px;"><span class="tag t-grey">FY27</span></div>
+    </div>
+  </div>
+
+  <!-- PRIORITY ACTIONS -->
+  <div class="country-section-label reveal">Priority Actions by Gate</div>
+  <div class="country-block reveal">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+      <div>
+        <div style="font-family:var(--font);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--red);margin-bottom:10px;">🔴 Blocked — Immediate Action</div>
+        <div style="font-size:12px;line-height:1.9;color:var(--text2);">
+          <strong>FR: GE-Active bi-directional sync</strong> — still pre-discovery. Single biggest OKR3 blocker. Must be unblocked before Cegid's 100 reps reach GE practices in Q2.<br><br>
+          <strong>FR: PA client registration</strong> — 50% of target with 155 days to mandate. Needs crisis-level commercial activation, not a PMM campaign.<br><br>
+          <strong>DE/PT: Define gate</strong> — no CVP, no ICP, no governing sentence. Cannot build enablement materials or have accountant conversations without this foundation.
+        </div>
+      </div>
+      <div>
+        <div style="font-family:var(--font);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--amber);margin-bottom:10px;">🟡 In Progress — Accelerate</div>
+        <div style="font-size:12px;line-height:1.9;color:var(--text2);">
+          <strong>ES: Sage ID SSO resolution</strong> — must be complete before launch event. Any friction at first practice login travels through the Despachos network instantly.<br><br>
+          <strong>ES: GoProposal revenue model brief</strong> — Verifactu repricing conversation needs a systematic enablement tool. This is the commercial accelerator for Spain.<br><br>
+          <strong>FR: Congrès Atelier preparation</strong> — October 2026 is post-mandate. Sage's Atelier must be the definitive "what comes next" conversation, not a compliance pitch.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════ CAMPAIGN CALENDAR ══════ -->
+<div class="page-section" id="page-campaign-calendar">
+  <div class="page-header reveal">
+    <div class="page-eyebrow">Strategy — Campaign Calendar</div>
+    <div class="page-title">What to campaign — <em>and when</em></div>
+    <div class="page-subtitle">Key activation dates across FR · ES · DE · PT with content requirements per milestone. The mandate timeline is your campaign calendar — every deadline is a conversion moment.</div>
+  </div>
+
+  <div class="country-section-label reveal">Critical Campaign Windows — FY26/27</div>
+  <div class="country-block reveal">
+    <div class="reg-row" style="border-left:3px solid var(--red);padding-left:12px;margin-bottom:14px;">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:16px;">
+        <div style="flex:1;">
+          <div style="font-family:var(--font);font-size:10px;font-weight:700;color:var(--red);margin-bottom:4px;">NOW → JUNE 2026 · 🇫🇷 FRANCE</div>
+          <div style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:6px;">PA Activation Campaign — The Last Window Before September</div>
+          <div style="font-size:12px;color:var(--text2);line-height:1.8;">GE practices need to register their clients on Sage's PA before September 1. This is the most commercially urgent campaign in WiSE. Content needed: PA explainer for practices (what it means, why Sage, how to activate). Client communication templates (what to tell their SME clients). FAQ for GE practices on migration-free activation. Webinar series with Isabelle Michaud and OEC France contacts. Campaign theme: <em>"155 days. Your clients are covered. Here's how."</em></div>
+        </div>
+        <span class="tag t-red" style="white-space:nowrap;">URGENT</span>
+      </div>
+    </div>
+    <div class="reg-row" style="border-left:3px solid var(--amber);padding-left:12px;margin-bottom:14px;">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:16px;">
+        <div style="flex:1;">
+          <div style="font-family:var(--font);font-size:10px;font-weight:700;color:var(--amber);margin-bottom:4px;">Q2 2026 · 🇪🇸 SPAIN</div>
+          <div style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:6px;">SfA Spain Launch — Before Pennylane Arrives</div>
+          <div style="font-size:12px;color:var(--text2);line-height:1.8;">Pennylane confirmed H2 2026 for Spain. Sage must convert Despachos practices before Pennylane's commercial team starts calling. Content needed: Despachos launch announcement (Sage ID SSO resolved first). GoProposal revenue model explainer — "How your practice earns from Verifactu." Practice activation guide: Despachos → SfA → Active in 3 steps. Verifactu readiness certification — "Your clients are covered from day one." Campaign theme: <em>"Verifactu 2027. Your practice. Your revenue. Your clients."</em></div>
+        </div>
+        <span class="tag t-amber" style="white-space:nowrap;">HIGH PRIORITY</span>
+      </div>
+    </div>
+    <div class="reg-row" style="border-left:3px solid var(--g);padding-left:12px;margin-bottom:14px;">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:16px;">
+        <div style="flex:1;">
+          <div style="font-family:var(--font);font-size:10px;font-weight:700;color:var(--g);margin-bottom:4px;">OCTOBER 2026 · 🇫🇷 FRANCE</div>
+          <div style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:6px;">81st Congrès OEC — Post-Mandate Brand Campaign</div>
+          <div style="font-size:12px;color:var(--text2);line-height:1.8;">Theme: [RE]FONDATION DES CABINETS. Sage Atelier candidature submitted. No commercial content allowed — this is a brand and trust event. Content needed: Atelier presentation (Jonathan Brun + Isabelle Michaud co-presenting). Post-Congrès content series — "What the [RE]FONDATION means for your practice." Research paper: "The accountant as financial advisor — how AI and e-invoicing are reshaping the profession." Campaign theme: <em>"The mandate passed. Now comes the opportunity."</em></div>
+        </div>
+        <span class="tag t-green" style="white-space:nowrap;">Brand event</span>
+      </div>
+    </div>
+    <div class="reg-row" style="border-left:3px solid var(--amber);padding-left:12px;margin-bottom:14px;">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:16px;">
+        <div style="flex:1;">
+          <div style="font-family:var(--font);font-size:10px;font-weight:700;color:var(--amber);margin-bottom:4px;">Q4 2026 → Q1 2027 · 🇪🇸 SPAIN</div>
+          <div style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:6px;">Verifactu Countdown — Final 90-Day Push</div>
+          <div style="font-size:12px;color:var(--text2);line-height:1.8;">January 1 2027 is the Verifactu deadline for corporate taxpayers. This is the window when practices with uncommitted clients will make their decision. Content needed: "90 days" countdown campaign. Client communication templates for Despachos to send to their SME clients. GoProposal package templates for Verifactu-compliant pricing. "Already certified" proof point content — Sage was ready before the deadline.</div>
+        </div>
+        <span class="tag t-amber" style="white-space:nowrap;">Key window</span>
+      </div>
+    </div>
+    <div class="reg-row" style="border-left:3px solid var(--text3);padding-left:12px;margin-bottom:14px;">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:16px;">
+        <div style="flex:1;">
+          <div style="font-family:var(--font);font-size:10px;font-weight:700;color:var(--text3);margin-bottom:4px;">FY27 PREP · 🇩🇪 GERMANY</div>
+          <div style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:6px;">DATEV Partnership Positioning — Building Before the Jan 2027 Mandate</div>
+          <div style="font-size:12px;color:var(--text2);line-height:1.8;">Germany e-invoice issue mandate for large companies: January 2027. XRechnung 4.0 specification mid-2026. FY26 content builds the positioning for FY27 activation. Content needed: DATEV compatibility statement. XRechnung/ZUGFeRD readiness certification. "Cloud management above compliance" thought leadership. German accountant ICP definition paper.</div>
+        </div>
+        <span class="tag t-grey" style="white-space:nowrap;">FY27 prep</span>
+      </div>
+    </div>
+    <div class="reg-row" style="border-left:3px solid var(--text3);padding-left:12px;">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:16px;">
+        <div style="flex:1;">
+          <div style="font-family:var(--font);font-size:10px;font-weight:700;color:var(--text3);margin-bottom:4px;">H1 FY27 · 🇵🇹 PORTUGAL</div>
+          <div style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:6px;">SAF-T 2027 — OCC Engagement and Launch</div>
+          <div style="font-size:12px;color:var(--text2);line-height:1.8;">SAF-T accounting requirement 2027. OCC relationship must be built in FY26 to activate in H1 FY27. Content needed: OCC event presence and education content. SAF-T + IES compliance guide for Contabilistas. "Compliance to advisory" narrative — how Sage Prévision turns SAF-T data into client conversations. TOConline counter-positioning: compliance + growth vs compliance only.</div>
+        </div>
+        <span class="tag t-grey" style="white-space:nowrap;">H1 FY27</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="country-section-label reveal">Content Requirements by Campaign</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;" class="reveal">
+    <div class="country-block" style="border-left:3px solid var(--red);">
+      <div class="cb-title">🔴 France PA Campaign — Asset List</div>
+      <div class="cb-body" style="font-size:12px;line-height:1.8;">
+        ☐ PA explainer one-pager (GE practices)<br>
+        ☐ Client communication template (FR, professional tone)<br>
+        ☐ "Migration-free PA" FAQ document<br>
+        ☐ Webinar deck (Isabelle Michaud + OEC partner)<br>
+        ☐ GE-to-SfA activation guide (step-by-step)<br>
+        ☐ September 2026 countdown landing page content<br>
+        ☐ Email sequence for uncommitted GE practices (4-part)<br>
+        ☐ Congrès Atelier presentation deck
+      </div>
+    </div>
+    <div class="country-block" style="border-left:3px solid var(--amber);">
+      <div class="cb-title">🟡 Spain SfA Launch — Asset List</div>
+      <div class="cb-body" style="font-size:12px;line-height:1.8;">
+        ☐ SfA Spain launch announcement (Despachos network)<br>
+        ☐ GoProposal new revenue model explainer<br>
+        ☐ Despachos → SfA → Active activation guide (3 steps)<br>
+        ☐ Verifactu "already certified" proof point sheet<br>
+        ☐ GoProposal Verifactu package templates (3 tiers)<br>
+        ☐ Spanish verbatims approval (Zoraida Gil sign-off)<br>
+        ☐ Holded counter-positioning one-pager<br>
+        ☐ Autónomo segment brief (July 2027 mandate)
+      </div>
+    </div>
+    <div class="country-block" style="border-left:3px solid var(--g);">
+      <div class="cb-title">🟢 Always-on Content — All Markets</div>
+      <div class="cb-body" style="font-size:12px;line-height:1.8;">
+        ☐ Monthly competitive intelligence brief (internal)<br>
+        ☐ Quarterly AI Watch update (all 4 markets)<br>
+        ☐ Hiring signals tracker refresh (monthly)<br>
+        ☐ Regulatory calendar update (as mandates change)<br>
+        ☐ Win/loss pattern update (quarterly)<br>
+        ☐ Accountant persona refresh (bi-annual)<br>
+        ☐ Battle card refresh (per major competitor move)<br>
+        ☐ Hub signals feed (daily — Make.com automated)
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════ SMB DIRECT PLAYBOOK ══════ -->
+<div class="page-section" id="page-smb-direct">
+  <div class="page-header reveal">
+    <div class="page-eyebrow">Direct Channel — SMB Direct Playbook</div>
+    <div class="page-title">Winning SMBs <em>directly</em> — and through the right channel</div>
+    <div class="page-subtitle">Not every SMB has an accountant. Not every accountant recommends Sage first. This playbook covers the direct-to-SMB motion — when to go direct, which ICPs to target, and how the direct and accountant channels reinforce each other.</div>
+  </div>
+
+  <div class="ifyrne reveal">
+    <div class="ifyrne-label">Channel model principle — always lead with accountant, win direct when there's no accountant</div>
+    <p>Sage's primary growth model is accountant-led. Every SMB provisioned through an accountant is a stickier, higher-lifetime-value customer than a direct acquisition. The direct channel exists for three specific scenarios: SMBs who don't yet have an accountant, SMBs whose accountant doesn't recommend Sage, and SMBs responding to a mandate trigger before their accountant has advised them. In all three cases, the goal is to bring the accountant back into the relationship as soon as possible.</p>
+  </div>
+
+  <!-- WHEN TO GO DIRECT -->
+  <div class="country-section-label reveal">When to Go Direct — The Three Scenarios</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;" class="reveal">
+    <div class="country-block" style="border-top:3px solid var(--g);">
+      <div class="cb-title">Scenario 1: No accountant yet</div>
+      <div class="cb-body">The SMB is self-managing their books — common in early-stage startups, freelancers (autónomos in ES, auto-entrepreneurs in FR) and businesses in growth transition. <br><br><strong>Direct opportunity:</strong> Reach them before a competitor does. Offer Active Starter as the entry point. Build the relationship so that when they hire an accountant, Sage is already in the workflow.<br><br><strong>Primary ICPs:</strong> FR: auto-entrepreneurs post-registration. ES: autónomos filing their first Modelo 303. DE: Einzelunternehmer needing XRechnung compliance. PT: new businesses required by law to appoint a Contabilista Certificado.</div>
+    </div>
+    <div class="country-block" style="border-top:3px solid var(--amber);">
+      <div class="cb-title">Scenario 2: Accountant doesn't recommend Sage</div>
+      <div class="cb-body">The SMB has an accountant who recommends a competitor — Pennylane, Holded, or a local tool. The direct channel reaches the SMB owner directly, often through mandate communications or digital advertising.<br><br><strong>Direct opportunity:</strong> Create demand at the SMB level that the accountant then has to respond to. "My client is asking about Sage" is how some accountant conversations start.<br><br><strong>Primary channels:</strong> Digital (mandate countdown ads targeting business owners). Content (e-invoicing guides ranked for SME search terms). Social (founder communities in FR/ES/DE/PT).</div>
+    </div>
+    <div class="country-block" style="border-top:3px solid var(--blue);">
+      <div class="cb-title">Scenario 3: Mandate trigger before accountant advice</div>
+      <div class="cb-body">The SMB owner reads about the PA mandate (FR) or Verifactu (ES) in a news article or government communication and searches for a solution before talking to their accountant.<br><br><strong>Direct opportunity:</strong> Capture high-intent mandate searches. Land them on Active. Then surface the accountant channel: "Your accountant may already use Sage — check with them." This converts self-service starts into accountant-managed accounts.<br><br><strong>Primary channels:</strong> SEO (mandate keyword captures). Government communications partnerships. Social proof from accountant community.</div>
+    </div>
+  </div>
+
+  <!-- SMB PERSONAS BY COUNTRY -->
+  <div class="country-section-label reveal">Direct SMB ICPs — By Country</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;" class="reveal">
+    <div class="country-block" style="border-left:3px solid var(--g);">
+      <div class="cb-title">🇫🇷 France — Direct SMB Profiles</div>
+      <div class="cb-body" style="font-size:12px;line-height:1.8;">
+        <strong>Auto-entrepreneur (micro-entreprise):</strong> Sole trader, simplified tax regime, TVA obligations from €36k+ revenue. 3.7M registered. Primary need: PA compliance from September 2026. Very price-sensitive. Active Starter is the entry product. Accountant introduction: when revenue approaches TVA threshold.<br><br>
+        <strong>TPE (Très Petite Entreprise) 1-9 employees:</strong> Most common French SME type. Traditional accounting through an expert-comptable. Often has GE through their accountant already. Direct approach: mandate communications targeting the owner, not the accountant. Goal: activate owner interest so accountant conversation follows.<br><br>
+        <strong>ETI (Entreprise de Taille Intermédiaire) 250-4,999:</strong> Must issue e-invoices from September 2026, Phase 1. Large enough to have an in-house finance team. Active Essentials + payroll is the proposition. Sage 100/200 migration path (handled carefully).
+      </div>
+    </div>
+    <div class="country-block" style="border-left:3px solid var(--amber);">
+      <div class="cb-title">🇪🇸 Spain — Direct SMB Profiles</div>
+      <div class="cb-body" style="font-size:12px;line-height:1.8;">
+        <strong>Autónomo (self-employed):</strong> 3.3M registered. Verifactu mandate from July 2027. Currently using free tools (Declarando, Quipu, Anfix) or filing manually through a gestor. Active Starter is the direct offer. Accountant introduction: mandatory for complex situations (VAT, employees, international).<br><br>
+        <strong>Microempresa (1-9 employees):</strong> 95% of Spanish businesses. Using Contasol/Delsol (free) or legacy Sage 50. Verifactu mandate January 2027 forces a platform decision. Active Essentials with payroll (Modelo 303, RPF) is the direct proposition. GoProposal via accountant is the upsell.<br><br>
+        <strong>Pyme (10-249 employees):</strong> Often already has a Despachos practice. Direct approach here risks channel conflict — default to accountant channel unless the practice specifically requests otherwise. Signal to the relevant Despachos.
+      </div>
+    </div>
+  </div>
+
+  <!-- DIRECT VS CHANNEL MATRIX -->
+  <div class="country-section-label reveal">Direct vs Channel — Decision Matrix</div>
+  <div class="country-block reveal">
+    <div style="overflow-x:auto;">
+      <table style="width:100%;border-collapse:collapse;font-size:12px;">
+        <thead>
+          <tr style="border-bottom:2px solid var(--g);">
+            <th style="text-align:left;padding:10px;color:var(--text3);">SMB Profile</th>
+            <th style="text-align:left;padding:10px;color:var(--text3);">Recommended Channel</th>
+            <th style="text-align:left;padding:10px;color:var(--text3);">Rationale</th>
+            <th style="text-align:left;padding:10px;color:var(--text3);">Product</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid var(--border);"><td style="padding:8px;font-weight:600;">No accountant, pre-mandate</td><td style="padding:8px;"><span class="tag t-green">Direct first</span></td><td style="padding:8px;">No channel conflict. Capture before competitor does. Introduce accountant later.</td><td style="padding:8px;">Active Starter</td></tr>
+          <tr style="border-bottom:1px solid var(--border);"><td style="padding:8px;font-weight:600;">Has accountant, accountant uses Sage</td><td style="padding:8px;"><span class="tag t-teal">Accountant only</span></td><td style="padding:8px;">Do not contact direct — support the accountant's commercial motion instead.</td><td style="padding:8px;">Via SfA</td></tr>
+          <tr style="border-bottom:1px solid var(--border);"><td style="padding:8px;font-weight:600;">Has accountant, accountant uses competitor</td><td style="padding:8px;"><span class="tag t-amber">Direct + introduce</span></td><td style="padding:8px;">Create owner-level demand. Surface accountant channel in-product. Goal: accountant hears from client, evaluates Sage.</td><td style="padding:8px;">Active Starter → Essentials</td></tr>
+          <tr style="border-bottom:1px solid var(--border);"><td style="padding:8px;font-weight:600;">Mandate searcher (high intent)</td><td style="padding:8px;"><span class="tag t-green">Direct capture</span></td><td style="padding:8px;">Catch the inbound. Activate immediately. Surface accountant channel in onboarding flow.</td><td style="padding:8px;">Active Starter</td></tr>
+          <tr style="border-bottom:1px solid var(--border);"><td style="padding:8px;font-weight:600;">Existing Sage 50/100 client</td><td style="padding:8px;"><span class="tag t-red">Never Active direct</span></td><td style="padding:8px;">Cannibalisation risk. Route through accountant channel only. Align S50 and Active teams first.</td><td style="padding:8px;">Protect S50/100</td></tr>
+          <tr><td style="padding:8px;font-weight:600;">Enterprise / ETI (250+ employees)</td><td style="padding:8px;"><span class="tag t-blue">Accountant + enterprise</span></td><td style="padding:8px;">Dedicated commercial motion. Accountant channel + enterprise sales. Not a direct self-service motion.</td><td style="padding:8px;">Active Essentials + S200</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ══════ COMPETITOR COMPARE ══════ -->
+<div class="page-section" id="page-competitor-compare">
+  <div class="page-header reveal">
+    <div class="page-eyebrow">Direct Channel — Competitor Compare</div>
+    <div class="page-title">All 14 competitors — <em>one view</em></div>
+    <div class="page-subtitle">Five dimensions. Every competitor. Use this table in commercial conversations to quickly locate where Sage has a decisive advantage and where the conversation needs to be redirected.</div>
+  </div>
+
+  <div class="country-section-label reveal">Competitor Quick-Compare — 14 Tracked Competitors</div>
+  <div class="country-block reveal" style="overflow-x:auto;">
+    <table style="width:100%;border-collapse:collapse;font-size:11px;min-width:900px;">
+      <thead>
+        <tr style="border-bottom:2px solid var(--g);background:var(--bg2);">
+          <th style="text-align:left;padding:10px;color:var(--g);font-size:10px;letter-spacing:0.5px;">COMPETITOR</th>
+          <th style="text-align:center;padding:10px;color:var(--g);font-size:10px;letter-spacing:0.5px;">PA / VERIFACTU / XRECHNUNG</th>
+          <th style="text-align:center;padding:10px;color:var(--g);font-size:10px;letter-spacing:0.5px;">AI CAPABILITY</th>
+          <th style="text-align:center;padding:10px;color:var(--g);font-size:10px;letter-spacing:0.5px;">ACCOUNTANT CHANNEL</th>
+          <th style="text-align:center;padding:10px;color:var(--g);font-size:10px;letter-spacing:0.5px;">PRICING MODEL</th>
+          <th style="text-align:left;padding:10px;color:var(--g);font-size:10px;letter-spacing:0.5px;">EU MARKETS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="background:var(--gdim2);border-bottom:1px solid var(--g);">
+          <td style="padding:10px;font-weight:700;color:var(--g);">✦ Sage Active</td>
+          <td style="padding:10px;text-align:center;"><span class="tag t-green">PA ✅ · VF ✅ · XR ⚡</span></td>
+          <td style="padding:10px;text-align:center;"><span class="tag t-green">Copilot — compliance-native</span></td>
+          <td style="padding:10px;text-align:center;"><span class="tag t-green">100% accountant-first</span></td>
+          <td style="padding:10px;text-align:center;"><span class="tag t-green">Accountant discount channel</span></td>
+          <td style="padding:10px;">FR ✅ · ES ✅ · DE ⚡ · PT ⚡</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);background:var(--bg1);">
+          <td style="padding:10px;font-weight:600;">Pennylane</td>
+          <td style="padding:10px;text-align:center;"><span class="tag t-green">PA ✅</span> <span class="tag t-grey">VF ❌</span></td>
+          <td style="padding:10px;text-align:center;"><span class="tag t-amber">Strong — generic AI</span></td>
+          <td style="padding:10px;text-align:center;"><span class="tag t-green">95% via accountants</span></td>
+          <td style="padding:10px;text-align:center;"><span class="tag t-amber">SaaS + banking revenue</span></td>
+          <td style="padding:10px;">FR ✅ · DE ⚡ · ES H2 2026 · BE planned</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:10px;font-weight:600;">Cegid + EBP + Shine</td>
+          <td style="padding:10px;text-align:center;"><span class="tag t-green">PA ✅</span> <span class="tag t-grey">VF partial</span></td>
+          <td style="padding:10px;text-align:center;"><span class="tag t-amber">Growing — acquisition-based</span></td>
+          <td style="padding:10px;text-align:center;"><span class="tag t-amber">Mixed — direct + accountant</span></td>
+          <td style="padding:10px;text-align:center;"><span class="tag t-amber">Bundle + banking (Shine)</span></td>
+          <td style="padding:10px;">FR ✅ · ES ✅ · PT ✅ · DE ✅ · 7 markets</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);background:var(--bg1);">
+          <td style="padding:10px;font-weight:600;">Holded / Visma</td>
+          <td style="padding:10px;text-align:center;"><span class="tag t-amber">VF in progress</span></td>
+          <td style="padding:10px;text-align:center;"><span class="tag t-amber">UI-led — basic AI</span></td>
+          <td style="padding:10px;text-align:center;"><span class="tag t-red">Direct to SME — bypasses accountant</span></td>
+          <td style="padding:10px;text-align:center;"><span class="tag t-amber">SaaS, per-user pricing</span></td>
+          <td style="padding:10px;">ES ✅ · EU expansion via Visma</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:10px;font-weight:600;">Xero</td>
+          <td style="padding:10px;text-align:center;"><span class="tag t-amber">MTD ✅ · EU limited</span></td>
+          <td style="padding:10px;text-align:center;"><span class="tag t-green">JAX AI — JTBD model</span></td>
+          <td style="padding:10px;text-align:center;"><span class="tag t-green">Strong — accountant-first UK</span></td>
+          <td style="padding:10px;text-align:center;"><span class="tag t-amber">SaaS, tiered</span></td>
+          <td style="padding:10px;">UK ✅ · EU limited · ANZ strong</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);background:var(--bg1);">
+          <td style="padding:10px;font-weight:600;">MyUnisoft</td>
+          <td style="padding:10px;text-align:center;"><span class="tag t-green">PA ✅</span></td>
+          <td style="padding:10px;text-align:center;"><span class="tag t-amber">Basic — growing</span></td>
+          <td style="padding:10px;text-align:center;"><span class="tag t-green">Accountant-only</span></td>
+          <td style="padding:10px;text-align:center;"><span class="tag t-amber">SaaS</span></td>
+          <td style="padding:10px;">FR only</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:10px;font-weight:600;">Conciliator</td>
+          <td style="padding:10px;text-align:center;"><span class="tag t-green">PA ✅</span></td>
+          <td style="padding:10px;text-align:center;"><span class="tag t-text3">Limited</span></td>
+          <td style="padding:10px;text-align:center;"><span class="tag t-amber">Accountant-facing</span></td>
+          <td style="padding:10px;text-align:center;"><span class="tag t-amber">Credit-based capture</span></td>
+          <td style="padding:10px;">FR only</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);background:var(--bg1);">
+          <td style="padding:10px;font-weight:600;">Regate / Qonto</td>
+          <td style="padding:10px;text-align:center;"><span class="tag t-green">PA ✅ (Qonto)</span></td>
+          <td style="padding:10px;text-align:center;"><span class="tag t-amber">Banking AI features</span></td>
+          <td style="padding:10px;text-align:center;"><span class="tag t-amber">Mixed — banking-led</span></td>
+          <td style="padding:10px;text-align:center;"><span class="tag t-amber">Banking + SaaS</span></td>
+          <td style="padding:10px;">FR primary · EU banking expansion</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:10px;font-weight:600;">Lexoffice / Haufe</td>
+          <td style="padding:10px;text-align:center;"><span class="tag t-green">XR ✅ · ZUGFeRD ✅</span></td>
+          <td style="padding:10px;text-align:center;"><span class="tag t-amber">Growing — basic AI</span></td>
+          <td style="padding:10px;text-align:center;"><span class="tag t-amber">SME-direct primarily</span></td>
+          <td style="padding:10px;text-align:center;"><span class="tag t-amber">SaaS, per-user</span></td>
+          <td style="padding:10px;">DE only</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);background:var(--bg1);">
+          <td style="padding:10px;font-weight:600;">Cegid / SevDesk (DE)</td>
+          <td style="padding:10px;text-align:center;"><span class="tag t-green">XR ✅</span></td>
+          <td style="padding:10px;text-align:center;"><span class="tag t-amber">SevDesk AI features</span></td>
+          <td style="padding:10px;text-align:center;"><span class="tag t-amber">SME-direct primarily</span></td>
+          <td style="padding:10px;text-align:center;"><span class="tag t-amber">SaaS</span></td>
+          <td style="padding:10px;">DE primary · EU via Cegid</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:10px;font-weight:600;">DATEV</td>
+          <td style="padding:10px;text-align:center;"><span class="tag t-green">XR ✅ · ZUGFeRD ✅</span></td>
+          <td style="padding:10px;text-align:center;"><span class="tag t-text3">Cooperative model — slow AI</span></td>
+          <td style="padding:10px;text-align:center;"><span class="tag t-blue">Cooperative — members own it</span></td>
+          <td style="padding:10px;text-align:center;"><span class="tag t-blue">Cooperative membership</span></td>
+          <td style="padding:10px;">DE only — 70-80% tax advisor market</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);background:var(--bg1);">
+          <td style="padding:10px;font-weight:600;">Primavera / Cegid (PT)</td>
+          <td style="padding:10px;text-align:center;"><span class="tag t-green">SAF-T ✅ · IES ✅</span></td>
+          <td style="padding:10px;text-align:center;"><span class="tag t-amber">Growing via Cegid EU</span></td>
+          <td style="padding:10px;text-align:center;"><span class="tag t-green">Deep OCC relationships</span></td>
+          <td style="padding:10px;text-align:center;"><span class="tag t-amber">Legacy + SaaS transition</span></td>
+          <td style="padding:10px;">PT dominant · Iberia via Cegid</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:10px;font-weight:600;">A3 / Wolters Kluwer</td>
+          <td style="padding:10px;text-align:center;"><span class="tag t-amber">TicketBAI ✅ · VF unclear</span></td>
+          <td style="padding:10px;text-align:center;"><span class="tag t-text3">Limited</span></td>
+          <td style="padding:10px;text-align:center;"><span class="tag t-green">Strong — Basque Country</span></td>
+          <td style="padding:10px;text-align:center;"><span class="tag t-amber">SaaS + legacy</span></td>
+          <td style="padding:10px;">ES (Basque/Navarra) · PT partial</td>
+        </tr>
+        <tr>
+          <td style="padding:10px;font-weight:600;">Contasol / Delsol</td>
+          <td style="padding:10px;text-align:center;"><span class="tag t-red">VF not confirmed</span></td>
+          <td style="padding:10px;text-align:center;"><span class="tag t-text3">None</span></td>
+          <td style="padding:10px;text-align:center;"><span class="tag t-amber">Small Despachos</span></td>
+          <td style="padding:10px;text-align:center;"><span class="tag t-red">FREE desktop</span></td>
+          <td style="padding:10px;">ES only</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="country-section-label reveal">Where Sage Has a Decisive Advantage</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;" class="reveal">
+    <div class="country-block" style="border-left:3px solid var(--g);">
+      <div class="cb-title">Compliance Coverage — Only Sage covers all 4</div>
+      <div class="cb-body">Sage is the only platform with PA certification (FR), Verifactu certification (ES), XRechnung compatibility (DE) and SAF-T readiness (PT) simultaneously. No competitor covers all four mandates across all four WiSE markets. This is Sage's most defensible advantage in any cross-market conversation.</div>
+    </div>
+    <div class="country-block" style="border-left:3px solid var(--teal);">
+      <div class="cb-title">Channel Model — Only Sage is truly accountant-first in all markets</div>
+      <div class="cb-body">Pennylane is accountant-first in France but direct in Germany and Spain. Holded is direct in Spain. Cegid is mixed. Xero is accountant-first in UK but limited in EU. Sage is the only platform with a committed accountant-first channel model across all four WiSE markets simultaneously.</div>
+    </div>
+    <div class="country-block" style="border-left:3px solid var(--purple);">
+      <div class="cb-title">Ecosystem Depth — Only Sage has the full stack</div>
+      <div class="cb-body">AutoEntry + AKAO + GoProposal + Sage Prévision + Active is a stack no single competitor can replicate without multiple products from multiple vendors. GE/Despachos integration adds a channel depth layer that is 40 years in the making. This ecosystem — not any single product — is Sage's moat.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════ PRICING STRATEGY ══════ -->
+<div class="page-section" id="page-pricing-strategy">
+  <div class="page-header reveal">
+    <div class="page-eyebrow">Direct Channel — Pricing Strategy</div>
+    <div class="page-title">How Sage prices to win — <em>the commercial logic</em></div>
+    <div class="page-subtitle">No specific prices here — this page explains the packaging logic, the channel model economics, and how to position Sage's value against competitors in pricing conversations. The goal: every accountant understands why Sage's channel pricing model is a commercial advantage for their practice.</div>
+  </div>
+
+  <div class="ifyrne reveal">
+    <div class="ifyrne-label">The core pricing principle</div>
+    <p>Sage's pricing model is structured around one insight: <strong>the accountant channel is the most efficient distribution model in European SME software</strong>. By giving accountants the economic incentive to recommend Sage, the cost of customer acquisition is dramatically lower than direct competitors who rely on digital advertising and sales teams. This lower acquisition cost is reinvested in product depth — compliance, AI, ecosystem — rather than marketing spend. Challengers spend to acquire. Sage builds to retain.</p>
+  </div>
+
+  <!-- CHANNEL MODEL ECONOMICS -->
+  <div class="country-section-label reveal">The Channel Model — How the Economics Work</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;" class="reveal">
+    <div class="country-block" style="border-top:3px solid var(--g);">
+      <div class="cb-title">The accountant discount model — explained simply</div>
+      <div class="cb-body" style="font-size:12px;line-height:1.9;">
+        Sage Active is available direct to SMEs at a standard rate. When provisioned through a Sage for Accountants practice, the rate is significantly discounted — reflecting the fact that the accountant provides first-line support, client relationship management, and compliance advisory that Sage would otherwise need to provide directly.<br><br>
+        <strong>For the accountant:</strong> Ability to offer a competitive, modern cloud accounting platform to clients at a rate that allows the practice to build in their advisory fee on top. The software becomes a revenue line, not a cost.<br><br>
+        <strong>For the SMB client:</strong> They access best-in-class cloud accounting software at a rate they could not get directly — with their accountant as the relationship manager. Better software, better advice, better value.<br><br>
+        <strong>For Sage:</strong> Dramatically lower customer acquisition cost vs direct digital, stickier clients (accountant-managed clients churn at lower rates), and scalable distribution through an established channel.
+      </div>
+    </div>
+    <div class="country-block" style="border-top:3px solid var(--amber);">
+      <div class="cb-title">The new practice revenue model — GoProposal</div>
+      <div class="cb-body" style="font-size:12px;line-height:1.9;">
+        GoProposal is how accounting practices turn software provisioning into a systematic recurring revenue stream. The model:<br><br>
+        <strong>Step 1 — Mandate trigger:</strong> The PA mandate (FR) or Verifactu mandate (ES) creates the reason to have a repricing conversation with every client.<br><br>
+        <strong>Step 2 — GoProposal packaging:</strong> The practice uses GoProposal to build a proposal combining the Active subscription cost, a compliance advisory fee, and (optionally) an advisory service fee using Sage Prévision data.<br><br>
+        <strong>Step 3 — Client engagement letter:</strong> The proposal becomes a signed engagement letter with AML/KYC compliance built in. This creates a formal, recurring commercial relationship that is significantly more valuable than ad-hoc compliance work.<br><br>
+        <strong>The result:</strong> Every Active client generates predictable monthly practice revenue. The mandate becomes a revenue opportunity, not a compliance headache.
+      </div>
+    </div>
+  </div>
+
+  <!-- COMPETITIVE PRICING POSITIONING -->
+  <div class="country-section-label reveal">Competitive Pricing Positioning — How to Win the Conversation</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;" class="reveal">
+    <div class="signal-card" style="border-left:3px solid var(--amber);">
+      <div class="sc-top"><div class="sc-tags"><span class="tag t-amber">Spain</span></div><span class="sc-date">vs Holded</span></div>
+      <div class="sc-title">Holded Advanced vs Sage Active Essentials — the right comparison</div>
+      <div class="sc-body">
+        When accountants compare Holded and Sage Active on price, the comparison is often made at the wrong tier. The correct comparison: <strong>Holded Advanced (the tier with multi-user and full features) vs Sage Active Essentials (channel pricing, via accountant)</strong>. The comparison then changes significantly.<br><br>
+        Holded Advanced is priced for up to 7 users. Sage Active Essentials (channel) covers up to 10 users with payroll included. Holded Advanced does not include payroll at comparable specification. When the accountant calculates total cost (software + payroll solution + advisory time), Sage Active Essentials is not more expensive — it is structurally more efficient.<br><br>
+        <strong>The frame:</strong> "You're comparing Holded for 7 users without payroll against Sage Active for 10 users with Modelo 303, RPF, and Verifactu certification. Those are different products at different price points. And one of them goes to your clients directly."
+      </div>
+    </div>
+    <div class="signal-card" style="border-left:3px solid var(--text3);">
+      <div class="sc-top"><div class="sc-tags"><span class="tag t-grey">Spain</span></div><span class="sc-date">vs Free tools</span></div>
+      <div class="sc-title">Contasol / Delsol free vs Sage Active — the TCO conversation</div>
+      <div class="sc-body">
+        The "it's free" objection is the most common pricing objection in Spain. The answer is never to compete on price — it is to reframe the total cost of ownership and the total commercial opportunity.<br><br>
+        <strong>The free tool TCO:</strong> Software is free. But accountant time to process non-Verifactu-compliant invoices after January 2027 is not free. Client communication about non-compliance is not free. The liability of missing the mandate is not free. And the practice revenue that GoProposal would generate does not exist with a free tool.<br><br>
+        <strong>The Active TCO:</strong> Channel pricing means the software cost is covered by the practice fee. GoProposal generates a new monthly income from every client. The mandate is handled. The accountant's advisory time shifts from compliance processing to client strategy.<br><br>
+        <strong>The frame:</strong> "Free software costs your practice in accountant time, liability exposure, and lost practice revenue. Active costs your clients a small monthly fee and generates your practice a new income stream. Which model is actually free?"
+      </div>
+    </div>
+  </div>
+
+  <!-- PACKAGING LOGIC -->
+  <div class="country-section-label reveal">Packaging Logic — Starter vs Essentials</div>
+  <div class="country-block reveal">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+      <div>
+        <div style="font-family:var(--font);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--teal);margin-bottom:10px;">Active Starter — Who it's for</div>
+        <div style="font-size:12px;color:var(--text2);line-height:1.8;">
+          <strong>ICP:</strong> New businesses, autónomos (ES), auto-entrepreneurs (FR), micro-entreprises, businesses in their first 1-2 years.<br><br>
+          <strong>What it does:</strong> E-invoicing (PA or Verifactu), basic bookkeeping, bank reconciliation, expense management. The pre-accounting layer.<br><br>
+          <strong>Why Starter, not Essentials:</strong> Price sensitivity at entry level. The goal is to get them into the Active ecosystem with minimal friction. Upsell to Essentials when payroll or multi-currency becomes a need.<br><br>
+          <strong>Channel logic:</strong> Accountant provisions Starter. As the business grows and needs more — payroll, VAT returns, more users — the accountant upgrades them to Essentials. The practice revenue grows with the client.
+        </div>
+      </div>
+      <div>
+        <div style="font-family:var(--font);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--g);margin-bottom:10px;">Active Essentials — Who it's for</div>
+        <div style="font-size:12px;color:var(--text2);line-height:1.8;">
+          <strong>ICP:</strong> SMEs with 1+ employees, businesses with payroll obligations, growing businesses needing cash flow management, businesses with complex VAT requirements.<br><br>
+          <strong>What it does:</strong> Everything in Starter plus payroll (DSN in FR, Modelo 303/RPF in ES), multi-user access (up to 10), cash flow forecasting via Sage Prévision integration, Copilot AI full access.<br><br>
+          <strong>Why Essentials, not Starter:</strong> Payroll is the decisive functional differentiator. When an SME has employees, Essentials is the only product in the Active range that covers the full compliance picture.<br><br>
+          <strong>Channel logic:</strong> Essentials is the primary GoProposal proposal product. The practice packages Essentials + their advisory fee + compliance service into a GoProposal engagement letter. This creates the new monthly practice revenue model.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 
 </div><!-- /#main -->
 
