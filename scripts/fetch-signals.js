@@ -309,8 +309,8 @@ function jaccardSimilarity(setA, setB) {
 // Stored signals for semantic comparison
 const storedSignalKeywords = [];
 
-function isDuplicateSignal(title, body) {
-  const combinedText = `${title} ${body}`;
+function isDuplicateSignal(title, bodyText) {
+  const combinedText = `${title} ${bodyText}`;
   
   // Method 1: Exact title fingerprint
   const fingerprint = title.toLowerCase().replace(/[^a-z0-9]/g, '').slice(0, 80);
@@ -694,8 +694,8 @@ async function main() {
       if (!matches(item, feed.keywords)) continue;
       const title = clean(getField(item,'title','dc:title')).slice(0,160);
       if (!title || title.length < 8) continue;
-      if (isDuplicateSignal(title, body)) continue;
       const body = clean(getField(item,'description','content:encoded','content','summary','dc:description')).slice(0,300) || 'See source for details.';
+      if (isDuplicateSignal(title, body)) continue;
       const link = getLink(item, feed.url).slice(0,400);
       const date = getDate(item);
       const sig = { title, category:feed.category, market:feed.market, topic:feed.topic,
