@@ -297,11 +297,12 @@ const EVENT_PATTERNS = [
 // Maps regulatory entities to a normalised topic key
 // so "verifactu" + "hacienda" + "factura electronica" all map to the same ES topic
 const REGULATORY_TOPICS = [
-  { key: 'ES_EINVOICE', terms: ['verifactu','hacienda','factura electronica','facturacion electronica','factura electronica','crea y crece','ticketbai','batuz'] },
-  { key: 'FR_EINVOICE', terms: ['facturation electronique','facturation electr','facture electronique','e-facturation','factures electroniques','dgfip','plateforme agreee','ppf','piste','chorus','dematerialisation','dematerializ'] },
-  { key: 'DE_EINVOICE', terms: ['e-rechnung','xrechnung','zugferd','e-rechnungspflicht','rechnungspflicht','elektronische rechnung','einvoic'] },
+  { key: 'ES_EINVOICE', terms: ['verifactu','hacienda','factura electronica','facturacion electronica','crea y crece','ticketbai','batuz','facturacion','spain invoice'] },
+  { key: 'FR_EINVOICE', terms: ['facturation electronique','facturation electr','facture electronique','facture numerique','e-facturation','dgfip','plateforme agreee','ppf','piste','chorus','dematerialisation','dematerializ','france e-invoic','france mandatory','september 2026','sept 2026','french einvoic','french e-invoic'] },
+  { key: 'DE_EINVOICE', terms: ['e-rechnung','xrechnung','zugferd','e-rechnungspflicht','rechnungspflicht','elektronische rechnung','germany e-invoic','deutschland'] },
   { key: 'PT_EINVOICE', terms: ['saf-t','fatura eletronica','fatura electronica','at portugal','sigef'] },
-  { key: 'EU_EINVOICE', terms: ['vida vat','vida directive','eu vat','b2b einvoic','b2b e-invoic'] },
+  // Catch-all for generic e-invoicing articles — classify by market context later
+  { key: 'EU_EINVOICE', terms: ['b2b e-invoic','b2b einvoic','vida vat','vida directive','e-invoicing begins','mandatory e-invoic','einvoicing mandate'] },
 ];
 
 // Normalise text for topic matching: strip accents, lowercase
@@ -325,7 +326,7 @@ function normAmount(text) {
   const t = text.toLowerCase();
   // Match currency+number+unit in various formats including:
   // "$200M", "€175 million", "75m-report", "1.2 billion", "EUR200m"
-  const matches = t.match(/(?:[€$£]|eur|usd|gbp)?\s*([\d,.]+)\s*(?:billion|milliard|mrd|million|mn|mio|b|m)(?:[^a-z]|$)/gi) || [];
+  const matches = t.match(/(?:[€$£]|eur|usd|gbp)?\s*([\d,.]+)\s*(?:billions?|milliards?|mrd|millions?|mn|mio|b|m)(?:[^a-z]|$)/gi) || [];
   if (!matches.length) return '';
   const nums = matches.map(m => {
     const n = parseFloat(m.replace(/[^0-9.]/g, '')) || 0;
