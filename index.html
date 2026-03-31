@@ -458,6 +458,25 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:
 }
 .lang-btn:hover{color:var(--text);background:var(--bg1);}
 .lang-btn.active{background:var(--g);color:#fff;}
+
+/* ── LANGUAGE SWITCHER ── */
+#lang-switcher {
+  display:flex;align-items:center;gap:4px;
+  background:var(--bg2);border:1px solid var(--border);
+  border-radius:6px;padding:3px;
+}
+.lang-btn {
+  font-family:var(--font);font-size:11px;font-weight:600;
+  padding:4px 9px;border-radius:4px;border:none;
+  cursor:pointer;transition:background 0.15s,color 0.15s;
+  background:transparent;color:var(--text3);letter-spacing:0.3px;
+}
+.lang-btn.active {
+  background:var(--g);color:#fff;
+}
+.lang-btn:hover:not(.active) {
+  background:var(--bg3,#2a2a2a);color:var(--text);
+}
 </style>
 </head>
 <body>
@@ -4911,6 +4930,278 @@ window.setLang = function(lang) {
   _origSetLang(lang);
   try { localStorage.setItem('wise_lang', lang); } catch(e) {}
 };
+</script>
+
+<script>
+// ── LANGUAGE SWITCHER ─────────────────────────────────────────────────────
+const TRANSLATIONS = {
+  en: {
+    // Sidebar section labels
+    'OVERVIEW':          'OVERVIEW',
+    'INTELLIGENCE':      'INTELLIGENCE',
+    'PRODUCTS':          'PRODUCTS',
+    'PERSONAS':          'PERSONAS',
+    'SALES TOOLS':       'SALES TOOLS',
+    'ENABLEMENT':        'ENABLEMENT',
+    'COUNTRIES':         'COUNTRIES',
+    'STRATEGY':          'STRATEGY',
+    'DIRECT CHANNEL':    'DIRECT CHANNEL',
+    // Sidebar nav links
+    'Dashboard':         'Dashboard',
+    'Signals':           'Signals',
+    'Competitors':       'Competitors',
+    'AI Watch':          'AI Watch',
+    'Brand Positioning': 'Brand Positioning',
+    'Hiring Signals':    'Hiring Signals',
+    'Regulatory Calendar': 'Regulatory Calendar',
+    'Products Overview': 'Products Overview',
+    'Accountant Personas': 'Accountant Personas',
+    'SMB Client Segments': 'SMB Client Segments',
+    'Battle Cards':      'Battle Cards',
+    'Deal Intelligence': 'Deal Intelligence',
+    'Campaign Alerts':   'Campaign Alerts',
+    'Sales Enablement':  'Sales Enablement',
+    'Messaging Library': 'Messaging Library',
+    'Win / Loss Intel':  'Win / Loss Intel',
+    'Campaign Calendar': 'Campaign Calendar',
+    'SMB Direct Playbook': 'SMB Direct Playbook',
+    'Competitor Compare': 'Competitor Compare',
+    // Page eyebrows
+    '00 · COMMAND CENTRE':    '00 · COMMAND CENTRE',
+    '01 · WEEKLY INTELLIGENCE': '01 · WEEKLY INTELLIGENCE',
+    '02 · COMPETITOR PROFILES': '02 · COMPETITOR PROFILES',
+    '03 · AI WATCH':          '03 · AI WATCH',
+    '04 · BRAND POSITIONING': '04 · BRAND POSITIONING',
+    '05 · HIRING SIGNALS':    '05 · HIRING SIGNALS',
+    '06 · REGULATORY CALENDAR': '06 · REGULATORY CALENDAR',
+    // Topbar
+    'ELT Export':        'ELT Export',
+    'Share Brief':       'Share Brief',
+    'Search':            'Search',
+    // Dashboard labels
+    'FRANCE PA MANDATE': 'FRANCE PA MANDATE',
+    'SPAIN VERIFACTU (CORPORATE)': 'SPAIN VERIFACTU (CORPORATE)',
+    'GERMANY XRECHNUNG ISSUE': 'GERMANY XRECHNUNG ISSUE',
+    'PORTUGAL SAF-T':    'PORTUGAL SAF-T',
+    'Days to Sept 1 2026': 'Days to Sept 1 2026',
+    'Days to Jan 1 2027': 'Days to Jan 1 2027',
+    'STRATEGIC PROGRESS TRACKER': 'STRATEGIC PROGRESS TRACKER',
+    'COMPETITIVE PRESSURE INDEX': 'COMPETITIVE PRESSURE INDEX',
+    'CRITICAL MANDATE TIMELINE — NEXT 30 MONTHS': 'CRITICAL MANDATE TIMELINE — NEXT 30 MONTHS',
+  },
+
+  fr: {
+    // Sidebar sections
+    'OVERVIEW':          'VUE D'ENSEMBLE',
+    'INTELLIGENCE':      'INTELLIGENCE',
+    'PRODUCTS':          'PRODUITS',
+    'PERSONAS':          'PERSONAS',
+    'SALES TOOLS':       'OUTILS COMMERCIAUX',
+    'ENABLEMENT':        'ENABLEMENT',
+    'COUNTRIES':         'MARCHÉS',
+    'STRATEGY':          'STRATÉGIE',
+    'DIRECT CHANNEL':    'CANAL DIRECT',
+    // Nav links
+    'Dashboard':         'Tableau de bord',
+    'Signals':           'Signaux',
+    'Competitors':       'Concurrents',
+    'AI Watch':          'Veille IA',
+    'Brand Positioning': 'Positionnement de marque',
+    'Hiring Signals':    'Signaux recrutement',
+    'Regulatory Calendar': 'Calendrier réglementaire',
+    'Products Overview': 'Vue produits',
+    'Accountant Personas': 'Personas expert-comptable',
+    'SMB Client Segments': 'Segments clients PME',
+    'Battle Cards':      'Fiches concurrentielles',
+    'Deal Intelligence': 'Intelligence commerciale',
+    'Campaign Alerts':   'Alertes campagnes',
+    'Sales Enablement':  'Aide à la vente',
+    'Messaging Library': 'Bibliothèque de messages',
+    'Win / Loss Intel':  'Gains / Pertes',
+    'Campaign Calendar': 'Calendrier campagnes',
+    'SMB Direct Playbook': 'Playbook canal direct',
+    'Competitor Compare': 'Comparatif concurrents',
+    // Page eyebrows
+    '00 · COMMAND CENTRE':    '00 · CENTRE DE COMMANDE',
+    '01 · WEEKLY INTELLIGENCE': '01 · INTELLIGENCE HEBDOMADAIRE',
+    '02 · COMPETITOR PROFILES': '02 · PROFILS CONCURRENTS',
+    '03 · AI WATCH':          '03 · VEILLE IA',
+    '04 · BRAND POSITIONING': '04 · POSITIONNEMENT DE MARQUE',
+    '05 · HIRING SIGNALS':    '05 · SIGNAUX RECRUTEMENT',
+    '06 · REGULATORY CALENDAR': '06 · CALENDRIER RÉGLEMENTAIRE',
+    // Topbar
+    'ELT Export':        'Export ELT',
+    'Share Brief':       'Partager le brief',
+    'Search':            'Rechercher',
+    // Dashboard
+    'FRANCE PA MANDATE': 'MANDAT PA FRANCE',
+    'SPAIN VERIFACTU (CORPORATE)': 'VERIFACTU ESPAGNE (ENTREPRISES)',
+    'GERMANY XRECHNUNG ISSUE': 'XRECHNUNG ALLEMAGNE ÉMISSION',
+    'PORTUGAL SAF-T':    'SAF-T PORTUGAL',
+    'Days to Sept 1 2026': 'Jours avant le 1er sept. 2026',
+    'Days to Jan 1 2027': 'Jours avant le 1er janv. 2027',
+    'STRATEGIC PROGRESS TRACKER': 'SUIVI DES PROGRÈS STRATÉGIQUES',
+    'COMPETITIVE PRESSURE INDEX': 'INDICE DE PRESSION CONCURRENTIELLE',
+    'CRITICAL MANDATE TIMELINE — NEXT 30 MONTHS': 'CALENDRIER DES MANDATS CRITIQUES — 30 PROCHAINS MOIS',
+  },
+
+  es: {
+    // Sidebar sections
+    'OVERVIEW':          'RESUMEN',
+    'INTELLIGENCE':      'INTELIGENCIA',
+    'PRODUCTS':          'PRODUCTOS',
+    'PERSONAS':          'PERSONAS',
+    'SALES TOOLS':       'HERRAMIENTAS DE VENTAS',
+    'ENABLEMENT':        'HABILITACIÓN',
+    'COUNTRIES':         'MERCADOS',
+    'STRATEGY':          'ESTRATEGIA',
+    'DIRECT CHANNEL':    'CANAL DIRECTO',
+    // Nav links
+    'Dashboard':         'Panel de control',
+    'Signals':           'Señales',
+    'Competitors':       'Competidores',
+    'AI Watch':          'Vigilancia IA',
+    'Brand Positioning': 'Posicionamiento de marca',
+    'Hiring Signals':    'Señales de contratación',
+    'Regulatory Calendar': 'Calendario regulatorio',
+    'Products Overview': 'Resumen de productos',
+    'Accountant Personas': 'Personas de contable',
+    'SMB Client Segments': 'Segmentos clientes PYME',
+    'Battle Cards':      'Fichas competitivas',
+    'Deal Intelligence': 'Inteligencia comercial',
+    'Campaign Alerts':   'Alertas de campaña',
+    'Sales Enablement':  'Habilitación de ventas',
+    'Messaging Library': 'Biblioteca de mensajes',
+    'Win / Loss Intel':  'Ganancias / Pérdidas',
+    'Campaign Calendar': 'Calendario de campañas',
+    'SMB Direct Playbook': 'Playbook canal directo',
+    'Competitor Compare': 'Comparativa competidores',
+    // Page eyebrows
+    '00 · COMMAND CENTRE':    '00 · CENTRO DE MANDO',
+    '01 · WEEKLY INTELLIGENCE': '01 · INTELIGENCIA SEMANAL',
+    '02 · COMPETITOR PROFILES': '02 · PERFILES DE COMPETIDORES',
+    '03 · AI WATCH':          '03 · VIGILANCIA IA',
+    '04 · BRAND POSITIONING': '04 · POSICIONAMIENTO DE MARCA',
+    '05 · HIRING SIGNALS':    '05 · SEÑALES DE CONTRATACIÓN',
+    '06 · REGULATORY CALENDAR': '06 · CALENDARIO REGULATORIO',
+    // Topbar
+    'ELT Export':        'Exportar ELT',
+    'Share Brief':       'Compartir brief',
+    'Search':            'Buscar',
+    // Dashboard
+    'FRANCE PA MANDATE': 'MANDATO PA FRANCIA',
+    'SPAIN VERIFACTU (CORPORATE)': 'VERIFACTU ESPAÑA (EMPRESAS)',
+    'GERMANY XRECHNUNG ISSUE': 'XRECHNUNG ALEMANIA EMISIÓN',
+    'PORTUGAL SAF-T':    'SAF-T PORTUGAL',
+    'Days to Sept 1 2026': 'Días hasta el 1 sept. 2026',
+    'Days to Jan 1 2027': 'Días hasta el 1 ene. 2027',
+    'STRATEGIC PROGRESS TRACKER': 'SEGUIMIENTO DE PROGRESO ESTRATÉGICO',
+    'COMPETITIVE PRESSURE INDEX': 'ÍNDICE DE PRESIÓN COMPETITIVA',
+    'CRITICAL MANDATE TIMELINE — NEXT 30 MONTHS': 'CRONOLOGÍA DE MANDATOS CRÍTICOS — PRÓXIMOS 30 MESES',
+  }
+};
+
+// Store original text for all translatable elements
+const originalTexts = new WeakMap();
+let currentLang = 'en';
+
+function saveOriginals() {
+  // Save original text for all elements with data-i18n attribute
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    if (!originalTexts.has(el)) {
+      originalTexts.set(el, el.textContent.trim());
+    }
+  });
+}
+
+function applyTranslations(lang) {
+  const t = TRANSLATIONS[lang];
+  if (!t) return;
+
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = originalTexts.get(el) || el.textContent.trim();
+    if (!originalTexts.has(el)) originalTexts.set(el, key);
+    const translated = t[key];
+    if (translated) el.textContent = translated;
+    else if (lang === 'en') el.textContent = key; // restore original on EN
+  });
+
+  // Update search button text
+  const searchBtn = document.getElementById('search-btn');
+  if (searchBtn) searchBtn.textContent = t['Search'] || 'Search';
+
+  // Update topbar buttons
+  document.querySelectorAll('.tb-btn').forEach(btn => {
+    const orig = originalTexts.get(btn) || btn.textContent.trim();
+    if (!originalTexts.has(btn)) originalTexts.set(btn, orig);
+    const translated = t[orig];
+    if (translated) btn.textContent = translated;
+    else if (lang === 'en') btn.textContent = orig;
+  });
+}
+
+function setLang(lang) {
+  currentLang = lang;
+
+  // Update active button
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.lang === lang);
+  });
+
+  // Save originals on first use
+  saveOriginals();
+
+  // Apply translations
+  applyTranslations(lang);
+
+  // Store preference
+  try { localStorage.setItem('wise_lang', lang); } catch(e) {}
+}
+
+// Auto-tag translatable elements on load
+document.addEventListener('DOMContentLoaded', () => {
+  // Tag sidebar section labels
+  document.querySelectorAll('.sb-section-label').forEach(el => {
+    el.setAttribute('data-i18n', '');
+  });
+
+  // Tag sidebar nav link text (the text node, not the dot span)
+  document.querySelectorAll('.sb-link').forEach(btn => {
+    // Create a span around the text content (after the dot span)
+    const dot = btn.querySelector('.sb-dot');
+    if (dot) {
+      const textContent = btn.childNodes[btn.childNodes.length - 1];
+      if (textContent && textContent.nodeType === 3) {
+        const span = document.createElement('span');
+        span.setAttribute('data-i18n', '');
+        span.textContent = textContent.textContent;
+        btn.replaceChild(span, textContent);
+      }
+    }
+  });
+
+  // Tag page eyebrows
+  document.querySelectorAll('.page-eyebrow').forEach(el => {
+    el.setAttribute('data-i18n', '');
+  });
+
+  // Tag dashboard stat labels
+  document.querySelectorAll('.dash-stat-label, .stat-label').forEach(el => {
+    el.setAttribute('data-i18n', '');
+  });
+
+  // Tag section labels across all pages
+  document.querySelectorAll('.country-section-label').forEach(el => {
+    // Only tag short uppercase labels (UI chrome, not content)
+    if (el.textContent.length < 60) el.setAttribute('data-i18n', '');
+  });
+
+  // Restore language preference
+  try {
+    const saved = localStorage.getItem('wise_lang');
+    if (saved && saved !== 'en') setLang(saved);
+  } catch(e) {}
+});
 </script>
 </body>
 </html>
