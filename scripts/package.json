@@ -1,0 +1,8 @@
+{
+  "name": "wise-intel-signals",
+  "version": "2.0.0",
+  "description": "WiSE Intel Hub daily signal fetcher",
+  "dependencies": {
+    "fast-xml-parser": "^4.3.6"
+  }
+}
