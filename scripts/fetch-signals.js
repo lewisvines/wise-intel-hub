@@ -407,38 +407,63 @@ function isDuplicateSignal(title, bodyText) {
 function implication({ category, market, label='', title='', source='' }) {
   const t = (title+' '+source).toLowerCase();
   const l = label.toLowerCase();
+  const isFunding = /rais[ei]|secures|leve|series|million|billion|milliard|funding/i.test(t);
+  const isExpansion = /expan|enters|hiring|headcount|new.*market/i.test(t);
+  const isProduct = /launch|feature|release|partner|integrat|copilot/i.test(t);
+  const isAcquisition = /acqui|merger|rachete|buys|takeover|met la main/i.test(t);
+  const isDelay = /delay|postpone|retrasa|aplaza|retard|verschoben/i.test(t);
+  const isSpec = /spec|format|standard|xrechnung|zugferd|factur-x/i.test(t);
+  const isPenalty = /penalt|sanction|fine|amende|multa/i.test(t);
+
   if (category==='Regulatory') {
-    if (market==='FR') return 'France PA mandate Sept 1 2026 — 154 days. Any DGFiP news affects your GE practice activation window. Act before Cegid\'s 100 new reps reach GE practices in Q2 2026.';
-    if (market==='ES') return 'Verifactu: corporate Jan 2027, autónomos Jul 2027. Any AEAT signal affects Active\'s certified-first positioning — use in Despachos conversion conversations.';
-    if (market==='DE') return 'Germany XRechnung issue mandate Jan 2027. Commercial catalyst for FY27 GTM. Any spec update (ZUGFeRD 3.0, XRechnung 4.0) affects DATEV compatibility planning.';
-    if (market==='PT') return 'SAF-T Portugal 2027. Build OCC relationships now for H1 FY27 activation. Any AT announcement affects proposition definition and OCC engagement timeline.';
-    return 'EU regulatory development — assess impact on the pan-EU compliance proposition. ViDA is the overarching EU framework driving all four country mandates.';
+    if (market==='FR') {
+      if (isDelay) return 'France PA mandate Sept 1 2026 is fixed - delays elsewhere do not apply. Use this as a selling point: Sage is ready now, others are not. Accelerate GE practice PA registration.';
+      if (isSpec) return 'Factur-X/UBL/CII format update. Verify Sage Active and AKAO stay compliant. Any change affects the AE processing pipeline - escalate to product.';
+      if (isPenalty) return 'France penalty is EUR50 per non-compliant invoice. Frame Sage PA registration as risk elimination not a feature sale. Every GE practice needs this message now.';
+      return 'France PA mandate Sept 1 2026 - 154 days remaining. Any DGFiP news affects GE practice activation window. Accelerate PA registration campaign.';
+    }
+    if (market==='ES') {
+      if (isDelay) return 'Verifactu delayed but Pennylane arrives Spain H2 2026 regardless. Own the certified-first position before they land. Jan 2027 corporate deadline is firm.';
+      if (isPenalty) return 'Verifactu penalty is EUR50k per year per taxpayer for non-compliant software. Use this compliance risk story in every Despachos conversation.';
+      return 'Verifactu Jan 2027 corporate, Jul 2027 autonomos. Any AEAT signal affects Active certified-first positioning - use in Despachos conversion conversations.';
+    }
+    if (market==='DE') {
+      if (isSpec) return 'XRechnung/ZUGFeRD spec update. Verify DATEV compatibility planning. Must-issue Jan 2027 - any spec change affects the DATEV cloud layer strategy.';
+      return 'Germany XRechnung issue mandate Jan 2027. Commercial catalyst for FY27 GTM. Spec updates affect DATEV compatibility planning.';
+    }
+    if (market==='PT') return 'SAF-T Portugal 2027. Build OCC relationships now for H1 FY27 activation. Any AT announcement affects proposition definition.';
+    return 'EU regulatory development. Assess impact across all four mandates - ViDA July 2030 is the overarching framework.';
   }
+
   if (category==='Competitive') {
-    if (l.includes('pennylane')) return '🔴 CRITICAL: Pennylane — €115M ARR, DGFiP PA-certified, Spain H2 2026. Any funding/product/hiring news signals acceleration. Counter: activate GE practices before they arrive.';
-    if (l.includes('cegid')) return '🔴 HIGH: Cegid deploying 100 French sales reps Q2 2026. They have 15k EU accountants. Any Cegid news means their team is calling your GE practices now. Speed is the counter.';
-    if (l.includes('holded')) return '🟡 SPAIN: Holded goes direct to SMEs, bypassing accountants. Counter: "Holded reaches your clients directly. We come through you." Payroll (Modelo 303/RPF) is the functional win.';
-    if (l.includes('datev')) return '🔵 GERMANY: DATEV is strategic partner, not competitor. Frame Active as the cloud layer above DATEV compliance. Work alongside, never against.';
-    if (l.includes('qonto')||l.includes('regate')) return '🟡 FRANCE: Qonto owns Regate (PA-certified). Banking + accounting integrated play. Monitor accountant partnership moves and feature releases.';
-    if (l.includes('xero')) return '🔵 BENCHMARK: Xero JAX AI is the global standard for accountant-first AI. Their EU moves are leading indicators. Any release signals where EU market heads next.';
-    if (l.includes('lexoffice')||l.includes('sevdesk')) return '🔵 GERMANY: Cegid owns SevDesk (April 2025). Their combined German cloud play affects the definition year strategy — DATEV compatibility is the answer.';
-    if (t.includes('fund')||t.includes('raise')||t.includes('series')||t.includes('lev')) return '💰 FUNDING SIGNAL: Competitor raise = accelerating product and commercial investment. Assess which WiSE market is targeted and counter-position before they deploy capital.';
-    return 'Competitive development in EU accounting software. Assess impact on WiSE GTM timing, accountant messaging, and channel strategy.';
+    if (l.includes('pennylane')) {
+      if (isFunding) return 'CRITICAL: Pennylane raised $200M/EUR175M Series E at $4.25B valuation. Declared offensive capital to acquire legacy accounting software - GE is the implied target. Activate every GE practice now before their commercial team arrives.';
+      if (isExpansion) return 'CRITICAL: Pennylane expanding headcount or territory. Spain H2 2026 confirmed, Germany live since Nov 2025. Each market entry gives a 6-12 month window before they reach critical accountant mass.';
+      if (isProduct) return 'HIGH: Pennylane product or AI update. They ship fast. Assess gap to Sage Copilot and update the battlecard immediately.';
+      return 'CRITICAL: Pennylane EUR115M ARR, PA-certified, Spain H2 2026. Activate GE practices before they arrive.';
+    }
+    if (l.includes('cegid')) {
+      if (isAcquisition) return 'HIGH: Cegid acquisition - they grow through M&A. EBP 275k FR clients, Shine 400k SMBs plus banking, SevDesk in Germany. Shine gives them embedded French banking completing their platform gap.';
+      if (isExpansion) return 'HIGH: Cegid deploying 100 sales reps targeting GE practices from Q2 2026. They will call every practice Sage has not yet converted. Activate GE communication now.';
+      return 'HIGH: Cegid has 15k EU accountants and 1M+ SMBs. Their reps are calling your GE practices now. Every week of delay is a lost practice.';
+    }
+    if (l.includes('holded')) return 'SPAIN: Holded goes direct to SMEs bypassing accountants. Counter: Holded reaches your clients directly - we come through you. Payroll Modelo 303 is the functional win.';
+    if (l.includes('datev')) return 'GERMANY: DATEV is cooperative - 2.8M businesses, EUR1.44B revenue. Complement not compete. Frame Active as the cloud layer above DATEV compliance.';
+    if (l.includes('qonto')||l.includes('regate')) return 'FRANCE: Qonto owns Regate which is PA-certified. Monitor for feature parity with AE - any overlap threatens AutoEntry attach rate.';
+    if (l.includes('xero')) return 'BENCHMARK: Xero JAX AI Anthropic partnership. No French PA cert, no Spanish Verifactu today. Monitor EU compliance feature adds monthly - if JAX gains EU compliance H2 2026 landscape changes.';
+    if (l.includes('lexoffice')||l.includes('sevdesk')) return 'GERMANY: Cegid owns SevDesk since April 2025. Monitor for DATEV integration moves - that signals a serious attack on the German accountant base.';
+    if (l.includes('sage')) return 'SAGE NEWS: Use positive Sage news in accountant conversations. Monitor for product or partnership announcements relevant to WiSE markets.';
+    return 'MARKET SIGNAL: Competitor movement detected. Assess impact on FR/ES/DE/PT positioning and update the relevant battlecard.';
   }
+
   if (category==='AI & Tech') {
-    if (t.includes('agent')||t.includes('autonomous')) return 'AI agent signal — 3-year horizon threat. When AI prepares accounts autonomously, accountant value shifts to advisory. Sage Prévision + Copilot is the advisory play. Position now.';
-    if (t.includes('copilot')||t.includes('co-pilot')) return 'Copilot/AI assistant — benchmark against Sage Copilot\'s compliance-specific capabilities: DSN, Factur-X validation, PA rejection patterns. Specialist compliance AI beats generic AI.';
-    return 'AI development in accounting/fintech. Assess whether this changes the Copilot narrative, creates new proof points, or signals a roadmap gap.';
+    if (t.includes('sage')) return 'SAGE AI: Sage Copilot development signal. Compliance-specific AI is the differentiator - not general LLM capability. Pennylane co-pilot and Xero JAX set the benchmark.';
+    return 'AI WATCH: Accounting AI signal. Assess whether this changes accountant expectations for Sage Copilot. Outcome-led AI wins over feature lists.';
   }
-  if (category==='Sage News') return 'Sage Group news — monitor for product launches, partnerships, commercial hires, or positioning changes that affect WiSE narrative or competitive context.';
-  if (category==='Market Intelligence') {
-    if (market==='FR') return 'French market signal — relevant to GE practice activation and PA mandate communications. Expert-comptable community sentiment is the key adoption velocity indicator.';
-    if (market==='ES') return 'Spanish market signal — relevant to Despachos outreach and Verifactu positioning. Accountant community news affects GoProposal new revenue model and Active launch timing.';
-    if (market==='DE') return 'German market signal — relevant to definition year strategy. Cloud adoption and DATEV ecosystem news affect FY27 GTM planning.';
-    if (market==='PT') return 'Portugal market signal — SAF-T 2027. Mandatory accountant law makes this structurally the most powerful accountant channel market. Build OCC relationships now.';
-    return 'EU market signal — assess relevance across FR/ES/DE/PT. Pan-EU trends in cloud adoption and SME digitisation affect all four market strategies.';
-  }
-  return 'Monitor and assess relevance to WiSE strategy across FR, ES, DE and PT.';
+
+  if (category==='Market Intelligence') return 'MARKET INTEL: European accounting software market signal. Feed into strategic planning and TAM/SAM analysis for FY27.';
+
+  return 'Monitor and assess relevance to WiSE accountant strategy across FR/ES/DE/PT markets.';
 }
 
 // ── MAIN ──────────────────────────────────────────────────────────────────────
@@ -485,6 +510,15 @@ const TRANSLATIONS = {
     [/automatisation/gi, 'automation'],
     [/abandon/gi, 'churn/cancellation'],
     [/cabinet/gi, 'firm'],
+    [/investissements?/gi, 'investment'],
+    [/logiciels? comptables?/gi, 'accounting software'],
+    [/logiciels?/gi, 'software'],
+    [/comptables?/gi, 'accounting'],
+    [/PME/g, 'SMEs'],
+    [/TPE/g, 'micro-businesses'],
+    [/march\u00e9/gi, 'market'],
+    [/partenariat/gi, 'partnership'],
+    [/annonce/gi, 'announcement'],
   ],
   // Spanish → English  
   es: [
@@ -515,6 +549,11 @@ const TRANSLATIONS = {
     [/autonomo/gi, 'self-employed'],
     [/declaraci[óo]n/gi, 'tax filing'],
     [/impuesto/gi, 'tax'],
+    [/novedades/gi, 'new features'],
+    [/claves/gi, 'key points'],
+    [/gesti\u00f3n/gi, 'management'],
+    [/gestores?/gi, 'accountants'],
+    [/profesionales/gi, 'professionals'],
   ],
   // German → English
   de: [
