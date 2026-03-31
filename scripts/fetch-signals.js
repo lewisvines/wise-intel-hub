@@ -284,7 +284,7 @@ const ENTITIES = [
 
 const EVENT_PATTERNS = [
   // Acquisition BEFORE funding — "rachète pour un milliard" is acquisition, not funding
-  { key:'acquisition',  test: t => /acqui[rs]|rach\u00e8te|rachet|\bbuys\b|merger|acquiert|\u00fcbernimmt|takeover/i.test(t) },
+  { key:'acquisition',  test: t => /acqui[rs]|rach\u00e8te|rachet|\bbuys\b|merger|acquiert|takeover|met la main|s'empare|prend le contr|rachete|übernimmt/i.test(t) },
   { key:'funding',      test: t => /\brais(?:es?|ed|ing)?\b|secures?\s+[€$£\d]|secures?\s+\$|l[eè]ve\s+[\d€$£]|l[eè]ve\s+\d|\bseries\s+[abcde]\b|venture\s+capital|seed.fund|\bfunding\s+round\b|lev[eé]e\s+de\s+fonds|investissement/i.test(t) },
   { key:'launch',       test: t => /launch[es]|releases?|introduces?|announces?\s+new|unveil|lancement/i.test(t) },
   { key:'partnership',  test: t => /partners?\s+with|collaboration|partenariat|integrat/i.test(t) },
