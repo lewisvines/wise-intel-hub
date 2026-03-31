@@ -443,6 +443,21 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:
 .lang-btn:hover{border-color:var(--g);color:var(--g);}
 .lang-btn.active{background:var(--gdim2);border-color:var(--g);color:var(--g);}
 .lang-divider{color:var(--border);font-size:10px;user-select:none;}
+
+/* ── LANGUAGE SWITCHER ── */
+#lang-switcher{
+  display:flex;align-items:center;gap:2px;
+  background:var(--bg2);border:1px solid var(--border);border-radius:6px;
+  padding:3px;
+}
+.lang-btn{
+  background:none;border:none;border-radius:4px;
+  color:var(--text3);font-family:var(--font);font-size:11px;font-weight:600;
+  padding:4px 8px;cursor:pointer;letter-spacing:0.5px;
+  transition:background 0.15s,color 0.15s;
+}
+.lang-btn:hover{color:var(--text);background:var(--bg1);}
+.lang-btn.active{background:var(--g);color:#fff;}
 </style>
 </head>
 <body>
@@ -486,12 +501,12 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:
 
   <hr class="sb-divider">
   <div class="sb-section-label" data-i18n="Countries" data-fr="Pays" data-es="Países">Countries</div>
-  <button class="sb-link" data-page="country-fr"><span class="sb-dot"></span>🇫🇷 France</button>
-  <button class="sb-link" data-page="country-es"><span class="sb-dot"></span>🇪🇸 Spain</button>
-  <button class="sb-link" data-page="country-de"><span class="sb-dot"></span>🇩🇪 Germany</button>
-  <button class="sb-link" data-page="country-pt"><span class="sb-dot"></span>🇵🇹 Portugal</button>
-  <button class="sb-link" data-page="country-uk"><span class="sb-dot"></span>🇬🇧 United Kingdom</button>
-  <button class="sb-link" data-page="country-us"><span class="sb-dot"></span>🇺🇸 United States</button>
+  <button class="sb-link" data-page="country-fr"><span class="sb-dot"></span><span data-i18n="🇫🇷 France" data-fr="🇫🇷 France" data-es="🇫🇷 Francia">🇫🇷 France</span></button>
+  <button class="sb-link" data-page="country-es"><span class="sb-dot"></span><span data-i18n="🇪🇸 Spain" data-fr="🇪🇸 Espagne" data-es="🇪🇸 España">🇪🇸 Spain</span></button>
+  <button class="sb-link" data-page="country-de"><span class="sb-dot"></span><span data-i18n="🇩🇪 Germany" data-fr="🇩🇪 Allemagne" data-es="🇩🇪 Alemania">🇩🇪 Germany</span></button>
+  <button class="sb-link" data-page="country-pt"><span class="sb-dot"></span><span data-i18n="🇵🇹 Portugal" data-fr="🇵🇹 Portugal" data-es="🇵🇹 Portugal">🇵🇹 Portugal</span></button>
+  <button class="sb-link" data-page="country-uk"><span class="sb-dot"></span><span data-i18n="🇬🇧 United Kingdom" data-fr="🇬🇧 Royaume-Uni" data-es="🇬🇧 Reino Unido">🇬🇧 United Kingdom</span></button>
+  <button class="sb-link" data-page="country-us"><span class="sb-dot"></span><span data-i18n="🇺🇸 United States" data-fr="🇺🇸 États-Unis" data-es="🇺🇸 Estados Unidos">🇺🇸 United States</span></button>
 
   <hr class="sb-divider">
   <div class="sb-section-label" data-i18n="Strategy" data-fr="Stratégie" data-es="Estrategia">Strategy</div>
@@ -516,18 +531,23 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:
 
 <!-- TOPBAR -->
 <div id="topbar">
-  <div class="tb-breadcrumb">WiSE Intel Hub &nbsp;/&nbsp; <span id="tb-current">Signals</span></div>
+  <div class="tb-breadcrumb" data-i18n="hub_name">WiSE Intel Hub &nbsp;/&nbsp; <span id="tb-current">Signals</span></div>
   <div class="tb-actions" style="display:flex;align-items:center;gap:10px;">
     <div id="lang-switcher">
-      <button class="lang-btn active" onclick="setLang('en')" id="lang-en">EN</button>
+      <button class="lang-btn active" id="lang-en" onclick="setLang('en')" id="lang-en">EN</button>
       <span class="lang-divider">|</span>
-      <button class="lang-btn" onclick="setLang('fr')" id="lang-fr">FR</button>
+      <button class="lang-btn" id="lang-fr" onclick="setLang('fr')" id="lang-fr">FR</button>
       <span class="lang-divider">|</span>
-      <button class="lang-btn" onclick="setLang('es')" id="lang-es">ES</button>
+      <button class="lang-btn" id="lang-es" onclick="setLang('es')" id="lang-es">ES</button>
     </div>
-    <button id="search-btn" onclick="openSearch()" title="Search hub (Ctrl+K)" data-i18n="Search" data-fr="Rechercher" data-es="Buscar">Search</button>
+    <div id="lang-switcher">
+      <button class="lang-btn active" data-lang="en" id="lang-en" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" data-lang="fr" id="lang-fr" onclick="setLang('fr')">FR</button>
+      <button class="lang-btn" data-lang="es" id="lang-es" onclick="setLang('es')">ES</button>
+    </div>
+    <button id="search-btn" onclick="openSearch()" title="Search hub (Ctrl+K)" data-i18n="Search" data-fr="Rechercher" data-es="Buscar" data-i18n="btn_search">Search</button>
     <button class="tb-btn" onclick="openELT()" data-i18n="⬆ ELT Export" data-fr="⬆ Export DG" data-es="⬆ Exportar DG">⬆ ELT Export</button>
-    <button class="tb-btn primary" onclick="window.print()">Share Brief</button>
+    <button class="tb-btn primary" onclick="window.print()" data-i18n="btn_share">Share Brief</button>
   </div>
 </div>
 <!-- ══════ SIGNALS PAGE ══════ -->
@@ -566,7 +586,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:
   <!-- STRATEGIC PROGRESS + COMPETITIVE PRESSURE -->
   <div class="grid-2 reveal" style="margin-bottom:20px;">
     <div class="dash-card">
-      <div class="dash-label" style="margin-bottom:12px;">Strategic Progress Tracker</div>
+      <div class="dash-label" style="margin-bottom:12px;" data-i18n="dash_progress">Strategic Progress Tracker</div>
       <div class="okr-row">
         <div class="rag-dot rag-a"></div>
         <div class="okr-name">France PA Registration (Sept 2026)</div>
@@ -612,7 +632,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:
     </div>
 
     <div class="dash-card">
-      <div class="dash-label" style="margin-bottom:12px;">Competitive Pressure Index</div>
+      <div class="dash-label" style="margin-bottom:12px;" data-i18n="dash_pressure">Competitive Pressure Index</div>
       <div class="okr-row">
         <div class="rag-dot rag-r"></div>
         <div class="okr-name">Pennylane (FR + ES H2 2026)</div>
@@ -4230,8 +4250,6 @@ loadLiveSignals();
     </div>
   </div>
 
-</div><!-- end page-competitor-compare -->
-
 </div><!-- /#main -->
 
 
@@ -4706,6 +4724,193 @@ document.addEventListener('DOMContentLoaded', () => {
     if (saved && saved !== 'en') setLang(saved);
   } catch(e) {}
 });
+</script>
+
+<script>
+// ── LANGUAGE SWITCHER ────────────────────────────────────────────
+const i18n = {
+  en: {
+    // Sidebar sections
+    sec_overview: 'Overview',
+    sec_intelligence: 'Intelligence',
+    sec_products: 'Products',
+    sec_personas: 'Personas',
+    sec_sales_tools: 'Sales Tools',
+    sec_enablement: 'Enablement',
+    sec_countries: 'Countries',
+    sec_strategy: 'Strategy',
+    sec_direct: 'Direct Channel',
+    // Nav items
+    nav_dashboard: 'Dashboard',
+    nav_signals: 'Signals',
+    nav_competitors: 'Competitors',
+    nav_ai_watch: 'AI Watch',
+    nav_brand: 'Brand Positioning',
+    nav_hiring: 'Hiring Signals',
+    nav_regulatory: 'Regulatory Calendar',
+    nav_products: 'Products Overview',
+    nav_personas: 'Accountant Personas',
+    nav_smb_seg: 'SMB Client Segments',
+    nav_battlecards: 'Battle Cards',
+    nav_deal: 'Deal Intelligence',
+    nav_campaigns: 'Campaign Alerts',
+    nav_enablement: 'Sales Enablement',
+    nav_fr: '🇫🇷 France',
+    nav_es: '🇪🇸 Spain',
+    nav_de: '🇩🇪 Germany',
+    nav_pt: '🇵🇹 Portugal',
+    nav_uk: '🇬🇧 United Kingdom',
+    nav_us: '🇺🇸 United States',
+    nav_messaging: 'Messaging Library',
+    nav_winloss: 'Win / Loss Intel',
+    nav_cam_cal: 'Campaign Calendar',
+    nav_smb_direct: 'SMB Direct Playbook',
+    nav_compare: 'Competitor Compare',
+    // UI
+    hub_name: 'WiSE Intel Hub &nbsp;/&nbsp;',
+    dash_progress: 'Strategic Progress Tracker',
+    dash_pressure: 'Competitive Pressure Index',
+    dash_timeline: 'CRITICAL MANDATE TIMELINE — NEXT 30 MONTHS',
+    btn_share: 'Share Brief',
+    btn_search: 'Search',
+  },
+
+  fr: {
+    sec_overview: 'Vue d'ensemble',
+    sec_intelligence: 'Intelligence',
+    sec_products: 'Produits',
+    sec_personas: 'Personas',
+    sec_sales_tools: 'Outils de vente',
+    sec_enablement: 'Formation',
+    sec_countries: 'Marchés',
+    sec_strategy: 'Stratégie',
+    sec_direct: 'Canal direct',
+    nav_dashboard: 'Tableau de bord',
+    nav_signals: 'Signaux',
+    nav_competitors: 'Concurrents',
+    nav_ai_watch: 'Veille IA',
+    nav_brand: 'Positionnement de marque',
+    nav_hiring: 'Signaux de recrutement',
+    nav_regulatory: 'Calendrier réglementaire',
+    nav_products: 'Vue des produits',
+    nav_personas: 'Personas experts-comptables',
+    nav_smb_seg: 'Segments PME clients',
+    nav_battlecards: 'Fiches concurrentielles',
+    nav_deal: 'Intelligence commerciale',
+    nav_campaigns: 'Alertes campagnes',
+    nav_enablement: 'Aide à la vente',
+    nav_fr: '🇫🇷 France',
+    nav_es: '🇪🇸 Espagne',
+    nav_de: '🇩🇪 Allemagne',
+    nav_pt: '🇵🇹 Portugal',
+    nav_uk: '🇬🇧 Royaume-Uni',
+    nav_us: '🇺🇸 États-Unis',
+    nav_messaging: 'Bibliothèque de messages',
+    nav_winloss: 'Victoires / Défaites',
+    nav_cam_cal: 'Calendrier des campagnes',
+    nav_smb_direct: 'Playbook direct PME',
+    nav_compare: 'Comparatif concurrents',
+    hub_name: 'WiSE Intel Hub &nbsp;/&nbsp;',
+    dash_progress: 'Suivi des progrès stratégiques',
+    dash_pressure: 'Indice de pression concurrentielle',
+    dash_timeline: 'CALENDRIER DES MANDATS — 30 PROCHAINS MOIS',
+    btn_share: 'Partager',
+    btn_search: 'Rechercher',
+  },
+
+  es: {
+    sec_overview: 'Resumen',
+    sec_intelligence: 'Inteligencia',
+    sec_products: 'Productos',
+    sec_personas: 'Personas',
+    sec_sales_tools: 'Herramientas de venta',
+    sec_enablement: 'Capacitación',
+    sec_countries: 'Mercados',
+    sec_strategy: 'Estrategia',
+    sec_direct: 'Canal directo',
+    nav_dashboard: 'Panel de control',
+    nav_signals: 'Señales',
+    nav_competitors: 'Competidores',
+    nav_ai_watch: 'Vigilancia IA',
+    nav_brand: 'Posicionamiento de marca',
+    nav_hiring: 'Señales de contratación',
+    nav_regulatory: 'Calendario regulatorio',
+    nav_products: 'Vista de productos',
+    nav_personas: 'Personas de contables',
+    nav_smb_seg: 'Segmentos clientes PYME',
+    nav_battlecards: 'Fichas competitivas',
+    nav_deal: 'Inteligencia comercial',
+    nav_campaigns: 'Alertas de campañas',
+    nav_enablement: 'Capacitación de ventas',
+    nav_fr: '🇫🇷 Francia',
+    nav_es: '🇪🇸 España',
+    nav_de: '🇩🇪 Alemania',
+    nav_pt: '🇵🇹 Portugal',
+    nav_uk: '🇬🇧 Reino Unido',
+    nav_us: '🇺🇸 Estados Unidos',
+    nav_messaging: 'Biblioteca de mensajes',
+    nav_winloss: 'Victorias / Derrotas',
+    nav_cam_cal: 'Calendario de campañas',
+    nav_smb_direct: 'Playbook directo PYME',
+    nav_compare: 'Comparativa de competidores',
+    hub_name: 'WiSE Intel Hub &nbsp;/&nbsp;',
+    dash_progress: 'Seguimiento del progreso estratégico',
+    dash_pressure: 'Índice de presión competitiva',
+    dash_timeline: 'CALENDARIO DE MANDATOS — PRÓXIMOS 30 MESES',
+    btn_share: 'Compartir',
+    btn_search: 'Buscar',
+  }
+};
+
+let currentLang = 'en';
+
+function setLang(lang) {
+  if (!i18n[lang]) return;
+  currentLang = lang;
+
+  // Update all tagged elements
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (i18n[lang][key] !== undefined) {
+      el.innerHTML = i18n[lang][key];
+    }
+  });
+
+  // Update active button state
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.lang === lang);
+  });
+
+  // Update html lang attribute for accessibility
+  document.documentElement.lang = lang;
+
+  // Update page title breadcrumb if titles map has current page
+  const bc = document.getElementById('tb-current');
+  if (bc && window.titles) {
+    // Re-apply the current page title in case it was affected
+    const activeLink = document.querySelector('.sb-link.active');
+    if (activeLink) {
+      const pageId = activeLink.dataset.page;
+      if (titles[pageId]) bc.textContent = titles[pageId];
+    }
+  }
+}
+
+// Initialise on load
+document.addEventListener('DOMContentLoaded', () => {
+  // Check for saved language preference
+  const saved = localStorage.getItem('wise_lang');
+  if (saved && i18n[saved]) {
+    setLang(saved);
+  }
+});
+
+// Override setLang to also save preference
+const _origSetLang = setLang;
+window.setLang = function(lang) {
+  _origSetLang(lang);
+  try { localStorage.setItem('wise_lang', lang); } catch(e) {}
+};
 </script>
 </body>
 </html>
