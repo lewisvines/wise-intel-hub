@@ -385,6 +385,51 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:
 .reg-event{font-size:12px;color:var(--text2);flex:1;}
 .reg-tag{flex-shrink:0;}
 
+
+/* ── SEARCH ── */
+#search-overlay{
+  display:none;position:fixed;inset:0;z-index:500;
+  background:rgba(0,0,0,0.85);backdrop-filter:blur(8px);
+}
+#search-overlay.active{display:flex;flex-direction:column;align-items:center;padding-top:80px;}
+#search-box-wrap{
+  width:min(680px,90vw);
+}
+#search-input{
+  width:100%;box-sizing:border-box;
+  background:var(--bg2);border:1.5px solid var(--g);border-radius:10px;
+  color:var(--text);font-family:var(--font);font-size:16px;
+  padding:14px 20px 14px 48px;outline:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%230F6E56' stroke-width='2'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:16px center;
+}
+#search-input::placeholder{color:var(--text3);}
+#search-meta{font-family:var(--font);font-size:11px;color:var(--text3);margin:10px 4px 0;letter-spacing:0.5px;}
+#search-results{
+  width:min(680px,90vw);margin-top:12px;
+  max-height:60vh;overflow-y:auto;
+  display:flex;flex-direction:column;gap:6px;
+}
+.sr-card{
+  background:var(--bg2);border:1px solid var(--border);border-radius:8px;
+  padding:14px 18px;cursor:pointer;transition:border-color 0.15s,background 0.15s;
+}
+.sr-card:hover{border-color:var(--g);background:var(--gdim2);}
+.sr-page{font-family:var(--font);font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--g);margin-bottom:4px;}
+.sr-match{font-size:13px;color:var(--text2);line-height:1.5;}
+.sr-match mark{background:transparent;color:var(--g);font-weight:700;}
+.sr-empty{text-align:center;color:var(--text3);font-size:14px;padding:40px;}
+#search-close-hint{font-family:var(--font);font-size:11px;color:var(--text3);margin-top:14px;text-align:center;}
+
+/* Search button in topbar */
+#search-btn{
+  background:var(--bg2);border:1px solid var(--border);border-radius:6px;
+  color:var(--text3);font-family:var(--font);font-size:12px;
+  padding:5px 12px 5px 32px;cursor:pointer;transition:border-color 0.15s,color 0.15s;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='13' height='13' viewBox='0 0 24 24' fill='none' stroke='%236B7280' stroke-width='2'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:10px center;
+}
+#search-btn:hover{border-color:var(--g);color:var(--g);}
 </style>
 </head>
 <body>
@@ -459,7 +504,8 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:
 <!-- TOPBAR -->
 <div id="topbar">
   <div class="tb-breadcrumb">WiSE Intel Hub &nbsp;/&nbsp; <span id="tb-current">Signals</span></div>
-  <div class="tb-actions">
+  <div class="tb-actions" style="display:flex;align-items:center;gap:10px;">
+    <button id="search-btn" onclick="openSearch()" title="Search hub (Ctrl+K)">Search</button>
     <button class="tb-btn" onclick="openELT()">⬆ ELT Export</button>
     <button class="tb-btn primary" onclick="window.print()">Share Brief</button>
   </div>
@@ -4190,5 +4236,208 @@ loadLiveSignals();
 </script>
 
 
+
+<!-- ══════ SEARCH OVERLAY ══════ -->
+<div id="search-overlay">
+  <div id="search-box-wrap">
+    <input id="search-input" type="text" placeholder="Search all 25 pages…" autocomplete="off" spellcheck="false">
+    <div id="search-meta"></div>
+  </div>
+  <div id="search-results"></div>
+  <div id="search-close-hint">Press <strong>Esc</strong> to close &nbsp;·&nbsp; <strong>Enter</strong> to go to first result &nbsp;·&nbsp; <strong>Ctrl+K</strong> to open</div>
+</div>
+
+
+<script>
+// ── SEARCH ENGINE ──────────────────────────────────────────────────
+const searchIndex = [];
+
+function buildSearchIndex() {
+  if (searchIndex.length > 0) return;
+  const pageTitleMap = {
+    'dashboard':'Command Centre — Dashboard',
+    'signals':'Intelligence — Signals',
+    'competitors':'Intelligence — Competitors',
+    'ai-watch':'Intelligence — AI Watch',
+    'brand':'Intelligence — Brand Positioning',
+    'hiring':'Intelligence — Hiring Signals',
+    'regulatory':'Intelligence — Regulatory Calendar',
+    'products':'Products — Portfolio',
+    'accountant-personas':'Personas — Accountant Personas',
+    'smb-segments':'Personas — SMB Client Segments',
+    'battlecards':'Sales Tools — Battle Cards',
+    'deal-intel':'Sales Tools — Deal Intelligence',
+    'campaign-alerts':'Sales Tools — Campaign Alerts',
+    'sales-enablement':'Enablement — Sales Enablement',
+    'country-fr':'🇫🇷 France',
+    'country-es':'🇪🇸 Spain',
+    'country-de':'🇩🇪 Germany',
+    'country-pt':'🇵🇹 Portugal',
+    'country-uk':'🇬🇧 United Kingdom',
+    'country-us':'🇺🇸 United States',
+    'messaging-library':'Strategy — Messaging Library',
+    'win-loss':'Strategy — Win / Loss Intel',
+    'campaign-calendar':'Strategy — Campaign Calendar',
+    'smb-direct':'Direct Channel — SMB Direct Playbook',
+    'competitor-compare':'Direct Channel — Competitor Compare'
+  };
+
+  document.querySelectorAll('.page-section').forEach(page => {
+    const id = page.id.replace('page-', '');
+    const pageTitle = pageTitleMap[id] || id;
+
+    // Index every text-containing element individually for precise excerpts
+    page.querySelectorAll('p, .cb-body, .sc-body, .sc-impl-body, .ifyrne p, .pattern-item, .okr-name, h3, .cb-title, .sc-title, .page-title, .page-subtitle, td, li, .reg-event, .bc-content').forEach(el => {
+      const text = el.innerText.trim();
+      if (text.length > 30) {
+        searchIndex.push({ pageId: id, pageTitle, text });
+      }
+    });
+
+    // Fallback: also index full page text as one block for broad coverage
+    const fullText = page.innerText;
+    if (fullText) {
+      searchIndex.push({ pageId: id, pageTitle, text: fullText, isFull: true });
+    }
+  });
+}
+
+function searchHub(query) {
+  if (!query || query.length < 2) return [];
+  const terms = query.toLowerCase().split(/\s+/).filter(t => t.length > 1);
+  if (!terms.length) return [];
+
+  const seen = new Set();
+  const results = [];
+
+  searchIndex.forEach(entry => {
+    if (entry.isFull) return; // skip full-page entries in match loop
+    const lower = entry.text.toLowerCase();
+    const allMatch = terms.every(t => lower.includes(t));
+    if (!allMatch) return;
+
+    // Create excerpt around first match
+    const firstTerm = terms[0];
+    const idx = lower.indexOf(firstTerm);
+    const start = Math.max(0, idx - 60);
+    const end = Math.min(entry.text.length, idx + 140);
+    let excerpt = (start > 0 ? '…' : '') + entry.text.slice(start, end) + (end < entry.text.length ? '…' : '');
+
+    // Highlight all terms
+    terms.forEach(t => {
+      excerpt = excerpt.replace(new RegExp(t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi'),
+        m => `<mark>${m}</mark>`);
+    });
+
+    const key = entry.pageId + '|' + entry.text.slice(0, 80);
+    if (!seen.has(key)) {
+      seen.add(key);
+      results.push({ pageId: entry.pageId, pageTitle: entry.pageTitle, excerpt });
+    }
+  });
+
+  // Sort: exact phrase matches first, then multi-term
+  results.sort((a, b) => {
+    const aExact = a.excerpt.toLowerCase().includes(query.toLowerCase()) ? 0 : 1;
+    const bExact = b.excerpt.toLowerCase().includes(query.toLowerCase()) ? 0 : 1;
+    return aExact - bExact;
+  });
+
+  return results.slice(0, 20);
+}
+
+function renderResults(results, query) {
+  const container = document.getElementById('search-results');
+  const meta = document.getElementById('search-meta');
+
+  if (!query || query.length < 2) {
+    container.innerHTML = '';
+    meta.textContent = '';
+    return;
+  }
+
+  if (!results.length) {
+    container.innerHTML = '<div class="sr-empty">No results for "' + query + '"</div>';
+    meta.textContent = '';
+    return;
+  }
+
+  // Group by page
+  const byPage = {};
+  results.forEach(r => {
+    if (!byPage[r.pageId]) byPage[r.pageId] = { pageTitle: r.pageTitle, matches: [] };
+    byPage[r.pageId].matches.push(r.excerpt);
+  });
+
+  const pageCount = Object.keys(byPage).length;
+  const totalCount = results.length;
+  meta.textContent = totalCount + ' result' + (totalCount !== 1 ? 's' : '') + ' across ' + pageCount + ' page' + (pageCount !== 1 ? 's' : '');
+
+  container.innerHTML = Object.entries(byPage).map(([pageId, data]) =>
+    `<div class="sr-card" onclick="goToResult('${pageId}')">
+      <div class="sr-page">${data.pageTitle}</div>
+      ${data.matches.slice(0, 2).map(m => `<div class="sr-match">${m}</div>`).join('')}
+    </div>`
+  ).join('');
+}
+
+function goToResult(pageId) {
+  closeSearch();
+  showPage(pageId);
+}
+
+function openSearch() {
+  buildSearchIndex();
+  const overlay = document.getElementById('search-overlay');
+  overlay.classList.add('active');
+  const input = document.getElementById('search-input');
+  input.value = '';
+  input.focus();
+  document.getElementById('search-results').innerHTML = '';
+  document.getElementById('search-meta').textContent = '';
+}
+
+function closeSearch() {
+  document.getElementById('search-overlay').classList.remove('active');
+}
+
+// Input handler
+document.addEventListener('DOMContentLoaded', () => {
+  const input = document.getElementById('search-input');
+  if (input) {
+    input.addEventListener('input', () => {
+      const q = input.value.trim();
+      const results = searchHub(q);
+      renderResults(results, q);
+    });
+
+    input.addEventListener('keydown', e => {
+      if (e.key === 'Enter') {
+        const first = document.querySelector('.sr-card');
+        if (first) first.click();
+      }
+    });
+  }
+
+  // Close on overlay background click
+  const overlay = document.getElementById('search-overlay');
+  if (overlay) {
+    overlay.addEventListener('click', e => {
+      if (e.target === overlay) closeSearch();
+    });
+  }
+});
+
+// Global keyboard shortcuts
+document.addEventListener('keydown', e => {
+  if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+    e.preventDefault();
+    openSearch();
+  }
+  if (e.key === 'Escape') {
+    closeSearch();
+  }
+});
+</script>
 </body>
 </html>
