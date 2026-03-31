@@ -527,6 +527,22 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:16
 
 /* ══ HIDE LIVE SIGNALS block initially ════════════════════════════ */
 #live-signals-block .signal-card{margin-bottom:12px;}
+
+/* Country code badges in sidebar */
+.sb-link[data-country]::before {
+  content: attr(data-country);
+  display: inline-block;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  background: rgba(0,176,80,0.15);
+  color: var(--g);
+  border-radius: 3px;
+  padding: 1px 4px;
+  margin-right: 6px;
+  flex-shrink: 0;
+  font-family: var(--font);
+}
 </style>
 </head>
 <body>
@@ -538,10 +554,10 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:16
     <div class="sb-badge"><span class="pulse-dot"></span>Live · Weekly</div>
   </div>
 
-  <div class="sb-section-label" data-i18n="Overview" data-fr="Vue d'ensemble" data-es="Resumen">Overview</div>
+  <div class="sb-section-label">Overview</div>
   <button class="sb-link" data-page="dashboard"><span class="sb-dot"></span><span data-i18n='Dashboard' data-fr='Tableau de bord' data-es='Panel de control'>Dashboard</span></button>
   <hr class="sb-divider">
-  <div class="sb-section-label" data-i18n="Intelligence" data-fr="Intelligence" data-es="Inteligencia">Intelligence</div>
+  <div class="sb-section-label">Intelligence</div>
   <button class="sb-link active" data-page="signals"><span class="sb-dot"></span><span data-i18n='Signals' data-fr='Signaux' data-es='Señales'>Signals</span></button>
   <button class="sb-link" data-page="competitors"><span class="sb-dot"></span><span data-i18n='Competitors' data-fr='Concurrents' data-es='Competidores'>Competitors</span></button>
   <button class="sb-link" data-page="ai-watch"><span class="sb-dot"></span><span data-i18n='AI Watch' data-fr='Veille IA' data-es='Seguimiento IA'>AI Watch</span></button>
@@ -550,41 +566,41 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:16
   <button class="sb-link" data-page="regulatory"><span class="sb-dot"></span><span data-i18n='Regulatory Calendar' data-fr='Calendrier réglementaire' data-es='Calendario regulatorio'>Regulatory Calendar</span></button>
 
   <hr class="sb-divider">
-  <div class="sb-section-label" data-i18n="Products" data-fr="Produits" data-es="Productos">Products</div>
+  <div class="sb-section-label">Products</div>
   <button class="sb-link" data-page="products"><span class="sb-dot"></span><span data-i18n='Products Overview' data-fr='Aperçu des produits' data-es='Visión general de productos'>Products Overview</span></button>
 
   <hr class="sb-divider">
-  <div class="sb-section-label" data-i18n="Personas" data-fr="Personas" data-es="Personas">Personas</div>
+  <div class="sb-section-label">Personas</div>
   <button class="sb-link" data-page="accountant-personas"><span class="sb-dot"></span><span data-i18n='Accountant Personas' data-fr='Personas experts-comptables' data-es='Personas de contables'>Accountant Personas</span></button>
   <button class="sb-link" data-page="smb-segments"><span class="sb-dot"></span><span data-i18n='SMB Client Segments' data-fr='Segments clients PME' data-es='Segmentos clientes PYME'>SMB Client Segments</span></button>
 
   <hr class="sb-divider">
-  <div class="sb-section-label" data-i18n="Sales Tools" data-fr="Outils de vente" data-es="Herramientas de venta">Sales Tools</div>
+  <div class="sb-section-label">Sales Tools</div>
   <button class="sb-link" data-page="battlecards"><span class="sb-dot"></span><span data-i18n='Battle Cards' data-fr='Fiches de combat' data-es='Tarjetas de batalla'>Battle Cards</span></button>
   <button class="sb-link" data-page="deal-intel"><span class="sb-dot"></span><span data-i18n='Deal Intelligence' data-fr='Intelligence commerciale' data-es='Inteligencia comercial'>Deal Intelligence</span></button>
   <button class="sb-link" data-page="campaign-alerts"><span class="sb-dot"></span><span data-i18n='Campaign Alerts' data-fr='Alertes campagnes' data-es='Alertas de campaña'>Campaign Alerts</span></button>
 
   <hr class="sb-divider">
-  <div class="sb-section-label" data-i18n="Enablement" data-fr="Accompagnement" data-es="Capacitación">Enablement</div>
+  <div class="sb-section-label">Enablement</div>
   <button class="sb-link" data-page="sales-enablement"><span class="sb-dot"></span><span data-i18n='Sales Enablement' data-fr='Aide à la vente' data-es='Capacitación de ventas'>Sales Enablement</span></button>
 
   <hr class="sb-divider">
-  <div class="sb-section-label" data-i18n="Countries" data-fr="Pays" data-es="Países">Countries</div>
-  <button class="sb-link" data-page="country-fr"><span class="sb-dot"></span><span data-i18n="🇫🇷 France" data-fr="🇫🇷 France" data-es="🇫🇷 Francia">🇫🇷 France</span></button>
-  <button class="sb-link" data-page="country-es"><span class="sb-dot"></span><span data-i18n="🇪🇸 Spain" data-fr="🇪🇸 Espagne" data-es="🇪🇸 España">🇪🇸 Spain</span></button>
-  <button class="sb-link" data-page="country-de"><span class="sb-dot"></span><span data-i18n="🇩🇪 Germany" data-fr="🇩🇪 Allemagne" data-es="🇩🇪 Alemania">🇩🇪 Germany</span></button>
-  <button class="sb-link" data-page="country-pt"><span class="sb-dot"></span><span data-i18n="🇵🇹 Portugal" data-fr="🇵🇹 Portugal" data-es="🇵🇹 Portugal">🇵🇹 Portugal</span></button>
-  <button class="sb-link" data-page="country-uk"><span class="sb-dot"></span><span data-i18n="🇬🇧 United Kingdom" data-fr="🇬🇧 Royaume-Uni" data-es="🇬🇧 Reino Unido">🇬🇧 United Kingdom</span></button>
-  <button class="sb-link" data-page="country-us"><span class="sb-dot"></span><span data-i18n="🇺🇸 United States" data-fr="🇺🇸 États-Unis" data-es="🇺🇸 Estados Unidos">🇺🇸 United States</span></button>
+  <div class="sb-section-label">Countries</div>
+  <button class="sb-link" data-page="country-fr" data-country="FR"><span class="sb-dot"></span><span>France</span></button>
+  <button class="sb-link" data-page="country-es" data-country="ES"><span class="sb-dot"></span><span>Spain</span></button>
+  <button class="sb-link" data-page="country-de" data-country="DE"><span class="sb-dot"></span><span>Germany</span></button>
+  <button class="sb-link" data-page="country-pt" data-country="PT"><span class="sb-dot"></span><span>Portugal</span></button>
+  <button class="sb-link" data-page="country-uk" data-country="GB"><span class="sb-dot"></span><span>United Kingdom</span></button>
+  <button class="sb-link" data-page="country-us" data-country="US"><span class="sb-dot"></span><span>United States</span></button>
 
   <hr class="sb-divider">
-  <div class="sb-section-label" data-i18n="Strategy" data-fr="Stratégie" data-es="Estrategia">Strategy</div>
+  <div class="sb-section-label">Strategy</div>
   <button class="sb-link" data-page="messaging-library"><span class="sb-dot"></span><span data-i18n='Messaging Library' data-fr='Bibliothèque de messages' data-es='Biblioteca de mensajes'>Messaging Library</span></button>
   <button class="sb-link" data-page="win-loss"><span class="sb-dot"></span><span data-i18n='Win / Loss Intel' data-fr='Intelligence Gains/Pertes' data-es='Inteligencia Ganar/Perder'>Win / Loss Intel</span></button>
   <button class="sb-link" data-page="campaign-calendar"><span class="sb-dot"></span><span data-i18n='Campaign Calendar' data-fr='Calendrier des campagnes' data-es='Calendario de campañas'>Campaign Calendar</span></button>
 
   <hr class="sb-divider">
-  <div class="sb-section-label" data-i18n="Direct Channel" data-fr="Canal Direct" data-es="Canal Directo">Direct Channel</div>
+  <div class="sb-section-label">Direct Channel</div>
   <button class="sb-link" data-page="smb-direct"><span class="sb-dot"></span><span data-i18n='SMB Direct Playbook' data-fr='Playbook Direct PME' data-es='Manual directo PYME'>SMB Direct Playbook</span></button>
   <button class="sb-link" data-page="competitor-compare"><span class="sb-dot"></span><span data-i18n='Competitor Compare' data-fr='Comparatif concurrents' data-es='Comparativa competidores'>Competitor Compare</span></button>
 
