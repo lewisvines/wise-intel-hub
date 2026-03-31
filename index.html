@@ -889,7 +889,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:16
       </div>
       <div class="country-block" style="border-top:3px solid var(--blue);">
         <div class="cb-title">Sage Prévision — Advisory Dashboards</div>
-        <div class="cb-body">Rebranded from Futrli for European markets. Always Sage Prévision in EU materials — never Futrli. Cash flow forecasting, scenario modelling, KPI tracking and variance analysis. Advisory dashboards for clients. GE integration targeted FY26 (Susanne Clark lead). Huge untapped commercial potential — Pennylane's advisory dashboards are already a selling point with French accountants. Sage Prévision is the answer; it needs to be activated faster.</div>
+        <div class="cb-body">Rebranded from Futrli for European markets. Always Sage Prévision in EU materials — never Futrli. Cash flow forecasting, scenario modelling, KPI tracking and variance analysis. Advisory dashboards for clients. GE integration targeted FY26 (Sage Pr[ée]vision Lead lead). Huge untapped commercial potential — Pennylane's advisory dashboards are already a selling point with French accountants. Sage Prévision is the answer; it needs to be activated faster.</div>
       </div>
       <div class="country-block" style="border-top:3px solid var(--amber);">
         <div class="cb-title">Quantyca / Ubyquo — Strategic ISV (Spain)</div>
@@ -3006,10 +3006,37 @@ async function loadLiveSignals() {
         .replace(/fatura eletr[ôo]nica/gi, 'electronic invoice');
     }
 
-    // Apply translation to each signal
+    // ── Client-side name scrubber ──────────────────────────────────
+    const NAMES_TO_SCRUB = [
+      [/\bKaren Ainley\b/gi, 'SVP Small Business EU'],
+      [/\bNeal Watkins\b/gi, 'EVP'],
+      [/\bJeremy Sulzmann\b/gi, 'SVP PMM'],
+      [/\bLewis Vines\b/gi, 'WiSE PMM Lead'],
+      [/\bAna[iï]s Piquet\b/gi, 'France PMM'],
+      [/\bZoraida Gil\b/gi, 'Spain PMM'],
+      [/\bIsabelle Michaud\b/gi, 'Director Commercial Accountants France'],
+      [/\bXavi Vila\b/gi, 'Iberia Commercial Lead'],
+      [/\bSusanne Clark\b/gi, 'Sage Prévision Lead'],
+      [/\bMark Leven\b/gi, 'GE Product Manager'],
+      [/\bCristina F\b/gi, 'AE Enablement Lead'],
+      [/\bJonathan Brun\b/gi, 'Expert-Comptable Partner'],
+      [/\bDerk Bleeker\b/gi, 'ELT Sponsor'],
+      [/\bOscar Macia\b/gi, 'ELT Sponsor'],
+      [/\bAnthony Nagun\b/gi, 'Brand Lead'],
+      [/lewisvines@\S+/gi, 'sage-europe@sage.com'],
+    ];
+    function clientScrubNames(text) {
+      if (!text) return text;
+      let r = text;
+      for (const [p, rep] of NAMES_TO_SCRUB) r = r.replace(p, rep);
+      return r;
+    }
+
+    // Apply translation + name scrub to each signal
     allSignals.forEach(sig => {
-      sig.title = lightTranslate(sig.title);
-      sig.body = lightTranslate(sig.body);
+      sig.title = clientScrubNames(lightTranslate(sig.title));
+      sig.body = clientScrubNames(lightTranslate(sig.body));
+      sig.implication = clientScrubNames(sig.implication || '');
     });
 
     // Score, filter and sort by criticality then date
@@ -3228,7 +3255,7 @@ loadLiveSignals();
     </div>
     <div class="country-block" style="border-top:3px solid var(--blue);">
       <div class="cb-title">Sage Prévision</div>
-      <div class="cb-body">Advisory and cash flow forecasting for accountant practices. GE integration targeted FY26 (Susanne Clark lead). Huge untapped commercial potential — Pennylane's advisory dashboards are already a selling point with younger French accountants. Sage Prévision is the answer; it needs to be activated faster.</div>
+      <div class="cb-body">Advisory and cash flow forecasting for accountant practices. GE integration targeted FY26 (Sage Pr[ée]vision Lead lead). Huge untapped commercial potential — Pennylane's advisory dashboards are already a selling point with younger French accountants. Sage Prévision is the answer; it needs to be activated faster.</div>
     </div>
   </div>
 
@@ -3276,7 +3303,7 @@ loadLiveSignals();
     </div>
     <div class="reg-row">
       <div class="reg-date">Oct 2026</div>
-      <div class="reg-event"><strong>Ordre des Experts-Comptables — 81st Congrès.</strong> Theme: [RE]FONDATION DES CABINETS. Sage has submitted an Atelier solution candidature (co-presented with Jonathan Brun, Cabinet Angeli + Isabelle Michaud). No direct commercial content permitted — brand and trust positioning event. Major channel opportunity.</div>
+      <div class="reg-event"><strong>Ordre des Experts-Comptables — 81st Congrès.</strong> Theme: [RE]FONDATION DES CABINETS. Sage has submitted an Atelier solution candidature (co-presented with Expert-Comptable Partner, Cabinet Angeli + Director Commercial Accountants France). No direct commercial content permitted — brand and trust positioning event. Major channel opportunity.</div>
       <span class="tag t-teal">Key event</span>
     </div>
     <div class="reg-row">
@@ -3367,7 +3394,7 @@ loadLiveSignals();
   <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:12px;" class="reveal">
     <div class="country-block" style="border-top:3px solid var(--amber);">
       <div class="cb-title">SfA + Despachos Connected</div>
-      <div class="cb-body">Free. thousands of Despachos practices, a large client base. 3-step journey: Despachos → SfA → Active provisioning for clients. Sage ID SSO friction being resolved. Weekly Spain GTM meeting: Xavi Vila, Antonio Roldán, Juan Miguel Rueda, Zoraida Gil. Core positioning: Despachos stays Despachos. SfA is the activation layer on top.</div>
+      <div class="cb-body">Free. thousands of Despachos practices, a large client base. 3-step journey: Despachos → SfA → Active provisioning for clients. Sage ID SSO friction being resolved. Weekly Spain GTM meeting: Iberia Commercial Lead, Antonio Roldán, Juan Miguel Rueda, Spain PMM. Core positioning: Despachos stays Despachos. SfA is the activation layer on top.</div>
     </div>
     <div class="country-block" style="border-top:3px solid var(--g);">
       <div class="cb-title">Sage Active (ES)</div>
@@ -3467,7 +3494,7 @@ loadLiveSignals();
     </div>
     <div class="country-block">
       <div class="cb-title">📍 Sage's Position in Germany</div>
-      <div class="cb-body">Sage holds a smaller market share in Germany — one of its smallest of the four WiSE markets. No GE-equivalent legacy tool. No established accountant channel programme. The FY26 mandate is therefore not to launch but to define: understand the DATEV opportunity, identify the right accountant ICP for Germany, and build the positioning for SfA Germany that is both DATEV-compatible and differentiated vs Lexoffice and Cegid/SevDesk. Mark Leven (GE Product Manager) is the key internal resource for this exploration.</div>
+      <div class="cb-body">Sage holds a smaller market share in Germany — one of its smallest of the four WiSE markets. No GE-equivalent legacy tool. No established accountant channel programme. The FY26 mandate is therefore not to launch but to define: understand the DATEV opportunity, identify the right accountant ICP for Germany, and build the positioning for SfA Germany that is both DATEV-compatible and differentiated vs Lexoffice and Cegid/SevDesk. GE Product Manager (GE Product Manager) is the key internal resource for this exploration.</div>
     </div>
   </div>
 
@@ -4175,7 +4202,7 @@ loadLiveSignals();
         <div style="flex:1;">
           <div style="font-family:var(--font);font-size:10px;font-weight:700;color:var(--red);margin-bottom:4px;">NOW → JUNE 2026 · 🇫🇷 FRANCE</div>
           <div style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:6px;">PA Activation Campaign — The Last Window Before September</div>
-          <div style="font-size:12px;color:var(--text2);line-height:1.8;">GE practices need to register their clients on Sage's PA before September 1. This is the most commercially urgent campaign in WiSE. Content needed: PA explainer for practices (what it means, why Sage, how to activate). Client communication templates (what to tell their SME clients). FAQ for GE practices on migration-free activation. Webinar series with Isabelle Michaud and OEC France contacts. Campaign theme: <em>"155 days. Your clients are covered. Here's how."</em></div>
+          <div style="font-size:12px;color:var(--text2);line-height:1.8;">GE practices need to register their clients on Sage's PA before September 1. This is the most commercially urgent campaign in WiSE. Content needed: PA explainer for practices (what it means, why Sage, how to activate). Client communication templates (what to tell their SME clients). FAQ for GE practices on migration-free activation. Webinar series with Director Commercial Accountants France and OEC France contacts. Campaign theme: <em>"155 days. Your clients are covered. Here's how."</em></div>
         </div>
         <span class="tag t-red" style="white-space:nowrap;">URGENT</span>
       </div>
@@ -4195,7 +4222,7 @@ loadLiveSignals();
         <div style="flex:1;">
           <div style="font-family:var(--font);font-size:10px;font-weight:700;color:var(--g);margin-bottom:4px;">OCTOBER 2026 · 🇫🇷 FRANCE</div>
           <div style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:6px;">81st Congrès OEC — Post-Mandate Brand Campaign</div>
-          <div style="font-size:12px;color:var(--text2);line-height:1.8;">Theme: [RE]FONDATION DES CABINETS. Sage Atelier candidature submitted. No commercial content allowed — this is a brand and trust event. Content needed: Atelier presentation (Jonathan Brun + Isabelle Michaud co-presenting). Post-Congrès content series — "What the [RE]FONDATION means for your practice." Research paper: "The accountant as financial advisor — how AI and e-invoicing are reshaping the profession." Campaign theme: <em>"The mandate passed. Now comes the opportunity."</em></div>
+          <div style="font-size:12px;color:var(--text2);line-height:1.8;">Theme: [RE]FONDATION DES CABINETS. Sage Atelier candidature submitted. No commercial content allowed — this is a brand and trust event. Content needed: Atelier presentation (Expert-Comptable Partner + Director Commercial Accountants France co-presenting). Post-Congrès content series — "What the [RE]FONDATION means for your practice." Research paper: "The accountant as financial advisor — how AI and e-invoicing are reshaping the profession." Campaign theme: <em>"The mandate passed. Now comes the opportunity."</em></div>
         </div>
         <span class="tag t-green" style="white-space:nowrap;">Brand event</span>
       </div>
@@ -4240,7 +4267,7 @@ loadLiveSignals();
         ☐ PA explainer one-pager (GE practices)<br>
         ☐ Client communication template (FR, professional tone)<br>
         ☐ "Migration-free PA" FAQ document<br>
-        ☐ Webinar deck (Isabelle Michaud + OEC partner)<br>
+        ☐ Webinar deck (Director Commercial Accountants France + OEC partner)<br>
         ☐ GE-to-SfA activation guide (step-by-step)<br>
         ☐ September 2026 countdown landing page content<br>
         ☐ Email sequence for uncommitted GE practices (4-part)<br>
@@ -4255,7 +4282,7 @@ loadLiveSignals();
         ☐ Despachos → SfA → Active activation guide (3 steps)<br>
         ☐ Verifactu "already certified" proof point sheet<br>
         ☐ GoProposal Verifactu package templates (3 tiers)<br>
-        ☐ Spanish verbatims approval (Zoraida Gil sign-off)<br>
+        ☐ Spanish verbatims approval (Spain PMM sign-off)<br>
         ☐ Holded counter-positioning one-pager<br>
         ☐ Autónomo segment brief (July 2027 mandate)
       </div>

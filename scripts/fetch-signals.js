@@ -265,12 +265,77 @@ function matches(item, kws) {
   return kws.some(k => t.includes(k.toLowerCase()));
 }
 
-// ── DEDUP ─────────────────────────────────────────────────────────────────────
-const seen = new Set();
-function isDup(title) {
-  const k = title.toLowerCase().replace(/[^a-z0-9]/g,'').slice(0,60);
-  if (seen.has(k)) return true;
-  seen.add(k); return false;
+// ── SEMANTIC DEDUPLICATION ───────────────────────────────────────────────────
+// Removes duplicate stories across sources using two methods:
+// 1. Exact: normalised title fingerprint (catches identical headlines)
+// 2. Semantic: keyword Jaccard similarity (catches same story, different words)
+//    e.g. "Pennylane raises €50M" and "Pennylane announces €50 million funding"
+//    are the same story and should not both appear
+
+const seenFingerprints = new Set();
+
+// Extract meaningful keywords from text for semantic comparison
+function extractKeywords(text) {
+  const stopwords = new Set([
+    'the','a','an','is','are','was','were','be','been','being','have','has','had',
+    'do','does','did','will','would','could','should','may','might','shall','can',
+    'of','in','on','at','to','for','with','by','from','up','about','into','through',
+    'and','or','but','if','as','this','that','its','it','their','they','we','our',
+    'i','you','he','she','us','them','his','her','your','my','what','how','when',
+    'where','which','who','whom','new','one','two','three','also','more','just',
+    'now','than','then','so','all','any','not','no','only','both','very','over',
+    'le','la','les','de','du','des','un','une','et','en','au','aux','pour',
+    'el','los','las','del','los','una','por','con','que','sus','para',
+    'der','die','das','und','ist','von','mit','bei','für','auf','nach','aus',
+    'o','a','os','as','do','da','dos','das','em','ao','para','com',
+  ]);
+
+  return new Set(
+    text.toLowerCase()
+      .replace(/[^a-z0-9\s€$£]/g, ' ')
+      .split(/\s+/)
+      .filter(w => w.length > 3 && !stopwords.has(w))
+  );
+}
+
+// Jaccard similarity between two keyword sets
+function jaccardSimilarity(setA, setB) {
+  if (!setA.size || !setB.size) return 0;
+  const intersection = new Set([...setA].filter(x => setB.has(x)));
+  const union = new Set([...setA, ...setB]);
+  return intersection.size / union.size;
+}
+
+// Stored signals for semantic comparison
+const storedSignalKeywords = [];
+
+function isDuplicateSignal(title, body) {
+  const combinedText = `${title} ${body}`;
+  
+  // Method 1: Exact title fingerprint
+  const fingerprint = title.toLowerCase().replace(/[^a-z0-9]/g, '').slice(0, 80);
+  if (seenFingerprints.has(fingerprint)) return true;
+  
+  // Method 2: Semantic similarity
+  const keywords = extractKeywords(combinedText);
+  
+  for (const stored of storedSignalKeywords) {
+    const sim = jaccardSimilarity(keywords, stored.keywords);
+    // 40% keyword overlap = same story, keep only the first (higher priority) one
+    if (sim >= 0.40) return true;
+    // Also check title-only similarity at tighter threshold
+    const titleSim = jaccardSimilarity(extractKeywords(title), stored.titleKeywords);
+    if (titleSim >= 0.55) return true;
+  }
+  
+  // Not a duplicate — register it
+  seenFingerprints.add(fingerprint);
+  storedSignalKeywords.push({
+    keywords,
+    titleKeywords: extractKeywords(title),
+  });
+  
+  return false;
 }
 
 // ── IMPLICATIONS ENGINE ───────────────────────────────────────────────────────
@@ -466,7 +531,52 @@ function translateToEnglish(text, lang) {
   return result;
 }
 
+// ── Sage Employee Name Scrubber ───────────────────────────────────
+// Removes all Sage internal personnel references from signal content
+// Replaces with role-based language only
+const SAGE_NAMES_TO_SCRUB = [
+  // Format: [pattern, replacement]
+  [/Karen Ainley/gi, 'Sage EU SVP'],
+  [/Neal Watkins/gi, 'Sage EVP'],
+  [/Jeremy Sulzmann/gi, 'Sage SVP PMM'],
+  [/Lewis Vines/gi, 'Sage PMM Lead'],
+  [/Anaïs Piquet/gi, 'Sage France PMM'],
+  [/Anais Piquet/gi, 'Sage France PMM'],
+  [/Zoraida Gil/gi, 'Sage Spain PMM'],
+  [/Isabelle Michaud/gi, 'Sage France Commercial Lead'],
+  [/Xavi Vila/gi, 'Sage Iberia Commercial Lead'],
+  [/Séverine/gi, 'Sage France Product'],
+  [/Severine/gi, 'Sage France Product'],
+  [/Mark Leven/gi, 'Sage GE Product Manager'],
+  [/Susanne Clark/gi, 'Sage Prévision Lead'],
+  [/Cristina F/gi, 'Sage Enablement'],
+  [/Phil(?=\s+(?:Sage|50|product))/gi, 'Sage 50 PM'],
+  [/Pilar(?=\s+(?:Sage|50))/gi, 'Sage 50 Driver'],
+  [/Diego(?=\s+(?:Sage|\())/gi, 'Sage Senior Leader'],
+  [/Derk Bleeker/gi, 'Sage ELT Sponsor'],
+  [/Oscar Macia/gi, 'Sage ELT Sponsor'],
+  [/Anthony Nagun/gi, 'Sage Brand Lead'],
+  [/Jonathan Brun/gi, 'Expert-Comptable Partner'],
+  // Generic patterns for any missed names
+  [/Lewisvines/gi, 'Sage PMM'],
+  [/lewisvines@\S+/gi, 'sage-team@sage.com'],
+];
+
+function scrubSageNames(text) {
+  if (!text) return text;
+  let result = text;
+  for (const [pattern, replacement] of SAGE_NAMES_TO_SCRUB) {
+    result = result.replace(pattern, replacement);
+  }
+  return result;
+}
+
 function processSignalLanguage(signal) {
+  // First scrub any Sage employee names
+  signal.title = scrubSageNames(signal.title);
+  signal.body = scrubSageNames(signal.body);
+  signal.implication = scrubSageNames(signal.implication);
+  
   const combinedText = `${signal.title} ${signal.body}`;
   const lang = detectLanguage(combinedText);
   
@@ -584,7 +694,7 @@ async function main() {
       if (!matches(item, feed.keywords)) continue;
       const title = clean(getField(item,'title','dc:title')).slice(0,160);
       if (!title || title.length < 8) continue;
-      if (isDup(title)) continue;
+      if (isDuplicateSignal(title, body)) continue;
       const body = clean(getField(item,'description','content:encoded','content','summary','dc:description')).slice(0,300) || 'See source for details.';
       const link = getLink(item, feed.url).slice(0,400);
       const date = getDate(item);
