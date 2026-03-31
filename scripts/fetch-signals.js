@@ -283,23 +283,48 @@ const ENTITIES = [
 ];
 
 const EVENT_PATTERNS = [
-  { key:'funding',      test: t => /rais[ei]|secures?\s+[\u20ac$\u00a3\d]|l[e\u00e8]ve|series\s+[abcde]|million|milliard|billion|invest|round/i.test(t) },
-  { key:'acquisition',  test: t => /acqui[rs]|rach[e\u00e8]te|buys|merger|acquiert|\bbuys\b/i.test(t) },
+  // Acquisition BEFORE funding — "rachète pour un milliard" is acquisition, not funding
+  { key:'acquisition',  test: t => /acqui[rs]|rach\u00e8te|rachet|\bbuys\b|merger|acquiert|\u00fcbernimmt|takeover/i.test(t) },
+  { key:'funding',      test: t => /\brais(?:es?|ed|ing)?\b|secures?\s+[\u20ac$\u00a3\d$]|secures?\s+\$|\bl[e\u00e8]ve\b|\bseries\s+[abcde]\b|venture\s+capital|vc.back|seed.fund|\bfunding\s+round\b|investissement/i.test(t) },
   { key:'launch',       test: t => /launch[es]|releases?|introduces?|announces?\s+new|unveil|lancement/i.test(t) },
   { key:'partnership',  test: t => /partners?\s+with|collaboration|partenariat|integrat/i.test(t) },
-  { key:'mandate',      test: t => /mandate|pflicht|oblig|deadline|2026|2027|aplaza|retrasa|retard|reporté|bereit|prêtes|préparer|frist|einführ|obligatoire|obligatorio|verpflicht/i.test(t) },
+  { key:'mandate',      test: t => /mandate|pflicht|oblig|deadline|2026|2027|aplaza|retrasa|retard|report\u00e9|bereit|pr\u00eates|pr\u00e9parer|frist|einf\u00fchr|obligatoire|obligatorio|verpflicht/i.test(t) },
   { key:'expansion',    test: t => /expan[ds]|enters?\s+(?:spain|france|germany|europe)|new\s+market/i.test(t) },
 ];
 
+
+
+// Maps regulatory entities to a normalised topic key
+// so "verifactu" + "hacienda" + "factura electronica" all map to the same ES topic
+const REGULATORY_TOPICS = [
+  { key: 'ES_EINVOICE', terms: ['verifactu','hacienda','factura electronica','facturacion electronica','crea y crece'] },
+  { key: 'FR_EINVOICE', terms: ['facturation electronique','facturation électronique','dgfip','plateforme agreee','plateforme agréée','ppf','piste','chorus'] },
+  { key: 'DE_EINVOICE', terms: ['e-rechnung','xrechnung','zugferd','e-rechnungspflicht','rechnungspflicht'] },
+  { key: 'PT_EINVOICE', terms: ['saf-t','fatura eletronica','fatura eletrónica','at portugal'] },
+  { key: 'EU_EINVOICE', terms: ['vida vat','eu einvoic','eu e-invoic','vida directive'] },
+];
+
+function getTopicKey(text) {
+  for (const topic of REGULATORY_TOPICS) {
+    if (topic.terms.some(t => text.includes(t))) return topic.key;
+  }
+  return null;
+}
+
 function normAmount(text) {
-  const matches = text.toLowerCase().match(/[\d,.]+\s*(?:million|billion|milliard|[mb])(?:\s+euros?|dollars?|pounds?)?/gi) || [];
+  const t = text.toLowerCase();
+  // Match currency+number+unit in various formats including:
+  // "$200M", "€175 million", "75m-report", "1.2 billion", "EUR200m"
+  const matches = t.match(/(?:[€$£]|eur|usd|gbp)?\s*([\d,.]+)\s*(?:billion|milliard|mrd|million|mn|mio|b|m)(?:[^a-z]|$)/gi) || [];
   if (!matches.length) return '';
   const nums = matches.map(m => {
-    const n = parseFloat(m.replace(/[^0-9.]/g, ''));
-    return /billion|milliard/i.test(m) ? n * 1000 : n;
-  });
-  // 50M bucket handles $200M ≈ €175M currency conversion variance
-  return (Math.round(Math.max(...nums) / 50) * 50) + 'M';
+    const n = parseFloat(m.replace(/[^0-9.]/g, '')) || 0;
+    return /billion|milliard|mrd/i.test(m) ? n * 1000 : n;
+  }).filter(n => n > 0);
+  if (!nums.length) return '';
+  // Round to 200M bucket: $200M, €175M, €75M all → 200M (same funding story)
+  const bucket = Math.max(1, Math.round(Math.max(...nums) / 200)) * 200;
+  return bucket + 'M';
 }
 
 function extractEventKey(title, body) {
@@ -307,17 +332,25 @@ function extractEventKey(title, body) {
 
   // Find entities present in the text
   const foundEntities = ENTITIES.filter(e => text.includes(e));
-  if (!foundEntities.length) return null;
 
-  const entity = foundEntities[0];
   let eventType = '';
   for (const { key, test } of EVENT_PATTERNS) {
     if (test(text)) { eventType = key; break; }
   }
-  if (!eventType) return null;
 
-  // For partnerships/acquisitions, include secondary entity so
-  // "xero+anthropic" and "anthropic+xero" hash to same key
+  // For regulatory mandate stories, use topic key so all ES/FR/DE stories group together
+  if (eventType === 'mandate' || !eventType) {
+    const topicKey = getTopicKey(text);
+    if (topicKey) {
+      return `TOPIC::${topicKey}::mandate`;
+    }
+  }
+
+  if (!foundEntities.length || !eventType) return null;
+
+  const entity = foundEntities[0];
+
+  // For partnerships/acquisitions, sort entities so order doesn't matter
   let entityKey = entity;
   if (foundEntities.length > 1 && (eventType === 'partnership' || eventType === 'acquisition')) {
     entityKey = foundEntities.slice(0, 2).sort().join('+');
