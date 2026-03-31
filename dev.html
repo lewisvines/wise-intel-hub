@@ -6,20 +6,35 @@
 <title>WiSE Intel Hub — Sage Europe PMM Intelligence Platform</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-<style>
+<style>@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
 :root {
-  --bg:#080c08;--bg1:#0f140f;--bg2:#151a15;--bg3:#1c221c;
-  --border:rgba(255,255,255,0.06);--border2:rgba(255,255,255,0.11);--border3:rgba(255,255,255,0.18);
-  --g:#00b050;--g2:#00d060;--g3:#00e870;--gdim:rgba(0,176,80,0.14);--gdim2:rgba(0,176,80,0.07);--gdim3:rgba(0,176,80,0.04);
-  --text:rgba(255,255,255,0.90);--text2:rgba(255,255,255,0.58);--text3:rgba(255,255,255,0.34);--text4:rgba(255,255,255,0.18);
-  --red:#ef4444;--redbg:rgba(239,68,68,0.10);--redborder:rgba(239,68,68,0.22);
-  --amber:#f59e0b;--amberbg:rgba(245,158,11,0.10);--amberborder:rgba(245,158,11,0.22);
-  --blue:#3b82f6;--bluebg:rgba(59,130,246,0.10);--blueborder:rgba(59,130,246,0.22);
-  --purple:#8b5cf6;--purplebg:rgba(139,92,246,0.10);--purpleborder:rgba(139,92,246,0.22);
-  --teal:#14b8a6;--tealbg:rgba(20,184,166,0.10);--tealborder:rgba(20,184,166,0.22);
-  --pink:#ec4899;--pinkbg:rgba(236,72,153,0.10);--pinkborder:rgba(236,72,153,0.22);
-  --orange:#f97316;--orangebg:rgba(249,115,22,0.10);--orangeborder:rgba(249,115,22,0.22);
-  --font:'Syne',sans-serif;--body:'DM Sans',sans-serif;--serif:'DM Serif Display',Georgia,serif;
+  /* ── Sage Brand Palette ── */
+  --g:#00B050;--g2:#008C3E;--g3:#00D060;
+  --gdim:rgba(0,176,80,0.10);--gdim2:rgba(0,176,80,0.06);--gdim3:rgba(0,176,80,0.03);
+
+  /* ── Backgrounds ── */
+  --bg:#F7F8F6;--bg1:#FFFFFF;--bg2:#FFFFFF;--bg3:#EFF1EE;
+
+  /* ── Text ── */
+  --text:#1A1A1A;--text2:#4A5568;--text3:#718096;--text4:#A0AEC0;
+
+  /* ── Borders ── */
+  --border:#E2E8F0;--border2:#CBD5E0;--border3:#B2BFCC;
+
+  /* ── Status colours (kept for RAG dots) ── */
+  --red:#DC2626;--redbg:rgba(220,38,38,0.08);--redborder:rgba(220,38,38,0.20);
+  --amber:#D97706;--amberbg:rgba(217,119,6,0.08);--amberborder:rgba(217,119,6,0.20);
+  --blue:#2563EB;--bluebg:rgba(37,99,235,0.08);--blueborder:rgba(37,99,235,0.20);
+  --purple:#7C3AED;--purplebg:rgba(124,58,237,0.08);--purpleborder:rgba(124,58,237,0.20);
+  --teal:#0D9488;--tealbg:rgba(13,148,136,0.08);--tealborder:rgba(13,148,136,0.20);
+  --pink:#DB2777;--pinkbg:rgba(219,39,119,0.08);--pinkborder:rgba(219,39,119,0.20);
+  --orange:#EA580C;--orangebg:rgba(234,88,12,0.08);--orangeborder:rgba(234,88,12,0.20);
+
+  /* ── Typography ── */
+  --font:'Inter',system-ui,-apple-system,sans-serif;
+  --body:'Inter',system-ui,-apple-system,sans-serif;
+  --serif:'Georgia',serif;
 }
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
 html{font-size:15px;height:100vh;overflow:hidden;}
@@ -27,28 +42,22 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:
 
 /* SCROLLBAR */
 ::-webkit-scrollbar{width:4px;height:4px;}
-::-webkit-scrollbar-track{background:var(--bg);}
-::-webkit-scrollbar-thumb{background:rgba(0,176,80,0.3);border-radius:2px;}
+::-webkit-scrollbar-track{background:#F7F8F6;}
+::-webkit-scrollbar-thumb{background:rgba(0,176,80,0.4);border-radius:2px;}
 
 /* PROGRESS */
 #progress{position:fixed;top:0;left:0;height:2px;width:0%;background:linear-gradient(90deg,var(--g),var(--g3));z-index:1000;transition:width 0.08s linear;}
 
 /* ── SIDEBAR NAV ── */
-#sidebar{
-  position:fixed;left:0;top:0;width:220px;height:100vh;
-  background:rgba(8,12,8,0.97);backdrop-filter:blur(24px);
-  border-right:1px solid var(--border);
-  display:flex;flex-direction:column;
-  z-index:200;overflow-y:auto;padding:20px 0 32px;
-}
+#sidebar{position:fixed;left:0;top:0;width:220px;height:100vh;background:#FFFFFF;border-right:1px solid var(--border);display:flex;flex-direction:column;z-index:200;overflow-y:auto;padding:20px 0 32px;}
 .sb-logo{padding:0 20px 20px;border-bottom:1px solid var(--border);margin-bottom:12px;}
-.sb-logo-text{font-family:var(--font);font-size:14px;font-weight:800;letter-spacing:0.5px;color:var(--text);}
+.sb-logo-text{font-family:var(--font);font-size:14px;font-weight:800;letter-spacing:-0.3px;color:var(--text);}
 .sb-logo-text span{color:var(--g);}
-.sb-badge{display:inline-flex;align-items:center;gap:4px;margin-top:6px;background:var(--gdim);border:1px solid rgba(0,176,80,0.25);color:var(--g);font-family:var(--font);font-size:9px;font-weight:700;padding:2px 7px;border-radius:3px;letter-spacing:0.8px;text-transform:uppercase;}
+.sb-badge{display:inline-flex;align-items:center;gap:4px;margin-top:6px;background:rgba(0,176,80,0.10);border:1px solid rgba(0,176,80,0.30);color:var(--g2);font-family:var(--font);font-size:9px;font-weight:700;padding:2px 7px;border-radius:3px;letter-spacing:0.8px;text-transform:uppercase;}
 .sb-divider{border:none;border-top:1px solid var(--border);margin:8px 12px;}
-.sb-section-label{font-family:var(--font);font-size:9px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--text4);padding:10px 20px 4px;}
-.sb-link{display:flex;align-items:center;gap:9px;padding:7px 20px;font-family:var(--font);font-size:12px;font-weight:500;color:var(--text3);text-decoration:none;border-radius:0;transition:all 0.12s;cursor:pointer;border:none;background:none;width:100%;text-align:left;}
-.sb-link:hover{color:var(--text);background:rgba(255,255,255,0.04);}
+.sb-section-label{font-family:var(--font);font-size:10px;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;color:var(--text3);padding:10px 20px 4px;}
+.sb-link{display:flex;align-items:center;gap:9px;padding:8px 20px;font-family:var(--font);font-size:13px;font-weight:500;color:var(--text2);text-decoration:none;border-radius:0;transition:all 0.12s;cursor:pointer;border:none;background:none;width:100%;text-align:left;}
+.sb-link:hover{color:var(--text);background:var(--gdim2);}
 .sb-link.active{color:var(--g);background:var(--gdim2);border-right:2px solid var(--g);}
 .sb-link .sb-dot{width:5px;height:5px;border-radius:50%;background:currentColor;flex-shrink:0;opacity:0.6;}
 .sb-link.active .sb-dot{opacity:1;box-shadow:0 0 6px var(--g);}
@@ -63,7 +72,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:
 /* ── TOP BAR ── */
 #topbar{
   position:sticky;top:0;z-index:100;
-  background:rgba(8,12,8,0.92);backdrop-filter:blur(20px);
+  background:#FFFFFF;box-shadow:0 1px 3px rgba(0,0,0,0.06);
   border-bottom:1px solid var(--border);
   padding:0 32px;height:48px;
   display:flex;align-items:center;justify-content:space-between;
@@ -77,7 +86,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:
 .tb-btn.primary:hover{background:var(--g2);}
 
 /* ── PAGE SECTIONS ── */
-.page-section{display:none;padding:24px 40px 80px;}
+.page-section{display:none;padding:32px 48px 80px;background:var(--bg);}
 .page-section.active{display:block;}
 
 /* ── SECTION HEADERS ── */
@@ -317,7 +326,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:
 
 /* ── RESPONSIVE ── */
 @media(max-width:1100px){.grid-3{grid-template-columns:1fr 1fr;}.grid-4{grid-template-columns:1fr 1fr;}}
-@media(max-width:900px){#sidebar{display:none;}#main{margin-left:0;}.persona-grid,.grid-2{grid-template-columns:1fr;}.stat-row{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:900px){#sidebar{position:fixed;left:0;top:0;width:220px;height:100vh;background:#FFFFFF;border-right:1px solid var(--border);display:flex;flex-direction:column;z-index:200;overflow-y:auto;padding:20px 0 32px;}#main{margin-left:0;}.persona-grid,.grid-2{grid-template-columns:1fr;}.stat-row{grid-template-columns:repeat(2,1fr);}}
 
 /* ══ INNER TABS ══ */
 .tab-bar{display:flex;gap:2px;background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:3px;margin-bottom:24px;}
@@ -414,9 +423,9 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:
   background:var(--bg2);border:1px solid var(--border);border-radius:8px;
   padding:14px 18px;cursor:pointer;transition:border-color 0.15s,background 0.15s;
 }
-.sr-card:hover{border-color:var(--g);background:var(--gdim2);}
+.sr-card:hover{border-color:var(--g);background:rgba(0,176,80,0.04);}
 .sr-page{font-family:var(--font);font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--g);margin-bottom:4px;}
-.sr-match{font-size:13px;color:var(--text2);line-height:1.5;}
+.sr-match{font-size:13px;color:var(--text2);line-height:1.6;}
 .sr-match mark{background:transparent;color:var(--g);font-weight:700;}
 .sr-empty{text-align:center;color:var(--text3);font-size:14px;padding:40px;}
 #search-close-hint{font-family:var(--font);font-size:11px;color:var(--text3);margin-top:14px;text-align:center;}
@@ -800,11 +809,11 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;" class="reveal">
       <div class="country-block" style="border-top:3px solid var(--g);">
         <div class="cb-title">🇫🇷 Génération Expert (GE)</div>
-        <div class="cb-body">2,713 French accounting practices use GE as their primary production tool. Sage's deepest competitive moat in France. Only 36% are currently connected to SfA — the FY26 priority is to change that. GE↔Active bi-directional sync is the critical unresolved blocker. When fixed: compliance without migration. The verbatim: "GE stays GE. What changes is that you can now activate Active for your clients from GE — without changing how you work today."</div>
+        <div class="cb-body">thousands of French accounting practices use GE as their primary production tool. Sage's deepest competitive moat in France. A significant portion of GE practices are not yet connected to SfA — the FY26 priority is to change that. GE↔Active bi-directional sync is the critical unresolved blocker. When fixed: compliance without migration. The verbatim: "GE stays GE. What changes is that you can now activate Active for your clients from GE — without changing how you work today."</div>
       </div>
       <div class="country-block" style="border-top:3px solid var(--amber);">
         <div class="cb-title">🇪🇸 Despachos Connected</div>
-        <div class="cb-body">5,200 Spanish practices, 250,000 client entities. Sage's strongest accountant channel position in any WiSE market. SfA connects Despachos to Active provisioning. Sage ID SSO friction being resolved before launch. Governing verbatim: "Despachos no va a ningún lado. Lo que cambia es que ahora puedes activar Sage Active para tus clientes desde Despachos — sin cambiar cómo trabajas hoy."</div>
+        <div class="cb-body">thousands of Spanish practices, hundreds of thousands of client entities. Sage's strongest accountant channel position in any WiSE market. SfA connects Despachos to Active provisioning. Sage ID SSO friction being resolved before launch. Governing verbatim: "Despachos no va a ningún lado. Lo que cambia es que ahora puedes activar Sage Active para tus clientes desde Despachos — sin cambiar cómo trabajas hoy."</div>
       </div>
     </div>
     <div class="reveal" style="margin-top:14px;">
@@ -916,7 +925,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:
 
   <div class="ifyrne reveal">
     <div class="ifyrne-label">If You Read Nothing Else</div>
-    <p>Pennylane raised €175M at $4.25B to acquire legacy accounting software — Sage's GE-class tools are the implied target. Cegid absorbed Shine (400k+ French SMBs, banking) and now fields 100 new salespeople targeting the same GE practices Sage needs to convert. Both primary challengers are using the September 2026 France mandate and January 2027 Spain Verifactu as their growth accelerant. Sage's 5,200 Despachos and 2,713 GE practices are the moat. The question is whether Sage activates them before the competition does.</p>
+    <p>Pennylane raised €175M at $4.25B to acquire legacy accounting software — Sage's GE-class tools are the implied target. Cegid absorbed Shine (400k+ French SMBs, banking) and now fields 100 new salespeople targeting the same GE practices Sage needs to convert. Both primary challengers are using the September 2026 France mandate and January 2027 Spain Verifactu as their growth accelerant. Sage's thousands of Despachos and thousands of GE practices are the moat. The question is whether Sage activates them before the competition does.</p>
   </div>
 
   <div class="filter-bar reveal">
@@ -1841,7 +1850,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:
       </div>
       <div class="pc-section"><div class="pc-section-label">Objections to Sage</div>
         <div class="pc-item">"All these features are already available with competitors — why should we wait?"</div>
-        <div class="pc-item">"Active product score is -7.7 — your own clients are unhappy with it"</div>
+        <div class="pc-item">"Active product score is below benchmark — your own clients are unhappy with it"</div>
         <div class="pc-item">"If we're going to invest in training staff on a new platform, why not Pennylane?"</div>
       </div>
       <div class="pc-win"><div class="pc-win-label">Winning Message</div><div class="pc-win-msg">"Pennylane wins the UI argument. Sage wins the compliance argument. For your 100+ SME clients, compliance is not optional — they need a PA-certified provider who will be operating in France in 10 years. We will. The FTSE 100 backing that Pennylane lacks means your clients' data isn't at risk if their €175M runs out."</div></div>
@@ -2064,7 +2073,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:
       <div class="bc-col">
         <div class="bc-col-header">Sage responds</div>
         <div class="bc-row">Sage has been built FOR French accountants for 40 years — with GE at the centre. Pennylane has been built for 5 years. GE practices trust Sage. They don't know Pennylane yet.</div>
-        <div class="bc-row">Sage has 2,713 GE practices and 40 years of relationship. Pennylane has 5 years and €175M raised to acquire the relationships Sage already has.</div>
+        <div class="bc-row">Sage has thousands of GE practices and 40 years of relationship. Pennylane has 5 years and €175M raised to acquire the relationships Sage already has.</div>
         <div class="bc-row">Sage IS a DGFiP-registered PA. The GE→Active→PA bridge is the only path that doesn't disrupt existing client accounting data. Pennylane requires client migration.</div>
         <div class="bc-row">Sage Copilot is trained on French compliance context — DSN, PCG 2025, Factur-X validation. Pennylane's ComptAssistant is general AI with French tax prompting.</div>
         <div class="bc-row">Sage's ecosystem goes further: GoProposal (practice proposals), AutoEntry/AKAO (PA bridge), Sage Prévision (advisory forecasting). Pennylane's banking requires new client banking setup.</div>
@@ -2093,10 +2102,10 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:
       </div>
       <div class="bc-col">
         <div class="bc-col-header">Sage responds</div>
-        <div class="bc-row">Cegid's "15,000 accountants" is spread across 7+ acquisitions with fragmented products. Sage's GE base (2,713 practices) is a single, deep relationship built over decades.</div>
+        <div class="bc-row">Cegid's "15,000 accountants" is spread across 7+ acquisitions with fragmented products. Sage's GE base (thousands of French accounting practices) is a single, deep relationship built over decades.</div>
         <div class="bc-row">GE data stays in GE — clients don't migrate. Sage Active is the cloud layer on top. EBP requires GE practices to migrate their entire client base to a new system.</div>
         <div class="bc-row">Sage Active + AKAO/AutoEntry provides the e-invoicing bridge without requiring clients to open new French bank accounts or change payment infrastructure.</div>
-        <div class="bc-row">Sage has 5,200 Despachos practices (Spain) — Cegid's Contasimple has zero despacho-native provisioning. Primavera is their Portugal play, not Spain.</div>
+        <div class="bc-row">Sage has thousands of Despachos practices (Spain) — Cegid's Contasimple has zero despacho-native provisioning. Primavera is their Portugal play, not Spain.</div>
         <div class="bc-row">Sage is FTSE 100 listed — public company, transparent financials. Cegid is PE-backed (Silver Lake + KKR) — leverage-dependent. "Long term" means different things.</div>
       </div>
     </div>
@@ -2257,7 +2266,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:
     <div class="deal-card">
       <div class="deal-objection">"Pennylane is coming to Spain in 2026 — maybe I should wait and see what they offer before committing to Sage."</div>
       <div class="deal-response">"Pennylane arrives H2 2026 with no Spanish accountant relationships, no Despachos integration, and no proven Verifactu track record. If you start with Sage now, you'll have 6–12 months of Active clients generating Sage Active Starter channel pricing–Sage Active channel pricing/month per client before Pennylane's first Spanish sales conversation. Waiting to see what Pennylane offers means giving them 6 months to build the relationships with your clients that you could have built yourself."</div>
-      <div class="deal-proof">Pennylane Spain timeline confirmation (H2 2026) · Despachos active client base (5,200 practices) · Spain Active target (2,200 units) · Revenue model calculation</div>
+      <div class="deal-proof">Pennylane Spain timeline confirmation (H2 2026) · Despachos active client base (thousands of Despachos practices) · Spain Active target · Revenue model calculation</div>
     </div>
 
     <div class="deal-card">
@@ -2290,7 +2299,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:
     <div class="alert-card act-now">
       <div class="alert-tl"><div class="alert-indicator"></div><div class="alert-label">Act Now · France</div></div>
       <div class="alert-title">PA registration at 8 clients — 5 months to September mandate</div>
-      <div class="alert-body">With 5 months to the September 1 mandate, Sage needs to convert GE practices to PA registration NOW. Every week of delay is a practice that evaluates Pennylane or Cegid as their PA instead. This requires an immediate direct mail / event-driven campaign to all 2,713 GE practices with a clear "register your PA by [date]" CTA. This should be fronted by expert-comptable voices, not Sage marketing.</div>
+      <div class="alert-body">With 5 months to the September 1 mandate, Sage needs to convert GE practices to PA registration NOW. Every week of delay is a practice that evaluates Pennylane or Cegid as their PA instead. This requires an immediate direct mail / event-driven campaign to all thousands of GE practices with a clear "register your PA by [date]" CTA. This should be fronted by expert-comptable voices, not Sage marketing.</div>
       <div style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap;">
         <div class="alert-action act-now">Create PA registration campaign brief</div>
         <div class="alert-action act-now">Draft direct email to GE practices</div>
@@ -2301,7 +2310,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:
     <div class="alert-card act-now">
       <div class="alert-tl"><div class="alert-indicator"></div><div class="alert-label">Act Now · Spain</div></div>
       <div class="alert-title">Pennylane Spain country manager hired — 6 months before their arrival</div>
-      <div class="alert-body">Pennylane is hiring a Spain country manager (confirmed H2 2026 arrival). Sage has 797 Active subscriptions already sold through accountants in Spain and 165 committed practices — but the SfA Spain launch is not yet complete. The window to build Despachos loyalty before Pennylane's commercial team arrives is approximately April to September 2026. A direct campaign to all 5,200 Despachos practices with the "new revenue model" and "Verifactu certified today" message must launch before Pennylane's sales team makes first contact.</div>
+      <div class="alert-body">Pennylane is hiring a Spain country manager (confirmed H2 2026 arrival). Sage has 797 Active subscriptions already sold through accountants in Spain and 165 committed practices — but the SfA Spain launch is not yet complete. The window to build Despachos loyalty before Pennylane's commercial team arrives is approximately April to September 2026. A direct campaign to all thousands of Despachos practices with the "new revenue model" and "Verifactu certified today" message must launch before Pennylane's sales team makes first contact.</div>
       <div style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap;">
         <div class="alert-action act-now">Launch Despachos "new revenue model" campaign</div>
         <div class="alert-action act-now">Activate GoProposal Verifactu repricing brief</div>
@@ -2332,7 +2341,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:
     <div class="alert-card watch">
       <div class="alert-tl"><div class="alert-indicator"></div><div class="alert-label">Watch · France</div></div>
       <div class="alert-title">Pennylane M&A of French legacy software — GE could be a target</div>
-      <div class="alert-body">Pennylane CEO explicitly stated plans to acquire "historical accounting software that has not made the shift to SaaS." GE (Génération Experts) is a legacy desktop accounting tool used by 2,713 French practices. If Pennylane acquires GE, it changes the competitive landscape fundamentally. Monitor any Pennylane M&A announcements. Prepare a contingency brief: "If Pennylane acquires a GE-class tool, Sage's response is..."</div>
+      <div class="alert-body">Pennylane CEO explicitly stated plans to acquire "historical accounting software that has not made the shift to SaaS." GE (Génération Experts) is a legacy desktop accounting tool used by thousands of French practices. If Pennylane acquires GE, it changes the competitive landscape fundamentally. Monitor any Pennylane M&A announcements. Prepare a contingency brief: "If Pennylane acquires a GE-class tool, Sage's response is..."</div>
       <div style="margin-top:8px;"><div class="alert-action watch">Brief senior leadership on M&A risk scenario</div></div>
     </div>
 
@@ -2447,7 +2456,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:
         <div>
           <div style="font-family:var(--font);font-size:9px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px;">Campaign Name</div>
           <div style="font-size:13px;font-weight:600;color:var(--text);">"GE Stays GE. Your Clients Get a PA."</div>
-          <div style="font-size:11px;color:var(--text3);margin-top:4px;">Direct to 2,713 GE practices. Fronted by expert-comptable partners.</div>
+          <div style="font-size:11px;color:var(--text3);margin-top:4px;">Direct to thousands of GE practices. Fronted by expert-comptable partners.</div>
         </div>
         <div>
           <div style="font-family:var(--font);font-size:9px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px;">Core Message</div>
@@ -2469,7 +2478,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:
         <div>
           <div style="font-family:var(--font);font-size:9px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px;">Campaign Name</div>
           <div style="font-size:13px;font-weight:600;color:var(--text);">"New Revenue. From Inside Despachos."</div>
-          <div style="font-size:11px;color:var(--text3);margin-top:4px;">Direct to 5,200 Despachos practices. Economic argument first.</div>
+          <div style="font-size:11px;color:var(--text3);margin-top:4px;">Direct to thousands of Despachos practices. Economic argument first.</div>
         </div>
         <div>
           <div style="font-family:var(--font);font-size:9px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px;">Core Message</div>
@@ -2528,7 +2537,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:
         <tr><td class="td-name">Active Essentials beats Holded on price AND features</td><td>More users, payroll included, Verifactu-certified, Modelo 303, Verifactu-certified) vs Holded Advanced Holded Advanced pricing (7 users, no payroll, Verifactu "in progress")</td><td>Holded / Visma</td><td>Confirmed Spain channel pricing · Holded.com</td></tr>
         <tr><td class="td-name">Pennylane raised to acquire legacy tools</td><td>€175M Series E Jan 2026. CEO explicitly stated plans to acquire "historical accounting software that has not made the shift to SaaS".</td><td>Pennylane (turns their M&A against them)</td><td>TechFundingNews / Sifted Jan 2026</td></tr>
         <tr><td class="td-name">Cegid has 100 new reps targeting GE practices</td><td>LinkedIn confirms 100 commercial hires (Lyon + Boulogne) starting Q2 2026, explicitly targeting French accountant market.</td><td>Cegid (creates urgency to move first)</td><td>LinkedIn March 2026</td></tr>
-        <tr><td class="td-name">Sage has 5,200 Despachos + 2,713 GE practices</td><td>These are the accountant relationships Pennylane, Cegid and Holded cannot replicate — built over decades, not acquirable with €175M.</td><td>All challengers</td><td>Sage internal data</td></tr>
+        <tr><td class="td-name">Sage has thousands of Despachos + thousands of GE practices</td><td>These are the accountant relationships Pennylane, Cegid and Holded cannot replicate — built over decades, not acquirable with €175M.</td><td>All challengers</td><td>Sage internal data</td></tr>
         <tr><td class="td-name">Xero JAX has zero French PA or Spanish Verifactu</td><td>JAX announced March 27 2026. No DGFiP registration, no Verifactu certification. Most advanced AI UX in market — but non-compliant in WiSE markets.</td><td>Xero (neutralises their AI narrative)</td><td>Xero press release March 27 2026</td></tr>
         <tr><td class="td-name">France mandate: €15/invoice fine, Sept 2026</td><td>7.9 million French businesses must connect to a DGFiP-registered PA by September 1 2026. €15/invoice penalty, capped at €15k/year.</td><td>Creates urgency across all conversations</td><td>DGFiP / BOFiP official</td></tr>
         <tr><td class="td-name">Spain Verifactu: €50k/year per non-compliant taxpayer</td><td>Royal Decreto-ley 15/2025 (Dec 2025). €150k/year for non-compliant software vendors. Jan 2027 corporate, Jul 2027 autónomos.</td><td>Creates urgency, positions certified-now advantage</td><td>Royal Decreto-ley 15/2025 / AEAT</td></tr>
@@ -2744,14 +2753,14 @@ Sage WiSE — Winning in Small Europe Through Accountants
 SIGNAL INTENSITY: CRITICAL (18 signals this week, vs 11 last week)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-HEADLINE: The e-invoicing mandates are now the primary competitive catalyst across all four WiSE markets. Pennylane and Cegid are both using the French September 2026 mandate and Spanish January 2027 Verifactu as their primary growth accelerant. Sage's structural advantage — 2,713 GE practices and 5,200 Despachos — is the moat that neither competitor can replicate. The question is whether Sage activates it before the competition does.
+HEADLINE: The e-invoicing mandates are now the primary competitive catalyst across all four WiSE markets. Pennylane and Cegid are both using the French September 2026 mandate and Spanish January 2027 Verifactu as their primary growth accelerant. Sage's structural advantage — thousands of GE practices and thousands of Despachos — is the moat that neither competitor can replicate. The question is whether Sage activates it before the competition does.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 TOP 5 SIGNALS THIS WEEK
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 1. CRITICAL — FRANCE PA REGISTRATION
-PA registration at 8 live clients vs 100% target. 5 months to September 1 mandate. Requires immediate direct campaign to all 2,713 GE practices. Cegid has deployed 100 new salespeople targeting the same practices from Q2 2026. Action required: France commercial team communication + campaign brief.
+PA registration at 8 live clients vs 100% target. 5 months to September 1 mandate. Requires immediate direct campaign to all thousands of GE practices. Cegid has deployed 100 new salespeople targeting the same practices from Q2 2026. Action required: France commercial team communication + campaign brief.
 
 2. CRITICAL — SPAIN: PENNYLANE COUNTRY MANAGER HIRED
 Pennylane is hiring a Spain country manager for H2 2026 arrival. They will begin Spanish accountant outreach Q2 2026 — before Sage's SfA Spain launch is complete. 797 Active subscriptions already at risk if product delays continue. Action required: accelerate Despachos "new revenue model" campaign.
@@ -2923,7 +2932,7 @@ loadLiveSignals();
     </div>
     <div class="country-block">
       <div class="cb-title">📍 Sage's Position in France</div>
-      <div class="cb-body">Sage is #2 in the French accountant software market, behind Cegid. Market share has declined from approximately 17.8% (2019) to 12.2% (2025) — driven by pricing increases rather than customer growth, which is not sustainable. Sage's core asset is the Génération Expert (GE) installed base: 2,713 practices using GE daily as their primary production tool. This is the moat. Only 36% are currently connected to SfA — the FY26 priority is to change that.</div>
+      <div class="cb-body">Sage is #2 in the French accountant software market, behind Cegid. Market share has declined from a stronger historical position to approximately 12% today — driven by pricing increases rather than customer growth, which is not sustainable. Sage's core asset is the Génération Expert (GE) installed base: thousands of French accounting practices using GE daily as their primary production tool. This is the moat. A significant portion of GE practices are not yet connected to SfA — the FY26 priority is to change that.</div>
     </div>
   </div>
 
@@ -2982,7 +2991,7 @@ loadLiveSignals();
     </div>
     <div class="country-block" style="border-top:3px solid var(--g);">
       <div class="cb-title">Sage Active (FR)</div>
-      <div class="cb-body">Cloud accounting with Copilot. PA-certified for DGFiP. Starter and Essentials editions. NCA engine — not a migration from S50/100. Regate migration target: 100% by FY27. FY26 growth target set. The product Pennylane is trying to displace — Sage must move faster than Pennylane can build relationships.</div>
+      <div class="cb-body">Cloud accounting with Copilot. PA-certified for DGFiP. Starter and Essentials editions. NCA engine — not a migration from S50/100. Regate migration target: 100% by FY27. The product Pennylane is trying to displace — Sage must move faster than Pennylane can build relationships.</div>
     </div>
     <div class="country-block" style="border-top:3px solid var(--blue);">
       <div class="cb-title">Sage Prévision</div>
@@ -3062,7 +3071,7 @@ loadLiveSignals();
   <div class="page-header reveal">
     <div class="page-eyebrow">🇪🇸 Country Intelligence</div>
     <div class="page-title">Spain — <em>H2 FY26 Launch</em></div>
-    <div class="page-subtitle">5,200 Despachos practices. Strong early Active traction before SfA even launched. Verifactu January 2027 is the commercial catalyst. Pennylane arrives H2 2026 — the same window as Sage's launch.</div>
+    <div class="page-subtitle">thousands of Despachos practices. Strong early Active traction before SfA even launched. Verifactu January 2027 is the commercial catalyst. Pennylane arrives H2 2026 — the same window as Sage's launch.</div>
   </div>
 
   <!-- ECONOMIC SNAPSHOT -->
@@ -3074,7 +3083,7 @@ loadLiveSignals();
     </div>
     <div class="country-block">
       <div class="cb-title">📍 Sage's Position in Spain</div>
-      <div class="cb-body">Sage holds a strong accountant channel position via Despachos Connected — 5,200 practices, 250,000 client entities. 8% market share in the solo-to-10-employee SME segment, with strong presence in top and mid-tier firms (11,500 firms covering 80%+ of Spanish GDP). Sage Active is already Verifactu-certified today — a first-mover compliance advantage competitors are still building toward. Strong early traction with committed Active units sold through accountants before the formal SfA launch.</div>
+      <div class="cb-body">Sage holds a strong accountant channel position via Despachos Connected — thousands of Despachos practices, hundreds of thousands of client entities. a meaningful market share in the SME segment, with strong presence in top and mid-tier firms (11,500 firms covering 80%+ of Spanish GDP). Sage Active is already Verifactu-certified today — a first-mover compliance advantage competitors are still building toward. Strong early traction with committed Active units sold through accountants before the formal SfA launch.</div>
     </div>
   </div>
 
@@ -3125,11 +3134,11 @@ loadLiveSignals();
   <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:12px;" class="reveal">
     <div class="country-block" style="border-top:3px solid var(--amber);">
       <div class="cb-title">SfA + Despachos Connected</div>
-      <div class="cb-body">Free. 5,200 practices, 250k clients. 3-step journey: Despachos → SfA → Active provisioning for clients. Sage ID SSO friction being resolved. Weekly Spain GTM meeting: Xavi Vila, Antonio Roldán, Juan Miguel Rueda, Zoraida Gil. Core positioning: Despachos stays Despachos. SfA is the activation layer on top.</div>
+      <div class="cb-body">Free. thousands of Despachos practices, a large client base. 3-step journey: Despachos → SfA → Active provisioning for clients. Sage ID SSO friction being resolved. Weekly Spain GTM meeting: Xavi Vila, Antonio Roldán, Juan Miguel Rueda, Zoraida Gil. Core positioning: Despachos stays Despachos. SfA is the activation layer on top.</div>
     </div>
     <div class="country-block" style="border-top:3px solid var(--g);">
       <div class="cb-title">Sage Active (ES)</div>
-      <div class="cb-body">Verifactu-certified today. Starter and Essentials editions. Strong early traction pre-launch. FY26 target set. Sage's primary NCA engine for Spain — not a migration from Sage 50 Spain (cannibalisation risk; align Phil/Pilar/Lewis before any S50→Active pitch). GoProposal enables practices to price and sell it systematically.</div>
+      <div class="cb-body">Verifactu-certified today. Starter and Essentials editions. Strong early traction pre-launch. Sage's primary NCA engine for Spain — not a migration from Sage 50 Spain (cannibalisation risk; align Phil/Pilar/Lewis before any S50→Active pitch). GoProposal enables practices to price and sell it systematically.</div>
     </div>
     <div class="country-block" style="border-top:3px solid var(--purple);">
       <div class="cb-title">GoProposal</div>
@@ -3225,7 +3234,7 @@ loadLiveSignals();
     </div>
     <div class="country-block">
       <div class="cb-title">📍 Sage's Position in Germany</div>
-      <div class="cb-body">Sage holds approximately 3-5% market share in Germany — one of its smallest of the four WiSE markets. No GE-equivalent legacy tool. No established accountant channel programme. The FY26 mandate is therefore not to launch but to define: understand the DATEV opportunity, identify the right accountant ICP for Germany, and build the positioning for SfA Germany that is both DATEV-compatible and differentiated vs Lexoffice and Cegid/SevDesk. Mark Leven (GE Product Manager) is the key internal resource for this exploration.</div>
+      <div class="cb-body">Sage holds a smaller market share in Germany — one of its smallest of the four WiSE markets. No GE-equivalent legacy tool. No established accountant channel programme. The FY26 mandate is therefore not to launch but to define: understand the DATEV opportunity, identify the right accountant ICP for Germany, and build the positioning for SfA Germany that is both DATEV-compatible and differentiated vs Lexoffice and Cegid/SevDesk. Mark Leven (GE Product Manager) is the key internal resource for this exploration.</div>
     </div>
   </div>
 
@@ -3829,7 +3838,7 @@ loadLiveSignals();
       <div class="cb-title">🇪🇸 Spain — Why Sage wins</div>
       <div class="cb-body" style="font-size:12px;line-height:1.9;">
         <strong style="color:var(--g);">1. Verifactu-certified today, competitors still building.</strong> Active is Verifactu-certified. Holded "is working on it." A3's national position is unclear. First-mover certification in a mandate-driven market is a significant close advantage.<br><br>
-        <strong style="color:var(--g);">2. Despachos channel loyalty.</strong> 5,200 practices with an established Despachos relationship represent an enormous conversion opportunity. Pennylane has zero Spain presence. Holded bypasses the channel entirely.<br><br>
+        <strong style="color:var(--g);">2. Despachos channel loyalty.</strong> thousands of Despachos practices with an established Despachos relationship represent an enormous conversion opportunity. Pennylane has zero Spain presence. Holded bypasses the channel entirely.<br><br>
         <strong style="color:var(--g);">3. Payroll in the box.</strong> Active Essentials includes payroll (Modelo 303, RPF). Holded Advanced does not include payroll at comparable specification. In a country where payroll compliance is the #1 reason SMEs need an accountant, this is a decisive functional advantage.<br><br>
         <strong style="color:var(--g);">4. GoProposal for structured client relationships.</strong> Verifactu forces every practice to issue new engagement letters covering the new compliance obligations. GoProposal is the only tool in the market that handles this systematically alongside the compliance software — structured proposals, AML/KYC compliance, and clear scope of service built in.
       </div>
@@ -4496,702 +4505,134 @@ document.addEventListener('keydown', e => {
 </script>
 
 <script>
-// ── LANGUAGE SWITCHER ──────────────────────────────────────────────
+// ── LANGUAGE SWITCHER (clean rebuild) ────────────────────────────────
 let currentLang = 'en';
-
-// Full translation map — UI strings only, no body content
-const TRANSLATIONS = {
-  fr: {
-    // Topbar
-    'Search': 'Rechercher',
-    '⬆ ELT Export': '⬆ Export DG',
-    'Share Brief': 'Partager le brief',
-    // Dashboard section labels
-    'Strategic Progress Tracker': 'Suivi des progrès stratégiques',
-    'Competitive Pressure Index': 'Indice de pression concurrentielle',
-    'CRITICAL MANDATE TIMELINE — NEXT 30 MONTHS': 'CALENDRIER DES MANDATS — 30 PROCHAINS MOIS',
-    'France PA Registration (Sept 2026)': 'Enregistrement PA France (Sept 2026)',
-    'GE Practice Onboarding to SfA': 'Intégration des cabinets GE à SfA',
-    'Active Adoption — Spain': 'Adoption Active — Espagne',
-    'Active Adoption — France': 'Adoption Active — France',
-    'AutoEntry Compliance Pipeline — France': 'Pipeline conformité AutoEntry — France',
-    'SfA Spain GTM': 'GTM SfA Espagne',
-    'EU Competitive Intelligence': 'Veille concurrentielle EU',
-    // Country names in sidebar
-    '🇫🇷 France': '🇫🇷 France',
-    '🇪🇸 Spain': '🇪🇸 Espagne',
-    '🇩🇪 Germany': '🇩🇪 Allemagne',
-    '🇵🇹 Portugal': '🇵🇹 Portugal',
-    '🇬🇧 United Kingdom': '🇬🇧 Royaume-Uni',
-    '🇺🇸 United States': '🇺🇸 États-Unis',
-    // Search UI
-    'hint': 'Appuyez sur <strong>Échap</strong> pour fermer &nbsp;·&nbsp; <strong>Entrée</strong> pour le premier résultat &nbsp;·&nbsp; <strong>Ctrl+K</strong> pour ouvrir',
-    // Status labels
-    'Early stage': 'Phase initiale',
-    'In progress — 50%': 'En cours — 50%',
-    'Below target': 'En dessous de l'objectif',
-    'On track': 'Dans les délais',
-    'Building': 'En construction',
-    'Live': 'En direct',
-    // Mandate timeline
-    'FRANCE PA MANDATE': 'MANDAT PA FRANCE',
-    'SPAIN VERIFACTU (CORPORATE)': 'ESPAGNE VERIFACTU (ENTREPRISES)',
-    'GERMANY XRECHNUNG ISSUE': 'ALLEMAGNE XRECHNUNG ÉMISSION',
-    'PORTUGAL SAF-T': 'PORTUGAL SAF-T',
-    'Days to Sept 1 2026': 'Jours avant le 1er sept. 2026',
-    'Days to Jan 1 2027': 'Jours avant le 1er janv. 2027',
-  },
-  es: {
-    // Topbar
-    'Search': 'Buscar',
-    '⬆ ELT Export': '⬆ Exportar DG',
-    'Share Brief': 'Compartir informe',
-    // Dashboard section labels
-    'Strategic Progress Tracker': 'Seguimiento de progreso estratégico',
-    'Competitive Pressure Index': 'Índice de presión competitiva',
-    'CRITICAL MANDATE TIMELINE — NEXT 30 MONTHS': 'CRONOGRAMA DE MANDATOS — PRÓXIMOS 30 MESES',
-    'France PA Registration (Sept 2026)': 'Registro PA Francia (Sept 2026)',
-    'GE Practice Onboarding to SfA': 'Incorporación despachos GE a SfA',
-    'Active Adoption — Spain': 'Adopción Active — España',
-    'Active Adoption — France': 'Adopción Active — Francia',
-    'AutoEntry Compliance Pipeline — France': 'Pipeline cumplimiento AutoEntry — Francia',
-    'SfA Spain GTM': 'GTM SfA España',
-    'EU Competitive Intelligence': 'Inteligencia competitiva UE',
-    // Country names in sidebar
-    '🇫🇷 France': '🇫🇷 Francia',
-    '🇪🇸 Spain': '🇪🇸 España',
-    '🇩🇪 Germany': '🇩🇪 Alemania',
-    '🇵🇹 Portugal': '🇵🇹 Portugal',
-    '🇬🇧 United Kingdom': '🇬🇧 Reino Unido',
-    '🇺🇸 United States': '🇺🇸 Estados Unidos',
-    // Search UI
-    'hint': 'Pulse <strong>Esc</strong> para cerrar &nbsp;·&nbsp; <strong>Enter</strong> para el primer resultado &nbsp;·&nbsp; <strong>Ctrl+K</strong> para abrir',
-    // Status labels
-    'Early stage': 'Fase inicial',
-    'In progress — 50%': 'En curso — 50%',
-    'Below target': 'Por debajo del objetivo',
-    'On track': 'En camino',
-    'Building': 'En desarrollo',
-    'Live': 'En vivo',
-    // Mandate timeline
-    'FRANCE PA MANDATE': 'MANDATO PA FRANCIA',
-    'SPAIN VERIFACTU (CORPORATE)': 'ESPAÑA VERIFACTU (EMPRESAS)',
-    'GERMANY XRECHNUNG ISSUE': 'ALEMANIA XRECHNUNG EMISIÓN',
-    'PORTUGAL SAF-T': 'PORTUGAL SAF-T',
-    'Days to Sept 1 2026': 'Días hasta el 1 sept. 2026',
-    'Days to Jan 1 2027': 'Días hasta el 1 ene. 2027',
-  }
-};
-
-// Page title translations (the big italic heading on each page)
-const PAGE_TITLES = {
-  fr: {
-    'Command Centre — Dashboard': 'Centre de commandement — Tableau de bord',
-    'What's moving in the market': 'Ce qui bouge sur le marché',
-    'Who we're up against — and how to beat them': 'Nos adversaires — et comment les battre',
-    'AI is changing what accountants expect from software': 'L'IA change ce que les experts-comptables attendent des logiciels',
-    'Why Sage — and how we must show up to win': 'Pourquoi Sage — et comment nous devons nous positionner pour gagner',
-    'Where competitors are investing next': 'Où investissent les concurrents ensuite',
-    'The mandate timeline — every deadline': 'Le calendrier des mandats — chaque échéance',
-    'The Sage WiSE Product Stack': 'La gamme de produits Sage WiSE',
-    'Who Sage is selling through': 'Par qui Sage vend',
-    'Who accountants are selling Active to': 'À qui les experts-comptables vendent Active',
-    'Head-to-head — Sage wins here': 'Face-à-face — Sage gagne ici',
-    'Objection handling — every conversation': 'Gestion des objections — chaque conversation',
-    'What to act on now vs what to watch': 'Ce sur quoi agir maintenant vs ce qu'il faut surveiller',
-    'What to say — and what never to say': 'Quoi dire — et quoi ne jamais dire',
-    'Why we win — and why we lose': 'Pourquoi nous gagnons — et pourquoi nous perdons',
-    'What to campaign — and when': 'Sur quoi mener des campagnes — et quand',
-    'Winning SMBs directly — and through the right channel': 'Conquérir les PME directement — et par le bon canal',
-    'All 14 competitors — one view': 'Les 14 concurrents — en un coup d'œil',
-  },
-  es: {
-    'Command Centre — Dashboard': 'Centro de mando — Panel de control',
-    'What's moving in the market': 'Qué se mueve en el mercado',
-    'Who we're up against — and how to beat them': 'A quién nos enfrentamos — y cómo ganarles',
-    'AI is changing what accountants expect from software': 'La IA cambia lo que los contables esperan del software',
-    'Why Sage — and how we must show up to win': 'Por qué Sage — y cómo debemos posicionarnos para ganar',
-    'Where competitors are investing next': 'Dónde invierten los competidores a continuación',
-    'The mandate timeline — every deadline': 'El calendario de mandatos — cada plazo',
-    'The Sage WiSE Product Stack': 'La gama de productos Sage WiSE',
-    'Who Sage is selling through': 'A través de quién vende Sage',
-    'Who accountants are selling Active to': 'A quién venden Active los contables',
-    'Head-to-head — Sage wins here': 'Cara a cara — Sage gana aquí',
-    'Objection handling — every conversation': 'Manejo de objeciones — cada conversación',
-    'What to act on now vs what to watch': 'En qué actuar ahora vs qué vigilar',
-    'What to say — and what never to say': 'Qué decir — y qué nunca decir',
-    'Why we win — and why we lose': 'Por qué ganamos — y por qué perdemos',
-    'What to campaign — and when': 'Sobre qué hacer campaña — y cuándo',
-    'Winning SMBs directly — and through the right channel': 'Ganar PYMES directamente — y por el canal correcto',
-    'All 14 competitors — one view': 'Los 14 competidores — una vista',
-  }
-};
 
 function setLang(lang) {
   currentLang = lang;
 
-  // Update active button state
-  ['en','fr','es'].forEach(l => {
-    const btn = document.getElementById('lang-' + l);
-    if (btn) btn.classList.toggle('active', l === lang);
-  });
-
-  // Translate all data-i18n elements
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    const key = el.getAttribute('data-i18n');
-    if (key === 'hint') {
-      // Special case for search hint HTML
-      if (lang === 'en') {
-        el.innerHTML = 'Press <strong>Esc</strong> to close &nbsp;·&nbsp; <strong>Enter</strong> to go to first result &nbsp;·&nbsp; <strong>Ctrl+K</strong> to open';
-      } else {
-        const t = TRANSLATIONS[lang];
-        if (t && t['hint']) el.innerHTML = t['hint'];
-      }
-      return;
-    }
-    if (lang === 'en') {
-      el.textContent = key;
-    } else {
-      // Try data-fr / data-es attribute first (set on individual elements)
-      const attrVal = el.getAttribute('data-' + lang);
-      if (attrVal) {
-        el.textContent = attrVal;
-      } else {
-        // Fall back to TRANSLATIONS map
-        const t = TRANSLATIONS[lang];
-        if (t && t[key]) el.textContent = t[key];
-      }
-    }
-  });
-
-  // Translate page titles (the big italic title text)
-  document.querySelectorAll('.page-title').forEach(el => {
-    // Find the em element (italic part) — preserve it
-    const em = el.querySelector('em');
-    if (!em) return;
-    const titleText = el.textContent.trim();
-    if (lang === 'en') {
-      // Restore from data attribute if we saved it
-      const original = el.getAttribute('data-title-en');
-      if (original) {
-        // Re-render with em preserved
-        const parts = original.split('|||');
-        el.innerHTML = parts[0] + '<em>' + parts[1] + '</em>';
-      }
-    } else {
-      // Save original on first switch
-      if (!el.getAttribute('data-title-en')) {
-        const preText = el.childNodes[0] ? el.childNodes[0].textContent : '';
-        const emText = em.textContent;
-        el.setAttribute('data-title-en', preText + '|||' + emText);
-      }
-      const t = PAGE_TITLES[lang];
-      if (t && t[titleText]) {
-        // Simplified — just replace full text, keep em styling
-        const translated = t[titleText];
-        // Find the em part by position (last word cluster)
-        const emText = em.textContent;
-        if (translated.includes(emText)) {
-          el.innerHTML = translated.replace(emText, '<em>' + emText + '</em>');
-        } else {
-          el.textContent = translated;
-        }
-      }
-    }
-  });
-
-  // Translate page subtitles from data attributes
-  document.querySelectorAll('[data-subtitle-fr]').forEach(el => {
-    if (lang === 'en') {
-      el.textContent = el.getAttribute('data-subtitle-en') || el.textContent;
-    } else {
-      const t = el.getAttribute('data-subtitle-' + lang);
-      if (t) el.textContent = t;
-    }
-  });
-
-  // Translate search placeholder
-  const searchInput = document.getElementById('search-input');
-  if (searchInput) {
-    const placeholderKey = 'data-placeholder-' + lang;
-    const placeholder = searchInput.getAttribute(placeholderKey);
-    if (placeholder) searchInput.placeholder = placeholder;
-  }
-
-  // Update breadcrumb title for current page
-  const bc = document.getElementById('tb-current');
-  if (bc) {
-    const activePage = document.querySelector('.page-section.active');
-    if (activePage) {
-      const id = activePage.id.replace('page-', '');
-      if (typeof titles !== 'undefined' && titles[id]) {
-        bc.textContent = titles[id];
-      }
-    }
-  }
-
-  // Store preference
-  try { localStorage.setItem('wise-lang', lang); } catch(e) {}
-}
-
-// Restore language preference on load
-document.addEventListener('DOMContentLoaded', () => {
-  try {
-    const saved = localStorage.getItem('wise-lang');
-    if (saved && saved !== 'en') setLang(saved);
-  } catch(e) {}
-});
-</script>
-
-<script>
-// ── LANGUAGE SWITCHER ────────────────────────────────────────────
-const i18n = {
-  en: {
-    // Sidebar sections
-    sec_overview: 'Overview',
-    sec_intelligence: 'Intelligence',
-    sec_products: 'Products',
-    sec_personas: 'Personas',
-    sec_sales_tools: 'Sales Tools',
-    sec_enablement: 'Enablement',
-    sec_countries: 'Countries',
-    sec_strategy: 'Strategy',
-    sec_direct: 'Direct Channel',
-    // Nav items
-    nav_dashboard: 'Dashboard',
-    nav_signals: 'Signals',
-    nav_competitors: 'Competitors',
-    nav_ai_watch: 'AI Watch',
-    nav_brand: 'Brand Positioning',
-    nav_hiring: 'Hiring Signals',
-    nav_regulatory: 'Regulatory Calendar',
-    nav_products: 'Products Overview',
-    nav_personas: 'Accountant Personas',
-    nav_smb_seg: 'SMB Client Segments',
-    nav_battlecards: 'Battle Cards',
-    nav_deal: 'Deal Intelligence',
-    nav_campaigns: 'Campaign Alerts',
-    nav_enablement: 'Sales Enablement',
-    nav_fr: '🇫🇷 France',
-    nav_es: '🇪🇸 Spain',
-    nav_de: '🇩🇪 Germany',
-    nav_pt: '🇵🇹 Portugal',
-    nav_uk: '🇬🇧 United Kingdom',
-    nav_us: '🇺🇸 United States',
-    nav_messaging: 'Messaging Library',
-    nav_winloss: 'Win / Loss Intel',
-    nav_cam_cal: 'Campaign Calendar',
-    nav_smb_direct: 'SMB Direct Playbook',
-    nav_compare: 'Competitor Compare',
-    // UI
-    hub_name: 'WiSE Intel Hub &nbsp;/&nbsp;',
-    dash_progress: 'Strategic Progress Tracker',
-    dash_pressure: 'Competitive Pressure Index',
-    dash_timeline: 'CRITICAL MANDATE TIMELINE — NEXT 30 MONTHS',
-    btn_share: 'Share Brief',
-    btn_search: 'Search',
-  },
-
-  fr: {
-    sec_overview: 'Vue d'ensemble',
-    sec_intelligence: 'Intelligence',
-    sec_products: 'Produits',
-    sec_personas: 'Personas',
-    sec_sales_tools: 'Outils de vente',
-    sec_enablement: 'Formation',
-    sec_countries: 'Marchés',
-    sec_strategy: 'Stratégie',
-    sec_direct: 'Canal direct',
-    nav_dashboard: 'Tableau de bord',
-    nav_signals: 'Signaux',
-    nav_competitors: 'Concurrents',
-    nav_ai_watch: 'Veille IA',
-    nav_brand: 'Positionnement de marque',
-    nav_hiring: 'Signaux de recrutement',
-    nav_regulatory: 'Calendrier réglementaire',
-    nav_products: 'Vue des produits',
-    nav_personas: 'Personas experts-comptables',
-    nav_smb_seg: 'Segments PME clients',
-    nav_battlecards: 'Fiches concurrentielles',
-    nav_deal: 'Intelligence commerciale',
-    nav_campaigns: 'Alertes campagnes',
-    nav_enablement: 'Aide à la vente',
-    nav_fr: '🇫🇷 France',
-    nav_es: '🇪🇸 Espagne',
-    nav_de: '🇩🇪 Allemagne',
-    nav_pt: '🇵🇹 Portugal',
-    nav_uk: '🇬🇧 Royaume-Uni',
-    nav_us: '🇺🇸 États-Unis',
-    nav_messaging: 'Bibliothèque de messages',
-    nav_winloss: 'Victoires / Défaites',
-    nav_cam_cal: 'Calendrier des campagnes',
-    nav_smb_direct: 'Playbook direct PME',
-    nav_compare: 'Comparatif concurrents',
-    hub_name: 'WiSE Intel Hub &nbsp;/&nbsp;',
-    dash_progress: 'Suivi des progrès stratégiques',
-    dash_pressure: 'Indice de pression concurrentielle',
-    dash_timeline: 'CALENDRIER DES MANDATS — 30 PROCHAINS MOIS',
-    btn_share: 'Partager',
-    btn_search: 'Rechercher',
-  },
-
-  es: {
-    sec_overview: 'Resumen',
-    sec_intelligence: 'Inteligencia',
-    sec_products: 'Productos',
-    sec_personas: 'Personas',
-    sec_sales_tools: 'Herramientas de venta',
-    sec_enablement: 'Capacitación',
-    sec_countries: 'Mercados',
-    sec_strategy: 'Estrategia',
-    sec_direct: 'Canal directo',
-    nav_dashboard: 'Panel de control',
-    nav_signals: 'Señales',
-    nav_competitors: 'Competidores',
-    nav_ai_watch: 'Vigilancia IA',
-    nav_brand: 'Posicionamiento de marca',
-    nav_hiring: 'Señales de contratación',
-    nav_regulatory: 'Calendario regulatorio',
-    nav_products: 'Vista de productos',
-    nav_personas: 'Personas de contables',
-    nav_smb_seg: 'Segmentos clientes PYME',
-    nav_battlecards: 'Fichas competitivas',
-    nav_deal: 'Inteligencia comercial',
-    nav_campaigns: 'Alertas de campañas',
-    nav_enablement: 'Capacitación de ventas',
-    nav_fr: '🇫🇷 Francia',
-    nav_es: '🇪🇸 España',
-    nav_de: '🇩🇪 Alemania',
-    nav_pt: '🇵🇹 Portugal',
-    nav_uk: '🇬🇧 Reino Unido',
-    nav_us: '🇺🇸 Estados Unidos',
-    nav_messaging: 'Biblioteca de mensajes',
-    nav_winloss: 'Victorias / Derrotas',
-    nav_cam_cal: 'Calendario de campañas',
-    nav_smb_direct: 'Playbook directo PYME',
-    nav_compare: 'Comparativa de competidores',
-    hub_name: 'WiSE Intel Hub &nbsp;/&nbsp;',
-    dash_progress: 'Seguimiento del progreso estratégico',
-    dash_pressure: 'Índice de presión competitiva',
-    dash_timeline: 'CALENDARIO DE MANDATOS — PRÓXIMOS 30 MESES',
-    btn_share: 'Compartir',
-    btn_search: 'Buscar',
-  }
-};
-
-let currentLang = 'en';
-
-function setLang(lang) {
-  if (!i18n[lang]) return;
-  currentLang = lang;
-
-  // Update all tagged elements
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    const key = el.getAttribute('data-i18n');
-    if (i18n[lang][key] !== undefined) {
-      el.innerHTML = i18n[lang][key];
-    }
-  });
-
-  // Update active button state
+  // Update button states
   document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.classList.toggle('active', btn.dataset.lang === lang);
   });
 
-  // Update html lang attribute for accessibility
-  document.documentElement.lang = lang;
-
-  // Update page title breadcrumb if titles map has current page
-  const bc = document.getElementById('tb-current');
-  if (bc && window.titles) {
-    // Re-apply the current page title in case it was affected
-    const activeLink = document.querySelector('.sb-link.active');
-    if (activeLink) {
-      const pageId = activeLink.dataset.page;
-      if (titles[pageId]) bc.textContent = titles[pageId];
-    }
-  }
-}
-
-// Initialise on load
-document.addEventListener('DOMContentLoaded', () => {
-  // Check for saved language preference
-  const saved = localStorage.getItem('wise_lang');
-  if (saved && i18n[saved]) {
-    setLang(saved);
-  }
-});
-
-// Override setLang to also save preference
-const _origSetLang = setLang;
-window.setLang = function(lang) {
-  _origSetLang(lang);
-  try { localStorage.setItem('wise_lang', lang); } catch(e) {}
-};
-</script>
-
-<script>
-// ── LANGUAGE SWITCHER ─────────────────────────────────────────────────────
-const TRANSLATIONS = {
-  en: {
-    // Sidebar section labels
-    'OVERVIEW':          'OVERVIEW',
-    'INTELLIGENCE':      'INTELLIGENCE',
-    'PRODUCTS':          'PRODUCTS',
-    'PERSONAS':          'PERSONAS',
-    'SALES TOOLS':       'SALES TOOLS',
-    'ENABLEMENT':        'ENABLEMENT',
-    'COUNTRIES':         'COUNTRIES',
-    'STRATEGY':          'STRATEGY',
-    'DIRECT CHANNEL':    'DIRECT CHANNEL',
-    // Sidebar nav links
-    'Dashboard':         'Dashboard',
-    'Signals':           'Signals',
-    'Competitors':       'Competitors',
-    'AI Watch':          'AI Watch',
-    'Brand Positioning': 'Brand Positioning',
-    'Hiring Signals':    'Hiring Signals',
-    'Regulatory Calendar': 'Regulatory Calendar',
-    'Products Overview': 'Products Overview',
-    'Accountant Personas': 'Accountant Personas',
-    'SMB Client Segments': 'SMB Client Segments',
-    'Battle Cards':      'Battle Cards',
-    'Deal Intelligence': 'Deal Intelligence',
-    'Campaign Alerts':   'Campaign Alerts',
-    'Sales Enablement':  'Sales Enablement',
-    'Messaging Library': 'Messaging Library',
-    'Win / Loss Intel':  'Win / Loss Intel',
-    'Campaign Calendar': 'Campaign Calendar',
-    'SMB Direct Playbook': 'SMB Direct Playbook',
-    'Competitor Compare': 'Competitor Compare',
-    // Page eyebrows
-    '00 · COMMAND CENTRE':    '00 · COMMAND CENTRE',
-    '01 · WEEKLY INTELLIGENCE': '01 · WEEKLY INTELLIGENCE',
-    '02 · COMPETITOR PROFILES': '02 · COMPETITOR PROFILES',
-    '03 · AI WATCH':          '03 · AI WATCH',
-    '04 · BRAND POSITIONING': '04 · BRAND POSITIONING',
-    '05 · HIRING SIGNALS':    '05 · HIRING SIGNALS',
-    '06 · REGULATORY CALENDAR': '06 · REGULATORY CALENDAR',
-    // Topbar
-    'ELT Export':        'ELT Export',
-    'Share Brief':       'Share Brief',
-    'Search':            'Search',
-    // Dashboard labels
-    'FRANCE PA MANDATE': 'FRANCE PA MANDATE',
-    'SPAIN VERIFACTU (CORPORATE)': 'SPAIN VERIFACTU (CORPORATE)',
-    'GERMANY XRECHNUNG ISSUE': 'GERMANY XRECHNUNG ISSUE',
-    'PORTUGAL SAF-T':    'PORTUGAL SAF-T',
-    'Days to Sept 1 2026': 'Days to Sept 1 2026',
-    'Days to Jan 1 2027': 'Days to Jan 1 2027',
-    'STRATEGIC PROGRESS TRACKER': 'STRATEGIC PROGRESS TRACKER',
-    'COMPETITIVE PRESSURE INDEX': 'COMPETITIVE PRESSURE INDEX',
-    'CRITICAL MANDATE TIMELINE — NEXT 30 MONTHS': 'CRITICAL MANDATE TIMELINE — NEXT 30 MONTHS',
-  },
-
-  fr: {
-    // Sidebar sections
-    'OVERVIEW':          'VUE D'ENSEMBLE',
-    'INTELLIGENCE':      'INTELLIGENCE',
-    'PRODUCTS':          'PRODUITS',
-    'PERSONAS':          'PERSONAS',
-    'SALES TOOLS':       'OUTILS COMMERCIAUX',
-    'ENABLEMENT':        'ENABLEMENT',
-    'COUNTRIES':         'MARCHÉS',
-    'STRATEGY':          'STRATÉGIE',
-    'DIRECT CHANNEL':    'CANAL DIRECT',
-    // Nav links
-    'Dashboard':         'Tableau de bord',
-    'Signals':           'Signaux',
-    'Competitors':       'Concurrents',
-    'AI Watch':          'Veille IA',
-    'Brand Positioning': 'Positionnement de marque',
-    'Hiring Signals':    'Signaux recrutement',
-    'Regulatory Calendar': 'Calendrier réglementaire',
-    'Products Overview': 'Vue produits',
-    'Accountant Personas': 'Personas expert-comptable',
-    'SMB Client Segments': 'Segments clients PME',
-    'Battle Cards':      'Fiches concurrentielles',
-    'Deal Intelligence': 'Intelligence commerciale',
-    'Campaign Alerts':   'Alertes campagnes',
-    'Sales Enablement':  'Aide à la vente',
-    'Messaging Library': 'Bibliothèque de messages',
-    'Win / Loss Intel':  'Gains / Pertes',
-    'Campaign Calendar': 'Calendrier campagnes',
-    'SMB Direct Playbook': 'Playbook canal direct',
-    'Competitor Compare': 'Comparatif concurrents',
-    // Page eyebrows
-    '00 · COMMAND CENTRE':    '00 · CENTRE DE COMMANDE',
-    '01 · WEEKLY INTELLIGENCE': '01 · INTELLIGENCE HEBDOMADAIRE',
-    '02 · COMPETITOR PROFILES': '02 · PROFILS CONCURRENTS',
-    '03 · AI WATCH':          '03 · VEILLE IA',
-    '04 · BRAND POSITIONING': '04 · POSITIONNEMENT DE MARQUE',
-    '05 · HIRING SIGNALS':    '05 · SIGNAUX RECRUTEMENT',
-    '06 · REGULATORY CALENDAR': '06 · CALENDRIER RÉGLEMENTAIRE',
-    // Topbar
-    'ELT Export':        'Export ELT',
-    'Share Brief':       'Partager le brief',
-    'Search':            'Rechercher',
-    // Dashboard
-    'FRANCE PA MANDATE': 'MANDAT PA FRANCE',
-    'SPAIN VERIFACTU (CORPORATE)': 'VERIFACTU ESPAGNE (ENTREPRISES)',
-    'GERMANY XRECHNUNG ISSUE': 'XRECHNUNG ALLEMAGNE ÉMISSION',
-    'PORTUGAL SAF-T':    'SAF-T PORTUGAL',
-    'Days to Sept 1 2026': 'Jours avant le 1er sept. 2026',
-    'Days to Jan 1 2027': 'Jours avant le 1er janv. 2027',
-    'STRATEGIC PROGRESS TRACKER': 'SUIVI DES PROGRÈS STRATÉGIQUES',
-    'COMPETITIVE PRESSURE INDEX': 'INDICE DE PRESSION CONCURRENTIELLE',
-    'CRITICAL MANDATE TIMELINE — NEXT 30 MONTHS': 'CALENDRIER DES MANDATS CRITIQUES — 30 PROCHAINS MOIS',
-  },
-
-  es: {
-    // Sidebar sections
-    'OVERVIEW':          'RESUMEN',
-    'INTELLIGENCE':      'INTELIGENCIA',
-    'PRODUCTS':          'PRODUCTOS',
-    'PERSONAS':          'PERSONAS',
-    'SALES TOOLS':       'HERRAMIENTAS DE VENTAS',
-    'ENABLEMENT':        'HABILITACIÓN',
-    'COUNTRIES':         'MERCADOS',
-    'STRATEGY':          'ESTRATEGIA',
-    'DIRECT CHANNEL':    'CANAL DIRECTO',
-    // Nav links
-    'Dashboard':         'Panel de control',
-    'Signals':           'Señales',
-    'Competitors':       'Competidores',
-    'AI Watch':          'Vigilancia IA',
-    'Brand Positioning': 'Posicionamiento de marca',
-    'Hiring Signals':    'Señales de contratación',
-    'Regulatory Calendar': 'Calendario regulatorio',
-    'Products Overview': 'Resumen de productos',
-    'Accountant Personas': 'Personas de contable',
-    'SMB Client Segments': 'Segmentos clientes PYME',
-    'Battle Cards':      'Fichas competitivas',
-    'Deal Intelligence': 'Inteligencia comercial',
-    'Campaign Alerts':   'Alertas de campaña',
-    'Sales Enablement':  'Habilitación de ventas',
-    'Messaging Library': 'Biblioteca de mensajes',
-    'Win / Loss Intel':  'Ganancias / Pérdidas',
-    'Campaign Calendar': 'Calendario de campañas',
-    'SMB Direct Playbook': 'Playbook canal directo',
-    'Competitor Compare': 'Comparativa competidores',
-    // Page eyebrows
-    '00 · COMMAND CENTRE':    '00 · CENTRO DE MANDO',
-    '01 · WEEKLY INTELLIGENCE': '01 · INTELIGENCIA SEMANAL',
-    '02 · COMPETITOR PROFILES': '02 · PERFILES DE COMPETIDORES',
-    '03 · AI WATCH':          '03 · VIGILANCIA IA',
-    '04 · BRAND POSITIONING': '04 · POSICIONAMIENTO DE MARCA',
-    '05 · HIRING SIGNALS':    '05 · SEÑALES DE CONTRATACIÓN',
-    '06 · REGULATORY CALENDAR': '06 · CALENDARIO REGULATORIO',
-    // Topbar
-    'ELT Export':        'Exportar ELT',
-    'Share Brief':       'Compartir brief',
-    'Search':            'Buscar',
-    // Dashboard
-    'FRANCE PA MANDATE': 'MANDATO PA FRANCIA',
-    'SPAIN VERIFACTU (CORPORATE)': 'VERIFACTU ESPAÑA (EMPRESAS)',
-    'GERMANY XRECHNUNG ISSUE': 'XRECHNUNG ALEMANIA EMISIÓN',
-    'PORTUGAL SAF-T':    'SAF-T PORTUGAL',
-    'Days to Sept 1 2026': 'Días hasta el 1 sept. 2026',
-    'Days to Jan 1 2027': 'Días hasta el 1 ene. 2027',
-    'STRATEGIC PROGRESS TRACKER': 'SEGUIMIENTO DE PROGRESO ESTRATÉGICO',
-    'COMPETITIVE PRESSURE INDEX': 'ÍNDICE DE PRESIÓN COMPETITIVA',
-    'CRITICAL MANDATE TIMELINE — NEXT 30 MONTHS': 'CRONOLOGÍA DE MANDATOS CRÍTICOS — PRÓXIMOS 30 MESES',
-  }
-};
-
-// Store original text for all translatable elements
-const originalTexts = new WeakMap();
-let currentLang = 'en';
-
-function saveOriginals() {
-  // Save original text for all elements with data-i18n attribute
+  // Translate all tagged elements using data-[lang] attributes
   document.querySelectorAll('[data-i18n]').forEach(el => {
-    if (!originalTexts.has(el)) {
-      originalTexts.set(el, el.textContent.trim());
+    const translation = el.getAttribute('data-' + lang);
+    if (translation) {
+      el.textContent = translation;
+    } else if (lang === 'en') {
+      const original = el.getAttribute('data-en');
+      if (original) el.textContent = original;
     }
   });
-}
 
-function applyTranslations(lang) {
-  const t = TRANSLATIONS[lang];
-  if (!t) return;
-
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    const key = originalTexts.get(el) || el.textContent.trim();
-    if (!originalTexts.has(el)) originalTexts.set(el, key);
-    const translated = t[key];
-    if (translated) el.textContent = translated;
-    else if (lang === 'en') el.textContent = key; // restore original on EN
-  });
-
-  // Update search button text
+  // Translate topbar buttons
   const searchBtn = document.getElementById('search-btn');
-  if (searchBtn) searchBtn.textContent = t['Search'] || 'Search';
-
-  // Update topbar buttons
+  if (searchBtn) {
+    const translations = {en: 'Search', fr: 'Rechercher', es: 'Buscar'};
+    searchBtn.textContent = translations[lang] || 'Search';
+  }
   document.querySelectorAll('.tb-btn').forEach(btn => {
-    const orig = originalTexts.get(btn) || btn.textContent.trim();
-    if (!originalTexts.has(btn)) originalTexts.set(btn, orig);
-    const translated = t[orig];
-    if (translated) btn.textContent = translated;
-    else if (lang === 'en') btn.textContent = orig;
-  });
-}
-
-function setLang(lang) {
-  currentLang = lang;
-
-  // Update active button
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.classList.toggle('active', btn.dataset.lang === lang);
+    const orig = btn.getAttribute('data-en');
+    if (orig) {
+      const frMap = {'ELT Export':'Export ELT', 'Share Brief':'Partager le brief'};
+      const esMap = {'ELT Export':'Exportar ELT', 'Share Brief':'Compartir brief'};
+      if (lang === 'fr' && frMap[orig]) btn.textContent = frMap[orig];
+      else if (lang === 'es' && esMap[orig]) btn.textContent = esMap[orig];
+      else btn.textContent = orig;
+    }
   });
 
-  // Save originals on first use
-  saveOriginals();
-
-  // Apply translations
-  applyTranslations(lang);
-
-  // Store preference
   try { localStorage.setItem('wise_lang', lang); } catch(e) {}
 }
 
-// Auto-tag translatable elements on load
+// Tag nav elements with data attributes on load
 document.addEventListener('DOMContentLoaded', () => {
+  // Nav translations map - using escaped apostrophes
+  const navTranslations = {
+    'Dashboard':            {fr: 'Tableau de bord',        es: 'Panel de control'},
+    'Signals':              {fr: 'Signaux',                es: 'Se\u00f1ales'},
+    'Competitors':          {fr: 'Concurrents',            es: 'Competidores'},
+    'AI Watch':             {fr: 'Veille IA',              es: 'Vigilancia IA'},
+    'Brand Positioning':    {fr: 'Positionnement de marque', es: 'Posicionamiento de marca'},
+    'Hiring Signals':       {fr: 'Signaux recrutement',    es: 'Se\u00f1ales de contrataci\u00f3n'},
+    'Regulatory Calendar':  {fr: 'Calendrier r\u00e9glementaire', es: 'Calendario regulatorio'},
+    'Products Overview':    {fr: 'Vue produits',           es: 'Resumen de productos'},
+    'Accountant Personas':  {fr: 'Personas expert-comptable', es: 'Personas de contable'},
+    'SMB Client Segments':  {fr: 'Segments clients PME',   es: 'Segmentos clientes PYME'},
+    'Battle Cards':         {fr: 'Fiches concurrentielles', es: 'Fichas competitivas'},
+    'Deal Intelligence':    {fr: 'Intelligence commerciale', es: 'Inteligencia comercial'},
+    'Campaign Alerts':      {fr: 'Alertes campagnes',      es: 'Alertas de campa\u00f1a'},
+    'Sales Enablement':     {fr: 'Aide \u00e0 la vente',  es: 'Habilitaci\u00f3n de ventas'},
+    'Messaging Library':    {fr: 'Biblioth\u00e8que de messages', es: 'Biblioteca de mensajes'},
+    'Win / Loss Intel':     {fr: 'Gains / Pertes',         es: 'Ganancias / P\u00e9rdidas'},
+    'Campaign Calendar':    {fr: 'Calendrier campagnes',   es: 'Calendario de campa\u00f1as'},
+    'SMB Direct Playbook':  {fr: 'Playbook canal direct',  es: 'Playbook canal directo'},
+    'Competitor Compare':   {fr: 'Comparatif concurrents', es: 'Comparativa competidores'},
+  };
+
+  const sectionTranslations = {
+    'OVERVIEW':          {fr: 'VUE D\u2019ENSEMBLE', es: 'RESUMEN'},
+    'INTELLIGENCE':      {fr: 'INTELLIGENCE',          es: 'INTELIGENCIA'},
+    'PRODUCTS':          {fr: 'PRODUITS',              es: 'PRODUCTOS'},
+    'PERSONAS':          {fr: 'PERSONAS',              es: 'PERSONAS'},
+    'SALES TOOLS':       {fr: 'OUTILS COMMERCIAUX',   es: 'HERRAMIENTAS DE VENTAS'},
+    'ENABLEMENT':        {fr: 'ENABLEMENT',            es: 'HABILITACI\u00d3N'},
+    'COUNTRIES':         {fr: 'MARCH\u00c9S',         es: 'MERCADOS'},
+    'STRATEGY':          {fr: 'STRAT\u00c9GIE',       es: 'ESTRATEGIA'},
+    'DIRECT CHANNEL':    {fr: 'CANAL DIRECT',          es: 'CANAL DIRECTO'},
+  };
+
+  // Tag sidebar nav links
+  document.querySelectorAll('.sb-link').forEach(btn => {
+    const dot = btn.querySelector('.sb-dot');
+    if (!dot) return;
+    let textNode = null;
+    btn.childNodes.forEach(n => {
+      if (n.nodeType === 3 && n.textContent.trim()) textNode = n;
+    });
+    if (!textNode) {
+      // Already wrapped in span
+      const existingSpan = btn.querySelector('span[data-i18n]');
+      if (existingSpan) {
+        const key = existingSpan.textContent.trim();
+        if (navTranslations[key]) {
+          existingSpan.setAttribute('data-en', key);
+          existingSpan.setAttribute('data-fr', navTranslations[key].fr);
+          existingSpan.setAttribute('data-es', navTranslations[key].es);
+        }
+        return;
+      }
+    }
+    if (textNode) {
+      const key = textNode.textContent.trim();
+      const span = document.createElement('span');
+      span.setAttribute('data-i18n', '');
+      span.setAttribute('data-en', key);
+      if (navTranslations[key]) {
+        span.setAttribute('data-fr', navTranslations[key].fr);
+        span.setAttribute('data-es', navTranslations[key].es);
+      }
+      span.textContent = key;
+      btn.replaceChild(span, textNode);
+    }
+  });
+
   // Tag sidebar section labels
   document.querySelectorAll('.sb-section-label').forEach(el => {
-    el.setAttribute('data-i18n', '');
-  });
-
-  // Tag sidebar nav link text (the text node, not the dot span)
-  document.querySelectorAll('.sb-link').forEach(btn => {
-    // Create a span around the text content (after the dot span)
-    const dot = btn.querySelector('.sb-dot');
-    if (dot) {
-      const textContent = btn.childNodes[btn.childNodes.length - 1];
-      if (textContent && textContent.nodeType === 3) {
-        const span = document.createElement('span');
-        span.setAttribute('data-i18n', '');
-        span.textContent = textContent.textContent;
-        btn.replaceChild(span, textContent);
-      }
+    const key = el.textContent.trim();
+    if (sectionTranslations[key]) {
+      el.setAttribute('data-i18n', '');
+      el.setAttribute('data-en', key);
+      el.setAttribute('data-fr', sectionTranslations[key].fr);
+      el.setAttribute('data-es', sectionTranslations[key].es);
     }
   });
 
-  // Tag page eyebrows
-  document.querySelectorAll('.page-eyebrow').forEach(el => {
-    el.setAttribute('data-i18n', '');
-  });
-
-  // Tag dashboard stat labels
-  document.querySelectorAll('.dash-stat-label, .stat-label').forEach(el => {
-    el.setAttribute('data-i18n', '');
-  });
-
-  // Tag section labels across all pages
-  document.querySelectorAll('.country-section-label').forEach(el => {
-    // Only tag short uppercase labels (UI chrome, not content)
-    if (el.textContent.length < 60) el.setAttribute('data-i18n', '');
+  // Tag topbar buttons with data-en for restoration
+  document.querySelectorAll('.tb-btn').forEach(btn => {
+    btn.setAttribute('data-en', btn.textContent.trim());
   });
 
   // Restore language preference
@@ -5201,5 +4642,9 @@ document.addEventListener('DOMContentLoaded', () => {
   } catch(e) {}
 });
 </script>
+
+
+
+
 </body>
 </html>
