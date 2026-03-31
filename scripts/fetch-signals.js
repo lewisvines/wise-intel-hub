@@ -285,7 +285,7 @@ const ENTITIES = [
 const EVENT_PATTERNS = [
   // Acquisition BEFORE funding — "rachète pour un milliard" is acquisition, not funding
   { key:'acquisition',  test: t => /acqui[rs]|rach\u00e8te|rachet|\bbuys\b|merger|acquiert|\u00fcbernimmt|takeover/i.test(t) },
-  { key:'funding',      test: t => /\brais(?:es?|ed|ing)?\b|secures?\s+[\u20ac$\u00a3\d$]|secures?\s+\$|\bl[e\u00e8]ve\b|\bseries\s+[abcde]\b|venture\s+capital|vc.back|seed.fund|\bfunding\s+round\b|investissement/i.test(t) },
+  { key:'funding',      test: t => /\brais(?:es?|ed|ing)?\b|secures?\s+[€$£\d]|secures?\s+\$|l[eè]ve\s+[\d€$£]|l[eè]ve\s+\d|\bseries\s+[abcde]\b|venture\s+capital|seed.fund|\bfunding\s+round\b|lev[eé]e\s+de\s+fonds|investissement/i.test(t) },
   { key:'launch',       test: t => /launch[es]|releases?|introduces?|announces?\s+new|unveil|lancement/i.test(t) },
   { key:'partnership',  test: t => /partners?\s+with|collaboration|partenariat|integrat/i.test(t) },
   { key:'mandate',      test: t => /mandate|pflicht|oblig|deadline|2026|2027|aplaza|retrasa|retard|report\u00e9|bereit|pr\u00eates|pr\u00e9parer|frist|einf\u00fchr|obligatoire|obligatorio|verpflicht/i.test(t) },
@@ -297,16 +297,26 @@ const EVENT_PATTERNS = [
 // Maps regulatory entities to a normalised topic key
 // so "verifactu" + "hacienda" + "factura electronica" all map to the same ES topic
 const REGULATORY_TOPICS = [
-  { key: 'ES_EINVOICE', terms: ['verifactu','hacienda','factura electronica','facturacion electronica','crea y crece'] },
-  { key: 'FR_EINVOICE', terms: ['facturation electronique','facturation électronique','dgfip','plateforme agreee','plateforme agréée','ppf','piste','chorus'] },
-  { key: 'DE_EINVOICE', terms: ['e-rechnung','xrechnung','zugferd','e-rechnungspflicht','rechnungspflicht'] },
-  { key: 'PT_EINVOICE', terms: ['saf-t','fatura eletronica','fatura eletrónica','at portugal'] },
-  { key: 'EU_EINVOICE', terms: ['vida vat','eu einvoic','eu e-invoic','vida directive'] },
+  { key: 'ES_EINVOICE', terms: ['verifactu','hacienda','factura electronica','facturacion electronica','factura electronica','crea y crece','ticketbai','batuz'] },
+  { key: 'FR_EINVOICE', terms: ['facturation electronique','facturation electr','facture electronique','e-facturation','factures electroniques','dgfip','plateforme agreee','ppf','piste','chorus','dematerialisation','dematerializ'] },
+  { key: 'DE_EINVOICE', terms: ['e-rechnung','xrechnung','zugferd','e-rechnungspflicht','rechnungspflicht','elektronische rechnung','einvoic'] },
+  { key: 'PT_EINVOICE', terms: ['saf-t','fatura eletronica','fatura electronica','at portugal','sigef'] },
+  { key: 'EU_EINVOICE', terms: ['vida vat','vida directive','eu vat','b2b einvoic','b2b e-invoic'] },
 ];
 
-function getTopicKey(text) {
+// Normalise text for topic matching: strip accents, lowercase
+function normaliseForTopics(text) {
+  return text.toLowerCase()
+    .replace(/[àáâãäå]/g, 'a').replace(/[èéêë]/g, 'e').replace(/[ìíîï]/g, 'i')
+    .replace(/[òóôõö]/g, 'o').replace(/[ùúûü]/g, 'u').replace(/[ýÿ]/g, 'y')
+    .replace(/[ñ]/g, 'n').replace(/[ç]/g, 'c').replace(/[æ]/g, 'ae')
+    .replace(/[ß]/g, 'ss').replace(/[ø]/g, 'o').replace(/[-_]/g, ' ');
+}
+
+function getTopicKey(rawText) {
+  const text = normaliseForTopics(rawText);
   for (const topic of REGULATORY_TOPICS) {
-    if (topic.terms.some(t => text.includes(t))) return topic.key;
+    if (topic.terms.some(t => text.includes(normaliseForTopics(t)))) return topic.key;
   }
   return null;
 }
@@ -328,10 +338,11 @@ function normAmount(text) {
 }
 
 function extractEventKey(title, body) {
-  const text = `${title} ${body}`.toLowerCase();
+  // Normalise accents so "lève", "électronique" etc match entity/topic lists
+  const text = normaliseForTopics(`${title} ${body}`);
 
   // Find entities present in the text
-  const foundEntities = ENTITIES.filter(e => text.includes(e));
+  const foundEntities = ENTITIES.filter(e => text.includes(normaliseForTopics(e)));
 
   let eventType = '';
   for (const { key, test } of EVENT_PATTERNS) {
@@ -376,7 +387,7 @@ function isDuplicateSignal(title, bodyText) {
     'facturation electronique','electronic invoicing',
     'zugferd','saf-t','vida',
   ];
-  const combined = `${title} ${bodyText}`.toLowerCase();
+  const combined = normaliseForTopics(`${title} ${bodyText}`);
   for (const regEnt of REGULATORY_CAP_ENTITIES) {
     if (combined.includes(regEnt)) {
       const capKey = 'REG_CAP::' + regEnt;
