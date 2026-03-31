@@ -2947,18 +2947,90 @@ async function loadLiveSignals() {
     const allSignals = await r.json();
     if (!Array.isArray(allSignals) || allSignals.length === 0) return;
 
-    // Score and filter — only show signals with material WiSE relevance
+    // ── Criticality scoring (mirrors fetch-signals.js logic) ──────
+    function clientCriticality(sig) {
+      const text = `${sig.title} ${sig.body} ${sig.source} ${sig.implication}`.toLowerCase();
+      let score = 0;
+      const catBase = {'Regulatory':40,'Competitive':35,'AI & Tech':20,'Market Intelligence':15,'Sage News':10};
+      score += catBase[sig.category] || 10;
+      const mkt = {'FR':15,'ES':12,'DE':8,'PT':6,'EU':10};
+      score += mkt[sig.market] || 5;
+      if (text.includes('pennylane')) score += 20;
+      if (text.includes('cegid')) score += 15;
+      if (text.includes('holded')) score += 12;
+      if (text.includes('regate') || text.includes('qonto')) score += 10;
+      if (text.includes('datev')) score += 8;
+      if (text.includes('dgfip') || text.includes('plateforme agr')) score += 18;
+      if (text.includes('verifactu') || text.includes('aeat')) score += 15;
+      if (text.includes('xrechnung') || text.includes('zugferd')) score += 12;
+      if (text.includes('september 2026') || text.includes('sept 2026')) score += 20;
+      if (text.includes('january 2027') || text.includes('jan 2027')) score += 15;
+      if (text.includes('mandate') || text.includes('mandatory')) score += 12;
+      if (text.includes('funding') || text.includes('million') || text.includes('series')) score += 12;
+      if (text.includes('acquisition') || text.includes('acquired')) score += 10;
+      if (text.includes('launch') || text.includes('expansion')) score += 8;
+      if (text.includes('spain') && sig.category === 'Competitive') score += 10;
+      if (text.includes('sage active') || text.includes('autoentry')) score += 8;
+      if (text.includes('despacho') || text.includes('génération experts')) score += 8;
+      return score;
+    }
+
+    // ── Light English translation for any non-English that slips through ──
+    function lightTranslate(text) {
+      if (!text) return text;
+      return text
+        .replace(/facturation [ée]lectronique/gi, 'electronic invoicing')
+        .replace(/expert-comptable/gi, 'chartered accountant')
+        .replace(/expert comptable/gi, 'chartered accountant')
+        .replace(/comptabilit[ée]/gi, 'accounting')
+        .replace(/cabinet comptable/gi, 'accounting firm')
+        .replace(/cabinet/gi, 'firm')
+        .replace(/plateforme agr[ée][ée]/gi, 'certified platform (PA)')
+        .replace(/levée de fonds/gi, 'funding round')
+        .replace(/intelligence artificielle/gi, 'artificial intelligence')
+        .replace(/automatisation/gi, 'automation')
+        .replace(/num[ée]rique/gi, 'digital')
+        .replace(/entreprise/gi, 'business')
+        .replace(/lancement/gi, 'launch')
+        .replace(/croissance/gi, 'growth')
+        .replace(/march[ée]/gi, 'market')
+        .replace(/facturaci[óo]n electr[óo]nica/gi, 'electronic invoicing')
+        .replace(/contabilidad/gi, 'accounting')
+        .replace(/cumplimiento/gi, 'compliance')
+        .replace(/Steuerberater/gi, 'tax advisor')
+        .replace(/Buchf[ü]hrung/gi, 'bookkeeping')
+        .replace(/Digitalisierung/gi, 'digitalisation')
+        .replace(/[Ee]-[Rr]echnung/g, 'e-invoice')
+        .replace(/Pflicht/g, 'mandatory requirement')
+        .replace(/contabilidade/gi, 'accounting')
+        .replace(/fatura eletr[ôo]nica/gi, 'electronic invoice');
+    }
+
+    // Apply translation to each signal
+    allSignals.forEach(sig => {
+      sig.title = lightTranslate(sig.title);
+      sig.body = lightTranslate(sig.body);
+    });
+
+    // Score, filter and sort by criticality then date
     const scored = allSignals
-      .map(sig => ({ sig, score: scoreSignal(sig) }))
-      .filter(({ score }) => score >= 12) // Minimum threshold for material impact
-      .sort((a, b) => b.score - a.score)
-      .slice(0, 40); // Cap at 40 most relevant signals
+      .map(sig => ({ sig, score: scoreSignal(sig), crit: clientCriticality(sig) }))
+      .filter(({ score }) => score >= 12)
+      .sort((a, b) => {
+        // Primary: criticality (highest first = most strategically important)
+        const critDiff = b.crit - a.crit;
+        if (Math.abs(critDiff) > 5) return critDiff;
+        // Secondary: date (most recent first)
+        const dateDiff = (b.sig.date || '').localeCompare(a.sig.date || '');
+        if (dateDiff !== 0) return dateDiff;
+        return critDiff;
+      })
+      .slice(0, 40);
 
     if (scored.length === 0) {
-      // Fallback: show top 20 by score if none pass threshold
       const fallback = allSignals
-        .map(sig => ({ sig, score: scoreSignal(sig) }))
-        .sort((a, b) => b.score - a.score)
+        .map(sig => ({ sig, score: scoreSignal(sig), crit: clientCriticality(sig) }))
+        .sort((a, b) => b.crit - a.crit || (b.sig.date||'').localeCompare(a.sig.date||''))
         .slice(0, 20);
       scored.push(...fallback);
     }
@@ -2974,11 +3046,13 @@ async function loadLiveSignals() {
         <div style="font-family:var(--font);font-size:11px;color:var(--text3);">${scored.length} WiSE-relevant signals from ${allSignals.length} sources</div>
       </div>`;
 
-    scored.forEach(({ sig, score }) => {
+    scored.forEach(({ sig, score, crit }) => {
       const card = document.createElement('div');
       card.className = 'signal-card';
       // Colour-code border by urgency
-      const urgency = score >= 30 ? 'var(--red)' : score >= 20 ? 'var(--amber)' : 'var(--g)';
+      const urgency = crit >= 60 ? 'var(--red)' : crit >= 40 ? 'var(--amber)' : 'var(--g)';
+      const urgencyLabel = crit >= 60 ? 'CRITICAL' : crit >= 40 ? 'HIGH' : 'WATCH';
+      const urgencyColor = crit >= 60 ? 'var(--red)' : crit >= 40 ? 'var(--amber)' : 'var(--g)';
       card.style.borderLeft = `3px solid ${urgency}`;
       card.style.marginBottom = '12px';
       
@@ -2989,7 +3063,7 @@ async function loadLiveSignals() {
 
       card.innerHTML = `
         <div class="sc-top" style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:8px;">
-          <div class="sc-tags" style="display:flex;gap:6px;flex-wrap:wrap;">${categoryTag(sig.category)}${marketTag(sig.market)}</div>
+          <div class="sc-tags" style="display:flex;gap:6px;flex-wrap:wrap;">${categoryTag(sig.category)}${marketTag(sig.market)}<span style="font-size:10px;font-weight:700;padding:2px 7px;border-radius:3px;background:rgba(0,0,0,0.04);color:${urgencyColor};border:1px solid ${urgencyColor};letter-spacing:0.4px;">${urgencyLabel}</span></div>
           <span class="sc-date" style="font-size:11px;color:var(--text3);white-space:nowrap;">${sig.date||''}</span>
         </div>
         <div class="sc-title" style="font-size:14px;font-weight:600;color:var(--text);line-height:1.4;margin-bottom:6px;">${sig.title||'Signal'}</div>

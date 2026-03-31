@@ -312,6 +312,247 @@ function implication({ category, market, label='', title='', source='' }) {
 }
 
 // ── MAIN ──────────────────────────────────────────────────────────────────────
+// ── English Translation Layer ─────────────────────────────────────
+// Translates French, Spanish, German, Portuguese titles/bodies to English
+// Uses pattern-based substitution for common accounting/tech terms
+// No API calls — pure regex + dictionary replacement
+
+const TRANSLATIONS = {
+  // French → English common terms
+  fr: [
+    [/facturation [ée]lectronique/gi, 'electronic invoicing'],
+    [/plateforme agr[ée][ée]/gi, 'certified platform (PA)'],
+    [/expert-comptable/gi, 'chartered accountant'],
+    [/expert comptable/gi, 'chartered accountant'],
+    [/cabinet comptable/gi, 'accounting firm'],
+    [/logiciel de comptabilit[ée]/gi, 'accounting software'],
+    [/comptabilit[ée]/gi, 'accounting'],
+    [/num[ée]rique/gi, 'digital'],
+    [/entreprise/gi, 'business'],
+    [/levée de fonds/gi, 'funding round'],
+    [/intelligence artificielle/gi, 'artificial intelligence'],
+    [/partenaire/gi, 'partner'],
+    [/lancement/gi, 'launch'],
+    [/croissance/gi, 'growth'],
+    [/acquisition/gi, 'acquisition'],
+    [/conformit[ée]/gi, 'compliance'],
+    [/fiscalit[ée]/gi, 'tax'],
+    [/d[ée]claration/gi, 'declaration/filing'],
+    [/plateforme/gi, 'platform'],
+    [/march[ée]/gi, 'market'],
+    [/financement/gi, 'funding'],
+    [/obligation/gi, 'requirement/mandate'],
+    [/mise en oeuvre/gi, 'implementation'],
+    [/mise en œuvre/gi, 'implementation'],
+    [/d[ée]ploiement/gi, 'deployment'],
+    [/s[ée]rie [ABC]/gi, (m) => m.replace('série','Series')],
+    [/million/gi, 'million'],
+    [/milliard/gi, 'billion'],
+    [/paiement/gi, 'payment'],
+    [/int[ée]gration/gi, 'integration'],
+    [/solution/gi, 'solution'],
+    [/[éE]diteur/gi, 'software vendor'],
+    [/automatisation/gi, 'automation'],
+    [/abandon/gi, 'churn/cancellation'],
+    [/cabinet/gi, 'firm'],
+  ],
+  // Spanish → English  
+  es: [
+    [/facturaci[óo]n electr[óo]nica/gi, 'electronic invoicing'],
+    [/asesor fiscal/gi, 'tax advisor'],
+    [/despacho contable/gi, 'accounting firm'],
+    [/contabilidad/gi, 'accounting'],
+    [/software de gesti[óo]n/gi, 'management software'],
+    [/autorizaci[óo]n/gi, 'authorisation'],
+    [/inteligencia artificial/gi, 'artificial intelligence'],
+    [/automatizaci[óo]n/gi, 'automation'],
+    [/cumplimiento/gi, 'compliance'],
+    [/obligatorio/gi, 'mandatory'],
+    [/empresas/gi, 'businesses'],
+    [/empresa/gi, 'company'],
+    [/ronda de financiaci[óo]n/gi, 'funding round'],
+    [/lanzamiento/gi, 'launch'],
+    [/crecimiento/gi, 'growth'],
+    [/mercado/gi, 'market'],
+    [/adquisici[óo]n/gi, 'acquisition'],
+    [/integraci[óo]n/gi, 'integration'],
+    [/soluci[óo]n/gi, 'solution'],
+    [/millones/gi, 'million'],
+    [/millardos/gi, 'billion'],
+    [/pago/gi, 'payment'],
+    [/plataforma/gi, 'platform'],
+    [/autónomo/gi, 'self-employed'],
+    [/autonomo/gi, 'self-employed'],
+    [/declaraci[óo]n/gi, 'tax filing'],
+    [/impuesto/gi, 'tax'],
+  ],
+  // German → English
+  de: [
+    [/[Ee]-[Rr]echnung/g, 'e-invoice'],
+    [/Elektronische Rechnung/gi, 'electronic invoice'],
+    [/Steuerberater/gi, 'tax advisor'],
+    [/Buchf[ü]hrung/gi, 'bookkeeping'],
+    [/Buchhaltung/gi, 'accounting'],
+    [/Rechnungsstellung/gi, 'invoicing'],
+    [/Pflicht/gi, 'mandatory requirement'],
+    [/Unternehmen/gi, 'companies'],
+    [/Digitalisierung/gi, 'digitalisation'],
+    [/k[ü]nstliche Intelligenz/gi, 'artificial intelligence'],
+    [/Automatisierung/gi, 'automation'],
+    [/Finanzierung/gi, 'funding'],
+    [/[Ü]bernahme/gi, 'acquisition'],
+    [/Kanzlei/gi, 'firm'],
+    [/Wachstum/gi, 'growth'],
+    [/Markt/gi, 'market'],
+    [/Plattform/gi, 'platform'],
+    [/Einhaltung/gi, 'compliance'],
+    [/Millionen/gi, 'million'],
+    [/Milliarden/gi, 'billion'],
+    [/Zahlung/gi, 'payment'],
+    [/Software/gi, 'software'],
+    [/L[öo]sung/gi, 'solution'],
+    [/Einf[ü]hrung/gi, 'implementation'],
+    [/Steuer/gi, 'tax'],
+  ],
+  // Portuguese → English
+  pt: [
+    [/fatura eletr[ôo]nica/gi, 'electronic invoice'],
+    [/contabilista/gi, 'accountant'],
+    [/contabilidade/gi, 'accounting'],
+    [/automa[çc][ãa]o/gi, 'automation'],
+    [/conformidade/gi, 'compliance'],
+    [/empresas/gi, 'companies'],
+    [/crescimento/gi, 'growth'],
+    [/mercado/gi, 'market'],
+    [/pagamento/gi, 'payment'],
+    [/plataforma/gi, 'platform'],
+    [/solu[çc][ãa]o/gi, 'solution'],
+    [/aquisi[çc][ãa]o/gi, 'acquisition'],
+    [/milh[õo]es/gi, 'million'],
+    [/integra[çc][ãa]o/gi, 'integration'],
+    [/lan[çc]amento/gi, 'launch'],
+    [/imposto/gi, 'tax'],
+  ]
+};
+
+// Detect language from text content
+function detectLanguage(text) {
+  const t = text.toLowerCase();
+  const frScore = (t.match(/(le|la|les|de|du|des|un|une|et|en|au|aux|pour|avec|sur|dans|par|que|qui|est|sont|avoir|être|faire|tout|mais|ou|donc|or|ni|car|facturation|comptabilité|entreprise|cabinet)/g)||[]).length;
+  const esScore = (t.match(/(el|la|los|las|de|del|un|una|y|en|al|por|con|que|es|son|para|sobre|desde|hasta|entre|facturación|contabilidad|empresa|despacho|asesor)/g)||[]).length;
+  const deScore = (t.match(/(der|die|das|den|dem|des|ein|eine|und|ist|sind|von|mit|bei|für|auf|an|in|zu|nach|aus|über|unter|Steuer|Buchhaltung|Unternehmen|Rechnung|Pflicht)/g)||[]).length;
+  const ptScore = (t.match(/(o|a|os|as|de|do|da|dos|das|um|uma|e|em|ao|para|com|que|é|são|ser|ter|pela|pelo|contabilidade|fatura|empresa|imposto)/g)||[]).length;
+  
+  const max = Math.max(frScore, esScore, deScore, ptScore);
+  if (max < 3) return 'en'; // Likely already English
+  if (max === frScore) return 'fr';
+  if (max === esScore) return 'es';
+  if (max === deScore) return 'de';
+  if (max === ptScore) return 'pt';
+  return 'en';
+}
+
+function translateToEnglish(text, lang) {
+  if (!text || lang === 'en') return text;
+  const rules = TRANSLATIONS[lang] || [];
+  let result = text;
+  for (const [pattern, replacement] of rules) {
+    if (typeof replacement === 'function') {
+      result = result.replace(pattern, replacement);
+    } else {
+      result = result.replace(pattern, replacement);
+    }
+  }
+  return result;
+}
+
+function processSignalLanguage(signal) {
+  const combinedText = `${signal.title} ${signal.body}`;
+  const lang = detectLanguage(combinedText);
+  
+  if (lang === 'en') return signal; // Already English
+  
+  // Translate title and body
+  signal.title = translateToEnglish(signal.title, lang);
+  signal.body = translateToEnglish(signal.body, lang);
+  
+  // Add language indicator to source if not English
+  const langLabels = { fr: '🇫🇷', es: '🇪🇸', de: '🇩🇪', pt: '🇵🇹' };
+  if (langLabels[lang] && signal.source && !signal.source.includes(langLabels[lang])) {
+    signal.source = `${langLabels[lang]} ${signal.source}`;
+  }
+  
+  return signal;
+}
+
+// ── Criticality Scoring ───────────────────────────────────────────
+// Scores each signal for WiSE strategic criticality
+// Used for sorting: highest criticality first, then most recent
+
+function criticalityScore(sig) {
+  const text = `${sig.title} ${sig.body} ${sig.source} ${sig.implication}`.toLowerCase();
+  let score = 0;
+
+  // ── Category base scores ──────────────────────────────────────
+  const catBase = {
+    'Regulatory': 40,      // Mandate news is always high priority
+    'Competitive': 35,     // Competitor moves are critical
+    'AI & Tech': 20,       // AI signals important but less urgent
+    'Market Intelligence': 15,
+    'Sage News': 10,
+  };
+  score += catBase[sig.category] || 10;
+
+  // ── Market urgency boost ──────────────────────────────────────
+  const marketBoost = { 'FR': 15, 'ES': 12, 'DE': 8, 'PT': 6, 'EU': 10 };
+  score += marketBoost[sig.market] || 5;
+
+  // ── Critical keyword boosts ───────────────────────────────────
+  // Competitor-specific
+  if (text.includes('pennylane')) score += 20;
+  if (text.includes('cegid')) score += 15;
+  if (text.includes('holded')) score += 12;
+  if (text.includes('datev')) score += 8;
+  if (text.includes('regate') || text.includes('qonto')) score += 10;
+  if (text.includes('xero')) score += 6;
+  if (text.includes('lexoffice') || text.includes('sevdesk')) score += 6;
+
+  // Regulatory triggers
+  if (text.includes('dgfip') || text.includes('plateforme agr')) score += 18;
+  if (text.includes('aeat') || text.includes('verifactu')) score += 15;
+  if (text.includes('xrechnung') || text.includes('zugferd')) score += 12;
+  if (text.includes('mandate') || text.includes('mandatory') || text.includes('obligation')) score += 12;
+  if (text.includes('september 2026') || text.includes('sept 2026')) score += 20;
+  if (text.includes('january 2027') || text.includes('jan 2027')) score += 15;
+  if (text.includes('einvoic') || text.includes('e-invoic') || text.includes('electronic invoic')) score += 10;
+
+  // High-impact events
+  if (text.includes('funding') || text.includes('series') || text.includes('raise') || 
+      text.includes('million') || text.includes('billion') || text.includes('levée')) score += 12;
+  if (text.includes('acquisition') || text.includes('acquired') || text.includes('merger')) score += 10;
+  if (text.includes('launch') || text.includes('lancement') || text.includes('launches')) score += 8;
+  if (text.includes('expansion') || text.includes('expanding') || text.includes('entering')) score += 8;
+  if (text.includes('spain') || text.includes('espagne') || text.includes('espana')) {
+    if (sig.category === 'Competitive') score += 10; // Pennylane Spain arrival
+  }
+  if (text.includes('germany') || text.includes('deutschland') || text.includes('allemagne')) {
+    if (sig.category === 'Competitive') score += 6;
+  }
+
+  // Sage-specific
+  if (text.includes('sage') && text.includes('active')) score += 10;
+  if (text.includes('autoentry') || text.includes('auto entry')) score += 6;
+  if (text.includes('generation experts') || text.includes('génération experts')) score += 8;
+  if (text.includes('despacho') || text.includes('despachos')) score += 8;
+
+  // AI/accountant specifics
+  if (text.includes('accountant-first') || text.includes('accountant first')) score += 6;
+  if (text.includes('practice management')) score += 5;
+  if (text.includes('ai copilot') || text.includes('copilot')) score += 6;
+
+  return score;
+}
+
 async function main() {
   console.log(`\n🚀 WiSE Intel Hub — Comprehensive Signal Fetch v3`);
   console.log(`📅 ${new Date().toISOString()}`);
@@ -359,11 +600,23 @@ async function main() {
     await new Promise(r=>setTimeout(r,200));
   }
 
-  // Sort: newest first, then by category priority
-  const ord = {'Regulatory':0,'Competitive':1,'AI & Tech':2,'Market Intelligence':3,'Sage News':4};
-  allSignals.sort((a,b)=>{
-    const d=b.date.localeCompare(a.date);
-    return d!==0 ? d : (ord[a.category]??5)-(ord[b.category]??5);
+  // Process: translate to English + score criticality
+  allSignals.forEach(sig => {
+    processSignalLanguage(sig);           // Translate non-English signals
+    sig._criticality = criticalityScore(sig); // Score for sorting
+  });
+
+  // Sort: criticality first (highest = most important), then date (most recent)
+  // This ensures the most strategically important AND most recent signals lead
+  allSignals.sort((a, b) => {
+    // Primary: criticality score descending (most critical first)
+    const critDiff = b._criticality - a._criticality;
+    if (Math.abs(critDiff) > 5) return critDiff; // Clear winner
+    // Secondary: date descending (most recent first)
+    const dateDiff = b.date.localeCompare(a.date);
+    if (dateDiff !== 0) return dateDiff;
+    // Tertiary: criticality as tiebreaker
+    return critDiff;
   });
 
   const final = allSignals.slice(0, 80);
@@ -375,6 +628,8 @@ async function main() {
   console.log(`🏷  Topics:  ${[...new Set(final.map(s=>s.category))].join(', ')}`);
   console.log(`${'─'.repeat(55)}\n`);
 
+  // Clean internal scoring field before writing
+  final.forEach(s => { delete s._criticality; });
   fs.writeFileSync('signals.json', JSON.stringify(final, null, 2), 'utf8');
   console.log(`✅ signals.json — ${final.length} signals, ${(fs.statSync('signals.json').size/1024).toFixed(1)}KB\n`);
 }
