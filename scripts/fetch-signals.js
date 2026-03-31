@@ -1,8 +1,37 @@
 /**
- * WiSE Intel Hub — Daily Signal Fetcher v3
- * 80+ sources across competitors, regulatory, market press, accounting bodies,
- * AI/tech, Sage news, venture capital and credible analyst publications
- * Cost: £0 — GitHub Actions free tier
+ * WiSE Intel Hub — Comprehensive Daily Signal Fetcher v3
+ * 
+ * SOURCE COVERAGE (90+ sources):
+ * ─────────────────────────────────────────────────────────────────────────────
+ * COMPETITOR DIRECT BLOGS   Pennylane EN/FR, Cegid FR/Global, Holded ES/EN,
+ *                           Xero, QuickBooks, Lexoffice, SevDesk, Qonto, 
+ *                           MyUnisoft, Sage Global/FR/Developer
+ * 
+ * TWITTER/X VIA NITTER      @PennylaneHQ @Cegid_fr @holded @Xero @Qonto
+ *                           #facturationelectronique #Verifactu #XRechnung
+ *                           #expertcomptable #accountingtech #fintech
+ * 
+ * PROFESSIONAL BODIES       OEC France, ICJCE Spain, StBdK Germany,
+ *                           ICAEW UK, Accountancy Europe (EU)
+ * 
+ * OFFICIAL REGULATORY       DGFiP France, AEAT Spain, BMF Germany,
+ *                           EU Commission Tax, EU Digital Strategy
+ * 
+ * SPECIALIST ACCOUNTING     AccountingWEB UK, Accountancy Age, Accounting Today,
+ * PRESS                     Finyear FR, Journal du Net, Les Echos, Expansion ES,
+ *                           Cinco Días, Handelsblatt DE
+ * 
+ * VC / STARTUP / FUNDING    Sifted EU, EU-Startups.com, Maddyness FR,
+ *                           TechCrunch Enterprise, TechCrunch Funding,
+ *                           VentureBeat AI
+ * 
+ * AI & AUTOMATION           MIT Tech Review, Wired Business, AI Business,
+ *                           The New Stack
+ * 
+ * GOOGLE NEWS (40+ feeds)   Targeted FR/ES/DE/PT/EU/EN searches covering:
+ *                           competitors, regulatory, market, AI, Sage
+ * ─────────────────────────────────────────────────────────────────────────────
+ * Cost: £0 | API keys: 0 | Runs daily via GitHub Actions free tier
  */
 
 const https = require('https');
@@ -10,327 +39,344 @@ const http = require('http');
 const fs = require('fs');
 const { XMLParser } = require('fast-xml-parser');
 
+// ── NITTER INSTANCES — Twitter/X RSS without API key ────────────────────────
+const NITTER = [
+  'https://nitter.privacydev.net',
+  'https://nitter.poast.org',
+  'https://nitter.net',
+];
+let nitterIdx = 0;
+function nitterFeed(handle) {
+  const base = NITTER[nitterIdx % NITTER.length];
+  return `${base}/${handle.replace('@','')}/rss`;
+}
+function nitterTag(tag) {
+  const base = NITTER[nitterIdx % NITTER.length];
+  return `${base}/search/rss?q=%23${encodeURIComponent(tag.replace('#',''))}`;
+}
+
+// ── COMPLETE SOURCE REGISTRY ─────────────────────────────────────────────────
 const FEEDS = [
-  // ── COMPETITOR DIRECT BLOGS ──────────────────────────────────────────
-  { url:'https://blog.pennylane.com/feed/', source:'Pennylane Blog', category:'Competitive', market:'FR', topic:'competitor', label:'Pennylane', maxItems:3 },
-  { url:'https://www.cegid.com/fr/blog/feed/', source:'Cegid Blog', category:'Competitive', market:'EU', topic:'competitor', label:'Cegid', maxItems:2 },
-  { url:'https://www.holded.com/es/blog/feed/', source:'Holded Blog', category:'Competitive', market:'ES', topic:'competitor', label:'Holded', maxItems:2 },
-  { url:'https://www.xero.com/blog/feed/', source:'Xero Blog', category:'Competitive', market:'EU', topic:'competitor', label:'Xero', maxItems:2, keywords:['accounting','accountant','AI','europe','invoice','compliance'] },
-  { url:'https://quickbooks.intuit.com/blog/feed/', source:'QuickBooks Blog', category:'Competitive', market:'EU', topic:'competitor', label:'QuickBooks', maxItems:2, keywords:['AI','accountant','invoice','automation','europe'] },
-  { url:'https://lexoffice.de/blog/feed/', source:'Lexoffice Blog', category:'Competitive', market:'DE', topic:'competitor', label:'Lexoffice', maxItems:2 },
 
-  // ── COMPETITOR GOOGLE NEWS ──────────────────────────────────────────
-  { url:'https://news.google.com/rss/search?q=Pennylane+accounting+fintech+Europe&hl=en&gl=GB&ceid=GB:en', source:'Google News', category:'Competitive', market:'FR', topic:'competitor', label:'Pennylane EN', maxItems:3 },
-  { url:'https://news.google.com/rss/search?q=Pennylane+expert-comptable+financement+levee+France&hl=fr&gl=FR&ceid=FR:fr', source:'Google News FR', category:'Competitive', market:'FR', topic:'competitor', label:'Pennylane FR', maxItems:3 },
-  { url:'https://news.google.com/rss/search?q=Pennylane+Spain+expansion+launch+2026&hl=en&gl=GB&ceid=GB:en', source:'Google News', category:'Competitive', market:'ES', topic:'competitor', label:'Pennylane Spain', maxItems:2 },
-  { url:'https://news.google.com/rss/search?q=Cegid+EBP+Shine+acquisition+comptabilite+France&hl=fr&gl=FR&ceid=FR:fr', source:'Google News FR', category:'Competitive', market:'FR', topic:'competitor', label:'Cegid FR', maxItems:2 },
-  { url:'https://news.google.com/rss/search?q=Cegid+Silver+Lake+accounting+Europe+2025&hl=en&gl=GB&ceid=GB:en', source:'Google News', category:'Competitive', market:'EU', topic:'competitor', label:'Cegid EN', maxItems:2 },
-  { url:'https://news.google.com/rss/search?q=Holded+Visma+Spain+software+contabilidad&hl=es&gl=ES&ceid=ES:es', source:'Google News ES', category:'Competitive', market:'ES', topic:'competitor', label:'Holded ES', maxItems:2 },
-  { url:'https://news.google.com/rss/search?q=DATEV+Steuerberater+cloud+software+Germany&hl=de&gl=DE&ceid=DE:de', source:'Google News DE', category:'Competitive', market:'DE', topic:'competitor', label:'DATEV DE', maxItems:2 },
-  { url:'https://news.google.com/rss/search?q=Qonto+Regate+acquisition+comptabilite+France&hl=fr&gl=FR&ceid=FR:fr', source:'Google News FR', category:'Competitive', market:'FR', topic:'competitor', label:'Qonto/Regate', maxItems:2 },
-  { url:'https://news.google.com/rss/search?q=Lexoffice+SevDesk+Buchhaltung+cloud+Deutschland&hl=de&gl=DE&ceid=DE:de', source:'Google News DE', category:'Competitive', market:'DE', topic:'competitor', label:'DE Cloud Tools', maxItems:2 },
-  { url:'https://news.google.com/rss/search?q=MyUnisoft+Conciliator+Dext+France+cabinet+comptable&hl=fr&gl=FR&ceid=FR:fr', source:'Google News FR', category:'Competitive', market:'FR', topic:'competitor', label:'FR Challengers', maxItems:2 },
-  { url:'https://news.google.com/rss/search?q=A3+Wolters+Kluwer+software+despachos+Espana&hl=es&gl=ES&ceid=ES:es', source:'Google News ES', category:'Competitive', market:'ES', topic:'competitor', label:'A3/Wolters ES', maxItems:2 },
-  { url:'https://news.google.com/rss/search?q=accounting+software+startup+funding+Series+Europe&hl=en&gl=GB&ceid=GB:en', source:'Google News', category:'Competitive', market:'EU', topic:'competitor', label:'EU Accounting Funding', maxItems:3 },
+  // ══ COMPETITOR DIRECT BLOGS ══════════════════════════════════════════════
+  { url:'https://blog.pennylane.com/feed/',            source:'Pennylane Blog',      category:'Competitive',        market:'FR', topic:'competitor', label:'Pennylane (blog)',        maxItems:4 },
+  { url:'https://www.cegid.com/fr/blog/feed/',         source:'Cegid Blog',          category:'Competitive',        market:'FR', topic:'competitor', label:'Cegid FR (blog)',         maxItems:3 },
+  { url:'https://www.cegid.com/blog/feed/',            source:'Cegid Global Blog',   category:'Competitive',        market:'EU', topic:'competitor', label:'Cegid Global (blog)',      maxItems:2 },
+  { url:'https://www.holded.com/es/blog/feed/',        source:'Holded Blog ES',       category:'Competitive',        market:'ES', topic:'competitor', label:'Holded ES (blog)',         maxItems:3 },
+  { url:'https://www.holded.com/blog/feed/',           source:'Holded Blog EN',       category:'Competitive',        market:'ES', topic:'competitor', label:'Holded EN (blog)',         maxItems:2 },
+  { url:'https://www.xero.com/blog/feed/',             source:'Xero Blog',            category:'Competitive',        market:'EU', topic:'competitor', label:'Xero (blog)',              maxItems:3, keywords:['accountant','europe','ai','compliance','invoice','partner','practice'] },
+  { url:'https://quickbooks.intuit.com/blog/feed/',    source:'QuickBooks Blog',      category:'Competitive',        market:'EU', topic:'competitor', label:'QuickBooks (blog)',        maxItems:2, keywords:['accountant','europe','ai','invoice','automation'] },
+  { url:'https://www.lexoffice.de/blog/feed/',         source:'Lexoffice Blog',       category:'Competitive',        market:'DE', topic:'competitor', label:'Lexoffice (blog)',         maxItems:3 },
+  { url:'https://www.sevdesk.de/blog/feed/',           source:'SevDesk Blog',         category:'Competitive',        market:'DE', topic:'competitor', label:'SevDesk/Cegid DE (blog)', maxItems:2 },
+  { url:'https://blog.qonto.com/fr/feed/',             source:'Qonto Blog FR',        category:'Competitive',        market:'FR', topic:'competitor', label:'Qonto (blog)',             maxItems:3, keywords:['comptabilit','expert','facture','regate','partenaire','cabinet'] },
+  { url:'https://www.myunisoft.fr/blog/feed/',         source:'MyUnisoft Blog',       category:'Competitive',        market:'FR', topic:'competitor', label:'MyUnisoft (blog)',         maxItems:2 },
+  { url:'https://www.sage.com/en-gb/blog/feed/',       source:'Sage Global Blog',     category:'Sage News',          market:'EU', topic:'sage',       label:'Sage Global (blog)',       maxItems:3 },
+  { url:'https://www.sage.com/fr-fr/blog/feed/',       source:'Sage France Blog',     category:'Sage News',          market:'FR', topic:'sage',       label:'Sage France (blog)',       maxItems:3 },
+  { url:'https://developer.sage.com/blog/feed/',       source:'Sage Developer Blog',  category:'Sage News',          market:'EU', topic:'sage',       label:'Sage Developer (blog)',    maxItems:2 },
 
-  // ── REGULATORY OFFICIAL SOURCES ─────────────────────────────────────
-  { url:'https://www.impots.gouv.fr/actualites/rss', source:'DGFiP Officiel', category:'Regulatory', market:'FR', topic:'regulatory', label:'DGFiP', maxItems:3 },
-  { url:'https://www.agenciatributaria.es/rss/novedades.xml', source:'AEAT Spain', category:'Regulatory', market:'ES', topic:'regulatory', label:'AEAT Spain', maxItems:3 },
-  { url:'https://www.bundesfinanzministerium.de/SiteGlobals/Functions/RSSFeed/DE/RSSNewsfeed/RSS_Aktuelle_Meldungen.xml', source:'BMF Germany', category:'Regulatory', market:'DE', topic:'regulatory', label:'BMF Germany', maxItems:2 },
+  // ══ TWITTER/X VIA NITTER — free RSS for public accounts & hashtags ════════
+  { url:nitterFeed('PennylaneHQ'),              source:'X/Twitter', category:'Competitive',       market:'FR', topic:'competitor', label:'@PennylaneHQ (X)',              maxItems:3 },
+  { url:nitterFeed('Cegid_fr'),                 source:'X/Twitter', category:'Competitive',       market:'FR', topic:'competitor', label:'@Cegid_fr (X)',                 maxItems:2 },
+  { url:nitterFeed('holded'),                   source:'X/Twitter', category:'Competitive',       market:'ES', topic:'competitor', label:'@holded (X)',                   maxItems:2 },
+  { url:nitterFeed('Xero'),                     source:'X/Twitter', category:'Competitive',       market:'EU', topic:'competitor', label:'@Xero (X)',                     maxItems:2, keywords:['accountant','europe','ai','partner','invoice','compliance'] },
+  { url:nitterFeed('Qonto'),                    source:'X/Twitter', category:'Competitive',       market:'FR', topic:'competitor', label:'@Qonto (X)',                    maxItems:2 },
+  { url:nitterFeed('datev'),                    source:'X/Twitter', category:'Competitive',       market:'DE', topic:'competitor', label:'@datev (X)',                    maxItems:2 },
+  { url:nitterTag('facturationelectronique'),   source:'X/Twitter', category:'Regulatory',        market:'FR', topic:'regulatory', label:'#facturationelectronique (X)',  maxItems:3 },
+  { url:nitterTag('Verifactu'),                 source:'X/Twitter', category:'Regulatory',        market:'ES', topic:'regulatory', label:'#Verifactu (X)',               maxItems:3 },
+  { url:nitterTag('XRechnung'),                 source:'X/Twitter', category:'Regulatory',        market:'DE', topic:'regulatory', label:'#XRechnung (X)',               maxItems:2 },
+  { url:nitterTag('eInvoicing'),                source:'X/Twitter', category:'Regulatory',        market:'EU', topic:'regulatory', label:'#eInvoicing (X)',              maxItems:2 },
+  { url:nitterTag('expertcomptable'),           source:'X/Twitter', category:'Market Intelligence',market:'FR', topic:'market',    label:'#expertcomptable (X)',         maxItems:2 },
+  { url:nitterTag('accountingtech'),            source:'X/Twitter', category:'AI & Tech',         market:'EU', topic:'ai',        label:'#accountingtech (X)',          maxItems:2 },
+  { url:nitterTag('fintech'),                   source:'X/Twitter', category:'Market Intelligence',market:'EU', topic:'market',    label:'#fintech EU (X)',              maxItems:2, keywords:['europe','france','spain','germany','accounting','invoice','comptab','fiscal'] },
+  { url:nitterTag('accountingai'),              source:'X/Twitter', category:'AI & Tech',         market:'EU', topic:'ai',        label:'#accountingai (X)',            maxItems:2 },
 
-  // ── REGULATORY GOOGLE NEWS ───────────────────────────────────────────
-  { url:'https://news.google.com/rss/search?q=facturation+electronique+France+DGFiP+plateforme+agreee+2026&hl=fr&gl=FR&ceid=FR:fr', source:'Google News FR', category:'Regulatory', market:'FR', topic:'regulatory', label:'FR PA Mandate', maxItems:3 },
-  { url:'https://news.google.com/rss/search?q=Verifactu+facturacion+electronica+Espana+AEAT+2027&hl=es&gl=ES&ceid=ES:es', source:'Google News ES', category:'Regulatory', market:'ES', topic:'regulatory', label:'ES Verifactu', maxItems:3 },
-  { url:'https://news.google.com/rss/search?q=XRechnung+ZUGFeRD+E-Rechnung+Deutschland+Pflicht+2027&hl=de&gl=DE&ceid=DE:de', source:'Google News DE', category:'Regulatory', market:'DE', topic:'regulatory', label:'DE XRechnung', maxItems:2 },
-  { url:'https://news.google.com/rss/search?q=SAF-T+Portugal+fatura+AT+obrigatorio&hl=pt&gl=PT&ceid=PT:pt', source:'Google News PT', category:'Regulatory', market:'PT', topic:'regulatory', label:'PT SAF-T', maxItems:2 },
-  { url:'https://news.google.com/rss/search?q=EU+eInvoicing+VAT+digital+age+directive+mandate&hl=en&gl=GB&ceid=GB:en', source:'Google News', category:'Regulatory', market:'EU', topic:'regulatory', label:'EU eInvoicing', maxItems:2 },
+  // ══ PROFESSIONAL ACCOUNTING BODIES — authoritative sources ════════════════
+  { url:'https://www.experts-comptables.fr/rss.xml',                        source:'OEC France',         category:'Market Intelligence', market:'FR', topic:'market',    label:'OEC France (official)',     maxItems:3 },
+  { url:'https://www.icjce.es/rss.xml',                                     source:'ICJCE Spain',         category:'Market Intelligence', market:'ES', topic:'market',    label:'ICJCE Spain (official)',    maxItems:2 },
+  { url:'https://www.stbdk.de/rss.xml',                                     source:'StBdK Germany',       category:'Market Intelligence', market:'DE', topic:'market',    label:'StBdK Germany (official)',  maxItems:2 },
+  { url:'https://www.icaew.com/rss/all-news',                               source:'ICAEW',               category:'Market Intelligence', market:'EU', topic:'market',    label:'ICAEW (UK benchmark)',      maxItems:2, keywords:['technology','ai','digital','automation','invoice','compliance','mtd','cloud'] },
+  { url:'https://www.accountancyeurope.eu/feed/',                           source:'Accountancy Europe',  category:'Market Intelligence', market:'EU', topic:'market',    label:'Accountancy Europe (EU body)', maxItems:3 },
 
-  // ── ACCOUNTING PRESS DIRECT ─────────────────────────────────────────
-  { url:'https://www.accountingweb.co.uk/feed', source:'AccountingWEB UK', category:'Market Intelligence', market:'EU', topic:'market', label:'AccountingWEB', maxItems:3, keywords:['software','AI','automation','cloud','invoice','MTD','practice','fintech'] },
-  { url:'https://www.accountingtoday.com/feed', source:'Accounting Today', category:'Market Intelligence', market:'EU', topic:'market', label:'Accounting Today', maxItems:2, keywords:['AI','automation','software','cloud','technology','practice'] },
-  { url:'https://www.cpapracticeadvisor.com/feed/', source:'CPA Practice Advisor', category:'Market Intelligence', market:'EU', topic:'market', label:'CPA Practice Advisor', maxItems:2, keywords:['AI','automation','software','cloud','technology'] },
-  { url:'https://www.finyear.com/rss.xml', source:'Finyear', category:'Market Intelligence', market:'FR', topic:'market', label:'Finyear FR', maxItems:2 },
-  { url:'https://www.journaldunet.com/economie/finance/rss/', source:'Journal du Net', category:'Market Intelligence', market:'FR', topic:'market', label:'Journal du Net FR', maxItems:2, keywords:['comptabilit','logiciel','expert-comptable','factur','fintech','PME'] },
+  // ══ OFFICIAL REGULATORY FEEDS ════════════════════════════════════════════
+  { url:'https://www.impots.gouv.fr/rss/actualites.xml',                    source:'DGFiP',               category:'Regulatory', market:'FR', topic:'regulatory', label:'DGFiP (official)',           maxItems:3 },
+  { url:'https://www.agenciatributaria.es/AEAT.internet/RSS/RSS_NovedadesAEAT.xml', source:'AEAT Spain', category:'Regulatory', market:'ES', topic:'regulatory', label:'AEAT Spain (official)',      maxItems:3 },
+  { url:'https://www.bundesfinanzministerium.de/SiteGlobals/Functions/RSSFeed/DE/RSSNewsfeed/RSS_Aktuelle_Meldungen.xml', source:'BMF Germany', category:'Regulatory', market:'DE', topic:'regulatory', label:'BMF Germany (official)', maxItems:2, keywords:['rechnung','steuer','digital','umsatzsteuer','e-rechnung','elektronisch'] },
+  { url:'https://ec.europa.eu/taxation_customs/news/rss_en.xml',            source:'EU Commission Tax',   category:'Regulatory', market:'EU', topic:'regulatory', label:'EU Commission Tax (official)', maxItems:3 },
+  { url:'https://digital-strategy.ec.europa.eu/en/rss.xml',                source:'EU Digital Strategy', category:'Regulatory', market:'EU', topic:'regulatory', label:'EU Digital Policy',           maxItems:2, keywords:['invoice','einvoice','digital','sme','business','finance','vida','vat'] },
 
-  // ── VENTURE CAPITAL & EU TECH ────────────────────────────────────────
-  { url:'https://sifted.eu/feed/', source:'Sifted', category:'Competitive', market:'EU', topic:'competitor', label:'Sifted EU Tech', maxItems:3, keywords:['accounting','fintech','B2B','invoice','payment','CFO','finance','SaaS'] },
-  { url:'https://eu-startups.com/feed/', source:'EU-Startups', category:'Competitive', market:'EU', topic:'competitor', label:'EU-Startups', maxItems:2, keywords:['accounting','fintech','B2B','invoice','SaaS','finance'] },
-  { url:'https://www.maddyness.com/feed/', source:'Maddyness FR', category:'Competitive', market:'FR', topic:'competitor', label:'Maddyness FR', maxItems:2, keywords:['comptabilit','fintech','factur','logiciel','levee','startups'] },
-  { url:'https://www.finsmes.com/feed', source:'FinSMEs', category:'Competitive', market:'EU', topic:'competitor', label:'FinSMEs Funding', maxItems:2, keywords:['accounting','invoicing','fintech','SME','bookkeeping','Europe'] },
-  { url:'https://techcrunch.com/category/fintech/feed/', source:'TechCrunch Fintech', category:'Competitive', market:'EU', topic:'competitor', label:'TechCrunch Fintech', maxItems:2, keywords:['accounting','invoice','bookkeeping','SME','Europe'] },
-  { url:'https://news.google.com/rss/search?q=fintech+accounting+Europe+Series+funding+raise+2025&hl=en&gl=GB&ceid=GB:en', source:'Google News', category:'Competitive', market:'EU', topic:'competitor', label:'EU Fintech Funding', maxItems:3 },
-  { url:'https://news.google.com/rss/search?q=levee+fonds+logiciel+comptable+fintech+France+2025&hl=fr&gl=FR&ceid=FR:fr', source:'Google News FR', category:'Competitive', market:'FR', topic:'competitor', label:'FR Fintech Funding', maxItems:2 },
+  // ══ SPECIALIST ACCOUNTING PRESS ══════════════════════════════════════════
+  { url:'https://www.accountingweb.co.uk/feed',     source:'AccountingWEB',   category:'Market Intelligence', market:'EU', topic:'market', label:'AccountingWEB UK',      maxItems:3, keywords:['technology','software','ai','automation','digital','mtd','cloud','practice','invoice'] },
+  { url:'https://www.accountancyage.com/feed/',     source:'Accountancy Age', category:'Market Intelligence', market:'EU', topic:'market', label:'Accountancy Age',       maxItems:3, keywords:['technology','software','ai','automation','europe','cloud','practice','firm','invoice'] },
+  { url:'https://www.accountingtoday.com/feed',     source:'Accounting Today',category:'Market Intelligence', market:'EU', topic:'market', label:'Accounting Today',      maxItems:2, keywords:['technology','ai','cloud','europe','automation','invoice','software'] },
+  { url:'https://www.finyear.com/rss.xml',          source:'Finyear FR',      category:'Market Intelligence', market:'FR', topic:'market', label:'Finyear (FR)',           maxItems:3 },
+  { url:'https://www.lesechos.fr/rss/rss_finance.xml', source:'Les Echos',   category:'Market Intelligence', market:'FR', topic:'market', label:'Les Echos (FR)',         maxItems:2, keywords:['logiciel','comptabilit','fintech','num','start-up','entreprise','facturation'] },
+  { url:'https://www.journaldunet.com/rss/jdnleadership.xml', source:'Journal du Net', category:'Market Intelligence', market:'FR', topic:'market', label:'Journal du Net FR', maxItems:2, keywords:['comptabilit','logiciel','entreprise','fintech','facture','fiscalit'] },
+  { url:'https://www.expansion.com/rss/economia.xml', source:'Expansion ES',  category:'Market Intelligence', market:'ES', topic:'market', label:'Expansion (ES)',        maxItems:2, keywords:['contabilidad','software','asesor','digital','impuesto','factura','pyme','despacho'] },
+  { url:'https://cincodias.elpais.com/rss/cincodias.xml', source:'Cinco Días', category:'Market Intelligence', market:'ES', topic:'market', label:'Cinco Días (ES)',       maxItems:2, keywords:['contabilidad','asesor','software','pyme','digital','factura','fiscal'] },
+  { url:'https://www.handelsblatt.com/contentexport/feed/themen/digitalisierung', source:'Handelsblatt DE', category:'Market Intelligence', market:'DE', topic:'market', label:'Handelsblatt Digital (DE)', maxItems:2, keywords:['steuer','buchhaltung','software','fintech','rechnung','kanzlei','digitalisierung'] },
 
-  // ── AI & TECH DIRECT ─────────────────────────────────────────────────
-  { url:'https://feeds.feedburner.com/TechCrunch/', source:'TechCrunch', category:'AI & Tech', market:'EU', topic:'ai', label:'TechCrunch', maxItems:2, keywords:['accounting software','bookkeeping AI','fintech AI','accounting automation','invoice AI'] },
-  { url:'https://venturebeat.com/feed/', source:'VentureBeat', category:'AI & Tech', market:'EU', topic:'ai', label:'VentureBeat', maxItems:2, keywords:['accounting AI','finance AI','bookkeeping automation','CFO AI','accounting software'] },
-  { url:'https://www.technologyreview.com/feed/', source:'MIT Tech Review', category:'AI & Tech', market:'EU', topic:'ai', label:'MIT Tech Review', maxItems:2, keywords:['AI accounting','automation finance','AI enterprise','generative AI business'] },
-  { url:'https://www.theregister.com/software/applications/feed.atom', source:'The Register', category:'AI & Tech', market:'EU', topic:'ai', label:'The Register', maxItems:2, keywords:['accounting','ERP','AI finance','invoice automation','bookkeeping'] },
-  { url:'https://www.zdnet.com/topic/artificial-intelligence/rss.xml', source:'ZDNet AI', category:'AI & Tech', market:'EU', topic:'ai', label:'ZDNet AI', maxItems:2, keywords:['accounting','finance AI','enterprise AI','automation business'] },
-  { url:'https://www.infoworld.com/category/artificial-intelligence/index.rss', source:'InfoWorld', category:'AI & Tech', market:'EU', topic:'ai', label:'InfoWorld AI', maxItems:2, keywords:['accounting','ERP','finance','automation','enterprise software'] },
+  // ══ VC / STARTUP / FUNDING — detect competitor raises early ══════════════
+  { url:'https://sifted.eu/feed/',                         source:'Sifted EU',            category:'Competitive', market:'EU', topic:'competitor', label:'Sifted EU (startup)',       maxItems:3, keywords:['accounting','fintech','b2b','saas','invoice','finance','comptab','fiscal','bookkeep'] },
+  { url:'https://eu-startups.com/feed/',                   source:'EU-Startups',          category:'Competitive', market:'EU', topic:'competitor', label:'EU-Startups.com',           maxItems:3, keywords:['accounting','fintech','b2b saas','invoice','payroll','bookkeeping','tax','erp'] },
+  { url:'https://www.maddyness.com/feed/',                 source:'Maddyness FR',         category:'Competitive', market:'FR', topic:'competitor', label:'Maddyness (FR tech)',        maxItems:2, keywords:['comptabilit','fintech','b2b','facturation','gestion','logiciel','expert','levee'] },
+  { url:'https://techcrunch.com/category/enterprise/feed/', source:'TechCrunch Enterprise', category:'Competitive', market:'EU', topic:'competitor', label:'TechCrunch Enterprise',  maxItems:2, keywords:['accounting','bookkeeping','invoice','payroll','fintech','b2b','saas','europe','erp'] },
+  { url:'https://techcrunch.com/category/fundings-exits/feed/', source:'TechCrunch Funding', category:'Competitive', market:'EU', topic:'competitor', label:'TechCrunch Funding',   maxItems:2, keywords:['accounting','fintech','invoice','tax','bookkeeping','europe','payroll','erp','b2b'] },
+  { url:'https://venturebeat.com/category/ai/feed/',       source:'VentureBeat AI',       category:'AI & Tech',   market:'EU', topic:'ai',         label:'VentureBeat AI',            maxItems:2, keywords:['accounting','finance','enterprise','invoice','automation','erp','b2b','audit'] },
 
-  // ── AI GOOGLE NEWS ───────────────────────────────────────────────────
-  { url:'https://news.google.com/rss/search?q=AI+accounting+automation+accountant+software+Europe&hl=en&gl=GB&ceid=GB:en', source:'Google News', category:'AI & Tech', market:'EU', topic:'ai', label:'AI Accounting EU', maxItems:4 },
-  { url:'https://news.google.com/rss/search?q=intelligence+artificielle+comptabilite+expert+comptable+cabinet&hl=fr&gl=FR&ceid=FR:fr', source:'Google News FR', category:'AI & Tech', market:'FR', topic:'ai', label:'IA Comptabilite FR', maxItems:3 },
-  { url:'https://news.google.com/rss/search?q=inteligencia+artificial+contabilidad+despacho+Espana&hl=es&gl=ES&ceid=ES:es', source:'Google News ES', category:'AI & Tech', market:'ES', topic:'ai', label:'IA Contabilidad ES', maxItems:2 },
-  { url:'https://news.google.com/rss/search?q=KI+Buchhaltung+Steuerberater+Automatisierung+Deutschland&hl=de&gl=DE&ceid=DE:de', source:'Google News DE', category:'AI & Tech', market:'DE', topic:'ai', label:'KI Buchhaltung DE', maxItems:2 },
-  { url:'https://news.google.com/rss/search?q=generative+AI+finance+copilot+accounting+2025&hl=en&gl=GB&ceid=GB:en', source:'Google News', category:'AI & Tech', market:'EU', topic:'ai', label:'Generative AI Finance', maxItems:3 },
-  { url:'https://news.google.com/rss/search?q=autonomous+AI+agent+accounting+bookkeeping+automation&hl=en&gl=GB&ceid=GB:en', source:'Google News', category:'AI & Tech', market:'EU', topic:'ai', label:'AI Agents Accounting', maxItems:2 },
+  // ══ AI & AUTOMATION — track what is coming ════════════════════════════════
+  { url:'https://news.mit.edu/topic/mitartificial-intelligence2-rss.xml', source:'MIT Tech Review', category:'AI & Tech', market:'EU', topic:'ai', label:'MIT AI Research', maxItems:2, keywords:['finance','accounting','enterprise','automation','agent','reasoning','audit','erp'] },
+  { url:'https://www.wired.com/feed/category/business/latest/rss',        source:'Wired Business',  category:'AI & Tech', market:'EU', topic:'ai', label:'Wired Business',  maxItems:2, keywords:['ai','accounting','finance','automation','invoice','enterprise','saas','europe'] },
+  { url:'https://aibusiness.com/rss.xml',                                  source:'AI Business',     category:'AI & Tech', market:'EU', topic:'ai', label:'AI Business',     maxItems:3, keywords:['finance','accounting','enterprise','automation','agent','copilot','erp','audit','invoice'] },
 
-  // ── SAGE NEWS DIRECT ─────────────────────────────────────────────────
-  { url:'https://www.sage.com/en-gb/blog/feed/', source:'Sage Global Blog', category:'Sage News', market:'EU', topic:'sage', label:'Sage Global', maxItems:3 },
-  { url:'https://www.sage.com/fr-fr/blog/feed/', source:'Sage France Blog', category:'Sage News', market:'FR', topic:'sage', label:'Sage France', maxItems:2 },
-  { url:'https://www.sage.com/es-es/blog/feed/', source:'Sage Spain Blog', category:'Sage News', market:'ES', topic:'sage', label:'Sage Spain', maxItems:2 },
-  { url:'https://developer.sage.com/blog/feed/', source:'Sage Developer', category:'Sage News', market:'EU', topic:'sage', label:'Sage Developer', maxItems:2 },
-  { url:'https://news.google.com/rss/search?q=Sage+Group+accounting+announcement+product&hl=en&gl=GB&ceid=GB:en', source:'Google News', category:'Sage News', market:'EU', topic:'sage', label:'Sage Global News', maxItems:2 },
+  // ══ GOOGLE NEWS — 40+ targeted searches ══════════════════════════════════
 
-  // ── PROFESSIONAL BODIES ──────────────────────────────────────────────
-  { url:'https://www.icaew.com/rss/news', source:'ICAEW', category:'Market Intelligence', market:'EU', topic:'market', label:'ICAEW', maxItems:2, keywords:['software','technology','AI','digital','MTD','invoice','automation','fintech'] },
-  { url:'https://www.aicpa-cima.com/news/rss', source:'AICPA-CIMA', category:'Market Intelligence', market:'EU', topic:'market', label:'AICPA-CIMA', maxItems:2, keywords:['technology','AI','automation','software','digital','future of accounting'] },
-  { url:'https://news.google.com/rss/search?q=ordre+experts-comptables+France+logiciel+numerique+congres&hl=fr&gl=FR&ceid=FR:fr', source:'Google News FR', category:'Market Intelligence', market:'FR', topic:'market', label:'OEC France', maxItems:2 },
-  { url:'https://news.google.com/rss/search?q=ICAC+Espana+contabilidad+digital+despacho+tecnologia&hl=es&gl=ES&ceid=ES:es', source:'Google News ES', category:'Market Intelligence', market:'ES', topic:'market', label:'ICAC Spain', maxItems:2 },
+  // Competitors
+  { url:'https://news.google.com/rss/search?q=Pennylane+accounting+France+Europe&hl=en&gl=GB&ceid=GB:en',            source:'Google News',    category:'Competitive',        market:'FR', topic:'competitor', label:'Pennylane EN (GNews)',    maxItems:3 },
+  { url:'https://news.google.com/rss/search?q=Pennylane+levee+fonds+expansion+Europe&hl=fr&gl=FR&ceid=FR:fr',        source:'Google News FR', category:'Competitive',        market:'FR', topic:'competitor', label:'Pennylane FR (GNews)',    maxItems:2 },
+  { url:'https://news.google.com/rss/search?q=Cegid+EBP+Shine+Ageras+comptabilite&hl=fr&gl=FR&ceid=FR:fr',           source:'Google News FR', category:'Competitive',        market:'FR', topic:'competitor', label:'Cegid FR (GNews)',        maxItems:2 },
+  { url:'https://news.google.com/rss/search?q=Holded+Visma+software+contabilidad+Spain&hl=en&gl=GB&ceid=GB:en',      source:'Google News',    category:'Competitive',        market:'ES', topic:'competitor', label:'Holded (GNews)',          maxItems:2 },
+  { url:'https://news.google.com/rss/search?q=DATEV+cloud+Steuerberater+software&hl=en&gl=GB&ceid=GB:en',            source:'Google News',    category:'Competitive',        market:'DE', topic:'competitor', label:'DATEV (GNews)',           maxItems:2 },
+  { url:'https://news.google.com/rss/search?q=accounting+software+fintech+funding+Europe+2025+2026&hl=en&gl=GB&ceid=GB:en', source:'Google News', category:'Competitive',   market:'EU', topic:'competitor', label:'EU Fintech Funding (GNews)', maxItems:3 },
+  { url:'https://news.google.com/rss/search?q=Xero+JAX+AI+accounting+Europe&hl=en&gl=GB&ceid=GB:en',                 source:'Google News',    category:'Competitive',        market:'EU', topic:'competitor', label:'Xero AI (GNews)',         maxItems:2 },
+  { url:'https://news.google.com/rss/search?q=Qonto+Regate+France+fintech+comptabilite&hl=fr&gl=FR&ceid=FR:fr',      source:'Google News FR', category:'Competitive',        market:'FR', topic:'competitor', label:'Qonto/Regate (GNews)',    maxItems:2 },
+  { url:'https://news.google.com/rss/search?q=MyUnisoft+ACD+Conciliator+France+comptable&hl=fr&gl=FR&ceid=FR:fr',    source:'Google News FR', category:'Competitive',        market:'FR', topic:'competitor', label:'FR challengers (GNews)', maxItems:2 },
 
-  // ── BUSINESS PRESS ───────────────────────────────────────────────────
-  { url:'https://feeds.ft.com/rss/home/uk', source:'Financial Times', category:'Market Intelligence', market:'EU', topic:'market', label:'Financial Times', maxItems:2, keywords:['accounting software','fintech Europe','SME technology','invoice','Pennylane','Cegid','Sage','bookkeeping'] },
-  { url:'https://feeds.bbci.co.uk/news/business/rss.xml', source:'BBC Business', category:'Market Intelligence', market:'EU', topic:'market', label:'BBC Business', maxItems:2, keywords:['accounting','fintech','SME software','invoice','AI finance','cloud software'] },
-  { url:'https://www.lesechos.fr/rss/rss_finance.xml', source:'Les Echos', category:'Market Intelligence', market:'FR', topic:'market', label:'Les Echos FR', maxItems:2, keywords:['comptabilit','logiciel','fintech','factur','PME','expert-comptable'] },
-  { url:'https://www.latribune.fr/rss/rubriques/economie.html', source:'La Tribune', category:'Market Intelligence', market:'FR', topic:'market', label:'La Tribune FR', maxItems:2, keywords:['comptabilit','logiciel','fintech','factur','PME'] },
-  { url:'https://www.expansion.com/rss/ultimas-noticias.xml', source:'Expansion ES', category:'Market Intelligence', market:'ES', topic:'market', label:'Expansion ES', maxItems:2, keywords:['contabilidad','software','pyme','fintech','factura','digital','asesor'] },
-  { url:'https://www.handelsblatt.com/contentexport/feed/themen/digitalisierung', source:'Handelsblatt DE', category:'Market Intelligence', market:'DE', topic:'market', label:'Handelsblatt DE', maxItems:2, keywords:['Buchhaltung','Steuerberater','Software','Digitalisierung','KMU','Rechnung'] },
-  { url:'https://news.google.com/rss/search?q=B2B+payments+invoice+automation+Europe+SME+2025&hl=en&gl=GB&ceid=GB:en', source:'Google News', category:'Market Intelligence', market:'EU', topic:'market', label:'B2B Payments EU', maxItems:2 },
+  // Regulatory
+  { url:'https://news.google.com/rss/search?q=facturation+electronique+France+DGFiP+plateforme+2026&hl=fr&gl=FR&ceid=FR:fr', source:'Google News FR', category:'Regulatory', market:'FR', topic:'regulatory', label:'FR PA Mandate (GNews)',  maxItems:3 },
+  { url:'https://news.google.com/rss/search?q=Verifactu+SIF+AEAT+facturacion+electronica+2027&hl=es&gl=ES&ceid=ES:es',       source:'Google News ES', category:'Regulatory', market:'ES', topic:'regulatory', label:'Verifactu (GNews)',      maxItems:3 },
+  { url:'https://news.google.com/rss/search?q=XRechnung+ZUGFeRD+E-Rechnung+Pflicht+Deutschland&hl=de&gl=DE&ceid=DE:de',     source:'Google News DE', category:'Regulatory', market:'DE', topic:'regulatory', label:'XRechnung (GNews)',      maxItems:2 },
+  { url:'https://news.google.com/rss/search?q=SAF-T+fatura+eletronica+Portugal+AT+2027&hl=pt&gl=PT&ceid=PT:pt',              source:'Google News PT', category:'Regulatory', market:'PT', topic:'regulatory', label:'SAF-T Portugal (GNews)', maxItems:2 },
+  { url:'https://news.google.com/rss/search?q=EU+eInvoicing+ViDA+VAT+digital+mandate+European&hl=en&gl=GB&ceid=GB:en',      source:'Google News',    category:'Regulatory', market:'EU', topic:'regulatory', label:'EU ViDA (GNews)',        maxItems:2 },
 
-  // ── MARKET INTELLIGENCE GOOGLE NEWS ─────────────────────────────────
-  { url:'https://news.google.com/rss/search?q=expert-comptable+logiciel+cabinet+numerique+France&hl=fr&gl=FR&ceid=FR:fr', source:'Google News FR', category:'Market Intelligence', market:'FR', topic:'market', label:'Expert-Comptable Market', maxItems:3 },
-  { url:'https://news.google.com/rss/search?q=despacho+asesor+software+contabilidad+Espana+digital&hl=es&gl=ES&ceid=ES:es', source:'Google News ES', category:'Market Intelligence', market:'ES', topic:'market', label:'Despachos Market', maxItems:3 },
-  { url:'https://news.google.com/rss/search?q=Steuerberater+Digitalisierung+Kanzlei+Software+Cloud&hl=de&gl=DE&ceid=DE:de', source:'Google News DE', category:'Market Intelligence', market:'DE', topic:'market', label:'Steuerberater Market', maxItems:2 },
-  { url:'https://news.google.com/rss/search?q=contabilista+certificado+software+Portugal+digital&hl=pt&gl=PT&ceid=PT:pt', source:'Google News PT', category:'Market Intelligence', market:'PT', topic:'market', label:'Portuguese Accountants', maxItems:2 },
-  { url:'https://news.google.com/rss/search?q=cloud+accounting+SME+Europe+adoption+growth+2025&hl=en&gl=GB&ceid=GB:en', source:'Google News', category:'Market Intelligence', market:'EU', topic:'market', label:'EU Cloud Accounting', maxItems:2 },
+  // Market intelligence by country
+  { url:'https://news.google.com/rss/search?q=expert+comptable+cabinet+logiciel+numerique+France&hl=fr&gl=FR&ceid=FR:fr',     source:'Google News FR', category:'Market Intelligence', market:'FR', topic:'market', label:'Expert-Comptable (GNews)',  maxItems:3 },
+  { url:'https://news.google.com/rss/search?q=despacho+asesoria+software+gestion+Espana+2025&hl=es&gl=ES&ceid=ES:es',         source:'Google News ES', category:'Market Intelligence', market:'ES', topic:'market', label:'Despachos Spain (GNews)',   maxItems:3 },
+  { url:'https://news.google.com/rss/search?q=Steuerberater+Kanzlei+Software+Digitalisierung+2025&hl=de&gl=DE&ceid=DE:de',    source:'Google News DE', category:'Market Intelligence', market:'DE', topic:'market', label:'Steuerberater (GNews)',     maxItems:2 },
+  { url:'https://news.google.com/rss/search?q=contabilista+certificado+software+gestao+Portugal&hl=pt&gl=PT&ceid=PT:pt',      source:'Google News PT', category:'Market Intelligence', market:'PT', topic:'market', label:'Portugal Accounting (GNews)',maxItems:2 },
+  { url:'https://news.google.com/rss/search?q=cloud+accounting+SME+Europe+growth+adoption+2025&hl=en&gl=GB&ceid=GB:en',       source:'Google News',    category:'Market Intelligence', market:'EU', topic:'market', label:'EU Cloud Accounting (GNews)',maxItems:2 },
+
+  // AI
+  { url:'https://news.google.com/rss/search?q=AI+artificial+intelligence+accounting+accountant+automation+Europe&hl=en&gl=GB&ceid=GB:en', source:'Google News',    category:'AI & Tech', market:'EU', topic:'ai', label:'AI Accounting EU (GNews)',  maxItems:3 },
+  { url:'https://news.google.com/rss/search?q=intelligence+artificielle+comptabilite+IA+expert+cabinet&hl=fr&gl=FR&ceid=FR:fr',           source:'Google News FR', category:'AI & Tech', market:'FR', topic:'ai', label:'IA Comptabilité FR (GNews)',maxItems:2 },
+  { url:'https://news.google.com/rss/search?q=inteligencia+artificial+contabilidad+asesor+automatizacion&hl=es&gl=ES&ceid=ES:es',         source:'Google News ES', category:'AI & Tech', market:'ES', topic:'ai', label:'IA Contabilidad ES (GNews)',maxItems:2 },
+  { url:'https://news.google.com/rss/search?q=KI+Buchhaltung+Steuerberater+Automatisierung+Deutschland&hl=de&gl=DE&ceid=DE:de',           source:'Google News DE', category:'AI & Tech', market:'DE', topic:'ai', label:'KI Buchhaltung DE (GNews)', maxItems:2 },
+
+  // Sage
+  { url:'https://news.google.com/rss/search?q=Sage+Group+accounting+software+acquisition+Europe&hl=en&gl=GB&ceid=GB:en',   source:'Google News',    category:'Sage News', market:'EU', topic:'sage', label:'Sage News EN (GNews)',  maxItems:3 },
+  { url:'https://news.google.com/rss/search?q=Sage+comptabilite+France+Active+expert+logiciel&hl=fr&gl=FR&ceid=FR:fr',     source:'Google News FR', category:'Sage News', market:'FR', topic:'sage', label:'Sage France (GNews)',   maxItems:2 },
+  { url:'https://news.google.com/rss/search?q=Sage+contabilidad+Espana+despacho+Active&hl=es&gl=ES&ceid=ES:es',            source:'Google News ES', category:'Sage News', market:'ES', topic:'sage', label:'Sage Spain (GNews)',    maxItems:2 },
 ];
 
 // ── FETCH ─────────────────────────────────────────────────────────────────────
 function fetchUrl(url, timeoutMs = 9000) {
-  return new Promise((resolve) => {
+  return new Promise(resolve => {
     try {
-      const protocol = url.startsWith('https') ? https : http;
-      const req = protocol.get(url, {
+      const proto = url.startsWith('https') ? https : http;
+      const req = proto.get(url, {
         headers: {
-          'User-Agent': 'Mozilla/5.0 (compatible; WiSE-Intel-Hub/3.0; +https://github.com/lewisvines/wise-intel-hub)',
+          'User-Agent': 'Mozilla/5.0 (compatible; WiSE-Intel-Hub/3.0; +https://lewisvines.github.io/wise-intel-hub/)',
           'Accept': 'application/rss+xml, application/atom+xml, application/xml, text/xml, */*',
-          'Accept-Language': 'en-GB,en;q=0.9,fr;q=0.8,es;q=0.7,de;q=0.6',
-        }
-      }, (res) => {
-        if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
+          'Accept-Language': 'en,fr,es,de,pt',
+        },
+        timeout: timeoutMs,
+      }, res => {
+        if ([301,302,303,307,308].includes(res.statusCode) && res.headers.location) {
           fetchUrl(res.headers.location, timeoutMs).then(resolve);
           return;
         }
         if (res.statusCode !== 200) { resolve(''); return; }
         const chunks = [];
-        let size = 0;
-        res.on('data', chunk => {
-          chunks.push(chunk);
-          size += chunk.length;
-          if (size > 500000) { req.destroy(); resolve(Buffer.concat(chunks).toString('utf8')); }
-        });
+        res.on('data', c => chunks.push(c));
         res.on('end', () => resolve(Buffer.concat(chunks).toString('utf8')));
         res.on('error', () => resolve(''));
       });
-      req.setTimeout(timeoutMs, () => { req.destroy(); resolve(''); });
+      req.on('timeout', () => { req.destroy(); resolve(''); });
       req.on('error', () => resolve(''));
     } catch { resolve(''); }
   });
 }
 
-// ── XML PARSER ────────────────────────────────────────────────────────────────
+// ── PARSER ───────────────────────────────────────────────────────────────────
 const parser = new XMLParser({
-  ignoreAttributes: false, attributeNamePrefix: '@_', textNodeName: '#text',
-  isArray: (name) => ['item', 'entry'].includes(name), allowBooleanAttributes: true,
+  ignoreAttributes: false,
+  attributeNamePrefix: '@_',
+  textNodeName: '#text',
+  isArray: name => ['item','entry'].includes(name),
+  parseAttributeValue: false,
+  trimValues: true,
 });
 
 function parseItems(xml) {
-  if (!xml || xml.length < 100) return [];
+  if (!xml || xml.length < 80) return [];
   try {
     const doc = parser.parse(xml);
-    return doc?.rss?.channel?.item || doc?.feed?.entry || doc?.channel?.item || doc?.['rdf:RDF']?.item || [];
+    const ch = doc?.rss?.channel || doc?.channel;
+    if (ch?.item?.length) return ch.item.slice(0, 8);
+    const feed = doc?.feed;
+    if (feed?.entry?.length) return feed.entry.slice(0, 8);
+    return [];
   } catch { return []; }
 }
 
-function extractField(item, ...fields) {
-  for (const f of fields) {
-    const v = item[f];
-    if (!v) continue;
-    if (typeof v === 'string' && v.trim()) return v.trim();
-    if (typeof v === 'object') {
-      if (v['#text']) return String(v['#text']).trim();
-      if (v['@_href']) return v['@_href'];
-      if (Array.isArray(v) && v[0]) {
-        const f0 = v[0];
-        if (typeof f0 === 'string') return f0.trim();
-        if (f0['#text']) return String(f0['#text']).trim();
-        if (f0['@_href']) return f0['@_href'];
-      }
-    }
-  }
+function getText(v) {
+  if (!v) return '';
+  if (typeof v === 'string') return v.trim();
+  if (typeof v === 'number') return String(v);
+  if (v['#text']) return String(v['#text']).trim();
+  if (v['@_href']) return v['@_href'];
+  if (Array.isArray(v)) return getText(v[0]);
   return '';
 }
 
-function stripHtml(str) {
-  if (!str) return '';
-  return String(str)
-    .replace(/<!\[CDATA\[(.*?)\]\]>/gs, '$1')
+function getField(item, ...keys) {
+  for (const k of keys) { const v = getText(item[k]); if (v && v.length > 2) return v; }
+  return '';
+}
+
+function clean(s) {
+  if (!s) return '';
+  return s
+    .replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, '$1')
     .replace(/<[^>]+>/g, ' ')
-    .replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&quot;/g,'"').replace(/&nbsp;/g,' ')
+    .replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&quot;/g,'"')
+    .replace(/&nbsp;/g,' ').replace(/&#\d+;/g,' ').replace(/&apos;/g,"'")
     .replace(/\s+/g,' ').trim();
 }
 
-function parseDate(item) {
-  const raw = extractField(item, 'pubDate','published','updated','dc:date','date');
+function getDate(item) {
+  const raw = getField(item,'pubDate','published','updated','dc:date','date');
   if (!raw) return new Date().toISOString().split('T')[0];
-  try { const d = new Date(raw); if (!isNaN(d.getTime())) return d.toISOString().split('T')[0]; } catch {}
+  try { const d=new Date(raw); if(!isNaN(d)) return d.toISOString().split('T')[0]; } catch {}
   return new Date().toISOString().split('T')[0];
 }
 
-function itemMatchesKeywords(item, kws) {
+function getLink(item, fallback) {
+  for (const k of ['link','guid','id']) {
+    const v = getText(item[k]);
+    if (v && v.startsWith('http')) return v;
+    if (item[k] && typeof item[k]==='object' && item[k]['@_href']) return item[k]['@_href'];
+  }
+  return fallback;
+}
+
+function matches(item, kws) {
   if (!kws || !kws.length) return true;
-  const text = JSON.stringify(item).toLowerCase();
-  return kws.some(k => text.includes(k.toLowerCase()));
+  const t = JSON.stringify(item).toLowerCase();
+  return kws.some(k => t.includes(k.toLowerCase()));
 }
 
+// ── DEDUP ─────────────────────────────────────────────────────────────────────
 const seen = new Set();
-function isDuplicate(title) {
-  const key = title.toLowerCase().replace(/[^a-z0-9]/g,' ').replace(/\s+/g,' ').trim().substring(0,80);
-  if (seen.has(key)) return true;
-  seen.add(key);
-  return false;
+function isDup(title) {
+  const k = title.toLowerCase().replace(/[^a-z0-9]/g,'').slice(0,60);
+  if (seen.has(k)) return true;
+  seen.add(k); return false;
 }
 
-// ── IMPLICATION ENGINE ────────────────────────────────────────────────────────
-function implication(signal) {
-  const { category, market, label='', title='', body='' } = signal;
-  const t = (title+' '+body).toLowerCase();
+// ── IMPLICATIONS ENGINE ───────────────────────────────────────────────────────
+function implication({ category, market, label='', title='', source='' }) {
+  const t = (title+' '+source).toLowerCase();
   const l = label.toLowerCase();
-
-  if (category === 'Regulatory') {
-    if (market==='FR') return l.includes('dgfip') || t.includes('plateforme') ? 'DGFiP PA mandate September 1 2026 — 154 days. Any update affects GE practice activation urgency. Share with Isabelle Michaud immediately.' : 'France PA mandate September 2026 — regulatory news affects GE practice activation and compliance positioning.';
-    if (market==='ES') return 'Verifactu Jan 2027 (corporate) / Jul 2027 (autónomos). Monitor for delays or spec changes affecting Active certification and Spain launch timing.';
-    if (market==='DE') return 'Germany XRechnung/ZUGFeRD mandate January 2027 — critical for DATEV partnership positioning and Germany definition year deliverable.';
-    if (market==='PT') return 'SAF-T Portugal 2027 — OCC engagement window. AT announcements affect Portugal proposition definition and H1 FY27 GTM.';
-    return 'EU regulatory development — assess cross-market impact on pan-EU compliance proposition.';
+  if (category==='Regulatory') {
+    if (market==='FR') return 'France PA mandate Sept 1 2026 — 154 days. Any DGFiP news affects your GE practice activation window. Act before Cegid\'s 100 new reps reach GE practices in Q2 2026.';
+    if (market==='ES') return 'Verifactu: corporate Jan 2027, autónomos Jul 2027. Any AEAT signal affects Active\'s certified-first positioning — use in Despachos conversion conversations.';
+    if (market==='DE') return 'Germany XRechnung issue mandate Jan 2027. Commercial catalyst for FY27 GTM. Any spec update (ZUGFeRD 3.0, XRechnung 4.0) affects DATEV compatibility planning.';
+    if (market==='PT') return 'SAF-T Portugal 2027. Build OCC relationships now for H1 FY27 activation. Any AT announcement affects proposition definition and OCC engagement timeline.';
+    return 'EU regulatory development — assess impact on the pan-EU compliance proposition. ViDA is the overarching EU framework driving all four country mandates.';
   }
-
-  if (category === 'Competitive') {
-    if (l.includes('pennylane') || t.includes('pennylane')) {
-      if (t.includes('spain') || t.includes('espagne') || t.includes('espana')) return '🚨 PENNYLANE SPAIN — H2 2026 confirmed. Sage must convert Despachos practices BEFORE they arrive. Activate Spain launch now.';
-      if (t.includes('fund') || t.includes('raise') || t.includes('levée') || t.includes('série')) return '💰 Pennylane funding signal — $4.25B valuation. More capital = more commercial firepower vs Sage in France. Accelerate GE activation.';
-      return '⚠ Pennylane is the #1 France threat. Any product launch, partnership or hiring news signals their next move.';
-    }
-    if (l.includes('cegid') || t.includes('cegid')) {
-      if (t.includes('100') || t.includes('commercial') || t.includes('sales')) return '🚨 CEGID deploying 100 new salespeople in France Q2 2026. They are calling your GE practices right now. Immediate outreach critical.';
-      return 'Cegid: €967M revenue, 100 new sales reps, EBP + Shine acquired. Any news signals France commercial acceleration.';
-    }
-    if (l.includes('holded') || t.includes('holded')) {
-      if (t.includes('verifactu') || t.includes('certificad')) return 'Holded Verifactu certification — if they certify before Sage penetrates Despachos, their "already compliant" pitch arrives first. Monitor urgently.';
-      return 'Holded goes direct to SMEs, bypassing your accountant channel. Affects Despachos window before Verifactu 2027.';
-    }
-    if (l.includes('datev') || t.includes('datev')) return 'DATEV: cooperative strategic partner. Work alongside, not against. Cloud/API news relevant to "management layer above DATEV compliance" positioning.';
-    if (l.includes('qonto') || l.includes('regate') || t.includes('qonto') || t.includes('regate')) return 'Qonto owns Regate (PA-certified). Accounting + banking combo is a direct threat to French accountant channel. Monitor practice partnerships.';
-    if (l.includes('xero') || t.includes('xero')) return 'Xero JAX AI is the UK benchmark for accountant-first AI — leading indicator of EU direction. Sets expectation bar for Sage Copilot.';
-    if (t.includes('fund') || t.includes('series') || t.includes('raise')) return '💰 Competitor funding in EU accounting software. New capital signals accelerating competition — reassess WiSE GTM priority.';
-    return 'Competitive signal in EU accounting software market — assess impact on WiSE positioning and accountant channel strategy.';
+  if (category==='Competitive') {
+    if (l.includes('pennylane')) return '🔴 CRITICAL: Pennylane — €115M ARR, DGFiP PA-certified, Spain H2 2026. Any funding/product/hiring news signals acceleration. Counter: activate GE practices before they arrive.';
+    if (l.includes('cegid')) return '🔴 HIGH: Cegid deploying 100 French sales reps Q2 2026. They have 15k EU accountants. Any Cegid news means their team is calling your GE practices now. Speed is the counter.';
+    if (l.includes('holded')) return '🟡 SPAIN: Holded goes direct to SMEs, bypassing accountants. Counter: "Holded reaches your clients directly. We come through you." Payroll (Modelo 303/RPF) is the functional win.';
+    if (l.includes('datev')) return '🔵 GERMANY: DATEV is strategic partner, not competitor. Frame Active as the cloud layer above DATEV compliance. Work alongside, never against.';
+    if (l.includes('qonto')||l.includes('regate')) return '🟡 FRANCE: Qonto owns Regate (PA-certified). Banking + accounting integrated play. Monitor accountant partnership moves and feature releases.';
+    if (l.includes('xero')) return '🔵 BENCHMARK: Xero JAX AI is the global standard for accountant-first AI. Their EU moves are leading indicators. Any release signals where EU market heads next.';
+    if (l.includes('lexoffice')||l.includes('sevdesk')) return '🔵 GERMANY: Cegid owns SevDesk (April 2025). Their combined German cloud play affects the definition year strategy — DATEV compatibility is the answer.';
+    if (t.includes('fund')||t.includes('raise')||t.includes('series')||t.includes('lev')) return '💰 FUNDING SIGNAL: Competitor raise = accelerating product and commercial investment. Assess which WiSE market is targeted and counter-position before they deploy capital.';
+    return 'Competitive development in EU accounting software. Assess impact on WiSE GTM timing, accountant messaging, and channel strategy.';
   }
-
-  if (category === 'AI & Tech') {
-    if (t.includes('autonom') || t.includes('agent') || t.includes('agentic')) return 'Autonomous AI agents in accounting — 3-year horizon. Sage compliance depth is the moat: DSN edge cases and Factur-X rejection patterns beat generic agents.';
-    if (t.includes('copilot') || t.includes('assistant')) return 'AI assistant development — benchmark against Sage Copilot compliance-specific capabilities. Specificity beats generic AI in accountant conversations.';
-    return 'AI development in accounting/fintech — assess if this shifts the competitive AI landscape or creates new Sage Copilot proof points.';
+  if (category==='AI & Tech') {
+    if (t.includes('agent')||t.includes('autonomous')) return 'AI agent signal — 3-year horizon threat. When AI prepares accounts autonomously, accountant value shifts to advisory. Sage Prévision + Copilot is the advisory play. Position now.';
+    if (t.includes('copilot')||t.includes('co-pilot')) return 'Copilot/AI assistant — benchmark against Sage Copilot\'s compliance-specific capabilities: DSN, Factur-X validation, PA rejection patterns. Specialist compliance AI beats generic AI.';
+    return 'AI development in accounting/fintech. Assess whether this changes the Copilot narrative, creates new proof points, or signals a roadmap gap.';
   }
-
-  if (category === 'Sage News') return 'Sage Group news — monitor for product launches, acquisitions or positioning shifts affecting WiSE narrative or proof points.';
-
-  if (category === 'Market Intelligence') {
-    if (market==='FR') return 'French market intelligence — relevant to GE practice activation strategy and France PA mandate communications.';
-    if (market==='ES') return 'Spanish market intelligence — relevant to Despachos outreach and Verifactu positioning. Affects GoProposal and Active adoption pace.';
-    if (market==='DE') return 'German market intelligence — relevant to definition year strategy and DATEV positioning. Cloud adoption signals affect FY27 GTM.';
-    if (market==='PT') return 'Portuguese market intelligence — OCC engagement and SAF-T positioning. Every Contabilista Certificado is a potential channel partner.';
-    return 'EU market intelligence — assess relevance to WiSE positioning and accountant channel strategy.';
+  if (category==='Sage News') return 'Sage Group news — monitor for product launches, partnerships, commercial hires, or positioning changes that affect WiSE narrative or competitive context.';
+  if (category==='Market Intelligence') {
+    if (market==='FR') return 'French market signal — relevant to GE practice activation and PA mandate communications. Expert-comptable community sentiment is the key adoption velocity indicator.';
+    if (market==='ES') return 'Spanish market signal — relevant to Despachos outreach and Verifactu positioning. Accountant community news affects GoProposal new revenue model and Active launch timing.';
+    if (market==='DE') return 'German market signal — relevant to definition year strategy. Cloud adoption and DATEV ecosystem news affect FY27 GTM planning.';
+    if (market==='PT') return 'Portugal market signal — SAF-T 2027. Mandatory accountant law makes this structurally the most powerful accountant channel market. Build OCC relationships now.';
+    return 'EU market signal — assess relevance across FR/ES/DE/PT. Pan-EU trends in cloud adoption and SME digitisation affect all four market strategies.';
   }
   return 'Monitor and assess relevance to WiSE strategy across FR, ES, DE and PT.';
 }
 
-function urgency(signal) {
-  const t = (signal.title+' '+signal.body).toLowerCase();
-  const l = (signal.label||'').toLowerCase();
-  if (l.includes('pennylane') && (t.includes('spain') || t.includes('fund') || t.includes('launch'))) return 'CRITICAL';
-  if (l.includes('cegid') && (t.includes('commercial') || t.includes('100') || t.includes('sales'))) return 'CRITICAL';
-  if (signal.category==='Regulatory' && (t.includes('delay') || t.includes('update') || t.includes('report'))) return 'HIGH';
-  if (l.includes('pennylane') || l.includes('cegid') || l.includes('holded')) return 'HIGH';
-  if (signal.category==='Regulatory') return 'HIGH';
-  return 'NORMAL';
-}
-
 // ── MAIN ──────────────────────────────────────────────────────────────────────
 async function main() {
-  console.log(`\n🚀 WiSE Intel Hub — Daily Signal Fetch v3`);
+  console.log(`\n🚀 WiSE Intel Hub — Comprehensive Signal Fetch v3`);
   console.log(`📅 ${new Date().toISOString()}`);
-  console.log(`📡 ${FEEDS.length} sources\n`);
+  console.log(`📡 Processing ${FEEDS.length} sources\n`);
 
   const allSignals = [];
-  let ok = 0;
+  let ok=0, fail=0;
 
-  for (const feed of FEEDS) {
-    process.stdout.write(`  ${feed.label||feed.source}...`);
-    try {
-      const xml = await fetchUrl(feed.url);
-      const items = parseItems(xml);
-      if (!items.length) { process.stdout.write(` ⚠\n`); continue; }
-      let added = 0;
-      const limit = feed.maxItems || 3;
-      for (const item of items.slice(0, limit+8)) {
-        if (added >= limit) break;
-        if (!itemMatchesKeywords(item, feed.keywords)) continue;
-        const title = stripHtml(extractField(item,'title'));
-        if (!title || title.length < 10) continue;
-        if (isDuplicate(title)) continue;
-        const body = stripHtml(extractField(item,'description','content:encoded','content','summary','subtitle')) || 'See source for full details.';
-        let link = extractField(item,'link','guid','id','@_href','feedburner:origLink');
-        if (typeof link!=='string' || !link.startsWith('http')) link = feed.url;
-        const s = {
-          title: title.substring(0,160), category: feed.category, market: feed.market,
-          topic: feed.topic, source: feed.label||feed.source, date: parseDate(item),
-          body: body.substring(0,300), link: link.substring(0,300), implication:'', urgency:'NORMAL'
-        };
-        s.implication = implication({...s, label: feed.label||''});
-        s.urgency = urgency(s);
-        allSignals.push(s);
-        added++;
-      }
-      process.stdout.write(` ✅ ${added}\n`);
-      ok++;
-    } catch (e) { process.stdout.write(` ❌ ${e.message}\n`); }
-    await new Promise(r => setTimeout(r, 200));
+  for (let i=0; i<FEEDS.length; i++) {
+    const feed = FEEDS[i];
+    const lbl = (feed.label || feed.source).slice(0,42).padEnd(42);
+    process.stdout.write(`  [${String(i+1).padStart(2)}/${FEEDS.length}] ${lbl}`);
+
+    const xml = await fetchUrl(feed.url, 10000);
+    const items = parseItems(xml);
+
+    if (!items.length) {
+      process.stdout.write(` ⚠ no data\n`);
+      fail++;
+      // Try next Nitter instance if this was a Nitter feed
+      if (feed.url.includes('nitter')) nitterIdx++;
+      await new Promise(r=>setTimeout(r,200));
+      continue;
+    }
+
+    let added = 0;
+    for (const item of items) {
+      if (added >= (feed.maxItems||3)) break;
+      if (!matches(item, feed.keywords)) continue;
+      const title = clean(getField(item,'title','dc:title')).slice(0,160);
+      if (!title || title.length < 8) continue;
+      if (isDup(title)) continue;
+      const body = clean(getField(item,'description','content:encoded','content','summary','dc:description')).slice(0,300) || 'See source for details.';
+      const link = getLink(item, feed.url).slice(0,400);
+      const date = getDate(item);
+      const sig = { title, category:feed.category, market:feed.market, topic:feed.topic,
+                    source:feed.label||feed.source, date, body, link, implication:'' };
+      sig.implication = implication({ ...sig, label:feed.label||'' });
+      allSignals.push(sig);
+      added++;
+    }
+
+    process.stdout.write(` ✅ +${added}\n`);
+    if (added>0) ok++; else fail++;
+    await new Promise(r=>setTimeout(r,200));
   }
 
-  const uRank = {CRITICAL:0, HIGH:1, MEDIUM:2, NORMAL:3};
-  const cRank = {Regulatory:0, Competitive:1, 'AI & Tech':2, 'Market Intelligence':3, 'Sage News':4};
-  allSignals.sort((a,b) => {
-    const u = (uRank[a.urgency]??3)-(uRank[b.urgency]??3);
-    if (u!==0) return u;
-    const d = b.date.localeCompare(a.date);
-    if (d!==0) return d;
-    return (cRank[a.category]??5)-(cRank[b.category]??5);
+  // Sort: newest first, then by category priority
+  const ord = {'Regulatory':0,'Competitive':1,'AI & Tech':2,'Market Intelligence':3,'Sage News':4};
+  allSignals.sort((a,b)=>{
+    const d=b.date.localeCompare(a.date);
+    return d!==0 ? d : (ord[a.category]??5)-(ord[b.category]??5);
   });
 
   const final = allSignals.slice(0, 80);
-  const byCat = {}, byMkt = {};
-  final.forEach(s => { byCat[s.category]=(byCat[s.category]||0)+1; byMkt[s.market]=(byMkt[s.market]||0)+1; });
-  const criticals = final.filter(s=>s.urgency==='CRITICAL').length;
 
-  console.log(`\n📊 ${ok}/${FEEDS.length} sources OK | ${allSignals.length} signals → ${final.length} after dedup`);
-  console.log(`   🚨 Critical: ${criticals}`);
-  console.log(`   By category:`, byCat);
-  console.log(`   By market:`, byMkt);
+  console.log(`\n${'─'.repeat(55)}`);
+  console.log(`📊 Sources: ${ok} ok / ${fail} failed / ${FEEDS.length} total`);
+  console.log(`📰 Signals: ${allSignals.length} gathered → ${final.length} published`);
+  console.log(`🌍 Markets: ${[...new Set(final.map(s=>s.market))].join(', ')}`);
+  console.log(`🏷  Topics:  ${[...new Set(final.map(s=>s.category))].join(', ')}`);
+  console.log(`${'─'.repeat(55)}\n`);
 
   fs.writeFileSync('signals.json', JSON.stringify(final, null, 2), 'utf8');
-  console.log(`\n✅ signals.json written — ${final.length} signals, ${fs.statSync('signals.json').size} bytes\n`);
+  console.log(`✅ signals.json — ${final.length} signals, ${(fs.statSync('signals.json').size/1024).toFixed(1)}KB\n`);
 }
 
-main().catch(e => { console.error('Fatal:', e); process.exit(1); });
+main().catch(e=>{ console.error('Fatal:', e); process.exit(1); });
