@@ -430,6 +430,19 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:
   background-repeat:no-repeat;background-position:10px center;
 }
 #search-btn:hover{border-color:var(--g);color:var(--g);}
+
+/* ── LANGUAGE SWITCHER ── */
+#lang-switcher{display:flex;align-items:center;gap:4px;}
+.lang-btn{
+  background:transparent;border:1px solid var(--border);
+  border-radius:5px;color:var(--text3);font-family:var(--font);
+  font-size:11px;font-weight:600;padding:4px 8px;cursor:pointer;
+  transition:border-color 0.15s,color 0.15s,background 0.15s;
+  letter-spacing:0.3px;
+}
+.lang-btn:hover{border-color:var(--g);color:var(--g);}
+.lang-btn.active{background:var(--gdim2);border-color:var(--g);color:var(--g);}
+.lang-divider{color:var(--border);font-size:10px;user-select:none;}
 </style>
 </head>
 <body>
@@ -441,38 +454,38 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:
     <div class="sb-badge"><span class="pulse-dot"></span>Live · Weekly</div>
   </div>
 
-  <div class="sb-section-label">Overview</div>
-  <button class="sb-link" data-page="dashboard"><span class="sb-dot"></span>Dashboard</button>
+  <div class="sb-section-label" data-i18n="Overview" data-fr="Vue d'ensemble" data-es="Resumen">Overview</div>
+  <button class="sb-link" data-page="dashboard"><span class="sb-dot"></span><span data-i18n='Dashboard' data-fr='Tableau de bord' data-es='Panel de control'>Dashboard</span></button>
   <hr class="sb-divider">
-  <div class="sb-section-label">Intelligence</div>
-  <button class="sb-link active" data-page="signals"><span class="sb-dot"></span>Signals</button>
-  <button class="sb-link" data-page="competitors"><span class="sb-dot"></span>Competitors</button>
-  <button class="sb-link" data-page="ai-watch"><span class="sb-dot"></span>AI Watch</button>
-  <button class="sb-link" data-page="brand"><span class="sb-dot"></span>Brand Positioning</button>
-  <button class="sb-link" data-page="hiring"><span class="sb-dot"></span>Hiring Signals</button>
-  <button class="sb-link" data-page="regulatory"><span class="sb-dot"></span>Regulatory Calendar</button>
+  <div class="sb-section-label" data-i18n="Intelligence" data-fr="Intelligence" data-es="Inteligencia">Intelligence</div>
+  <button class="sb-link active" data-page="signals"><span class="sb-dot"></span><span data-i18n='Signals' data-fr='Signaux' data-es='Señales'>Signals</span></button>
+  <button class="sb-link" data-page="competitors"><span class="sb-dot"></span><span data-i18n='Competitors' data-fr='Concurrents' data-es='Competidores'>Competitors</span></button>
+  <button class="sb-link" data-page="ai-watch"><span class="sb-dot"></span><span data-i18n='AI Watch' data-fr='Veille IA' data-es='Seguimiento IA'>AI Watch</span></button>
+  <button class="sb-link" data-page="brand"><span class="sb-dot"></span><span data-i18n='Brand Positioning' data-fr='Positionnement de marque' data-es='Posicionamiento de marca'>Brand Positioning</span></button>
+  <button class="sb-link" data-page="hiring"><span class="sb-dot"></span><span data-i18n='Hiring Signals' data-fr='Signaux de recrutement' data-es='Señales de contratación'>Hiring Signals</span></button>
+  <button class="sb-link" data-page="regulatory"><span class="sb-dot"></span><span data-i18n='Regulatory Calendar' data-fr='Calendrier réglementaire' data-es='Calendario regulatorio'>Regulatory Calendar</span></button>
 
   <hr class="sb-divider">
-  <div class="sb-section-label">Products</div>
-  <button class="sb-link" data-page="products"><span class="sb-dot"></span>Products Overview</button>
+  <div class="sb-section-label" data-i18n="Products" data-fr="Produits" data-es="Productos">Products</div>
+  <button class="sb-link" data-page="products"><span class="sb-dot"></span><span data-i18n='Products Overview' data-fr='Aperçu des produits' data-es='Visión general de productos'>Products Overview</span></button>
 
   <hr class="sb-divider">
-  <div class="sb-section-label">Personas</div>
-  <button class="sb-link" data-page="accountant-personas"><span class="sb-dot"></span>Accountant Personas</button>
-  <button class="sb-link" data-page="smb-segments"><span class="sb-dot"></span>SMB Client Segments</button>
+  <div class="sb-section-label" data-i18n="Personas" data-fr="Personas" data-es="Personas">Personas</div>
+  <button class="sb-link" data-page="accountant-personas"><span class="sb-dot"></span><span data-i18n='Accountant Personas' data-fr='Personas experts-comptables' data-es='Personas de contables'>Accountant Personas</span></button>
+  <button class="sb-link" data-page="smb-segments"><span class="sb-dot"></span><span data-i18n='SMB Client Segments' data-fr='Segments clients PME' data-es='Segmentos clientes PYME'>SMB Client Segments</span></button>
 
   <hr class="sb-divider">
-  <div class="sb-section-label">Sales Tools</div>
-  <button class="sb-link" data-page="battlecards"><span class="sb-dot"></span>Battle Cards</button>
-  <button class="sb-link" data-page="deal-intel"><span class="sb-dot"></span>Deal Intelligence</button>
-  <button class="sb-link" data-page="campaign-alerts"><span class="sb-dot"></span>Campaign Alerts</button>
+  <div class="sb-section-label" data-i18n="Sales Tools" data-fr="Outils de vente" data-es="Herramientas de venta">Sales Tools</div>
+  <button class="sb-link" data-page="battlecards"><span class="sb-dot"></span><span data-i18n='Battle Cards' data-fr='Fiches de combat' data-es='Tarjetas de batalla'>Battle Cards</span></button>
+  <button class="sb-link" data-page="deal-intel"><span class="sb-dot"></span><span data-i18n='Deal Intelligence' data-fr='Intelligence commerciale' data-es='Inteligencia comercial'>Deal Intelligence</span></button>
+  <button class="sb-link" data-page="campaign-alerts"><span class="sb-dot"></span><span data-i18n='Campaign Alerts' data-fr='Alertes campagnes' data-es='Alertas de campaña'>Campaign Alerts</span></button>
 
   <hr class="sb-divider">
-  <div class="sb-section-label">Enablement</div>
-  <button class="sb-link" data-page="sales-enablement"><span class="sb-dot"></span>Sales Enablement</button>
+  <div class="sb-section-label" data-i18n="Enablement" data-fr="Accompagnement" data-es="Capacitación">Enablement</div>
+  <button class="sb-link" data-page="sales-enablement"><span class="sb-dot"></span><span data-i18n='Sales Enablement' data-fr='Aide à la vente' data-es='Capacitación de ventas'>Sales Enablement</span></button>
 
   <hr class="sb-divider">
-  <div class="sb-section-label">Countries</div>
+  <div class="sb-section-label" data-i18n="Countries" data-fr="Pays" data-es="Países">Countries</div>
   <button class="sb-link" data-page="country-fr"><span class="sb-dot"></span>🇫🇷 France</button>
   <button class="sb-link" data-page="country-es"><span class="sb-dot"></span>🇪🇸 Spain</button>
   <button class="sb-link" data-page="country-de"><span class="sb-dot"></span>🇩🇪 Germany</button>
@@ -481,15 +494,15 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:
   <button class="sb-link" data-page="country-us"><span class="sb-dot"></span>🇺🇸 United States</button>
 
   <hr class="sb-divider">
-  <div class="sb-section-label">Strategy</div>
-  <button class="sb-link" data-page="messaging-library"><span class="sb-dot"></span>Messaging Library</button>
-  <button class="sb-link" data-page="win-loss"><span class="sb-dot"></span>Win / Loss Intel</button>
-  <button class="sb-link" data-page="campaign-calendar"><span class="sb-dot"></span>Campaign Calendar</button>
+  <div class="sb-section-label" data-i18n="Strategy" data-fr="Stratégie" data-es="Estrategia">Strategy</div>
+  <button class="sb-link" data-page="messaging-library"><span class="sb-dot"></span><span data-i18n='Messaging Library' data-fr='Bibliothèque de messages' data-es='Biblioteca de mensajes'>Messaging Library</span></button>
+  <button class="sb-link" data-page="win-loss"><span class="sb-dot"></span><span data-i18n='Win / Loss Intel' data-fr='Intelligence Gains/Pertes' data-es='Inteligencia Ganar/Perder'>Win / Loss Intel</span></button>
+  <button class="sb-link" data-page="campaign-calendar"><span class="sb-dot"></span><span data-i18n='Campaign Calendar' data-fr='Calendrier des campagnes' data-es='Calendario de campañas'>Campaign Calendar</span></button>
 
   <hr class="sb-divider">
-  <div class="sb-section-label">Direct Channel</div>
-  <button class="sb-link" data-page="smb-direct"><span class="sb-dot"></span>SMB Direct Playbook</button>
-  <button class="sb-link" data-page="competitor-compare"><span class="sb-dot"></span>Competitor Compare</button>
+  <div class="sb-section-label" data-i18n="Direct Channel" data-fr="Canal Direct" data-es="Canal Directo">Direct Channel</div>
+  <button class="sb-link" data-page="smb-direct"><span class="sb-dot"></span><span data-i18n='SMB Direct Playbook' data-fr='Playbook Direct PME' data-es='Manual directo PYME'>SMB Direct Playbook</span></button>
+  <button class="sb-link" data-page="competitor-compare"><span class="sb-dot"></span><span data-i18n='Competitor Compare' data-fr='Comparatif concurrents' data-es='Comparativa competidores'>Competitor Compare</span></button>
 
   <div class="sb-meta" style="margin-top:20px;">
     FR · ES · DE · PT<br>
@@ -505,8 +518,15 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:
 <div id="topbar">
   <div class="tb-breadcrumb">WiSE Intel Hub &nbsp;/&nbsp; <span id="tb-current">Signals</span></div>
   <div class="tb-actions" style="display:flex;align-items:center;gap:10px;">
-    <button id="search-btn" onclick="openSearch()" title="Search hub (Ctrl+K)">Search</button>
-    <button class="tb-btn" onclick="openELT()">⬆ ELT Export</button>
+    <div id="lang-switcher">
+      <button class="lang-btn active" onclick="setLang('en')" id="lang-en">EN</button>
+      <span class="lang-divider">|</span>
+      <button class="lang-btn" onclick="setLang('fr')" id="lang-fr">FR</button>
+      <span class="lang-divider">|</span>
+      <button class="lang-btn" onclick="setLang('es')" id="lang-es">ES</button>
+    </div>
+    <button id="search-btn" onclick="openSearch()" title="Search hub (Ctrl+K)" data-i18n="Search" data-fr="Rechercher" data-es="Buscar">Search</button>
+    <button class="tb-btn" onclick="openELT()" data-i18n="⬆ ELT Export" data-fr="⬆ Export DG" data-es="⬆ Exportar DG">⬆ ELT Export</button>
     <button class="tb-btn primary" onclick="window.print()">Share Brief</button>
   </div>
 </div>
@@ -514,7 +534,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:
 <!-- ══════ DASHBOARD ══════ -->
 <div class="page-section" id="page-dashboard">
   <div class="page-header reveal">
-    <div class="page-eyebrow">00 · Command Centre</div>
+    <div class="page-eyebrow" data-i18n="00 · Command Centre" data-fr="00 · Centre de commandement" data-es="00 · Centro de mando">00 · Command Centre</div>
     <div class="page-title">WiSE PMM <em>Dashboard</em></div>
     <div class="page-subtitle">Strategic overview of the European accountant market — mandate timelines, competitive pressure and Sage's position across France, Spain, Germany and Portugal.</div>
   </div>
@@ -676,7 +696,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:
 
 <div class="page-section" id="page-products">
   <div class="page-header reveal">
-    <div class="page-eyebrow">Products — Portfolio</div>
+    <div class="page-eyebrow" data-i18n="Products — Portfolio" data-fr="Produits — Portefeuille" data-es="Productos — Cartera">Products — Portfolio</div>
     <div class="page-title">The <em>Sage WiSE Product Stack</em></div>
     <div class="page-subtitle">Four product horizons across FR · ES · DE · PT. Click each tab for full portfolio detail, positioning and competitive context.</div>
   </div>
@@ -1029,7 +1049,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:
 <!-- ══════ COMPETITORS ══════ -->
 <div class="page-section" id="page-competitors">
   <div class="page-header reveal">
-    <div class="page-eyebrow">02 · Competitor Profiles</div>
+    <div class="page-eyebrow" data-i18n="02 · Competitor Profiles" data-fr="02 · Profils concurrents" data-es="02 · Perfiles de competidores">02 · Competitor Profiles</div>
     <div class="page-title"><em>Who we're up against</em> — and how to beat them</div>
     <div class="page-subtitle">The market is moving faster than at any point in the last decade. Understanding every major competitor — their story, their strengths, and their blind spots — is how Sage wins the accountant relationship before they do.</div>
   </div>
@@ -1165,7 +1185,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:
 <!-- ══════ AI WATCH ══════ -->
 <div class="page-section" id="page-ai-watch">
   <div class="page-header reveal">
-    <div class="page-eyebrow">03 · AI Watch</div>
+    <div class="page-eyebrow" data-i18n="03 · AI Watch" data-fr="03 · Veille IA" data-es="03 · Seguimiento IA">03 · AI Watch</div>
     <div class="page-title">AI is changing what accountants <em>expect from software</em></div>
     <div class="page-subtitle">The accountants we need to win are no longer asking "does it have AI?" They're asking "what does the AI actually do for me and my clients?" Sage's answer must be specific, compliance-led and outcome-focused — not a list of features.</div>
   </div>
@@ -1294,7 +1314,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:
 <!-- ══════ BRAND POSITIONING ══════ -->
 <div class="page-section" id="page-brand">
   <div class="page-header reveal">
-    <div class="page-eyebrow">04 · Brand Positioning</div>
+    <div class="page-eyebrow" data-i18n="04 · Brand Positioning" data-fr="04 · Positionnement de marque" data-es="04 · Posicionamiento de marca">04 · Brand Positioning</div>
     <div class="page-title">Why Sage — and <em>how we must show up to win</em></div>
     <div class="page-subtitle">The strongest brand in European accounting isn't the loudest. It's the one accountants trust when it matters most. Sage's job is to own that position with absolute clarity — and make sure every conversation, every message and every product story earns that trust deliberately.</div>
   </div>
@@ -1429,7 +1449,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:
 
 <div class="page-section" id="page-hiring">
   <div class="page-header reveal">
-    <div class="page-eyebrow">05 · Hiring Signals</div>
+    <div class="page-eyebrow" data-i18n="05 · Hiring Signals" data-fr="05 · Signaux de recrutement" data-es="05 · Señales de contratación">05 · Hiring Signals</div>
     <div class="page-title">Where competitors are <em>investing next</em></div>
     <div class="page-subtitle">Hiring patterns reveal strategic direction 6–12 months before product launches. Updated monthly.</div>
   </div>
@@ -1562,7 +1582,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:
 <!-- ══════ REGULATORY CALENDAR ══════ -->
 <div class="page-section" id="page-regulatory">
   <div class="page-header reveal">
-    <div class="page-eyebrow">06 · Regulatory Calendar</div>
+    <div class="page-eyebrow" data-i18n="06 · Regulatory Calendar" data-fr="06 · Calendrier réglementaire" data-es="06 · Calendario regulatorio">06 · Regulatory Calendar</div>
     <div class="page-title">The mandate timeline — <em>every deadline</em></div>
     <div class="page-subtitle">All e-invoicing and compliance mandates across FR · ES · DE · PT with Sage implications on every one.</div>
   </div>
@@ -1607,7 +1627,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:
 <!-- ══════ SAGE ACTIVE DEEP DIVE ══════ -->
 <div class="page-section" id="page-smb-segments">
   <div class="page-header reveal">
-    <div class="page-eyebrow">08 · SMB Client Segments</div>
+    <div class="page-eyebrow" data-i18n="08 · SMB Client Segments" data-fr="08 · Segments clients PME" data-es="08 · Segmentos clientes PYME">08 · SMB Client Segments</div>
     <div class="page-title">Who accountants are <em>selling Active to</em></div>
     <div class="page-subtitle">4 SMB segments: Start-ups (1–5 staff) and Legacy businesses (5–50 staff) · Focus: France and Spain where Active is live</div>
   </div>
@@ -1692,7 +1712,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:
 <!-- ══════ ACCOUNTANT PERSONAS ══════ -->
 <div class="page-section" id="page-accountant-personas">
   <div class="page-header reveal">
-    <div class="page-eyebrow">05 · Accountant Personas</div>
+    <div class="page-eyebrow" data-i18n="05 · Accountant Personas" data-fr="05 · Personas experts-comptables" data-es="05 · Personas de contables">05 · Accountant Personas</div>
     <div class="page-title">Who Sage is <em>selling through</em></div>
     <div class="page-subtitle">16 persona cards across 4 markets · Split by practice age (under 5 years / 5+ years) and size (under 20 staff / 20+ staff)</div>
   </div>
@@ -1986,7 +2006,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:
 <!-- ══════ BATTLE CARDS ══════ -->
 <div class="page-section" id="page-battlecards">
   <div class="page-header reveal">
-    <div class="page-eyebrow">09 · Battle Cards</div>
+    <div class="page-eyebrow" data-i18n="09 · Battle Cards" data-fr="09 · Fiches de combat" data-es="09 · Tarjetas de batalla">09 · Battle Cards</div>
     <div class="page-title">Head-to-head — <em>Sage wins here</em></div>
     <div class="page-subtitle">One card per competitor. Use in live sales conversations. Red column = their claims. Green column = Sage's response. Bottom = the killer line.</div>
   </div>
@@ -2144,7 +2164,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:
 <!-- ══════ DEAL INTELLIGENCE ══════ -->
 <div class="page-section" id="page-deal-intel">
   <div class="page-header reveal">
-    <div class="page-eyebrow">10 · Deal Intelligence</div>
+    <div class="page-eyebrow" data-i18n="10 · Deal Intelligence" data-fr="10 · Intelligence commerciale" data-es="10 · Inteligencia comercial">10 · Deal Intelligence</div>
     <div class="page-title">Objection handling — <em>every conversation</em></div>
     <div class="page-subtitle">Real objections from real accountants. Verbatim responses. Proof points to back every claim.</div>
   </div>
@@ -2224,7 +2244,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:
 <!-- ══════ CAMPAIGN ALERTS ══════ -->
 <div class="page-section" id="page-campaign-alerts">
   <div class="page-header reveal">
-    <div class="page-eyebrow">11 · Campaign Trigger Alerts</div>
+    <div class="page-eyebrow" data-i18n="11 · Campaign Trigger Alerts" data-fr="11 · Alertes déclencheurs campagnes" data-es="11 · Alertas disparadoras de campaña">11 · Campaign Trigger Alerts</div>
     <div class="page-title">What to <em>act on now</em> vs what to watch</div>
     <div class="page-subtitle">Traffic light system: ACT NOW requires immediate campaign or content response · WATCH needs monitoring · NOTE is FYI only</div>
   </div>
@@ -3601,7 +3621,7 @@ loadLiveSignals();
 <!-- ══════ MESSAGING LIBRARY ══════ -->
 <div class="page-section" id="page-messaging-library">
   <div class="page-header reveal">
-    <div class="page-eyebrow">Strategy — Messaging Library</div>
+    <div class="page-eyebrow" data-i18n="Strategy — Messaging Library" data-fr="Stratégie — Bibliothèque de messages" data-es="Estrategia — Biblioteca de mensajes">Strategy — Messaging Library</div>
     <div class="page-title">What to say — <em>and what never to say</em></div>
     <div class="page-subtitle">Approved verbatims by audience, market and product. Use these directly. Adapt the framing, never the substance. Every line has been tested against the competitive landscape.</div>
   </div>
@@ -3748,7 +3768,7 @@ loadLiveSignals();
 <!-- ══════ WIN / LOSS ══════ -->
 <div class="page-section" id="page-win-loss">
   <div class="page-header reveal">
-    <div class="page-eyebrow">Strategy — Win / Loss Intelligence</div>
+    <div class="page-eyebrow" data-i18n="Strategy — Win / Loss Intelligence" data-fr="Stratégie — Intelligence Gains/Pertes" data-es="Estrategia — Inteligencia Ganar/Perder">Strategy — Win / Loss Intelligence</div>
     <div class="page-title">Why we win — and <em>why we lose</em></div>
     <div class="page-subtitle">Based on market signals, accountant verbatims, competitor analysis and public win/loss patterns. Updated as new intelligence arrives. Use this to coach conversations, build battlecards and prioritise product gaps.</div>
   </div>
@@ -3866,7 +3886,7 @@ loadLiveSignals();
 <!-- ══════ GTM READINESS ══════ -->
 <div class="page-section" id="page-campaign-calendar">
   <div class="page-header reveal">
-    <div class="page-eyebrow">Strategy — Campaign Calendar</div>
+    <div class="page-eyebrow" data-i18n="Strategy — Campaign Calendar" data-fr="Stratégie — Calendrier des campagnes" data-es="Estrategia — Calendario de campañas">Strategy — Campaign Calendar</div>
     <div class="page-title">What to campaign — <em>and when</em></div>
     <div class="page-subtitle">Key activation dates across FR · ES · DE · PT with content requirements per milestone. The mandate timeline is your campaign calendar — every deadline is a conversion moment.</div>
   </div>
@@ -3982,7 +4002,7 @@ loadLiveSignals();
 <!-- ══════ SMB DIRECT PLAYBOOK ══════ -->
 <div class="page-section" id="page-smb-direct">
   <div class="page-header reveal">
-    <div class="page-eyebrow">Direct Channel — SMB Direct Playbook</div>
+    <div class="page-eyebrow" data-i18n="Direct Channel — SMB Direct Playbook" data-fr="Canal Direct — Playbook Direct PME" data-es="Canal Directo — Manual directo PYME">Direct Channel — SMB Direct Playbook</div>
     <div class="page-title">Winning SMBs <em>directly</em> — and through the right channel</div>
     <div class="page-subtitle">Not every SMB has an accountant. Not every accountant recommends Sage first. This playbook covers the direct-to-SMB motion — when to go direct, which ICPs to target, and how the direct and accountant channels reinforce each other.</div>
   </div>
@@ -4059,7 +4079,7 @@ loadLiveSignals();
 <!-- ══════ COMPETITOR COMPARE ══════ -->
 <div class="page-section" id="page-competitor-compare">
   <div class="page-header reveal">
-    <div class="page-eyebrow">Direct Channel — Competitor Compare</div>
+    <div class="page-eyebrow" data-i18n="Direct Channel — Competitor Compare" data-fr="Canal Direct — Comparatif concurrents" data-es="Canal Directo — Comparativa competidores">Direct Channel — Competitor Compare</div>
     <div class="page-title">All 14 competitors — <em>one view</em></div>
     <div class="page-subtitle">Five dimensions. Every competitor. Use this table in commercial conversations to quickly locate where Sage has a decisive advantage and where the conversation needs to be redirected.</div>
   </div>
@@ -4240,11 +4260,11 @@ loadLiveSignals();
 <!-- ══════ SEARCH OVERLAY ══════ -->
 <div id="search-overlay">
   <div id="search-box-wrap">
-    <input id="search-input" type="text" placeholder="Search all 25 pages…" autocomplete="off" spellcheck="false">
+    <input id="search-input" type="text" placeholder="Search all 25 pages…" data-placeholder-en="Search all 25 pages…" data-placeholder-fr="Rechercher dans les 25 pages…" data-placeholder-es="Buscar en las 25 páginas…" autocomplete="off" spellcheck="false">
     <div id="search-meta"></div>
   </div>
   <div id="search-results"></div>
-  <div id="search-close-hint">Press <strong>Esc</strong> to close &nbsp;·&nbsp; <strong>Enter</strong> to go to first result &nbsp;·&nbsp; <strong>Ctrl+K</strong> to open</div>
+  <div id="search-close-hint" data-i18n="hint">Press <strong>Esc</strong> to close &nbsp;·&nbsp; <strong>Enter</strong> to go to first result &nbsp;·&nbsp; <strong>Ctrl+K</strong> to open</div>
 </div>
 
 
@@ -4437,6 +4457,254 @@ document.addEventListener('keydown', e => {
   if (e.key === 'Escape') {
     closeSearch();
   }
+});
+</script>
+
+<script>
+// ── LANGUAGE SWITCHER ──────────────────────────────────────────────
+let currentLang = 'en';
+
+// Full translation map — UI strings only, no body content
+const TRANSLATIONS = {
+  fr: {
+    // Topbar
+    'Search': 'Rechercher',
+    '⬆ ELT Export': '⬆ Export DG',
+    'Share Brief': 'Partager le brief',
+    // Dashboard section labels
+    'Strategic Progress Tracker': 'Suivi des progrès stratégiques',
+    'Competitive Pressure Index': 'Indice de pression concurrentielle',
+    'CRITICAL MANDATE TIMELINE — NEXT 30 MONTHS': 'CALENDRIER DES MANDATS — 30 PROCHAINS MOIS',
+    'France PA Registration (Sept 2026)': 'Enregistrement PA France (Sept 2026)',
+    'GE Practice Onboarding to SfA': 'Intégration des cabinets GE à SfA',
+    'Active Adoption — Spain': 'Adoption Active — Espagne',
+    'Active Adoption — France': 'Adoption Active — France',
+    'AutoEntry Compliance Pipeline — France': 'Pipeline conformité AutoEntry — France',
+    'SfA Spain GTM': 'GTM SfA Espagne',
+    'EU Competitive Intelligence': 'Veille concurrentielle EU',
+    // Country names in sidebar
+    '🇫🇷 France': '🇫🇷 France',
+    '🇪🇸 Spain': '🇪🇸 Espagne',
+    '🇩🇪 Germany': '🇩🇪 Allemagne',
+    '🇵🇹 Portugal': '🇵🇹 Portugal',
+    '🇬🇧 United Kingdom': '🇬🇧 Royaume-Uni',
+    '🇺🇸 United States': '🇺🇸 États-Unis',
+    // Search UI
+    'hint': 'Appuyez sur <strong>Échap</strong> pour fermer &nbsp;·&nbsp; <strong>Entrée</strong> pour le premier résultat &nbsp;·&nbsp; <strong>Ctrl+K</strong> pour ouvrir',
+    // Status labels
+    'Early stage': 'Phase initiale',
+    'In progress — 50%': 'En cours — 50%',
+    'Below target': 'En dessous de l'objectif',
+    'On track': 'Dans les délais',
+    'Building': 'En construction',
+    'Live': 'En direct',
+    // Mandate timeline
+    'FRANCE PA MANDATE': 'MANDAT PA FRANCE',
+    'SPAIN VERIFACTU (CORPORATE)': 'ESPAGNE VERIFACTU (ENTREPRISES)',
+    'GERMANY XRECHNUNG ISSUE': 'ALLEMAGNE XRECHNUNG ÉMISSION',
+    'PORTUGAL SAF-T': 'PORTUGAL SAF-T',
+    'Days to Sept 1 2026': 'Jours avant le 1er sept. 2026',
+    'Days to Jan 1 2027': 'Jours avant le 1er janv. 2027',
+  },
+  es: {
+    // Topbar
+    'Search': 'Buscar',
+    '⬆ ELT Export': '⬆ Exportar DG',
+    'Share Brief': 'Compartir informe',
+    // Dashboard section labels
+    'Strategic Progress Tracker': 'Seguimiento de progreso estratégico',
+    'Competitive Pressure Index': 'Índice de presión competitiva',
+    'CRITICAL MANDATE TIMELINE — NEXT 30 MONTHS': 'CRONOGRAMA DE MANDATOS — PRÓXIMOS 30 MESES',
+    'France PA Registration (Sept 2026)': 'Registro PA Francia (Sept 2026)',
+    'GE Practice Onboarding to SfA': 'Incorporación despachos GE a SfA',
+    'Active Adoption — Spain': 'Adopción Active — España',
+    'Active Adoption — France': 'Adopción Active — Francia',
+    'AutoEntry Compliance Pipeline — France': 'Pipeline cumplimiento AutoEntry — Francia',
+    'SfA Spain GTM': 'GTM SfA España',
+    'EU Competitive Intelligence': 'Inteligencia competitiva UE',
+    // Country names in sidebar
+    '🇫🇷 France': '🇫🇷 Francia',
+    '🇪🇸 Spain': '🇪🇸 España',
+    '🇩🇪 Germany': '🇩🇪 Alemania',
+    '🇵🇹 Portugal': '🇵🇹 Portugal',
+    '🇬🇧 United Kingdom': '🇬🇧 Reino Unido',
+    '🇺🇸 United States': '🇺🇸 Estados Unidos',
+    // Search UI
+    'hint': 'Pulse <strong>Esc</strong> para cerrar &nbsp;·&nbsp; <strong>Enter</strong> para el primer resultado &nbsp;·&nbsp; <strong>Ctrl+K</strong> para abrir',
+    // Status labels
+    'Early stage': 'Fase inicial',
+    'In progress — 50%': 'En curso — 50%',
+    'Below target': 'Por debajo del objetivo',
+    'On track': 'En camino',
+    'Building': 'En desarrollo',
+    'Live': 'En vivo',
+    // Mandate timeline
+    'FRANCE PA MANDATE': 'MANDATO PA FRANCIA',
+    'SPAIN VERIFACTU (CORPORATE)': 'ESPAÑA VERIFACTU (EMPRESAS)',
+    'GERMANY XRECHNUNG ISSUE': 'ALEMANIA XRECHNUNG EMISIÓN',
+    'PORTUGAL SAF-T': 'PORTUGAL SAF-T',
+    'Days to Sept 1 2026': 'Días hasta el 1 sept. 2026',
+    'Days to Jan 1 2027': 'Días hasta el 1 ene. 2027',
+  }
+};
+
+// Page title translations (the big italic heading on each page)
+const PAGE_TITLES = {
+  fr: {
+    'Command Centre — Dashboard': 'Centre de commandement — Tableau de bord',
+    'What's moving in the market': 'Ce qui bouge sur le marché',
+    'Who we're up against — and how to beat them': 'Nos adversaires — et comment les battre',
+    'AI is changing what accountants expect from software': 'L'IA change ce que les experts-comptables attendent des logiciels',
+    'Why Sage — and how we must show up to win': 'Pourquoi Sage — et comment nous devons nous positionner pour gagner',
+    'Where competitors are investing next': 'Où investissent les concurrents ensuite',
+    'The mandate timeline — every deadline': 'Le calendrier des mandats — chaque échéance',
+    'The Sage WiSE Product Stack': 'La gamme de produits Sage WiSE',
+    'Who Sage is selling through': 'Par qui Sage vend',
+    'Who accountants are selling Active to': 'À qui les experts-comptables vendent Active',
+    'Head-to-head — Sage wins here': 'Face-à-face — Sage gagne ici',
+    'Objection handling — every conversation': 'Gestion des objections — chaque conversation',
+    'What to act on now vs what to watch': 'Ce sur quoi agir maintenant vs ce qu'il faut surveiller',
+    'What to say — and what never to say': 'Quoi dire — et quoi ne jamais dire',
+    'Why we win — and why we lose': 'Pourquoi nous gagnons — et pourquoi nous perdons',
+    'What to campaign — and when': 'Sur quoi mener des campagnes — et quand',
+    'Winning SMBs directly — and through the right channel': 'Conquérir les PME directement — et par le bon canal',
+    'All 14 competitors — one view': 'Les 14 concurrents — en un coup d'œil',
+  },
+  es: {
+    'Command Centre — Dashboard': 'Centro de mando — Panel de control',
+    'What's moving in the market': 'Qué se mueve en el mercado',
+    'Who we're up against — and how to beat them': 'A quién nos enfrentamos — y cómo ganarles',
+    'AI is changing what accountants expect from software': 'La IA cambia lo que los contables esperan del software',
+    'Why Sage — and how we must show up to win': 'Por qué Sage — y cómo debemos posicionarnos para ganar',
+    'Where competitors are investing next': 'Dónde invierten los competidores a continuación',
+    'The mandate timeline — every deadline': 'El calendario de mandatos — cada plazo',
+    'The Sage WiSE Product Stack': 'La gama de productos Sage WiSE',
+    'Who Sage is selling through': 'A través de quién vende Sage',
+    'Who accountants are selling Active to': 'A quién venden Active los contables',
+    'Head-to-head — Sage wins here': 'Cara a cara — Sage gana aquí',
+    'Objection handling — every conversation': 'Manejo de objeciones — cada conversación',
+    'What to act on now vs what to watch': 'En qué actuar ahora vs qué vigilar',
+    'What to say — and what never to say': 'Qué decir — y qué nunca decir',
+    'Why we win — and why we lose': 'Por qué ganamos — y por qué perdemos',
+    'What to campaign — and when': 'Sobre qué hacer campaña — y cuándo',
+    'Winning SMBs directly — and through the right channel': 'Ganar PYMES directamente — y por el canal correcto',
+    'All 14 competitors — one view': 'Los 14 competidores — una vista',
+  }
+};
+
+function setLang(lang) {
+  currentLang = lang;
+
+  // Update active button state
+  ['en','fr','es'].forEach(l => {
+    const btn = document.getElementById('lang-' + l);
+    if (btn) btn.classList.toggle('active', l === lang);
+  });
+
+  // Translate all data-i18n elements
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (key === 'hint') {
+      // Special case for search hint HTML
+      if (lang === 'en') {
+        el.innerHTML = 'Press <strong>Esc</strong> to close &nbsp;·&nbsp; <strong>Enter</strong> to go to first result &nbsp;·&nbsp; <strong>Ctrl+K</strong> to open';
+      } else {
+        const t = TRANSLATIONS[lang];
+        if (t && t['hint']) el.innerHTML = t['hint'];
+      }
+      return;
+    }
+    if (lang === 'en') {
+      el.textContent = key;
+    } else {
+      // Try data-fr / data-es attribute first (set on individual elements)
+      const attrVal = el.getAttribute('data-' + lang);
+      if (attrVal) {
+        el.textContent = attrVal;
+      } else {
+        // Fall back to TRANSLATIONS map
+        const t = TRANSLATIONS[lang];
+        if (t && t[key]) el.textContent = t[key];
+      }
+    }
+  });
+
+  // Translate page titles (the big italic title text)
+  document.querySelectorAll('.page-title').forEach(el => {
+    // Find the em element (italic part) — preserve it
+    const em = el.querySelector('em');
+    if (!em) return;
+    const titleText = el.textContent.trim();
+    if (lang === 'en') {
+      // Restore from data attribute if we saved it
+      const original = el.getAttribute('data-title-en');
+      if (original) {
+        // Re-render with em preserved
+        const parts = original.split('|||');
+        el.innerHTML = parts[0] + '<em>' + parts[1] + '</em>';
+      }
+    } else {
+      // Save original on first switch
+      if (!el.getAttribute('data-title-en')) {
+        const preText = el.childNodes[0] ? el.childNodes[0].textContent : '';
+        const emText = em.textContent;
+        el.setAttribute('data-title-en', preText + '|||' + emText);
+      }
+      const t = PAGE_TITLES[lang];
+      if (t && t[titleText]) {
+        // Simplified — just replace full text, keep em styling
+        const translated = t[titleText];
+        // Find the em part by position (last word cluster)
+        const emText = em.textContent;
+        if (translated.includes(emText)) {
+          el.innerHTML = translated.replace(emText, '<em>' + emText + '</em>');
+        } else {
+          el.textContent = translated;
+        }
+      }
+    }
+  });
+
+  // Translate page subtitles from data attributes
+  document.querySelectorAll('[data-subtitle-fr]').forEach(el => {
+    if (lang === 'en') {
+      el.textContent = el.getAttribute('data-subtitle-en') || el.textContent;
+    } else {
+      const t = el.getAttribute('data-subtitle-' + lang);
+      if (t) el.textContent = t;
+    }
+  });
+
+  // Translate search placeholder
+  const searchInput = document.getElementById('search-input');
+  if (searchInput) {
+    const placeholderKey = 'data-placeholder-' + lang;
+    const placeholder = searchInput.getAttribute(placeholderKey);
+    if (placeholder) searchInput.placeholder = placeholder;
+  }
+
+  // Update breadcrumb title for current page
+  const bc = document.getElementById('tb-current');
+  if (bc) {
+    const activePage = document.querySelector('.page-section.active');
+    if (activePage) {
+      const id = activePage.id.replace('page-', '');
+      if (typeof titles !== 'undefined' && titles[id]) {
+        bc.textContent = titles[id];
+      }
+    }
+  }
+
+  // Store preference
+  try { localStorage.setItem('wise-lang', lang); } catch(e) {}
+}
+
+// Restore language preference on load
+document.addEventListener('DOMContentLoaded', () => {
+  try {
+    const saved = localStorage.getItem('wise-lang');
+    if (saved && saved !== 'en') setLang(saved);
+  } catch(e) {}
 });
 </script>
 </body>
