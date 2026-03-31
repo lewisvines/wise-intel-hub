@@ -277,8 +277,9 @@ const ENTITIES = [
   'pennylane','cegid','holded','datev','qonto','regate','myunisoft','lexoffice',
   'sevdesk','xero','quickbooks','intuit','sage','visma','shine','ageras',
   'anthropic','openai','mistral',
-  'verifactu','xrechnung','zugferd','vida','saf-t','factur-x',
-  'dgfip','aeat','bundesfinanzministerium',
+  'verifactu','xrechnung','e-rechnung','e-rechnungspflicht','zugferd','vida','saf-t','factur-x',
+  'dgfip','aeat','hacienda','bundesfinanzministerium','bmf',
+  'facturation electronique','electronic invoicing','factura electronica',
 ];
 
 const EVENT_PATTERNS = [
@@ -286,7 +287,7 @@ const EVENT_PATTERNS = [
   { key:'acquisition',  test: t => /acqui[rs]|rach[e\u00e8]te|buys|merger|acquiert|\bbuys\b/i.test(t) },
   { key:'launch',       test: t => /launch[es]|releases?|introduces?|announces?\s+new|unveil|lancement/i.test(t) },
   { key:'partnership',  test: t => /partners?\s+with|collaboration|partenariat|integrat/i.test(t) },
-  { key:'mandate',      test: t => /mandate|pflicht|oblig|deadline|2026|2027/i.test(t) },
+  { key:'mandate',      test: t => /mandate|pflicht|oblig|deadline|2026|2027|aplaza|retrasa|retard|reporté|bereit|prêtes|préparer|frist|einführ|obligatoire|obligatorio|verpflicht/i.test(t) },
   { key:'expansion',    test: t => /expan[ds]|enters?\s+(?:spain|france|germany|europe)|new\s+market/i.test(t) },
 ];
 
@@ -334,6 +335,23 @@ function isDuplicateSignal(title, bodyText) {
   // Method 2: entity + event key
   const key = extractEventKey(title, bodyText);
   if (key && seenEventKeys.has(key)) return true;
+
+  // Method 3: regulatory entity cap — max 1 signal per major regulatory term per run
+  // Prevents 3 Verifactu delay stories or 2 E-Rechnungspflicht stories
+  const REGULATORY_CAP_ENTITIES = [
+    'verifactu','xrechnung','e-rechnung','e-rechnungspflicht',
+    'facturation electronique','electronic invoicing',
+    'zugferd','saf-t','vida',
+  ];
+  const combined = `${title} ${bodyText}`.toLowerCase();
+  for (const regEnt of REGULATORY_CAP_ENTITIES) {
+    if (combined.includes(regEnt)) {
+      const capKey = 'REG_CAP::' + regEnt;
+      if (seenEventKeys.has(capKey)) return true; // Already have one story on this topic
+      seenEventKeys.add(capKey);
+      break;
+    }
+  }
 
   seenFingerprints.add(fp);
   if (key) seenEventKeys.add(key);
