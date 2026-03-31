@@ -2995,7 +2995,21 @@ async function loadLiveSignals() {
     function lightTranslate(text) {
       if (!text) return text;
       return text
+        // French
         .replace(/facturation [ée]lectronique/gi, 'electronic invoicing')
+        .replace(/facture [ée]lectronique/gi, 'electronic invoice')
+        .replace(/investissements? records?/gi, 'record investment')
+        .replace(/investissements?/gi, 'investment')
+        .replace(/logiciels? comptables?/gi, 'accounting software')
+        .replace(/logiciels?/gi, 'software')
+        .replace(/ann[ée]e.cl[ée]/gi, 'key year')
+        .replace(/g[ée]n[ée]ralisation/gi, 'rollout')
+        .replace(/pr[êe]tes?|pr[êe]ts?/gi, 'ready')
+        .replace(/bient[ôo]t/gi, 'soon')
+        .replace(/renforce[r]?/gi, 'strengthens')
+        .replace(/empreinte/gi, 'footprint')
+        .replace(/fran[çc]ais[es]?/gi, 'French')
+        .replace(/oblig[ée]s?/gi, 'mandatory')
         .replace(/expert-comptable/gi, 'chartered accountant')
         .replace(/expert comptable/gi, 'chartered accountant')
         .replace(/comptabilit[ée]/gi, 'accounting')
@@ -3003,6 +3017,7 @@ async function loadLiveSignals() {
         .replace(/cabinet/gi, 'firm')
         .replace(/plateforme agr[ée][ée]/gi, 'certified platform (PA)')
         .replace(/levée de fonds/gi, 'funding round')
+        .replace(/lev[ée]e\s+de\s+fonds/gi, 'funding round')
         .replace(/intelligence artificielle/gi, 'artificial intelligence')
         .replace(/automatisation/gi, 'automation')
         .replace(/num[ée]rique/gi, 'digital')
@@ -3010,14 +3025,25 @@ async function loadLiveSignals() {
         .replace(/lancement/gi, 'launch')
         .replace(/croissance/gi, 'growth')
         .replace(/march[ée]/gi, 'market')
+        .replace(/d[ée]mat[ée]rialisation/gi, 'digitalisation')
+        // Spanish
         .replace(/facturaci[óo]n electr[óo]nica/gi, 'electronic invoicing')
         .replace(/contabilidad/gi, 'accounting')
         .replace(/cumplimiento/gi, 'compliance')
+        .replace(/obligatorio/gi, 'mandatory')
+        .replace(/empresas/gi, 'companies')
+        .replace(/aut[oó]nomos?/gi, 'self-employed')
+        .replace(/adaptarse/gi, 'adapt')
+        .replace(/pymes?/gi, 'SMEs')
+        // German
         .replace(/Steuerberater/gi, 'tax advisor')
         .replace(/Buchf[ü]hrung/gi, 'bookkeeping')
         .replace(/Digitalisierung/gi, 'digitalisation')
         .replace(/[Ee]-[Rr]echnung/g, 'e-invoice')
         .replace(/Pflicht/g, 'mandatory requirement')
+        .replace(/Unternehmen/gi, 'companies')
+        .replace(/Kanzlei/gi, 'firm')
+        // Portuguese
         .replace(/contabilidade/gi, 'accounting')
         .replace(/fatura eletr[ôo]nica/gi, 'electronic invoice');
     }

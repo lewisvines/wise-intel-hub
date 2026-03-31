@@ -405,8 +405,8 @@ function isDuplicateSignal(title, bodyText) {
 
 // ── IMPLICATIONS ENGINE ───────────────────────────────────────────────────────
 function implication({ category, market, label='', title='', source='' }) {
-  const t = (title+' '+source).toLowerCase();
-  const l = label.toLowerCase();
+  const t = (title+' '+source+' '+label).toLowerCase(); // include label in text search
+  const l = (label+' '+title).toLowerCase(); // label + title for entity matching
   const isFunding = /rais[ei]|secures|leve|series|million|billion|milliard|funding/i.test(t);
   const isExpansion = /expan|enters|hiring|headcount|new.*market/i.test(t);
   const isProduct = /launch|feature|release|partner|integrat|copilot/i.test(t);
@@ -476,6 +476,23 @@ const TRANSLATIONS = {
   // French → English common terms
   fr: [
     [/facturation [ée]lectronique/gi, 'electronic invoicing'],
+    [/facture [ée]lectronique/gi, 'electronic invoice'],
+    [/investissements? records?/gi, 'record investment'],
+    [/investissements?/gi, 'investment'],
+    [/logiciels? comptables?/gi, 'accounting software'],
+    [/logiciels?/gi, 'software'],
+    [/ann[ée]e.cl[ée]/gi, 'key year'],
+    [/num[ée]riques?/gi, 'digital'],
+    [/d[ée]mat[ée]rialisation/gi, 'digitalisation'],
+    [/pr[êe]tes?|pr[êe]ts?/gi, 'ready'],
+    [/bient[ôo]t/gi, 'soon'],
+    [/g[ée]n[ée]ralisation/gi, 'rollout'],
+    [/renforce[r]?/gi, 'strengthens'],
+    [/empreinte/gi, 'footprint'],
+    [/avancer/gi, 'to advance'],
+    [/march[ée]/gi, 'market'],
+    [/fran[çc]ais[es]?/gi, 'French'],
+    [/oblig[ée]s?/gi, 'mandatory'],
     [/plateforme agr[ée][ée]/gi, 'certified platform (PA)'],
     [/expert-comptable/gi, 'chartered accountant'],
     [/expert comptable/gi, 'chartered accountant'],
