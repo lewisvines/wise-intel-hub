@@ -440,7 +440,11 @@ function implication({ category, market, label='', title='', source='' }) {
       if (isFunding) return 'CRITICAL: Pennylane raised $200M/EUR175M Series E at $4.25B valuation. Declared offensive capital to acquire legacy accounting software - GE is the implied target. Activate every GE practice now before their commercial team arrives.';
       if (isExpansion) return 'CRITICAL: Pennylane expanding headcount or territory. Spain H2 2026 confirmed, Germany live since Nov 2025. Each market entry gives a 6-12 month window before they reach critical accountant mass.';
       if (isProduct) return 'HIGH: Pennylane product or AI update. They ship fast. Assess gap to Sage Copilot and update the battlecard immediately.';
-      return 'CRITICAL: Pennylane EUR115M ARR, PA-certified, Spain H2 2026. Activate GE practices before they arrive.';
+      // Use title to determine story type
+      if (/german|allemagne|berlin|expand|munich/i.test(t)) return 'CRITICAL: Pennylane Germany (Nov 2025 launch, 100 engineers). Already operational, signing German practices. DATEV integration is their moat-builder. Monitor their DE accountant firm count monthly.';
+      if (/spain|espagne|espa|madrid|barcelona/i.test(t)) return 'CRITICAL: Pennylane confirmed Spain H2 2026. They are hiring a Spain country manager now. Despachos must be activated before their commercial team lands. The window is April-September 2026.';
+      if (/invest|record|logiciel|software|marché|market/i.test(t)) return 'HIGH: French accounting software market seeing record investment. Pennylane is the primary beneficiary. Monitor category growth as a leading indicator of competitive intensity.';
+      return 'CRITICAL: Pennylane EUR115M ARR, 6k+ firms, PA-certified, Spain H2 2026. Any news signals acceleration. Counter: GE practices are the moat — activate them before Pennylane arrives.';
     }
     if (l.includes('cegid')) {
       if (isAcquisition) return 'HIGH: Cegid acquisition - they grow through M&A. EBP 275k FR clients, Shine 400k SMBs plus banking, SevDesk in Germany. Shine gives them embedded French banking completing their platform gap.';
@@ -574,6 +578,8 @@ const TRANSLATIONS = {
   ],
   // German → English
   de: [
+    [/[Ee]-[Rr]echnungspflicht/g, 'e-invoicing obligation'],
+    [/[Ee]-[Rr]echnungsstellung/gi, 'electronic invoicing'],
     [/[Ee]-[Rr]echnung/g, 'e-invoice'],
     [/Elektronische Rechnung/gi, 'electronic invoice'],
     [/Steuerberater/gi, 'tax advisor'],

@@ -2995,12 +2995,17 @@ async function loadLiveSignals() {
     function lightTranslate(text) {
       if (!text) return text;
       return text
-        // French
+        // German compounds FIRST (before component words)
+        .replace(/[Ee]-[Rr]echnungspflicht/g, 'e-invoicing obligation')
+        .replace(/[Ee]-[Rr]echnungsstellung/gi, 'electronic invoicing')
+        .replace(/[Ee]-[Rr]echnung/g, 'e-invoice')
+        .replace(/[Ee]lektronische\s+[Rr]echnung/gi, 'electronic invoice')
+        // French compounds FIRST
         .replace(/facturation [ée]lectronique/gi, 'electronic invoicing')
         .replace(/facture [ée]lectronique/gi, 'electronic invoice')
+        .replace(/logiciels? comptables?/gi, 'accounting software')
         .replace(/investissements? records?/gi, 'record investment')
         .replace(/investissements?/gi, 'investment')
-        .replace(/logiciels? comptables?/gi, 'accounting software')
         .replace(/logiciels?/gi, 'software')
         .replace(/ann[ée]e.cl[ée]/gi, 'key year')
         .replace(/g[ée]n[ée]ralisation/gi, 'rollout')
