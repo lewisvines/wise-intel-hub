@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About WiSE Intel Hub — Sage Europe PMM</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sage:       #1a4a3a;
+    --sage2:      #2d6b54;
+    --sage3:      #4a9070;
+    --sage-pale:  #eef5f1;
+    --ink:        #0d0d0d;
+    --ink2:       #2a2a2a;
+    --ink3:       #5a5a5a;
+    --ink4:       #8a8a8a;
+    --paper:      #faf8f4;
+    --paper2:     #f2ede4;
+    --paper3:     #e8e0d0;
+    --accent:     #c8440a;
+    --amber:      #c07a10;
+    --rule:       #d4cdc0;
+    --white:      #ffffff;
+    --panel-w:    280px;
+    --badge-g-bg: #d1f0e0;
+    --badge-g-fg: #1a6b3a;
+    --badge-a-bg: #fdecc8;
+    --badge-a-fg: #8a5200;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 15px;
+    line-height: 1.7;
+    display: flex;
+    min-height: 100vh;
+  }
+
+  /* ── Left Panel ─────────────────────────────────────────────────────── */
+  .left-panel {
+    width: var(--panel-w);
+    min-width: var(--panel-w);
+    background: var(--sage);
+    min-height: 100vh;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    z-index: 10;
+  }
+
+  .panel-top {
+    padding: 32px 24px 24px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .panel-logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    color: #fff;
+    margin-bottom: 4px;
+  }
+
+  .panel-sub {
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+  }
+
+  .panel-about-label {
+    margin: 24px 24px 0;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .panel-section {
+    padding: 20px 24px 0;
+  }
+
+  .panel-section-title {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 10px;
+  }
+
+  .panel-nav a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 0;
+    font-size: 13px;
+    color: rgba(255,255,255,0.72);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    transition: color 0.15s;
+  }
+
+  .panel-nav a:hover { color: #fff; }
+  .panel-nav a:last-child { border-bottom: none; }
+
+  .panel-nav a .dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.2);
+    flex-shrink: 0;
+  }
+  .panel-nav a:hover .dot { background: var(--sage3); }
+
+  .panel-stat-row {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 4px;
+  }
+
+  .panel-stat {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+
+  .ps-n {
+    font-family: 'DM Serif Display', serif;
+    font-size: 26px;
+    color: #fff;
+    line-height: 1;
+  }
+
+  .ps-l {
+    font-size: 11px;
+    color: rgba(255,255,255,0.4);
+    line-height: 1.3;
+  }
+
+  .panel-cta {
+    margin: 24px;
+    margin-top: auto;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .panel-cta a {
+    display: block;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 6px;
+    padding: 11px 16px;
+    font-size: 12px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    text-align: center;
+    transition: background 0.15s;
+    margin-bottom: 8px;
+  }
+
+  .panel-cta a:hover { background: rgba(255,255,255,0.14); }
+  .panel-cta a.primary { background: var(--sage2); border-color: var(--sage2); color: #fff; }
+  .panel-cta a.primary:hover { background: var(--sage3); }
+
+  .panel-updated {
+    text-align: center;
+    font-size: 10px;
+    color: rgba(255,255,255,0.25);
+    margin-top: 8px;
+  }
+
+  /* ── Main content ───────────────────────────────────────────────────── */
+  .main {
+    flex: 1;
+    overflow-y: auto;
+  }
+
+  /* ── Cover strip ────────────────────────────────────────────────────── */
+  .cover {
+    background: var(--sage);
+    padding: 56px 64px 52px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -100px;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.06);
+    pointer-events: none;
+  }
+
+  .cover-eyebrow {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 16px;
+  }
+
+  .cover-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(34px, 4vw, 52px);
+    color: #fff;
+    line-height: 1.1;
+    margin-bottom: 20px;
+  }
+
+  .cover-title em { font-style: italic; color: rgba(255,255,255,0.55); }
+
+  .cover-desc {
+    font-size: 15px;
+    color: rgba(255,255,255,0.6);
+    max-width: 520px;
+    line-height: 1.65;
+  }
+
+  /* ── Page body ──────────────────────────────────────────────────────── */
+  .page-body {
+    padding: 56px 64px;
+    max-width: 900px;
+  }
+
+  @media (max-width: 900px) {
+    body { flex-direction: column; }
+    .left-panel { width: 100%; height: auto; position: relative; }
+    .cover, .page-body { padding: 36px 28px; }
+  }
+
+  /* ── Typography ─────────────────────────────────────────────────────── */
+  .section { margin-bottom: 60px; }
+
+  .eyebrow {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--sage2);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .eyebrow::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
+
+  h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 30px;
+    font-weight: 400;
+    color: var(--ink);
+    line-height: 1.2;
+    margin-bottom: 20px;
+  }
+  h2 em { font-style: italic; color: var(--ink3); }
+
+  p { color: var(--ink2); margin-bottom: 14px; line-height: 1.75; }
+  p:last-child { margin-bottom: 0; }
+  strong { font-weight: 600; color: var(--ink); }
+
+  .rule { height: 1px; background: var(--rule); margin: 0 0 56px; }
+
+  /* ── Pull quote ─────────────────────────────────────────────────────── */
+  .pull {
+    display: flex;
+    gap: 0;
+    margin: 28px 0;
+  }
+  .pull-bar { width: 3px; background: var(--sage2); border-radius: 2px; flex-shrink: 0; }
+  .pull-text {
+    background: var(--sage-pale);
+    padding: 18px 24px;
+    border-radius: 0 6px 6px 0;
+    flex: 1;
+  }
+  .pull-text p {
+    font-family: 'DM Serif Display', serif;
+    font-size: 17px;
+    font-style: italic;
+    color: var(--sage);
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  /* ── Source grid ────────────────────────────────────────────────────── */
+  .source-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 24px;
+  }
+  @media (max-width: 700px) { .source-grid { grid-template-columns: 1fr; } }
+
+  .source-card {
+    background: var(--paper2);
+    border: 1px solid var(--rule);
+    border-radius: 7px;
+    padding: 14px 16px;
+  }
+  .source-type {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--sage2);
+    margin-bottom: 5px;
+  }
+  .source-name { font-size: 13px; font-weight: 500; color: var(--ink); margin-bottom: 4px; }
+  .source-desc { font-size: 12px; color: var(--ink4); line-height: 1.5; }
+
+  /* ── Process steps ──────────────────────────────────────────────────── */
+  .steps { display: flex; flex-direction: column; margin-top: 24px; }
+  .step {
+    display: flex;
+    gap: 20px;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .step:last-child { border-bottom: none; }
+  .step-n {
+    font-family: 'DM Serif Display', serif;
+    font-size: 26px;
+    color: var(--paper3);
+    min-width: 32px;
+    padding-top: 2px;
+  }
+  .step-title { font-size: 14px; font-weight: 600; color: var(--ink); margin-bottom: 5px; }
+  .step-desc { font-size: 13px; color: var(--ink3); line-height: 1.6; margin: 0; }
+
+  /* ── Accuracy table ─────────────────────────────────────────────────── */
+  .acc-table { width: 100%; border-collapse: collapse; margin-top: 24px; font-size: 13px; }
+  .acc-table thead th {
+    text-align: left;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--ink4);
+    padding: 8px 12px;
+    border-bottom: 2px solid var(--rule);
+  }
+  .acc-table tbody tr:nth-child(even) { background: var(--paper2); }
+  .acc-table tbody td {
+    padding: 11px 12px;
+    color: var(--ink2);
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+  }
+  .acc-table tbody td:first-child { font-weight: 500; color: var(--ink); }
+
+  .badge {
+    display: inline-block;
+    padding: 2px 7px;
+    border-radius: 3px;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+  }
+  .badge-g { background: var(--badge-g-bg); color: var(--badge-g-fg); }
+  .badge-a { background: var(--badge-a-bg); color: var(--badge-a-fg); }
+
+  /* ── Confidence bars ────────────────────────────────────────────────── */
+  .conf-rows { display: flex; flex-direction: column; gap: 12px; margin-top: 24px; }
+  .conf-item { display: flex; align-items: center; gap: 14px; }
+  .conf-label { font-size: 13px; font-weight: 500; color: var(--ink); min-width: 190px; }
+  .conf-bar-wrap { flex: 1; height: 5px; background: var(--paper3); border-radius: 3px; overflow: hidden; }
+  .conf-bar { height: 100%; border-radius: 3px; background: linear-gradient(90deg, var(--sage), var(--sage3)); width: 0; transition: width 1.2s cubic-bezier(.4,0,.2,1); }
+  .conf-pct { font-size: 12px; font-weight: 600; color: var(--sage2); min-width: 32px; text-align: right; }
+
+  /* ── Limitation box ─────────────────────────────────────────────────── */
+  .limit-box {
+    background: #fff8f0;
+    border: 1px solid #f0d0a0;
+    border-left: 4px solid var(--amber);
+    border-radius: 0 7px 7px 0;
+    padding: 20px 24px;
+    margin-top: 20px;
+  }
+  .limit-box .lt { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--amber); margin-bottom: 14px; }
+  .limit-box p { font-size: 13.5px; color: var(--ink2); margin-bottom: 10px; }
+
+  /* ── Update schedule table ──────────────────────────────────────────── */
+  .schedule-grid {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0;
+    margin-top: 24px;
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .sg-time {
+    background: var(--sage);
+    color: rgba(255,255,255,0.9);
+    font-family: 'DM Serif Display', serif;
+    font-size: 22px;
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    min-width: 110px;
+  }
+  .sg-time:last-of-type { border-bottom: none; }
+  .sg-desc {
+    background: var(--paper2);
+    padding: 18px 20px;
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .sg-desc:last-child { border-bottom: none; }
+  .sg-desc strong { font-size: 13px; font-weight: 600; color: var(--ink); display: block; margin-bottom: 3px; }
+  .sg-desc span { font-size: 12px; color: var(--ink4); }
+
+  /* ── Audience cards ─────────────────────────────────────────────────── */
+  .audience-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 20px; }
+  @media (max-width: 700px) { .audience-grid { grid-template-columns: 1fr; } }
+  .audience-card {
+    border: 1px solid var(--rule);
+    border-radius: 7px;
+    padding: 16px 18px;
+    background: var(--white);
+  }
+  .aud-role { font-size: 12px; font-weight: 600; color: var(--sage2); margin-bottom: 6px; }
+  .aud-use { font-size: 13px; color: var(--ink2); line-height: 1.55; margin: 0; }
+
+  /* ── Footer ─────────────────────────────────────────────────────────── */
+  footer {
+    background: var(--sage);
+    color: rgba(255,255,255,0.45);
+    padding: 28px 64px;
+    font-size: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer strong { color: rgba(255,255,255,0.75); }
+
+  /* ── Animations ─────────────────────────────────────────────────────── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .cover-title, .cover-desc { animation: fadeUp 0.7s ease forwards; }
+  .cover-desc { animation-delay: 0.1s; opacity: 0; }
+  .cover-title { opacity: 0; }
+</style>
+</head>
+<body>
+
+<!-- ══ LEFT PANEL ═══════════════════════════════════════════════════════════ -->
+<aside class="left-panel">
+  <div class="panel-top">
+    <div class="panel-logo">WiSE Intel Hub</div>
+    <div class="panel-sub">Sage Europe · PMM Intelligence</div>
+  </div>
+
+  <div class="panel-about-label">About this Hub</div>
+
+  <div class="panel-section" style="margin-top:16px;">
+    <div class="panel-section-title">What it is</div>
+    <p style="font-size:12px;color:rgba(255,255,255,0.55);line-height:1.6;margin:0;">A continuously updated competitive and regulatory intelligence platform for Sage&#8217;s European accountant market across France, Spain, Germany and Portugal.</p>
+  </div>
+
+  <div class="panel-section" style="margin-top:20px;">
+    <div class="panel-section-title">Navigate this document</div>
+    <nav class="panel-nav">
+      <a href="#purpose"><span class="dot"></span>Purpose & scope</a>
+      <a href="#sources"><span class="dot"></span>Source coverage</a>
+      <a href="#methodology"><span class="dot"></span>Methodology</a>
+      <a href="#accuracy"><span class="dot"></span>Confidence levels</a>
+      <a href="#limitations"><span class="dot"></span>Known limitations</a>
+      <a href="#automation"><span class="dot"></span>Automation</a>
+      <a href="#audience"><span class="dot"></span>Who uses it</a>
+    </nav>
+  </div>
+
+  <div class="panel-section" style="margin-top:24px;">
+    <div class="panel-section-title">At a glance</div>
+    <div class="panel-stat-row">
+      <div class="panel-stat">
+        <div class="ps-n">6</div>
+        <div class="ps-l">signal categories<br>monitored</div>
+      </div>
+      <div class="panel-stat">
+        <div class="ps-n">40+</div>
+        <div class="ps-l">sources scanned<br>per cycle</div>
+      </div>
+      <div class="panel-stat">
+        <div class="ps-n">2×</div>
+        <div class="ps-l">daily automated<br>refreshes</div>
+      </div>
+      <div class="panel-stat">
+        <div class="ps-n">4</div>
+        <div class="ps-l">markets covered<br>FR · ES · DE · PT</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel-cta">
+    <a class="primary" href="dev.html">↗ Open Intel Hub</a>
+    <a href="mailto:lewis.vines@sage.com">Contact PMM Lead</a>
+    <div class="panel-updated">Updated April 2026</div>
+  </div>
+</aside>
+
+<!-- ══ MAIN CONTENT ══════════════════════════════════════════════════════════ -->
+<div class="main">
+
+  <!-- Cover -->
+  <div class="cover">
+    <div class="cover-eyebrow">Signal Reliability & Methodology · Sage Europe PMM</div>
+    <h1 class="cover-title">How we know<br><em>what we know</em></h1>
+    <p class="cover-desc">An executive briefing on the sources, processes and quality controls behind the WiSE Intel Hub — and why the signals it surfaces can be trusted for strategic decision-making.</p>
+  </div>
+
+  <div class="page-body">
+
+    <!-- ── Purpose ── -->
+    <div class="section" id="purpose">
+      <div class="eyebrow">01 · Purpose</div>
+      <h2>What the WiSE Intel Hub <em>is and is not</em></h2>
+      <p>The WiSE Intel Hub is a continuously updated competitive and regulatory intelligence platform built specifically for Sage&#8217;s European accountant market, covering France, Spain, Germany and Portugal. It surfaces signals across six categories: competitive moves, regulatory developments, AI and product changes, hiring patterns, pricing, and brand positioning.</p>
+      <p>It is designed as a <strong>decision-support tool</strong>, not a replacement for primary research or analyst-grade deep dives. Its purpose is to ensure the PMM, Sales, Marketing and Customer Success teams are never caught off guard by a competitor move, a mandate update that shifts commercial urgency, or a hiring pattern that signals where a rival is investing next.</p>
+      <div class="pull">
+        <div class="pull-bar"></div>
+        <div class="pull-text"><p>&#8220;The accountant market moves fast. By the time a signal becomes common knowledge, the commercial window has usually closed. WiSE is designed to surface the signal while there is still time to act on it.&#8221;</p></div>
+      </div>
+      <p>Each signal includes four components: a factual summary, the specific source it was drawn from, the date of the intelligence, and a strategic implication written for Sage&#8217;s commercial context. The implication is where editorial judgement is applied &#8212; the facts are sourced, the framing is ours.</p>
+    </div>
+
+    <div class="rule"></div>
+
+    <!-- ── Sources ── -->
+    <div class="section" id="sources">
+      <div class="eyebrow">02 · Source Coverage</div>
+      <h2>Where the intelligence <em>comes from</em></h2>
+      <p>Signals are drawn from a structured set of source categories, each weighted by reliability and relevance to the European SMB accounting market. No signal is published without an identifiable, named source. The source is always shown on the card.</p>
+      <div class="source-grid">
+        <div class="source-card">
+          <div class="source-type">Regulatory — Primary</div>
+          <div class="source-name">DGFiP, AEAT, KoSIT, OCC Portugal</div>
+          <div class="source-desc">Official government and tax authority publications. Highest confidence tier — used for all mandate timeline, penalty and certification intelligence.</div>
+        </div>
+        <div class="source-card">
+          <div class="source-type">Competitive — Financial</div>
+          <div class="source-name">TechCrunch, Sifted, EU-Startups, Bloomberg, Maddyness</div>
+          <div class="source-desc">Verified funding rounds, valuations and M&amp;A announcements. Used for Pennylane, Cegid, Holded capital events.</div>
+        </div>
+        <div class="source-card">
+          <div class="source-type">Hiring Intelligence</div>
+          <div class="source-name">LinkedIn Jobs, Lever.co, Careers pages</div>
+          <div class="source-desc">Open roles scanned <strong>daily</strong> per competitor. Hiring patterns are leading indicators of product investment 6&#8211;12 months ahead of launch.</div>
+        </div>
+        <div class="source-card">
+          <div class="source-type">Product & AI</div>
+          <div class="source-name">Xero Central, Pennylane product docs, vendor blogs</div>
+          <div class="source-desc">Feature release notes, product updates and AI capability announcements. Used for Copilot, JAX and ComptAssistant tracking.</div>
+        </div>
+        <div class="source-card">
+          <div class="source-type">Brand & Positioning</div>
+          <div class="source-name">Competitor websites, Capterra, G2, GetApp</div>
+          <div class="source-desc">Messaging shifts, review sentiment and tagline changes. Monitored quarterly for positioning drift.</div>
+        </div>
+        <div class="source-card">
+          <div class="source-type">Pricing</div>
+          <div class="source-name">Public pricing pages, channel partner confirmations</div>
+          <div class="source-desc">Direct observation of published pricing. Sage channel pricing confirmed via internal sources.</div>
+        </div>
+        <div class="source-card">
+          <div class="source-type">Sage Internal</div>
+          <div class="source-name">PMM team, Commercial verbatims, Synthetic NPS data</div>
+          <div class="source-desc">Field intelligence from sales conversations, customer success reports and ~3,900 synthetic NPS verbatims across 13 Sage products. Triangulates external signals with ground truth.</div>
+        </div>
+        <div class="source-card">
+          <div class="source-type">Specialist Press</div>
+          <div class="source-name">Compta Online, SAPeInvoice.com, AccountingToday</div>
+          <div class="source-desc">Trade publications covering the European accounting profession. Used for practitioner-level signal validation.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rule"></div>
+
+    <!-- ── Methodology ── -->
+    <div class="section" id="methodology">
+      <div class="eyebrow">03 · Methodology</div>
+      <h2>How signals are <em>identified and validated</em></h2>
+      <p>Signals go through a structured five-stage process before appearing in the hub. The process is designed to eliminate noise, prevent false positives, and ensure every signal that reaches a user has been checked against one question: <em>does this change what we should do or say?</em></p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-n">01</div>
+          <div>
+            <div class="step-title">Automated twice-daily scan across 40+ sources</div>
+            <p class="step-desc">A scheduled process runs at 06:00 and 13:00 UTC on weekdays, searching across the full source library using structured queries per competitor, market and category. Hiring signals are scanned daily. Only content with an identifiable publisher and date is retained.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-n">02</div>
+          <div>
+            <div class="step-title">Relevance filter — Europe accountant market only</div>
+            <p class="step-desc">Results are filtered against defined relevance criteria: does this affect the French, Spanish, German or Portuguese SMB accounting market, the accountant channel, or Sage&#8217;s competitive position? Global news with no European accountant implication is discarded.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-n">03</div>
+          <div>
+            <div class="step-title">Source verification and dating</div>
+            <p class="step-desc">Each signal is traced to its primary source. Secondary sources are only used when they cite a primary source. The date of the original publication is used &#8212; not the date it was discovered. This prevents stale intelligence being presented as new.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-n">04</div>
+          <div>
+            <div class="step-title">Strategic implication — written for Sage&#8217;s context</div>
+            <p class="step-desc">Every signal includes a &#8220;Strategic implication&#8221; written from Sage&#8217;s perspective. This is the only editorial layer. The factual body contains only what is verifiable; the implication applies Sage&#8217;s market knowledge to frame the commercial significance.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-n">05</div>
+          <div>
+            <div class="step-title">PMM review and publication</div>
+            <p class="step-desc">Weekly signals are reviewed by the Europe PMM lead before the hub updates. Signals that cannot be verified, are too speculative, or duplicate existing intelligence are removed. The timestamp reflects when PMM review completed, not when the scan ran.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rule"></div>
+
+    <!-- ── Accuracy ── -->
+    <div class="section" id="accuracy">
+      <div class="eyebrow">04 · Confidence & Accuracy</div>
+      <h2>What we can and <em>cannot claim</em></h2>
+      <p>Different signal categories carry different inherent confidence levels. This reflects the nature of competitive intelligence, not a limitation of the hub. Regulatory signals sourced from government publications are near-certain. Hiring signals are probabilistic leading indicators. The table below sets explicit expectations for each category.</p>
+
+      <table class="acc-table">
+        <thead>
+          <tr>
+            <th>Signal Category</th>
+            <th>Confidence</th>
+            <th>Primary source</th>
+            <th>Typical lag</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Regulatory (PA, Verifactu, XRechnung, SAF-T)</td><td><span class="badge badge-g">Very High</span></td><td>Government / Official body</td><td>&lt;48 hours</td></tr>
+          <tr><td>Competitive — Funding / M&amp;A</td><td><span class="badge badge-g">Very High</span></td><td>Press release / Financial press</td><td>&lt;72 hours</td></tr>
+          <tr><td>Product launches / feature releases</td><td><span class="badge badge-g">High</span></td><td>Vendor press releases / release notes</td><td>Same day</td></tr>
+          <tr><td>Pricing changes</td><td><span class="badge badge-g">High</span></td><td>Public pricing pages (verified)</td><td>Same day</td></tr>
+          <tr><td>Hiring signals (market intent)</td><td><span class="badge badge-a">Medium</span></td><td>LinkedIn / job boards (daily scan)</td><td>Same day</td></tr>
+          <tr><td>Brand / positioning shifts</td><td><span class="badge badge-a">Medium</span></td><td>Competitor websites / reviews</td><td>Quarterly review</td></tr>
+        </tbody>
+      </table>
+
+      <div class="conf-rows" style="margin-top:32px;">
+        <div style="font-size:11px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink4);margin-bottom:4px;">Signal confidence by category</div>
+        <div class="conf-item"><div class="conf-label">Regulatory mandates</div><div class="conf-bar-wrap"><div class="conf-bar" data-w="97"></div></div><div class="conf-pct">97%</div></div>
+        <div class="conf-item"><div class="conf-label">Funding / M&amp;A events</div><div class="conf-bar-wrap"><div class="conf-bar" data-w="95"></div></div><div class="conf-pct">95%</div></div>
+        <div class="conf-item"><div class="conf-label">Product releases</div><div class="conf-bar-wrap"><div class="conf-bar" data-w="90"></div></div><div class="conf-pct">90%</div></div>
+        <div class="conf-item"><div class="conf-label">Pricing intelligence</div><div class="conf-bar-wrap"><div class="conf-bar" data-w="88"></div></div><div class="conf-pct">88%</div></div>
+        <div class="conf-item"><div class="conf-label">Hiring signals</div><div class="conf-bar-wrap"><div class="conf-bar" data-w="72"></div></div><div class="conf-pct">72%</div></div>
+        <div class="conf-item"><div class="conf-label">Brand positioning</div><div class="conf-bar-wrap"><div class="conf-bar" data-w="78"></div></div><div class="conf-pct">78%</div></div>
+      </div>
+    </div>
+
+    <div class="rule"></div>
+
+    <!-- ── Limitations ── -->
+    <div class="section" id="limitations">
+      <div class="eyebrow">05 · Honest Limitations</div>
+      <h2>What the hub <em>does not capture</em></h2>
+      <p>Credibility requires honesty about gaps. The WiSE Intel Hub is an excellent early-warning system for publicly observable intelligence. There are categories it structurally cannot cover.</p>
+      <div class="limit-box">
+        <div class="lt">⚠ Known gaps — by design</div>
+        <p><strong>Private commercial conversations.</strong> Deal terms, undisclosed partnerships and private pricing agreements are not observable from public sources. Field sales intelligence is the only channel for this.</p>
+        <p><strong>Unannounced product roadmaps.</strong> What a competitor is building but has not yet announced cannot be surfaced. Hiring patterns provide a probabilistic proxy but cannot confirm direction.</p>
+        <p><strong>Internal Sage strategy context.</strong> The hub surfaces external signals only. Strategic implications must always be read against internal context the PMM team holds.</p>
+        <p><strong>Breaking news after 13:00 UTC.</strong> The second daily scan runs at 13:00 UTC. Events after this point will appear in the following morning&#8217;s 06:00 run. For time-critical breaking news, manual update is available on request.</p>
+      </div>
+    </div>
+
+    <div class="rule"></div>
+
+    <!-- ── Automation ── -->
+    <div class="section" id="automation">
+      <div class="eyebrow">06 · Automation & Governance</div>
+      <h2>How the hub stays <em>current</em></h2>
+      <p>From April 2026, the WiSE Intel Hub runs on a fully automated twice-daily update cycle, triggered at <strong>06:00 UTC</strong> (morning brief) and <strong>13:00 UTC</strong> (midday refresh) on weekdays via GitHub Actions. Hiring signals are scanned on every run &#8212; not monthly &#8212; giving same-day visibility on competitor talent moves.</p>
+      <div class="schedule-grid">
+        <div class="sg-time">06:00</div>
+        <div class="sg-desc"><strong>Morning brief</strong><span>Full scan across all 6 categories. Overnight news surfaced. Hub updated before working day begins.</span></div>
+        <div class="sg-time">13:00</div>
+        <div class="sg-desc"><strong>Midday refresh</strong><span>Second full scan. Captures morning press releases, regulatory announcements and any competitor moves since 06:00.</span></div>
+        <div class="sg-time">Weekly</div>
+        <div class="sg-desc"><strong>PMM editorial review</strong><span>PMM lead reviews and validates high-impact signals. Adds strategic context where needed. Removes unverifiable items.</span></div>
+      </div>
+      <div class="pull" style="margin-top:28px;">
+        <div class="pull-bar"></div>
+        <div class="pull-text"><p>&#8220;The system does not decide what matters. It ensures nothing that matters is missed.&#8221;</p></div>
+      </div>
+      <p>Version history is maintained in GitHub. Every signal update is timestamped and traceable. If a signal is later found to be incorrect or superseded, the revision is recorded &#8212; creating an auditable intelligence trail.</p>
+    </div>
+
+    <div class="rule"></div>
+
+    <!-- ── Audience ── -->
+    <div class="section" id="audience">
+      <div class="eyebrow">07 · Intended Use</div>
+      <h2>Who uses this and <em>how</em></h2>
+      <p>The hub is built for four primary audiences within Sage&#8217;s European commercial organisation.</p>
+      <div class="audience-grid">
+        <div class="audience-card">
+          <div class="aud-role">Sales teams</div>
+          <p class="aud-use">Pre-call competitive positioning. &#8220;Pennylane is coming to Spain in Q2 &#8212; here&#8217;s what to say when a Despacho raises it.&#8221; Competitive and Pricing signals are the primary utility.</p>
+        </div>
+        <div class="audience-card">
+          <div class="aud-role">Marketing</div>
+          <p class="aud-use">Campaign and messaging alignment. If Cegid deploys 100 new salespeople in France, marketing needs to know before the campaign launches. Brand and Hiring signals are the primary utility.</p>
+        </div>
+        <div class="audience-card">
+          <div class="aud-role">PMM — ELT briefing</div>
+          <p class="aud-use">Weekly synthesis for leadership. The &#8220;If You Read Nothing Else&#8221; summary tells the single most important thing that changed this week and why it matters commercially.</p>
+        </div>
+        <div class="audience-card">
+          <div class="aud-role">Customer Success</div>
+          <p class="aud-use">Retention preparation. Mandate timeline signals allow CS teams to proactively raise compliance readiness with at-risk accounts before a competitor does it first.</p>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /page-body -->
+
+  <footer>
+    <div><strong>WiSE Intel Hub</strong> &mdash; Signal Reliability &amp; Methodology</div>
+    <div>Lewis Vines, PMM Lead &middot; Europe Small Business &amp; Accountants &middot; April 2026</div>
+    <div>FR &middot; ES &middot; DE &middot; PT</div>
+  </footer>
+
+</div><!-- /main -->
+
+<script>
+  // Animate confidence bars on scroll into view
+  const bars = document.querySelectorAll('.conf-bar');
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        bars.forEach(b => { b.style.width = b.dataset.w + '%'; });
+        io.disconnect();
+      }
+    });
+  }, { threshold: 0.4 });
+  const confSection = document.querySelector('.conf-rows');
+  if (confSection) io.observe(confSection);
+
+  // Smooth scroll for panel nav links
+  document.querySelectorAll('.panel-nav a').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    });
+  });
+</script>
+</body>
+</html>

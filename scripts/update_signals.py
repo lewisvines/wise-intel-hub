@@ -1,7 +1,8 @@
 """
 WiSE Intel Hub — Automated Signal Updater
-Runs daily via GitHub Actions. Searches for fresh intelligence across
-6 signal categories, then rewrites the signals section of dev.html.
+Runs twice daily (06:00 + 13:00 UTC) via GitHub Actions.
+Searches 6 signal categories using Claude with web search,
+rewrites the signals section of dev.html, updates date/count.
 """
 
 import anthropic
@@ -9,164 +10,203 @@ import datetime
 import re
 import os
 import sys
+import json
 
 # ── Configuration ─────────────────────────────────────────────────────────────
 
+# All categories scanned on every run (twice daily).
+# Hiring is included every run — not monthly — for same-day visibility.
 SIGNAL_CATEGORIES = [
-    ("Competitive", ["Pennylane", "Cegid", "Holded", "Xero", "MyUnisoft", "Conciliator", "Lexoffice", "DATEV"]),
-    ("Regulatory",  ["France PA mandate e-invoicing 2026", "Spain Verifactu 2027", "Germany XRechnung", "Portugal SAF-T"]),
-    ("AI & Tech",   ["accounting AI copilot 2026", "Xero JAX AI", "Pennylane ComptAssistant"]),
-    ("Hiring",      ["Pennylane hiring Spain 2026", "Cegid hiring France", "Holded engineering jobs"]),
-    ("Pricing",     ["Holded pricing 2026", "Sage Active pricing Spain France"]),
-    ("Brand",       ["Pennylane brand positioning accountants 2026"]),
+    {
+        "label": "Competitive",
+        "topics": ["Pennylane news 2026", "Cegid accounting news 2026",
+                   "Holded Spain news 2026", "MyUnisoft France 2026",
+                   "Conciliator accounting France 2026", "Lexoffice Germany 2026"],
+    },
+    {
+        "label": "Regulatory",
+        "topics": ["France PA e-invoicing mandate 2026", "Spain Verifactu 2026 2027",
+                   "Germany XRechnung e-invoicing 2026", "Portugal SAF-T 2026 2027"],
+    },
+    {
+        "label": "AI & Tech",
+        "topics": ["accounting AI software 2026", "Xero JAX AI 2026",
+                   "Pennylane ComptAssistant AI", "Sage Copilot AI 2026"],
+    },
+    {
+        "label": "Hiring",
+        "topics": ["Pennylane jobs hiring Spain Germany 2026",
+                   "Cegid hiring France accountants 2026",
+                   "Holded engineering jobs Spain 2026",
+                   "Xero hiring Europe 2026"],
+    },
+    {
+        "label": "Pricing",
+        "topics": ["Holded pricing 2026", "Sage Active pricing Spain France 2026",
+                   "Pennylane pricing accountants 2026"],
+    },
+    {
+        "label": "Brand",
+        "topics": ["Pennylane brand marketing accountants 2026",
+                   "Cegid brand positioning SMB Europe 2026"],
+    },
 ]
 
 HTML_FILE = "dev.html"
-TODAY = datetime.date.today()
+TODAY     = datetime.datetime.utcnow()
 TODAY_STR = TODAY.strftime("%B %d, %Y")
 DATE_SHORT = TODAY.strftime("%b %Y")
+RUN_TIME  = TODAY.strftime("%H:%M UTC")
 
 # ── Claude client ─────────────────────────────────────────────────────────────
 
 client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
 
-def search_and_summarise(category: str, topics: list[str]) -> list[dict]:
-    """Ask Claude (with web search) for the latest signals in a category."""
+TAG_CLASS = {
+    "Competitive": "t-red",
+    "Regulatory":  "t-teal",
+    "AI & Tech":   "t-purple",
+    "Hiring":      "t-orange",
+    "Pricing":     "t-amber",
+    "Brand":       "t-pink",
+}
+
+def search_signals(category_label: str, topics: list[str]) -> list[dict]:
+    """Use Claude with web search to find fresh signals for a category."""
     topics_str = ", ".join(topics)
-    prompt = f"""You are a senior competitive intelligence analyst for Sage Group's European PMM team.
-Search the web for the latest news (last 7 days) on these topics: {topics_str}.
+    prompt = f"""You are a senior competitive intelligence analyst for Sage Group's European PMM team,
+covering the accountant software market in France, Spain, Germany and Portugal.
 
-Focus on: funding rounds, product launches, hiring announcements, regulatory updates, pricing changes, 
-M&A activity, market positioning, and any news relevant to the French, Spanish, German or Portuguese 
-SMB accounting software market.
+Search the web for news published in the LAST 7 DAYS on these topics: {topics_str}
 
-Return ONLY a JSON array of signal objects. Each object must have:
-- "category": "{category}"
-- "tag": one of [Competitive, Regulatory, AI & Tech, Hiring, Pricing, Brand]
-- "subtag": company or country name (e.g. "Pennylane", "France", "Germany")
-- "date": short date like "Apr 2026"
-- "title": bold headline under 20 words
-- "body": 3-5 sentences of factual detail with source references
-- "implication": 2-3 sentences on what this means for Sage's strategy
-- "source": source name and date
+Focus on: funding rounds, product launches, regulatory updates, hiring announcements, pricing changes,
+M&A activity, AI features, market positioning — anything relevant to the European SMB accounting market.
 
-Return 1-3 signals maximum. If there is genuinely no new news in the last 7 days for this category, 
-return an empty array []. Do not fabricate signals. Only include verified, sourced information.
+Return ONLY a JSON array. Each element must be an object with these exact keys:
+  "tag":         one of [Competitive, Regulatory, AI & Tech, Hiring, Pricing, Brand]
+  "subtag":      company or country (e.g. "Pennylane", "France", "Germany")
+  "date":        short date string like "Apr 2026"
+  "title":       bold headline, max 20 words, no trailing period
+  "body":        3-5 sentences of factual detail with source references inline
+  "implication": 2-3 sentences on what this means for Sage's European accountant strategy
+  "source":      "Source Name, Month Year"
 
-Return ONLY valid JSON. No markdown, no preamble."""
+Rules:
+- Return 0 to 3 signals maximum
+- If there is NO genuinely new news in the last 7 days for these topics, return []
+- NEVER fabricate signals — only include verified, sourced information
+- Do not duplicate signals that are older than 7 days
 
-    response = client.messages.create(
-        model="claude-sonnet-4-20250514",
-        max_tokens=2000,
-        tools=[{"type": "web_search_20250305", "name": "web_search"}],
-        messages=[{"role": "user", "content": prompt}]
-    )
+Return ONLY valid JSON. No markdown fences, no explanation, no preamble."""
 
-    # Extract text content from response
-    text = ""
-    for block in response.content:
-        if block.type == "text":
-            text += block.text
-
-    # Parse JSON
     try:
-        # Strip any markdown fences if present
+        response = client.messages.create(
+            model="claude-sonnet-4-20250514",
+            max_tokens=2000,
+            tools=[{"type": "web_search_20250305", "name": "web_search"}],
+            messages=[{"role": "user", "content": prompt}]
+        )
+
+        text = ""
+        for block in response.content:
+            if hasattr(block, "text"):
+                text += block.text
+
         text = re.sub(r"```json\s*|\s*```", "", text).strip()
-        import json
+        if not text or text == "[]":
+            return []
         signals = json.loads(text)
         return signals if isinstance(signals, list) else []
+
     except Exception as e:
-        print(f"  Warning: could not parse JSON for {category}: {e}", file=sys.stderr)
+        print(f"  Warning [{category_label}]: {e}", file=sys.stderr)
         return []
 
 
-def signal_to_html(sig: dict, idx: int) -> str:
-    """Convert a signal dict to HTML card markup."""
-    cat = sig.get("tag", "Competitive").lower().replace(" & ", "-").replace(" ", "-")
-    tag_class_map = {
-        "competitive": "t-red",
-        "regulatory": "t-teal",
-        "ai-tech": "t-purple",
-        "hiring": "t-orange",
-        "pricing": "t-amber",
-        "brand": "t-pink",
-    }
-    tag_class = tag_class_map.get(cat, "t-red")
-    tag_label = sig.get("tag", "Competitive")
-    subtag = sig.get("subtag", "")
-    date = sig.get("date", DATE_SHORT)
-    title = sig.get("title", "")
-    body = sig.get("body", "")
-    implication = sig.get("implication", "")
-    source = sig.get("source", "")
+def signal_to_html(sig: dict) -> str:
+    tag     = sig.get("tag", "Competitive")
+    subtag  = sig.get("subtag", "")
+    date    = sig.get("date", DATE_SHORT)
+    title   = sig.get("title", "")
+    body    = sig.get("body", "")
+    impl    = sig.get("implication", "")
+    source  = sig.get("source", "")
+    tc      = TAG_CLASS.get(tag, "t-red")
+    dc      = tag.lower().replace(" & ", "-").replace(" ", "-")
 
     return f"""
-    <div class="signal-card" data-c="{cat}">
-      <div class="sc-top"><div class="sc-tags"><span class="tag {tag_class}">{tag_label}</span><span class="tag t-grey">{subtag}</span></div><span class="sc-date">{date}</span></div>
+    <div class="signal-card" data-c="{dc}">
+      <div class="sc-top"><div class="sc-tags"><span class="tag {tc}">{tag}</span><span class="tag t-grey">{subtag}</span></div><span class="sc-date">{date}</span></div>
       <div class="sc-title"><strong>{title}</strong></div>
       <div class="sc-body">{body}</div>
-      <div class="sc-implication"><div class="sc-impl-label">Strategic implication</div><div class="sc-impl-body">{implication}</div></div>
+      <div class="sc-implication"><div class="sc-impl-label">Strategic implication</div><div class="sc-impl-body">{impl}</div></div>
       <div class="sc-source">Source: {source}</div>
     </div>"""
 
 
-def update_html(new_signals_html: str, signal_count: int):
-    """Splice new signals and metadata into dev.html."""
+def update_html(new_signals_html: str, total: int):
     with open(HTML_FILE, "r", encoding="utf-8") as f:
         html = f.read()
 
-    # Update date
-    html = re.sub(r"Updated: \w+ \d+, \d{4}", f"Updated: {TODAY_STR}", html)
+    # Date
+    html = re.sub(
+        r"Updated: [A-Za-z]+ \d{1,2}, \d{4}",
+        f"Updated: {TODAY_STR}",
+        html
+    )
 
-    # Update signal count in stat cell
+    # Stat cell count
     html = re.sub(
         r'(<div class="stat-n">)\d+(</div><div class="stat-l">Signals this week)',
-        rf'\g<1>{signal_count}\g<2>',
+        rf'\g<1>{total}\g<2>',
         html
     )
 
-    # Update subtitle
+    # Page subtitle
     html = re.sub(
-        r'(<div class="page-subtitle">)\d+ signals this week[^<]*(<\/div>)',
-        rf'\g<1>{signal_count} signals this week · Signal intensity: CRITICAL · Auto-updated {TODAY_STR}\g<2>',
+        r'(<div class="page-subtitle">)\d+ signals this week[^<]*(</div>)',
+        rf'\g<1>{total} signals · Last updated {TODAY_STR} {RUN_TIME}\g<2>',
         html
     )
 
-    # Replace the signal-list content (between opening div and first competitor section)
-    # Find the signal-list div and replace its contents
+    # Replace signal list content
     pattern = r'(<div class="signal-stack reveal" id="signal-list">)(.*?)(</div>\s*\n\s*</div>\s*\n<!-- ══════ COMPETITORS)'
     replacement = rf'\g<1>{new_signals_html}\n\n  </div>\n</div>\n<!-- ══════ COMPETITORS'
-    html = re.sub(pattern, replacement, html, flags=re.DOTALL)
+    html, n = re.subn(pattern, replacement, html, flags=re.DOTALL)
+    if n == 0:
+        print("  Warning: signal-list pattern not matched — HTML structure may have changed", file=sys.stderr)
 
     with open(HTML_FILE, "w", encoding="utf-8") as f:
         f.write(html)
 
-    print(f"✓ Updated {HTML_FILE} with {signal_count} signals for {TODAY_STR}")
+    print(f"✓ {HTML_FILE} updated — {total} signals, {TODAY_STR} {RUN_TIME}")
 
 
 # ── Main ──────────────────────────────────────────────────────────────────────
 
 def main():
-    print(f"WiSE Signal Updater — {TODAY_STR}")
-    print("=" * 50)
+    print(f"WiSE Signal Updater — {TODAY_STR} {RUN_TIME}")
+    print("=" * 52)
 
-    all_signals_html = ""
-    total = 0
+    all_html = ""
+    total    = 0
 
-    for category, topics in SIGNAL_CATEGORIES:
-        print(f"  Searching: {category}...")
-        signals = search_and_summarise(category, topics)
-        print(f"  → {len(signals)} signal(s) found")
-        for sig in signals:
-            all_signals_html += signal_to_html(sig, total)
+    for cat in SIGNAL_CATEGORIES:
+        label  = cat["label"]
+        topics = cat["topics"]
+        print(f"  Scanning: {label}...")
+        sigs = search_signals(label, topics)
+        print(f"  → {len(sigs)} new signal(s)")
+        for s in sigs:
+            all_html += signal_to_html(s)
             total += 1
 
     if total == 0:
-        print("No new signals found. Skipping HTML update.")
+        print("\nNo new signals found. dev.html not modified.")
         return
 
-    update_html(all_signals_html, total)
-    print(f"\nDone. {total} signals written.")
+    update_html(all_html, total)
+    print(f"\nComplete. {total} signals written.")
 
 
 if __name__ == "__main__":
