@@ -231,25 +231,14 @@
     "implication": "FRANCE: Qonto owns Regate which is PA-certified. Monitor for feature parity with AE - any overlap threatens AutoEntry attach rate."
   },
   {
-    "title": "Amazon CEO takes aim at Nvidia, Intel, Starlink, more in annual shareholder letter",
-    "category": "Competitive",
-    "market": "EU",
-    "topic": "competitor",
-    "source": "TechCrunch Enterprise",
-    "date": "2026-04-09",
-    "body": "Andy Jassy's annual shareholder letter reads something like a diss track to a wide range of competitors as he defends spending $200 billion in capex.",
-    "link": "https://techcrunch.com/2026/04/09/amazon-ceo-takes-aim-at-nvidia-intel-starlink-more-in-annual-shareholder-letter/",
-    "implication": "MARKET SIGNAL: Competitor movement detected. Assess impact on FR/ES/DE/PT positioning and update the relevant battlecard."
-  },
-  {
-    "title": "British FinTech firm MillTech secures €51 million investment at €277 million valuation - EU-Startups",
+    "title": "Taster founder’s UK FinTech startup Alpa raises €2.9 million to build the financial operating system for hospitality - EU-Startups",
     "category": "Competitive",
     "market": "EU",
     "topic": "competitor",
     "source": "EU Fintech Funding (GNews)",
-    "date": "2026-04-08",
-    "body": "British FinTech firm MillTech secures €51 million investment at €277 million valuation EU-Startups",
-    "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxOX1JtY0RWMERaSWNERU00Y2lNS0pIa2M0OTF2VlJ3S3Nhb2h6TW1hTlJNaUNRazExRk9Wb1FWcGp1MWFNU3ZfY0Y0MUI5WXpESl9XdTRjcW1TVmVuT21jVEtXOWRlOVVWV0JFS3A4aFFNZ0MxelN6TFM0UWh0LWdBbXhqNkw4aUYwTjYyWnVQV2YtdDVfMktzYTQyT3dScG9Fc3RNaWp3TnZKQjJ6WEJVR3EzRlBfSEhfWEdIbC1EOA?oc=5",
+    "date": "2026-02-26",
+    "body": "Taster founder’s UK FinTech startup Alpa raises €2.9 million to build the financial operating system for hospitality EU-Startups",
+    "link": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxNSVVpdEZXeHVnTkd5dDQ0MXhIV2xnX0RnZ1JyQmlQaWVjcEJ1bDk5Nm5QMHRqcG40Tk9kR1VqMnNYMXJZbDhVdU5EUWZHLVBEbW1xWDhnUkFjWVBiNFprOTdwY25lbzhxNVJNa0lvb3dKUVhpVUdSNTBjNWZINkk3YXFleS1FT2FzSGhLaDFaZk1scWt4Z19Bd3I5aWYtaGUxSnNITkgtNURBWnNUdm5nYkFIRUplOHNXc2thNzZ3SE1Vd2JzTFF4WWN5UFZNQjdlejI4Q2NVa2F1cEszQWJ4ZWVkcks?oc=5",
     "implication": "MARKET SIGNAL: Competitor movement detected. Assess impact on FR/ES/DE/PT positioning and update the relevant battlecard."
   },
   {
@@ -272,6 +261,17 @@
     "date": "2025-12-16",
     "body": "Growth Equity Update Rothschild & Co",
     "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNVkN6UExMemhQb2c2V0F4enBWVkFaSHFYSTZKaXZISm1BOVBGeHNuTEhkREtSMUphanFFU09NNmdWZ0V4aGhlYXN2VVJheUlGM0ZocVBZV2tXMGxUc19ocXpsMnV2VjlobXFPSEptcmRJb1NtQTJpVEViaXEySS1Id05NUWdxeWg5ZS1GekFOekR6SVlEcHR2dmdvNWs?oc=5",
+    "implication": "MARKET SIGNAL: Competitor movement detected. Assess impact on FR/ES/DE/PT positioning and update the relevant battlecard."
+  },
+  {
+    "title": "Last 24 hours: Save up to $500 on your TechCrunch Disrupt 2026 pass",
+    "category": "Competitive",
+    "market": "EU",
+    "topic": "competitor",
+    "source": "TechCrunch Enterprise",
+    "date": "2026-04-10",
+    "body": "This is it. Tonight is your last chance to lock in savings of up to $500 for your TechCrunch Disrupt 2026 pass. These discounts end at 11:59 p.m. PT.",
+    "link": "https://techcrunch.com/2026/04/10/final-24-hours-save-up-to-500-on-your-techcrunch-disrupt-2026-pass/",
     "implication": "MARKET SIGNAL: Competitor movement detected. Assess impact on FR/ES/DE/PT positioning and update the relevant battlecard."
   },
   {
@@ -308,26 +308,48 @@
     "implication": "SAF-T Portugal 2027. Build OCC relationships now for H1 FY27 activation. Any AT announcement affects proposition definition."
   },
   {
-    "title": "OpenAI Backs Bill That Would Limit Liability for AI-Enabled Mass Deaths or Financial Disasters",
+    "title": "Suspect Arrested for Allegedly Throwing Molotov Cocktail at Sam Altman’s Home",
     "category": "AI & Tech",
     "market": "EU",
     "topic": "ai",
     "source": "Wired Business",
     "date": "2026-04-10",
-    "body": "The ChatGPT-maker testified in favor of an Illinois bill that would limit when AI labs can be held liable—even in cases where their products cause “critical harm.”",
-    "link": "https://www.wired.com/story/openai-backs-bill-exempt-ai-firms-model-harm-lawsuits/",
+    "body": "An attacker allegedly threw a molotov cocktail at the OpenAI CEO’s residence before making threats outside of the startup’s headquarters.",
+    "link": "https://www.wired.com/story/sam-altman-home-attack-openai-san-franisco-office-threat/",
     "implication": "AI WATCH: Accounting AI signal. Assess whether this changes accountant expectations for Sage Copilot. Outcome-led AI wins over feature lists."
   },
   {
-    "title": "China Is Cracking Down on Scams. Just Not the Ones Hitting Americans",
+    "title": "\"Uncanny Valley\": OpenAI and Musk Fight Again; DOJ Mishandles Voter Data; Artemis II Comes Home",
     "category": "AI & Tech",
     "market": "EU",
     "topic": "ai",
     "source": "Wired Business",
-    "date": "2026-04-09",
-    "body": "As Beijing clamps down on fraud at home, researchers say crime syndicates are shifting their focus to victims elsewhere.",
-    "link": "https://www.wired.com/story/made-in-china-inside-chinas-selective-war-on-the-scam-economy/",
+    "date": "2026-04-10",
+    "body": "In this episode, the hosts discuss the fight between OpenAI and Elon Musk, the misuse of voter data, and Artemis II’s moonshot.",
+    "link": "https://www.wired.com/story/uncanny-valley-podcast-openai-musk-fight-doj-mishandles-voter-data-artemis-ii-comes-home/",
     "implication": "AI WATCH: Accounting AI signal. Assess whether this changes accountant expectations for Sage Copilot. Outcome-led AI wins over feature lists."
+  },
+  {
+    "title": "Guía completa para declararlas criptomonedas en esta Renta",
+    "category": "Market Intelligence",
+    "market": "ES",
+    "topic": "market",
+    "source": "Expansion (ES)",
+    "date": "2026-04-10",
+    "body": "La Agencia Tributaria ha añadido un apartado con casillas específicas para los activos digitales y refuerza el control sobre las operaciones de permuta, el 'staking' y los saldos en el extranjero. Leer",
+    "link": "https://www.expansion.com/economia/declaracion-renta/2026/04/11/69d96c21468aeb30248b45a1.html",
+    "implication": "MARKET INTEL: European accounting software market signal. Feed into strategic planning and TAM/SAM analysis for FY27."
+  },
+  {
+    "title": "La Generalitat anuncia 421 millones de euros en ayudas por la guerra de Irán",
+    "category": "Market Intelligence",
+    "market": "ES",
+    "topic": "market",
+    "source": "Expansion (ES)",
+    "date": "2026-04-10",
+    "body": "El presidente valenciano presenta 27 medidas entre ayudas directas, créditos bonificados y rebajas fiscales. Leer",
+    "link": "https://www.expansion.com/valencia/2026/04/10/69d8d479e5fdeaac518b4570.html",
+    "implication": "MARKET INTEL: European accounting software market signal. Feed into strategic planning and TAM/SAM analysis for FY27."
   },
   {
     "title": "New Anthropic Tool Speeds up AI Agent Development for Enterprises",
@@ -339,28 +361,6 @@
     "body": "The product comes amid a flurry of releases from the generative AI vendor, which is locked in a tight battle with rival OpenAI.",
     "link": "https://aibusiness.com/agentic-ai/new-anthropic-tool-speeds-ai-agent-development-enterprises",
     "implication": "AI WATCH: Accounting AI signal. Assess whether this changes accountant expectations for Sage Copilot. Outcome-led AI wins over feature lists."
-  },
-  {
-    "title": "La OCDE insta a los gobiernos a eliminar rápidamente las rebajas de los impuestos sobre el combustible",
-    "category": "Market Intelligence",
-    "market": "ES",
-    "topic": "market",
-    "source": "Expansion (ES)",
-    "date": "2026-04-09",
-    "body": "Desde el comienzo de la guerra en Irán, más de 25 países han introducido medidas universales para proteger a los consumidores de los altos precios de la energía. Leer",
-    "link": "https://www.expansion.com/economia/financial-times/2026/04/09/69d7b1ca468aeb382c8b457e.html",
-    "implication": "MARKET INTEL: European accounting software market signal. Feed into strategic planning and TAM/SAM analysis for FY27."
-  },
-  {
-    "title": "Yolanda Díaz, sobre el plan de control de bajas laborales anunciado por Rueda: \"Es ilegal\"",
-    "category": "Market Intelligence",
-    "market": "ES",
-    "topic": "market",
-    "source": "Expansion (ES)",
-    "date": "2026-04-09",
-    "body": "La vicepresidenta segunda y ministra de Trabajo ha asegurado que el Gobierno llevará al Constitucional por invadir competencias. Leer",
-    "link": "https://www.expansion.com/economia/2026/04/09/69d7a693468aebe13f8b4583.html",
-    "implication": "MARKET INTEL: European accounting software market signal. Feed into strategic planning and TAM/SAM analysis for FY27."
   },
   {
     "title": "Logiciel de caisse conforme : vos obligations pour 2026",
@@ -396,6 +396,39 @@
     "implication": "AI WATCH: Accounting AI signal. Assess whether this changes accountant expectations for Sage Copilot. Outcome-led AI wins over feature lists."
   },
   {
+    "title": "Can behavioural science AI improve professional judgement? - Accountancy Today",
+    "category": "AI & Tech",
+    "market": "EU",
+    "topic": "ai",
+    "source": "AI Accounting EU (GNews)",
+    "date": "2026-02-24",
+    "body": "Can behavioural science AI improve professional judgement? Accountancy Today",
+    "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQelVlaF9kSzNFMkZ3ODhrM3RtSDlhUnptZkFRemlVXzlUX2N0eTlxVnE5NEpqRGFjSHZ0NnVzMzlOU2l5SWJBMEt0U0xLZGgzN3o3d1FvcDdVZFhrSnVERWtFUGp4a0V3SDNoampWNEZMaWZtTVdRN3FtR3UxZXFZd2tDenRfMzlXVW83OXdYMEtEdGNQVllrT016ZjE?oc=5",
+    "implication": "AI WATCH: Accounting AI signal. Assess whether this changes accountant expectations for Sage Copilot. Outcome-led AI wins over feature lists."
+  },
+  {
+    "title": "Expert-comptable en ligne en 2026 : fausse bonne idée ou choix incontournable pour votre société - carnetdebord.info",
+    "category": "Market Intelligence",
+    "market": "FR",
+    "topic": "market",
+    "source": "Expert-Comptable (GNews)",
+    "date": "2026-03-27",
+    "body": "Expert-comptable en ligne en 2026 : fausse bonne idée ou choix incontournable pour votre société carnetdebord.info",
+    "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQZEZCR3QwSWdlbXBPTkJZSDdETlUzWDM0MTROX09JaW9FUkJjZ0VHR3dpdXZ5U29CakdxU1ZYbk5DLVVidktHRjZwRHZSQy0xN2t3NUNJVHVUM0dMMEJ4Rld0LTRiNHpnYU9jUUkxQ0N2SFJoWkVCX0k5TnhzWl84ckJzUTBNX3VNcmFLSGpVZE9kY1JoS211SzBTUWFJSTkxUVREWUZwa0xsVm5EdmxnaC12N3NyY2pVWDM2dXRDRjh5UG8?oc=5",
+    "implication": "MARKET INTEL: European accounting software market signal. Feed into strategic planning and TAM/SAM analysis for FY27."
+  },
+  {
+    "title": "Novedades Renta 2025-2026: claves de la campaña - Wolters Kluwer",
+    "category": "Market Intelligence",
+    "market": "ES",
+    "topic": "market",
+    "source": "Despachos Spain (GNews)",
+    "date": "2026-03-09",
+    "body": "Novedades Renta 2025-2026: claves de la campaña Wolters Kluwer",
+    "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPVDUwc0d2TThlc01CMnVBVTZEbjFOUDRkT2ZnYkNLek5saHBMYnJJRXV6T3NSUDMyZE9kSkI1Q2JrOGJuT2xVaDJYMUZVRUpHaXhhMlQ3ZDRWT1k3NEJJOFluTTQ4YlR6S1FLVzhVbDJUZ0NxTEExSExFam5xTVNpSkduUQ?oc=5",
+    "implication": "MARKET INTEL: European accounting software market signal. Feed into strategic planning and TAM/SAM analysis for FY27."
+  },
+  {
     "title": "El asesor fiscal del futuro: inteligencia artificial, automatización y nuevo rol como socio estratégico - Fiscal Impuestos",
     "category": "AI & Tech",
     "market": "ES",
@@ -407,26 +440,15 @@
     "implication": "AI WATCH: Accounting AI signal. Assess whether this changes accountant expectations for Sage Copilot. Outcome-led AI wins over feature lists."
   },
   {
-    "title": "AFTRAL : booster son efficacité avec l’IA intégrée à son ERP",
-    "category": "Sage News",
-    "market": "FR",
-    "topic": "sage",
-    "source": "Sage France (blog)",
-    "date": "2026-04-03",
-    "body": "AFTRAL est l’organisme leader de la formation aux métiers du transport, de la logistique et de la manutention. Sous l’impulsion de son DSI, AFTRAL a testé en avance de phase l’agent IA Sage Copilot intégré à son ERP Sage X3. Premières impressions… The post AFTRAL : booster son efficacité avec l’IA i",
-    "link": "https://www.sage.com/fr-fr/blog/aftral-integre-ia-a-son-erp-temoignage/",
-    "implication": "Monitor and assess relevance to WiSE accountant strategy across FR/ES/DE/PT markets."
-  },
-  {
-    "title": "Can behavioural science AI improve professional judgement? - Accountancy Today",
-    "category": "AI & Tech",
-    "market": "EU",
-    "topic": "ai",
-    "source": "AI Accounting EU (GNews)",
-    "date": "2026-02-24",
-    "body": "Can behavioural science AI improve professional judgement? Accountancy Today",
-    "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQelVlaF9kSzNFMkZ3ODhrM3RtSDlhUnptZkFRemlVXzlUX2N0eTlxVnE5NEpqRGFjSHZ0NnVzMzlOU2l5SWJBMEt0U0xLZGgzN3o3d1FvcDdVZFhrSnVERWtFUGp4a0V3SDNoampWNEZMaWZtTVdRN3FtR3UxZXFZd2tDenRfMzlXVW83OXdYMEtEdGNQVllrT016ZjE?oc=5",
-    "implication": "AI WATCH: Accounting AI signal. Assess whether this changes accountant expectations for Sage Copilot. Outcome-led AI wins over feature lists."
+    "title": "Plazo de la Declaración de Renta 2024 - Wolters Kluwer",
+    "category": "Market Intelligence",
+    "market": "ES",
+    "topic": "market",
+    "source": "Despachos Spain (GNews)",
+    "date": "2026-02-23",
+    "body": "Plazo de la Declaración de Renta 2024 Wolters Kluwer",
+    "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxQdVVkMEV0MXV3TGlyMUp5clBWNXhxLWs3RjdMSjVXbGJ1UU1FdU16N01HQ05UTER1TW1kSEdPSHdqbEFpV1V3MTA4OVlta19WY2xiTElFMDhVOXZCVnVsRFpfS3lJa2NDSWxUU1BLdl9pWGNBaGx3dEZUanJqSzBXUU8zN3VMRGM?oc=5",
+    "implication": "MARKET INTEL: European accounting software market signal. Feed into strategic planning and TAM/SAM analysis for FY27."
   },
   {
     "title": "„KI wird klassische Buchhaltung weitgehend automatisieren“ - FAZ",
@@ -451,6 +473,28 @@
     "implication": "AI WATCH: Accounting AI signal. Assess whether this changes accountant expectations for Sage Copilot. Outcome-led AI wins over feature lists."
   },
   {
+    "title": "AFTRAL : booster son efficacité avec l’IA intégrée à son ERP",
+    "category": "Sage News",
+    "market": "FR",
+    "topic": "sage",
+    "source": "Sage France (blog)",
+    "date": "2026-04-03",
+    "body": "AFTRAL est l’organisme leader de la formation aux métiers du transport, de la logistique et de la manutention. Sous l’impulsion de son DSI, AFTRAL a testé en avance de phase l’agent IA Sage Copilot intégré à son ERP Sage X3. Premières impressions… The post AFTRAL : booster son efficacité avec l’IA i",
+    "link": "https://www.sage.com/fr-fr/blog/aftral-integre-ia-a-son-erp-temoignage/",
+    "implication": "Monitor and assess relevance to WiSE accountant strategy across FR/ES/DE/PT markets."
+  },
+  {
+    "title": "Vergütungsrecht StBVV 2026 - DATEV magazin",
+    "category": "Market Intelligence",
+    "market": "DE",
+    "topic": "market",
+    "source": "Steuerberater (GNews)",
+    "date": "2025-12-11",
+    "body": "Vergütungsrecht StBVV 2026 DATEV magazin",
+    "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxPNncwaHdUR3NUSEZtWmtmdk8xRFF4SHdFYW84TkFUWklzRGNzcTdSMTNPRU4teVdCOUZScE1BenlDUWFJRTJ0MWYybkxEcktQQXhjV25PalJ0cTVsWFAxZkdvVnl1aEVpVTNoeS05WVZ3OVlHUmE3dHgxQi12eTFFUzlmYVFuNVk?oc=5",
+    "implication": "MARKET INTEL: European accounting software market signal. Feed into strategic planning and TAM/SAM analysis for FY27."
+  },
+  {
     "title": "AI adoption in Europe: from hesitation to acceleration - Wolters Kluwer",
     "category": "AI & Tech",
     "market": "EU",
@@ -462,25 +506,25 @@
     "implication": "AI WATCH: Accounting AI signal. Assess whether this changes accountant expectations for Sage Copilot. Outcome-led AI wins over feature lists."
   },
   {
-    "title": "Expert-comptable en ligne en 2026 : fausse bonne idée ou choix incontournable pour votre société - carnetdebord.info",
-    "category": "Market Intelligence",
-    "market": "FR",
-    "topic": "market",
-    "source": "Expert-Comptable (GNews)",
-    "date": "2026-03-27",
-    "body": "Expert-comptable en ligne en 2026 : fausse bonne idée ou choix incontournable pour votre société carnetdebord.info",
-    "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQZEZCR3QwSWdlbXBPTkJZSDdETlUzWDM0MTROX09JaW9FUkJjZ0VHR3dpdXZ5U29CakdxU1ZYbk5DLVVidktHRjZwRHZSQy0xN2t3NUNJVHVUM0dMMEJ4Rld0LTRiNHpnYU9jUUkxQ0N2SFJoWkVCX0k5TnhzWl84ckJzUTBNX3VNcmFLSGpVZE9kY1JoS211SzBTUWFJSTkxUVREWUZwa0xsVm5EdmxnaC12N3NyY2pVWDM2dXRDRjh5UG8?oc=5",
-    "implication": "MARKET INTEL: European accounting software market signal. Feed into strategic planning and TAM/SAM analysis for FY27."
+    "title": "Accountants Rapidly Adopt AI But New Challenges are Emerging, Warns Intuit - The Fintech Times",
+    "category": "AI & Tech",
+    "market": "EU",
+    "topic": "ai",
+    "source": "AI Accounting EU (GNews)",
+    "date": "2025-08-06",
+    "body": "Accountants Rapidly Adopt AI But New Challenges are Emerging, Warns Intuit The Fintech Times",
+    "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOUFY4OW9GMmNCeTcxZnNHN1Q0M3Z3dGg3azBEQjloZEVXT1J2MUV6c18tY1Zhc2dMdVp0RnNBTm9Lb1FEb1pqYnNoT0hzSkstVjFILThSSXFKMHc0NDd6YWt6MWZUMmZpNjVNVWRUaUJ3SklNZExYRVBQM3JTQ0hRY0otd1FPQkxtb1EtUGwzbTdwYXhqNWhYZjRGY3JST08yYUQxNA?oc=5",
+    "implication": "AI WATCH: Accounting AI signal. Assess whether this changes accountant expectations for Sage Copilot. Outcome-led AI wins over feature lists."
   },
   {
-    "title": "Vergütungsrecht StBVV 2026 - DATEV magazin",
+    "title": "Cybersecurity Market Size, Share, Analysis | Global Report 2034 - Fortune Business Insights",
     "category": "Market Intelligence",
-    "market": "DE",
+    "market": "EU",
     "topic": "market",
-    "source": "Steuerberater (GNews)",
-    "date": "2025-12-11",
-    "body": "Vergütungsrecht StBVV 2026 DATEV magazin",
-    "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxPNncwaHdUR3NUSEZtWmtmdk8xRFF4SHdFYW84TkFUWklzRGNzcTdSMTNPRU4teVdCOUZScE1BenlDUWFJRTJ0MWYybkxEcktQQXhjV25PalJ0cTVsWFAxZkdvVnl1aEVpVTNoeS05WVZ3OVlHUmE3dHgxQi12eTFFUzlmYVFuNVk?oc=5",
+    "source": "EU Cloud Accounting (GNews)",
+    "date": "2026-03-23",
+    "body": "Cybersecurity Market Size, Share, Analysis | Global Report 2034 Fortune Business Insights",
+    "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPMFIxZDUwdGM1SkItQTllQTFQenlBYnVnZnhpdXJkQlRSQWFFdFY4MDg0VVNSY2RaUDhjbE0xcElnNnVSNmhfQnFzQXJuLXAzbEFoaE16WXFEQWVKeURtaHZXckRFOVNHSURwN0p0OE5tLXZvT3FJVnpoWEJTLWJ2d0hOWUVxdS1rd1ktYkZB?oc=5",
     "implication": "MARKET INTEL: European accounting software market signal. Feed into strategic planning and TAM/SAM analysis for FY27."
   },
   {
@@ -506,17 +550,6 @@
     "implication": "MARKET INTEL: European accounting software market signal. Feed into strategic planning and TAM/SAM analysis for FY27."
   },
   {
-    "title": "Accountants Rapidly Adopt AI But New Challenges are Emerging, Warns Intuit - The Fintech Times",
-    "category": "AI & Tech",
-    "market": "EU",
-    "topic": "ai",
-    "source": "AI Accounting EU (GNews)",
-    "date": "2025-08-06",
-    "body": "Accountants Rapidly Adopt AI But New Challenges are Emerging, Warns Intuit The Fintech Times",
-    "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOUFY4OW9GMmNCeTcxZnNHN1Q0M3Z3dGg3azBEQjloZEVXT1J2MUV6c18tY1Zhc2dMdVp0RnNBTm9Lb1FEb1pqYnNoT0hzSkstVjFILThSSXFKMHc0NDd6YWt6MWZUMmZpNjVNVWRUaUJ3SklNZExYRVBQM3JTQ0hRY0otd1FPQkxtb1EtUGwzbTdwYXhqNWhYZjRGY3JST08yYUQxNA?oc=5",
-    "implication": "AI WATCH: Accounting AI signal. Assess whether this changes accountant expectations for Sage Copilot. Outcome-led AI wins over feature lists."
-  },
-  {
     "title": "Numérique. Visma ajoute le rennais Nexcer à sa constellation de solutions numériques pour les experts-comptables - Ouest-France",
     "category": "Market Intelligence",
     "market": "FR",
@@ -525,28 +558,6 @@
     "date": "2025-09-29",
     "body": "Numérique. Visma ajoute le rennais Nexcer à sa constellation de solutions numériques pour les experts-comptables Ouest-France",
     "link": "https://news.google.com/rss/articles/CBMisgJBVV95cUxNcmtuWVdPbEo5Y1VuV09zUUxNS0IxWHhEYWFDdE8xeVJYZTV0MW1GSXF4QTU1OVJtQnFyNEl0b2RNZXR1NUJ1a2RuTXNhbUg1bVc5YW5rNEtxQ0xKNXA2R29yR3loNE9YQ0o3aTE2SGlsRml5UXgzY1NGRy1Ra2RUam5UUGxXMWlqUjN0M1NjWlNYRk5MQ01BcWUtOGZsZnJjRzh4ckx4SWhNSDQ0cVFUcVI2Rjd5NHlIbHB6bG9QQlhwYWtPbzNCejhRTmVEak5qSm5jczBqREJ6Y0IyQzhZS3hwNDRNMi1aZVd4UUVJOUk2M0FGM1RyUG5HbHAwN3pTZ0Ixd2wzWGhpYXV",
-    "implication": "MARKET INTEL: European accounting software market signal. Feed into strategic planning and TAM/SAM analysis for FY27."
-  },
-  {
-    "title": "Accountex 2025 reunirá a más de 10.000 profesionales del mundo del software de gestión y las asesorías - BPS Channel Partner",
-    "category": "Market Intelligence",
-    "market": "ES",
-    "topic": "market",
-    "source": "Despachos Spain (GNews)",
-    "date": "2025-09-19",
-    "body": "Accountex 2025 reunirá a más de 10.000 profesionales del mundo del software de gestión y las asesorías BPS Channel Partner",
-    "link": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxQVVNaS3JKZ09vem55UVVVcDQ2czJoZFZQUDMxQ0ZmeFVtWTVYVTMyTDZpeC0zTUtoVkZkNHdpUmM1WndVVVNkWkNLbnRMLTZ3b3NjUU9HSjRSaElBa182R3FkVmRSdnVENl9wak1VUDBCQWNWRllyRHNqYjhOcXh5clVvdjExeXZ3em5reVZNM0dXMzlmRmo5eUthR0VLeFVWQXR3cEsyZkNUbG9XeV9ZanNGTUMzOXR3di1lWVVpQUNhRFpvUFBmN1ZfTDdLNlBLWGNyXzBmdm45YjdxSmd5a0ZMYUhNZ1Bob28tZEdISnBVNEcw?oc=5",
-    "implication": "MARKET INTEL: European accounting software market signal. Feed into strategic planning and TAM/SAM analysis for FY27."
-  },
-  {
-    "title": "Radiografía del despacho profesional en 2025 en España - Wolters Kluwer",
-    "category": "Market Intelligence",
-    "market": "ES",
-    "topic": "market",
-    "source": "Despachos Spain (GNews)",
-    "date": "2025-07-09",
-    "body": "Radiografía del despacho profesional en 2025 en España Wolters Kluwer",
-    "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNS0NPOExXeHJFa1pJNHRDb3A0aGZLcFZ6VTVDcHZtYWZwakw3QWRqWC1Ya0E4LU9jSGZQUjdKQWZ4VnUxVEppekRtU3JDck5CcjY4VkJYanczN0Q5bF9LQmFQNEJQaUxqeldZU2FVbTY3RVdTXzJwNGdpb3lCNTVZd1ZhSDZzQlVDLXZSZDhiQXNHZ1ZkOS1wRg?oc=5",
     "implication": "MARKET INTEL: European accounting software market signal. Feed into strategic planning and TAM/SAM analysis for FY27."
   },
   {
@@ -605,17 +616,6 @@
     "implication": "MARKET INTEL: European accounting software market signal. Feed into strategic planning and TAM/SAM analysis for FY27."
   },
   {
-    "title": "La IA se integra en la contabilidad con Sage Copilot - MuyCanal",
-    "category": "Sage News",
-    "market": "ES",
-    "topic": "sage",
-    "source": "Sage Spain (GNews)",
-    "date": "2024-10-16",
-    "body": "La IA se integra en la contabilidad con Sage Copilot MuyCanal",
-    "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE1DcHRLRlpSUjVWMElqeFMzaDlUZ29IVTdfOUlKaDZpMVlYZUFXdlVZdHI1eUlYaGlPQjVMTDl5WTI0NGowbTlmSko4Rjl5ZUhJdVdVUndZRE5RTWVzaHROQ9IBZkFVX3lxTE84SjlQbVpwTGJlelgzd2pnV2x0S0U0UVp0bk1pWE9kR3pLbzkwWFZRNFo1OHhjTUVjdDRBUnFhYTN5eno3MXltZDdxZXg3bkdGRFVZWXJWVFFpbXYwMjZKSXliUTJFZw?oc=5",
-    "implication": "Monitor and assess relevance to WiSE accountant strategy across FR/ES/DE/PT markets."
-  },
-  {
     "title": "Ex-diretor da Uber lança empresa para digitalizar contabilidade das PME - ECO",
     "category": "Market Intelligence",
     "market": "PT",
@@ -627,25 +627,14 @@
     "implication": "MARKET INTEL: European accounting software market signal. Feed into strategic planning and TAM/SAM analysis for FY27."
   },
   {
-    "title": "Tally, a startup que quer democratizar a contabilidade com inteligência artificial - Público",
-    "category": "Market Intelligence",
-    "market": "PT",
-    "topic": "market",
-    "source": "Portugal Accounting (GNews)",
-    "date": "2026-03-18",
-    "body": "Tally, a startup que quer democratizar a contabilidade com inteligência artificial Público",
-    "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQc3VVdEF0djVndEpQalktemdRbEdscWNmZTZtTjFlRkFNN0VMRlAtZ2dFWXBNMkhObTZiSzllTWN6NWZFSG9sRzR1OWxoSmFWNEx1bTduYkw5c2RSaFNYSUt1d2V5RnZoQVNaY01WTjZQNjhYWWtNbG5JdzNTdDBxdnVmN0tXV2NzRUZMUUtPdXZzd0pvUnA1alNCU0dyc2lkbEN6WkF3RlpGWG90VjJ1RkN6NXFhLVRCVWkxb0lEbm9YRE0?oc=5",
-    "implication": "MARKET INTEL: European accounting software market signal. Feed into strategic planning and TAM/SAM analysis for FY27."
-  },
-  {
-    "title": "Integrated Accounting Software Market Size, Share, Growth, Forecast, 2034 - Fortune Business Insights",
+    "title": "Europe Cloud Computing Market Report 2025-2030, by Service Model, Deployment Mode, Tech - MarketsandMarkets",
     "category": "Market Intelligence",
     "market": "EU",
     "topic": "market",
     "source": "EU Cloud Accounting (GNews)",
-    "date": "2026-03-16",
-    "body": "Integrated Accounting Software Market Size, Share, Growth, Forecast, 2034 Fortune Business Insights",
-    "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQNUNhQ0t3YWNjZ0hwMUx1YVczNFFGUjdhMWpOOVJjZVhwVFlIX1JvQTZxUHNmTFMzYzdtRUhHcl9QZ3pCNjAyZTgtcXRvSzYwbkRFT29vbkVYb0Z0MnBvSG1jREFXY1ppbFNmZkxzbjU4clloVFdZWjVkZEdkUHI1Q0cwWHAzNlU1VEZFS2oxMEQ0WF9xdmJublptT2NpZVEyZjRB?oc=5",
+    "date": "2026-01-23",
+    "body": "Europe Cloud Computing Market Report 2025-2030, by Service Model, Deployment Mode, Tech MarketsandMarkets",
+    "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOV1hTcS1ZZkIza0ZPRzdvUllzd2dUSC1Fa2RCQy1sWno5dW9mNjJhWUZ2cnZmZjdsc0NDMWNOME54Tlh0TU8xMWpGN3BIU1A2dU9VNWxYOHJFa2FxVGhxMjNyUlRJZnV1V1Jka0x2aTJuN1dFSFE2UU0wd3lBd2R6YVZGMDRSejIzaDQxR3p4UTU4RU5IRjhZ?oc=5",
     "implication": "MARKET INTEL: European accounting software market signal. Feed into strategic planning and TAM/SAM analysis for FY27."
   },
   {
@@ -657,6 +646,17 @@
     "date": "2026-01-19",
     "body": "UK Small Businesses Invest Nearly £5bn a Year in Tax and Accounting Software as Monzo Launches Free HMRC-Recognised Tool, Powered by Sage Fintech Finance",
     "link": "https://news.google.com/rss/articles/CBMihgJBVV95cUxOVk10bzd1NjczOXRKYjNPVWRVd1dicmF0U2pLeEF2b2N2YTZfSk9SMnZqMUNpaDBUZFZjUzJLUmZNUEkxNGFhTjdsS3Ewc1AzajV2TkMwVUVxYWVtLWxiaUhpQkJGQXdmWjk2MnVQdEE0N1FUNlRuNDVHT1BGa2pxR3piUjJNR243VVpxbDhFRmNsRDA1cVBKZ3RlRTJ4MzBuaGhIcXBXMWhIaDlld19mdVN2UXBacWpUa25pRzMxbUxqclJ4S2RtbDVJc050UXFncjlWUG41UDZrWFQtU0RZSUs4U0NoanRWajljb0w5VkpZRGRrNF9NRkN2dmRJWk5fMGx6Q29B?oc=5",
+    "implication": "Monitor and assess relevance to WiSE accountant strategy across FR/ES/DE/PT markets."
+  },
+  {
+    "title": "La IA se integra en la contabilidad con Sage Copilot - MuyCanal",
+    "category": "Sage News",
+    "market": "ES",
+    "topic": "sage",
+    "source": "Sage Spain (GNews)",
+    "date": "2024-10-16",
+    "body": "La IA se integra en la contabilidad con Sage Copilot MuyCanal",
+    "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE1DcHRLRlpSUjVWMElqeFMzaDlUZ29IVTdfOUlKaDZpMVlYZUFXdlVZdHI1eUlYaGlPQjVMTDl5WTI0NGowbTlmSko4Rjl5ZUhJdVdVUndZRE5RTWVzaHROQ9IBZkFVX3lxTE84SjlQbVpwTGJlelgzd2pnV2x0S0U0UVp0bk1pWE9kR3pLbzkwWFZRNFo1OHhjTUVjdDRBUnFhYTN5eno3MXltZDdxZXg3bkdGRFVZWXJWVFFpbXYwMjZKSXliUTJFZw?oc=5",
     "implication": "Monitor and assess relevance to WiSE accountant strategy across FR/ES/DE/PT markets."
   },
   {
@@ -704,15 +704,26 @@
     "implication": "Monitor and assess relevance to WiSE accountant strategy across FR/ES/DE/PT markets."
   },
   {
-    "title": "The Sage Group in Index ftse Ukx Spotlight - Kalkine Media",
+    "title": "Sage Group Underlying Revenue Rises on Growth Across All Key Regions - WSJ",
     "category": "Sage News",
     "market": "EU",
     "topic": "sage",
     "source": "Sage News EN (GNews)",
-    "date": "2026-02-20",
-    "body": "The Sage Group in Index ftse Ukx Spotlight Kalkine Media",
-    "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOWmF4QlprbnhaOEttMWs1d3ZWSE9GYmZraWRaNkgyekpEQ1R3d1lXUFVDTkllRkxYM29xTU5Fd2x0d1ozdnVpVkxkOF9Mb193aW9aZVhMUk1BaTlwZ1g4akpzQThJVVV0MUxTdnZ2TFlZOFI4anNtRjVLLXNuR0d6dHJMeU10Nk5YeFluRGgwVWRNQQ?oc=5",
+    "date": "2026-01-27",
+    "body": "Sage Group Underlying Revenue Rises on Growth Across All Key Regions WSJ",
+    "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQaUJLU0NLSzNDUERqTFlQclVmVjNNT0t6MUlEYXlQU1drMjBUR0tBT3ZUc0h0VXM5TjBteEtZd044QzIzekR1QjlMQlU1enljcnVMeDMxYmpBZjNPRnNuc2ljLWtneHBLb0NJRkQ3ZlpfRk82WTdGZEw0blY5VUVJS0kyWnJCcnNmdFRiZmtLWTZaNFBlSFRhWllQZkJ3aGpUTTUxZzVXSks5S2tmenJhNnNOaw?oc=5",
     "implication": "Monitor and assess relevance to WiSE accountant strategy across FR/ES/DE/PT markets."
+  },
+  {
+    "title": "Entrevista a Paula Franco, bastonária da OCC - OCC | Ordem dos Contabilistas Certificados",
+    "category": "Market Intelligence",
+    "market": "PT",
+    "topic": "market",
+    "source": "Portugal Accounting (GNews)",
+    "date": "2025-12-12",
+    "body": "Entrevista a Paula Franco, bastonária da OCC OCC | Ordem dos Contabilistas Certificados",
+    "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOdjJ2d01ZQThaTlRHcnFJaGFaelBveVBnY1ZvNFl2c1hKNndmbFpDZWFTZDN1WkZoakpMLXgwdy1aWnJFQXBBUE5sdDJveWlLVFc1V0QtVGhraURybnhqTGhGMVg4eG0wN1piYUIzTFdVWjZWdkdRTkRFNXBpaXMzbA?oc=5",
+    "implication": "MARKET INTEL: European accounting software market signal. Feed into strategic planning and TAM/SAM analysis for FY27."
   },
   {
     "title": "Status Quo: KI in Steuerkanzleien | Steuern - Haufe. Intelligenz, die bewegt.",
@@ -723,17 +734,6 @@
     "date": "2025-09-25",
     "body": "Status Quo: KI in Steuerkanzleien | Steuern Haufe. Intelligenz, die bewegt.",
     "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOSUJqQ2FpMGh5YVZQT2FfeGNrbDFHOVZ1OURNVXotN21KN1NXVHZHblkxZ1V4S3lkMFJpQ0FMemxiaENySXQ2b0o0QlR1ZmVqVFp5bzRFcklfcmp1NUEwaUdoUEhENDZDOXNraU1tQlk4aHRQc251dy1HYlNqU2VpY3V5OVE5cEV4OGhld2UyUDVwMnhE?oc=5",
-    "implication": "MARKET INTEL: European accounting software market signal. Feed into strategic planning and TAM/SAM analysis for FY27."
-  },
-  {
-    "title": "The impact of cloud computing technology on cloud accounting adoption and financial management of businesses - Nature",
-    "category": "Market Intelligence",
-    "market": "EU",
-    "topic": "market",
-    "source": "EU Cloud Accounting (GNews)",
-    "date": "2025-06-18",
-    "body": "The impact of cloud computing technology on cloud accounting adoption and financial management of businesses Nature",
-    "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1BWVlpczdxcm9LYkhkN2FLS3dJTS0tMWlyY0tvVUtLUDIxSmE2WklrSWtnUXpMTlE1UktPb0JSMUF4QVVTMnBiOVl6cjRnVDVqcHV2UTNZdm92b0FVVE5B?oc=5",
     "implication": "MARKET INTEL: European accounting software market signal. Feed into strategic planning and TAM/SAM analysis for FY27."
   }
 ]
