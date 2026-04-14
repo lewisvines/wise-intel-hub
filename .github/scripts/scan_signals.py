@@ -6,7 +6,7 @@ Uses Gemini 2.0 Flash with Google Search grounding to find
 real, current market signals across FR/ES/DE/PT markets.
 """
 
-import os, json, re, datetime, hashlib, urllib.request, urllib.error
+import os, json, re, datetime, hashlib, urllib.request, urllib.error, time
 
 SIGNALS_FILE = "signals.json"
 MAX_NEW_SIGNALS = 8
@@ -64,7 +64,7 @@ Rules:
 - Return ONLY the JSON object, nothing else
 """
 
-def call_gemini(prompt):
+def call_gemini(prompt, retries=3):
     payload = {
         "contents": [{"parts": [{"text": prompt}]}],
         "tools": [{"google_search": {}}],
@@ -74,9 +74,19 @@ def call_gemini(prompt):
         }
     }
     data = json.dumps(payload).encode()
-    req = urllib.request.Request(GEMINI_URL, data=data, headers={"Content-Type": "application/json"}, method="POST")
-    with urllib.request.urlopen(req, timeout=120) as r:
-        return json.loads(r.read())
+    for attempt in range(retries):
+        try:
+            req = urllib.request.Request(GEMINI_URL, data=data, headers={"Content-Type": "application/json"}, method="POST")
+            with urllib.request.urlopen(req, timeout=120) as r:
+                return json.loads(r.read())
+        except urllib.error.HTTPError as e:
+            if e.code == 429 and attempt < retries - 1:
+                wait = 60 * (attempt + 1)  # 60s, 120s
+                print(f"Rate limited (429) — waiting {wait}s before retry {attempt + 2}/{retries}")
+                time.sleep(wait)
+            else:
+                raise
+    return None
 
 def extract_json(text):
     # Try direct parse first
