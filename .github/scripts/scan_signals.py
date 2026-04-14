@@ -82,7 +82,7 @@ def make_id(title):
 
 def scan_for_signals():
     today = datetime.date.today().strftime("%B %d, %Y")
-    prompt = SCAN_PROMPT.format(today=today, max_signals=MAX_NEW_SIGNALS)
+    prompt = SCAN_PROMPT.replace("{today}", today).replace("{max_signals}", str(MAX_NEW_SIGNALS))
 
     print(f"Scanning for signals — {today}")
 
