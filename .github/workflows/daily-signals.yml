@@ -1,4 +1,4 @@
-name: WiSE Daily Signal Scannername: WiSE Daily Signal Scanner
+name: WiSE Daily Signal Scanner
 
 on:
   schedule:
