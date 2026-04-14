@@ -550,7 +550,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:
   <div class="sb-meta" style="margin-top:20px;">
     FR · ES · DE · PT<br>
     Sage Europe · Small Business &amp; Accountants<br>
-    Updated: April 7, 2026
+    Updated: <span id="hub-updated-date">loading…</span>
   </div>
 </div>
 
@@ -591,17 +591,17 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:
       <div class="dash-sub">Days to Sept 1 2026<br>DGFiP registration required</div>
     </div>
     <div>
-      <div class="dash-metric amber">276</div>
+      <div class="dash-metric amber" id="days-es-verifactu">—</div>
       <div class="dash-label" style="margin-top:4px;">Spain Verifactu (Corporate)</div>
       <div class="dash-sub">Days to Jan 1 2027<br>Royal Decreto-ley 15/2025</div>
     </div>
     <div>
-      <div class="dash-metric blue">641</div>
+      <div class="dash-metric blue" id="days-de-xrechnung">—</div>
       <div class="dash-label" style="margin-top:4px;">Germany XRechnung Issue</div>
       <div class="dash-sub">Days to Jan 1 2028<br>E-invoicing mandate issuers</div>
     </div>
     <div>
-      <div class="dash-metric teal">641</div>
+      <div class="dash-metric teal" id="days-pt-saft">—</div>
       <div class="dash-label" style="margin-top:4px;">Portugal SAF-T</div>
       <div class="dash-sub">Days to Jan 1 2028<br>Full SAF-T accounting requirement</div>
     </div>
@@ -612,34 +612,34 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:
     <div class="dash-card">
       <div class="dash-label" style="margin-bottom:12px;" data-i18n="dash_progress">Strategic Progress Tracker</div>
       <div class="okr-row">
-        <div class="rag-dot rag-a"></div>
+        <div class="rag-dot" id="okr-pa-dot" style="background:var(--amber);box-shadow:0 0 5px var(--amber);"></div>
         <div class="okr-name">France PA Registration (Sept 2026)</div>
-        <div class="okr-bar"><div class="okr-bar-fill" style="width:50%;background:var(--amber);"></div></div>
-        <div class="okr-val">In progress — 50%</div>
+        <div class="okr-bar"><div class="okr-bar-fill" id="okr-pa-bar" style="width:50%;background:var(--amber);"></div></div>
+        <div class="okr-val" id="okr-pa-val">In progress — 50%</div>
       </div>
       <div class="okr-row">
-        <div class="rag-dot rag-r"></div>
+        <div class="rag-dot" id="okr-ge-dot" style="background:var(--red);box-shadow:0 0 5px var(--red);"></div>
         <div class="okr-name">GE Practice Onboarding to SfA</div>
-        <div class="okr-bar"><div class="okr-bar-fill" style="width:36%;background:var(--red);"></div></div>
-        <div class="okr-val">Below target</div>
+        <div class="okr-bar"><div class="okr-bar-fill" id="okr-ge-bar" style="width:36%;background:var(--red);"></div></div>
+        <div class="okr-val" id="okr-ge-val">Below target</div>
       </div>
       <div class="okr-row">
-        <div class="rag-dot rag-a"></div>
+        <div class="rag-dot" id="okr-es-dot" style="background:var(--amber);box-shadow:0 0 5px var(--amber);"></div>
         <div class="okr-name">Active Adoption — Spain</div>
-        <div class="okr-bar"><div class="okr-bar-fill" style="width:36%;background:var(--amber);"></div></div>
-        <div class="okr-val">On track</div>
+        <div class="okr-bar"><div class="okr-bar-fill" id="okr-es-bar" style="width:36%;background:var(--amber);"></div></div>
+        <div class="okr-val" id="okr-es-val">On track</div>
       </div>
       <div class="okr-row">
-        <div class="rag-dot rag-a"></div>
+        <div class="rag-dot" id="okr-fr-dot" style="background:var(--amber);box-shadow:0 0 5px var(--amber);"></div>
         <div class="okr-name">Active Adoption — France</div>
-        <div class="okr-bar"><div class="okr-bar-fill" style="width:20%;background:var(--amber);"></div></div>
-        <div class="okr-val">Building</div>
+        <div class="okr-bar"><div class="okr-bar-fill" id="okr-fr-bar" style="width:20%;background:var(--amber);"></div></div>
+        <div class="okr-val" id="okr-fr-val">Building</div>
       </div>
       <div class="okr-row">
-        <div class="rag-dot rag-a"></div>
+        <div class="rag-dot" id="okr-ae-dot" style="background:var(--amber);box-shadow:0 0 5px var(--amber);"></div>
         <div class="okr-name">AutoEntry Compliance Pipeline — France</div>
-        <div class="okr-bar"><div class="okr-bar-fill" style="width:20%;background:var(--amber);"></div></div>
-        <div class="okr-val">Building</div>
+        <div class="okr-bar"><div class="okr-bar-fill" id="okr-ae-bar" style="width:20%;background:var(--amber);"></div></div>
+        <div class="okr-val" id="okr-ae-val">Building</div>
       </div>
       <div class="okr-row">
         <div class="rag-dot rag-g"></div>
@@ -913,19 +913,19 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:
   <div class="page-header reveal">
     <div class="page-eyebrow"><span class="pulse-dot"></span>01 · Weekly Intelligence</div>
     <div class="page-title">What's moving in <em>the market</em></div>
-    <div class="page-subtitle">20 signals this week · Signal intensity: CRITICAL · France penalty window confirmed hard · Xero JAX going global</div>
+    <div class="page-subtitle" id="signals-subtitle">Loading intelligence…</div>
   </div>
 
   <div class="stat-row reveal">
-    <div class="stat-cell"><div class="stat-n">20</div><div class="stat-l">Signals this week<br>vs 18 last week</div></div>
-    <div class="stat-cell"><div class="stat-n">CRITICAL</div><div class="stat-l">Intensity rating<br>Pennylane + Cegid moving</div></div>
-    <div class="stat-cell"><div class="stat-n">5 mo</div><div class="stat-l">To France PA mandate<br>Sept 1 2026</div></div>
-    <div class="stat-cell"><div class="stat-n">9 mo</div><div class="stat-l">To Spain Verifactu<br>Jan 1 2027</div></div>
+    <div class="stat-cell"><div class="stat-n" id="stat-signal-count">20</div><div class="stat-l">Signals this week<br><span id="stat-signal-prev">vs 18 last week</span></div></div>
+    <div class="stat-cell"><div class="stat-n" id="stat-intensity">CRITICAL</div><div class="stat-l">Intensity rating<br><span id="stat-intensity-reason">Pennylane + Cegid moving</span></div></div>
+    <div class="stat-cell"><div class="stat-n" id="stat-fr-mo">—</div><div class="stat-l">To France PA mandate<br>Sept 1 2026</div></div>
+    <div class="stat-cell"><div class="stat-n" id="stat-es-mo">—</div><div class="stat-l">To Spain Verifactu<br>Jan 1 2027</div></div>
   </div>
 
   <div class="ifyrne reveal">
     <div class="ifyrne-label">If You Read Nothing Else</div>
-    <p>Pennylane raised €175M at $4.25B to acquire legacy accounting software — Sage's GE-class tools are the implied target. Cegid absorbed Shine (400k+ French SMBs, banking) and Ageras, now fielding 100 new salespeople against the same GE practices Sage needs. France's Finance Bill 2026 removed all grace periods — September 2026 penalties are live from day one, no good-faith exemption. Xero JAX is now autonomously reconciling 80%+ of bank lines across all global regions, setting the agentic AI ceiling Sage Copilot must match. The window to lock in GE and Despachos practices is now under 5 months. The question is whether Sage moves fast enough.</p>
+    <p id="ifyrne-text">Loading this week's intelligence summary…</p>
   </div>
 
   <div class="filter-bar reveal">
@@ -2662,58 +2662,39 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:
 const pages = document.querySelectorAll('.page-section');
 const navLinks = document.querySelectorAll('.sb-link[data-page]');
 const titles = {
-  'dashboard':'Command Centre — Dashboard',
-  'signals':'Intelligence — Signals',
-  'competitors':'Intelligence — Competitors',
-  'ai-watch':'Intelligence — AI Watch',
-  'brand':'Intelligence — Brand Positioning',
-  'hiring':'Intelligence — Hiring Signals',
-  'regulatory':'Intelligence — Regulatory Calendar',
-  'products':'Products — Portfolio',
-  'accountant-personas':'Personas — Accountant Personas',
-  'smb-segments':'Personas — SMB Client Segments',
-  'battlecards':'Sales Tools — Battle Cards',
-  'deal-intel':'Sales Tools — Deal Intelligence',
-  'campaign-alerts':'Sales Tools — Campaign Alerts',
-  'sales-enablement':'Enablement — Sales Enablement',
-  'country-fr':'🇫🇷 France Intelligence',
-  'country-es':'🇪🇸 Spain Intelligence',
-  'country-de':'🇩🇪 Germany Intelligence',
-  'country-pt':'🇵🇹 Portugal Intelligence',
-  'country-uk':'🇬🇧 UK Intelligence',
-  'country-us':'🇺🇸 US Intelligence',
-  'messaging-library':'Strategy — Messaging Library',
-  'win-loss':'Strategy — Win / Loss Intel',
-  'campaign-calendar':'Strategy — Campaign Calendar',
-  'smb-direct':'Direct Channel — SMB Direct Playbook',
+  'dashboard':'Command Centre — Dashboard','signals':'Intelligence — Signals',
+  'competitors':'Intelligence — Competitors','ai-watch':'Intelligence — AI Watch',
+  'brand':'Intelligence — Brand Positioning','hiring':'Intelligence — Hiring Signals',
+  'regulatory':'Intelligence — Regulatory Calendar','products':'Products — Portfolio',
+  'accountant-personas':'Personas — Accountant Personas','smb-segments':'Personas — SMB Client Segments',
+  'battlecards':'Sales Tools — Battle Cards','deal-intel':'Sales Tools — Deal Intelligence',
+  'campaign-alerts':'Sales Tools — Campaign Alerts','sales-enablement':'Enablement — Sales Enablement',
+  'country-fr':'🇫🇷 France Intelligence','country-es':'🇪🇸 Spain Intelligence',
+  'country-de':'🇩🇪 Germany Intelligence','country-pt':'🇵🇹 Portugal Intelligence',
+  'country-uk':'🇬🇧 UK Intelligence','country-us':'🇺🇸 US Intelligence',
+  'messaging-library':'Strategy — Messaging Library','win-loss':'Strategy — Win / Loss Intel',
+  'campaign-calendar':'Strategy — Campaign Calendar','smb-direct':'Direct Channel — SMB Direct Playbook',
   'competitor-compare':'Direct Channel — Competitor Compare',
 };
-
 function showPage(id) {
   pages.forEach(p => p.classList.remove('active'));
   navLinks.forEach(l => l.classList.remove('active'));
   const target = document.getElementById('page-' + id);
   if (target) {
     target.classList.add('active');
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        const mainEl = document.getElementById('main');
-        if (mainEl) mainEl.scrollTop = target.offsetTop - 48;
-        const revealEls = target.querySelectorAll('.reveal');
-        revealEls.forEach(el => el.classList.remove('visible'));
-        revealEls.forEach((el, i) => {
-          setTimeout(() => el.classList.add('visible'), 30 + i * 20);
-        });
-      });
-    });
+    requestAnimationFrame(() => { requestAnimationFrame(() => {
+      const mainEl = document.getElementById('main');
+      if (mainEl) mainEl.scrollTop = target.offsetTop - 48;
+      const revealEls = target.querySelectorAll('.reveal');
+      revealEls.forEach(el => el.classList.remove('visible'));
+      revealEls.forEach((el, i) => { setTimeout(() => el.classList.add('visible'), 30 + i * 20); });
+    }); });
   }
   const link = document.querySelector(`.sb-link[data-page="${id}"]`);
   if (link) link.classList.add('active');
   const bc = document.getElementById('tb-current');
   if (bc) bc.textContent = titles[id] || id;
 }
-
-// Use event delegation so all sb-links work even if added after init
 document.getElementById('sidebar').addEventListener('click', e => {
   const link = e.target.closest('.sb-link[data-page]');
   if (link) showPage(link.dataset.page);
@@ -2721,21 +2702,18 @@ document.getElementById('sidebar').addEventListener('click', e => {
 
 // ── PROGRESS BAR ──
 const progress = document.getElementById('progress');
-const mainForScroll=document.getElementById('main'); if(mainForScroll){mainForScroll.addEventListener('scroll',()=>{if(mainForScroll.scrollHeight-mainForScroll.clientHeight>0){progress.style.width=(mainForScroll.scrollTop/(mainForScroll.scrollHeight-mainForScroll.clientHeight))*100+'%';}}); }
+const mainForScroll = document.getElementById('main');
+if (mainForScroll) { mainForScroll.addEventListener('scroll', () => { if (mainForScroll.scrollHeight - mainForScroll.clientHeight > 0) { progress.style.width = (mainForScroll.scrollTop / (mainForScroll.scrollHeight - mainForScroll.clientHeight)) * 100 + '%'; } }); }
 
 // ── REVEAL ON SCROLL ──
-const revealObs = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: 0.05, rootMargin: '0px 0px -30px 0px' });
+const revealObs = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.05, rootMargin: '0px 0px -30px 0px' });
 document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 
 // ── SIGNAL FILTERS ──
-let signalFilter = 'all';
-let signalSearch = '';
+let signalFilter = 'all', signalSearch = '';
 function applySignalFilters() {
   document.querySelectorAll('#signal-list .signal-card').forEach(s => {
-    const cat = s.dataset.c || '';
-    const text = s.textContent.toLowerCase();
+    const cat = s.dataset.c || '', text = s.textContent.toLowerCase();
     const mc = signalFilter === 'all' || cat === signalFilter;
     const ms = !signalSearch || text.includes(signalSearch);
     s.style.display = mc && ms ? '' : 'none';
@@ -2744,182 +2722,173 @@ function applySignalFilters() {
 document.querySelectorAll('#signal-filters .fp').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('#signal-filters .fp').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    signalFilter = btn.dataset.f;
-    applySignalFilters();
+    btn.classList.add('active'); signalFilter = btn.dataset.f; applySignalFilters();
   });
 });
 const signalSearchInput = document.getElementById('signal-search');
-if (signalSearchInput) {
-  signalSearchInput.addEventListener('input', function() {
-    signalSearch = this.value.toLowerCase().trim();
-    applySignalFilters();
+if (signalSearchInput) { signalSearchInput.addEventListener('input', function() { signalSearch = this.value.toLowerCase().trim(); applySignalFilters(); }); }
+
+// ══════════════════════════════════════════
+// LIVE DATA ENGINE — powered by signals.json
+// ══════════════════════════════════════════
+const SIGNALS_URL = 'https://raw.githubusercontent.com/lewisvines/wise-intel-hub/main/signals.json';
+const COL = { green:'var(--g)', amber:'var(--amber)', red:'var(--red)', teal:'#0e9f9f', blue:'#3b82f6' };
+
+function setEl(id, val) { const el = document.getElementById(id); if (el && val != null) el.textContent = val; }
+function setBar(barId, dotId, pct, status) {
+  const bar = document.getElementById(barId), dot = document.getElementById(dotId);
+  const col = COL[status] || COL.amber;
+  if (bar) { bar.style.width = pct + '%'; bar.style.background = col; }
+  if (dot) { dot.style.background = col; dot.style.boxShadow = '0 0 5px ' + col; }
+}
+function daysUntil(ds) { return Math.ceil((new Date(ds) - new Date()) / 86400000); }
+function monthsLabel(ds) {
+  const d = daysUntil(ds);
+  if (d <= 0) return 'LIVE';
+  if (d < 45) return Math.ceil(d / 7) + ' wk';
+  return Math.round(d / 30.44) + ' mo';
+}
+function dayColor(d) { return d < 90 ? 'var(--red)' : d < 180 ? 'var(--amber)' : 'var(--g)'; }
+
+function updateCountdowns() {
+  const mandates = [
+    ['days-fr-mandate','2026-09-01',true],['days-fr-mandate-c','2026-09-01',true],
+    ['days-es-verifactu','2027-01-01',false],['days-de-xrechnung','2028-01-01',false],['days-pt-saft','2028-01-01',false],
+  ];
+  mandates.forEach(([id,ds,col]) => {
+    const el = document.getElementById(id); if (!el) return;
+    const d = daysUntil(ds); el.textContent = d > 0 ? d : 'LIVE';
+    if (col) el.style.color = dayColor(d);
   });
+  const frD = daysUntil('2026-09-01');
+  const frEl = document.getElementById('stat-fr-mo'), esEl = document.getElementById('stat-es-mo');
+  if (frEl) { frEl.textContent = monthsLabel('2026-09-01'); frEl.style.color = dayColor(frD); }
+  if (esEl) { esEl.textContent = monthsLabel('2027-01-01'); }
 }
 
-// ── ELT EXPORT ──
-function openELT() { document.getElementById('elt-modal').classList.add('open'); }
-function closeELT() { document.getElementById('elt-modal').classList.remove('open'); }
-function generateELT() {
-  const brief = `WISE INTEL HUB — ELT STEERCO BRIEF
-Week of March 24–30, 2026
-Sage WiSE — Winning in Small Europe Through Accountants
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-SIGNAL INTENSITY: CRITICAL (20 signals this week, vs 18 last week)
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-HEADLINE: The e-invoicing mandates are now the primary competitive catalyst across all four WiSE markets. Pennylane and Cegid are both using the French September 2026 mandate and Spanish January 2027 Verifactu as their primary growth accelerant. Sage's structural advantage — thousands of GE practices and thousands of Despachos — is the moat that neither competitor can replicate. The question is whether Sage activates it before the competition does.
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-TOP 5 SIGNALS THIS WEEK
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-1. CRITICAL — FRANCE PA REGISTRATION
-PA registration at 8 live clients vs 100% target. under 5 months to September 1 mandate. Requires immediate direct campaign to all thousands of GE practices. Cegid has deployed 100 new salespeople targeting the same practices from Q2 2026. Action required: France commercial team communication + campaign brief.
-
-2. CRITICAL — SPAIN: PENNYLANE COUNTRY MANAGER HIRED
-Pennylane is hiring a Spain country manager for H2 2026 arrival. They will begin Spanish accountant outreach Q2 2026 — before Sage's SfA Spain launch is complete. 797 Active subscriptions already at risk if product delays continue. Action required: accelerate Despachos "new revenue model" campaign.
-
-3. HIGH — CEGID: 100 FRENCH SALES REPS FROM Q2 2026
-Cegid deploying 100 commercial hires targeting French accountant market from Q2 2026. They will offer EBP as a "GE but cloud, ready now" alternative. The GE-to-SfA connection rate of 36% must improve before these calls begin. Action required: GE-Active sync status escalation + counter-messaging brief.
-
-4. HIGH — SPAIN PRICING: SAGE WINS ON EVERY DIMENSION
-Confirmed: Active Essentials (10 users, payroll, Verifactu certified) vs Holded Advanced (7 users, no payroll, Verifactu in progress). This comparison must be in every Spain accountant conversation. Action required: pricing one-pager for regional commercial teams.
-
-5. WATCH — XERO JAX ANTHROPIC PARTNERSHIP
-Xero announced a multi-year Anthropic partnership and JAX superagent (natural language accounting via WhatsApp). Currently no French/Spanish compliance specificity — not a WiSE threat today. However, if JAX gains European compliance features in H2 2026, competitive landscape changes. Action required: monthly monitoring brief.
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-STRATEGIC PRIORITIES SUMMARY
-FR: PA registration acceleration required — Sept 2026 is the hard deadline. GE-Active sync unblocked by Q2.
-ES: 797 units committed pre-launch. Verifactu Jan 2027 window open. Pennylane H2 2026 arrival is the timing constraint.
-DE: DATEV exploration underway. Cloud management layer above DATEV is the entry strategy.
-PT: SfA proposition definition in progress. SAF-T 2027 is the commercial catalyst.
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-ACTIONS REQUIRED FROM ELT
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-1. GE-Active sync: escalate to product immediately — PA pipeline depends on this
-2. Sage ID SSO friction (Spain): must be resolved before SfA Spain launch
-3. Germany PMM hire: raise with Karen — DATEV exploration requires dedicated resource
-4. PA campaign budget: approve GE practice direct campaign
-5. Copilot GA date (France): Product team confirmation needed for Sept messaging
-
-WiSE Intel Hub: [URL] · Internal distribution only`;
-
-  document.getElementById('elt-output').textContent = brief;
-}
-function copyELT() {
-  const text = document.getElementById('elt-output').textContent;
-  navigator.clipboard.writeText(text).then(() => {
-    const btn = event.target;
-    const orig = btn.textContent;
-    btn.textContent = '✓ Copied!';
-    setTimeout(() => btn.textContent = orig, 2000);
-  });
-}
-
-// ══════ LIVE SIGNALS FETCH ══════
-const SIGNALS_URL = 'https://raw.githubusercontent.com/lewisvines/wise-intel-hub/signals/signals.json';
-
-function categoryTag(cat) {
-  const map = {'Competitive':'t-red','Regulatory':'t-teal','AI':'t-purple','Pricing':'t-amber'};
-  return `<span class="tag ${map[cat]||'t-grey'}">${cat||'Signal'}</span>`;
-}
-function marketTag(mkt) {
-  const map = {'FR':'🇫🇷 FR','ES':'🇪🇸 ES','DE':'🇩🇪 DE','PT':'🇵🇹 PT','EU':'🌍 EU'};
-  return `<span class="tag t-grey">${map[mkt]||mkt||'EU'}</span>`;
-}
-
-async function loadLiveSignals() {
-  const list = document.getElementById('signal-list');
-  if (!list) return;
-  try {
-    const r = await fetch(SIGNALS_URL + '?v=' + Date.now());
-    if (!r.ok) return;
-    const signals = await r.json();
-    if (!Array.isArray(signals) || signals.length === 0) return;
-
-    // Insert live signals at the top with a "LIVE" header
-    const liveSection = document.createElement('div');
-    liveSection.id = 'live-signals-block';
-    liveSection.innerHTML = `
-      <div style="font-family:var(--font);font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--g);margin-bottom:10px;display:flex;align-items:center;gap:8px;">
-        <span class="pulse-dot"></span>LIVE SIGNALS — Updated ${new Date(signals[0]?.date||Date.now()).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'})}
-      </div>`;
-
-    signals.forEach(sig => {
-      const card = document.createElement('div');
-      card.className = 'signal-card';
-      card.style.borderLeft = '2px solid var(--g)';
-      card.innerHTML = `
-        <div class="sc-top">
-          <div class="sc-tags">${categoryTag(sig.category)}${marketTag(sig.market)}</div>
-          <span class="sc-date">${sig.date||''}</span>
-        </div>
-        <div class="sc-title"><strong>${sig.title||'Signal'}</strong></div>
-        <div class="sc-body">${sig.body||''}</div>
-        ${sig.implication ? `<div class="sc-implication"><div class="sc-impl-label">Strategic implication</div><div class="sc-impl-body">${sig.implication}</div></div>` : ''}`;
-      liveSection.appendChild(card);
-    });
-
-    // Prepend before existing static signals
-    list.insertBefore(liveSection, list.firstChild);
-    liveSection.querySelectorAll('.signal-card').forEach(el => el.classList.add('visible'));
-  } catch(e) {
-    console.log('Live signals not yet available:', e.message);
+function updateDateStamp(meta) {
+  const el = document.getElementById('hub-updated-date'); if (!el) return;
+  if (meta && meta.last_updated) {
+    const d = new Date(meta.last_updated + 'T12:00:00Z');
+    el.textContent = d.toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'}) + ' (data) · ' + new Date().toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}) + ' (live)';
+  } else {
+    el.textContent = new Date().toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});
   }
 }
 
-// ══ INNER TAB SWITCHING ══
-function initTabs(pageId) {
-  const page = document.getElementById('page-' + pageId);
-  if (!page) return;
-  const btns = page.querySelectorAll('.tab-btn');
-  btns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      btns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const target = btn.dataset.tab;
-      page.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-      const panel = document.getElementById(target);
-      if (panel) panel.classList.add('active');
-    });
+function catTag(cat) {
+  const m={'Competitive':'t-red','Regulatory':'t-teal','AI & Tech':'t-purple','Pricing':'t-amber'};
+  return `<span class="tag ${m[cat]||'t-grey'}">${cat||'Signal'}</span>`;
+}
+function mktTag(mkt) {
+  const f={'FR':'🇫🇷','ES':'🇪🇸','DE':'🇩🇪','PT':'🇵🇹','EU':'🌍','UK':'🇬🇧'};
+  return `<span class="tag t-grey">${(f[mkt]||'')} ${mkt||'EU'}</span>`;
+}
+function priLabel(p) {
+  const c={critical:'var(--red)',high:'var(--amber)',watch:'var(--g)'};
+  return `<span style="font-size:9px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;color:${c[p]||'var(--text3)'};">${p||''}</span>`;
+}
+
+function applyMeta(meta) {
+  window._hubMeta = meta;
+  setEl('stat-signal-count', meta.signal_count);
+  setEl('stat-signal-prev', 'vs ' + meta.prev_signal_count + ' last week');
+  setEl('stat-intensity', meta.intensity);
+  setEl('stat-intensity-reason', meta.intensity_reason);
+  const sub = document.getElementById('signals-subtitle');
+  if (sub) sub.textContent = meta.signal_count + ' signals this week · Signal intensity: ' + meta.intensity + ' · ' + meta.intensity_reason;
+  setEl('ifyrne-text', meta.ifyrne);
+  const intEl = document.getElementById('stat-intensity');
+  if (intEl) intEl.style.color = meta.intensity==='CRITICAL'?'var(--red)':meta.intensity==='HIGH'?'var(--amber)':'var(--g)';
+  const bars = [
+    ['okr-pa-bar','okr-pa-dot','okr-pa-val',meta.pa_registration_pct, meta.pa_registration_status, meta.pa_registration_label],
+    ['okr-ge-bar','okr-ge-dot','okr-ge-val',meta.ge_onboarding_pct,   meta.ge_onboarding_status,   meta.ge_onboarding_label],
+    ['okr-es-bar','okr-es-dot','okr-es-val',meta.active_spain_pct,    meta.active_spain_status,     meta.active_spain_label],
+    ['okr-fr-bar','okr-fr-dot','okr-fr-val',meta.active_france_pct,   meta.active_france_status,    meta.active_france_label],
+    ['okr-ae-bar','okr-ae-dot','okr-ae-val',meta.ae_pipeline_pct,     meta.ae_pipeline_status,      meta.ae_pipeline_label],
+  ];
+  bars.forEach(([b,d,v,pct,status,label]) => { setBar(b,d,pct,status); setEl(v,label); });
+  updateDateStamp(meta);
+}
+
+function renderSignals(signals) {
+  window._hubSignals = signals;
+  const list = document.getElementById('signal-list'); if (!list) return;
+  const ex = document.getElementById('live-signals-block'); if (ex) ex.remove();
+  const block = document.createElement('div'); block.id = 'live-signals-block';
+  const hdr = document.createElement('div');
+  hdr.style.cssText = 'font-family:var(--font);font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--g);margin-bottom:10px;display:flex;align-items:center;gap:8px;padding:4px 0;';
+  hdr.innerHTML = '<span class="pulse-dot"></span>LIVE SIGNALS — ' + signals.length + ' this week';
+  block.appendChild(hdr);
+  signals.forEach(sig => {
+    const card = document.createElement('div');
+    card.className = 'signal-card visible'; card.dataset.c = sig.category;
+    card.style.borderLeft = sig.priority==='critical'?'2px solid var(--red)':sig.priority==='high'?'2px solid var(--amber)':'2px solid var(--g)';
+    card.innerHTML = `<div class="sc-top"><div class="sc-tags">${catTag(sig.category)}${mktTag(sig.market)}${priLabel(sig.priority)}</div><span class="sc-date">${sig.date||''}</span></div><div class="sc-title"><strong>${sig.title||''}</strong></div><div class="sc-body">${sig.body||''}</div>${sig.implication?`<div class="sc-implication"><div class="sc-impl-label">Strategic implication</div><div class="sc-impl-body">${sig.implication}</div></div>`:''}<div style="font-size:10px;color:var(--text4);margin-top:8px;">${sig.source?'Source: '+sig.source:''}</div>`;
+    block.appendChild(card);
+  });
+  const foot = document.createElement('div');
+  foot.style.cssText = 'font-size:10px;color:var(--text4);padding:12px 0 4px;text-align:center;border-top:1px solid var(--border);margin-top:16px;';
+  foot.innerHTML = 'Live data from <code>signals.json</code> · Updates on each page load · <a href="https://github.com/lewisvines/wise-intel-hub/edit/main/signals.json" style="color:var(--g);">Edit in GitHub ↗</a>';
+  block.appendChild(foot);
+  list.insertBefore(block, list.firstChild);
+}
+
+// ── ELT EXPORT (fully dynamic) ──
+function openELT() { document.getElementById('elt-modal').classList.add('open'); }
+function closeELT() { document.getElementById('elt-modal').classList.remove('open'); }
+function generateELT() {
+  const m = window._hubMeta || {};
+  const sigs = (window._hubSignals || []).filter(s => s.priority==='critical');
+  const sigLines = sigs.map((s,i) => `${i+1}. [${s.market||'EU'}] ${s.title}\n   → ${s.implication||''}`).join('\n\n');
+  const today = new Date().toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});
+  const bar = '━'.repeat(40);
+  const brief = `WISE INTEL HUB — ELT STEERCO BRIEF\n${m.week_label||'Current Week'}\nGenerated: ${today}\n\n${bar}\nINTENSITY: ${m.intensity||'—'} · ${m.signal_count||'—'} signals (vs ${m.prev_signal_count||'—'} last week)\n${bar}\n\nMANDATE COUNTDOWN\n🇫🇷 France PA (Sept 1 2026): ${daysUntil('2026-09-01')} days\n🇪🇸 Spain Verifactu (Jan 1 2027): ${daysUntil('2027-01-01')} days\n🇩🇪 Germany XRechnung (Jan 1 2028): ${daysUntil('2028-01-01')} days\n🇵🇹 Portugal SAF-T (Jan 1 2028): ${daysUntil('2028-01-01')} days\n\nHEADLINE\n${m.ifyrne||''}\n\n${bar}\nCRITICAL SIGNALS\n${bar}\n\n${sigLines}\n\n${bar}\nPROGRESS\nFR PA Registration: ${m.pa_registration_label||'—'}\nGE → SfA Onboarding: ${m.ge_onboarding_label||'—'}\nActive Spain: ${m.active_spain_label||'—'}\nActive France: ${m.active_france_label||'—'}\nAE Pipeline FR: ${m.ae_pipeline_label||'—'}\nSfA Spain GTM: ${m.sfa_spain_gtm_label||'—'}\n\nWiSE Intel Hub: lewisvines.github.io/wise-intel-hub/dev.html\nInternal only — not for external distribution`;
+  document.getElementById('elt-output').textContent = brief;
+}
+function copyELT() {
+  navigator.clipboard.writeText(document.getElementById('elt-output').textContent).then(() => {
+    const btn = event.target, orig = btn.textContent;
+    btn.textContent = '✓ Copied!'; setTimeout(() => btn.textContent = orig, 2000);
   });
 }
 
-// ══ MANDATE COUNTDOWN ══
-function updateCountdowns() {
-  const now = new Date();
-  const mandate = new Date('2026-09-01');
-  const days = Math.ceil((mandate - now) / (1000 * 60 * 60 * 24));
-  const el = document.getElementById('days-fr-mandate');
-  if (el) { el.textContent = days; el.style.color = days < 90 ? 'var(--red)' : days < 180 ? 'var(--amber)' : 'var(--g)'; }
+// ── INNER TABS ──
+function initTabs(pageId) {
+  const page = document.getElementById('page-' + pageId); if (!page) return;
+  const btns = page.querySelectorAll('.tab-btn');
+  btns.forEach(btn => { btn.addEventListener('click', () => {
+    btns.forEach(b => b.classList.remove('active')); btn.classList.add('active');
+    page.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    const panel = document.getElementById(btn.dataset.tab); if (panel) panel.classList.add('active');
+  }); });
 }
 
-// Init first page
+// ── MAIN LOAD ──
+async function loadHubData() {
+  updateCountdowns();
+  updateDateStamp(null);
+  try {
+    const r = await fetch(SIGNALS_URL + '?v=' + Date.now());
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    const data = await r.json();
+    if (data.meta) applyMeta(data.meta);
+    if (Array.isArray(data.signals) && data.signals.length > 0) renderSignals(data.signals);
+  } catch(e) {
+    console.log('signals.json unavailable — static fallback active:', e.message);
+    updateDateStamp(null);
+  }
+  setInterval(updateCountdowns, 3600000);
+}
+
 showPage('dashboard');
 initTabs('products');
-updateCountdowns();
-
-// Also ensure any pre-marked visible elements on non-active pages get cleared
-document.querySelectorAll('.page-section:not(.active) .reveal').forEach(el => {
-  el.classList.remove('visible');
-});
-// Also update country FR countdown
+document.querySelectorAll('.page-section:not(.active) .reveal').forEach(el => el.classList.remove('visible'));
+document.querySelectorAll('#page-signals .reveal').forEach(el => { setTimeout(() => el.classList.add('visible'), 100); });
 const elC = document.getElementById('days-fr-mandate-c');
-if (elC) {
-  const days = Math.ceil((new Date('2026-09-01') - new Date()) / (1000*60*60*24));
-  elC.textContent = days;
-  elC.style.color = days < 90 ? 'var(--red)' : days < 180 ? 'var(--amber)' : 'var(--g)';
-}
-document.querySelectorAll('#page-signals .reveal').forEach(el => {
-  setTimeout(() => el.classList.add('visible'), 100);
-});
+if (elC) { const d = daysUntil('2026-09-01'); elC.textContent = d; elC.style.color = dayColor(d); }
 
-// Load live signals on startup
-loadLiveSignals();
+loadHubData();;
 </script>
 
 <!-- ══════════════════════════════════════════════════════════ -->
