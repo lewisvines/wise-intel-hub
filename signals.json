@@ -1,1 +1,122 @@
-{"type":"error","error":{"type":"rate_limit_error","message":"This request would exceed your organization's rate limit of 30,000 input tokens per minute (org: fcb38a5b-ec34-4dca-abb7-ae302b432222, model: claude-sonnet-4-20250514). For details, refer to: https://docs.claude.com/en/api/rate-limits. You can see the response headers for current usage. Please reduce the prompt length or the maximum tokens requested, or try again later. You may also contact sales at https://claude.com/contact-sales to discuss your options for a rate limit increase."},"request_id":"req_011CZZLNUr2Vz7d2JXLsdiRz"}
+{
+  "meta": {
+    "last_updated": "2026-04-14",
+    "week_label": "Week of 14–20 April 2026",
+    "signal_count": 20,
+    "prev_signal_count": 18,
+    "intensity": "CRITICAL",
+    "intensity_reason": "France PA mandate under 5 months · Cegid 100-rep blitz underway · Pennylane Spain hire confirmed",
+    "ifyrne": "Pennylane's Spain country manager hire is confirmed — their commercial team will reach Despachos practices from Q2 2026, months before SfA Spain launches at scale. Cegid's 100 new salespeople are already calling GE practices in France. The France PA grace period has been formally withdrawn — September 1 penalties are live from day one. Xero JAX is now reconciling 80%+ of bank lines globally, setting the AI ceiling Sage Copilot must match now, not plan to match. The window to lock in GE and Despachos practices is narrowing every week.",
+    "pa_registration_pct": 50,
+    "pa_registration_status": "amber",
+    "pa_registration_label": "In progress — 50%",
+    "ge_onboarding_pct": 36,
+    "ge_onboarding_status": "red",
+    "ge_onboarding_label": "Below target",
+    "active_spain_pct": 36,
+    "active_spain_status": "amber",
+    "active_spain_label": "On track",
+    "active_france_pct": 25,
+    "active_france_status": "amber",
+    "active_france_label": "Building",
+    "ae_pipeline_pct": 30,
+    "ae_pipeline_status": "amber",
+    "ae_pipeline_label": "Building",
+    "sfa_spain_gtm_pct": 80,
+    "sfa_spain_gtm_status": "green",
+    "sfa_spain_gtm_label": "Live",
+    "eu_competitive_pct": 100,
+    "eu_competitive_status": "green",
+    "eu_competitive_label": "Live"
+  },
+  "signals": [
+    {
+      "id": "pennylane-raise",
+      "category": "Competitive",
+      "market": "FR",
+      "date": "Jan 2026",
+      "priority": "critical",
+      "title": "Pennylane raises €175M at $4.25B — CEO plans to acquire 'historical accounting software that has not made the shift to SaaS'",
+      "body": "Series E led by TCV, Blackstone, Sequoia, DST, CapitalG, Meritech. €115M ARR (doubled 2025). 800k SMEs, 6,000+ accounting firms. Germany live Nov 2025. Spain, Belgium, Poland confirmed H2 2026. ~€360M total funding. Explicitly offensive capital — M&A of legacy accounting software is a stated use of funds.",
+      "implication": "Pennylane's M&A language targets GE-class tools. The Spain arrival (H2 2026) is the same window as Sage SfA Spain launch — every Despachos practice converted before H2 2026 is defended territory.",
+      "source": "TechFundingNews / Sifted, January 2026"
+    },
+    {
+      "id": "cegid-shine",
+      "category": "Competitive",
+      "market": "FR",
+      "date": "Nov 2025",
+      "priority": "critical",
+      "title": "Cegid acquires Shine + fields 100 new salespeople in France — targeting GE practice base directly",
+      "body": "Shine acquisition (400k+ SMBs, French IBAN banking) completes November 2025. Combined with EBP (275k clients) and SevDesk (Germany). Now 1M+ SMBs, 15,000 accountants, €967M revenue. LinkedIn confirms 100 new commercial hires (Lyon + Boulogne) starting Q2 2026, explicitly targeting French accountant market.",
+      "implication": "100 Cegid sales reps will be calling GE practices from Q2 2026. The 36% GE-to-SfA connection rate needs to reach 90% before Cegid makes EBP look like the 'ready now' alternative.",
+      "source": "Cegid press release / LinkedIn March 2026"
+    },
+    {
+      "id": "fr-pa-mandate",
+      "category": "Regulatory",
+      "market": "FR",
+      "date": "Sept 2026",
+      "priority": "critical",
+      "title": "France PA mandate: under 5 months away — every VAT-registered business must connect to a registered PA by September 1",
+      "body": "Phase 1: All businesses must receive e-invoices via a DGFiP-registered Plateforme Agréée. Large/ETI must also issue. Formats: Factur-X, UBL, CII, PEPPOL. Fine: €15/invoice, capped €15k/year. 7.9 million businesses in scope. Sage is one of the officially DGFiP-registered PAs.",
+      "implication": "This is the single most important commercial deadline in the WiSE calendar. Every GE practice must choose a PA for their entire client book. Sage is PA-registered. The pitch: 'Your clients need a PA. Sage already is one. You're already in GE. One conversation, no disruption.'",
+      "source": "DGFiP / Sage Europe PMM"
+    },
+    {
+      "id": "fr-no-grace",
+      "category": "Regulatory",
+      "market": "FR",
+      "date": "Apr 2026",
+      "priority": "critical",
+      "title": "France Finance Bill 2026 confirms no grace period — September 2026 penalties live from day one",
+      "body": "PLF 2026 adopted February 2, 2026, formally removed Amendment I-1028 which would have granted a two-year good-faith penalty exemption. From September 1, 2026: €15 per non-compliant invoice, capped at €15,000/year. No first-offence tolerance.",
+      "implication": "This eliminates the last 'wait and see' argument in France. Every accountant who told practices 'we have time' must now revise that conversation immediately.",
+      "source": "France Finance Bill 2026 / Thomson Reuters Pagero, April 2026"
+    },
+    {
+      "id": "pennylane-spain-hire",
+      "category": "Competitive",
+      "market": "ES",
+      "date": "Mar 2026",
+      "priority": "critical",
+      "title": "Pennylane hiring Spain country manager — commercial Spain entry Q2 2026 before SfA Spain launches",
+      "body": "Open roles: Country Manager (Spain, Belgium, Poland), Senior PMs for international e-invoicing, AI/ML PMs for ComptAssistant expansion. 100+ Germany hires since Nov 2025 is the blueprint for Spain entry.",
+      "implication": "Expect Spanish accountant outreach starting Q2 2026 before Sage's SfA Spain launch is complete. The window to build Despachos loyalty before Pennylane arrives is roughly April to September 2026.",
+      "source": "Pennylane Careers / Lever.co March 2026"
+    },
+    {
+      "id": "es-verifactu",
+      "category": "Regulatory",
+      "market": "ES",
+      "date": "Dec 2025",
+      "priority": "high",
+      "title": "Spain Verifactu confirmed Jan 2027 (corporate) / Jul 2027 (autónomos) — Royal Decreto-ley 15/2025",
+      "body": "Royal Decreto-ley 15/2025 gives Spain an extra 12 months vs the original timeline. AEAT test portal live since April 2025. Fine: €50,000/year per non-compliant taxpayer, €150,000/year for non-compliant software vendors. Sage Active Verifactu-certified today.",
+      "implication": "9 extra months to build Despachos loyalty before compliance urgency arrives. Pennylane arrives H2 2026 before Verifactu — so the value-led window matters more than the mandate window.",
+      "source": "Royal Decreto-ley 15/2025 / AEAT"
+    },
+    {
+      "id": "sage-pricing-es",
+      "category": "Pricing",
+      "market": "ES",
+      "date": "Mar 2026",
+      "priority": "high",
+      "title": "Sage Active Essentials vs Holded Advanced — Sage leads on users, payroll and Verifactu compliance",
+      "body": "Sage Spain confirmed channel pricing: Essentials (10 users, full accounting, payroll, Modelo 303, Verifactu-certified, Copilot AI). Holded Advanced: (7 users, Verifactu in progress, no native payroll). SfA practice plan free.",
+      "implication": "More users, more capability, €15/month cheaper, Verifactu-certified today not 'in progress.' State this comparison in every Spain conversation. The Holded comparison is the headline that closes deals.",
+      "source": "Confirmed Spain channel pricing / Holded.com"
+    },
+    {
+      "id": "xero-jax",
+      "category": "AI & Tech",
+      "market": "EU",
+      "date": "Apr 2026",
+      "priority": "watch",
+      "title": "Xero JAX auto-reconciliation live globally — 80%+ of bank lines reconciled autonomously, Anthropic multi-year partnership",
+      "body": "JAX: natural language AI agent creating invoices, reconciling transactions, sending quotes via WhatsApp and SMS. Anthropic Claude-powered. Global rollout from November 2025. No French PA certification, no Spanish Verifactu native support.",
+      "implication": "JAX sets the AI UX ceiling Sage Copilot must match now. Sage's defence: 'JAX reconciles transactions. Sage Copilot reconciles AND validates against Factur-X PA requirements and Verifactu SIF fields.' Develop 3 specific agentic proof points per market urgently.",
+      "source": "Xero press release / JAX release notes March 2026"
+    }
+  ]
+}
