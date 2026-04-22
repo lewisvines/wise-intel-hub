@@ -427,6 +427,25 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:16
 
 
 /* ══ SIGNAL PAGE FIXES ══════════════════════════════════════════ */
+
+/* ── Scan Health Indicator (dashboard + signals page) ─────────── */
+.sh-wrap{display:flex;align-items:center;gap:12px;padding:12px 16px;border-radius:8px;margin-bottom:18px;border:1px solid var(--border);background:#FFFFFF;box-shadow:0 1px 3px rgba(0,0,0,0.04);}
+.sh-wrap.sh-green{background:rgba(0,176,80,0.04);border-color:rgba(0,176,80,0.25);}
+.sh-wrap.sh-amber{background:rgba(255,181,0,0.06);border-color:rgba(255,181,0,0.35);}
+.sh-wrap.sh-red{background:rgba(220,38,38,0.05);border-color:rgba(220,38,38,0.30);}
+.sh-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
+.sh-green .sh-dot{background:var(--g);box-shadow:0 0 6px var(--g);animation:pulse-g 2s infinite;}
+.sh-amber .sh-dot{background:var(--amber);box-shadow:0 0 6px var(--amber);}
+.sh-red .sh-dot{background:var(--red);box-shadow:0 0 6px var(--red);}
+@keyframes pulse-g{0%,100%{opacity:1;}50%{opacity:0.5;}}
+.sh-text{flex:1;}
+.sh-label{font-family:var(--font);font-size:12px;font-weight:600;color:var(--text);margin-bottom:2px;}
+.sh-green .sh-status{color:var(--g2);}
+.sh-amber .sh-status{color:#B88900;}
+.sh-red .sh-status{color:var(--red);}
+.sh-sub{font-size:11px;color:var(--text3);}
+.sh-chip{display:inline-block;padding:6px 12px;background:var(--bg3);border:1px solid var(--border);border-radius:20px;font-size:11px;color:var(--text3);}
+.sh-chip.sh-grey{background:var(--bg3);}
 .signal-list{display:flex;flex-direction:column;gap:12px;}
 #signal-list{display:flex;flex-direction:column;gap:12px;}
 .signal-card{background:#FFFFFF;border:1px solid var(--border);border-radius:8px;padding:20px;transition:border-color 0.15s,box-shadow 0.15s;box-shadow:0 1px 3px rgba(0,0,0,0.04);}
@@ -970,6 +989,9 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:16
     <div class="page-title">What's moving in <em>the market</em></div>
     <div class="page-subtitle">18 signals this week · Signal intensity: CRITICAL · Pennylane and Cegid both in acceleration mode</div>
   </div>
+
+  <!-- Live scan health indicator — populated by renderScanHealth(meta) -->
+  <div id="scan-health" class="reveal"></div>
 
   <div class="stat-row reveal">
     <div class="stat-cell"><div class="stat-n">18</div><div class="stat-l">Signals this week<br>vs 11 last week</div></div>
@@ -2860,7 +2882,49 @@ function copyELT() {
 }
 
 // ══════ LIVE SIGNALS FETCH ══════
-const SIGNALS_URL = 'https://raw.githubusercontent.com/lewisvines/wise-intel-hub/signals/signals.json';
+// Reads from main branch (where the hardened Gemini scanner + RSS fallback
+// commits daily). Signals are inside an object with meta+signals keys.
+const SIGNALS_URL = 'https://raw.githubusercontent.com/lewisvines/wise-intel-hub/main/signals.json';
+
+// ── Scan health indicator (runs on signals page load) ─────────────────
+// Shows last scan time, status colour, and markets scanned/skipped.
+// Green  = scan < 36h ago and no error
+// Amber  = scan 36-72h ago OR fallback/RSS source used
+// Red    = scan > 72h ago OR quota_exhausted with no RSS data
+function renderScanHealth(meta) {
+  const mount = document.getElementById('scan-health');
+  if (!mount) return;
+  if (!meta) {
+    mount.innerHTML = '<div class="sh-chip sh-grey">Signals: status unknown</div>';
+    return;
+  }
+  const status = meta.scan_status || {};
+  const lastScan = meta.last_scan ? new Date(meta.last_scan) : null;
+  const hoursAgo = lastScan ? Math.round((Date.now() - lastScan.getTime()) / 3600000) : null;
+  const err = status.error || '';
+  const fallback = status.source === 'rss_fallback';
+  const skipped = (status.markets_skipped || []).length;
+  const scanned = (status.markets_scanned || []).length;
+
+  let level = 'green', label = 'Healthy';
+  if (err === 'quota_exhausted_preflight' && !fallback) { level = 'red'; label = 'API quota exhausted'; }
+  else if (fallback) { level = 'amber'; label = 'RSS fallback active'; }
+  else if (hoursAgo !== null && hoursAgo > 72) { level = 'red'; label = `Stale (${Math.round(hoursAgo/24)}d)`; }
+  else if (hoursAgo !== null && hoursAgo > 36) { level = 'amber'; label = `${hoursAgo}h since scan`; }
+  else if (skipped > 0) { level = 'amber'; label = `${skipped}/4 markets skipped`; }
+
+  const when = lastScan ? lastScan.toUTCString().replace(' GMT','Z').slice(5) : 'unknown';
+  const scanLabel = err ? `Error: ${err}` : (fallback ? 'Source: Google/Bing RSS (Gemini unavailable)' : `${scanned}/4 markets scanned`);
+
+  mount.innerHTML = `
+    <div class="sh-wrap sh-${level}">
+      <div class="sh-dot"></div>
+      <div class="sh-text">
+        <div class="sh-label">Signals Pipeline · <span class="sh-status">${label}</span></div>
+        <div class="sh-sub">${scanLabel} · Last scan ${when}</div>
+      </div>
+    </div>`;
+}
 
 // ── WiSE Relevance Filter ─────────────────────────────────────────
 // Only surfaces signals with material impact on Winning in Small Europe
@@ -2966,8 +3030,19 @@ async function loadLiveSignals() {
   try {
     const r = await fetch(SIGNALS_URL + '?v=' + Date.now());
     if (!r.ok) return;
-    const allSignals = await r.json();
-    if (!Array.isArray(allSignals) || allSignals.length === 0) return;
+    const payload = await r.json();
+
+    // Support both shapes: new {meta, signals:[]} from Gemini scanner on main,
+    // and legacy [] array format in case someone flips the URL back.
+    const allSignals = Array.isArray(payload)
+      ? payload
+      : (Array.isArray(payload.signals) ? payload.signals : []);
+    const meta = (!Array.isArray(payload) && payload.meta) ? payload.meta : null;
+
+    // ── Surface scan health on dashboard (amber/red if stale or errored) ──
+    try { renderScanHealth(meta); } catch (e) { /* non-fatal */ }
+
+    if (allSignals.length === 0) return;
 
     // ── Criticality scoring (mirrors fetch-signals.js logic) ──────
     function clientCriticality(sig) {
