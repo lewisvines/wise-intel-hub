@@ -11,7 +11,7 @@ Improvements:
   7. Email digest via GitHub Actions (called separately in workflow)
 """
 
-import os, json, re, datetime, time, urllib.request, urllib.error
+import os, json, re, datetime, time, urllib.request, urllib.parse, urllib.error
 
 SIGNALS_FILE = "signals.json"
 MAX_NEW_PER_MARKET = 3
@@ -19,8 +19,25 @@ MAX_TOTAL_SIGNALS = 40
 SIGNAL_ARCHIVE_DAYS = 90
 SIGNAL_EXPIRY_DAYS = 180
 GEMINI_KEY = os.environ["GEMINI_API_KEY"]
-MODEL = "gemini-2.0-flash-lite"
-GEMINI_URL = f"https://generativelanguage.googleapis.com/v1beta/models/{MODEL}:generateContent?key={GEMINI_KEY}"
+
+# Free-tier model fallback chain — try current/generous first, fall back to older
+# 2.5-flash-lite: 15 RPM · 1000 req/day · most generous free tier (Apr 2026)
+# 2.5-flash:      10 RPM · 500 req/day  · better quality
+# 2.0-flash:      15 RPM · 200 req/day  · legacy fallback
+# 2.0-flash-lite: legacy — kept as last resort
+MODEL_CHAIN = [
+    "gemini-2.5-flash-lite",
+    "gemini-2.5-flash",
+    "gemini-2.0-flash",
+    "gemini-2.0-flash-lite",
+]
+MODEL = MODEL_CHAIN[0]  # active model (may rotate during run)
+
+def gemini_url(model=None):
+    m = model or MODEL
+    return f"https://generativelanguage.googleapis.com/v1beta/models/{m}:generateContent?key={GEMINI_KEY}"
+
+GEMINI_URL = gemini_url()  # kept for backwards compat; runtime calls use gemini_url()
 IS_MONDAY = datetime.date.today().weekday() == 0
 
 SAGE_CONTEXT = """Sage WiSE (Winning in Small Europe Through Accountants) PMM intelligence.
@@ -212,6 +229,8 @@ Write ONLY the paragraph. No title, no preamble."""
 # ── API CALLS ───────────────────────────────────────────────────────────────
 
 def call_gemini_raw(prompt, use_search=True, retries=2):
+    """Call Gemini with fallback across model chain. Rotates on 429."""
+    global MODEL  # so preflight + market loops know which model is active
     payload = {
         "contents": [{"parts": [{"text": prompt}]}],
         "generationConfig": {"temperature": 0.3, "maxOutputTokens": 2000}
@@ -220,43 +239,59 @@ def call_gemini_raw(prompt, use_search=True, retries=2):
         payload["tools"] = [{"google_search": {}}]
 
     data = json.dumps(payload).encode()
-    for attempt in range(retries + 1):
-        try:
-            req = urllib.request.Request(GEMINI_URL, data=data, headers={"Content-Type": "application/json"}, method="POST")
-            with urllib.request.urlopen(req, timeout=120) as r:
-                return json.loads(r.read()), None
-        except urllib.error.HTTPError as e:
-            body = e.read().decode()
-            if e.code == 429:
-                if attempt < retries:
-                    wait = 60 * (attempt + 1)
-                    print(f"  Rate limited — waiting {wait}s (retry {attempt+1}/{retries})")
+
+    # Try each model in chain; within each model, allow limited retries
+    for model_idx, model in enumerate(MODEL_CHAIN):
+        url = gemini_url(model)
+        for attempt in range(retries + 1):
+            try:
+                req = urllib.request.Request(url, data=data, headers={"Content-Type": "application/json"}, method="POST")
+                with urllib.request.urlopen(req, timeout=120) as r:
+                    if model != MODEL:
+                        print(f"  ↪ promoted fallback {model} (previous quota hit)")
+                        MODEL = model
+                    return json.loads(r.read()), None
+            except urllib.error.HTTPError as e:
+                body = e.read().decode()[:200]
+                if e.code == 429:
+                    # Quota on THIS model — try next model in chain immediately
+                    print(f"  ⚠ 429 on {model} — trying next model in chain")
+                    break  # break inner retry; fall through to next model_idx
+                elif e.code in (500, 502, 503, 504) and attempt < retries:
+                    wait = 30 * (attempt + 1)
+                    print(f"  HTTP {e.code} on {model} — waiting {wait}s (retry {attempt+1}/{retries})")
                     time.sleep(wait)
                 else:
-                    return None, "quota_exhausted"
-            else:
-                return None, f"HTTP {e.code}"
-        except Exception as e:
-            return None, str(e)
-    return None, "max_retries"
+                    return None, f"HTTP {e.code}: {body}"
+            except Exception as e:
+                return None, str(e)
+    return None, "quota_exhausted"
 
 def check_quota():
+    """Preflight check: try each model in chain; return True if ANY has quota."""
+    global MODEL
     test = {"contents": [{"parts": [{"text": "ready"}]}], "generationConfig": {"temperature": 0, "maxOutputTokens": 3}}
     data = json.dumps(test).encode()
-    req = urllib.request.Request(GEMINI_URL, data=data, headers={"Content-Type": "application/json"}, method="POST")
-    try:
-        with urllib.request.urlopen(req, timeout=30) as r:
-            print("Pre-flight: ✅ API available")
+    for model in MODEL_CHAIN:
+        url = gemini_url(model)
+        req = urllib.request.Request(url, data=data, headers={"Content-Type": "application/json"}, method="POST")
+        try:
+            with urllib.request.urlopen(req, timeout=30) as r:
+                MODEL = model
+                print(f"Pre-flight: ✅ {model} available")
+                return True
+        except urllib.error.HTTPError as e:
+            if e.code == 429:
+                print(f"Pre-flight: ⏭ {model} quota exhausted — trying next")
+                continue
+            print(f"Pre-flight: ⚠️ {model} HTTP {e.code} — proceeding with this model")
+            MODEL = model
             return True
-    except urllib.error.HTTPError as e:
-        if e.code == 429:
-            print("Pre-flight: ❌ Quota exhausted — skipping scan")
-            return False
-        print(f"Pre-flight: ⚠️ HTTP {e.code} — proceeding")
-        return True
-    except Exception as e:
-        print(f"Pre-flight: ⚠️ {e} — proceeding")
-        return True
+        except Exception as e:
+            print(f"Pre-flight: ⚠️ {model} {e} — trying next")
+            continue
+    print("Pre-flight: ❌ All models in chain quota-exhausted — RSS fallback only")
+    return False
 
 def extract_json(text):
     text = text.strip()
@@ -393,6 +428,109 @@ def merge_all(existing_data, all_new, summaries, new_ifyrne=None):
     print(f"Merged {added} new signals. Active: {meta['signal_count']}, Archived: {meta['archived_count']}")
     return {**existing_data, "meta": meta, "signals": existing}
 
+# ── RSS SAFETY-NET (no API key; runs when Gemini quota is gone) ─────────────
+import xml.etree.ElementTree as ET
+import html as _html
+
+RSS_QUERIES = {
+    "FR": [
+        "Pennylane comptable France",
+        "Cegid EBP expert-comptable",
+        "facture electronique DGFiP 2026",
+    ],
+    "ES": [
+        "Pennylane España asesorias",
+        "Holded Visma Verifactu",
+        "Sage Active España contable",
+    ],
+    "DE": [
+        "Pennylane Germany accountant",
+        "DATEV cloud 2026",
+        "Lexoffice Germany SME",
+    ],
+    "PT": [
+        "Cegid Primavera Portugal",
+        "SAF-T Portugal 2027",
+        "TOConline contabilista",
+    ],
+}
+
+def _google_news_rss(query, market_hl):
+    # Google News RSS is free, no key, no rate limit worth worrying about for a few queries/day
+    q = urllib.parse.quote(query)
+    return f"https://news.google.com/rss/search?q={q}&hl={market_hl}&gl={market_hl.split('-')[-1] if '-' in market_hl else market_hl.upper()}&ceid={market_hl.split('-')[-1] if '-' in market_hl else market_hl.upper()}:{market_hl.split('-')[0]}"
+
+def _bing_news_rss(query, market_cc):
+    # Bing News RSS — alternative free source; useful when Google News returns 403
+    q = urllib.parse.quote(query)
+    return f"https://www.bing.com/news/search?q={q}&format=rss&cc={market_cc}"
+
+def _fetch_rss(url, timeout=20):
+    try:
+        req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (compatible; WiSE-Hub/1.0; +https://lewisvines.github.io/wise-intel-hub)"})
+        with urllib.request.urlopen(req, timeout=timeout) as r:
+            return r.read().decode("utf-8", errors="replace")
+    except Exception as e:
+        print(f"    RSS fetch error: {e}")
+        return None
+
+def _parse_rss(xml_text, max_items=3):
+    items = []
+    try:
+        root = ET.fromstring(xml_text)
+        for item in root.findall(".//item")[:max_items]:
+            title = item.findtext("title", "").strip()
+            link = item.findtext("link", "").strip()
+            pub = item.findtext("pubDate", "").strip()
+            desc = item.findtext("description", "").strip()
+            if title:
+                items.append({
+                    "title": _html.unescape(title),
+                    "link": link,
+                    "pub": pub,
+                    "desc": _html.unescape(re.sub(r"<[^>]+>", " ", desc))[:300],
+                })
+    except Exception as e:
+        print(f"    RSS parse error: {e}")
+    return items
+
+def rss_fallback_scan(existing_titles, max_per_market=1):
+    """When Gemini is fully out, scrape RSS (Google News → Bing News fallback)
+    and produce minimal signals. Zero cost, zero API keys, always works."""
+    hl_map = {"FR": ("fr", "FR"), "ES": ("es", "ES"), "DE": ("de", "DE"), "PT": ("pt-PT", "PT")}
+    out = []
+    for market, queries in RSS_QUERIES.items():
+        hl, cc = hl_map[market]
+        for q in queries[:1]:  # one query per market on fallback day
+            # Try Google News first, fall back to Bing if 403/blocked
+            xml = _fetch_rss(_google_news_rss(q, hl))
+            source_name = "Google News"
+            if not xml:
+                xml = _fetch_rss(_bing_news_rss(q, cc))
+                source_name = "Bing News"
+            if not xml:
+                print(f"  [{market}] RSS: both sources failed for '{q[:40]}'")
+                continue
+            items = _parse_rss(xml, max_items=max_per_market)
+            for it in items:
+                # Skip if title is already in our hub
+                if any(it["title"][:40].lower() in t.lower() for t in existing_titles):
+                    continue
+                out.append({
+                    "id": make_id("rss-" + market + "-" + it["title"][:30]),
+                    "category": "RSS-Fallback",
+                    "market": market,
+                    "date": datetime.date.today().strftime("%b %Y"),
+                    "priority": "watch",
+                    "title": it["title"][:180],
+                    "body": (it["desc"] or "Surfaced via RSS safety net; no Gemini quota available this scan.")[:400],
+                    "implication": "Flagged by RSS fallback — requires human review for strategic relevance.",
+                    "source": f"{source_name} RSS ({market}) — {it['pub'][:25]}",
+                })
+            print(f"  [{market}] {source_name} RSS: {len(items)} items fetched for query '{q[:40]}'")
+    print(f"  RSS fallback: {len(out)} signals prepared")
+    return out
+
 # ── MAIN ────────────────────────────────────────────────────────────────────
 
 def main():
@@ -407,11 +545,26 @@ def main():
 
     # Pre-flight quota check
     if not check_quota():
+        print("\n── RSS Safety-Net Scan ──")
+        rss_signals = rss_fallback_scan(existing_titles)
         meta = existing_data.get("meta", {})
         meta["last_scan"] = datetime.datetime.utcnow().isoformat() + "Z"
-        meta["scan_status"] = {"date": today.isoformat(), "markets_scanned": [], "markets_skipped": ["FR","ES","DE","PT"], "signals_added": 0, "error": "quota_exhausted_preflight"}
+        meta["last_scan_summary"] = f"Gemini quota exhausted — RSS fallback ({len(rss_signals)} signals)"
+        meta["scan_status"] = {
+            "date": today.isoformat(),
+            "markets_scanned": [],
+            "markets_skipped": ["FR","ES","DE","PT"],
+            "signals_added": len(rss_signals),
+            "source": "rss_fallback",
+            "error": "quota_exhausted_preflight"
+        }
+        # Merge RSS signals into existing
         existing_data["meta"] = meta
-        save_signals(existing_data)
+        if rss_signals:
+            merged = merge_all(existing_data, rss_signals, {k: "rss_fallback" for k in ["FR","ES","DE","PT"]}, None)
+            save_signals(merged)
+        else:
+            save_signals(existing_data)
         return
 
     all_new = []
