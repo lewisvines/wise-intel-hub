@@ -1,8 +1,8 @@
 {
   "meta": {
-    "last_updated": "2026-04-22",
+    "last_updated": "2026-04-23",
     "week_label": "Week of 14–20 April 2026",
-    "signal_count": 14,
+    "signal_count": 19,
     "prev_signal_count": 18,
     "intensity": "CRITICAL",
     "intensity_reason": "France PA mandate under 5 months · Cegid 100-rep blitz underway · Pennylane Spain hire confirmed",
@@ -28,29 +28,117 @@
     "eu_competitive_pct": 100,
     "eu_competitive_status": "green",
     "eu_competitive_label": "Live",
-    "last_scan": "2026-04-22T11:43:36.369639Z",
+    "last_scan": "2026-04-23T11:44:31.776655Z",
     "last_scan_summary": "API error 429",
     "scan_status": {
-      "date": "2026-04-22",
+      "date": "2026-04-23",
       "markets_scanned": [
-        "FR",
+        "ES",
         "DE",
-        "PT",
         "Pennylane"
       ],
       "markets_skipped": [],
-      "signals_added": 9,
+      "signals_added": 8,
       "quality_filtered": 0,
       "summaries": {
-        "FR": "The French market shows heightened activity around the upcoming e-invoicing mandate, with direct regulatory reminders and strong competitive moves from Pennylane and the merged Cegid-EBP entity targeting the accounting professional channel.",
-        "DE": "The German market shows significant activity with Cegid's acquisition of sevdesk, the impending e-invoicing mandate for reception, and the launch of Pennylane, indicating a dynamic competitive and regulatory landscape.",
-        "PT": "Recent market signals in Portugal indicate a delay in SAF-T accounting file submission and QES mandate for PDF invoices, while Cegid has fully integrated the Primavera brand, strengthening its competitive position.",
-        "Pennylane": "No new signals detected in the last 48 hours regarding Pennylane's competitive activities."
+        "ES": "The Spanish market shows significant activity regarding Verifactu compliance, with clear deadlines set for 2027, and competitors like Holded actively positioning themselves. Pennylane's substantial funding and expansion plans into Spain, coupled with a focus on AI, represent a major competitive development.",
+        "DE": "The German market shows significant activity with upcoming B2B e-invoicing mandates, competitive consolidation through acquisitions, and established players like DATEV experiencing strong growth in cloud services.",
+        "Pennylane": "Pennylane is actively expanding across Europe, with a confirmed launch in Spain in H2 2026 and already live in Germany, presenting a significant competitive challenge to Sage WiSE."
       }
     },
-    "archived_count": 3
+    "archived_count": 4
   },
   "signals": [
+    {
+      "id": "pennylane-de-live-expansion",
+      "category": "Competitive",
+      "market": "DE",
+      "date": "Live",
+      "priority": "high",
+      "title": "Pennylane is live in Germany, posing a competitive threat.",
+      "body": "Pennylane has already launched in the German market, indicating a broader European expansion strategy. This move, alongside their planned entry into Spain, suggests a significant competitive push across key European accounting markets.",
+      "implication": "Sage needs to monitor Pennylane's traction in Germany closely, as their expansion into Spain and potential future moves into Portugal, Belgium, and Poland could impact Sage's market share across multiple regions.",
+      "source": "Sage WiSE PMM Intelligence"
+    },
+    {
+      "id": "pennylane-es-launch-h2-2026",
+      "category": "Competitive",
+      "market": "ES",
+      "date": "H2 2026",
+      "priority": "critical",
+      "title": "Pennylane to launch in Spain H2 2026, targeting accounting firms.",
+      "body": "Pennylane, a French fintech company, is set to expand into the Spanish market in the second half of 2026. The company aims to onboard over 6,000 firms, leveraging its existing success in France where it has achieved €115 million in ARR and a valuation of $4.25 billion.",
+      "implication": "Pennylane's entry into Spain poses a direct threat to Sage for Accountants (SfA) Spain launch, potentially capturing market share before Sage establishes a strong presence.",
+      "source": "Sage WiSE PMM Intelligence"
+    },
+    {
+      "id": "datev-cloud-growth-2025",
+      "category": "Competitive",
+      "market": "DE",
+      "date": "Apr 2026",
+      "priority": "watch",
+      "title": "DATEV reports significant growth driven by cloud services",
+      "body": "DATEV eG reported a 9% revenue increase to €1.65 billion in 2025, with cloud services accounting for nearly two-thirds of the growth and almost half of the total revenue. Their customer base grew by 23.8% to approximately 927,900.",
+      "implication": "DATEV's strong growth in cloud services indicates a significant shift in the German accounting software market. This reinforces DATEV's position as a major player and suggests a potential need for Sage to differentiate its cloud offerings or explore partnership opportunities.",
+      "source": "DATEV eG, March 27 2026"
+    },
+    {
+      "id": "cegid-sevdesk-acquisition-germany",
+      "category": "Competitive",
+      "market": "DE",
+      "date": "Apr 2026",
+      "priority": "high",
+      "title": "Cegid strengthens German presence with sevdesk acquisition",
+      "body": "Cegid has acquired sevdesk, a German provider of digital invoicing and accounting solutions, to expand its presence in German-speaking Europe. Sevdesk serves over 130,000 micro and SMB customers and is preparing them for upcoming e-invoicing reforms starting in 2025.",
+      "implication": "Cegid's acquisition of sevdesk positions them as a stronger competitor in the German market, particularly for SMBs, and highlights the growing importance of e-invoicing compliance in Germany. This could accelerate their market penetration and challenge Sage's position.",
+      "source": "Cegid, February 06 2025; Houlihan Lokey, February 24 2025; M&A Insights, January 08 2025; PwC, May 22 2025"
+    },
+    {
+      "id": "germany-b2b-einvoicing-mandate-2028",
+      "category": "Regulatory",
+      "market": "DE",
+      "date": "Apr 2026",
+      "priority": "critical",
+      "title": "Germany's B2B e-invoicing mandate to extend to all businesses by Jan 2028",
+      "body": "Germany is implementing a phased B2B e-invoicing mandate. While large companies (>€800k turnover) must send e-invoices by January 2027, the mandate will extend to all businesses, irrespective of turnover, by January 2028. After January 2028, only EN16931 compliant invoices will be accepted, with no EDI formats allowed.",
+      "implication": "Sage must ensure SfA Spain is compliant with XRechnung and other German e-invoicing standards by the 2028 deadline, potentially requiring significant development effort and impacting launch timelines if not addressed proactively.",
+      "source": "Axway Blog, May 15 2025",
+      "calendar_tag": true
+    },
+    {
+      "id": "holded-verifactu-readiness",
+      "category": "Competitive",
+      "market": "ES",
+      "date": "Apr 2026",
+      "priority": "high",
+      "title": "Holded actively promotes Verifactu compliance and AEAT partnership",
+      "body": "Holded is actively marketing its readiness for Spain's Verifactu regulation, emphasizing its official AEAT social collaborator status. This partnership allows Holded to streamline the Verifactu compliance process for its users, offering advantages such as simplified compliance, reduced risk of electronic certificate issues, and priority access to technical updates.",
+      "implication": "Holded's proactive approach and established partnership with the AEAT for Verifactu compliance could give them a competitive edge in the Spanish market, particularly among accounting firms and SMEs seeking a seamless transition. Sage needs to clearly communicate its own Verifactu compliance and support strategy to counter this.",
+      "source": "Holded"
+    },
+    {
+      "id": "pennylane-espanol-expansion",
+      "category": "Competitive",
+      "market": "ES",
+      "date": "Apr 2026",
+      "priority": "critical",
+      "title": "Pennylane secures significant funding for European expansion, including Spain",
+      "body": "Pennylane, a French accounting software startup, has raised €175 million (approximately $204 million) at a $4.25 billion valuation. The company plans to use these funds to accelerate its expansion into new European markets, including Spain, and to further develop its AI capabilities. Pennylane aims to position itself as a leading 'financial operating system' for European businesses.",
+      "implication": "Pennylane's aggressive expansion into Spain, backed by substantial funding and a focus on AI, presents a significant competitive threat to Sage's existing and planned offerings in the Spanish market. Their stated goal of no price increases is also a competitive concern.",
+      "source": "SiliconANGLE, Pulse 2.0, TCV, The SaaS News"
+    },
+    {
+      "id": "verifactu-deadline-clarification",
+      "category": "Regulatory",
+      "market": "ES",
+      "date": "Apr 2026",
+      "priority": "critical",
+      "title": "Verifactu deadlines for Spanish businesses and freelancers confirmed for 2027",
+      "body": "The Verifactu system, aimed at combating tax fraud and promoting digitalization, will have staggered implementation deadlines in Spain. Businesses subject to Corporate Tax must have their systems operational by January 1, 2027, while other self-employed individuals and professionals have until July 1, 2027. Software developers are expected to have their systems certified by 2026, following delays in technical order approvals.",
+      "implication": "Sage Active Spain must ensure its compliance with Verifactu by the relevant deadlines to avoid penalties and maintain market access. Competitors like Holded are actively promoting their AEAT social collaborator status, highlighting a need for Sage to emphasize its own readiness and support for Spanish clients.",
+      "source": "Datisa ERP, Holded, GestiFis, TeamSystem, verifactu.com",
+      "calendar_tag": true
+    },
     {
       "id": "cegid-primavera-integration",
       "category": "Competitive",
@@ -85,40 +173,6 @@
       "implication": "This delay provides additional time for Sage to ensure its solutions are fully compliant with SAF-T accounting requirements, but proactive preparation for on-demand generation is still advised.",
       "source": "Various sources, April 2026",
       "calendar_tag": true
-    },
-    {
-      "id": "pennylane-germany-launch-nov-2025",
-      "category": "Competitive",
-      "market": "DE",
-      "date": "Nov 2025",
-      "priority": "high",
-      "title": "Pennylane launches in Germany, targeting tax advisors and businesses",
-      "body": "Pennylane, a French leader in accounting and invoicing software, has launched in Germany, aiming to bring its real-time collaboration platform for tax advisors and businesses to the German market. The company plans to onboard a significant number of tax advisory firms and businesses by 2026.",
-      "implication": "Pennylane's entry into Germany, as a direct competitor to established players like DATEV and potentially Sage, poses a significant competitive threat. Their focus on real-time collaboration and a unified platform could appeal to German firms seeking modern solutions.",
-      "source": "Pennylane in Deutschland: Die Zukunft der Kanzleisoftware? (Interview mit Tobias Janiesch) (Feb 23, 2026)"
-    },
-    {
-      "id": "germany-e-invoicing-readiness-2025",
-      "category": "Regulatory",
-      "market": "DE",
-      "date": "Jan 2025",
-      "priority": "critical",
-      "title": "German companies must be ready to receive e-invoices by January 2025",
-      "body": "As of January 1, 2025, all German companies are mandated to be able to receive e-invoices compliant with the EN 16931 standard, including formats like XRechnung and ZUGFeRD. While sending e-invoices is phased in later, the reception capability is immediate, impacting all businesses.",
-      "implication": "Urgency for Sage products in Germany to fully support e-invoicing reception to ensure compliance for German customers. This aligns with the broader European push for digital invoicing and presents an opportunity for Sage to highlight its readiness.",
-      "source": "Germany XRechnung 2025 Mandatory | German Electronic Invoices - GrandTotal (Jan 2025)",
-      "calendar_tag": true
-    },
-    {
-      "id": "cegid-sevdesk-acquisition-completes",
-      "category": "Competitive",
-      "market": "DE",
-      "date": "Feb 2025",
-      "priority": "high",
-      "title": "Cegid completes acquisition of sevdesk, strengthening DACH presence",
-      "body": "Cegid has finalized its acquisition of sevdesk, a German provider of accounting software for SMBs. This move expands Cegid's footprint in the DACH region, integrating sevdesk's cloud-native solutions and over 130,000 customers into Cegid's European strategy. The acquisition aims to bolster Cegid's offerings in pre-accounting, accounting, and e-invoicing.",
-      "implication": "Increased competitive pressure from Cegid in the German market, particularly with their expanded cloud offering and customer base, potentially impacting Sage Active and Sage for Accountants.",
-      "source": "Cegid - Sevdesk | Transaction Details - Houlihan Lokey (Feb 24, 2025)"
     },
     {
       "id": "cegid-ebp-strengthens-fr-offering",
@@ -208,6 +262,18 @@
       "body": "JAX: natural language AI agent creating invoices, reconciling transactions, sending quotes via WhatsApp and SMS. Anthropic Claude-powered. Global rollout from November 2025. No French PA certification, no Spanish Verifactu native support.",
       "implication": "JAX sets the AI UX ceiling Sage Copilot must match now. Sage's defence: 'JAX reconciles transactions. Sage Copilot reconciles AND validates against Factur-X PA requirements and Verifactu SIF fields.' Develop 3 specific agentic proof points per market urgently.",
       "source": "Xero press release / JAX release notes March 2026"
+    },
+    {
+      "id": "pennylane-germany-launch-nov-2025",
+      "category": "Competitive",
+      "market": "DE",
+      "date": "Nov 2025",
+      "priority": "high",
+      "title": "Pennylane launches in Germany, targeting tax advisors and businesses",
+      "body": "Pennylane, a French leader in accounting and invoicing software, has launched in Germany, aiming to bring its real-time collaboration platform for tax advisors and businesses to the German market. The company plans to onboard a significant number of tax advisory firms and businesses by 2026.",
+      "implication": "Pennylane's entry into Germany, as a direct competitor to established players like DATEV and potentially Sage, poses a significant competitive threat. Their focus on real-time collaboration and a unified platform could appeal to German firms seeking modern solutions.",
+      "source": "Pennylane in Deutschland: Die Zukunft der Kanzleisoftware? (Interview mit Tobias Janiesch) (Feb 23, 2026)",
+      "archived": true
     },
     {
       "id": "pennylane-raise",
