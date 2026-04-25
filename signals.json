@@ -1,8 +1,8 @@
 {
   "meta": {
-    "last_updated": "2026-04-24",
+    "last_updated": "2026-04-25",
     "week_label": "Week of 14–20 April 2026",
-    "signal_count": 30,
+    "signal_count": 26,
     "prev_signal_count": 18,
     "intensity": "CRITICAL",
     "intensity_reason": "France PA mandate under 5 months · Cegid 100-rep blitz underway · Pennylane Spain hire confirmed",
@@ -28,29 +28,23 @@
     "eu_competitive_pct": 100,
     "eu_competitive_status": "green",
     "eu_competitive_label": "Live",
-    "last_scan": "2026-04-24T11:45:27.018462Z",
+    "last_scan": "2026-04-25T10:31:18.087105Z",
     "last_scan_summary": "API error 429",
     "scan_status": {
-      "date": "2026-04-24",
+      "date": "2026-04-25",
       "markets_scanned": [
         "FR",
-        "ES",
-        "DE",
-        "PT",
-        "Pennylane"
+        "PT"
       ],
       "markets_skipped": [],
-      "signals_added": 11,
+      "signals_added": 0,
       "quality_filtered": 0,
       "summaries": {
-        "FR": "Recent market signals indicate significant competitive activity from Cegid/EBP and Pennylane in the French market, alongside critical regulatory developments concerning the upcoming e-invoicing mandate.",
-        "ES": "Market signals in Spain are dominated by the upcoming Verifactu regulation and competitive moves, with Pennylane's planned expansion and Holded's strong Verifactu positioning being key factors.",
-        "DE": "Market activity in Germany shows significant competitive moves with Cegid's acquisition of sevdesk and regulatory pressure from the XRechnung mandate, alongside DATEV's strategic shift to the cloud.",
-        "PT": "Recent market signals in Portugal indicate a significant competitive move by Cegid with its integration of PHC and AI investments, alongside regulatory shifts in SAF-T and QES deadlines, and a notable financial report from the OCC.",
-        "Pennylane": "Pennylane is aggressively expanding its European footprint, particularly in Germany, and heavily investing in AI capabilities, positioning itself as a significant and immediate competitive threat to Sage."
+        "FR": "The market shows ongoing activity related to the upcoming French PA mandate and competitor strategies, but no new signals have emerged in the past 48 hours.",
+        "PT": "Recent market signals in Portugal indicate a delay in SAF-T accounting file submission and QES mandate for PDF invoices, while Cegid's integration of PHC Software signals increased competitive pressure."
       }
     },
-    "archived_count": 4
+    "archived_count": 5
   },
   "signals": [
     {
@@ -63,17 +57,6 @@
       "body": "Pennylane is actively developing and integrating advanced AI features, including its ComptAssistant chatbot, which provides accounting and tax-related answers, and the ability for users to create personalized AI agents for task automation. These AI tools are designed to boost productivity and advisory services for accountants, directly competing with AI initiatives from Sage.",
       "implication": "Pennylane's robust AI development, particularly in tools designed to assist accountants, presents a strong technological challenge to Sage's AI strategy and product offerings.",
       "source": "Pennylane documentation, YouTube - Ongoing"
-    },
-    {
-      "id": "pennylane-funding-expansion-ai",
-      "category": "Funding|Expansion|AI & Tech",
-      "market": "EU",
-      "date": "Jan 2026",
-      "priority": "critical",
-      "title": "Pennylane Secures €175M, Accelerating AI Development and European Expansion",
-      "body": "Pennylane announced a €175 million funding round led by TCV and Blackstone Growth, with participation from existing investors. The capital infusion is earmarked for accelerating AI development, including generative AI tools like an analysis-assistant co-pilot for accountants, and for expanding its European presence, particularly in Germany where it officially launched in November 2025. The company also plans to enhance its payment and cash management offerings and strengthen its infrastructure for electronic invoicing.",
-      "implication": "This significant funding positions Pennylane to aggressively compete across Europe, with a strong focus on AI-driven features and market expansion, directly challenging Sage's offerings in key markets.",
-      "source": "EU-Startups, Beinsure, Vestbee, FinTech Futures, Tech.eu, Medial App - Jan 2026"
     },
     {
       "id": "occ-financial-performance",
@@ -108,40 +91,6 @@
       "implication": "This provides a slight extension for compliance with QES and SAF-T accounting, potentially easing the immediate pressure on businesses but also requiring careful tracking of the new deadlines.",
       "source": "Comarch (Dec 2025), Comarch (Dec 2025), ECO (Apr 2026), Comarch (Dec 2025), Comarch (Dec 2025)",
       "calendar_tag": true
-    },
-    {
-      "id": "datev-cloud-transition-2026",
-      "category": "Competitive",
-      "market": "DE",
-      "date": "Oct 2025",
-      "priority": "high",
-      "title": "DATEV to transition all programs to cloud by Fall 2026",
-      "body": "DATEV is migrating all its software solutions to the cloud, with the transition for management systems (Eigenorganisation) starting in Fall 2026, followed by payroll, accounting, and tax modules. This move aims to enhance efficiency and facilitate digital collaboration between tax advisors and their clients. Local, installed solutions will be phased out.",
-      "implication": "DATEV's cloud transition could strengthen its position and potentially create a more integrated cloud offering above its current services, posing a challenge to Sage's cloud strategy in Germany. It also highlights the increasing importance of cloud-native solutions for tax advisors.",
-      "source": "2026 beginnt die Umstellung - DATEV"
-    },
-    {
-      "id": "germany-xrechnung-deadline-clarification",
-      "category": "Regulatory",
-      "market": "DE",
-      "date": "Jan 2025",
-      "priority": "critical",
-      "title": "Germany mandates e-invoice reception from Jan 2025, with phased issuance deadlines",
-      "body": "As of January 1, 2025, all German companies must be able to receive e-invoices compliant with EN 16931 (XRechnung, Peppol BIS, ZUGFeRD). While sending invoices as PDF/paper is transitionally allowed until 2027, the mandatory issuance of structured e-invoices begins in phases, with a universal mandate by January 1, 2028. This regulatory shift impacts all businesses and requires software solutions to support these new formats.",
-      "implication": "Urgent need to ensure Sage products in Germany are fully compliant with XRechnung and other EN 16931 formats to meet client needs and avoid penalties. This also presents an opportunity to upsell compliance solutions.",
-      "source": "Germany XRechnung 2025 Mandatory | German Electronic Invoices, GrandTotal; How to Receive B2B e-invoices for XRechnung [January 2025 Deadline], Axway Blog, September 04, 2024",
-      "calendar_tag": true
-    },
-    {
-      "id": "cegid-sevdesk-germany-acquisition",
-      "category": "Competitive",
-      "market": "DE",
-      "date": "Feb 2025",
-      "priority": "high",
-      "title": "Cegid completes acquisition of sevdesk, strengthening DACH presence",
-      "body": "Cegid has finalized its acquisition of sevdesk, a German provider of cloud-based accounting software for SMBs. This move significantly expands Cegid's footprint in the DACH region, integrating sevdesk's offerings, which serve over 130,000 customers, into Cegid's European strategy. The acquisition aims to capitalize on the growing demand for cloud solutions and e-invoicing compliance in Germany.",
-      "implication": "Increased competitive pressure from a well-funded European player in the German market, particularly as sevdesk is a direct competitor to Sage Active and potentially Sage for Accountants.",
-      "source": "Cegid completes acquisition of sevdesk, February 06, 2025"
     },
     {
       "id": "pennylane-fr-accountant-focus",
@@ -390,6 +339,18 @@
       "body": "JAX: natural language AI agent creating invoices, reconciling transactions, sending quotes via WhatsApp and SMS. Anthropic Claude-powered. Global rollout from November 2025. No French PA certification, no Spanish Verifactu native support.",
       "implication": "JAX sets the AI UX ceiling Sage Copilot must match now. Sage's defence: 'JAX reconciles transactions. Sage Copilot reconciles AND validates against Factur-X PA requirements and Verifactu SIF fields.' Develop 3 specific agentic proof points per market urgently.",
       "source": "Xero press release / JAX release notes March 2026"
+    },
+    {
+      "id": "pennylane-funding-expansion-ai",
+      "category": "Funding|Expansion|AI & Tech",
+      "market": "EU",
+      "date": "Jan 2026",
+      "priority": "critical",
+      "title": "Pennylane Secures €175M, Accelerating AI Development and European Expansion",
+      "body": "Pennylane announced a €175 million funding round led by TCV and Blackstone Growth, with participation from existing investors. The capital infusion is earmarked for accelerating AI development, including generative AI tools like an analysis-assistant co-pilot for accountants, and for expanding its European presence, particularly in Germany where it officially launched in November 2025. The company also plans to enhance its payment and cash management offerings and strengthen its infrastructure for electronic invoicing.",
+      "implication": "This significant funding positions Pennylane to aggressively compete across Europe, with a strong focus on AI-driven features and market expansion, directly challenging Sage's offerings in key markets.",
+      "source": "EU-Startups, Beinsure, Vestbee, FinTech Futures, Tech.eu, Medial App - Jan 2026",
+      "archived": true
     },
     {
       "id": "pennylane-germany-launch-nov-2025",
