@@ -1,8 +1,8 @@
 {
   "meta": {
-    "last_updated": "2026-04-25",
+    "last_updated": "2026-04-26",
     "week_label": "Week of 14–20 April 2026",
-    "signal_count": 26,
+    "signal_count": 33,
     "prev_signal_count": 18,
     "intensity": "CRITICAL",
     "intensity_reason": "France PA mandate under 5 months · Cegid 100-rep blitz underway · Pennylane Spain hire confirmed",
@@ -28,25 +28,106 @@
     "eu_competitive_pct": 100,
     "eu_competitive_status": "green",
     "eu_competitive_label": "Live",
-    "last_scan": "2026-04-25T10:31:18.087105Z",
+    "last_scan": "2026-04-26T10:32:56.739813Z",
     "last_scan_summary": "API error 429",
     "scan_status": {
-      "date": "2026-04-25",
+      "date": "2026-04-26",
       "markets_scanned": [
         "FR",
+        "DE",
         "PT"
       ],
       "markets_skipped": [],
-      "signals_added": 0,
+      "signals_added": 7,
       "quality_filtered": 0,
       "summaries": {
-        "FR": "The market shows ongoing activity related to the upcoming French PA mandate and competitor strategies, but no new signals have emerged in the past 48 hours.",
-        "PT": "Recent market signals in Portugal indicate a delay in SAF-T accounting file submission and QES mandate for PDF invoices, while Cegid's integration of PHC Software signals increased competitive pressure."
+        "FR": "Market signals in France show significant activity around the upcoming e-invoicing mandate, with competitors like Cegid and Pennylane actively engaging accounting professionals and highlighting their compliance solutions.",
+        "DE": "The German market shows significant activity with regulatory deadlines for e-invoicing driving competitive moves and cloud migration strategies among key players like Cegid, DATEV, and Lexware.",
+        "PT": "Market signals in Portugal show a slight delay in SAF-T and QES mandates, a strong push by Cegid into AI with a Portuguese center of excellence, and the OCC reporting strong financials while noting market concerns."
       }
     },
     "archived_count": 5
   },
   "signals": [
+    {
+      "id": "pt-cegid-primavera-ia-focus",
+      "category": "AI & Tech",
+      "market": "PT",
+      "date": "Apr 2026",
+      "priority": "watch",
+      "title": "Cegid Establishes AI Center of Excellence in Portugal",
+      "body": "Cegid is establishing an AI Center of Excellence in Portugal, aiming to have 320 people by the end of 2025 and a target of 450 in 2026. The company is actively seeking data engineers, data scientists, and ML engineers. They have already integrated virtual assistants into Primavera Evolution and PHC Go for real-time financial analysis and stock management.",
+      "implication": "Cegid's significant investment in AI in Portugal signals a strategic focus on leveraging AI for their ERP and management solutions, potentially impacting competitive offerings in the Portuguese market.",
+      "source": "Teamlyzer, January 21 2025"
+    },
+    {
+      "id": "datev-cloud-migration-2026",
+      "category": "Competitive",
+      "market": "DE",
+      "date": "Apr 2026",
+      "priority": "watch",
+      "title": "DATEV migrating all programs to the cloud by 2026",
+      "body": "DATEV is migrating all its programs to the cloud, with locally installed solutions being phased out. This transformation aims to make practices more efficient. DATEV offers solutions for tax consultants, auditors, lawyers, and their SME clients, covering accounting, payroll, tax, and IT services.",
+      "implication": "DATEV's move to the cloud could enhance its competitive offering and potentially create opportunities for partnerships or integrations with cloud-native solutions like Sage Active.",
+      "source": "DATEV, April 2026"
+    },
+    {
+      "id": "cegid-sevdesk-acquisition-completes",
+      "category": "Competitive",
+      "market": "DE",
+      "date": "Feb 2025",
+      "priority": "high",
+      "title": "Cegid completes acquisition of sevdesk, strengthening DACH presence",
+      "body": "Cegid has completed its acquisition of sevdesk, a leading provider of accounting and e-invoicing software for businesses in the DACH region. This move expands Cegid's European footprint and positions it to support businesses with upcoming e-invoicing reforms. Sevdesk serves over 130,000 SMB customers.",
+      "implication": "Cegid's strengthened position in the DACH market, particularly with sevdesk's existing customer base, presents a significant competitive threat to Sage's offerings in Germany.",
+      "source": "Houlihan Lokey, Feb 24 2025; Cegid, Feb 06 2025; PwC, May 22 2025"
+    },
+    {
+      "id": "xrechnung-b2b-mandate-phasing",
+      "category": "Regulatory",
+      "market": "DE",
+      "date": "Apr 2026",
+      "priority": "critical",
+      "title": "Germany's XRechnung mandate for B2B e-invoicing phased in 2025-2028",
+      "body": "Germany is expanding the role of XRechnung as a core structured e-invoicing format, moving from public-sector use to a mandatory standard for domestic B2B transactions between 2025 and 2028. Businesses must adapt their systems to handle XML-based invoices and ensure compliance with EN 16931 standards.",
+      "implication": "Sage Active and Sage for Accountants need to ensure full XRechnung compliance and support for German SMBs and PAs before the 2027/2028 deadlines.",
+      "source": "Fiscal Requirements, April 24 2026",
+      "calendar_tag": true
+    },
+    {
+      "id": "pennylane-2026-event-focus",
+      "category": "Competitive",
+      "market": "FR",
+      "date": "February 2026",
+      "priority": "high",
+      "title": "Pennylane to host 2026 event focused on accounting profession's future",
+      "body": "Pennylane is organizing its annual event, 'Les Rendez-vous Pennylane 2026,' on February 10, 2026, in Versailles. The event will focus on three key areas reshaping the accounting market: electronic invoicing as an opportunity, artificial intelligence as a lever, and offering recomposition as a solution. The target audience includes accounting firm partners, associates, and staff.",
+      "implication": "Pennylane is actively engaging with the French accounting professional community, positioning itself as a thought leader and innovator. Their focus on e-invoicing and AI aligns with market trends and Sage's strategic areas. This event signals Pennylane's intent to deepen its relationships with accounting firms and influence their technology choices.",
+      "source": "Pennylane (February 2026)"
+    },
+    {
+      "id": "cegid-ebp-integration-for-accountants",
+      "category": "Competitive",
+      "market": "FR",
+      "date": "April 2025",
+      "priority": "high",
+      "title": "Cegid integrates EBP solutions for French accounting professionals",
+      "body": "Cegid has announced the native integration of its Partner Dematerialization Platform (PDP) into Cegid and EBP accounting production solutions. This integration is designed for accounting firms and their clients, aiming to facilitate compliance with the electronic invoicing reform starting September 1, 2026. Cegid and EBP are offering solutions to help accounting firms manage client data collection and ensure compliance.",
+      "implication": "Cegid's strategic integration with EBP strengthens its position in the French market, particularly within the expert-comptable channel. This move directly targets accounting firms, a key segment for Sage WiSE, and aims to provide a seamless compliance solution for their clients. This could increase competitive pressure from Cegid in France.",
+      "source": "Cegid (April 14, 2025)"
+    },
+    {
+      "id": "fr-pa-mandate-readiness-update",
+      "category": "Regulatory",
+      "market": "FR",
+      "date": "April 2026",
+      "priority": "high",
+      "title": "France's PA mandate deadline approaching; Sage emphasizes readiness",
+      "body": "With the French PA mandate deadline of September 1, 2026, rapidly approaching, Sage is highlighting its readiness for electronic invoicing. Sage's solutions are presented as compliant and integrated with the approved platform, aiming to simplify the transition for businesses. The mandate carries a penalty of €15 per invoice for non-compliance.",
+      "implication": "Sage is actively positioning itself as a solution provider for the upcoming French e-invoicing mandate. This suggests a proactive strategy to capture market share among businesses needing to comply. Sage's messaging emphasizes ease of transition and compliance, which could be a strong selling point.",
+      "source": "Sage France (April 2026)",
+      "calendar_tag": true
+    },
     {
       "id": "pennylane-comptassistant-ai-features",
       "category": "AI & Tech",
