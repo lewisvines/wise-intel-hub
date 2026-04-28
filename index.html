@@ -3134,7 +3134,9 @@ async function loadLiveSignals() {
         .replace(/fatura eletr[ôo]nica/gi, 'electronic invoice');
     }
 
-    // ── Client-side name scrubber ──────────────────────────────────function clientScrubNames(text) {
+    // ── Client-side name scrubber ──────────────────────────────────
+    const NAMES_TO_SCRUB = []; // Names already scrubbed at source; empty array keeps function safe
+    function clientScrubNames(text) {
       if (!text) return text;
       let r = text;
       for (const [p, rep] of NAMES_TO_SCRUB) r = r.replace(p, rep);
