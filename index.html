@@ -570,7 +570,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:16
 <div id="sidebar">
   <div class="sb-logo">
     <div class="sb-logo-text">WiSE <span>Intel Hub</span></div>
-    <div class="sb-badge"><span class="pulse-dot"></span>Live · Daily</div>
+    <div class="sb-badge"><span class="pulse-dot"></span>Live · 28 Apr 2026</div>
   </div>
 
   <div class="sb-section-label">Overview</div>
@@ -622,6 +622,12 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:16
   <div class="sb-section-label">Direct Channel</div>
   <button class="sb-link" data-page="smb-direct"><span class="sb-dot"></span><span data-i18n='SMB Direct Playbook' data-fr='Playbook Direct PME' data-es='Manual directo PYME'>SMB Direct Playbook</span></button>
   <button class="sb-link" data-page="competitor-compare"><span class="sb-dot"></span><span data-i18n='Competitor Compare' data-fr='Comparatif concurrents' data-es='Comparativa competidores'>Competitor Compare</span></button>
+
+  <hr class="sb-divider">
+  <div class="sb-section-label">PMM Toolkit</div>
+  <button class="sb-link" data-page="5ds"><span class="sb-dot"></span><span data-i18n='5Ds Framework' data-fr='Cadre 5Ds' data-es='Marco 5Ds'>5Ds Framework</span></button>
+  <button class="sb-link" data-page="craft-skills"><span class="sb-dot"></span><span data-i18n='Craft Skills' data-fr='Compétences métier' data-es='Habilidades PMM'>Craft Skills</span></button>
+  <button class="sb-link" data-page="fy30-plan"><span class="sb-dot"></span><span data-i18n='France FY30 Plan' data-fr='Plan France FY30' data-es='Plan Francia FY30'>France FY30 Plan</span></button>
 
   <div class="sb-meta" style="margin-top:20px;">
     FR · ES · DE · PT<br>
@@ -679,6 +685,12 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:16
   <div class="grid-2 reveal" style="margin-bottom:20px;">
     <div class="dash-card">
       <div class="dash-label" style="margin-bottom:12px;" data-i18n="dash_progress">Strategic Progress Tracker</div>
+      <div class="okr-row">
+        <div class="rag-dot rag-g"></div>
+        <div class="okr-name">Active ARR Growth — EU FY26</div>
+        <div class="okr-bar"><div class="okr-bar-fill" style="width:100%;background:var(--g);"></div></div>
+        <div class="okr-val">+251% YoY · Momentum</div>
+      </div>
       <div class="okr-row">
         <div class="rag-dot rag-a"></div>
         <div class="okr-name">France PA Registration (Sept 2026)</div>
@@ -4674,6 +4686,381 @@ loadLiveSignals();
   </div>
 
 </div><!-- end page-competitor-compare -->
+
+
+<!-- ═══════════ 5Ds JTBDs FRAMEWORK ═══════════ -->
+<div class="page-section" id="page-5ds">
+  <div class="page-header reveal">
+    <div class="page-eyebrow" data-i18n="PMM Toolkit — 5Ds Framework" data-fr="Boîte à outils PMM — Cadre 5Ds" data-es="Caja de herramientas PMM — Marco 5Ds">PMM Toolkit — 5Ds Framework</div>
+    <div class="page-title">The PMM <em>operating system</em> — 5Ds Jobs to be Done</div>
+    <div class="page-subtitle">The five-phase framework that governs how WiSE PMM moves from market understanding to commercial impact. Every release, campaign and proposition flows through these phases. Use as a checklist for EAP/GA gates and as a maturity diagnostic for any market or product motion.</div>
+  </div>
+
+  <div class="patterns-box reveal">
+    <div class="patterns-label">Why this matters</div>
+    <div class="pattern-item"><strong>One framework, four markets.</strong> France, Spain, Germany and Portugal each have different commercial maturities. The 5Ds give us a shared vocabulary for measuring readiness without forcing premature standardisation.</div>
+    <div class="pattern-item"><strong>EAP and GA gate alignment.</strong> The Define and Deliver phases map directly to Sirius release gates. PMM owns the connective tissue between strategy and launch readiness.</div>
+    <div class="pattern-item"><strong>Direct precedes Discover.</strong> The Direct phase — divisional strategy, ambition, business planning — is the input to all PMM work. Without a clear Direct phase output, PMM is reacting rather than leading.</div>
+    <div class="pattern-item"><strong>Drive is where most PMM functions break down.</strong> Adoption, customer feedback loops and continuous improvement are systematically under-resourced. WiSE will treat Drive as a first-class phase, not a post-launch afterthought.</div>
+  </div>
+
+  <div style="font-family:var(--font);font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--g);margin-bottom:12px;" class="reveal">The Five Phases</div>
+
+  <div class="grid-2 reveal" style="margin-bottom:20px;">
+    <div class="dash-card" style="border-left:3px solid var(--purple);">
+      <div class="dash-label" style="color:var(--purple);">01 · Direct</div>
+      <div style="font-size:13px;color:var(--text);font-weight:600;margin:8px 0 12px 0;">Set the strategic context</div>
+      <div style="font-size:12px;color:var(--text2);line-height:1.6;margin-bottom:14px;">The upstream phase. Translates ELT ambition into actionable PMM scope. Without this, PMM is downstream of decisions it should have informed.</div>
+      <div style="font-size:11px;color:var(--text3);font-weight:700;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:8px;">JTBDs</div>
+      <div style="font-size:12px;color:var(--text2);margin-bottom:6px;">• Divisional / BU Strategy — vertical and persona growth strategy</div>
+      <div style="font-size:12px;color:var(--text2);margin-bottom:6px;">• Ambition and Goals — market share, revenue, customer count</div>
+      <div style="font-size:12px;color:var(--text2);margin-bottom:6px;">• Business Planning — annual operating plan translation</div>
+      <div style="font-size:11px;color:var(--purple);border-top:1px solid var(--border);padding-top:10px;margin-top:12px;"><strong>WiSE owner:</strong> Lewis · <strong>Cadence:</strong> Quarterly</div>
+    </div>
+
+    <div class="dash-card" style="border-left:3px solid var(--blue);">
+      <div class="dash-label" style="color:var(--blue);">02 · Discover</div>
+      <div style="font-size:13px;color:var(--text);font-weight:600;margin:8px 0 12px 0;">Understand market, buyer and competition</div>
+      <div style="font-size:12px;color:var(--text2);line-height:1.6;margin-bottom:14px;">The intelligence phase. Output is a Growth Strategy and Opportunity Proposal that earns the right to enter Define.</div>
+      <div style="font-size:11px;color:var(--text3);font-weight:700;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:8px;">JTBDs</div>
+      <div style="font-size:12px;color:var(--text2);margin-bottom:6px;">• Market Segmentation and Sizing — TAM / SAM / SOM</div>
+      <div style="font-size:12px;color:var(--text2);margin-bottom:6px;">• Industry Trends — desk research, white papers, analyst input</div>
+      <div style="font-size:12px;color:var(--text2);margin-bottom:6px;">• Buyer Insights — interviews with accountants, partners, SMBs</div>
+      <div style="font-size:12px;color:var(--text2);margin-bottom:6px;">• Competitor Intelligence — feature, message and pricing teardowns</div>
+      <div style="font-size:12px;color:var(--text2);margin-bottom:6px;">• Third-party Offerings — build / buy / partner shortlist</div>
+      <div style="font-size:12px;color:var(--text2);margin-bottom:6px;">• Product Roadmap Alignment — current and future state</div>
+      <div style="font-size:11px;color:var(--blue);border-top:1px solid var(--border);padding-top:10px;margin-top:12px;"><strong>WiSE owner:</strong> Anaïs (FR), Zoraida (ES) · <strong>Cadence:</strong> Continuous</div>
+    </div>
+  </div>
+
+  <div class="grid-2 reveal" style="margin-bottom:20px;">
+    <div class="dash-card" style="border-left:3px solid var(--g);">
+      <div class="dash-label" style="color:var(--g);">03 · Define</div>
+      <div style="font-size:13px;color:var(--text);font-weight:600;margin:8px 0 12px 0;">Build the proposition</div>
+      <div style="font-size:12px;color:var(--text2);line-height:1.6;margin-bottom:14px;">The architectural phase. Lean canvas, ICP, messaging framework and pricing all converge here. Most PMM credibility is won or lost in Define.</div>
+      <div style="font-size:11px;color:var(--text3);font-weight:700;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:8px;">JTBDs</div>
+      <div style="font-size:12px;color:var(--text2);margin-bottom:6px;">• Value Proposition — competitive product analysis, lean canvas</div>
+      <div style="font-size:12px;color:var(--text2);margin-bottom:6px;">• Customer Journey — end-to-end purchase to renewal experience</div>
+      <div style="font-size:12px;color:var(--text2);margin-bottom:6px;">• Product Market Fit / ICP — EAP and GA customer profile</div>
+      <div style="font-size:12px;color:var(--text2);margin-bottom:6px;">• Product Messaging Guide — internal + external messaging</div>
+      <div style="font-size:12px;color:var(--text2);margin-bottom:6px;">• Packaging and Pricing — tiering, bundles, channel margins</div>
+      <div style="font-size:12px;color:var(--text2);margin-bottom:6px;">• Leadership Buy-in — pricing committee approval</div>
+      <div style="font-size:12px;color:var(--text2);margin-bottom:6px;">• Product Launch Strategy — full launch plan</div>
+      <div style="font-size:11px;color:var(--g);border-top:1px solid var(--border);padding-top:10px;margin-top:12px;"><strong>WiSE owner:</strong> Lewis with Anaïs / Zoraida · <strong>Gate:</strong> EAP entry</div>
+    </div>
+
+    <div class="dash-card" style="border-left:3px solid var(--amber);">
+      <div class="dash-label" style="color:#9C6B00;">04 · Deliver</div>
+      <div style="font-size:13px;color:var(--text);font-weight:600;margin:8px 0 12px 0;">Bring the proposition to market</div>
+      <div style="font-size:12px;color:var(--text2);line-height:1.6;margin-bottom:14px;">The execution phase. The largest phase by JTBD count because launch readiness has many functional dependencies. WiSE owns the orchestration; functions own the deliverables.</div>
+      <div style="font-size:11px;color:var(--text3);font-weight:700;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:8px;">JTBDs</div>
+      <div style="font-size:12px;color:var(--text2);margin-bottom:6px;">• GTM Kick-off — cross-functional alignment workshop</div>
+      <div style="font-size:12px;color:var(--text2);margin-bottom:6px;">• Internal Comms — colleague awareness and training</div>
+      <div style="font-size:12px;color:var(--text2);margin-bottom:6px;">• Marketing, Comms and PR — owned and earned channels</div>
+      <div style="font-size:12px;color:var(--text2);margin-bottom:6px;">• Website and Comparison Sites — discoverability</div>
+      <div style="font-size:12px;color:var(--text2);margin-bottom:6px;">• Marketing Budgets — channel mix and ROI targets</div>
+      <div style="font-size:12px;color:var(--text2);margin-bottom:6px;">• Sales Enablement — battlecards, scripts, accreditation</div>
+      <div style="font-size:12px;color:var(--text2);margin-bottom:6px;">• Sales Motion and Reward — incentive design</div>
+      <div style="font-size:12px;color:var(--text2);margin-bottom:6px;">• Resource Requirements — capacity planning</div>
+      <div style="font-size:12px;color:var(--text2);margin-bottom:6px;">• VAR / Partner Enablement — channel readiness</div>
+      <div style="font-size:12px;color:var(--text2);margin-bottom:6px;">• Content — campaign assets, demos, video</div>
+      <div style="font-size:12px;color:var(--text2);margin-bottom:6px;">• CS Enablement — onboarding and adoption playbooks</div>
+      <div style="font-size:11px;color:#9C6B00;border-top:1px solid var(--border);padding-top:10px;margin-top:12px;"><strong>WiSE owner:</strong> Lewis (orchestration) · <strong>Gate:</strong> GA</div>
+    </div>
+  </div>
+
+  <div class="grid-2 reveal" style="margin-bottom:20px;">
+    <div class="dash-card" style="border-left:3px solid var(--teal);">
+      <div class="dash-label" style="color:var(--teal);">05 · Drive</div>
+      <div style="font-size:13px;color:var(--text);font-weight:600;margin:8px 0 12px 0;">Sustain commercial momentum</div>
+      <div style="font-size:12px;color:var(--text2);line-height:1.6;margin-bottom:14px;">The post-GA phase that most PMM functions neglect. WiSE treats Drive as the difference between launching a product and growing a category.</div>
+      <div style="font-size:11px;color:var(--text3);font-weight:700;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:8px;">JTBDs</div>
+      <div style="font-size:12px;color:var(--text2);margin-bottom:6px;">• Drive Commercial Performance — pipeline, win rate, ARPU</div>
+      <div style="font-size:12px;color:var(--text2);margin-bottom:6px;">• Adoption — activation, attach, frequency of use</div>
+      <div style="font-size:12px;color:var(--text2);margin-bottom:6px;">• Customer Feedback — VoC programmes, NPS, win/loss</div>
+      <div style="font-size:12px;color:var(--text2);margin-bottom:6px;">• Stakeholder Updates — Steerco, ELT, regional leadership</div>
+      <div style="font-size:12px;color:var(--text2);margin-bottom:6px;">• Continuous Improvement — quarterly proposition refresh</div>
+      <div style="font-size:11px;color:var(--teal);border-top:1px solid var(--border);padding-top:10px;margin-top:12px;"><strong>WiSE owner:</strong> Lewis with regional PMMs · <strong>Cadence:</strong> Monthly review</div>
+    </div>
+
+    <div class="dash-card">
+      <div class="dash-label">How WiSE uses the 5Ds in practice</div>
+      <div style="font-size:12px;color:var(--text2);line-height:1.7;margin-top:12px;">
+        <div style="margin-bottom:14px;"><strong style="color:var(--text);">SfA Spain launch (H2 FY26):</strong> Currently in <span style="color:var(--g);font-weight:700;">Define</span>. ICP confirmed (300 SfA partners target), pricing locked, Sage ID friction is the open Define-blocker before EAP.</div>
+        <div style="margin-bottom:14px;"><strong style="color:var(--text);">E-Invoicing France (Sept 2026 mandate):</strong> Currently in <span style="color:#9C6B00;font-weight:700;">Deliver</span>. Sales enablement and GE practice campaign in flight; Drive readiness — adoption and feedback loops — needs FY27 plan.</div>
+        <div style="margin-bottom:14px;"><strong style="color:var(--text);">Sage Active for Accountants EU (FY27):</strong> Currently in <span style="color:var(--blue);font-weight:700;">Discover</span>. DACH opportunity scoping with DATEV partnership angle is the major open Discover question.</div>
+        <div style="margin-bottom:14px;"><strong style="color:var(--text);">Sage Prévision EU expansion:</strong> Currently in <span style="color:var(--purple);font-weight:700;">Direct</span>. Strategic intent confirmed, Discover phase begins post-Congrès 2026.</div>
+        <div><strong style="color:var(--text);">Portugal SfA proposition:</strong> Currently in <span style="color:var(--purple);font-weight:700;">Direct</span>. Definition year — no Discover commitment until OCC engagement scoped.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="patterns-box reveal" style="background:var(--gdim);border-color:var(--g);">
+    <div class="patterns-label" style="color:var(--g);">PMM maturity diagnostic — applying the 5Ds to any motion</div>
+    <div class="pattern-item"><strong>If you cannot describe the Direct output in one sentence,</strong> the motion is reactive. Stop and re-engage leadership before further investment.</div>
+    <div class="pattern-item"><strong>If your Discover phase has no win/loss data and no buyer interviews,</strong> your Define output will not survive first sales contact. Get to ten conversations before writing a value prop.</div>
+    <div class="pattern-item"><strong>If your Define phase has no pricing approval,</strong> Deliver will stall at GTM kick-off. Pricing is the bottleneck, not the asset library.</div>
+    <div class="pattern-item"><strong>If your Deliver phase has no internal comms or sales motion,</strong> the launch is a marketing event, not a commercial event. Both motions must be live before GA.</div>
+    <div class="pattern-item"><strong>If your Drive phase has no monthly cadence and no feedback loop into product,</strong> you have launched a product, not built a category. WiSE measures success at Drive, not at Deliver.</div>
+  </div>
+
+</div><!-- end page-5ds -->
+
+
+
+<!-- ═══════════ PMM CRAFT SKILLS FRAMEWORK ═══════════ -->
+<div class="page-section" id="page-craft-skills">
+  <div class="page-header reveal">
+    <div class="page-eyebrow" data-i18n="PMM Toolkit — Craft Skills" data-fr="Boîte à outils PMM — Compétences métier" data-es="Caja de herramientas PMM — Habilidades de oficio">PMM Toolkit — Craft Skills</div>
+    <div class="page-title">The PMM craft skills framework — <em>4 clusters, 20 skills</em></div>
+    <div class="page-subtitle">The skill architecture underpinning Sage's £5bn workforce ambition. Use as a hiring rubric, a development plan template, and a benchmark for individual and team capability. Validated internally and against TalentNeuron market data.</div>
+  </div>
+
+  <div class="patterns-box reveal">
+    <div class="patterns-label">Why this framework exists</div>
+    <div class="pattern-item"><strong>PMM is the most poorly defined function in B2B SaaS.</strong> Without a craft skills framework, hiring is intuition-based, development is ad hoc, and career pathing breaks down at SPMM and above. This framework standardises what good looks like.</div>
+    <div class="pattern-item"><strong>AI is not a separate skill — it is a cross-cutting capability.</strong> Every cluster has an AI-era expectation built in. Emerging Tech Power Users sit alongside the four clusters as the literacy that makes the others operate at scale.</div>
+    <div class="pattern-item"><strong>The framework is a tool, not a doctrine.</strong> WiSE PMMs do not need 20 skills at expert level. They need expert depth in 6–8 skills relevant to their motion, working knowledge of the rest, and a clear development plan for the gaps.</div>
+  </div>
+
+  <div class="grid-2 reveal" style="margin-bottom:20px;">
+    <div class="dash-card" style="border-top:3px solid var(--g);">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+        <div style="background:var(--g);color:#fff;font-family:var(--font);font-size:11px;font-weight:800;padding:3px 8px;border-radius:4px;">01</div>
+        <div class="dash-label" style="margin:0;">Market &amp; Customer Insight</div>
+      </div>
+      <div style="font-size:12px;color:var(--text2);font-style:italic;margin-bottom:14px;">Understanding the market, buyers, competitors and opportunities</div>
+      <div style="font-size:12px;color:var(--text);margin-bottom:8px;"><strong>1.1</strong> Customer &amp; buyer insight synthesis</div>
+      <div style="font-size:12px;color:var(--text);margin-bottom:8px;"><strong>1.2</strong> Market sizing &amp; opportunity modelling</div>
+      <div style="font-size:12px;color:var(--text);margin-bottom:8px;"><strong>1.3</strong> Market &amp; trend analysis</div>
+      <div style="font-size:12px;color:var(--text);margin-bottom:8px;"><strong>1.4</strong> Competitive intelligence methodology</div>
+      <div style="font-size:12px;color:var(--text);margin-bottom:14px;"><strong>1.5</strong> Segmentation &amp; persona design</div>
+      <div style="font-size:11px;color:var(--g);border-top:1px solid var(--border);padding-top:10px;"><strong>WiSE application:</strong> Drives the Discover phase. Currently strongest in Zoraida (ES competitive analysis); development priority for Anaïs.</div>
+    </div>
+
+    <div class="dash-card" style="border-top:3px solid var(--blue);">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+        <div style="background:var(--blue);color:#fff;font-family:var(--font);font-size:11px;font-weight:800;padding:3px 8px;border-radius:4px;">02</div>
+        <div class="dash-label" style="margin:0;">Positioning &amp; Strategy</div>
+      </div>
+      <div style="font-size:12px;color:var(--text2);font-style:italic;margin-bottom:14px;">Defining where and how the product wins in the market</div>
+      <div style="font-size:12px;color:var(--text);margin-bottom:8px;"><strong>2.1</strong> Product positioning &amp; framework design</div>
+      <div style="font-size:12px;color:var(--text);margin-bottom:8px;"><strong>2.2</strong> Value proposition development</div>
+      <div style="font-size:12px;color:var(--text);margin-bottom:8px;"><strong>2.3</strong> Differentiation &amp; category framing</div>
+      <div style="font-size:12px;color:var(--text);margin-bottom:8px;"><strong>2.4</strong> Pricing &amp; packaging</div>
+      <div style="font-size:12px;color:var(--text);margin-bottom:14px;"><strong>2.5</strong> AI product positioning &amp; responsible AI</div>
+      <div style="font-size:11px;color:var(--blue);border-top:1px solid var(--border);padding-top:10px;"><strong>WiSE application:</strong> Drives the Define phase. The skill cluster where most PMM credibility is won. SfA France Strategic Positioning v1.2 is the current benchmark output.</div>
+    </div>
+  </div>
+
+  <div class="grid-2 reveal" style="margin-bottom:20px;">
+    <div class="dash-card" style="border-top:3px solid var(--teal);">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+        <div style="background:var(--teal);color:#fff;font-family:var(--font);font-size:11px;font-weight:800;padding:3px 8px;border-radius:4px;">03</div>
+        <div class="dash-label" style="margin:0;">Messaging &amp; Communication</div>
+      </div>
+      <div style="font-size:12px;color:var(--text2);font-style:italic;margin-bottom:14px;">Turning strategy into compelling communication</div>
+      <div style="font-size:12px;color:var(--text);margin-bottom:8px;"><strong>3.1</strong> Messaging architecture</div>
+      <div style="font-size:12px;color:var(--text);margin-bottom:8px;"><strong>3.2</strong> Storytelling &amp; narrative design</div>
+      <div style="font-size:12px;color:var(--text);margin-bottom:8px;"><strong>3.3</strong> Messaging validation &amp; testing</div>
+      <div style="font-size:12px;color:var(--text);margin-bottom:8px;"><strong>3.4</strong> AI-era content strategy &amp; discovery</div>
+      <div style="font-size:12px;color:var(--text);margin-bottom:14px;"><strong>3.5</strong> Evidence &amp; social proof development</div>
+      <div style="font-size:11px;color:var(--teal);border-top:1px solid var(--border);padding-top:10px;"><strong>WiSE application:</strong> Drives the Deliver and Drive phases. Localisation across FR / ES / DE / PT is the WiSE-specific multiplier on this cluster.</div>
+    </div>
+
+    <div class="dash-card" style="border-top:3px solid var(--purple);">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+        <div style="background:var(--purple);color:#fff;font-family:var(--font);font-size:11px;font-weight:800;padding:3px 8px;border-radius:4px;">04</div>
+        <div class="dash-label" style="margin:0;">Go-to-Market &amp; Commercial Impact</div>
+      </div>
+      <div style="font-size:12px;color:var(--text2);font-style:italic;margin-bottom:14px;">Taking the product to market with precision</div>
+      <div style="font-size:12px;color:var(--text);margin-bottom:8px;"><strong>4.1</strong> GTM &amp; launch orchestration</div>
+      <div style="font-size:12px;color:var(--text);margin-bottom:8px;"><strong>4.2</strong> Sales &amp; partner enablement design</div>
+      <div style="font-size:12px;color:var(--text);margin-bottom:8px;"><strong>4.3</strong> Channel &amp; campaign strategy</div>
+      <div style="font-size:12px;color:var(--text);margin-bottom:8px;"><strong>4.4</strong> KPIs &amp; revenue enablement</div>
+      <div style="font-size:12px;color:var(--text);margin-bottom:14px;"><strong>4.5</strong> Product adoption &amp; lifecycle messaging</div>
+      <div style="font-size:11px;color:var(--purple);border-top:1px solid var(--border);padding-top:10px;"><strong>WiSE application:</strong> Drives the Deliver and Drive phases. Channel strategy (4.3) and partner enablement (4.2) are accountant-channel-specific WiSE skills.</div>
+    </div>
+  </div>
+
+  <div class="patterns-box reveal" style="background:rgba(255,181,0,0.06);border-color:var(--amberborder);">
+    <div class="patterns-label" style="color:#9C6B00;">★ Cross-cutting — Emerging Tech Power Users</div>
+    <div class="pattern-item"><strong>Technology literacy.</strong> Comfort with the AI tooling our customers use — Copilot, ComptAssistant equivalents, agentic workflows. PMMs who cannot demo cannot position.</div>
+    <div class="pattern-item"><strong>AI-specific PMM literacy.</strong> Prompting, evaluation, model choice, hallucination management. Required for AI product positioning (skill 2.5) and AI content strategy (skill 3.4).</div>
+    <div class="pattern-item"><strong>Data fluency.</strong> Reading dashboards, designing experiments, interpreting cohort behaviour. Without this, the Drive phase is performative.</div>
+    <div class="pattern-item"><strong>The expectation.</strong> Every WiSE PMM uses AI tooling weekly in their own workflow — not just understands it conceptually. The PMM AI OS roadmap (8 specialist agents planned) is the operational expression of this expectation.</div>
+  </div>
+
+  <div style="font-family:var(--font);font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--g);margin:24px 0 12px 0;" class="reveal">Roadmap to operationalise the framework</div>
+
+  <div class="grid-3 reveal" style="margin-bottom:20px;">
+    <div class="dash-card">
+      <div style="font-family:var(--font);font-size:10px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;color:var(--g);margin-bottom:8px;">End March 2026 — DELIVERED</div>
+      <div style="font-size:13px;color:var(--text);font-weight:600;margin-bottom:8px;">Roles &amp; structure</div>
+      <div style="font-size:12px;color:var(--text2);line-height:1.6;">PMM levels defined from APMM through Director. Role boundaries clarified. SWP build / buy / borrow / automate model agreed.</div>
+    </div>
+
+    <div class="dash-card">
+      <div style="font-family:var(--font);font-size:10px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;color:var(--amber);margin-bottom:8px;">May 2026 — IN FLIGHT</div>
+      <div style="font-size:13px;color:var(--text);font-weight:600;margin-bottom:8px;">Skills map</div>
+      <div style="font-size:12px;color:var(--text2);line-height:1.6;">Skill expectations per level mapped to the 4 clusters. Self-assessment and 360 tools deployed. Gap analysis at team and individual level.</div>
+    </div>
+
+    <div class="dash-card">
+      <div style="font-family:var(--font);font-size:10px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;color:var(--text3);margin-bottom:8px;">July 2026 — PLANNED</div>
+      <div style="font-size:13px;color:var(--text);font-weight:600;margin-bottom:8px;">Career pathways</div>
+      <div style="font-size:12px;color:var(--text2);line-height:1.6;">Promotion criteria, lateral moves, IC vs management tracks. Linked to performance management cycle. Anchored in 10 PMM JTBDs.</div>
+    </div>
+  </div>
+
+  <div class="dash-card reveal">
+    <div class="dash-label">How to use this framework today</div>
+    <div style="font-size:12px;color:var(--text2);line-height:1.7;margin-top:12px;">
+      <div style="margin-bottom:12px;"><strong style="color:var(--text);">As a hiring rubric.</strong> Score candidates 1–5 on each cluster relevant to the role. Below 3 on any priority cluster is a no-hire.</div>
+      <div style="margin-bottom:12px;"><strong style="color:var(--text);">As a 1:1 development tool.</strong> Pick two skills per quarter for deliberate practice. Concrete output, not training course attendance.</div>
+      <div style="margin-bottom:12px;"><strong style="color:var(--text);">As a team capability map.</strong> Plot WiSE strengths and gaps. Use it to argue for hires, contractors, or AI agent investments.</div>
+      <div><strong style="color:var(--text);">As a self-diagnostic.</strong> Honesty about which skills are weak is more valuable than confidence about which skills are strong.</div>
+    </div>
+  </div>
+
+</div><!-- end page-craft-skills -->
+
+
+
+<!-- ═══════════ FRANCE FY30 FIVE-YEAR PLAN ═══════════ -->
+<div class="page-section" id="page-fy30-plan">
+  <div class="page-header reveal">
+    <div class="page-eyebrow" data-i18n="Strategy — France FY30 Plan" data-fr="Stratégie — Plan France FY30" data-es="Estrategia — Plan Francia FY30">Strategy — France FY30 Plan</div>
+    <div class="page-title">France five-year plan — <em>FY26 to FY30</em></div>
+    <div class="page-subtitle">The commercial trajectory underneath the £5bn ambition. From the Sage for Accountants France Strategic Positioning v1.2 (March 2026). Use as the source of truth for what FY30 success looks like, what must be true to get there, and where escalation is required.</div>
+  </div>
+
+  <div class="patterns-box reveal">
+    <div class="patterns-label">The five-year story in four sentences</div>
+    <div class="pattern-item"><strong>FY26 — Protect.</strong> Stabilise SfA, fix the GE-Active sync, get 90% of GE practices onboarded, deliver e-invoicing MVP for the September 2026 mandate. The base is defended; the platform is credible again.</div>
+    <div class="pattern-item"><strong>FY27 — Amplify.</strong> Copilot at scale, Sage Prévision launched in market, Regate migration complete, ACaaS GTM programme live. Sage moves from compliance partner to advisory partner.</div>
+    <div class="pattern-item"><strong>FY28 — Expand.</strong> Active for Accountants EU playbook scales the channel beyond GE practices to new-entrant cabinets. The non-GE NCA segment becomes a material growth contributor.</div>
+    <div class="pattern-item"><strong>FY30 — Lead.</strong> 89,948 cumulative Active NCA units. £18.8M ACaaS ARR. Market share back above 17%. Sage is the modern platform French accountants chose, not the legacy product clients felt stuck with.</div>
+  </div>
+
+  <div style="font-family:var(--font);font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--g);margin-bottom:12px;" class="reveal">The five-year commercial summary</div>
+
+  <div class="dash-card reveal" style="padding:0;overflow:hidden;margin-bottom:20px;">
+    <table style="width:100%;border-collapse:collapse;font-family:var(--font);">
+      <thead>
+        <tr style="background:var(--bg3);">
+          <th style="text-align:left;padding:14px 16px;font-size:11px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;color:var(--text2);border-bottom:1px solid var(--border);">Metric</th>
+          <th style="text-align:right;padding:14px 16px;font-size:11px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;color:var(--text2);border-bottom:1px solid var(--border);">FY26</th>
+          <th style="text-align:right;padding:14px 16px;font-size:11px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;color:var(--text2);border-bottom:1px solid var(--border);">FY27</th>
+          <th style="text-align:right;padding:14px 16px;font-size:11px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;color:var(--text2);border-bottom:1px solid var(--border);">FY28</th>
+          <th style="text-align:right;padding:14px 16px;font-size:11px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;color:var(--g);border-bottom:1px solid var(--border);">FY30 Target</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="padding:13px 16px;font-size:13px;color:var(--text);font-weight:600;border-bottom:1px solid var(--border);">Active NCA cumulative</td>
+          <td style="padding:13px 16px;font-size:13px;color:var(--text2);text-align:right;border-bottom:1px solid var(--border);">14,522</td>
+          <td style="padding:13px 16px;font-size:13px;color:var(--text2);text-align:right;border-bottom:1px solid var(--border);">~35,000</td>
+          <td style="padding:13px 16px;font-size:13px;color:var(--text2);text-align:right;border-bottom:1px solid var(--border);">~60,000</td>
+          <td style="padding:13px 16px;font-size:13px;color:var(--g);font-weight:700;text-align:right;border-bottom:1px solid var(--border);">89,948</td>
+        </tr>
+        <tr>
+          <td style="padding:13px 16px;font-size:13px;color:var(--text);font-weight:600;border-bottom:1px solid var(--border);">AutoEntry units</td>
+          <td style="padding:13px 16px;font-size:13px;color:var(--text2);text-align:right;border-bottom:1px solid var(--border);">22,000</td>
+          <td style="padding:13px 16px;font-size:13px;color:var(--text2);text-align:right;border-bottom:1px solid var(--border);">Peak ~80k</td>
+          <td style="padding:13px 16px;font-size:13px;color:var(--text2);text-align:right;border-bottom:1px solid var(--border);">Peak ~137k</td>
+          <td style="padding:13px 16px;font-size:13px;color:var(--text3);font-style:italic;text-align:right;border-bottom:1px solid var(--border);">Declining</td>
+        </tr>
+        <tr>
+          <td style="padding:13px 16px;font-size:13px;color:var(--text);font-weight:600;border-bottom:1px solid var(--border);">GE practices on SfA</td>
+          <td style="padding:13px 16px;font-size:13px;color:var(--text2);text-align:right;border-bottom:1px solid var(--border);">90% target</td>
+          <td style="padding:13px 16px;font-size:13px;color:var(--text2);text-align:right;border-bottom:1px solid var(--border);">100% target</td>
+          <td style="padding:13px 16px;font-size:13px;color:var(--text2);text-align:right;border-bottom:1px solid var(--border);">Maintained</td>
+          <td style="padding:13px 16px;font-size:13px;color:var(--g);font-weight:700;text-align:right;border-bottom:1px solid var(--border);">Maintained</td>
+        </tr>
+        <tr>
+          <td style="padding:13px 16px;font-size:13px;color:var(--text);font-weight:600;border-bottom:1px solid var(--border);">NCA practices (non-GE)</td>
+          <td style="padding:13px 16px;font-size:13px;color:var(--text2);text-align:right;border-bottom:1px solid var(--border);">1,346 new</td>
+          <td style="padding:13px 16px;font-size:13px;color:var(--text2);text-align:right;border-bottom:1px solid var(--border);">3,000+ new</td>
+          <td style="padding:13px 16px;font-size:13px;color:var(--text2);text-align:right;border-bottom:1px solid var(--border);">5,000+ new</td>
+          <td style="padding:13px 16px;font-size:13px;color:var(--g);font-weight:700;text-align:right;border-bottom:1px solid var(--border);">Scale</td>
+        </tr>
+        <tr>
+          <td style="padding:13px 16px;font-size:13px;color:var(--text);font-weight:600;border-bottom:1px solid var(--border);">Sage Prévision penetration</td>
+          <td style="padding:13px 16px;font-size:13px;color:var(--text2);text-align:right;border-bottom:1px solid var(--border);">Launch</td>
+          <td style="padding:13px 16px;font-size:13px;color:var(--text2);text-align:right;border-bottom:1px solid var(--border);">20% of SfA</td>
+          <td style="padding:13px 16px;font-size:13px;color:var(--text2);text-align:right;border-bottom:1px solid var(--border);">40% of SfA</td>
+          <td style="padding:13px 16px;font-size:13px;color:var(--g);font-weight:700;text-align:right;border-bottom:1px solid var(--border);">Standard</td>
+        </tr>
+        <tr>
+          <td style="padding:13px 16px;font-size:13px;color:var(--text);font-weight:600;border-bottom:1px solid var(--border);">ACaaS ARR (France)</td>
+          <td style="padding:13px 16px;font-size:13px;color:var(--text3);text-align:right;border-bottom:1px solid var(--border);">—</td>
+          <td style="padding:13px 16px;font-size:13px;color:var(--text2);text-align:right;border-bottom:1px solid var(--border);">Early pilots</td>
+          <td style="padding:13px 16px;font-size:13px;color:var(--text2);text-align:right;border-bottom:1px solid var(--border);">Building</td>
+          <td style="padding:13px 16px;font-size:13px;color:var(--g);font-weight:700;text-align:right;border-bottom:1px solid var(--border);">£18.8M</td>
+        </tr>
+        <tr>
+          <td style="padding:13px 16px;font-size:13px;color:var(--text);font-weight:600;">Market share (NCA segment)</td>
+          <td style="padding:13px 16px;font-size:13px;color:var(--text2);text-align:right;">12.2%</td>
+          <td style="padding:13px 16px;font-size:13px;color:var(--text2);text-align:right;">13–14%</td>
+          <td style="padding:13px 16px;font-size:13px;color:var(--text2);text-align:right;">15–17%</td>
+          <td style="padding:13px 16px;font-size:13px;color:var(--g);font-weight:700;text-align:right;">17%+</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div style="font-family:var(--font);font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--red);margin-bottom:12px;" class="reveal">What must be true for the plan to work</div>
+
+  <div class="grid-2 reveal" style="margin-bottom:20px;">
+    <div style="background:var(--bg1);border:1px solid var(--redborder);border-radius:9px;padding:16px;">
+      <div style="font-family:var(--font);font-size:10px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;color:var(--red);margin-bottom:10px;">Condition 01 — Product</div>
+      <div style="font-size:13px;color:var(--text);font-weight:600;margin-bottom:10px;">GE-Active sync fully functional by September 2026</div>
+      <div style="font-size:12px;color:var(--text2);line-height:1.6;">GE practices cannot trust SfA as their compliance hub if the sync between their production system and the client-facing platform is unreliable. This is the #1 product risk. If unresolved, Protect fails and competitive alternatives gain traction.</div>
+    </div>
+
+    <div style="background:var(--bg1);border:1px solid var(--redborder);border-radius:9px;padding:16px;">
+      <div style="font-family:var(--font);font-size:10px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;color:var(--red);margin-bottom:10px;">Condition 02 — Sales</div>
+      <div style="font-size:13px;color:var(--text);font-weight:600;margin-bottom:10px;">Sales commissioning model live by Q2 FY26</div>
+      <div style="font-size:12px;color:var(--text2);line-height:1.6;">Sales reps will not prioritise accountant conversations over direct product sales without financial incentive. Without a clear commission model for SfA and Active prescription activity, the channel-led sales motion will not scale.</div>
+    </div>
+
+    <div style="background:var(--bg1);border:1px solid var(--amberborder);border-radius:9px;padding:16px;">
+      <div style="font-family:var(--font);font-size:10px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;color:#9C6B00;margin-bottom:10px;">Condition 03 — AI</div>
+      <div style="font-size:13px;color:var(--text);font-weight:600;margin-bottom:10px;">Copilot GA France confirmed before Congrès 2026</div>
+      <div style="font-size:12px;color:var(--text2);line-height:1.6;">The AI narrative is central to the FY26-FY27 growth story. If Copilot is not in market by the Congrès, Sage cannot make the "AI automates your practice" claim credibly to the country's most influential accountant audience.</div>
+    </div>
+
+    <div style="background:var(--bg1);border:1px solid var(--amberborder);border-radius:9px;padding:16px;">
+      <div style="font-family:var(--font);font-size:10px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;color:#9C6B00;margin-bottom:10px;">Condition 04 — Messaging</div>
+      <div style="font-size:13px;color:var(--text);font-weight:600;margin-bottom:10px;">"Not a migration" message embedded in sales training</div>
+      <div style="font-size:12px;color:var(--text2);line-height:1.6;">GE practices will not move to SfA if they believe it means migrating their data. The message exists informally but has never been formally documented. Must be formalised as a mandatory element of the GE practice sales conversation before Q2.</div>
+    </div>
+
+    <div style="background:var(--bg1);border:1px solid var(--amberborder);border-radius:9px;padding:16px;">
+      <div style="font-family:var(--font);font-size:10px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;color:#9C6B00;margin-bottom:10px;">Condition 05 — Advisory</div>
+      <div style="font-size:13px;color:var(--text);font-weight:600;margin-bottom:10px;">ACaaS GTM programme designed by FY27</div>
+      <div style="font-size:12px;color:var(--text2);line-height:1.6;">The plan projects £18.8M ACaaS ARR in France by FY30 — but there is zero FY26 GTM activity against this metric. Either a GTM programme must be built for FY27 or the financial model must be rebaselined. Escalation item for senior leadership.</div>
+    </div>
+
+    <div style="background:var(--bg1);border:1px solid var(--amberborder);border-radius:9px;padding:16px;">
+      <div style="font-family:var(--font);font-size:10px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;color:#9C6B00;margin-bottom:10px;">Condition 06 — New Formations</div>
+      <div style="font-size:13px;color:var(--text);font-weight:600;margin-bottom:10px;">Embedded Services contribution scoped</div>
+      <div style="font-size:12px;color:var(--text2);line-height:1.6;">75% of France's FY30 ambition comes from new company births, not GE migration. The mechanism for capturing new formations — through Embedded Services, fintech partnerships, or direct digital — must be defined and funded by FY27 or the FY30 unit numbers become unachievable.</div>
+    </div>
+  </div>
+
+  <div class="patterns-box reveal" style="background:var(--gdim);border-color:var(--g);">
+    <div class="patterns-label" style="color:var(--g);">The five-year outcome</div>
+    <div class="pattern-item">Sage in France is not the legacy platform defending a shrinking desktop base. It is the modern, cloud-native platform that accountants have chosen for their practice growth, chosen for their clients' compliance, and chosen for their advisory ambitions.</div>
+    <div class="pattern-item">Pennylane, if successful in its European expansion, will have consolidated a strong position in the born-digital, new-entrant segment. Sage's advantage sits in the accountant-managed SME segment — deeper compliance heritage, wider product suite, stronger practice management tools, and the mid-market migration path that Pennylane does not have.</div>
+    <div class="pattern-item">Sage Prévision is the market-leading advisory dashboard for French accounting firms by user count. ACaaS is the standard model for growth-minded practices. Compliance is no longer an upsell conversation — it is the baseline expectation that Sage makes effortless.</div>
+  </div>
+
+</div><!-- end page-fy30-plan -->
+
+
+
 
 </div><!-- /#main -->
 
