@@ -439,6 +439,27 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:16
 .trend-current{font-family:var(--font);font-size:14px;font-weight:800;line-height:1.1;}
 .trend-delta{font-family:var(--font);font-size:10px;color:var(--text3);margin-top:2px;}
 
+
+/* ── CRAFT SKILLS SELF ASSESSMENT ── */
+.cs-row{display:grid;grid-template-columns:300px 1fr 220px;gap:14px;align-items:center;padding:10px;background:var(--bg1);border:1px solid var(--border);border-radius:8px;}
+.cs-label{font-family:var(--font);font-size:13px;font-weight:700;color:var(--text);}
+.cs-sub{display:block;font-weight:400;font-size:11px;color:var(--text3);margin-top:2px;}
+.cs-stars{display:flex;gap:6px;}
+.cs-stars span{cursor:pointer;font-size:22px;line-height:1;color:var(--border2);user-select:none;transition:color 0.15s;}
+.cs-stars span.active{color:var(--g);}
+.cs-stars span:hover{color:var(--g3);}
+.cs-tip{font-family:var(--font);font-size:10px;color:var(--text3);text-align:right;font-style:italic;}
+#cs-radar{background:var(--bg1);border:1px solid var(--border);border-radius:8px;padding:18px;}
+.cs-bar{display:grid;grid-template-columns:200px 1fr 50px;gap:12px;align-items:center;margin-bottom:10px;}
+.cs-bar-label{font-family:var(--font);font-size:12px;font-weight:700;}
+.cs-bar-track{background:var(--bg3);height:18px;border-radius:9px;overflow:hidden;}
+.cs-bar-fill{height:100%;border-radius:9px;transition:width 0.4s;}
+.cs-bar-val{font-family:var(--font);font-size:13px;font-weight:700;text-align:right;}
+.cs-rec-card{background:var(--bg1);border:1px solid var(--border);border-radius:8px;padding:14px;margin-bottom:10px;}
+.cs-rec-cluster{font-family:var(--font);font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;}
+.cs-rec-title{font-size:13px;font-weight:700;color:var(--text);margin-bottom:4px;}
+.cs-rec-body{font-size:12px;color:var(--text2);line-height:1.6;}
+
 /* ── 5Ds SELF ASSESSMENT ── */
 .fd-row{display:grid;grid-template-columns:200px 1fr 220px;gap:14px;align-items:center;padding:10px;background:var(--bg1);border:1px solid var(--border);border-radius:8px;}
 .fd-label{font-family:var(--font);font-size:13px;font-weight:700;color:var(--text);}
@@ -3418,6 +3439,40 @@ loadLiveSignals();
  <div class="page-subtitle">Sage's largest European market by SMB volume. #2 position behind Cegid, with share declining since 2019. The September 2026 PA mandate is the single biggest commercial forcing function in a generation.</div>
  </div>
 
+ <div style="font-family:var(--font);font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--g);margin:24px 0 12px 0;" class="reveal">France - Latest intelligence</div>
+ <div class="dash-card reveal" style="margin-bottom:24px;border-left:3px solid var(--g);">
+ <div class="dash-label" style="margin-bottom:14px;">Refreshed April 2026 - Source: WiSE PMM Intelligence Hub live signal feed</div>
+ <div style="display:grid;grid-template-columns:80px 1fr;gap:14px;padding:12px 0;border-top:1px solid var(--border);">
+ <div style="font-family:var(--font);font-size:10px;font-weight:800;letter-spacing:1px;color:var(--red);align-self:start;">CRITICAL</div>
+ <div>
+ <div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:4px;">PA registration at 50%</div>
+ <div style="font-size:12px;color:var(--text2);line-height:1.6;">Five months to the Sept 1 mandate. Direct campaign to GE practices is the priority - Cegid is deploying 100 new reps targeting the same base from Q2 2026.</div>
+ </div>
+ </div>
+ <div style="display:grid;grid-template-columns:80px 1fr;gap:14px;padding:12px 0;border-top:1px solid var(--border);">
+ <div style="font-family:var(--font);font-size:10px;font-weight:800;letter-spacing:1px;color:var(--red);align-self:start;">CRITICAL</div>
+ <div>
+ <div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:4px;">Pennylane Series E and aggressive expansion</div>
+ <div style="font-size:12px;color:var(--text2);line-height:1.6;">Munich HQ + Berlin office live. 600 developers on staff. Third-country expansion decision imminent for H2 2026 - Spain, Belgium and Poland on the shortlist.</div>
+ </div>
+ </div>
+ <div style="display:grid;grid-template-columns:80px 1fr;gap:14px;padding:12px 0;border-top:1px solid var(--border);">
+ <div style="font-family:var(--font);font-size:10px;font-weight:800;letter-spacing:1px;color:var(--amber);align-self:start;">HIGH</div>
+ <div>
+ <div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:4px;">AKAO acquired Jan 2026</div>
+ <div style="font-size:12px;color:var(--text2);line-height:1.6;">Strategic asset for FR e-invoicing. Integration path being scoped. Use this as proof-point on every PA conversation: 'Sage is PA-certified through AKAO and through Active.'</div>
+ </div>
+ </div>
+ <div style="display:grid;grid-template-columns:80px 1fr;gap:14px;padding:12px 0;border-top:1px solid var(--border);">
+ <div style="font-family:var(--font);font-size:10px;font-weight:800;letter-spacing:1px;color:var(--amber);align-self:start;">HIGH</div>
+ <div>
+ <div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:4px;">Cegid+Shine integration in execution phase</div>
+ <div style="font-size:12px;color:var(--text2);line-height:1.6;">Major buying window for accountants worried about platform churn. 'No migration, no disruption' message must land in every Sage conversation through Q2-Q3.</div>
+ </div>
+ </div>
+ </div>
+
+
  <!-- ECONOMIC SNAPSHOT -->
  <div class="country-section-label reveal">Economic & Market Context</div>
  <div class="country-grid reveal">
@@ -3568,6 +3623,40 @@ loadLiveSignals();
  <div class="page-title">Spain - <em>H2 FY26 Launch</em></div>
  <div class="page-subtitle">thousands of Despachos practices. Strong early Active traction before SfA even launched. Verifactu January 2027 is the commercial catalyst. Pennylane arrives H2 2026 - the same window as Sage's launch.</div>
  </div>
+
+ <div style="font-family:var(--font);font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--g);margin:24px 0 12px 0;" class="reveal">Spain - Latest intelligence</div>
+ <div class="dash-card reveal" style="margin-bottom:24px;border-left:3px solid var(--g);">
+ <div class="dash-label" style="margin-bottom:14px;">Refreshed April 2026 - Source: WiSE PMM Intelligence Hub live signal feed</div>
+ <div style="display:grid;grid-template-columns:80px 1fr;gap:14px;padding:12px 0;border-top:1px solid var(--border);">
+ <div style="font-family:var(--font);font-size:10px;font-weight:800;letter-spacing:1px;color:var(--red);align-self:start;">CRITICAL</div>
+ <div>
+ <div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:4px;">Pennylane Spain confirmed for H2 2026</div>
+ <div style="font-size:12px;color:var(--text2);line-height:1.6;">Lever.co lists Madrid roles. Hire confirmed for Spain market entry. Sage SfA Spain GA must land before Pennylane brand campaign or narrative shifts to challenger vs incumbent.</div>
+ </div>
+ </div>
+ <div style="display:grid;grid-template-columns:80px 1fr;gap:14px;padding:12px 0;border-top:1px solid var(--border);">
+ <div style="font-family:var(--font);font-size:10px;font-weight:800;letter-spacing:1px;color:var(--red);align-self:start;">CRITICAL</div>
+ <div>
+ <div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:4px;">Verifactu corporates LIVE NOW</div>
+ <div style="font-size:12px;color:var(--text2);line-height:1.6;">Self-employed mandate Jul 1 2026 - two months out. The autonomo segment is the largest Spain market opportunity. GoProposal is the practice-revenue argument as accountants reprice services.</div>
+ </div>
+ </div>
+ <div style="display:grid;grid-template-columns:80px 1fr;gap:14px;padding:12px 0;border-top:1px solid var(--border);">
+ <div style="font-family:var(--font);font-size:10px;font-weight:800;letter-spacing:1px;color:var(--amber);align-self:start;">HIGH</div>
+ <div>
+ <div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:4px;">Holded actively hiring AEAT/Verifactu engineers</div>
+ <div style="font-size:12px;color:var(--text2);line-height:1.6;">New accountant-channel hiring motion. Direct attack on Despachos territory. Counter-position with channel depth, payroll inclusion, and the integrated Sage stack.</div>
+ </div>
+ </div>
+ <div style="display:grid;grid-template-columns:80px 1fr;gap:14px;padding:12px 0;border-top:1px solid var(--border);">
+ <div style="font-family:var(--font);font-size:10px;font-weight:800;letter-spacing:1px;color:var(--amber);align-self:start;">HIGH</div>
+ <div>
+ <div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:4px;">Sage Active early traction strong pre-launch</div>
+ <div style="font-size:12px;color:var(--text2);line-height:1.6;">Hundreds of subscriptions through Despachos before SfA Spain GA. Risk: churn if product experience does not deliver. Sage ID SSO friction must resolve before launch.</div>
+ </div>
+ </div>
+ </div>
+
 
  <!-- ECONOMIC SNAPSHOT -->
  <div class="country-section-label reveal">Economic & Market Context</div>
@@ -3720,6 +3809,40 @@ loadLiveSignals();
  <div class="page-subtitle">DATEV owns 70-80% of the tax advisor market and cannot be displaced. Sage's strategy: operate in the cloud management layer above DATEV. E-invoice receive mandate is already live. FY26 is a definition year.</div>
  </div>
 
+ <div style="font-family:var(--font);font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--g);margin:24px 0 12px 0;" class="reveal">Germany - Latest intelligence</div>
+ <div class="dash-card reveal" style="margin-bottom:24px;border-left:3px solid var(--g);">
+ <div class="dash-label" style="margin-bottom:14px;">Refreshed April 2026 - Source: WiSE PMM Intelligence Hub live signal feed</div>
+ <div style="display:grid;grid-template-columns:80px 1fr;gap:14px;padding:12px 0;border-top:1px solid var(--border);">
+ <div style="font-family:var(--font);font-size:10px;font-weight:800;letter-spacing:1px;color:var(--red);align-self:start;">CRITICAL</div>
+ <div>
+ <div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:4px;">Pennylane operating from Munich + Berlin</div>
+ <div style="font-size:12px;color:var(--text2);line-height:1.6;">100 engineers hired in 2025-26 push. Aggressive challenger to DATEV in the Mittelstand SMB segment. Watch for accountant-channel announcements through H2 2026.</div>
+ </div>
+ </div>
+ <div style="display:grid;grid-template-columns:80px 1fr;gap:14px;padding:12px 0;border-top:1px solid var(--border);">
+ <div style="font-family:var(--font);font-size:10px;font-weight:800;letter-spacing:1px;color:var(--amber);align-self:start;">HIGH</div>
+ <div>
+ <div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:4px;">Lexoffice/Lexware: 350,000+ cloud customers</div>
+ <div style="font-size:12px;color:var(--text2);line-height:1.6;">Germany's clear cloud challenger. The model Sage Active for Accountants must compete with for the German cloud transition. Ad spend, channel partnerships, hiring all aggressive.</div>
+ </div>
+ </div>
+ <div style="display:grid;grid-template-columns:80px 1fr;gap:14px;padding:12px 0;border-top:1px solid var(--border);">
+ <div style="font-family:var(--font);font-size:10px;font-weight:800;letter-spacing:1px;color:var(--amber);align-self:start;">HIGH</div>
+ <div>
+ <div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:4px;">B2B receive mandate live since Jan 2025</div>
+ <div style="font-size:12px;color:var(--text2);line-height:1.6;">Issuing mandate begins Jan 2027 for large enterprises, Jan 2028 for SMEs. Format: XRechnung / ZUGFeRD. Sage support must be locked before Q4 2026 sales motion begins.</div>
+ </div>
+ </div>
+ <div style="display:grid;grid-template-columns:80px 1fr;gap:14px;padding:12px 0;border-top:1px solid var(--border);">
+ <div style="font-family:var(--font);font-size:10px;font-weight:800;letter-spacing:1px;color:var(--blue);align-self:start;">WATCH</div>
+ <div>
+ <div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:4px;">DATEV partnership exploration year</div>
+ <div style="font-size:12px;color:var(--text2);line-height:1.6;">Definition only in FY26. Cooperative is structural partner, not competitor. Cloud management layer above DATEV compliance is the operating model. PMM hire is the unlock.</div>
+ </div>
+ </div>
+ </div>
+
+
  <!-- ECONOMIC SNAPSHOT -->
  <div class="country-section-label reveal">Economic & Market Context</div>
  <div class="country-grid reveal">
@@ -3845,6 +3968,40 @@ loadLiveSignals();
  <div class="page-title">Portugal - <em>Highest Structural Potential</em></div>
  <div class="page-subtitle">By law, every Portuguese business must have a certified accountant. 70,000 Contabilistas Certificados. The most structurally powerful accountant channel of all four WiSE markets. SAF-T 2027 is the commercial catalyst.</div>
  </div>
+
+ <div style="font-family:var(--font);font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--g);margin:24px 0 12px 0;" class="reveal">Portugal - Latest intelligence</div>
+ <div class="dash-card reveal" style="margin-bottom:24px;border-left:3px solid var(--g);">
+ <div class="dash-label" style="margin-bottom:14px;">Refreshed April 2026 - Source: WiSE PMM Intelligence Hub live signal feed</div>
+ <div style="display:grid;grid-template-columns:80px 1fr;gap:14px;padding:12px 0;border-top:1px solid var(--border);">
+ <div style="font-family:var(--font);font-size:10px;font-weight:800;letter-spacing:1px;color:var(--amber);align-self:start;">HIGH</div>
+ <div>
+ <div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:4px;">SAF-T accounting mandate Jan 2027</div>
+ <div style="font-size:12px;color:var(--text2);line-height:1.6;">Major commercial catalyst for SfA Portugal launch. Engagement with the OCC (Ordem dos Contabilistas Certificados) must precede any commercial motion - the OCC is the gatekeeper.</div>
+ </div>
+ </div>
+ <div style="display:grid;grid-template-columns:80px 1fr;gap:14px;padding:12px 0;border-top:1px solid var(--border);">
+ <div style="font-family:var(--font);font-size:10px;font-weight:800;letter-spacing:1px;color:var(--amber);align-self:start;">HIGH</div>
+ <div>
+ <div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:4px;">Cegid/Primavera dominant</div>
+ <div style="font-size:12px;color:var(--text2);line-height:1.6;">Combined position remains strong post-Cegid acquisition. PHC holds 35,000+ companies. Sage opportunity is in new-entrant SMBs and accountant-led practice migrations from legacy desktop.</div>
+ </div>
+ </div>
+ <div style="display:grid;grid-template-columns:80px 1fr;gap:14px;padding:12px 0;border-top:1px solid var(--border);">
+ <div style="font-family:var(--font);font-size:10px;font-weight:800;letter-spacing:1px;color:var(--blue);align-self:start;">WATCH</div>
+ <div>
+ <div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:4px;">TOConline (free, OCC-backed) erodes low end</div>
+ <div style="font-size:12px;color:var(--text2);line-height:1.6;">Counter-position: 'TOConline is compliance. Sage is compliance plus growth.' Use the OCC member-as-mandatory structural reality - every business decision flows through them.</div>
+ </div>
+ </div>
+ <div style="display:grid;grid-template-columns:80px 1fr;gap:14px;padding:12px 0;border-top:1px solid var(--border);">
+ <div style="font-family:var(--font);font-size:10px;font-weight:800;letter-spacing:1px;color:var(--blue);align-self:start;">WATCH</div>
+ <div>
+ <div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:4px;">B2G e-invoicing live since 2024</div>
+ <div style="font-size:12px;color:var(--text2);line-height:1.6;">QES (qualified electronic signature) for PDF invoices by 2027. Define-year only - focus is OCC engagement, market sizing, and proposition sharpening.</div>
+ </div>
+ </div>
+ </div>
+
 
  <!-- ECONOMIC SNAPSHOT -->
  <div class="country-section-label reveal">Economic & Market Context</div>
@@ -5033,25 +5190,60 @@ loadLiveSignals();
  <div class="pattern-item"><strong>The expectation.</strong> Every WiSE PMM uses AI tooling weekly in their own workflow - not just understands it conceptually. The PMM AI OS roadmap (8 specialist agents planned) is the operational expression of this expectation.</div>
  </div>
 
- <div style="font-family:var(--font);font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--g);margin:24px 0 12px 0;" class="reveal">Roadmap to operationalise the framework</div>
+  
+ <div style="font-family:var(--font);font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--g);margin:32px 0 12px 0;" class="reveal">PMM Craft Self-Assessment</div>
 
- <div class="grid-3 reveal" style="margin-bottom:20px;">
- <div class="dash-card">
- <div style="font-family:var(--font);font-size:10px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;color:var(--g);margin-bottom:8px;">Q1 2026 - Delivered</div>
- <div style="font-size:13px;color:var(--text);font-weight:600;margin-bottom:8px;">Roles &amp; structure</div>
- <div style="font-size:12px;color:var(--text2);line-height:1.6;">PMM levels defined from APMM through Director. Role boundaries clarified. SWP build / buy / borrow / automate model agreed.</div>
+ <div class="dash-card reveal" style="margin-bottom:20px;">
+ <div class="dash-label">Score your craft maturity across the 5 dimensions</div>
+ <div style="font-size:12px;color:var(--text2);line-height:1.6;margin:10px 0 18px 0;">Rate each cluster 1-5 based on your current capability. Scores save in your browser. Use the results as the basis of a development plan or 1:1 discussion.</div>
+
+ <div id="craft-form" style="display:flex;flex-direction:column;gap:14px;">
+ <div class="cs-row" data-cluster="market">
+ <div class="cs-label">01 - Market &amp; Customer Insight <span class="cs-sub">Buyer, market, competitive intelligence</span></div>
+ <div class="cs-stars" data-cluster="market">
+ <span data-v="1">○</span><span data-v="2">○</span><span data-v="3">○</span><span data-v="4">○</span><span data-v="5">○</span>
+ </div>
+ <div class="cs-tip" data-cluster="market">Click to score 1 (weak) to 5 (excellent)</div>
+ </div>
+ <div class="cs-row" data-cluster="positioning">
+ <div class="cs-label">02 - Positioning &amp; Strategy <span class="cs-sub">Value prop, differentiation, pricing</span></div>
+ <div class="cs-stars" data-cluster="positioning">
+ <span data-v="1">○</span><span data-v="2">○</span><span data-v="3">○</span><span data-v="4">○</span><span data-v="5">○</span>
+ </div>
+ <div class="cs-tip" data-cluster="positioning">Click to score 1 (weak) to 5 (excellent)</div>
+ </div>
+ <div class="cs-row" data-cluster="messaging">
+ <div class="cs-label">03 - Messaging &amp; Communication <span class="cs-sub">Narrative, storytelling, validation</span></div>
+ <div class="cs-stars" data-cluster="messaging">
+ <span data-v="1">○</span><span data-v="2">○</span><span data-v="3">○</span><span data-v="4">○</span><span data-v="5">○</span>
+ </div>
+ <div class="cs-tip" data-cluster="messaging">Click to score 1 (weak) to 5 (excellent)</div>
+ </div>
+ <div class="cs-row" data-cluster="gtm">
+ <div class="cs-label">04 - Go-to-Market &amp; Commercial Impact <span class="cs-sub">Launch, enablement, channel, KPIs</span></div>
+ <div class="cs-stars" data-cluster="gtm">
+ <span data-v="1">○</span><span data-v="2">○</span><span data-v="3">○</span><span data-v="4">○</span><span data-v="5">○</span>
+ </div>
+ <div class="cs-tip" data-cluster="gtm">Click to score 1 (weak) to 5 (excellent)</div>
+ </div>
+ <div class="cs-row" data-cluster="techfluency">
+ <div class="cs-label">05 - Emerging Tech Power Users <span class="cs-sub">AI, data, agentic workflows</span></div>
+ <div class="cs-stars" data-cluster="techfluency">
+ <span data-v="1">○</span><span data-v="2">○</span><span data-v="3">○</span><span data-v="4">○</span><span data-v="5">○</span>
+ </div>
+ <div class="cs-tip" data-cluster="techfluency">Click to score 1 (weak) to 5 (excellent)</div>
+ </div>
  </div>
 
- <div class="dash-card">
- <div style="font-family:var(--font);font-size:10px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;color:var(--amber);margin-bottom:8px;">May 2026 - IN FLIGHT</div>
- <div style="font-size:13px;color:var(--text);font-weight:600;margin-bottom:8px;">Skills map</div>
- <div style="font-size:12px;color:var(--text2);line-height:1.6;">Skill expectations per level mapped to the 4 clusters. Self-assessment and 360 tools deployed. Gap analysis at team and individual level.</div>
+ <div style="display:flex;gap:10px;margin-top:20px;">
+ <button onclick="resetCraftAssessment()" class="tb-btn">Reset</button>
+ <button onclick="exportCraftAssessment()" class="tb-btn primary">Export to PDF</button>
  </div>
 
- <div class="dash-card">
- <div style="font-family:var(--font);font-size:10px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;color:var(--text3);margin-bottom:8px;">July 2026 - PLANNED</div>
- <div style="font-size:13px;color:var(--text);font-weight:600;margin-bottom:8px;">Career pathways</div>
- <div style="font-size:12px;color:var(--text2);line-height:1.6;">Promotion criteria, lateral moves, IC vs management tracks. Linked to performance management cycle. Anchored in 10 PMM JTBDs.</div>
+ <div id="cs-summary" style="display:none;margin-top:24px;padding-top:24px;border-top:1px solid var(--border);">
+ <div style="font-family:var(--font);font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--g);margin-bottom:12px;">Your craft maturity profile</div>
+ <div id="cs-radar"></div>
+ <div id="cs-recommendations" style="margin-top:18px;"></div>
  </div>
  </div>
 
@@ -6462,6 +6654,165 @@ document.addEventListener('DOMContentLoaded', () => {
  });
  const main = document.getElementById('main');
  if (main) observer.observe(main, { attributes: true, subtree: true, attributeFilter: ['class'] });
+});
+
+
+
+// ── CRAFT SKILLS SELF-ASSESSMENT ──────────────────────────────
+const CS_STORAGE_KEY = 'wise_craft_assessment_v1';
+const CS_CLUSTERS = {
+  market: { name: 'Market & Customer Insight', color: '#00B050', tips: {
+    1: 'No buyer interviews. No competitive teardowns. Operating on assumptions.',
+    2: 'Some research, but ad hoc. Win/loss is informal.',
+    3: 'Regular cadence of insights. Some structured win/loss.',
+    4: 'Multi-source intelligence pipeline. Validated ICPs and personas.',
+    5: 'Continuous discovery. Buyer panels, advisory boards, weekly competitive intel.'
+  }},
+  positioning: { name: 'Positioning & Strategy', color: '#1D6DBF', tips: {
+    1: 'No documented value prop. Messaging is feature-led.',
+    2: 'Some documentation but inconsistent across markets.',
+    3: 'Approved value prop and ICP for at least one market.',
+    4: 'Cross-market consistency. Pricing and packaging defined.',
+    5: 'Lean canvases for every motion. Pricing committee live. Localised positioning.'
+  }},
+  messaging: { name: 'Messaging & Communication', color: '#0D8C7A', tips: {
+    1: 'No messaging architecture. Outputs are inconsistent.',
+    2: 'Some messaging guides exist but rarely tested.',
+    3: 'Approved messaging frameworks. Used in marketing collateral.',
+    4: 'Validated messaging across personas. Localised across markets.',
+    5: 'Messaging tested and iterated against measurable outcomes. Narrative ownership at category level.'
+  }},
+  gtm: { name: 'Go-to-Market & Commercial Impact', color: '#6D3BA8', tips: {
+    1: 'Launches happen, but kick-offs are reactive. No GTM Brief.',
+    2: 'GTM Briefs exist but enablement is patchy.',
+    3: 'Sales enablement and partner readiness consistent for major launches.',
+    4: 'S/M/L launch framework operational. Cross-functional alignment systematic.',
+    5: 'Launch readiness gates fully owned. Country PMMs leading multi-product GTM.'
+  }},
+  techfluency: { name: 'Emerging Tech Power Users', color: '#FFB500', tips: {
+    1: 'Concept-only AI literacy. No personal AI tooling in workflow.',
+    2: 'Occasional AI tool use. Reads dashboards but does not design experiments.',
+    3: 'Weekly AI tooling use. Comfortable with prompting basics.',
+    4: 'Designs AI workflows. Demos AI features confidently. Data-driven Drive phase.',
+    5: 'Builds with AI agents. Mentors others. Leads PMM AI OS thinking.'
+  }}
+};
+
+function loadCraftAssessment() {
+  try { return JSON.parse(localStorage.getItem(CS_STORAGE_KEY)) || {}; } catch { return {}; }
+}
+function saveCraftAssessment(scores) {
+  try { localStorage.setItem(CS_STORAGE_KEY, JSON.stringify(scores)); } catch {}
+}
+
+function setupCraftAssessment() {
+  const scores = loadCraftAssessment();
+  document.querySelectorAll('.cs-stars').forEach(stars => {
+    const cluster = stars.dataset.cluster;
+    const current = scores[cluster] || 0;
+    stars.querySelectorAll('span').forEach(span => {
+      const v = parseInt(span.dataset.v);
+      span.textContent = v <= current ? '●' : '○';
+      span.classList.toggle('active', v <= current);
+      span.onclick = () => {
+        scores[cluster] = v;
+        saveCraftAssessment(scores);
+        setupCraftAssessment();
+        renderCraftSummary();
+      };
+    });
+    const tipEl = document.querySelector(`.cs-tip[data-cluster="${cluster}"]`);
+    if (tipEl && current > 0) {
+      tipEl.textContent = CS_CLUSTERS[cluster].tips[current];
+      tipEl.style.color = 'var(--text2)';
+      tipEl.style.fontStyle = 'normal';
+    }
+  });
+  if (Object.keys(scores).length > 0) renderCraftSummary();
+}
+
+function renderCraftSummary() {
+  const scores = loadCraftAssessment();
+  const clusters = Object.keys(CS_CLUSTERS);
+  if (clusters.filter(c => scores[c]).length === 0) {
+    document.getElementById('cs-summary').style.display = 'none';
+    return;
+  }
+  document.getElementById('cs-summary').style.display = 'block';
+
+  const radar = document.getElementById('cs-radar');
+  let html = '';
+  clusters.forEach(c => {
+    const s = scores[c] || 0;
+    const pct = (s / 5) * 100;
+    const col = CS_CLUSTERS[c].color;
+    html += `<div class="cs-bar">
+      <div class="cs-bar-label" style="color:${col}">${CS_CLUSTERS[c].name}</div>
+      <div class="cs-bar-track"><div class="cs-bar-fill" style="width:${pct}%;background:${col};"></div></div>
+      <div class="cs-bar-val" style="color:${col}">${s}/5</div>
+    </div>`;
+  });
+  const total = clusters.reduce((sum, c) => sum + (scores[c] || 0), 0);
+  const avg = (total / clusters.length).toFixed(1);
+  html += `<div style="margin-top:14px;padding-top:14px;border-top:1px solid var(--border);font-size:13px;color:var(--text2);">
+    <strong style="color:var(--text);">Overall craft maturity: ${avg}/5</strong> - ${avg < 2 ? 'Foundation building required across the lifecycle.' : avg < 3 ? 'Core capabilities forming. Two clusters need investment.' : avg < 4 ? 'Solid PMM operating model. Refinement and scale.' : 'World-class PMM craft. Focus on category leadership and team development.'}
+  </div>`;
+  radar.innerHTML = html;
+
+  const rec = document.getElementById('cs-recommendations');
+  const weakest = clusters.filter(c => scores[c]).sort((a, b) => (scores[a] || 0) - (scores[b] || 0))[0];
+  const strongest = clusters.filter(c => scores[c]).sort((a, b) => (scores[b] || 0) - (scores[a] || 0))[0];
+  let recHtml = '<div style="font-family:var(--font);font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--g);margin-bottom:10px;">Recommended development focus</div>';
+  if (weakest && scores[weakest] < 5) {
+    const recommendations = {
+      market: 'Build a structured win/loss programme. Schedule ten buyer interviews this quarter. Make competitive intelligence a weekly cadence (use the WiSE Hub signals page).',
+      positioning: 'Document a value proposition canvas for the next major launch. Get pricing and packaging approval before EAP gate. Localise positioning by market.',
+      messaging: 'Build a messaging architecture document. Validate it with 3-5 customers. Test against measurable outcomes (conversion, win rate, NPS).',
+      gtm: 'Implement the S/M/L launch framework. Write a GTM Brief for the next launch using the WiSE template. Standardise partner enablement.',
+      techfluency: 'Use AI tooling weekly in your own workflow. Build at least one AI agent or prompt-based workflow this quarter. Lead a team training on prompt engineering.'
+    };
+    recHtml += `<div class="cs-rec-card">
+      <div class="cs-rec-cluster" style="color:${CS_CLUSTERS[weakest].color}">Priority: ${CS_CLUSTERS[weakest].name} - Currently ${scores[weakest]}/5</div>
+      <div class="cs-rec-title">Highest-impact area to invest next</div>
+      <div class="cs-rec-body">${recommendations[weakest]}</div>
+    </div>`;
+  }
+  if (strongest && scores[strongest] >= 4) {
+    recHtml += `<div class="cs-rec-card" style="border-left:3px solid ${CS_CLUSTERS[strongest].color}">
+      <div class="cs-rec-cluster" style="color:${CS_CLUSTERS[strongest].color}">Strength: ${CS_CLUSTERS[strongest].name} - ${scores[strongest]}/5</div>
+      <div class="cs-rec-title">Document and share what is working</div>
+      <div class="cs-rec-body">Capture how this cluster operates today. It is the playbook to lift other clusters towards.</div>
+    </div>`;
+  }
+  rec.innerHTML = recHtml;
+}
+
+function resetCraftAssessment() {
+  try { localStorage.removeItem(CS_STORAGE_KEY); } catch {}
+  setupCraftAssessment();
+  document.getElementById('cs-summary').style.display = 'none';
+}
+
+function exportCraftAssessment() {
+  const scores = loadCraftAssessment();
+  if (Object.keys(scores).length === 0) {
+    alert('Score the 5 clusters first, then export.');
+    return;
+  }
+  window.print();
+}
+
+// Wire up on page nav
+document.addEventListener('DOMContentLoaded', () => {
+  const observer = new MutationObserver(() => {
+    const pageCS = document.getElementById('page-craft-skills');
+    if (pageCS && pageCS.classList.contains('active')) {
+      setupCraftAssessment();
+    }
+  });
+  const main = document.getElementById('main');
+  if (main) observer.observe(main, { attributes: true, subtree: true, attributeFilter: ['class'] });
+  setTimeout(setupCraftAssessment, 100);
 });
 
 </script>
