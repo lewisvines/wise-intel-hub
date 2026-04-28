@@ -91,8 +91,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:16
 .page-subtitle{font-size:16px;color:var(--text2);line-height:1.65;max-width:720px;}
 
 /* ── STAT BLOCKS ── */
-.stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:10px;margin-bottom:28px;}
-.stat-cell{background:var(--bg1);padding:18px 16px;text-align:center;}
+
 .stat-n{font-family:var(--serif);font-size:28px;font-style:italic;color:var(--g);line-height:1;}
 .stat-l{font-size:11px;color:var(--text3);margin-top:4px;line-height:1.4;}
 
@@ -5369,7 +5368,7 @@ loadLiveSignals();
 <!-- ══════ SEARCH OVERLAY ══════ -->
 <div id="search-overlay">
  <div id="search-box-wrap">
- <input id="search-input" type="text" placeholder="Search all 26 pages…" data-placeholder-en="Search all 26 pages…" data-placeholder-fr="Rechercher dans les 26 pages…" data-placeholder-es="Buscar en las 26 páginas…" autocomplete="off" spellcheck="false">
+ <input id="search-input" type="text" placeholder="Search all 27 pages…" data-placeholder-en="Search all 27 pages…" data-placeholder-fr="Rechercher dans les 27 pages…" data-placeholder-es="Buscar en las 27 páginas…" autocomplete="off" spellcheck="false">
  <div id="search-meta"></div>
  </div>
  <div id="search-results"></div>
@@ -5408,7 +5407,9 @@ function buildSearchIndex() {
  'win-loss':'Strategy - Win / Loss Intel',
  'campaign-calendar':'Strategy - Campaign Calendar',
  'smb-direct':'Direct Channel - SMB Direct Playbook',
- 'competitor-compare':'Direct Channel - Competitor Compare'
+ 'competitor-compare':'Direct Channel - Competitor Compare',
+ '5ds':'PMM Toolkit - 5Ds Framework',
+ 'craft-skills':'PMM Toolkit - Craft Skills'
  };
 
  document.querySelectorAll('.page-section').forEach(page => {
