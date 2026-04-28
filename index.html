@@ -80,8 +80,8 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:16
 .tb-btn.primary:hover{background:var(--g2);}
 
 /* ── PAGE SECTIONS ── */
-.page-section{display:none;padding:36px 48px 80px;background:var(--bg);}
-.page-section.active{display:block;}
+.page-section{display:none !important;padding:36px 48px 80px;background:var(--bg);}
+.page-section.active{display:block !important;min-height:calc(100vh - 48px);}
 
 /* ── SECTION HEADERS ── */
 .page-header{margin-bottom:32px;padding-bottom:24px;border-bottom:1px solid var(--border);}
@@ -92,7 +92,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:16
 
 /* ── STAT BLOCKS ── */
 .stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:10px;margin-bottom:28px;}
-.stat-cell{background:var(--bg1);padding:18px 16px;}
+.stat-cell{background:var(--bg1);padding:18px 16px;text-align:center;}
 .stat-n{font-family:var(--serif);font-size:28px;font-style:italic;color:var(--g);line-height:1;}
 .stat-l{font-size:11px;color:var(--text3);margin-top:4px;line-height:1.4;}
 
@@ -401,7 +401,8 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:16
 
 #brief-modal{display:none;position:fixed;inset:0;z-index:600;background:rgba(0,0,0,0.55);backdrop-filter:blur(8px);align-items:flex-start;justify-content:center;overflow-y:auto;padding:40px 20px;}
 #brief-modal.open{display:flex;}
-#brief-panel{background:var(--bg2);border:1px solid var(--border2);border-radius:14px;width:760px;max-width:100%;padding:32px;}
+#brief-panel{background:var(--bg2);border:1px solid var(--border2);border-radius:14px;width:760px;max-width:100%;padding:32px;overflow:hidden;box-sizing:border-box;}
+#brief-content{overflow-wrap:break-word;word-wrap:break-word;hyphens:auto;}
 .brief-modal-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;}
 .brief-modal-title{font-family:var(--serif);font-size:24px;color:var(--text);}
 .brief-close{background:none;border:1px solid var(--border);color:var(--text3);width:36px;height:36px;border-radius:6px;cursor:pointer;font-size:16px;}
@@ -424,9 +425,9 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:16
 .brief-item-title{font-family:var(--font);font-size:13px;font-weight:700;color:var(--text);margin-bottom:4px;}
 .brief-item-body{font-family:var(--font);font-size:11px;color:var(--text2);line-height:1.55;}
 
-.brief-close{padding:14px;background:var(--gdim);border-left:3px solid var(--g);border-radius:8px;}
-.brief-close-label{font-family:var(--font);font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--g);margin-bottom:6px;}
-.brief-close-body{font-family:var(--font);font-size:12px;color:var(--text);line-height:1.55;}
+.brief-final{padding:14px;background:var(--gdim);border-left:3px solid var(--g);border-radius:8px;overflow-wrap:break-word;word-wrap:break-word;}
+.brief-final-label{font-family:var(--font);font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--g);margin-bottom:6px;}
+.brief-final-body{font-family:var(--font);font-size:12px;color:var(--text);line-height:1.55;overflow-wrap:break-word;}
 
 /* ── TREND PULSE ── */
 .trend-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;}
@@ -729,24 +730,24 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:16
 
   <!-- MANDATE COUNTDOWN -->
   <div class="dash-card green reveal" style="margin-bottom:20px;display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:20px;padding:24px;">
-    <div>
+    <div style="text-align:center;">
       <div class="dash-label">France PA Mandate</div>
       <div class="dash-metric" id="days-fr-mandate">-</div>
       <div class="dash-sub">Days to Sept 1 2026<br>DGFiP registration required</div>
     </div>
-    <div>
+    <div style="text-align:center;">
+      <div class="dash-label">Spain Verifactu (Corporate)</div>
       <div class="dash-metric amber" id="days-es-verifactu">-</div>
-      <div class="dash-label" style="margin-top:4px;">Spain Verifactu (Corporate)</div>
       <div class="dash-sub">Days to Jan 1 2027<br>Royal Decreto-ley 15/2025</div>
     </div>
-    <div>
+    <div style="text-align:center;">
+      <div class="dash-label">Germany XRechnung Issue</div>
       <div class="dash-metric blue" id="days-de-xrechnung">-</div>
-      <div class="dash-label" style="margin-top:4px;">Germany XRechnung Issue</div>
       <div class="dash-sub">Days to Jan 1 2028<br>E-invoicing mandate issuers</div>
     </div>
-    <div>
+    <div style="text-align:center;">
+      <div class="dash-label">Portugal SAF-T</div>
       <div class="dash-metric teal" id="days-pt-saft">-</div>
-      <div class="dash-label" style="margin-top:4px;">Portugal SAF-T</div>
       <div class="dash-sub">Days to Jan 1 2028<br>Full SAF-T accounting requirement</div>
     </div>
   </div>
@@ -1077,21 +1078,21 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:16
     </div>
   </div>
 
-</div><div class="page-section active" id="page-signals">
+</div><div class="page-section" id="page-signals">
   <div class="page-header reveal">
     <div class="page-eyebrow"><span class="pulse-dot"></span>01 · Weekly Intelligence</div>
     <div class="page-title">What's moving in <em>the market</em></div>
-    <div class="page-subtitle">18 signals this week · Signal intensity: CRITICAL · Pennylane and Cegid both in acceleration mode</div>
+    <div class="page-subtitle">Live signal feed · Signal intensity: CRITICAL · Pennylane and Cegid both in acceleration mode</div>
   </div>
 
   <!-- Live scan health indicator - populated by renderScanHealth(meta) -->
   <div id="scan-health" class="reveal"></div>
 
   <div class="stat-row reveal">
-    <div class="stat-cell"><div class="stat-n">18</div><div class="stat-l">Signals this week<br>vs 11 last week</div></div>
-    <div class="stat-cell"><div class="stat-n">CRITICAL</div><div class="stat-l">Intensity rating<br>Pennylane + Cegid moving</div></div>
-    <div class="stat-cell"><div class="stat-n">5 mo</div><div class="stat-l">To France PA mandate<br>Sept 1 2026</div></div>
-    <div class="stat-cell"><div class="stat-n">9 mo</div><div class="stat-l">To Spain Verifactu<br>Jan 1 2027</div></div>
+    <div class="stat-cell"><div class="stat-l">Signals this week<br>vs last week</div><div class="stat-n">18</div></div>
+    <div class="stat-cell"><div class="stat-l">Intensity rating<br>Pennylane + Cegid moving</div><div class="stat-n">CRITICAL</div></div>
+    <div class="stat-cell"><div class="stat-l">To France PA mandate<br>Sept 1 2026</div><div class="stat-n">4 mo</div></div>
+    <div class="stat-cell"><div class="stat-l">To Spain self-employed Verifactu<br>Jul 1 2026</div><div class="stat-n">2 mo</div></div>
   </div>
 
   <div class="ifyrne reveal">
@@ -6276,9 +6277,9 @@ function generateBriefMeToday() {
   }
 
   // Closing
-  html += `<div class="brief-section brief-close">
-    <div class="brief-close-label">Recommended focus</div>
-    <div class="brief-close-body">${
+  html += `<div class="brief-section brief-final">
+    <div class="brief-final-label">Recommended focus</div>
+    <div class="brief-final-body">${
       critical.length >= 2
         ? 'Multiple critical signals active. Prioritise the highest-leverage action that addresses two or more at once.'
         : upcomingMandates.length > 0 && upcomingMandates[0].days < 90

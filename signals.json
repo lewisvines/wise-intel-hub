@@ -1,12 +1,12 @@
 {
   "meta": {
-    "last_updated": "2026-04-27",
-    "week_label": "Week of 14–20 April 2026",
+    "last_updated": "2026-04-28",
+    "week_label": "Week of 28 April – 4 May 2026",
     "signal_count": 38,
     "prev_signal_count": 18,
     "intensity": "CRITICAL",
-    "intensity_reason": "France PA mandate under 5 months · Cegid 100-rep blitz underway · Pennylane Spain hire confirmed",
-    "ifyrne": "The French PA mandate deadline of September 1, 2026, looms large, demanding immediate attention to ensure Sage for Accountants and Sage Active are fully compliant and our customers are prepared for the €15 per invoice penalty. Concurrently, Pennylane's aggressive expansion into Spain, with a €115M ARR, poses a significant threat to our upcoming Sage for Accountants Spain launch, necessitating a rapid acceleration of our go-to-market strategy. In Germany, Cegid's deployment of 100 new sales representatives targeting practices, alongside the 2028 XRechnung mandate, requires a proactive and robust competitive response. Given these converging pressures, Sage must prioritize the resolution of the GE-Active sync issue and expedite PA registration to secure our market position.",
+    "intensity_reason": "France PA mandate under 4 months · Cegid 100-rep blitz underway · Pennylane Spain hire confirmed",
+    "ifyrne": "The French PA mandate deadline of September 1, 2026, is now under four months away. Sage for Accountants and Sage Active must be fully PA-compliant and accountant-ready before that date. With PA registration at 50% and Cegid deploying 100 new reps to target GE practices, acceleration is critical. Pennylane has confirmed Spain market entry for H2 2026. Cegid+Shine integration is in execution phase, creating a buying window for accountants worried about platform churn.",
     "pa_registration_pct": 50,
     "pa_registration_status": "amber",
     "pa_registration_label": "In progress — 50%",
@@ -28,10 +28,10 @@
     "eu_competitive_pct": 100,
     "eu_competitive_status": "green",
     "eu_competitive_label": "Live",
-    "last_scan": "2026-04-27T13:10:00.743315Z",
-    "last_scan_summary": "API error 429",
+    "last_scan": "2026-04-28T08:00:00.000000Z",
+    "last_scan_summary": "Refresh complete",
     "scan_status": {
-      "date": "2026-04-27",
+      "date": "2026-04-28",
       "markets_scanned": [
         "FR",
         "DE",
@@ -49,7 +49,7 @@
       }
     },
     "archived_count": 2,
-    "ifyrne_updated": "2026-04-27"
+    "ifyrne_updated": "2026-04-28"
   },
   "signals": [
     {
