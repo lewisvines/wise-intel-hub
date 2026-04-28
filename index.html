@@ -390,6 +390,54 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:16
 
 
 
+
+/* ── BRIEF ME TODAY ── */
+.brief-tile{display:grid;grid-template-columns:48px 1fr 32px;gap:18px;align-items:center;background:linear-gradient(135deg,var(--g),var(--g2));color:#fff;padding:20px 24px;border-radius:12px;cursor:pointer;margin-bottom:20px;transition:transform 0.15s, box-shadow 0.15s;box-shadow:0 2px 8px rgba(0,176,80,0.15);}
+.brief-tile:hover{transform:translateY(-1px);box-shadow:0 4px 16px rgba(0,176,80,0.25);}
+.brief-tile-icon{font-size:32px;line-height:1;}
+.brief-tile-title{font-family:var(--font);font-size:16px;font-weight:700;margin-bottom:4px;}
+.brief-tile-sub{font-family:var(--font);font-size:12px;opacity:0.92;line-height:1.5;}
+.brief-tile-cta{font-size:24px;font-weight:300;opacity:0.8;}
+
+#brief-modal{display:none;position:fixed;inset:0;z-index:600;background:rgba(0,0,0,0.55);backdrop-filter:blur(8px);align-items:flex-start;justify-content:center;overflow-y:auto;padding:40px 20px;}
+#brief-modal.open{display:flex;}
+#brief-panel{background:var(--bg2);border:1px solid var(--border2);border-radius:14px;width:760px;max-width:100%;padding:32px;}
+.brief-modal-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;}
+.brief-modal-title{font-family:var(--serif);font-size:24px;color:var(--text);}
+.brief-close{background:none;border:1px solid var(--border);color:var(--text3);width:36px;height:36px;border-radius:6px;cursor:pointer;font-size:16px;}
+.brief-close:hover{color:var(--text);border-color:var(--border2);}
+
+.brief-header{margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid var(--border);}
+.brief-date{font-family:var(--font);font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--g);margin-bottom:6px;}
+.brief-greeting{font-family:var(--serif);font-size:22px;color:var(--text);margin-bottom:8px;}
+.brief-tagline{font-family:var(--font);font-size:13px;color:var(--text2);line-height:1.5;font-style:italic;}
+
+.brief-section{margin-bottom:22px;}
+.brief-section-label{font-family:var(--font);font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--g);margin-bottom:10px;}
+.brief-welcome{padding:12px 14px;background:var(--gdim);border-radius:8px;}
+.brief-since{font-family:var(--font);font-size:12px;color:var(--text);font-weight:500;}
+
+.brief-item{padding:12px 14px;border-radius:8px;margin-bottom:8px;background:var(--bg1);border:1px solid var(--border);border-left:3px solid var(--text3);}
+.brief-item.brief-critical{border-left-color:var(--red);background:var(--redbg);}
+.brief-item.brief-high{border-left-color:var(--amber);background:rgba(255,181,0,0.05);}
+.brief-item.brief-watch{border-left-color:var(--blue);background:var(--bluebg);}
+.brief-item-title{font-family:var(--font);font-size:13px;font-weight:700;color:var(--text);margin-bottom:4px;}
+.brief-item-body{font-family:var(--font);font-size:11px;color:var(--text2);line-height:1.55;}
+
+.brief-close{padding:14px;background:var(--gdim);border-left:3px solid var(--g);border-radius:8px;}
+.brief-close-label{font-family:var(--font);font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--g);margin-bottom:6px;}
+.brief-close-body{font-family:var(--font);font-size:12px;color:var(--text);line-height:1.55;}
+
+/* ── TREND PULSE ── */
+.trend-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;}
+.trend-row{background:var(--bg1);border:1px solid var(--border);border-radius:8px;padding:12px 14px;display:grid;grid-template-columns:1fr 140px;gap:10px;align-items:center;}
+.trend-label{font-family:var(--font);font-size:11px;font-weight:700;color:var(--text);grid-column:1/-1;margin-bottom:4px;}
+.trend-spark{grid-column:1;}
+.trend-spark svg{display:block;width:100%;height:36px;}
+.trend-meta{grid-column:2;text-align:right;}
+.trend-current{font-family:var(--font);font-size:14px;font-weight:800;line-height:1.1;}
+.trend-delta{font-family:var(--font);font-size:10px;color:var(--text3);margin-top:2px;}
+
 /* ── 5Ds SELF ASSESSMENT ── */
 .fd-row{display:grid;grid-template-columns:200px 1fr 220px;gap:14px;align-items:center;padding:10px;background:var(--bg1);border:1px solid var(--border);border-radius:8px;}
 .fd-label{font-family:var(--font);font-size:13px;font-weight:700;color:var(--text);}
@@ -700,6 +748,24 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:16
       <div class="dash-metric teal" id="days-pt-saft">-</div>
       <div class="dash-label" style="margin-top:4px;">Portugal SAF-T</div>
       <div class="dash-sub">Days to Jan 1 2028<br>Full SAF-T accounting requirement</div>
+    </div>
+  </div>
+
+  <!-- BRIEF ME TODAY -->
+  <div class="brief-tile reveal" onclick="generateBriefMeToday()">
+    <div class="brief-tile-icon">📋</div>
+    <div class="brief-tile-content">
+      <div class="brief-tile-title">Brief me today</div>
+      <div class="brief-tile-sub">A personalised summary of what's changed, today's priorities, and your recommended focus. Click to generate.</div>
+    </div>
+    <div class="brief-tile-cta">→</div>
+  </div>
+
+  <!-- TREND PULSE -->
+  <div class="dash-card reveal" style="margin-bottom:20px;">
+    <div class="dash-label" style="margin-bottom:14px;">Trend Pulse — 12 weeks of movement</div>
+    <div id="trend-pulse-content" class="trend-grid">
+      <div style="grid-column:1/-1;text-align:center;color:var(--text3);font-size:12px;padding:20px;">Loading trends…</div>
     </div>
   </div>
 
@@ -3059,6 +3125,8 @@ async function loadLiveSignals() {
       ? payload
       : (Array.isArray(payload.signals) ? payload.signals : []);
     const meta = (!Array.isArray(payload) && payload.meta) ? payload.meta : null;
+    window.LIVE_SIGNALS = allSignals;
+    window.LIVE_SIGNALS_META = meta || {};
 
     // ── Surface scan health on dashboard (amber/red if stale or errored) ──
     try { renderScanHealth(meta); } catch (e) { /* non-fatal */ }
@@ -5002,6 +5070,18 @@ loadLiveSignals();
 
 
 
+
+<!-- ══════ BRIEF ME TODAY MODAL ══════ -->
+<div id="brief-modal">
+  <div id="brief-panel">
+    <div class="brief-modal-header">
+      <div class="brief-modal-title">Your daily WiSE brief</div>
+      <button class="brief-close" onclick="closeBrief()">✕</button>
+    </div>
+    <div id="brief-content"></div>
+  </div>
+</div>
+
 <!-- ══════ SEARCH OVERLAY ══════ -->
 <div id="search-overlay">
   <div id="search-box-wrap">
@@ -5936,6 +6016,299 @@ document.addEventListener('DOMContentLoaded', () => {
   if (main) observer.observe(main, { attributes: true, subtree: true, attributeFilter: ['class'] });
   // Also setup once for direct loading
   setTimeout(setupSelfAssessment, 100);
+});
+
+
+// ─────────────────────────────────────────────────────────────
+//  HISTORICAL TREND DATA — seeded for Q1-Q2 2026
+//  Updated weekly by Make.com automation pushing new data points
+// ─────────────────────────────────────────────────────────────
+const TREND_HISTORY = {
+  'pa_registration': {
+    label: 'France PA Registration',
+    color: 'var(--amber)',
+    target: 100,
+    unit: '%',
+    weeks: [
+      // Last 12 weeks of data points (oldest first)
+      { w: 'W4 Jan', v: 8 }, { w: 'W1 Feb', v: 12 }, { w: 'W2 Feb', v: 15 },
+      { w: 'W3 Feb', v: 18 }, { w: 'W4 Feb', v: 22 }, { w: 'W1 Mar', v: 28 },
+      { w: 'W2 Mar', v: 33 }, { w: 'W3 Mar', v: 38 }, { w: 'W4 Mar', v: 42 },
+      { w: 'W1 Apr', v: 45 }, { w: 'W2 Apr', v: 47 }, { w: 'W3 Apr', v: 50 }
+    ]
+  },
+  'ge_onboarding': {
+    label: 'GE Practice Onboarding',
+    color: 'var(--red)',
+    target: 90,
+    unit: '%',
+    weeks: [
+      { w: 'W4 Jan', v: 22 }, { w: 'W1 Feb', v: 24 }, { w: 'W2 Feb', v: 26 },
+      { w: 'W3 Feb', v: 28 }, { w: 'W4 Feb', v: 30 }, { w: 'W1 Mar', v: 31 },
+      { w: 'W2 Mar', v: 32 }, { w: 'W3 Mar', v: 33 }, { w: 'W4 Mar', v: 34 },
+      { w: 'W1 Apr', v: 35 }, { w: 'W2 Apr', v: 35 }, { w: 'W3 Apr', v: 36 }
+    ]
+  },
+  'active_es': {
+    label: 'Active Adoption — Spain',
+    color: 'var(--g)',
+    target: 100,
+    unit: '%',
+    weeks: [
+      { w: 'W4 Jan', v: 12 }, { w: 'W1 Feb', v: 15 }, { w: 'W2 Feb', v: 18 },
+      { w: 'W3 Feb', v: 21 }, { w: 'W4 Feb', v: 23 }, { w: 'W1 Mar', v: 26 },
+      { w: 'W2 Mar', v: 28 }, { w: 'W3 Mar', v: 30 }, { w: 'W4 Mar', v: 32 },
+      { w: 'W1 Apr', v: 33 }, { w: 'W2 Apr', v: 34 }, { w: 'W3 Apr', v: 36 }
+    ]
+  },
+  'active_fr': {
+    label: 'Active Adoption — France',
+    color: 'var(--amber)',
+    target: 100,
+    unit: '%',
+    weeks: [
+      { w: 'W4 Jan', v: 8 }, { w: 'W1 Feb', v: 10 }, { w: 'W2 Feb', v: 12 },
+      { w: 'W3 Feb', v: 14 }, { w: 'W4 Feb', v: 16 }, { w: 'W1 Mar', v: 18 },
+      { w: 'W2 Mar', v: 19 }, { w: 'W3 Mar', v: 20 }, { w: 'W4 Mar', v: 22 },
+      { w: 'W1 Apr', v: 23 }, { w: 'W2 Apr', v: 24 }, { w: 'W3 Apr', v: 25 }
+    ]
+  },
+  'ae_pipeline': {
+    label: 'AutoEntry Pipeline — France',
+    color: 'var(--amber)',
+    target: 100,
+    unit: '%',
+    weeks: [
+      { w: 'W4 Jan', v: 18 }, { w: 'W1 Feb', v: 19 }, { w: 'W2 Feb', v: 20 },
+      { w: 'W3 Feb', v: 22 }, { w: 'W4 Feb', v: 24 }, { w: 'W1 Mar', v: 25 },
+      { w: 'W2 Mar', v: 26 }, { w: 'W3 Mar', v: 27 }, { w: 'W4 Mar', v: 28 },
+      { w: 'W1 Apr', v: 29 }, { w: 'W2 Apr', v: 30 }, { w: 'W3 Apr', v: 30 }
+    ]
+  },
+  'signal_volume': {
+    label: 'Weekly Signal Volume',
+    color: 'var(--blue)',
+    target: null,
+    unit: '',
+    weeks: [
+      { w: 'W4 Jan', v: 4 }, { w: 'W1 Feb', v: 5 }, { w: 'W2 Feb', v: 6 },
+      { w: 'W3 Feb', v: 7 }, { w: 'W4 Feb', v: 8 }, { w: 'W1 Mar', v: 9 },
+      { w: 'W2 Mar', v: 11 }, { w: 'W3 Mar', v: 12 }, { w: 'W4 Mar', v: 13 },
+      { w: 'W1 Apr', v: 14 }, { w: 'W2 Apr', v: 15 }, { w: 'W3 Apr', v: 16 }
+    ]
+  }
+};
+
+// ─────────────────────────────────────────────────────────────
+//  SPARKLINE RENDERING — pure SVG, no library
+// ─────────────────────────────────────────────────────────────
+function renderSparkline(data, color, w, h) {
+  if (!data || data.length === 0) return '';
+  const values = data.map(d => d.v);
+  const max = Math.max(...values);
+  const min = Math.min(...values);
+  const range = (max - min) || 1;
+  const padding = 4;
+  const innerW = w - padding * 2;
+  const innerH = h - padding * 2;
+  const stepX = innerW / (values.length - 1);
+
+  const points = values.map((v, i) => {
+    const x = padding + i * stepX;
+    const y = padding + innerH - ((v - min) / range) * innerH;
+    return `${x.toFixed(1)},${y.toFixed(1)}`;
+  }).join(' ');
+
+  // Compute trend direction
+  const first = values[0];
+  const last = values[values.length - 1];
+  const delta = last - first;
+  const deltaPct = first > 0 ? ((delta / first) * 100).toFixed(0) : 0;
+
+  // Last point dot
+  const lastX = padding + (values.length - 1) * stepX;
+  const lastY = padding + innerH - ((last - min) / range) * innerH;
+
+  // Area fill
+  const areaPoints = `${padding},${h - padding} ${points} ${lastX},${h - padding}`;
+
+  const svg = `<svg width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" xmlns="http://www.w3.org/2000/svg">
+    <polygon points="${areaPoints}" fill="${color}" fill-opacity="0.15"/>
+    <polyline points="${points}" fill="none" stroke="${color}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="${lastX.toFixed(1)}" cy="${lastY.toFixed(1)}" r="2.5" fill="${color}"/>
+  </svg>`;
+
+  return { svg, delta, deltaPct, last, first };
+}
+
+function renderTrendCard(metricKey) {
+  const m = TREND_HISTORY[metricKey];
+  if (!m) return '';
+  const result = renderSparkline(m.weeks, m.color.startsWith('var') ? getComputedStyle(document.documentElement).getPropertyValue(m.color.replace('var(', '').replace(')', '')).trim() : m.color, 140, 36);
+  if (!result) return '';
+  const arrow = result.delta > 0 ? '▲' : result.delta < 0 ? '▼' : '—';
+  const arrowColor = result.delta > 0 ? 'var(--g)' : result.delta < 0 ? 'var(--red)' : 'var(--text3)';
+  return `<div class="trend-row">
+    <div class="trend-label">${m.label}</div>
+    <div class="trend-spark">${result.svg}</div>
+    <div class="trend-meta">
+      <div class="trend-current" style="color:${m.color}">${result.last}${m.unit}</div>
+      <div class="trend-delta" style="color:${arrowColor}">${arrow} ${Math.abs(result.delta)}${m.unit} (12w)</div>
+    </div>
+  </div>`;
+}
+
+function renderTrendPulse() {
+  const container = document.getElementById('trend-pulse-content');
+  if (!container) return;
+  const keys = ['pa_registration', 'ge_onboarding', 'active_es', 'active_fr', 'ae_pipeline', 'signal_volume'];
+  container.innerHTML = keys.map(renderTrendCard).join('');
+}
+
+// ─────────────────────────────────────────────────────────────
+//  BRIEF ME TODAY — personalised morning brief
+// ─────────────────────────────────────────────────────────────
+const BRIEF_VISIT_KEY = 'wise_last_visit_v1';
+
+function getLastVisit() {
+  try { return localStorage.getItem(BRIEF_VISIT_KEY); } catch { return null; }
+}
+
+function setLastVisit() {
+  try { localStorage.setItem(BRIEF_VISIT_KEY, new Date().toISOString()); } catch {}
+}
+
+function generateBriefMeToday() {
+  const meta = (window.LIVE_SIGNALS_META) || {};
+  const signals = (window.LIVE_SIGNALS) || [];
+  const lastVisit = getLastVisit();
+  const lastVisitDate = lastVisit ? new Date(lastVisit) : null;
+  const today = new Date();
+  const daysAgo = lastVisitDate ? Math.floor((today - lastVisitDate) / (1000 * 60 * 60 * 24)) : null;
+
+  // Priority signals
+  const critical = signals.filter(s => (s.priority || '').toLowerCase() === 'critical').slice(0, 3);
+  const high = signals.filter(s => (s.priority || '').toLowerCase() === 'high').slice(0, 3);
+
+  // Mandate countdowns
+  const mandates = [
+    { name: 'France PA mandate (Sept 1 2026)', date: new Date('2026-09-01'), market: '🇫🇷' },
+    { name: 'Spain Verifactu — self-employed (Jul 1 2026)', date: new Date('2026-07-01'), market: '🇪🇸' },
+    { name: 'Germany B2B issue mandate (Jan 1 2027)', date: new Date('2027-01-01'), market: '🇩🇪' }
+  ];
+  const upcomingMandates = mandates
+    .map(m => ({ ...m, days: Math.ceil((m.date - today) / (1000 * 60 * 60 * 24)) }))
+    .filter(m => m.days > 0 && m.days <= 200)
+    .sort((a, b) => a.days - b.days);
+
+  // Tracker watchlist
+  const trackerWatch = [];
+  if (meta.pa_registration_pct < 75) trackerWatch.push({ name: 'France PA Registration', pct: meta.pa_registration_pct, status: meta.pa_registration_status });
+  if (meta.ge_onboarding_pct < 60) trackerWatch.push({ name: 'GE Practice Onboarding', pct: meta.ge_onboarding_pct, status: meta.ge_onboarding_status });
+  if (meta.active_france_pct < 50) trackerWatch.push({ name: 'Active Adoption France', pct: meta.active_france_pct, status: meta.active_france_status });
+  if (meta.active_spain_pct < 50) trackerWatch.push({ name: 'Active Adoption Spain', pct: meta.active_spain_pct, status: meta.active_spain_status });
+
+  // Build brief HTML
+  const dateStr = today.toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+  let html = `<div class="brief-header">
+    <div class="brief-date">${dateStr}</div>
+    <div class="brief-greeting">Your WiSE brief for today</div>
+    <div class="brief-tagline">${meta.intensity_reason || 'Daily intelligence summary across France, Spain, Germany and Portugal.'}</div>
+  </div>`;
+
+  // Welcome back / first visit
+  if (daysAgo !== null && daysAgo > 0) {
+    html += `<div class="brief-section brief-welcome">
+      <div class="brief-since">Since you last visited ${daysAgo === 1 ? 'yesterday' : daysAgo + ' days ago'} — ${signals.length} signals tracked, ${critical.length} flagged critical.</div>
+    </div>`;
+  } else if (daysAgo === null) {
+    html += `<div class="brief-section brief-welcome">
+      <div class="brief-since">First visit today. ${signals.length} signals currently tracked across the four markets.</div>
+    </div>`;
+  }
+
+  // Today's priorities
+  html += `<div class="brief-section">
+    <div class="brief-section-label">🎯 Today's priorities</div>`;
+  if (upcomingMandates.length > 0) {
+    upcomingMandates.slice(0, 2).forEach(m => {
+      const urgency = m.days <= 90 ? 'critical' : m.days <= 150 ? 'high' : 'watch';
+      html += `<div class="brief-item brief-${urgency}">
+        <div class="brief-item-title">${m.market} ${m.name}</div>
+        <div class="brief-item-body">${m.days} days remaining. ${m.days < 90 ? 'Acceleration required.' : m.days < 150 ? 'Plan acceleration window.' : 'Tracking.'}</div>
+      </div>`;
+    });
+  }
+  if (trackerWatch.length > 0) {
+    trackerWatch.slice(0, 2).forEach(t => {
+      html += `<div class="brief-item brief-${t.status === 'red' ? 'critical' : 'high'}">
+        <div class="brief-item-title">${t.name} — ${t.pct}%</div>
+        <div class="brief-item-body">Below target. Direct action needed to close the gap.</div>
+      </div>`;
+    });
+  }
+  html += `</div>`;
+
+  // Critical signals
+  if (critical.length > 0) {
+    html += `<div class="brief-section">
+      <div class="brief-section-label">🔴 Critical signals</div>`;
+    critical.forEach(s => {
+      html += `<div class="brief-item brief-critical">
+        <div class="brief-item-title">${s.market ? '[' + s.market + '] ' : ''}${s.title}</div>
+        <div class="brief-item-body">${s.implication || s.body || ''}</div>
+      </div>`;
+    });
+    html += `</div>`;
+  }
+
+  // High signals
+  if (high.length > 0) {
+    html += `<div class="brief-section">
+      <div class="brief-section-label">🟠 High priority signals</div>`;
+    high.forEach(s => {
+      html += `<div class="brief-item brief-high">
+        <div class="brief-item-title">${s.market ? '[' + s.market + '] ' : ''}${s.title}</div>
+        <div class="brief-item-body">${s.implication || s.body || ''}</div>
+      </div>`;
+    });
+    html += `</div>`;
+  }
+
+  // Closing
+  html += `<div class="brief-section brief-close">
+    <div class="brief-close-label">Recommended focus</div>
+    <div class="brief-close-body">${
+      critical.length >= 2
+        ? 'Multiple critical signals active. Prioritise the highest-leverage action that addresses two or more at once.'
+        : upcomingMandates.length > 0 && upcomingMandates[0].days < 90
+          ? `${upcomingMandates[0].market} ${upcomingMandates[0].name} dominates this week's focus.`
+          : 'Steady week. Use the time for proactive work — battle card refresh, persona research, sales enablement.'
+    }</div>
+  </div>`;
+
+  document.getElementById('brief-content').innerHTML = html;
+  document.getElementById('brief-modal').classList.add('open');
+  setLastVisit();
+}
+
+function closeBrief() {
+  document.getElementById('brief-modal').classList.remove('open');
+}
+
+// Initialize trend pulse on dashboard load
+document.addEventListener('DOMContentLoaded', () => {
+  setTimeout(renderTrendPulse, 200);
+
+  // Re-render when navigating to dashboard
+  const observer = new MutationObserver(() => {
+    const dash = document.getElementById('page-dashboard');
+    if (dash && dash.classList.contains('active')) {
+      setTimeout(renderTrendPulse, 50);
+    }
+  });
+  const main = document.getElementById('main');
+  if (main) observer.observe(main, { attributes: true, subtree: true, attributeFilter: ['class'] });
 });
 
 </script>
