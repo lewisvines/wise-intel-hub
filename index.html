@@ -701,7 +701,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:16
   <div class="sb-meta" style="margin-top:20px;">
     FR · ES · DE · PT<br>
     Sage Europe · Small Business &amp; Accountants<br>
-    Updated: April 22, 2026 · Signals refreshed daily
+    Updated: April 28, 2026 · Signals refreshed daily
   </div>
 </div>
 
@@ -2901,63 +2901,86 @@ function generateELT() {
   const sunday = new Date(monday); sunday.setDate(monday.getDate() + 6);
   const weekStr = `${monday.getDate()} ${monthsLong[monday.getMonth()]} - ${sunday.getDate()} ${monthsLong[sunday.getMonth()]} ${sunday.getFullYear()}`;
 
+  // ── Pull live data from signals feed ──────────────────────
+  const signals = (window.LIVE_SIGNALS) || [];
+  const meta = (window.LIVE_SIGNALS_META) || {};
+  const critical = signals.filter(s => (s.priority || '').toLowerCase() === 'critical');
+  const high = signals.filter(s => (s.priority || '').toLowerCase() === 'high');
+  const watch = signals.filter(s => (s.priority || '').toLowerCase() === 'watch');
+
+  const intensity = (meta.intensity || 'CRITICAL').toUpperCase();
+  const intensityReason = meta.intensity_reason || 'Multiple critical signals across markets';
+  const headline = meta.ifyrne || 'Strategic intelligence summary across France, Spain, Germany and Portugal.';
+
+  // Top signals (mix of critical and high)
+  const topSignals = [...critical, ...high].slice(0, 5);
+
+  let topSignalsText = '';
+  topSignals.forEach((s, i) => {
+    const tier = (s.priority || '').toUpperCase();
+    const market = s.market ? `[${s.market}] ` : '';
+    topSignalsText += `\n${i+1}. ${tier} - ${market}${s.title}\n   ${s.implication || s.body || ''}\n`;
+  });
+
+  // Tracker pulls
+  const trackerLines = [];
+  if (meta.pa_registration_pct !== undefined) trackerLines.push(`- France PA Registration: ${meta.pa_registration_pct}% (${(meta.pa_registration_status || 'amber').toUpperCase()})`);
+  if (meta.ge_onboarding_pct !== undefined) trackerLines.push(`- GE Practice Onboarding: ${meta.ge_onboarding_pct}% (${(meta.ge_onboarding_status || 'amber').toUpperCase()})`);
+  if (meta.active_france_pct !== undefined) trackerLines.push(`- Active Adoption France: ${meta.active_france_pct}% (${(meta.active_france_status || 'amber').toUpperCase()})`);
+  if (meta.active_spain_pct !== undefined) trackerLines.push(`- Active Adoption Spain: ${meta.active_spain_pct}% (${(meta.active_spain_status || 'amber').toUpperCase()})`);
+  if (meta.ae_pipeline_pct !== undefined) trackerLines.push(`- AutoEntry Pipeline France: ${meta.ae_pipeline_pct}% (${(meta.ae_pipeline_status || 'amber').toUpperCase()})`);
+  if (meta.sfa_spain_gtm_pct !== undefined) trackerLines.push(`- SfA Spain GTM Readiness: ${meta.sfa_spain_gtm_pct}% (${(meta.sfa_spain_gtm_status || 'green').toUpperCase()})`);
+
   const brief = `WISE INTEL HUB - ELT STEERCO BRIEF
 Week of ${weekStr}
 Sage WiSE - Winning in Small Europe Through Accountants
 
 ================================================
-SIGNAL INTENSITY: CRITICAL
+SIGNAL INTENSITY: ${intensity}
+${intensityReason}
 ================================================
 
-HEADLINE: Pennylane has scaled to 900+ employees, raised a Series E at a $4.25B valuation, and is hiring openly across Madrid, Lisbon, Berlin and Munich - the third-country expansion decision is imminent for H2 2026 with Spain on the shortlist. Cegid+Shine completed integration in Q1 2026 and now serves over a million SMBs and 15,000 accountants across France, DACH, Iberia, NL, Denmark and Belgium. Sage's structural advantages - thousands of GE practices in France, thousands of Despachos in Spain, decades of compliance heritage - remain the moat that neither competitor can replicate. The window to activate that advantage is the September 2026 French e-invoicing mandate.
+HEADLINE
+${headline}
 
 ================================================
-TOP 5 SIGNALS THIS WEEK
+STRATEGIC PROGRESS TRACKER
 ================================================
-
-1. CRITICAL - PENNYLANE SERIES E + EUROPEAN EXPANSION
-Pennylane raised €175M (Series E) at $4.25B valuation in January 2026, headcount scaling to 1,200 by year-end with 600 developers. Munich HQ active, Berlin office open, sales presence in Hamburg, Düsseldorf, Stuttgart, Cologne. Lever.co careers page now lists open roles in Madrid, Lisbon, Berlin and Munich - the hiring is the launch announcement. Third-country decision (Spain / Belgium / Poland) imminent for H2 2026.
-ACTION: SfA Spain launch must land before any Pennylane Spain brand campaign begins. Accelerate Despachos enablement.
-
-2. CRITICAL - CEGID+SHINE CLOSED Q1 2026
-Cegid completed the Shine acquisition in Q1 2026. Combined entity: 2,000+ employees, 1M+ SMB customers, 15,000 accountants. Cegid is positioning as "Europe's first fully integrated, cloud-native AI-driven financial hub". Hiring focus has shifted from expansion to integration - platform engineers, data migration leads, unified-product PMs. Cegid has also confirmed deployment of 100 new commercial reps targeting French accountant firms from Q2 2026.
-ACTION: France GE practice direct campaign required before Cegid commercial outreach begins. The integration noise window is the buying window for Sage.
-
-3. CRITICAL - FRANCE PA REGISTRATION
-France PA Registration now at 50% (up from early-stage in Q1). Five months to the September 1 mandate. Sage is the registered PA but adoption pacing requires direct campaign acceleration to reach 100% before mandate.
-ACTION: Direct campaign brief to all GE practices. Confirm Copilot GA France date for Congrès messaging.
-
-4. HIGH - HOLDED VERIFACTU + ACCOUNTANT-CHANNEL HIRING
-Holded is actively hiring AEAT and Verifactu integration engineers and running compliance webinars positioning as the certified software vendor. Holded is also hiring accountant-channel PMs - a new motion that directly targets the segment Sage Despachos has held for decades. Verifactu obligation for corporates Jan 2026, self-employed July 2026.
-ACTION: Spain pricing one-pager into commercial team hands. Position Active Essentials advantage on users / payroll / Verifactu certification depth vs Holded Advanced.
-
-5. WATCH - XERO JAX + ANTHROPIC PARTNERSHIP
-Xero's Anthropic partnership announced March 2026 is being operationalised through hiring. JAX hiring patterns suggest accountant-facing AI agents are the priority. EU compliance engineering hires are the early signal that Xero is preparing French and Spanish PA registration. Not a WiSE threat today; potentially a 2027 threat if PA-certified.
-ACTION: Monthly monitoring brief from Competitive Intelligence.
+${trackerLines.join('\n')}
 
 ================================================
-STRATEGIC PRIORITIES BY MARKET
+TOP ${topSignals.length} SIGNALS THIS WEEK
 ================================================
-FR: PA registration acceleration to 100%. GE-Active sync must be unblocked. Copilot GA confirmation before Congrès 2026.
-ES: Verifactu window open. SfA launch timing must precede Pennylane Spain brand activity. Sage ID SSO friction the open product blocker.
-DE: DATEV partnership exploration the entry strategy. Cloud management layer above DATEV's compliance function the proposition framework.
-PT: SfA proposition definition in-flight. SAF-T 2027 the commercial catalyst. OCC engagement scoped for FY27.
+${topSignalsText}
+
+================================================
+SIGNAL VOLUME
+================================================
+- Total signals tracked: ${signals.length}
+- Critical: ${critical.length}
+- High priority: ${high.length}
+- Watch: ${watch.length}
 
 ================================================
 ACTIONS REQUIRED FROM ELT
 ================================================
-1. GE-Active sync resolution by September 2026 - escalation required to product leadership
+1. GE-Active sync - decision and engineering capacity required
 2. Sage ID SSO friction (Spain) - must be resolved before SfA Spain launch
 3. Germany PMM hire - DATEV exploration requires dedicated resource
 4. PA campaign budget approval - direct GE practice campaign
 5. Copilot GA France confirmed date for Congrès 2026 messaging
+6. ACaaS GTM programme funding for FY27
 
 ================================================
+DATA FRESHNESS
+================================================
+Signals last refreshed: ${meta.last_updated || 'today'}
 WiSE Intel Hub: lewisvines.github.io/wise-intel-hub
 Generated: ${now.toISOString().split('T')[0]} - Internal distribution only`;
 
   document.getElementById('elt-output').textContent = brief;
 }
+
 
 function copyELT() {
   const text = document.getElementById('elt-output').textContent;
@@ -5338,6 +5361,93 @@ function pptxAddContent(pptx, eyebrow, title) {
   return s;
 }
 
+// ─────────────────────────────────────────────────────────────
+//  HELPER: Pull live signal data with safe fallbacks
+// ─────────────────────────────────────────────────────────────
+function _getLiveData() {
+  const signals = (window.LIVE_SIGNALS) || [];
+  const meta = (window.LIVE_SIGNALS_META) || {};
+  const critical = signals.filter(s => (s.priority || '').toLowerCase() === 'critical');
+  const high = signals.filter(s => (s.priority || '').toLowerCase() === 'high');
+  const watch = signals.filter(s => (s.priority || '').toLowerCase() === 'watch');
+  return { signals, meta, critical, high, watch };
+}
+
+function _trackerColor(status) {
+  const s = (status || '').toLowerCase();
+  if (s === 'green') return SAGE_GREEN;
+  if (s === 'amber') return SAGE_AMBER;
+  if (s === 'red') return SAGE_RED;
+  return SAGE_GREY;
+}
+
+function _trackerHexForRAG(status) {
+  const s = (status || '').toLowerCase();
+  if (s === 'green') return SAGE_GREEN;
+  if (s === 'amber') return SAGE_AMBER;
+  return SAGE_RED;
+}
+
+function _signalTierColor(priority) {
+  const p = (priority || '').toLowerCase();
+  if (p === 'critical') return SAGE_RED;
+  if (p === 'high') return SAGE_AMBER;
+  return "1D6DBF"; // watch / blue
+}
+
+function _truncate(text, max) {
+  if (!text) return '';
+  if (text.length <= max) return text;
+  return text.substring(0, max - 1).trim() + '…';
+}
+
+
+// ─────────────────────────────────────────────────────────────
+//  PLAYBOOK INSERT: What's moving this week (live signals slide)
+//  Adds dynamic slide right after Executive Summary
+// ─────────────────────────────────────────────────────────────
+function _addPlaybookLiveSignalsSlide(pptx) {
+  const { signals, meta, critical, high, watch } = _getLiveData();
+  const intensity = (meta.intensity || 'CRITICAL').toUpperCase();
+  const intensityReason = meta.intensity_reason || 'Multiple critical signals across markets';
+  const lastUpdated = meta.last_updated || new Date().toISOString().split('T')[0];
+  const weekLabel = meta.week_label || 'Current week';
+  const topSignals = [...critical, ...high].slice(0, 4);
+
+  let s = pptxAddContent(pptx, "WHAT'S MOVING THIS WEEK", `Live intelligence  ·  Signal intensity: ${intensity}  ·  ${weekLabel}`);
+
+  // Intensity callout
+  s.addShape(pptx.ShapeType.rect, { x: 0.5, y: 1.3, w: 12.3, h: 0.7, fill: { color: SAGE_GREEN_DARK } });
+  s.addText(intensityReason, { x: 0.7, y: 1.3, w: 11.9, h: 0.7, fontSize: 13, fontFace: "Calibri", color: "FFFFFF", italic: true, valign: "middle" });
+
+  // Top signals
+  let y = 2.2;
+  if (topSignals.length === 0) {
+    s.addText("No live signals available. Hub feed not yet loaded — refresh signals.json to populate.",
+      { x: 0.5, y: 3.5, w: 12.3, h: 0.5, fontSize: 14, fontFace: "Calibri", color: SAGE_GREY, italic: true, align: "center" });
+  } else {
+    topSignals.forEach((sig) => {
+      const tier = (sig.priority || '').toUpperCase();
+      const tierCol = _signalTierColor(sig.priority);
+      const market = sig.market ? `[${sig.market}]` : '';
+
+      s.addShape(pptx.ShapeType.rect, { x: 0.5, y: y, w: 1.2, h: 1.0, fill: { color: tierCol } });
+      s.addText(tier, { x: 0.5, y: y, w: 1.2, h: 1.0, fontSize: 10, fontFace: "Calibri", color: "FFFFFF", bold: true, align: "center", valign: "middle", charSpacing: 2 });
+      s.addShape(pptx.ShapeType.rect, { x: 1.7, y: y, w: 11.1, h: 1.0, fill: { color: "FFFFFF" }, line: { color: "E2E8E2", width: 1 } });
+      s.addText(`${market} ${sig.title || ''}`, { x: 1.85, y: y + 0.08, w: 10.8, h: 0.3, fontSize: 12, fontFace: "Calibri", color: SAGE_DARK, bold: true });
+      const body = _truncate(sig.implication || sig.body || '', 240);
+      s.addText(body, { x: 1.85, y: y + 0.4, w: 10.8, h: 0.55, fontSize: 10, fontFace: "Calibri", color: SAGE_DARK, valign: "top" });
+      y += 1.1;
+    });
+  }
+
+  // Footer caption
+  s.addText(`${signals.length} signals tracked  ·  ${critical.length} critical  ·  ${high.length} high  ·  ${watch.length} watch  ·  Refreshed ${lastUpdated}  ·  Source: live signals feed`,
+    { x: 0.5, y: 7.0, w: 12.3, h: 0.3, fontSize: 9, fontFace: "Calibri", color: SAGE_GREY, italic: true, align: "center" });
+
+  return s;
+}
+
 function generatePlaybook() {
   if (typeof PptxGenJS === "undefined") {
     alert("PowerPoint library is loading - please try again in a moment.");
@@ -5373,6 +5483,9 @@ function generatePlaybook() {
     { text: "The play\n", options: { bold: true, fontSize: 14, color: SAGE_GREEN_DARK } },
     { text: "Activate the structural advantage. Thousands of GE practices in France, thousands of Despachos in Spain, decades of compliance heritage. Lead with accountants. Compete on outcomes, not features. Move at the pace of the market, not the pace of the org chart.", options: { fontSize: 12, color: SAGE_DARK } }
   ], { x: 0.5, y: 1.5, w: 12.3, h: 5.5, valign: "top" });
+
+  // ─── NEW: What's moving this week (LIVE SIGNALS) ───
+  _addPlaybookLiveSignalsSlide(pptx);
 
   // ─── 03. FOUR MARKETS AT A GLANCE ───
   s = pptxAddContent(pptx, "02 - FOUR MARKETS AT A GLANCE", "Where Sage plays - and how");
@@ -5692,6 +5805,9 @@ function generatePlaybook() {
   pptx.writeFile({ fileName: `WiSE_PMM_Playbook_${new Date().toISOString().split('T')[0]}.pptx` });
 }
 
+
+
+
 function generateELTPpt() {
   if (typeof PptxGenJS === "undefined") {
     alert("PowerPoint library is loading - please try again in a moment.");
@@ -5705,64 +5821,99 @@ function generateELTPpt() {
   const today = new Date().toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
   let s, y;
 
+  // ── Live data ─────────────────────────────────────────────
+  const { signals, meta, critical, high, watch } = _getLiveData();
+  const intensity = (meta.intensity || 'CRITICAL').toUpperCase();
+  const intensityReason = meta.intensity_reason || 'Multiple critical signals across markets';
+  const headline = meta.ifyrne || 'Strategic intelligence summary across France, Spain, Germany and Portugal.';
+  const topSignals = [...critical, ...high].slice(0, 5);
+  const lastUpdated = meta.last_updated || today;
+  const weekLabel = meta.week_label || `Week of ${today}`;
+
   // ─── 01. COVER ───
   pptxAddCover(pptx,
     "ELT Steerco Brief",
     "WiSE - Winning in Small Europe Through Accountants",
-    `Week of ${today}`
+    `${weekLabel}  ·  Generated ${today}`
   );
 
   // ─── 02. HEADLINE ───
-  s = pptxAddContent(pptx, "HEADLINE", "The window to activate is now");
+  s = pptxAddContent(pptx, "HEADLINE", `Signal intensity: ${intensity}`);
   s.addText([
-    { text: "Pennylane has scaled to 1,200 employees, raised a Series E at $4.25B valuation, and is hiring openly across Madrid, Lisbon, Berlin and Munich. The third-country expansion decision is imminent for H2 2026 with Spain on the shortlist.\n\n", options: { fontSize: 13, color: SAGE_DARK } },
-    { text: "Cegid+Shine completed integration in Q1 2026 and now serves 1M+ SMBs and 15,000 accountants across France, DACH, Iberia, NL, Denmark and Belgium. 100 new commercial reps targeting French accountants from Q2 2026.\n\n", options: { fontSize: 13, color: SAGE_DARK } },
-    { text: "Sage's structural advantages - thousands of GE practices in France, thousands of Despachos in Spain, decades of compliance heritage - remain the moat that neither competitor can replicate.\n\n", options: { fontSize: 13, color: SAGE_DARK, bold: true } },
-    { text: "The window to activate that advantage is the September 2026 French e-invoicing mandate.", options: { fontSize: 14, color: SAGE_GREEN_DARK, bold: true } }
+    { text: intensityReason + "\n\n", options: { fontSize: 13, color: SAGE_GREEN_DARK, bold: true } },
+    { text: headline + "\n\n", options: { fontSize: 13, color: SAGE_DARK } },
+    { text: `Total signals tracked: ${signals.length}  ·  Critical: ${critical.length}  ·  High: ${high.length}  ·  Watch: ${watch.length}`, options: { fontSize: 11, color: SAGE_GREY, italic: true } }
   ], { x: 0.5, y: 1.3, w: 12.3, h: 5.5, valign: "top" });
 
-  // ─── 03. STRATEGIC PROGRESS TRACKER ───
+  // ─── 03. STRATEGIC PROGRESS TRACKER (LIVE) ───
   s = pptxAddContent(pptx, "STRATEGIC PROGRESS TRACKER", "RAG status across critical workstreams");
-  const tracker = [
-    { name: "France PA Registration (Sept 2026)", status: "AMBER", note: "50% complete - acceleration required to reach 100% before mandate" },
-    { name: "GE Practice Onboarding to SfA", status: "AMBER", note: "Connection rate climbing but trust gap remains - GE-Active sync still #1 blocker" },
-    { name: "Active Adoption - France (FY26)", status: "GREEN", note: "Strong momentum through accountant channel, healthy pipeline" },
-    { name: "Active Adoption - Spain (pre-launch)", status: "GREEN", note: "Pre-launch traction exceeded expectations, hundreds of subscriptions through Despachos" },
-    { name: "AutoEntry Compliance Pipeline - France", status: "AMBER", note: "AKAO acquisition strengthens position, integration path being scoped" },
-    { name: "SfA Spain GTM (H2 FY26)", status: "AMBER", note: "Sage ID SSO friction must be resolved before launch" },
-    { name: "SfA Portugal Launch", status: "GREEN", note: "Definition year - on track to scope, no FY26 launch target" },
-    { name: "EU Competitive Intelligence", status: "GREEN", note: "Live tracking, Make.com automation operational, weekly hub updates" }
-  ];
+  const tracker = [];
+  if (meta.pa_registration_pct !== undefined) tracker.push({ name: 'France PA Registration', pct: meta.pa_registration_pct, status: meta.pa_registration_status, label: meta.pa_registration_label || '' });
+  if (meta.ge_onboarding_pct !== undefined) tracker.push({ name: 'GE Practice Onboarding to SfA', pct: meta.ge_onboarding_pct, status: meta.ge_onboarding_status, label: meta.ge_onboarding_label || '' });
+  if (meta.active_france_pct !== undefined) tracker.push({ name: 'Active Adoption France', pct: meta.active_france_pct, status: meta.active_france_status, label: meta.active_france_label || '' });
+  if (meta.active_spain_pct !== undefined) tracker.push({ name: 'Active Adoption Spain', pct: meta.active_spain_pct, status: meta.active_spain_status, label: meta.active_spain_label || '' });
+  if (meta.ae_pipeline_pct !== undefined) tracker.push({ name: 'AutoEntry Pipeline France', pct: meta.ae_pipeline_pct, status: meta.ae_pipeline_status, label: meta.ae_pipeline_label || '' });
+  if (meta.sfa_spain_gtm_pct !== undefined) tracker.push({ name: 'SfA Spain GTM Readiness', pct: meta.sfa_spain_gtm_pct, status: meta.sfa_spain_gtm_status, label: meta.sfa_spain_gtm_label || '' });
+  if (meta.eu_competitive_pct !== undefined) tracker.push({ name: 'EU Competitive Intelligence', pct: meta.eu_competitive_pct, status: meta.eu_competitive_status, label: meta.eu_competitive_label || '' });
+
+  // Fallback if no tracker data
+  if (tracker.length === 0) {
+    tracker.push({ name: 'No live tracker data — check signals.json feed', pct: 0, status: 'red', label: 'Data unavailable' });
+  }
+
   y = 1.3;
   tracker.forEach((t) => {
-    const sCol = t.status === "GREEN" ? SAGE_GREEN : t.status === "AMBER" ? SAGE_AMBER : SAGE_RED;
-    s.addShape(pptx.ShapeType.ellipse, { x: 0.55, y: y + 0.14, w: 0.32, h: 0.32, fill: { color: sCol } });
-    s.addShape(pptx.ShapeType.rect, { x: 1.05, y: y, w: 11.7, h: 0.6, fill: { color: "FFFFFF" }, line: { color: "E2E8E2", width: 1 } });
-    s.addText(t.name, { x: 1.2, y: y + 0.05, w: 5.3, h: 0.5, fontSize: 11, fontFace: "Calibri", color: SAGE_DARK, bold: true, valign: "middle" });
-    s.addText(t.note, { x: 6.6, y: y + 0.05, w: 6.0, h: 0.5, fontSize: 9, fontFace: "Calibri", color: SAGE_GREY, italic: true, valign: "middle" });
-    y += 0.7;
+    const cCol = _trackerHexForRAG(t.status);
+    s.addShape(pptx.ShapeType.ellipse, { x: 0.55, y: y + 0.18, w: 0.32, h: 0.32, fill: { color: cCol } });
+    s.addShape(pptx.ShapeType.rect, { x: 1.05, y: y, w: 11.7, h: 0.65, fill: { color: "FFFFFF" }, line: { color: "E2E8E2", width: 1 } });
+    s.addText(t.name, { x: 1.2, y: y + 0.05, w: 6.5, h: 0.55, fontSize: 11, fontFace: "Calibri", color: SAGE_DARK, bold: true, valign: "middle" });
+    s.addText(`${t.pct}%`, { x: 7.8, y: y + 0.05, w: 1.2, h: 0.55, fontSize: 14, fontFace: "Calibri", color: cCol, bold: true, valign: "middle", align: "center" });
+    s.addText(t.label || (t.status || '').toUpperCase(), { x: 9.2, y: y + 0.05, w: 3.4, h: 0.55, fontSize: 10, fontFace: "Calibri", color: SAGE_GREY, italic: true, valign: "middle" });
+    y += 0.75;
   });
+  s.addText(`Live data from signals feed  ·  Last refreshed: ${lastUpdated}`, { x: 0.5, y: y + 0.1, w: 12.3, h: 0.3, fontSize: 9, fontFace: "Calibri", color: SAGE_GREY, italic: true });
 
-  // ─── 04. TOP 5 SIGNALS ───
-  s = pptxAddContent(pptx, "TOP 5 SIGNALS", "What changed this week");
-  const signals = [
-    { tier: "CRITICAL", color: SAGE_RED, title: "Pennylane Series E + European expansion", body: "€175M raise at $4.25B valuation. 1,200 employees by year-end (600 developers). Munich HQ + Berlin office. Lever.co lists open roles in Madrid, Lisbon, Berlin, Munich. Third-country decision (Spain/Belgium/Poland) imminent for H2 2026." },
-    { tier: "CRITICAL", color: SAGE_RED, title: "Cegid+Shine integration complete", body: "2,000+ employees, 1M+ SMBs, 15,000 accountants. Hiring shifted from expansion to integration. 100 new commercial reps targeting French GE practices from Q2 2026. Direct attack on Sage GE base." },
-    { tier: "CRITICAL", color: SAGE_RED, title: "France PA registration at 50%", body: "Up from early-stage in Q1. Five months to September 1 mandate. Direct campaign acceleration required to reach 100%. Cegid's 100 new reps will target the same practices." },
-    { tier: "HIGH", color: SAGE_AMBER, title: "Holded Verifactu engineering hires", body: "Holded actively hiring AEAT/Verifactu integration engineers. Running compliance webinars positioning as certified vendor. New accountant-channel hiring motion - direct attack on Despachos territory." },
-    { tier: "WATCH", color: "1D6DBF", title: "Xero JAX + Anthropic partnership operationalising", body: "Anthropic deal announced March 2026 being built into product. JAX accountant-facing AI agents in build. EU compliance engineering hires suggest Xero preparing French and Spanish PA registration." }
+  // ─── 04. TOP SIGNALS (LIVE) ───
+  s = pptxAddContent(pptx, `TOP ${topSignals.length} SIGNALS`, `What's moving this week  ·  ${signals.length} total signals tracked`);
+
+  if (topSignals.length === 0) {
+    s.addText("No live signals available. Refresh signals.json feed to populate this slide.", { x: 0.5, y: 3, w: 12.3, h: 0.5, fontSize: 14, fontFace: "Calibri", color: SAGE_GREY, italic: true, align: "center" });
+  } else {
+    y = 1.3;
+    topSignals.forEach((sig) => {
+      const tier = (sig.priority || '').toUpperCase();
+      const tierCol = _signalTierColor(sig.priority);
+      const market = sig.market ? `[${sig.market}]` : '';
+
+      s.addShape(pptx.ShapeType.rect, { x: 0.5, y: y, w: 1.2, h: 1.0, fill: { color: tierCol } });
+      s.addText(tier, { x: 0.5, y: y, w: 1.2, h: 1.0, fontSize: 10, fontFace: "Calibri", color: "FFFFFF", bold: true, align: "center", valign: "middle", charSpacing: 2 });
+      s.addShape(pptx.ShapeType.rect, { x: 1.7, y: y, w: 11.1, h: 1.0, fill: { color: "FFFFFF" }, line: { color: "E2E8E2", width: 1 } });
+      s.addText(`${market} ${sig.title || ''}`, { x: 1.85, y: y + 0.08, w: 10.8, h: 0.3, fontSize: 12, fontFace: "Calibri", color: SAGE_DARK, bold: true });
+      const body = _truncate(sig.implication || sig.body || '', 280);
+      s.addText(body, { x: 1.85, y: y + 0.4, w: 10.8, h: 0.55, fontSize: 10, fontFace: "Calibri", color: SAGE_DARK, valign: "top" });
+      y += 1.1;
+    });
+  }
+
+  // ─── 05. SIGNAL VOLUME BREAKDOWN ───
+  s = pptxAddContent(pptx, "SIGNAL VOLUME", "Weekly intelligence pipeline");
+  const volumeStats = [
+    { label: "Total tracked", count: signals.length, color: SAGE_GREEN_DARK },
+    { label: "Critical", count: critical.length, color: SAGE_RED },
+    { label: "High priority", count: high.length, color: SAGE_AMBER },
+    { label: "Watch", count: watch.length, color: "1D6DBF" }
   ];
-  y = 1.3;
-  signals.forEach((sig) => {
-    s.addShape(pptx.ShapeType.rect, { x: 0.5, y: y, w: 1.2, h: 1.0, fill: { color: sig.color } });
-    s.addText(sig.tier, { x: 0.5, y: y, w: 1.2, h: 1.0, fontSize: 10, fontFace: "Calibri", color: "FFFFFF", bold: true, align: "center", valign: "middle", charSpacing: 2 });
-    s.addShape(pptx.ShapeType.rect, { x: 1.7, y: y, w: 11.1, h: 1.0, fill: { color: "FFFFFF" }, line: { color: "E2E8E2", width: 1 } });
-    s.addText(sig.title, { x: 1.85, y: y + 0.1, w: 10.8, h: 0.3, fontSize: 12, fontFace: "Calibri", color: SAGE_DARK, bold: true });
-    s.addText(sig.body, { x: 1.85, y: y + 0.4, w: 10.8, h: 0.55, fontSize: 10, fontFace: "Calibri", color: SAGE_DARK, valign: "top" });
-    y += 1.1;
+  volumeStats.forEach((v, i) => {
+    const x = 0.5 + i * 3.15;
+    s.addShape(pptx.ShapeType.rect, { x: x, y: 2.0, w: 3.0, h: 2.5, fill: { color: "FFFFFF" }, line: { color: "E2E8E2", width: 1 } });
+    s.addShape(pptx.ShapeType.rect, { x: x, y: 2.0, w: 3.0, h: 0.6, fill: { color: v.color } });
+    s.addText(v.label.toUpperCase(), { x: x, y: 2.0, w: 3.0, h: 0.6, fontSize: 11, fontFace: "Calibri", color: "FFFFFF", bold: true, align: "center", valign: "middle", charSpacing: 2 });
+    s.addText(String(v.count), { x: x, y: 2.7, w: 3.0, h: 1.5, fontSize: 60, fontFace: "Calibri", color: v.color, bold: true, align: "center", valign: "middle" });
   });
+  s.addText(`Last refresh: ${lastUpdated}  ·  Compared to ${meta.prev_signal_count || '-'} signals last cycle  ·  Source: signals.json feed`,
+    { x: 0.5, y: 5.0, w: 12.3, h: 0.4, fontSize: 11, fontFace: "Calibri", color: SAGE_GREY, italic: true, align: "center" });
 
-  // ─── 05. COMPETITIVE POSITION ───
+  // ─── 06. COMPETITIVE POSITION ───
   s = pptxAddContent(pptx, "COMPETITIVE POSITION", "Where Sage stands vs the major threats");
   s.addText([
     { text: "vs Pennylane (France):  ", options: { bold: true, fontSize: 12, color: SAGE_RED } },
@@ -5770,14 +5921,14 @@ function generateELTPpt() {
     { text: "vs Cegid+Shine (FR/EU):  ", options: { bold: true, fontSize: 12, color: SAGE_RED } },
     { text: "Cegid+Shine is in integration mode after a major acquisition. Their hiring shifted from expansion to integration in Q1 2026 - that is the buying window. Sage must counter their consolidation message with a 'no migration, no disruption' alternative for accountants worried about platform churn.\n\n", options: { fontSize: 11, color: SAGE_DARK } },
     { text: "vs Holded (Spain):  ", options: { bold: true, fontSize: 12, color: SAGE_AMBER } },
-    { text: "Holded leads on direct SMB UX. Sage Despachos plus Active leads on accountant channel depth. Holded's new accountant-channel hiring motion is the threat to monitor - they're attacking the segment Sage has held for decades.\n\n", options: { fontSize: 11, color: SAGE_DARK } },
+    { text: "Holded leads on direct SMB UX. Sage Despachos plus Active leads on accountant channel depth. Holded's new accountant-channel hiring motion is the threat to monitor.\n\n", options: { fontSize: 11, color: SAGE_DARK } },
     { text: "vs DATEV (Germany):  ", options: { bold: true, fontSize: 12, color: SAGE_GREEN_DARK } },
     { text: "Not a competitor. A structural partner. Sage's strategy: complement DATEV in the cloud management layer above their compliance function. Definition year - exploration only.\n\n", options: { fontSize: 11, color: SAGE_DARK } },
     { text: "vs Lexoffice (Germany):  ", options: { bold: true, fontSize: 12, color: SAGE_AMBER } },
-    { text: "Germany's clear cloud challenger to DATEV. 350,000+ customers. The model Sage Active for Accountants must compete with for the German accountant cloud transition.", options: { fontSize: 11, color: SAGE_DARK } }
+    { text: "Germany's clear cloud challenger to DATEV. The model Sage Active for Accountants must compete with for the German accountant cloud transition.", options: { fontSize: 11, color: SAGE_DARK } }
   ], { x: 0.5, y: 1.3, w: 12.3, h: 5.8, valign: "top" });
 
-  // ─── 06. REGULATORY CALENDAR ───
+  // ─── 07. REGULATORY CALENDAR ───
   s = pptxAddContent(pptx, "REGULATORY CALENDAR", "Mandate timeline this quarter and beyond");
   const regs = [
     { date: "JAN 2026", market: "🇪🇸 SPAIN", event: "Verifactu corporates", status: "LIVE NOW" },
@@ -5799,12 +5950,12 @@ function generateELTPpt() {
     y += 0.85;
   });
 
-  // ─── 07. KEY RISKS ───
+  // ─── 08. KEY RISKS ───
   s = pptxAddContent(pptx, "KEY RISKS & DEPENDENCIES", "What could derail FY26");
   const risks = [
     { risk: "GE-Active sync not resolved", impact: "Critical", body: "GE practices cannot trust SfA without reliable sync. The September 2026 mandate forces them to choose - and an unreliable Sage stack pushes them to Pennylane or Cegid." },
     { risk: "Copilot GA France slips past Congrès 2026", impact: "Critical", body: "The AI-first narrative is central to FY26-27 growth. If Copilot is not in market by the Congrès, Sage cannot make the 'AI automates your practice' claim credibly." },
-    { risk: "Pennylane Spain launch beats SfA Spain GA", impact: "High", body: "Spain is on Pennylane's H2 2026 shortlist. If they brand-launch before SfA Spain reaches GA, the narrative shifts to challenger vs incumbent before Sage owns the channel story." },
+    { risk: "Pennylane Spain launch beats SfA Spain GA", impact: "High", body: "Spain is on Pennylane's H2 2026 shortlist. If they brand-launch before SfA Spain reaches GA, the narrative shifts to challenger vs incumbent." },
     { risk: "Sage ID SSO friction blocks Spain GTM", impact: "High", body: "Spain commercial team have flagged Sage ID friction as a launch-blocking issue. Must be resolved before any partner-facing rollout." },
     { risk: "Cegid+Shine consolidation message wins accountants", impact: "Medium", body: "Their 'one platform' narrative is compelling. Sage counter is 'no migration, no disruption' - must be embedded in every sales conversation now." }
   ];
@@ -5819,7 +5970,7 @@ function generateELTPpt() {
     y += 1.15;
   });
 
-  // ─── 08. ACTIONS REQUIRED FROM ELT ───
+  // ─── 09. ACTIONS REQUIRED FROM ELT ───
   s = pptxAddContent(pptx, "ACTIONS REQUIRED FROM ELT", "What WiSE needs from leadership");
   const acts = [
     "GE-Active sync resolution - decision and dedicated engineering capacity required",
@@ -5839,15 +5990,16 @@ function generateELTPpt() {
     y += 0.78;
   });
 
-  // ─── 09. CLOSING ───
+  // ─── 10. CLOSING ───
   pptxAddCover(pptx,
     "Decision points",
     "The September 2026 mandate is non-negotiable. Pennylane's expansion and Cegid+Shine integration are accelerating. Sage's structural advantages must be activated this fiscal year - or the window closes.",
-    `WiSE ELT Brief - ${today}`
+    `WiSE ELT Brief - ${weekLabel}  ·  Live data from signals feed`
   );
 
   pptx.writeFile({ fileName: `WiSE_ELT_Brief_${new Date().toISOString().split('T')[0]}.pptx` });
 }
+
 
 
 
