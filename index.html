@@ -389,6 +389,27 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:16
 .reg-tag{flex-shrink:0;}
 
 
+
+/* ── 5Ds SELF ASSESSMENT ── */
+.fd-row{display:grid;grid-template-columns:200px 1fr 220px;gap:14px;align-items:center;padding:10px;background:var(--bg1);border:1px solid var(--border);border-radius:8px;}
+.fd-label{font-family:var(--font);font-size:13px;font-weight:700;color:var(--text);}
+.fd-sub{display:block;font-weight:400;font-size:11px;color:var(--text3);margin-top:2px;}
+.fd-stars{display:flex;gap:6px;}
+.fd-stars span{cursor:pointer;font-size:22px;line-height:1;color:var(--border2);user-select:none;transition:color 0.15s;}
+.fd-stars span.active{color:var(--g);}
+.fd-stars span:hover{color:var(--g3);}
+.fd-tip{font-family:var(--font);font-size:10px;color:var(--text3);text-align:right;font-style:italic;}
+#fd-radar{background:var(--bg1);border:1px solid var(--border);border-radius:8px;padding:18px;}
+.fd-bar{display:grid;grid-template-columns:120px 1fr 50px;gap:12px;align-items:center;margin-bottom:10px;}
+.fd-bar-label{font-family:var(--font);font-size:12px;font-weight:700;}
+.fd-bar-track{background:var(--bg3);height:18px;border-radius:9px;overflow:hidden;}
+.fd-bar-fill{height:100%;border-radius:9px;transition:width 0.4s;}
+.fd-bar-val{font-family:var(--font);font-size:13px;font-weight:700;text-align:right;}
+.fd-rec-card{background:var(--bg1);border:1px solid var(--border);border-radius:8px;padding:14px;margin-bottom:10px;}
+.fd-rec-phase{font-family:var(--font);font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;}
+.fd-rec-title{font-size:13px;font-weight:700;color:var(--text);margin-bottom:4px;}
+.fd-rec-body{font-size:12px;color:var(--text2);line-height:1.6;}
+
 /* ── SEARCH ── */
 #search-overlay{display:none;position:fixed;inset:0;z-index:500;background:rgba(0,0,0,0.45);backdrop-filter:blur(4px);}
 #search-overlay.active{display:flex;flex-direction:column;align-items:center;padding-top:80px;}
@@ -2702,7 +2723,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:16
 </div>
 
 
-<script src="https://cdn.jsdelivr.net/gh/gitbrent/PptxGenJS@3.12.0/dist/pptxgen.bundle.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/gitbrent/PptxGenJS@3.12.0/dist/pptxgen.bundle.js" defer></script>
 <script>
 // ── NAVIGATION ──
 const pages = document.querySelectorAll('.page-section');
@@ -4775,6 +4796,64 @@ loadLiveSignals();
     <div class="pattern-item"><strong>If your Drive phase has no monthly cadence and no feedback loop into product,</strong> you have launched a product, not built a category. WiSE measures success at Drive, not at Deliver.</div>
   </div>
 
+
+
+  <div style="font-family:var(--font);font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--g);margin:32px 0 12px 0;" class="reveal">PMM Self-Assessment Tool</div>
+  
+  <div class="dash-card reveal" style="margin-bottom:20px;">
+    <div class="dash-label">Score your team's 5Ds maturity</div>
+    <div style="font-size:12px;color:var(--text2);line-height:1.6;margin:10px 0 18px 0;">Rate each phase 1-5 based on how confidently your team executes against it today. Scores save in your browser. Use the radar chart and recommendations to focus your next quarter.</div>
+    
+    <div id="five-ds-form" style="display:flex;flex-direction:column;gap:14px;">
+      <div class="fd-row" data-phase="direct" data-color="#6D3BA8">
+        <div class="fd-label">01 · Direct <span class="fd-sub">Strategic context</span></div>
+        <div class="fd-stars" data-phase="direct">
+          <span data-v="1">○</span><span data-v="2">○</span><span data-v="3">○</span><span data-v="4">○</span><span data-v="5">○</span>
+        </div>
+        <div class="fd-tip" data-phase="direct">Click to score 1 (weak) to 5 (excellent)</div>
+      </div>
+      <div class="fd-row" data-phase="discover" data-color="#1D6DBF">
+        <div class="fd-label">02 · Discover <span class="fd-sub">Market &amp; buyer intel</span></div>
+        <div class="fd-stars" data-phase="discover">
+          <span data-v="1">○</span><span data-v="2">○</span><span data-v="3">○</span><span data-v="4">○</span><span data-v="5">○</span>
+        </div>
+        <div class="fd-tip" data-phase="discover">Click to score 1 (weak) to 5 (excellent)</div>
+      </div>
+      <div class="fd-row" data-phase="define" data-color="#00B050">
+        <div class="fd-label">03 · Define <span class="fd-sub">Proposition build</span></div>
+        <div class="fd-stars" data-phase="define">
+          <span data-v="1">○</span><span data-v="2">○</span><span data-v="3">○</span><span data-v="4">○</span><span data-v="5">○</span>
+        </div>
+        <div class="fd-tip" data-phase="define">Click to score 1 (weak) to 5 (excellent)</div>
+      </div>
+      <div class="fd-row" data-phase="deliver" data-color="#FFB500">
+        <div class="fd-label">04 · Deliver <span class="fd-sub">GTM execution</span></div>
+        <div class="fd-stars" data-phase="deliver">
+          <span data-v="1">○</span><span data-v="2">○</span><span data-v="3">○</span><span data-v="4">○</span><span data-v="5">○</span>
+        </div>
+        <div class="fd-tip" data-phase="deliver">Click to score 1 (weak) to 5 (excellent)</div>
+      </div>
+      <div class="fd-row" data-phase="drive" data-color="#0D8C7A">
+        <div class="fd-label">05 · Drive <span class="fd-sub">Commercial momentum</span></div>
+        <div class="fd-stars" data-phase="drive">
+          <span data-v="1">○</span><span data-v="2">○</span><span data-v="3">○</span><span data-v="4">○</span><span data-v="5">○</span>
+        </div>
+        <div class="fd-tip" data-phase="drive">Click to score 1 (weak) to 5 (excellent)</div>
+      </div>
+    </div>
+    
+    <div style="display:flex;gap:10px;margin-top:20px;">
+      <button onclick="resetSelfAssessment()" class="tb-btn">Reset</button>
+      <button onclick="exportSelfAssessment()" class="tb-btn primary">Export to PDF</button>
+    </div>
+    
+    <div id="fd-summary" style="display:none;margin-top:24px;padding-top:24px;border-top:1px solid var(--border);">
+      <div style="font-family:var(--font);font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--g);margin-bottom:12px;">Your maturity profile</div>
+      <div id="fd-radar"></div>
+      <div id="fd-recommendations" style="margin-top:18px;"></div>
+    </div>
+  </div>
+
 </div><!-- end page-5ds -->
 
 
@@ -4926,7 +5005,7 @@ loadLiveSignals();
 <!-- ══════ SEARCH OVERLAY ══════ -->
 <div id="search-overlay">
   <div id="search-box-wrap">
-    <input id="search-input" type="text" placeholder="Search all 25 pages…" data-placeholder-en="Search all 25 pages…" data-placeholder-fr="Rechercher dans les 25 pages…" data-placeholder-es="Buscar en las 25 páginas…" autocomplete="off" spellcheck="false">
+    <input id="search-input" type="text" placeholder="Search all 26 pages…" data-placeholder-en="Search all 26 pages…" data-placeholder-fr="Rechercher dans les 26 pages…" data-placeholder-es="Buscar en las 26 páginas…" autocomplete="off" spellcheck="false">
     <div id="search-meta"></div>
   </div>
   <div id="search-results"></div>
@@ -5184,38 +5263,43 @@ function generatePlaybook() {
     return;
   }
   const pptx = new PptxGenJS();
-  pptx.layout = "LAYOUT_WIDE";  // 13.33" x 7.5"
+  pptx.layout = "LAYOUT_WIDE";
   pptx.title = "WiSE PMM Playbook";
   pptx.company = "Sage Group plc";
   pptx.subject = "Winning in Small Europe Through Accountants";
 
   const today = new Date().toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
+  let s;
 
-  // ─── COVER ───
+  // ─── 01. COVER ───
   pptxAddCover(pptx,
     "WiSE PMM Playbook",
     "Winning in Small Europe Through Accountants - France, Spain, Germany, Portugal",
     `Generated ${today} - WiSE PMM Intelligence Hub`
   );
 
-  // ─── EXECUTIVE SUMMARY ───
-  let s = pptxAddContent(pptx, "01 - EXECUTIVE SUMMARY", "The opportunity, the urgency, the play");
+  // ─── 02. EXECUTIVE SUMMARY ───
+  s = pptxAddContent(pptx, "01 - EXECUTIVE SUMMARY", "The opportunity, the urgency, the play");
   s.addText([
     { text: "The opportunity\n", options: { bold: true, fontSize: 14, color: SAGE_GREEN_DARK } },
-    { text: "Sage has the brand, history, products and customer base to dominate Small Business Europe through accountants. What it lacks is a unified voice, clear ownership, and the speed to match an external environment moving faster than internal structures allow.\n\n", options: { fontSize: 13, color: SAGE_DARK } },
+    { text: "Sage has the brand, history, products and customer base to dominate Small Business Europe through accountants. What it lacks is a unified voice, clear ownership, and the speed to match an external environment moving faster than internal structures allow. Four central arguments shape the WiSE strategy.\n\n", options: { fontSize: 12, color: SAGE_DARK } },
+    { text: "1. Sage is losing ground because of fragmented ownership and absence of a single European voice - not because of bad products.\n", options: { fontSize: 12, color: SAGE_DARK } },
+    { text: "2. The competitive threat - particularly Pennylane in France and Holded in Spain - is being systematically underestimated.\n", options: { fontSize: 12, color: SAGE_DARK } },
+    { text: "3. E-invoicing is a catalyst, not just a compliance requirement. It will force a mass migration event across all four markets.\n", options: { fontSize: 12, color: SAGE_DARK } },
+    { text: "4. Winning requires structural change: one owner, one European product roadmap, accountants as the primary growth lever.\n\n", options: { fontSize: 12, color: SAGE_DARK } },
     { text: "The urgency\n", options: { bold: true, fontSize: 14, color: SAGE_GREEN_DARK } },
-    { text: "Pennylane has reached unicorn status with $4.25B valuation and is hiring openly across Madrid, Lisbon, Berlin and Munich. Cegid+Shine has consolidated to serve 1M+ SMBs and 15,000 accountants. The September 2026 French e-invoicing mandate is the forcing function for every accountant in scope.\n\n", options: { fontSize: 13, color: SAGE_DARK } },
+    { text: "Pennylane has reached unicorn status with $4.25B valuation and is hiring openly across Madrid, Lisbon, Berlin and Munich. Cegid+Shine has consolidated to serve 1M+ SMBs and 15,000 accountants. The September 2026 French e-invoicing mandate is the forcing function for every accountant in scope. Spain's Verifactu mandate is live now for corporates, July 2026 for self-employed. Germany's B2B mandate begins January 2027.\n\n", options: { fontSize: 12, color: SAGE_DARK } },
     { text: "The play\n", options: { bold: true, fontSize: 14, color: SAGE_GREEN_DARK } },
-    { text: "Activate the structural advantage. Thousands of GE practices in France, thousands of Despachos in Spain, decades of compliance heritage. Lead with accountants. Compete on outcomes, not features. Move at the pace of the market, not the pace of the org chart.", options: { fontSize: 13, color: SAGE_DARK } }
+    { text: "Activate the structural advantage. Thousands of GE practices in France, thousands of Despachos in Spain, decades of compliance heritage. Lead with accountants. Compete on outcomes, not features. Move at the pace of the market, not the pace of the org chart.", options: { fontSize: 12, color: SAGE_DARK } }
   ], { x: 0.5, y: 1.5, w: 12.3, h: 5.5, valign: "top" });
 
-  // ─── FOUR MARKETS AT A GLANCE ───
+  // ─── 03. FOUR MARKETS AT A GLANCE ───
   s = pptxAddContent(pptx, "02 - FOUR MARKETS AT A GLANCE", "Where Sage plays - and how");
   const markets = [
-    { country: "FRANCE", emoji: "🇫🇷", status: "MOST URGENT", statusColor: SAGE_RED, position: "#2 behind Cegid", play: "Protect GE practice base. PA registration 50% to 100% by September 2026. Activate Copilot before Congrès 2026." },
-    { country: "SPAIN", emoji: "🇪🇸", status: "H2 FY26 LAUNCH", statusColor: SAGE_AMBER, position: "Established Despachos position", play: "Don't repeat France. Position SfA as the enabler that makes Active + Despachos work seamlessly. Lead with Active." },
-    { country: "GERMANY", emoji: "🇩🇪", status: "EXPLORE & DEFINE", statusColor: SAGE_GREEN, position: "Behind DATEV", play: "Work alongside DATEV in the cloud management layer. Cooperative is partner, not competitor. Definition year." },
-    { country: "PORTUGAL", emoji: "🇵🇹", status: "DEFINE PROPOSITION", statusColor: SAGE_GREEN, position: "Established position", play: "Every business is legally required to have a certified accountant. The accountant channel is structurally the most powerful." }
+    { country: "FRANCE", emoji: "🇫🇷", status: "MOST URGENT", statusColor: SAGE_RED, position: "#2 behind Cegid", play: "Protect GE practice base. PA registration 50% to 100% by September 2026. Activate Copilot before Congrès 2026. The forcing function is the e-invoicing mandate." },
+    { country: "SPAIN", emoji: "🇪🇸", status: "H2 FY26 LAUNCH", statusColor: SAGE_AMBER, position: "Established Despachos position", play: "Don't repeat France. Position SfA as the enabler that makes Active + Despachos work seamlessly. Lead with Active. The forcing function is Verifactu - live now for corporates." },
+    { country: "GERMANY", emoji: "🇩🇪", status: "EXPLORE & DEFINE", statusColor: SAGE_GREEN, position: "Behind DATEV", play: "Work alongside DATEV in the cloud management layer. Cooperative is partner, not competitor. The forcing function is the January 2027 B2B mandate." },
+    { country: "PORTUGAL", emoji: "🇵🇹", status: "DEFINE PROPOSITION", statusColor: SAGE_GREEN, position: "Established position", play: "Every business is legally required to have a certified accountant. Most powerful structural channel. The forcing function is SAF-T and the QES mandate by 2027." }
   ];
   markets.forEach((m, i) => {
     const x = 0.5 + (i % 2) * 6.4;
@@ -5227,105 +5311,297 @@ function generatePlaybook() {
     s.addText(m.play, { x: x + 0.2, y: y + 1.0, w: 5.6, h: 1.4, fontSize: 11, fontFace: "Calibri", color: SAGE_DARK, valign: "top" });
   });
 
-  // ─── COMPETITORS ───
-  s = pptxAddContent(pptx, "03 - COMPETITIVE LANDSCAPE", "Who Sage must beat - and how");
-  const comps = [
-    { name: "Pennylane", tier: "CRITICAL", tierColor: SAGE_RED, who: "French unicorn, $4.25B valuation, 800k SMBs, 6,000+ accounting firms. Series E January 2026.", strength: "AI-first, beautiful UX, accountant-led GTM, PA-certified.", weakness: "No mid-market path. France-only at scale. New to Germany and other EU markets." },
-    { name: "Cegid + Shine", tier: "CRITICAL", tierColor: SAGE_RED, who: "Combined 2,000+ employees, 1M+ SMBs, 15,000 accountants. Acquisition closed Q1 2026.", strength: "Banking, payments, e-invoicing in one stack. Aggressive M&A.", weakness: "Integration complexity. Legacy Cegid mixed with modern Shine. Not a unified product yet." },
-    { name: "Holded / Visma", tier: "HIGH", tierColor: SAGE_AMBER, who: "Spain. 80,000+ SMB customers. Acquired by Visma 2021.", strength: "Best UX in Spain, 700+ integrations, Verifactu-ready.", weakness: "Limited accountant channel depth. No payroll. Direct-to-SME model only." },
-    { name: "DATEV", tier: "PARTNER", tierColor: SAGE_GREEN, who: "Germany. 8,900 employees, 70-80% of German tax advisor market. Cooperative model.", strength: "Structural lock-in via cooperative ownership.", weakness: "Slow to innovate. Legacy desktop core. Members are owners, not customers." }
+  // ─── 04-07. COUNTRY DEEP DIVES ───
+  const countryDeep = [
+    {
+      title: "03 - FRANCE DEEP DIVE",
+      subtitle: "Most urgent market - Protect, Amplify, Expand",
+      sections: [
+        { label: "MARKET CONTEXT", content: "France is Europe's second largest accounting software market. Sage is #2 behind Cegid. Position has declined materially since 2019, driven by pricing increases rather than customer growth. The accountant channel covers thousands of GE practices and the production suite is the deepest Sage operates in any market." },
+        { label: "TOP COMPETITORS", content: "Pennylane (CRITICAL - €115M ARR, $4.25B valuation, 800k SMBs, 6,000+ accountants). Cegid+Shine (CRITICAL - 2,000+ employees, M&A machine). Regate by Qonto (HIGH - migration track active). Conciliator (HIGH - document AI accuracy). MyUnisoft (MEDIUM). EBP (now Cegid - LOW)." },
+        { label: "REGULATORY FORCING FUNCTION", content: "September 2026: ALL businesses must receive e-invoices. Sage is registered PA. The mandate is the largest accountant inflection event in a generation. September 2027 extends the issuing mandate to all SMEs." },
+        { label: "FY26 PRIORITIES", content: "Stand up SfA, fix GE-Active sync, train the GE practice base, drive PA registration from 50% to 100%, prepare Copilot GA before Congrès 2026, stabilise Active product reliability. Protect the base before Pennylane converts new entrants at scale." },
+        { label: "HOW SAGE WINS", content: "Lead with the GE production suite as the platform of record. Position Active + AE as the client-facing extension. Use AKAO acquisition as the e-invoicing certification proof point. Co-present at Congrès 2026 with expert-comptable partners. Embed the 'not a migration, your data stays in GE' message in every sales conversation." }
+      ]
+    },
+    {
+      title: "04 - SPAIN DEEP DIVE",
+      subtitle: "H2 FY26 launch - Don't repeat France",
+      sections: [
+        { label: "MARKET CONTEXT", content: "Spain is one of Europe's most active SME software markets. Sage Despachos Connected is the established channel platform with thousands of practices and hundreds of thousands of clients. Strong in top and mid firms, weaker in solo-10ee segment where Holded leads." },
+        { label: "TOP COMPETITORS", content: "Holded/Visma (CRITICAL - 80,000+ SMBs, best UX in market, Verifactu engineering hires active). Pennylane (CRITICAL - third-country expansion confirmed for H2 2026, Spain on shortlist). A3/Wolters Kluwer (HIGH - compliance incumbent in northern Spain). Quipu (MEDIUM - autónomo). Contasol/Delsol (MEDIUM - free incumbent)." },
+        { label: "REGULATORY FORCING FUNCTION", content: "January 2026 (LIVE NOW): Verifactu mandate for corporates. July 2026: Verifactu for self-employed. 2027-2028: Crea y Crece B2B e-invoicing rollout. Penalties up to €50k/year per taxpayer for non-compliant software." },
+        { label: "FY26 PRIORITIES", content: "Successfully launch SfA in Spain in H2. Don't repeat the France mistake of selling SfA as a new product. Position SfA as the enabler of Active + Despachos. Resolve Sage ID SSO friction before launch. Drive accountant Active subscriptions through the channel." },
+        { label: "HOW SAGE WINS", content: "Lead with Active for SMB clients, hide SfA as the practice plumbing. Use Despachos as the structural moat - thousands of practices already embedded. Position GoProposal as the practice growth tool that monetises the Verifactu transition. Counter Holded with payroll, accountant channel depth and the integrated stack story." }
+      ]
+    },
+    {
+      title: "05 - GERMANY DEEP DIVE",
+      subtitle: "Explore and Define - Work alongside DATEV",
+      sections: [
+        { label: "MARKET CONTEXT", content: "Germany is Europe's largest SME software market. 3.4 million SMEs. 77% of German SMBs already use bookkeeping or ERP software - the highest digital adoption of the four markets. Cloud adoption accelerating. Sage holds a smaller market share - the smallest of the four WiSE markets." },
+        { label: "TOP COMPETITORS", content: "DATEV (STRUCTURAL - 70-80% of German tax advisor market, cooperative model, 8,900 employees, €1.44B revenue. Not a competitor to fight - work alongside). Lexoffice/Lexware (CRITICAL - 350k+ cloud customers, Germany's clear cloud challenger). SevDesk (HIGH - now part of Cegid). Wolters Kluwer ADDISON (MEDIUM). Pennylane (NEW THREAT - 100 hires planned in Germany)." },
+        { label: "REGULATORY FORCING FUNCTION", content: "January 2025 (LIVE): all businesses must receive e-invoices. January 2027: B2B issuing mandate begins for large enterprises. January 2028: rollout extends to SMEs. Format: XRechnung and ZUGFeRD via official PA infrastructure." },
+        { label: "FY26 PRIORITIES", content: "This is a definition year. No SfA launch target in FY26. Explore the DATEV partnership opportunity. Define the cloud management layer above DATEV's compliance function. Hire dedicated Germany PMM resource." },
+        { label: "HOW SAGE WINS", content: "Don't try to displace DATEV. Build above it. Position Sage as the SMB-facing client portal that complements DATEV's tax advisor compliance. Lean into XRechnung and ZUGFeRD support. Partner with DATEV-friendly tax advisor associations rather than going around them." }
+      ]
+    },
+    {
+      title: "06 - PORTUGAL DEEP DIVE",
+      subtitle: "Define proposition - Most powerful channel structure",
+      sections: [
+        { label: "MARKET CONTEXT", content: "Portugal has a unique structural advantage: every business is legally required to have a Contabilista Certificado. 70,000 certified accountants. 8,000 to 10,000 accounting firms. The accountant channel is structurally the most powerful of the four WiSE markets. Sage holds an established position." },
+        { label: "TOP COMPETITORS", content: "Primavera (CRITICAL - now part of Cegid since 2022, dominant SMB platform). PHC (HIGH - 35,000+ companies). TOConline (HIGH - free, accountant-backed by OCC, erodes the low end). Sage faces ~40% Cegid/Primavera market share and ~30% PHC." },
+        { label: "REGULATORY FORCING FUNCTION", content: "B2G e-invoicing live since 2024. SAF-T accounting mandate January 2027. QES (qualified electronic signature) for PDF invoices by 2027. The accountant channel will drive every compliance decision because every business has one by law." },
+        { label: "FY26 PRIORITIES", content: "Define the SfA proposition for Portugal. No hard targets beyond definition this fiscal year. Engage the Ordem dos Contabilistas Certificados (OCC). Map the Primavera weakness in the new-entrant SMB segment. Build a SAF-T proposition." },
+        { label: "HOW SAGE WINS", content: "Engage OCC as a strategic partner, not a customer. Counter-position TOConline: 'TOConline is compliance. Sage is compliance plus growth.' Use the accountant-as-mandatory-by-law structural reality - every business decision flows through them. Sage Active provisioned via the accountant gives the practice a recurring revenue model." }
+      ]
+    }
   ];
-  let y = 1.4;
-  comps.forEach((c) => {
-    s.addShape(pptx.ShapeType.rect, { x: 0.5, y: y, w: 12.3, h: 1.3, fill: { color: "FFFFFF" }, line: { color: "E2E8E2", width: 1 } });
-    s.addText(c.name, { x: 0.7, y: y + 0.15, w: 4, h: 0.35, fontSize: 14, fontFace: "Calibri", color: SAGE_DARK, bold: true });
-    s.addText(c.tier, { x: 11.0, y: y + 0.15, w: 1.6, h: 0.3, fontSize: 9, fontFace: "Calibri", color: c.tierColor, bold: true, align: "right", charSpacing: 3 });
-    s.addText(c.who, { x: 0.7, y: y + 0.5, w: 12.0, h: 0.3, fontSize: 10, fontFace: "Calibri", color: SAGE_GREY });
-    s.addText([
-      { text: "STRENGTH: ", options: { bold: true, color: SAGE_GREEN_DARK, fontSize: 10 } },
-      { text: c.strength + "  ", options: { color: SAGE_DARK, fontSize: 10 } },
-      { text: "WEAKNESS: ", options: { bold: true, color: SAGE_RED, fontSize: 10 } },
-      { text: c.weakness, options: { color: SAGE_DARK, fontSize: 10 } }
-    ], { x: 0.7, y: y + 0.85, w: 12.0, h: 0.35, fontFace: "Calibri" });
-    y += 1.4;
+
+  countryDeep.forEach(c => {
+    s = pptxAddContent(pptx, c.title, c.subtitle);
+    let y = 1.3;
+    c.sections.forEach((sec, i) => {
+      s.addShape(pptx.ShapeType.rect, { x: 0.5, y: y, w: 2.6, h: 1.05, fill: { color: SAGE_GREEN_DARK } });
+      s.addText(sec.label, { x: 0.6, y: y + 0.05, w: 2.4, h: 0.95, fontSize: 10, fontFace: "Calibri", color: "FFFFFF", bold: true, valign: "middle", charSpacing: 2 });
+      s.addShape(pptx.ShapeType.rect, { x: 3.1, y: y, w: 9.7, h: 1.05, fill: { color: "FFFFFF" }, line: { color: "E2E8E2", width: 1 } });
+      s.addText(sec.content, { x: 3.25, y: y + 0.05, w: 9.55, h: 0.95, fontSize: 10, fontFace: "Calibri", color: SAGE_DARK, valign: "middle" });
+      y += 1.15;
+    });
   });
 
-  // ─── REGULATORY TIMELINE ───
-  s = pptxAddContent(pptx, "04 - REGULATORY TIMELINE", "The forcing functions across four markets");
-  const regs = [
-    { date: "JAN 2026", market: "🇪🇸 SPAIN", event: "Verifactu mandate - corporates", note: "LIVE NOW - all corporate invoicing software must comply" },
-    { date: "JUL 2026", market: "🇪🇸 SPAIN", event: "Verifactu mandate - self-employed", note: "Autónomos in scope" },
-    { date: "SEP 2026", market: "🇫🇷 FRANCE", event: "E-invoicing receive mandate", note: "ALL businesses must receive. Hard deadline. Largest accountant inflection in a generation." },
-    { date: "JAN 2027", market: "🇩🇪 GERMANY", event: "B2B e-invoicing - large enterprises", note: "Issuing mandate begins" },
-    { date: "2027", market: "🇵🇹 PORTUGAL", event: "SAF-T accounting mandate", note: "Commercial catalyst for SfA Portugal" },
-    { date: "SEP 2027", market: "🇫🇷 FRANCE", event: "E-invoicing send mandate (SMEs)", note: "All SMEs must issue compliant invoices" }
+  // ─── 08-10. COMPETITOR BATTLE CARDS ───
+  const battleCards = [
+    {
+      title: "07 - PENNYLANE BATTLE CARD",
+      subtitle: "The critical France threat - now expanding across Europe",
+      claim1: "We're the modern accounting platform built for accountants and their clients - AI-first, beautiful, fast.",
+      response1: "Sage is the platform that has built the accountant channel for forty years. Pennylane is a six-year-old startup expanding internationally for the first time. The accountant relationship Sage has cannot be built in three years - and it's the relationship that wins clients, not the UX.",
+      claim2: "We're PA-certified and have e-invoicing baked in.",
+      response2: "Sage is PA-certified through AKAO (acquired January 2026) and via Sage Active. The certification is the table stakes - what differentiates is the depth of the practice management suite that surrounds it. Sage offers AE, GoProposal, Sage Prévision and Active as a stack no Pennylane equivalent exists.",
+      claim3: "Our accountant-first GTM is unique.",
+      response3: "Sage has an accountant-first GTM in every WiSE market. Pennylane is in France only at scale and in Germany at startup phase. Sage is in market with a working channel today. Pennylane is hiring its way to that position.",
+      keyFacts: "€175M Series E January 2026. $4.25B valuation. 1,200 employees by year end. Munich HQ + Berlin office. Lever.co lists open roles in Madrid, Lisbon. Third-country expansion decision imminent for H2 2026.",
+      killerLine: "Pennylane is building the relationship that Sage already has."
+    },
+    {
+      title: "08 - CEGID + SHINE BATTLE CARD",
+      subtitle: "The integration phase opportunity",
+      claim1: "We're Europe's first fully integrated, cloud-native, AI-driven financial hub.",
+      response1: "Cegid+Shine just closed a major acquisition. They are now in integration mode, not innovation mode. The unified product they describe doesn't exist yet - they are merging two stacks. Sage's stack is shipped, in-market, and working today. Their hiring shifted from expansion to integration in Q1 2026 - that is the buying window.",
+      claim2: "We have 1 million SMBs and 15,000 accountants across Europe.",
+      response2: "Most of those SMBs are direct, not accountant-channel. Sage's accountant relationships are deeper, longer-running, and integrated into the practice production tool, not bolted onto a banking app. The Shine acquisition is a banking play, not an accounting deepening.",
+      claim3: "Banking, payments and accounting all in one platform.",
+      response3: "If accountants wanted a bank, they would buy a bank. Accountants want a production tool that grows their practice. Sage offers AE for compliance, GoProposal for practice revenue, Sage Prévision for advisory upsell. That's three growth tools versus one banking integration.",
+      keyFacts: "Acquisition closed Q1 2026. Combined 2,000+ employees. €967M Cegid revenue plus 400k Shine SMB customers. Silver Lake-backed. 100 new commercial reps targeting French accountants from Q2 2026.",
+      killerLine: "Cegid + Shine is two products being integrated. Sage is one platform that already works."
+    },
+    {
+      title: "09 - HOLDED / VISMA BATTLE CARD",
+      subtitle: "The Spain UX challenger",
+      claim1: "We have the best UX in Spain with 700+ integrations.",
+      response1: "Holded UX is genuinely good for direct SMB users. Sage Active is built for the accountant channel - the UX optimisation is for the practice running multiple clients, not the SMB user clicking through invoices alone. Different problems require different products.",
+      claim2: "Verifactu-ready, certified by AEAT.",
+      response2: "Holded was still completing AEAT integration as recently as Q1 2026. Sage Active is Verifactu-certified and live in market today. Ask 'can you show me the AEAT registration certificate?' on any sales call - Holded has been selective about what they certify.",
+      claim3: "Used by 80,000+ businesses across Europe.",
+      response3: "Most of those 80,000 are direct SMB users with no accountant. Sage Active sold via Despachos goes to clients with an accountant - the segment most likely to renew, expand, and refer. Direct SMB churn rates run 2-3x higher than accountant-channel.",
+      keyFacts: "Acquired by Visma 2021 for €120M. 80,000+ customers. Hiring AEAT/Verifactu engineers actively. New accountant-channel hiring motion - direct attack on Despachos territory.",
+      killerLine: "Holded sells software to SMBs. Sage helps practices grow with their clients."
+    }
   ];
-  y = 1.4;
-  regs.forEach((r) => {
-    s.addShape(pptx.ShapeType.rect, { x: 0.5, y: y, w: 1.6, h: 0.7, fill: { color: SAGE_GREEN_DARK } });
-    s.addText(r.date, { x: 0.5, y: y, w: 1.6, h: 0.7, fontSize: 12, fontFace: "Calibri", color: "FFFFFF", bold: true, align: "center", valign: "middle" });
-    s.addShape(pptx.ShapeType.rect, { x: 2.1, y: y, w: 10.7, h: 0.7, fill: { color: "FFFFFF" }, line: { color: "E2E8E2", width: 1 } });
-    s.addText(r.market, { x: 2.3, y: y + 0.05, w: 1.8, h: 0.25, fontSize: 10, fontFace: "Calibri", color: SAGE_GREEN_DARK, bold: true });
-    s.addText(r.event, { x: 4.2, y: y + 0.05, w: 8.4, h: 0.25, fontSize: 12, fontFace: "Calibri", color: SAGE_DARK, bold: true });
-    s.addText(r.note, { x: 2.3, y: y + 0.35, w: 10.3, h: 0.3, fontSize: 10, fontFace: "Calibri", color: SAGE_GREY, italic: true });
+
+  battleCards.forEach(bc => {
+    s = pptxAddContent(pptx, bc.title, bc.subtitle);
+    let y = 1.3;
+    [
+      { claim: bc.claim1, response: bc.response1 },
+      { claim: bc.claim2, response: bc.response2 },
+      { claim: bc.claim3, response: bc.response3 }
+    ].forEach((row, i) => {
+      // Their claim
+      s.addShape(pptx.ShapeType.rect, { x: 0.5, y: y, w: 6.0, h: 1.3, fill: { color: "FFF5F5" }, line: { color: "F4CCCC", width: 1 } });
+      s.addText("THEIR CLAIM", { x: 0.65, y: y + 0.1, w: 5.7, h: 0.25, fontSize: 9, fontFace: "Calibri", color: SAGE_RED, bold: true, charSpacing: 2 });
+      s.addText(`"${row.claim}"`, { x: 0.65, y: y + 0.4, w: 5.7, h: 0.85, fontSize: 11, fontFace: "Calibri", color: SAGE_DARK, italic: true, valign: "top" });
+      // Sage response
+      s.addShape(pptx.ShapeType.rect, { x: 6.7, y: y, w: 6.1, h: 1.3, fill: { color: "F0F8F2" }, line: { color: "C0E0CC", width: 1 } });
+      s.addText("SAGE RESPONSE", { x: 6.85, y: y + 0.1, w: 5.8, h: 0.25, fontSize: 9, fontFace: "Calibri", color: SAGE_GREEN_DARK, bold: true, charSpacing: 2 });
+      s.addText(row.response, { x: 6.85, y: y + 0.4, w: 5.8, h: 0.85, fontSize: 10, fontFace: "Calibri", color: SAGE_DARK, valign: "top" });
+      y += 1.4;
+    });
+    // Key facts + killer line
+    s.addShape(pptx.ShapeType.rect, { x: 0.5, y: y, w: 12.3, h: 0.7, fill: { color: SAGE_GREY }, line: { color: SAGE_GREY } });
+    s.addText("KEY FACTS", { x: 0.65, y: y + 0.1, w: 1.5, h: 0.25, fontSize: 9, fontFace: "Calibri", color: "FFFFFF", bold: true, charSpacing: 2 });
+    s.addText(bc.keyFacts, { x: 0.65, y: y + 0.32, w: 12.0, h: 0.35, fontSize: 9, fontFace: "Calibri", color: "FFFFFF", italic: true });
     y += 0.9;
+    s.addShape(pptx.ShapeType.rect, { x: 0.5, y: y, w: 12.3, h: 0.55, fill: { color: SAGE_GREEN_DARK } });
+    s.addText(`KILLER LINE  →  "${bc.killerLine}"`, { x: 0.65, y: y, w: 12.0, h: 0.55, fontSize: 12, fontFace: "Calibri", color: "FFFFFF", bold: true, italic: true, valign: "middle" });
   });
 
-  // ─── 5Ds FRAMEWORK ───
-  s = pptxAddContent(pptx, "05 - PMM 5Ds FRAMEWORK", "The operating system for WiSE PMM");
+  // ─── 11. REGULATORY TIMELINE ───
+  s = pptxAddContent(pptx, "10 - REGULATORY TIMELINE", "The forcing functions across four markets");
+  const regs = [
+    { date: "JAN 2026", market: "🇪🇸 SPAIN", event: "Verifactu mandate - corporates", note: "LIVE NOW - all corporate invoicing software must comply or face fines up to €50k/year" },
+    { date: "JUL 2026", market: "🇪🇸 SPAIN", event: "Verifactu mandate - self-employed", note: "Autónomos in scope. The largest market segment for Spain SfA penetration" },
+    { date: "SEP 2026", market: "🇫🇷 FRANCE", event: "E-invoicing receive mandate", note: "ALL businesses must receive. Hard deadline. Largest accountant inflection event in a generation" },
+    { date: "JAN 2027", market: "🇩🇪 GERMANY", event: "B2B e-invoicing - large enterprises", note: "Issuing mandate begins. XRechnung / ZUGFeRD format" },
+    { date: "JAN 2027", market: "🇵🇹 PORTUGAL", event: "SAF-T accounting mandate", note: "Major commercial catalyst for SfA Portugal launch" },
+    { date: "2027", market: "🇵🇹 PORTUGAL", event: "QES for PDF invoices", note: "Qualified electronic signature requirement extends" },
+    { date: "SEP 2027", market: "🇫🇷 FRANCE", event: "E-invoicing send mandate (SMEs)", note: "All SMEs must issue compliant invoices" },
+    { date: "JAN 2028", market: "🇩🇪 GERMANY", event: "B2B e-invoicing - SMEs", note: "Mandate extends to all small and medium businesses" }
+  ];
+  let y = 1.35;
+  regs.forEach((r) => {
+    s.addShape(pptx.ShapeType.rect, { x: 0.5, y: y, w: 1.6, h: 0.65, fill: { color: SAGE_GREEN_DARK } });
+    s.addText(r.date, { x: 0.5, y: y, w: 1.6, h: 0.65, fontSize: 11, fontFace: "Calibri", color: "FFFFFF", bold: true, align: "center", valign: "middle" });
+    s.addShape(pptx.ShapeType.rect, { x: 2.1, y: y, w: 10.7, h: 0.65, fill: { color: "FFFFFF" }, line: { color: "E2E8E2", width: 1 } });
+    s.addText(r.market, { x: 2.3, y: y + 0.05, w: 1.8, h: 0.25, fontSize: 10, fontFace: "Calibri", color: SAGE_GREEN_DARK, bold: true });
+    s.addText(r.event, { x: 4.2, y: y + 0.05, w: 8.4, h: 0.25, fontSize: 11, fontFace: "Calibri", color: SAGE_DARK, bold: true });
+    s.addText(r.note, { x: 2.3, y: y + 0.32, w: 10.3, h: 0.3, fontSize: 9, fontFace: "Calibri", color: SAGE_GREY, italic: true });
+    y += 0.75;
+  });
+
+  // ─── 12. SAGE PRODUCT PORTFOLIO ───
+  s = pptxAddContent(pptx, "11 - SAGE PRODUCT PORTFOLIO", "The full WiSE accountant stack");
+  const products = [
+    { name: "Sage for Accountants (SfA)", role: "Practice hub", desc: "The platform of record for the practice. Free sign-up. Includes client management, AE allocation, GoProposal, practice tools. Gateway to Active, Copilot, payroll bureau." },
+    { name: "Sage Active", role: "Cloud accounting for SMBs", desc: "PA-certified for FR e-invoicing. Verifactu-certified for Spain. Copilot integrated. The client-facing platform provisioned by the accountant. 75% discount through accountant channel." },
+    { name: "AutoEntry (AE)", role: "Document capture & OCR", desc: "Credit-based capture. Bridge to e-invoicing compliance. Human verification layer differentiates vs pure-OCR competitors. France is the primary market. AKAO acquired January 2026 strengthens FR e-invoicing position." },
+    { name: "GoProposal", role: "Practice revenue tool", desc: "Pricing, proposals, engagement letters. AML/KYC integration. Critical for Spain post-Verifactu - accountants must reprice services. The new revenue argument for the practice." },
+    { name: "Sage Prévision (Futrli)", role: "Advisory & forecasting", desc: "Always 'Sage Prévision' in EU materials. Performance reporting, cash flow forecasting, budgets, scenarios. The advisory upsell that takes practices from compliance to insight. ACaaS lever for FY27 onwards." },
+    { name: "Génération Experts (GE)", role: "FR practice production", desc: "Legacy desktop accounting production suite. Thousands of French practices. Being extended (not replaced) by SfA. The production engine that GE practices already trust - the moat no challenger can replicate in three years." },
+    { name: "Sage Despachos Connected", role: "ES practice production", desc: "Spain's equivalent of GE. Thousands of practices. Being evolved toward SfA. Position as enabler not replacement. The structural moat in Spain." }
+  ];
+  y = 1.3;
+  products.forEach((p) => {
+    s.addShape(pptx.ShapeType.rect, { x: 0.5, y: y, w: 4.0, h: 0.75, fill: { color: SAGE_GREEN_DARK } });
+    s.addText(p.name, { x: 0.6, y: y + 0.05, w: 3.8, h: 0.35, fontSize: 12, fontFace: "Calibri", color: "FFFFFF", bold: true });
+    s.addText(p.role, { x: 0.6, y: y + 0.4, w: 3.8, h: 0.3, fontSize: 9, fontFace: "Calibri", color: "C0E0CC", italic: true });
+    s.addShape(pptx.ShapeType.rect, { x: 4.5, y: y, w: 8.3, h: 0.75, fill: { color: "FFFFFF" }, line: { color: "E2E8E2", width: 1 } });
+    s.addText(p.desc, { x: 4.65, y: y + 0.05, w: 8.0, h: 0.65, fontSize: 10, fontFace: "Calibri", color: SAGE_DARK, valign: "middle" });
+    y += 0.85;
+  });
+
+  // ─── 13. ACCOUNTANT PERSONAS ───
+  s = pptxAddContent(pptx, "12 - ACCOUNTANT PERSONAS", "Four core practice archetypes");
+  const personas = [
+    { name: "New Practice  ·  Under 5 Years  ·  Under 20 Staff", colour: SAGE_GREEN, painPoints: "Building the client base. Cannot afford slow tech stacks. Wants tools that make them look professional from day one.", goals: "Win 50+ clients in 3 years. Build advisory revenue early. Differentiate on AI capability.", winningMessage: "Sage gives you the practice growth stack the established firms wish they had - without the legacy debt." },
+    { name: "Established Mid-size  ·  10-50 Staff  ·  GE / Despachos User", colour: SAGE_GREEN_DARK, painPoints: "GE workflows are deeply embedded. Worried about platform migrations. Needs e-invoicing answers fast.", goals: "Maintain GE/Despachos production. Add Active for clients. Get the practice through the September 2026 mandate without disruption.", winningMessage: "GE stays. SfA extends. Active brings your clients into the same workflow. Your data never moves." },
+    { name: "Large Multi-Office  ·  50+ Staff", colour: SAGE_AMBER, painPoints: "Multi-site coordination. Junior recruitment. Standardising production across offices.", goals: "Scale production capacity. Standardise workflows. Build advisory practice areas with senior partner leadership.", winningMessage: "Sage is the platform built for multi-office practices - the only stack that scales without re-engineering." },
+    { name: "Specialist / Boutique  ·  Vertical or Advisory-Led", colour: "0D8C7A", painPoints: "Generic tools don't fit specialism. Needs verticalised compliance and reporting.", goals: "Become the dominant practice in the chosen niche. Sell advisory at premium price points.", winningMessage: "Sage Prévision lets you build verticalised dashboards your generalist competitors cannot offer." }
+  ];
+  y = 1.3;
+  personas.forEach((p) => {
+    s.addShape(pptx.ShapeType.rect, { x: 0.5, y: y, w: 12.3, h: 1.35, fill: { color: "FFFFFF" }, line: { color: "E2E8E2", width: 1 } });
+    s.addShape(pptx.ShapeType.rect, { x: 0.5, y: y, w: 0.15, h: 1.35, fill: { color: p.colour } });
+    s.addText(p.name, { x: 0.85, y: y + 0.1, w: 11.8, h: 0.3, fontSize: 13, fontFace: "Calibri", color: SAGE_DARK, bold: true });
+    s.addText([
+      { text: "Pain points: ", options: { bold: true, fontSize: 9, color: SAGE_RED } },
+      { text: p.painPoints + "  ", options: { fontSize: 9, color: SAGE_DARK } },
+      { text: "Goals: ", options: { bold: true, fontSize: 9, color: SAGE_GREEN_DARK } },
+      { text: p.goals, options: { fontSize: 9, color: SAGE_DARK } }
+    ], { x: 0.85, y: y + 0.4, w: 11.8, h: 0.55, fontFace: "Calibri", valign: "top" });
+    s.addText([
+      { text: "Winning message:  ", options: { bold: true, fontSize: 10, color: SAGE_GREEN_DARK } },
+      { text: `"${p.winningMessage}"`, options: { fontSize: 10, color: SAGE_DARK, italic: true } }
+    ], { x: 0.85, y: y + 1.0, w: 11.8, h: 0.3, fontFace: "Calibri" });
+    y += 1.45;
+  });
+
+  // ─── 14. 5Ds FRAMEWORK ───
+  s = pptxAddContent(pptx, "13 - PMM 5Ds FRAMEWORK", "The operating system for WiSE PMM");
   const phases = [
-    { name: "DIRECT", color: "6D3BA8", desc: "Set strategic context" },
-    { name: "DISCOVER", color: "1D6DBF", desc: "Understand market and buyer" },
-    { name: "DEFINE", color: SAGE_GREEN, desc: "Build the proposition" },
-    { name: "DELIVER", color: SAGE_AMBER, desc: "Bring proposition to market" },
-    { name: "DRIVE", color: "0D8C7A", desc: "Sustain commercial momentum" }
+    { name: "DIRECT", color: "6D3BA8", desc: "Set strategic context", jtbds: "Divisional strategy, ambition, business planning", wise: "Owned by WiSE PMM. Quarterly cadence." },
+    { name: "DISCOVER", color: "1D6DBF", desc: "Understand market, buyer, competition", jtbds: "Market sizing, buyer insights, competitor intel, trend analysis, build/buy/partner shortlist, product roadmap alignment", wise: "Continuous. Drives positioning and ICP." },
+    { name: "DEFINE", color: SAGE_GREEN, desc: "Build the proposition", jtbds: "Value proposition, customer journey, ICP, messaging guide, packaging and pricing, leadership buy-in, launch strategy", wise: "EAP gate entry. Most credibility won/lost here." },
+    { name: "DELIVER", color: SAGE_AMBER, desc: "Bring proposition to market", jtbds: "GTM kick-off, internal comms, marketing/PR, website, sales enablement, sales motion, partner enablement, content, demos, CS enablement", wise: "GA gate. Largest phase by JTBD count." },
+    { name: "DRIVE", color: "0D8C7A", desc: "Sustain commercial momentum", jtbds: "Drive commercial performance, adoption, customer feedback, stakeholder updates, continuous improvement", wise: "Monthly review cadence. Most-neglected phase." }
   ];
   phases.forEach((p, i) => {
     const x = 0.5 + i * 2.55;
-    s.addShape(pptx.ShapeType.rect, { x: x, y: 1.8, w: 2.4, h: 4.5, fill: { color: "FFFFFF" }, line: { color: p.color, width: 3 } });
-    s.addShape(pptx.ShapeType.rect, { x: x, y: 1.8, w: 2.4, h: 0.5, fill: { color: p.color } });
-    s.addText(`0${i+1}`, { x: x + 0.15, y: 1.85, w: 0.5, h: 0.4, fontSize: 14, fontFace: "Calibri", color: "FFFFFF", bold: true });
-    s.addText(p.name, { x: x + 0.7, y: 1.85, w: 1.6, h: 0.4, fontSize: 13, fontFace: "Calibri", color: "FFFFFF", bold: true, charSpacing: 2 });
-    s.addText(p.desc, { x: x + 0.2, y: 2.5, w: 2.0, h: 0.6, fontSize: 11, fontFace: "Calibri", color: SAGE_DARK, bold: true });
+    s.addShape(pptx.ShapeType.rect, { x: x, y: 1.5, w: 2.4, h: 5.0, fill: { color: "FFFFFF" }, line: { color: p.color, width: 3 } });
+    s.addShape(pptx.ShapeType.rect, { x: x, y: 1.5, w: 2.4, h: 0.5, fill: { color: p.color } });
+    s.addText(`0${i+1}`, { x: x + 0.15, y: 1.55, w: 0.5, h: 0.4, fontSize: 14, fontFace: "Calibri", color: "FFFFFF", bold: true });
+    s.addText(p.name, { x: x + 0.7, y: 1.55, w: 1.6, h: 0.4, fontSize: 12, fontFace: "Calibri", color: "FFFFFF", bold: true, charSpacing: 2 });
+    s.addText(p.desc, { x: x + 0.15, y: 2.2, w: 2.1, h: 0.5, fontSize: 11, fontFace: "Calibri", color: SAGE_DARK, bold: true });
+    s.addText("KEY JTBDs", { x: x + 0.15, y: 2.9, w: 2.1, h: 0.25, fontSize: 8, fontFace: "Calibri", color: SAGE_GREEN_DARK, bold: true, charSpacing: 2 });
+    s.addText(p.jtbds, { x: x + 0.15, y: 3.15, w: 2.1, h: 2.5, fontSize: 9, fontFace: "Calibri", color: SAGE_DARK, valign: "top" });
+    s.addText(p.wise, { x: x + 0.15, y: 5.7, w: 2.1, h: 0.7, fontSize: 8, fontFace: "Calibri", color: p.color, italic: true, bold: true, valign: "top" });
   });
-  s.addText("Every release, campaign and proposition flows through these phases. Use as a checklist for EAP/GA gates and as a maturity diagnostic for any market or product motion.", { x: 0.5, y: 6.5, w: 12.3, h: 0.6, fontSize: 11, fontFace: "Calibri", color: SAGE_GREY, italic: true });
+  s.addText("Use as a checklist for EAP/GA gates and as a maturity diagnostic. Drive is the difference between launching a product and building a category.", { x: 0.5, y: 6.7, w: 12.3, h: 0.5, fontSize: 11, fontFace: "Calibri", color: SAGE_GREY, italic: true });
 
-  // ─── BRAND POSITIONING ───
-  s = pptxAddContent(pptx, "06 - BRAND POSITIONING", "How Sage must show up to win");
+  // ─── 15. BRAND POSITIONING ───
+  s = pptxAddContent(pptx, "14 - BRAND POSITIONING", "How Sage must show up to win");
   s.addText([
     { text: "The Sage promise to accountants\n", options: { bold: true, fontSize: 14, color: SAGE_GREEN_DARK } },
     { text: "Sage runs your practice on a platform built for accountants, with compliance heritage no challenger can match, and a partner programme that grows your practice as it grows your clients.\n\n", options: { fontSize: 12, color: SAGE_DARK, italic: true } },
     { text: "The five things Sage must be\n", options: { bold: true, fontSize: 14, color: SAGE_GREEN_DARK } },
-    { text: "1. The trusted compliance partner - PA registered, Verifactu certified, decades of regulatory depth.\n", options: { fontSize: 12, color: SAGE_DARK } },
-    { text: "2. The platform built for accountants - not for SMBs first and accountants second.\n", options: { fontSize: 12, color: SAGE_DARK } },
-    { text: "3. The growth partner - Active, AutoEntry, GoProposal, Sage Prévision are practice growth tools, not just software.\n", options: { fontSize: 12, color: SAGE_DARK } },
-    { text: "4. The European specialist - one platform, four markets, localised compliance and language.\n", options: { fontSize: 12, color: SAGE_DARK } },
-    { text: "5. The AI-led practice transformer - Copilot automates the work accountants don't want to do.\n\n", options: { fontSize: 12, color: SAGE_DARK } },
+    { text: "1. The trusted compliance partner - PA registered, Verifactu certified, decades of regulatory depth.\n", options: { fontSize: 11, color: SAGE_DARK } },
+    { text: "2. The platform built for accountants - not for SMBs first and accountants second.\n", options: { fontSize: 11, color: SAGE_DARK } },
+    { text: "3. The growth partner - Active, AutoEntry, GoProposal, Sage Prévision are practice growth tools, not just software.\n", options: { fontSize: 11, color: SAGE_DARK } },
+    { text: "4. The European specialist - one platform, four markets, localised compliance and language.\n", options: { fontSize: 11, color: SAGE_DARK } },
+    { text: "5. The AI-led practice transformer - Copilot automates the work accountants don't want to do.\n\n", options: { fontSize: 11, color: SAGE_DARK } },
     { text: "Tone of voice\n", options: { bold: true, fontSize: 14, color: SAGE_GREEN_DARK } },
-    { text: "Confident, not arrogant. Outcome-led, not feature-led. Speak in accountant-and-client language, not product jargon.", options: { fontSize: 12, color: SAGE_DARK } }
-  ], { x: 0.5, y: 1.5, w: 12.3, h: 5.5, valign: "top" });
+    { text: "Confident, not arrogant. Outcome-led, not feature-led. Speak in accountant-and-client language, not product jargon. Lead with what changes for the practice and the SMB - not with what the product does.\n\n", options: { fontSize: 11, color: SAGE_DARK } },
+    { text: "What we never say\n", options: { bold: true, fontSize: 14, color: SAGE_RED } },
+    { text: "We never lead with technical specs. We never share OKR numbers or ARR targets externally. We never bash competitors directly - we contrast outcomes. We never use 'enterprise', 'ERP' or 'SaaS' with accountants - they're SMB advisors.", options: { fontSize: 11, color: SAGE_DARK } }
+  ], { x: 0.5, y: 1.3, w: 12.3, h: 5.8, valign: "top" });
 
-  // ─── RECOMMENDED ACTIONS ───
-  s = pptxAddContent(pptx, "07 - RECOMMENDED ACTIONS", "What WiSE must do next");
+  // ─── 16. AI WATCH ───
+  s = pptxAddContent(pptx, "15 - AI WATCH", "How AI is reshaping the accountant category");
+  s.addText([
+    { text: "What's changed in twelve months\n", options: { bold: true, fontSize: 14, color: SAGE_GREEN_DARK } },
+    { text: "Hiring titles have shifted from 'ML researcher' to 'applied LLM engineer' to 'AI agent product manager'. AI is no longer experimental - it's operational. Cegid, Holded, Xero, Pennylane and Conciliator are all hiring AI platform engineers in Q2 2026. Every AI hire equals a competitive feature in 6-9 months.\n\n", options: { fontSize: 11, color: SAGE_DARK } },
+    { text: "What accountants want\n", options: { bold: true, fontSize: 14, color: SAGE_GREEN_DARK } },
+    { text: "They want the AI to do the job, not be the job. They want fewer clicks, faster reconciliations, automated compliance checks. They don't want a chatbot - they want their compliance work to disappear. The winning AI positioning is outcome-based: 'AI that reads invoices for you' not 'AI-powered document capture'.\n\n", options: { fontSize: 11, color: SAGE_DARK } },
+    { text: "Sage's AI position\n", options: { bold: true, fontSize: 14, color: SAGE_GREEN_DARK } },
+    { text: "Sage Copilot is in Sage Active across EU. The advantage Sage has over Pennylane and Cegid is data depth - decades of compliance, multi-product, multi-country. The advantage Sage must build is agentic workflow execution - not just AI suggestions, but AI that actually completes tasks.\n\n", options: { fontSize: 11, color: SAGE_DARK } },
+    { text: "Three-year horizon\n", options: { bold: true, fontSize: 14, color: SAGE_GREEN_DARK } },
+    { text: "Autonomous accounting agents handling routine bookkeeping end-to-end. Practice productivity gains of 40-60% for the firms that adopt. The practices that don't adopt will lose price competitiveness. Sage Copilot in Active and SfA is the entry point - the agentic roadmap is what wins for FY27 onwards.", options: { fontSize: 11, color: SAGE_DARK } }
+  ], { x: 0.5, y: 1.3, w: 12.3, h: 5.8, valign: "top" });
+
+  // ─── 17. SALES ENABLEMENT - TOP OBJECTIONS ───
+  s = pptxAddContent(pptx, "16 - SALES ENABLEMENT", "Top objections and proof points");
+  const objections = [
+    { obj: "Pennylane is more modern", resp: "Modern UX is the table stakes. The relationship between practice, client and platform is what wins. Sage has the relationship - thousands of GE practices, decades of trust." },
+    { obj: "Holded is cheaper for SMBs", resp: "Holded is cheaper for direct SMB users. Through the accountant channel, Sage Active is provisioned at 75% discount with payroll included. The total cost to the practice and client combined is materially lower." },
+    { obj: "We're already on Cegid - migration is too painful", resp: "Sage's GE/SfA model means no migration. Your data stays where it is. SfA extends the production tool you already use. Cegid+Shine integration is mid-flight - that's the migration risk." },
+    { obj: "DATEV is the standard - we can't move", resp: "Sage works alongside DATEV, not against. Sage Active is the cloud client portal that DATEV doesn't offer. XRechnung and ZUGFeRD support means no compliance gap. Your DATEV stays - Sage adds." },
+    { obj: "Show me the AI - not just talk about it", resp: "Sage Copilot is in Active today. Live demo on every call. AKAO acquisition adds e-invoicing automation. The demo is the proof." }
+  ];
+  y = 1.3;
+  objections.forEach((o) => {
+    s.addShape(pptx.ShapeType.rect, { x: 0.5, y: y, w: 5.5, h: 0.95, fill: { color: "FFF5F5" }, line: { color: "F4CCCC", width: 1 } });
+    s.addText("\"" + o.obj + "\"", { x: 0.65, y: y + 0.1, w: 5.2, h: 0.75, fontSize: 11, fontFace: "Calibri", color: SAGE_DARK, italic: true, valign: "middle" });
+    s.addShape(pptx.ShapeType.rect, { x: 6.2, y: y, w: 6.6, h: 0.95, fill: { color: "F0F8F2" }, line: { color: "C0E0CC", width: 1 } });
+    s.addText(o.resp, { x: 6.35, y: y + 0.1, w: 6.3, h: 0.75, fontSize: 10, fontFace: "Calibri", color: SAGE_DARK, valign: "middle" });
+    y += 1.05;
+  });
+
+  // ─── 18. RECOMMENDED ACTIONS ───
+  s = pptxAddContent(pptx, "17 - RECOMMENDED ACTIONS", "What WiSE must do next");
   const actions = [
     "Accelerate France PA registration to 100% before September 2026 mandate via direct campaign to all GE practices.",
-    "Resolve GE-Active sync as the #1 product blocker - escalate to product leadership.",
+    "Resolve GE-Active sync as the #1 product blocker - escalate to product leadership immediately.",
     "Confirm Copilot GA France date before Congrès 2026 - the AI narrative is central to FY26-27 growth story.",
     "Land SfA Spain launch H2 FY26 before any Pennylane Spain brand campaign begins.",
     "Resolve Sage ID SSO friction (Spain) before SfA launch.",
     "Hire dedicated Germany PMM resource for DATEV partnership exploration.",
     "Scope Embedded Services contribution to FY30 unit numbers - 75% of France ambition is new formations.",
-    "Design ACaaS GTM programme for FY27 - the advisory model is the ARR delta the financial model requires."
+    "Design ACaaS GTM programme for FY27 - the advisory model is the commercial delta the financial model requires.",
+    "Build AKAO acquisition into the e-invoicing France narrative - certified PA status is a critical differentiator.",
+    "Engage Ordem dos Contabilistas Certificados (OCC) as Portugal strategic partner before SAF-T 2027 mandate."
   ];
+  y = 1.3;
   actions.forEach((a, i) => {
-    const yp = 1.4 + i * 0.65;
-    s.addShape(pptx.ShapeType.rect, { x: 0.5, y: yp, w: 0.6, h: 0.55, fill: { color: SAGE_GREEN } });
-    s.addText(`0${i+1}`, { x: 0.5, y: yp, w: 0.6, h: 0.55, fontSize: 14, fontFace: "Calibri", color: "FFFFFF", bold: true, align: "center", valign: "middle" });
-    s.addShape(pptx.ShapeType.rect, { x: 1.1, y: yp, w: 11.7, h: 0.55, fill: { color: "FFFFFF" }, line: { color: "E2E8E2", width: 1 } });
-    s.addText(a, { x: 1.3, y: yp, w: 11.4, h: 0.55, fontSize: 11, fontFace: "Calibri", color: SAGE_DARK, valign: "middle" });
+    s.addShape(pptx.ShapeType.rect, { x: 0.5, y: y, w: 0.6, h: 0.5, fill: { color: SAGE_GREEN } });
+    s.addText(`${(i+1).toString().padStart(2,'0')}`, { x: 0.5, y: y, w: 0.6, h: 0.5, fontSize: 13, fontFace: "Calibri", color: "FFFFFF", bold: true, align: "center", valign: "middle" });
+    s.addShape(pptx.ShapeType.rect, { x: 1.1, y: y, w: 11.7, h: 0.5, fill: { color: "FFFFFF" }, line: { color: "E2E8E2", width: 1 } });
+    s.addText(a, { x: 1.3, y: y, w: 11.4, h: 0.5, fontSize: 10, fontFace: "Calibri", color: SAGE_DARK, valign: "middle" });
+    y += 0.6;
   });
 
-  // ─── CLOSING ───
+  // ─── 19. CLOSING ───
   pptxAddCover(pptx,
     "The window is now",
     "Sage has the brand, history, products and customer base. The question is whether we activate the structural advantage before the competition does.",
@@ -5346,62 +5622,321 @@ function generateELTPpt() {
   pptx.company = "Sage Group plc";
 
   const today = new Date().toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
+  let s, y;
 
-  // Cover
+  // ─── 01. COVER ───
   pptxAddCover(pptx,
     "ELT Steerco Brief",
     "WiSE - Winning in Small Europe Through Accountants",
     `Week of ${today}`
   );
 
-  // Headline slide
-  let s = pptxAddContent(pptx, "HEADLINE", "The window to activate is now");
+  // ─── 02. HEADLINE ───
+  s = pptxAddContent(pptx, "HEADLINE", "The window to activate is now");
   s.addText([
-    { text: "Pennylane has scaled to 900+ employees, raised a Series E at $4.25B valuation, and is hiring openly across Madrid, Lisbon, Berlin and Munich. The third-country expansion decision is imminent for H2 2026 with Spain on the shortlist.\n\n", options: { fontSize: 14, color: SAGE_DARK } },
-    { text: "Cegid+Shine completed integration in Q1 2026 and now serves 1M+ SMBs and 15,000 accountants across France, DACH, Iberia, NL, Denmark and Belgium.\n\n", options: { fontSize: 14, color: SAGE_DARK } },
-    { text: "Sage's structural advantages - thousands of GE practices in France, thousands of Despachos in Spain, decades of compliance heritage - remain the moat that neither competitor can replicate.\n\n", options: { fontSize: 14, color: SAGE_DARK, bold: true } },
+    { text: "Pennylane has scaled to 1,200 employees, raised a Series E at $4.25B valuation, and is hiring openly across Madrid, Lisbon, Berlin and Munich. The third-country expansion decision is imminent for H2 2026 with Spain on the shortlist.\n\n", options: { fontSize: 13, color: SAGE_DARK } },
+    { text: "Cegid+Shine completed integration in Q1 2026 and now serves 1M+ SMBs and 15,000 accountants across France, DACH, Iberia, NL, Denmark and Belgium. 100 new commercial reps targeting French accountants from Q2 2026.\n\n", options: { fontSize: 13, color: SAGE_DARK } },
+    { text: "Sage's structural advantages - thousands of GE practices in France, thousands of Despachos in Spain, decades of compliance heritage - remain the moat that neither competitor can replicate.\n\n", options: { fontSize: 13, color: SAGE_DARK, bold: true } },
     { text: "The window to activate that advantage is the September 2026 French e-invoicing mandate.", options: { fontSize: 14, color: SAGE_GREEN_DARK, bold: true } }
-  ], { x: 0.5, y: 1.5, w: 12.3, h: 5.5, valign: "top" });
+  ], { x: 0.5, y: 1.3, w: 12.3, h: 5.5, valign: "top" });
 
-  // Top 5 signals
+  // ─── 03. STRATEGIC PROGRESS TRACKER ───
+  s = pptxAddContent(pptx, "STRATEGIC PROGRESS TRACKER", "RAG status across critical workstreams");
+  const tracker = [
+    { name: "France PA Registration (Sept 2026)", status: "AMBER", note: "50% complete - acceleration required to reach 100% before mandate" },
+    { name: "GE Practice Onboarding to SfA", status: "AMBER", note: "Connection rate climbing but trust gap remains - GE-Active sync still #1 blocker" },
+    { name: "Active Adoption - France (FY26)", status: "GREEN", note: "Strong momentum through accountant channel, healthy pipeline" },
+    { name: "Active Adoption - Spain (pre-launch)", status: "GREEN", note: "Pre-launch traction exceeded expectations, hundreds of subscriptions through Despachos" },
+    { name: "AutoEntry Compliance Pipeline - France", status: "AMBER", note: "AKAO acquisition strengthens position, integration path being scoped" },
+    { name: "SfA Spain GTM (H2 FY26)", status: "AMBER", note: "Sage ID SSO friction must be resolved before launch" },
+    { name: "SfA Portugal Launch", status: "GREEN", note: "Definition year - on track to scope, no FY26 launch target" },
+    { name: "EU Competitive Intelligence", status: "GREEN", note: "Live tracking, Make.com automation operational, weekly hub updates" }
+  ];
+  y = 1.3;
+  tracker.forEach((t) => {
+    const sCol = t.status === "GREEN" ? SAGE_GREEN : t.status === "AMBER" ? SAGE_AMBER : SAGE_RED;
+    s.addShape(pptx.ShapeType.ellipse, { x: 0.55, y: y + 0.14, w: 0.32, h: 0.32, fill: { color: sCol } });
+    s.addShape(pptx.ShapeType.rect, { x: 1.05, y: y, w: 11.7, h: 0.6, fill: { color: "FFFFFF" }, line: { color: "E2E8E2", width: 1 } });
+    s.addText(t.name, { x: 1.2, y: y + 0.05, w: 5.3, h: 0.5, fontSize: 11, fontFace: "Calibri", color: SAGE_DARK, bold: true, valign: "middle" });
+    s.addText(t.note, { x: 6.6, y: y + 0.05, w: 6.0, h: 0.5, fontSize: 9, fontFace: "Calibri", color: SAGE_GREY, italic: true, valign: "middle" });
+    y += 0.7;
+  });
+
+  // ─── 04. TOP 5 SIGNALS ───
   s = pptxAddContent(pptx, "TOP 5 SIGNALS", "What changed this week");
   const signals = [
-    { tier: "CRITICAL", color: SAGE_RED, title: "Pennylane Series E + European expansion", body: "€175M raise at $4.25B valuation. 1,200 employees by year-end. Munich HQ, Berlin office. Lever.co lists open roles in Madrid, Lisbon, Berlin, Munich. Third-country decision (Spain/Belgium/Poland) imminent for H2 2026." },
-    { tier: "CRITICAL", color: SAGE_RED, title: "Cegid+Shine acquisition closed Q1 2026", body: "2,000+ employees, 1M+ SMBs, 15,000 accountants. Hiring shifted from expansion to integration. 100 new commercial reps targeting French accountants from Q2 2026." },
-    { tier: "CRITICAL", color: SAGE_RED, title: "France PA registration at 50%", body: "Up from early-stage in Q1. Five months to September 1 mandate. Direct campaign acceleration required to reach 100%." },
-    { tier: "HIGH", color: SAGE_AMBER, title: "Holded Verifactu engineering hires", body: "Holded actively hiring AEAT/Verifactu integration engineers. Running compliance webinars positioning as certified vendor. New accountant-channel hiring motion." },
-    { tier: "WATCH", color: "1D6DBF", title: "Xero JAX + Anthropic partnership", body: "Anthropic deal announced March 2026 being operationalised. JAX accountant-facing AI agents in build. EU compliance hiring an early signal of Xero PA prep." }
+    { tier: "CRITICAL", color: SAGE_RED, title: "Pennylane Series E + European expansion", body: "€175M raise at $4.25B valuation. 1,200 employees by year-end (600 developers). Munich HQ + Berlin office. Lever.co lists open roles in Madrid, Lisbon, Berlin, Munich. Third-country decision (Spain/Belgium/Poland) imminent for H2 2026." },
+    { tier: "CRITICAL", color: SAGE_RED, title: "Cegid+Shine integration complete", body: "2,000+ employees, 1M+ SMBs, 15,000 accountants. Hiring shifted from expansion to integration. 100 new commercial reps targeting French GE practices from Q2 2026. Direct attack on Sage GE base." },
+    { tier: "CRITICAL", color: SAGE_RED, title: "France PA registration at 50%", body: "Up from early-stage in Q1. Five months to September 1 mandate. Direct campaign acceleration required to reach 100%. Cegid's 100 new reps will target the same practices." },
+    { tier: "HIGH", color: SAGE_AMBER, title: "Holded Verifactu engineering hires", body: "Holded actively hiring AEAT/Verifactu integration engineers. Running compliance webinars positioning as certified vendor. New accountant-channel hiring motion - direct attack on Despachos territory." },
+    { tier: "WATCH", color: "1D6DBF", title: "Xero JAX + Anthropic partnership operationalising", body: "Anthropic deal announced March 2026 being built into product. JAX accountant-facing AI agents in build. EU compliance engineering hires suggest Xero preparing French and Spanish PA registration." }
   ];
-  let y = 1.4;
-  signals.forEach((sig, i) => {
-    s.addShape(pptx.ShapeType.rect, { x: 0.5, y: y, w: 1.0, h: 1.0, fill: { color: sig.color } });
-    s.addText(`0${i+1}`, { x: 0.5, y: y + 0.05, w: 1.0, h: 0.4, fontSize: 16, fontFace: "Calibri", color: "FFFFFF", bold: true, align: "center" });
-    s.addText(sig.tier, { x: 0.5, y: y + 0.5, w: 1.0, h: 0.4, fontSize: 8, fontFace: "Calibri", color: "FFFFFF", bold: true, align: "center", charSpacing: 2 });
-    s.addShape(pptx.ShapeType.rect, { x: 1.5, y: y, w: 11.3, h: 1.0, fill: { color: "FFFFFF" }, line: { color: "E2E8E2", width: 1 } });
-    s.addText(sig.title, { x: 1.7, y: y + 0.1, w: 11.0, h: 0.3, fontSize: 13, fontFace: "Calibri", color: SAGE_DARK, bold: true });
-    s.addText(sig.body, { x: 1.7, y: y + 0.4, w: 11.0, h: 0.55, fontSize: 10, fontFace: "Calibri", color: SAGE_GREY, valign: "top" });
+  y = 1.3;
+  signals.forEach((sig) => {
+    s.addShape(pptx.ShapeType.rect, { x: 0.5, y: y, w: 1.2, h: 1.0, fill: { color: sig.color } });
+    s.addText(sig.tier, { x: 0.5, y: y, w: 1.2, h: 1.0, fontSize: 10, fontFace: "Calibri", color: "FFFFFF", bold: true, align: "center", valign: "middle", charSpacing: 2 });
+    s.addShape(pptx.ShapeType.rect, { x: 1.7, y: y, w: 11.1, h: 1.0, fill: { color: "FFFFFF" }, line: { color: "E2E8E2", width: 1 } });
+    s.addText(sig.title, { x: 1.85, y: y + 0.1, w: 10.8, h: 0.3, fontSize: 12, fontFace: "Calibri", color: SAGE_DARK, bold: true });
+    s.addText(sig.body, { x: 1.85, y: y + 0.4, w: 10.8, h: 0.55, fontSize: 10, fontFace: "Calibri", color: SAGE_DARK, valign: "top" });
     y += 1.1;
   });
 
-  // Actions
+  // ─── 05. COMPETITIVE POSITION ───
+  s = pptxAddContent(pptx, "COMPETITIVE POSITION", "Where Sage stands vs the major threats");
+  s.addText([
+    { text: "vs Pennylane (France):  ", options: { bold: true, fontSize: 12, color: SAGE_RED } },
+    { text: "Pennylane has the modern UX and the AI-first narrative. Sage has the accountant relationships and the multi-product stack. The September mandate forces every accountant in scope to make a platform decision. Sage must own that conversation.\n\n", options: { fontSize: 11, color: SAGE_DARK } },
+    { text: "vs Cegid+Shine (FR/EU):  ", options: { bold: true, fontSize: 12, color: SAGE_RED } },
+    { text: "Cegid+Shine is in integration mode after a major acquisition. Their hiring shifted from expansion to integration in Q1 2026 - that is the buying window. Sage must counter their consolidation message with a 'no migration, no disruption' alternative for accountants worried about platform churn.\n\n", options: { fontSize: 11, color: SAGE_DARK } },
+    { text: "vs Holded (Spain):  ", options: { bold: true, fontSize: 12, color: SAGE_AMBER } },
+    { text: "Holded leads on direct SMB UX. Sage Despachos plus Active leads on accountant channel depth. Holded's new accountant-channel hiring motion is the threat to monitor - they're attacking the segment Sage has held for decades.\n\n", options: { fontSize: 11, color: SAGE_DARK } },
+    { text: "vs DATEV (Germany):  ", options: { bold: true, fontSize: 12, color: SAGE_GREEN_DARK } },
+    { text: "Not a competitor. A structural partner. Sage's strategy: complement DATEV in the cloud management layer above their compliance function. Definition year - exploration only.\n\n", options: { fontSize: 11, color: SAGE_DARK } },
+    { text: "vs Lexoffice (Germany):  ", options: { bold: true, fontSize: 12, color: SAGE_AMBER } },
+    { text: "Germany's clear cloud challenger to DATEV. 350,000+ customers. The model Sage Active for Accountants must compete with for the German accountant cloud transition.", options: { fontSize: 11, color: SAGE_DARK } }
+  ], { x: 0.5, y: 1.3, w: 12.3, h: 5.8, valign: "top" });
+
+  // ─── 06. REGULATORY CALENDAR ───
+  s = pptxAddContent(pptx, "REGULATORY CALENDAR", "Mandate timeline this quarter and beyond");
+  const regs = [
+    { date: "JAN 2026", market: "🇪🇸 SPAIN", event: "Verifactu corporates", status: "LIVE NOW" },
+    { date: "JUL 2026", market: "🇪🇸 SPAIN", event: "Verifactu self-employed", status: "Q3 2026" },
+    { date: "SEP 2026", market: "🇫🇷 FRANCE", event: "E-invoicing receive mandate", status: "PRIORITY" },
+    { date: "JAN 2027", market: "🇩🇪 GERMANY", event: "B2B e-invoicing - large", status: "FY27 prep" },
+    { date: "JAN 2027", market: "🇵🇹 PORTUGAL", event: "SAF-T accounting", status: "FY27 prep" },
+    { date: "SEP 2027", market: "🇫🇷 FRANCE", event: "E-invoicing send mandate", status: "FY27" }
+  ];
+  y = 1.3;
+  regs.forEach((r) => {
+    s.addShape(pptx.ShapeType.rect, { x: 0.5, y: y, w: 1.6, h: 0.7, fill: { color: SAGE_GREEN_DARK } });
+    s.addText(r.date, { x: 0.5, y: y, w: 1.6, h: 0.7, fontSize: 11, fontFace: "Calibri", color: "FFFFFF", bold: true, align: "center", valign: "middle" });
+    s.addShape(pptx.ShapeType.rect, { x: 2.1, y: y, w: 8.7, h: 0.7, fill: { color: "FFFFFF" }, line: { color: "E2E8E2", width: 1 } });
+    s.addText(r.market, { x: 2.3, y: y + 0.05, w: 1.8, h: 0.6, fontSize: 11, fontFace: "Calibri", color: SAGE_GREEN_DARK, bold: true, valign: "middle" });
+    s.addText(r.event, { x: 4.2, y: y + 0.05, w: 6.5, h: 0.6, fontSize: 11, fontFace: "Calibri", color: SAGE_DARK, valign: "middle" });
+    s.addShape(pptx.ShapeType.rect, { x: 10.8, y: y, w: 2.0, h: 0.7, fill: { color: SAGE_AMBER } });
+    s.addText(r.status, { x: 10.8, y: y, w: 2.0, h: 0.7, fontSize: 10, fontFace: "Calibri", color: "FFFFFF", bold: true, align: "center", valign: "middle", charSpacing: 2 });
+    y += 0.85;
+  });
+
+  // ─── 07. KEY RISKS ───
+  s = pptxAddContent(pptx, "KEY RISKS & DEPENDENCIES", "What could derail FY26");
+  const risks = [
+    { risk: "GE-Active sync not resolved", impact: "Critical", body: "GE practices cannot trust SfA without reliable sync. The September 2026 mandate forces them to choose - and an unreliable Sage stack pushes them to Pennylane or Cegid." },
+    { risk: "Copilot GA France slips past Congrès 2026", impact: "Critical", body: "The AI-first narrative is central to FY26-27 growth. If Copilot is not in market by the Congrès, Sage cannot make the 'AI automates your practice' claim credibly." },
+    { risk: "Pennylane Spain launch beats SfA Spain GA", impact: "High", body: "Spain is on Pennylane's H2 2026 shortlist. If they brand-launch before SfA Spain reaches GA, the narrative shifts to challenger vs incumbent before Sage owns the channel story." },
+    { risk: "Sage ID SSO friction blocks Spain GTM", impact: "High", body: "Spain commercial team have flagged Sage ID friction as a launch-blocking issue. Must be resolved before any partner-facing rollout." },
+    { risk: "Cegid+Shine consolidation message wins accountants", impact: "Medium", body: "Their 'one platform' narrative is compelling. Sage counter is 'no migration, no disruption' - must be embedded in every sales conversation now." }
+  ];
+  y = 1.3;
+  risks.forEach((r) => {
+    const cCol = r.impact === "Critical" ? SAGE_RED : r.impact === "High" ? SAGE_AMBER : "1D6DBF";
+    s.addShape(pptx.ShapeType.rect, { x: 0.5, y: y, w: 12.3, h: 1.05, fill: { color: "FFFFFF" }, line: { color: "E2E8E2", width: 1 } });
+    s.addShape(pptx.ShapeType.rect, { x: 0.5, y: y, w: 0.15, h: 1.05, fill: { color: cCol } });
+    s.addText(r.risk, { x: 0.85, y: y + 0.1, w: 9.0, h: 0.3, fontSize: 12, fontFace: "Calibri", color: SAGE_DARK, bold: true });
+    s.addText(r.impact.toUpperCase(), { x: 11.0, y: y + 0.15, w: 1.6, h: 0.3, fontSize: 10, fontFace: "Calibri", color: cCol, bold: true, align: "right", charSpacing: 2 });
+    s.addText(r.body, { x: 0.85, y: y + 0.45, w: 11.7, h: 0.55, fontSize: 10, fontFace: "Calibri", color: SAGE_DARK, valign: "top" });
+    y += 1.15;
+  });
+
+  // ─── 08. ACTIONS REQUIRED FROM ELT ───
   s = pptxAddContent(pptx, "ACTIONS REQUIRED FROM ELT", "What WiSE needs from leadership");
   const acts = [
-    "GE-Active sync resolution by September 2026 - escalation required to product leadership",
-    "Sage ID SSO friction (Spain) - must be resolved before SfA Spain launch",
-    "Germany PMM hire - DATEV exploration requires dedicated resource",
-    "PA campaign budget approval - direct GE practice campaign",
-    "Copilot GA France confirmed date for Congrès 2026 messaging"
+    "GE-Active sync resolution - decision and dedicated engineering capacity required",
+    "Copilot GA France date confirmation - must be locked before Congrès 2026 messaging finalises",
+    "Sage ID SSO Spain - launch-blocking issue, requires product team prioritisation",
+    "Germany PMM hire approval - cannot run DATEV partnership exploration without dedicated capacity",
+    "Embedded Services FR scope - 75% of FY30 unit ambition is new formations, requires FY27 plan",
+    "ACaaS GTM programme funding for FY27 - the advisory model is the commercial delta the financial model requires",
+    "FY26 Steerco cadence confirmation - monthly review minimum to track September mandate readiness"
   ];
+  y = 1.3;
   acts.forEach((a, i) => {
-    const yp = 1.6 + i * 0.85;
-    s.addShape(pptx.ShapeType.rect, { x: 0.5, y: yp, w: 0.7, h: 0.7, fill: { color: SAGE_GREEN_DARK } });
-    s.addText(`0${i+1}`, { x: 0.5, y: yp, w: 0.7, h: 0.7, fontSize: 18, fontFace: "Calibri", color: "FFFFFF", bold: true, align: "center", valign: "middle" });
-    s.addShape(pptx.ShapeType.rect, { x: 1.2, y: yp, w: 11.6, h: 0.7, fill: { color: "FFFFFF" }, line: { color: "E2E8E2", width: 1 } });
-    s.addText(a, { x: 1.4, y: yp, w: 11.3, h: 0.7, fontSize: 12, fontFace: "Calibri", color: SAGE_DARK, valign: "middle" });
+    s.addShape(pptx.ShapeType.rect, { x: 0.5, y: y, w: 0.6, h: 0.65, fill: { color: SAGE_GREEN } });
+    s.addText(`${(i+1).toString().padStart(2,'0')}`, { x: 0.5, y: y, w: 0.6, h: 0.65, fontSize: 14, fontFace: "Calibri", color: "FFFFFF", bold: true, align: "center", valign: "middle" });
+    s.addShape(pptx.ShapeType.rect, { x: 1.1, y: y, w: 11.7, h: 0.65, fill: { color: "FFFFFF" }, line: { color: "E2E8E2", width: 1 } });
+    s.addText(a, { x: 1.3, y: y, w: 11.4, h: 0.65, fontSize: 11, fontFace: "Calibri", color: SAGE_DARK, valign: "middle" });
+    y += 0.78;
   });
+
+  // ─── 09. CLOSING ───
+  pptxAddCover(pptx,
+    "Decision points",
+    "The September 2026 mandate is non-negotiable. Pennylane's expansion and Cegid+Shine integration are accelerating. Sage's structural advantages must be activated this fiscal year - or the window closes.",
+    `WiSE ELT Brief - ${today}`
+  );
 
   pptx.writeFile({ fileName: `WiSE_ELT_Brief_${new Date().toISOString().split('T')[0]}.pptx` });
 }
+
+
+
+
+// ── 5Ds SELF-ASSESSMENT ──────────────────────────────────────
+const FD_STORAGE_KEY = 'wise_5ds_assessment_v1';
+const FD_PHASES = {
+  direct: { name: 'Direct', color: '#6D3BA8', tips: {
+    1: 'No clear strategic mandate. WiSE is reacting, not leading.',
+    2: 'Strategy exists but is not consistently translated into PMM scope.',
+    3: 'Strategic context understood. Quarterly translation working.',
+    4: 'Strong upstream alignment. PMM informs ELT decisions.',
+    5: 'WiSE is shaping divisional strategy, not just executing it.'
+  }},
+  discover: { name: 'Discover', color: '#1D6DBF', tips: {
+    1: 'No buyer interviews. No competitive teardowns. Operating on assumptions.',
+    2: 'Some research, but ad hoc. Win/loss tracking is informal.',
+    3: 'Regular cadence of insights. Some structured win/loss.',
+    4: 'Multi-source intelligence pipeline. Clear ICP and personas validated.',
+    5: 'Continuous discovery loop. Buyer panels, advisory boards, weekly competitive intelligence.'
+  }},
+  define: { name: 'Define', color: '#00B050', tips: {
+    1: 'No documented value prop. Messaging is feature-led.',
+    2: 'Some documentation but inconsistent across markets.',
+    3: 'Approved value prop and ICP for at least one market.',
+    4: 'Cross-market consistency. Pricing and packaging defined.',
+    5: 'Lean canvases for every motion. Pricing committee live. Localised positioning.'
+  }},
+  deliver: { name: 'Deliver', color: '#FFB500', tips: {
+    1: 'Launches happen, but kick-offs are reactive. No GTM Brief.',
+    2: 'GTM Briefs exist but enablement is patchy.',
+    3: 'Sales enablement and partner readiness consistent for major launches.',
+    4: 'S/M/L launch framework operational. Cross-functional alignment systematic.',
+    5: 'Launch readiness gates fully owned. Country PMMs leading multi-product GTM.'
+  }},
+  drive: { name: 'Drive', color: '#0D8C7A', tips: {
+    1: 'Post-launch monitoring is informal. Adoption is unmeasured.',
+    2: 'Some KPI tracking. Ad-hoc Steerco updates.',
+    3: 'Monthly review cadence. Adoption and attach measured.',
+    4: 'Win/loss feedback loop into product. Continuous proposition refresh.',
+    5: 'WiSE measured at category creation, not just launch. Drive is a first-class phase.'
+  }}
+};
+
+function loadSelfAssessment() {
+  try {
+    return JSON.parse(localStorage.getItem(FD_STORAGE_KEY)) || {};
+  } catch { return {}; }
+}
+
+function saveSelfAssessment(scores) {
+  try { localStorage.setItem(FD_STORAGE_KEY, JSON.stringify(scores)); } catch {}
+}
+
+function setupSelfAssessment() {
+  const scores = loadSelfAssessment();
+  document.querySelectorAll('.fd-stars').forEach(stars => {
+    const phase = stars.dataset.phase;
+    const current = scores[phase] || 0;
+    stars.querySelectorAll('span').forEach(span => {
+      const v = parseInt(span.dataset.v);
+      span.textContent = v <= current ? '●' : '○';
+      span.classList.toggle('active', v <= current);
+      span.onclick = () => {
+        scores[phase] = v;
+        saveSelfAssessment(scores);
+        setupSelfAssessment();
+        renderSelfAssessmentSummary();
+      };
+    });
+    // Update tip
+    const tipEl = document.querySelector(`.fd-tip[data-phase="${phase}"]`);
+    if (tipEl && current > 0) {
+      tipEl.textContent = FD_PHASES[phase].tips[current];
+      tipEl.style.color = 'var(--text2)';
+      tipEl.style.fontStyle = 'normal';
+    }
+  });
+  if (Object.keys(scores).length > 0) renderSelfAssessmentSummary();
+}
+
+function renderSelfAssessmentSummary() {
+  const scores = loadSelfAssessment();
+  const phases = Object.keys(FD_PHASES);
+  if (phases.filter(p => scores[p]).length === 0) {
+    document.getElementById('fd-summary').style.display = 'none';
+    return;
+  }
+  document.getElementById('fd-summary').style.display = 'block';
+
+  // Bar chart instead of radar (simpler and more legible)
+  const radar = document.getElementById('fd-radar');
+  let html = '';
+  phases.forEach(p => {
+    const s = scores[p] || 0;
+    const pct = (s / 5) * 100;
+    const c = FD_PHASES[p].color;
+    html += `<div class="fd-bar">
+      <div class="fd-bar-label" style="color:${c}">${FD_PHASES[p].name}</div>
+      <div class="fd-bar-track"><div class="fd-bar-fill" style="width:${pct}%;background:${c};"></div></div>
+      <div class="fd-bar-val" style="color:${c}">${s}/5</div>
+    </div>`;
+  });
+  // Average
+  const total = phases.reduce((sum, p) => sum + (scores[p] || 0), 0);
+  const avg = (total / phases.length).toFixed(1);
+  html += `<div style="margin-top:14px;padding-top:14px;border-top:1px solid var(--border);font-size:13px;color:var(--text2);">
+    <strong style="color:var(--text);">Overall maturity: ${avg}/5</strong> — ${avg < 2 ? 'Foundation building required across the lifecycle.' : avg < 3 ? 'Core capabilities forming. Two phases need investment.' : avg < 4 ? 'Solid PMM operating model. Refinement and scale.' : 'World-class PMM function. Focus on category leadership.'}
+  </div>`;
+  radar.innerHTML = html;
+
+  // Recommendations
+  const rec = document.getElementById('fd-recommendations');
+  const weakest = phases.filter(p => scores[p]).sort((a, b) => (scores[a] || 0) - (scores[b] || 0))[0];
+  const strongest = phases.filter(p => scores[p]).sort((a, b) => (scores[b] || 0) - (scores[a] || 0))[0];
+  let recHtml = '<div style="font-family:var(--font);font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--g);margin-bottom:10px;">Recommended next steps</div>';
+  if (weakest && scores[weakest] < 5) {
+    const recommendations = {
+      direct: 'Book a quarterly upstream session with leadership. Translate divisional strategy into a PMM scope document. Make Direct an input to PMM, not an output.',
+      discover: 'Launch a structured win/loss programme. Schedule ten buyer interviews. Build a competitive intelligence cadence (weekly hub refresh).',
+      define: 'Document a Lean Canvas for the next major launch. Get pricing approval before EAP gate. Localise positioning by market.',
+      deliver: 'Implement the S/M/L launch framework. Build country-specific GTM Briefs. Standardise sales enablement deliverables.',
+      drive: 'Establish monthly Drive cadence. Build adoption and attach dashboards. Feed win/loss back into the product roadmap.'
+    };
+    recHtml += `<div class="fd-rec-card">
+      <div class="fd-rec-phase" style="color:${FD_PHASES[weakest].color}">Priority: ${FD_PHASES[weakest].name} — Currently ${scores[weakest]}/5</div>
+      <div class="fd-rec-title">Highest-impact area to invest next</div>
+      <div class="fd-rec-body">${recommendations[weakest]}</div>
+    </div>`;
+  }
+  if (strongest && scores[strongest] >= 4) {
+    recHtml += `<div class="fd-rec-card" style="border-left:3px solid ${FD_PHASES[strongest].color}">
+      <div class="fd-rec-phase" style="color:${FD_PHASES[strongest].color}">Strength: ${FD_PHASES[strongest].name} — ${scores[strongest]}/5</div>
+      <div class="fd-rec-title">Document and share what's working</div>
+      <div class="fd-rec-body">Capture how this phase operates today. It's the playbook to lift other phases towards.</div>
+    </div>`;
+  }
+  rec.innerHTML = recHtml;
+}
+
+function resetSelfAssessment() {
+  try { localStorage.removeItem(FD_STORAGE_KEY); } catch {}
+  setupSelfAssessment();
+  document.getElementById('fd-summary').style.display = 'none';
+}
+
+function exportSelfAssessment() {
+  const scores = loadSelfAssessment();
+  if (Object.keys(scores).length === 0) {
+    alert('Score the 5 phases first, then export.');
+    return;
+  }
+  // Print just the summary
+  window.print();
+}
+
+// Wire up on page nav
+document.addEventListener('DOMContentLoaded', () => {
+  // Initial setup if 5Ds page is visible or whenever we navigate to it
+  const observer = new MutationObserver(() => {
+    const page5 = document.getElementById('page-5ds');
+    if (page5 && page5.classList.contains('active')) {
+      setupSelfAssessment();
+    }
+  });
+  const main = document.getElementById('main');
+  if (main) observer.observe(main, { attributes: true, subtree: true, attributeFilter: ['class'] });
+  // Also setup once for direct loading
+  setTimeout(setupSelfAssessment, 100);
+});
 
 </script>
 
