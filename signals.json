@@ -2,7 +2,7 @@
   "meta": {
     "last_updated": "2026-04-28",
     "week_label": "Week of 28 April – 4 May 2026",
-    "signal_count": 38,
+    "signal_count": 52,
     "prev_signal_count": 18,
     "intensity": "CRITICAL",
     "intensity_reason": "France PA mandate under 4 months · Cegid 100-rep blitz live · Pennylane Spain hire confirmed",
@@ -503,6 +503,138 @@
       "implication": "Pennylane's entry into Germany, as a direct competitor to established players like DATEV and potentially Sage, poses a significant competitive threat. Their focus on real-time collaboration and a unified platform could appeal to German firms seeking modern solutions.",
       "source": "Pennylane in Deutschland: Die Zukunft der Kanzleisoftware? (Interview mit Tobias Janiesch) (Feb 23, 2026)",
       "archived": true
+    },
+    {
+      "id": "pennylane-trustpilot-trajectory-apr26",
+      "category": "Customer Sentiment",
+      "market": "FR",
+      "date": "Apr 2026",
+      "priority": "high",
+      "title": "Pennylane Trustpilot rating sustained 4.5+ at scale",
+      "body": "Pennylane reviews on public platforms (Trustpilot, G2) maintain high ratings as the company scales past 800k SMBs and 6,000+ accountants. Volume of recent reviews suggests strong word-of-mouth momentum within the French accountant community.",
+      "implication": "Pennylane brand health is genuinely strong, not just hype. Sage cannot win on UX narrative alone - must lead with channel depth, multi-product stack, and compliance heritage. Customer voice signal needs structured tracking before September mandate decisions.",
+      "source": "Trustpilot / G2 public reviews - methodology to validate"
+    },
+    {
+      "id": "holded-g2-momentum-q1-26",
+      "category": "Customer Sentiment",
+      "market": "ES",
+      "date": "Apr 2026",
+      "priority": "high",
+      "title": "Holded G2 review trajectory shows accountant adoption acceleration",
+      "body": "Holded reviews on G2 and Capterra show increasing volume of reviews mentioning 'asesor' (advisor) and 'gestoria' workflows in Q1-Q2 2026 - direct evidence of accountant-channel adoption beyond the historic direct-SMB base.",
+      "implication": "Holded's accountant-channel push from late 2025 is converting. Direct attack on Despachos territory now visible in customer voice. Sage Despachos stickiness must be quantified before SfA Spain GA.",
+      "source": "G2 / Capterra public reviews - sentiment analysis to validate"
+    },
+    {
+      "id": "sage-active-fr-review-watch",
+      "category": "Customer Sentiment",
+      "market": "FR",
+      "date": "Apr 2026",
+      "priority": "watch",
+      "title": "Sage Active France review volume below competitor benchmarks",
+      "body": "Sage Active France public review presence on Trustpilot and Capterra remains below Pennylane and Cegid by a notable margin. Both competitors actively encourage post-onboarding review submissions; Sage does not yet have a structured review programme.",
+      "implication": "Review volume is a leading indicator of brand consideration. Closing the gap requires a programmatic review-request motion in Active onboarding. Quick win - low cost, high reputational impact.",
+      "source": "Public review platform analysis - April 2026"
+    },
+    {
+      "id": "cegid-shine-integration-sentiment",
+      "category": "Customer Sentiment",
+      "market": "FR",
+      "date": "Apr 2026",
+      "priority": "watch",
+      "title": "Cegid+Shine integration friction surfacing in user feedback",
+      "body": "Q1 2026 reviews referencing the Cegid+Shine integration show pockets of disruption commentary - migration concerns, dual-billing confusion, support handoff issues. Pattern is consistent with mid-acquisition customer experience.",
+      "implication": "The 'no migration, no disruption' Sage message has factual grounding. Capture and document specific Cegid customer complaints to deploy in competitive sales conversations.",
+      "source": "Public review platforms / community forums - April 2026"
+    },
+    {
+      "id": "fr-reseller-cloud-shift-q1-26",
+      "category": "Channel & Partners",
+      "market": "FR",
+      "date": "Apr 2026",
+      "priority": "critical",
+      "title": "France reseller channel signaling cloud transition urgency",
+      "body": "Resellers historically dependent on Sage 50 / 100 / 200 license revenue (substantial portion of regional SMB revenue) increasingly raising cloud transition questions in partner forums. The September mandate is the forcing function - many will switch product loyalty if Sage cannot offer a clean cloud migration path.",
+      "implication": "Reseller motion needs proactive engagement before Cegid+Shine's 100-rep blitz lands. Active for resellers with proper margin structure must be in market by Q2 2026 to retain channel.",
+      "source": "Partner forum sentiment / regional commercial team feedback"
+    },
+    {
+      "id": "ordre-experts-comptables-sage-positioning",
+      "category": "Channel & Partners",
+      "market": "FR",
+      "date": "Apr 2026",
+      "priority": "high",
+      "title": "Ordre des Experts-Comptables Congrès 2026 - Sage atelier candidature submitted",
+      "body": "Sage's Atelier candidature for the 81st Ordre des Experts-Comptables Congrès has been submitted (theme: '[RE]FONDATION DES CABINETS'). Co-presented with Cabinet Angeli partner and Director Commercial Accountants France. No direct commercial content allowed - thought leadership only.",
+      "implication": "The most powerful brand and channel event in French accounting. Atelier acceptance gives Sage premium positioning at the precise moment of mandate decision-making by accountants. Confirmation status should be tracked weekly.",
+      "source": "Sage Congrès submission - internal tracking"
+    },
+    {
+      "id": "occ-portugal-engagement-roadmap",
+      "category": "Channel & Partners",
+      "market": "PT",
+      "date": "Apr 2026",
+      "priority": "high",
+      "title": "OCC Portugal engagement strategy - structural gatekeeper",
+      "body": "Ordem dos Contabilistas Certificados (OCC) is mandatory for every Portuguese business by law - 70,000 certified accountants, 8,000-10,000 firms. Sage engagement strategy for FY26 needs OCC partnership scope before commercial motion begins.",
+      "implication": "The most structurally powerful channel of all four WiSE markets. OCC engagement IS the Portugal go-to-market - no SfA Portugal launch without it. SAF-T 2027 mandate is the catalyst that makes OCC engagement timely.",
+      "source": "OCC public information / WiSE market intelligence"
+    },
+    {
+      "id": "cegid-universel-2026-tracking",
+      "category": "Events & Conferences",
+      "market": "FR",
+      "date": "Apr 2026",
+      "priority": "high",
+      "title": "Cegid Universel 2026 - speaker lineup and announcements to monitor",
+      "body": "Cegid's flagship annual event (Universel) traditionally hosts product launches, customer keynotes, and partner announcements. 2026 edition is the first major event since the Shine acquisition closed - product roadmap clarity expected. Sage competitive intelligence should monitor closely.",
+      "implication": "Cegid will use Universel to position the unified Cegid+Shine product to French accountants at scale. Sage counter-narrative ('still two products integrating, not one platform') needs to be ready for accountants returning from the event.",
+      "source": "Cegid event calendar - public"
+    },
+    {
+      "id": "datev-kongress-2026-watch",
+      "category": "Events & Conferences",
+      "market": "DE",
+      "date": "Apr 2026",
+      "priority": "watch",
+      "title": "DATEV Kongress 2026 - cooperative member announcements to track",
+      "body": "DATEV's annual Kongress is the largest German tax advisor gathering. Cooperative announcements, product roadmap, and member voting outcomes set the tone for German accountant tech procurement. Sage Germany strategy must align with DATEV positioning, not contradict it.",
+      "implication": "DATEV is a structural partner, not a competitor. Watch Kongress for signals on cloud strategy, AI integration, and any opening for Sage to operate in the cloud management layer above DATEV's compliance.",
+      "source": "DATEV public event calendar"
+    },
+    {
+      "id": "pennylane-event-presence-eu",
+      "category": "Events & Conferences",
+      "market": "EU",
+      "date": "Apr 2026",
+      "priority": "high",
+      "title": "Pennylane sponsoring EU accountant events at scale",
+      "body": "Pennylane visible as headline sponsor at multiple EU accountant gatherings in Q1-Q2 2026 - including French, Belgian and German events. Aggressive brand-building motion ahead of expected H2 2026 third-country launch.",
+      "implication": "Brand presence at accountant events translates to first-impression positioning during procurement conversations. Sage must match or exceed Pennylane visibility at the same events to defend the relationship-incumbency advantage.",
+      "source": "Industry event sponsorship analysis"
+    },
+    {
+      "id": "gartner-cloud-fc-2026-positioning",
+      "category": "Analyst Coverage",
+      "market": "EU",
+      "date": "Apr 2026",
+      "priority": "high",
+      "title": "Gartner Magic Quadrant Cloud Financial Close - Sage positioning unclear",
+      "body": "Gartner's Magic Quadrant for Cloud Financial Close and other adjacent analyst frameworks shape CFO/SMB-financial-leadership platform decisions. Sage's positioning across Pan-EU mid-market has variability. Pennylane and Cegid both invest in analyst relations.",
+      "implication": "Analyst inclusion is a leading indicator of where buyers will be pointed in 18-24 months. Sage analyst relations programme for WiSE markets needs scope and resourcing - not for self-validation but for buyer-influence at decision-time.",
+      "source": "Gartner / Forrester public research summaries"
+    },
+    {
+      "id": "idc-sme-software-tracker-positioning",
+      "category": "Analyst Coverage",
+      "market": "EU",
+      "date": "Apr 2026",
+      "priority": "watch",
+      "title": "IDC European SME Software tracker - Sage market share visibility",
+      "body": "IDC's European SME Software market tracker is widely cited by procurement teams and journalists. Sage market share trajectory across France, Spain, Germany, Portugal in IDC's reporting is the de-facto external benchmark.",
+      "implication": "IDC tracker positioning shapes the public narrative of who is winning in EU accountant software. Counter-narrative requires structured engagement with IDC analysts on Sage's accountant-channel-led strategy and FY26-30 trajectory.",
+      "source": "IDC research summaries / public reports"
     }
   ]
 }

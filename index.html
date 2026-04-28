@@ -718,6 +718,9 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:16
  <button class="sb-link" data-page="5ds"><span class="sb-dot"></span><span data-i18n='5Ds Framework' data-fr='Cadre 5Ds' data-es='Marco 5Ds'>5Ds Framework</span></button>
  <button class="sb-link" data-page="craft-skills"><span class="sb-dot"></span><span data-i18n='Craft Skills' data-fr='Compétences métier' data-es='Habilidades PMM'>Craft Skills</span></button>
 
+<div class="sb-section-label">Methodology</div>
+<button class="sb-link" data-page="methodology"><span class="sb-dot"></span><span>Why this hub is trusted</span></button>
+
  <div class="sb-meta" style="margin-top:20px;">
  FR · ES · DE · PT<br>
  Sage Europe · Small Business &amp; Accountants<br>
@@ -3145,7 +3148,11 @@ function categoryTag(cat) {
  'AI & Tech':'t-purple',
  'Market Intelligence':'t-blue',
  'Sage News':'t-green',
- 'Pricing':'t-amber'
+ 'Pricing':'t-amber',
+ 'Customer Sentiment':'t-blue',
+ 'Channel & Partners':'t-amber',
+ 'Events & Conferences':'t-green',
+ 'Analyst Coverage':'t-purple'
  };
  return `<span class="tag ${map[cat]||'t-grey'}">${cat||'Signal'}</span>`;
 }
@@ -5328,6 +5335,282 @@ loadLiveSignals();
 
 
 
+
+<!-- ══════ METHODOLOGY & TRUST PAGE ══════ -->
+<div class="page-section" id="page-methodology">
+  <div class="page-header reveal">
+    <div class="page-eyebrow" data-i18n="Methodology - Why this hub is trusted" data-fr="Méthodologie - Pourquoi cette plateforme est fiable" data-es="Metodología - Por qué este centro es de confianza">Methodology - Why this hub is trusted</div>
+    <div class="page-title">How the WiSE Intel Hub <em>knows what it knows</em></div>
+    <div class="page-subtitle">The methodology, sources, and quality framework behind every signal, tracker percentage, and ELT brief produced by the hub. Built so leadership can rely on the output without having to re-justify every claim.</div>
+  </div>
+
+  <!-- WHY THIS HUB EXISTS -->
+  <div class="patterns-box reveal">
+    <div class="patterns-label">Why this hub exists</div>
+    <div class="pattern-item"><strong>Strategic gap.</strong> WiSE needed a single source of truth across France, Spain, Germany, Portugal, plus UK and US benchmark markets. Six competitors. Four regulatory regimes. Multiple product lines. Without a hub, every PMM, country lead, and ELT briefing started from scratch.</div>
+    <div class="pattern-item"><strong>Decision velocity.</strong> The September 2026 French e-invoicing mandate, Verifactu Spain rollout, and Pennylane EU expansion all demand same-week intelligence. The hub exists to make confident decisions faster than the competition can react.</div>
+    <div class="pattern-item"><strong>Operating leverage.</strong> Once intelligence is captured here, it powers ELT briefs, the PMM Playbook, country pages, sales enablement, and competitive battle cards automatically. One source, many outputs.</div>
+  </div>
+
+  <!-- SCOPE & COVERAGE -->
+  <div style="font-family:var(--font);font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--g);margin:32px 0 12px 0;" class="reveal">Scope &amp; coverage</div>
+  <div class="grid-2 reveal" style="margin-bottom:20px;">
+    <div class="dash-card">
+      <div class="dash-label">Markets covered</div>
+      <div style="font-size:12px;color:var(--text2);line-height:1.7;margin-top:10px;">
+        <div><strong style="color:var(--text);">Core WiSE markets:</strong> France, Spain, Germany, Portugal</div>
+        <div><strong style="color:var(--text);">Benchmark markets:</strong> United Kingdom (Sage HQ, blueprint for EU), United States (category innovation)</div>
+        <div><strong style="color:var(--text);">EU-wide:</strong> Cross-market regulatory and competitive intelligence</div>
+      </div>
+    </div>
+
+    <div class="dash-card">
+      <div class="dash-label">Competitors tracked</div>
+      <div style="font-size:12px;color:var(--text2);line-height:1.7;margin-top:10px;">
+        <div><strong style="color:var(--red);">Critical:</strong> Pennylane, Cegid+Shine, Holded/Visma</div>
+        <div><strong style="color:var(--amber);">High:</strong> DATEV (structural partner), Lexoffice, Xero</div>
+        <div><strong style="color:var(--blue);">Watch:</strong> Primavera, PHC, A3, Quipu, Conciliator, Regate, Wolters Kluwer, plus 20 Spain-specific competitors</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-2 reveal" style="margin-bottom:20px;">
+    <div class="dash-card">
+      <div class="dash-label">Signal categories</div>
+      <div style="font-size:12px;color:var(--text2);line-height:1.7;margin-top:10px;">
+        <div>Competitive moves and funding</div>
+        <div>Regulatory mandates and timelines</div>
+        <div>AI &amp; product innovation</div>
+        <div>Customer sentiment (reviews, voice)</div>
+        <div>Channel and partner movement</div>
+        <div>Events &amp; conferences</div>
+        <div>Analyst coverage</div>
+        <div>Market intelligence and pricing</div>
+      </div>
+    </div>
+
+    <div class="dash-card">
+      <div class="dash-label">Sage products in scope</div>
+      <div style="font-size:12px;color:var(--text2);line-height:1.7;margin-top:10px;">
+        <div>Sage for Accountants (SfA) - practice hub</div>
+        <div>Sage Active - cloud accounting for SMBs</div>
+        <div>AutoEntry - document capture</div>
+        <div>GoProposal - practice revenue tool</div>
+        <div>Sage Prévision - advisory and forecasting</div>
+        <div>Génération Experts (GE) - FR practice production</div>
+        <div>Sage Despachos Connected - ES practice production</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HOW SIGNALS GET IN -->
+  <div style="font-family:var(--font);font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--g);margin:32px 0 12px 0;" class="reveal">How signals enter the hub</div>
+
+  <div class="dash-card reveal" style="margin-bottom:20px;">
+    <div class="dash-label">Three input channels feed into one structured signal feed</div>
+    <div style="margin-top:18px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;">
+      <div style="padding:14px;background:var(--bg1);border-radius:8px;border-left:3px solid var(--g);">
+        <div style="font-family:var(--font);font-size:10px;font-weight:700;letter-spacing:1px;color:var(--g);margin-bottom:8px;">01 - AUTOMATED</div>
+        <div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:6px;">Make.com daily scanner</div>
+        <div style="font-size:11px;color:var(--text2);line-height:1.6;">Hardened Gemini scanner with RSS fallback. Runs daily. Pulls competitor news, funding announcements, hiring signals, regulatory updates from public sources. Quality filter applied; signals scored against WiSE keyword relevance.</div>
+      </div>
+
+      <div style="padding:14px;background:var(--bg1);border-radius:8px;border-left:3px solid var(--blue);">
+        <div style="font-family:var(--font);font-size:10px;font-weight:700;letter-spacing:1px;color:var(--blue);margin-bottom:8px;">02 - MANUAL RESEARCH</div>
+        <div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:6px;">Structured PMM intelligence</div>
+        <div style="font-size:11px;color:var(--text2);line-height:1.6;">Weekly review of competitor product pages, partner ecosystems, regulatory authority publications (DGFiP, AEAT, BMF, AT). Customer sentiment scans on G2, Trustpilot, Capterra. Conference and event monitoring.</div>
+      </div>
+
+      <div style="padding:14px;background:var(--bg1);border-radius:8px;border-left:3px solid var(--amber);">
+        <div style="font-family:var(--font);font-size:10px;font-weight:700;letter-spacing:1px;color:var(--amber);margin-bottom:8px;">03 - PRIMARY SOURCES</div>
+        <div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:6px;">Direct intelligence</div>
+        <div style="font-size:11px;color:var(--text2);line-height:1.6;">Sage internal sources, country PMM teams, partner-channel feedback, customer-facing teams in market. The intelligence not visible from public sources alone - the relational layer of competitive insight.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CADENCE -->
+  <div style="font-family:var(--font);font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--g);margin:32px 0 12px 0;" class="reveal">Cadence &amp; freshness</div>
+
+  <div class="grid-2 reveal" style="margin-bottom:20px;">
+    <div class="dash-card">
+      <div class="dash-label">Refresh schedule</div>
+      <div style="font-size:12px;color:var(--text2);line-height:1.7;margin-top:10px;">
+        <div><strong style="color:var(--text);">Daily:</strong> Automated scanner runs, signal feed updates</div>
+        <div><strong style="color:var(--text);">Weekly:</strong> Manual review, priority re-scoring, narrative refresh, ELT brief generation</div>
+        <div><strong style="color:var(--text);">Critical events:</strong> Real-time refresh on major announcements (acquisitions, regulatory changes, executive moves)</div>
+        <div><strong style="color:var(--text);">Monthly:</strong> Methodology review, source quality audit, scope adjustments</div>
+      </div>
+    </div>
+
+    <div class="dash-card">
+      <div class="dash-label">Live freshness indicators</div>
+      <div style="font-size:12px;color:var(--text2);line-height:1.7;margin-top:10px;">
+        <div><strong style="color:var(--text);">Sidebar badge:</strong> Live + last refresh date</div>
+        <div><strong style="color:var(--text);">Scan health:</strong> On Signals page - shows last scan, status, markets covered</div>
+        <div><strong style="color:var(--text);">Trend Pulse:</strong> 12-week movement on six tracker metrics</div>
+        <div><strong style="color:var(--text);">Footer:</strong> Updated date + signal count visible at all times</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- METHODOLOGY -->
+  <div style="font-family:var(--font);font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--g);margin:32px 0 12px 0;" class="reveal">Signal methodology</div>
+
+  <div class="dash-card reveal" style="margin-bottom:20px;">
+    <div class="dash-label">Priority classification</div>
+    <div style="font-size:12px;color:var(--text2);line-height:1.7;margin-top:14px;">
+      <div style="display:grid;grid-template-columns:80px 1fr;gap:14px;padding:10px 0;border-bottom:1px solid var(--border);">
+        <div style="font-family:var(--font);font-size:10px;font-weight:800;letter-spacing:1px;color:var(--red);">CRITICAL</div>
+        <div>Material commercial impact within 90 days. Examples: regulatory mandate within 6 months, competitor M&amp;A closing, executive market-entry confirmation. Demands action this quarter.</div>
+      </div>
+      <div style="display:grid;grid-template-columns:80px 1fr;gap:14px;padding:10px 0;border-bottom:1px solid var(--border);">
+        <div style="font-family:var(--font);font-size:10px;font-weight:800;letter-spacing:1px;color:var(--amber);">HIGH</div>
+        <div>Strategic relevance within 6 months. Examples: competitor product roadmap signals, channel partner movement, mid-cycle hiring patterns. Demands plan adjustment.</div>
+      </div>
+      <div style="display:grid;grid-template-columns:80px 1fr;gap:14px;padding:10px 0;">
+        <div style="font-family:var(--font);font-size:10px;font-weight:800;letter-spacing:1px;color:var(--blue);">WATCH</div>
+        <div>Direction of travel signal. Examples: early-stage product launches, analyst positioning shifts, brand-health indicators. Tracked for pattern recognition, not immediate action.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="dash-card reveal" style="margin-bottom:20px;">
+    <div class="dash-label">Tracker percentage methodology</div>
+    <div style="font-size:12px;color:var(--text2);line-height:1.7;margin-top:14px;">
+      <div style="margin-bottom:10px;"><strong style="color:var(--text);">PA Registration FR:</strong> Validated against DGFiP-registered platforms data. Updated monthly.</div>
+      <div style="margin-bottom:10px;"><strong style="color:var(--text);">GE Onboarding to SfA:</strong> Internal Sage telemetry on practices connected to SfA from the GE base. Updated weekly.</div>
+      <div style="margin-bottom:10px;"><strong style="color:var(--text);">Active Adoption FR / ES:</strong> Active subscription growth through accountant channel against fiscal year target. Updated weekly.</div>
+      <div style="margin-bottom:10px;"><strong style="color:var(--text);">AutoEntry Pipeline FR:</strong> Pipeline progression against FY26 unit target. Updated bi-weekly.</div>
+      <div><strong style="color:var(--text);">RAG status:</strong> Green = on or above plan. Amber = within 20% of plan. Red = more than 20% off plan or with structural blocker.</div>
+    </div>
+  </div>
+
+  <!-- TRACK RECORD -->
+  <div style="font-family:var(--font);font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--g);margin:32px 0 12px 0;" class="reveal">Track record - what the hub flagged early</div>
+
+  <div class="dash-card reveal" style="margin-bottom:20px;border-left:3px solid var(--g);">
+    <div class="dash-label">Examples of signals captured before broad market awareness</div>
+    <div style="font-size:12px;color:var(--text2);line-height:1.7;margin-top:14px;">
+      <div style="padding:12px 0;border-bottom:1px solid var(--border);">
+        <div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:4px;">Cegid+Shine acquisition - integration timeline accuracy</div>
+        <div>Hub signal flagged the integration phase opening a buying window in Q1 2026 before competitive teams broadly recognised the disruption pattern. Counter-narrative ('no migration, no disruption') was deployable immediately.</div>
+      </div>
+      <div style="padding:12px 0;border-bottom:1px solid var(--border);">
+        <div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:4px;">Pennylane third-country expansion intent</div>
+        <div>Lever.co hiring signal in Madrid, Lisbon, Berlin, Munich tracked from Q1 2026. Spain confirmation reached the hub before public Pennylane announcement, giving Sage a planning lead time on SfA Spain GTM defensibility.</div>
+      </div>
+      <div style="padding:12px 0;border-bottom:1px solid var(--border);">
+        <div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:4px;">Holded AEAT/Verifactu engineering investment</div>
+        <div>Hiring signal indicating Holded's accountant-channel attack plan well before sales teams encountered the changed competitive posture in deal cycles.</div>
+      </div>
+      <div style="padding:12px 0;">
+        <div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:4px;">Xero-Anthropic partnership operationalisation</div>
+        <div>Tracked from announcement (March 2026) through to product implementation cadence. EU compliance hires flagged as leading indicator of Xero's PA registration intent before any public confirmation.</div>
+      </div>
+    </div>
+    <div style="margin-top:14px;padding:12px;background:rgba(0,176,80,0.08);border-radius:6px;font-size:11px;color:var(--text2);font-style:italic;">
+      Track record is documented week by week in the signal feed - every claim above is traceable to a dated, sourced signal in the hub. Future proof points will be added as the strategic timeline plays out.
+    </div>
+  </div>
+
+  <!-- TRUST FRAMEWORK -->
+  <div style="font-family:var(--font);font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--g);margin:32px 0 12px 0;" class="reveal">Trust framework - what's verified vs hypothesis</div>
+
+  <div class="grid-2 reveal" style="margin-bottom:20px;">
+    <div class="dash-card" style="border-left:3px solid var(--g);">
+      <div class="dash-label" style="color:var(--g);">Verified intelligence</div>
+      <div style="font-size:12px;color:var(--text2);line-height:1.7;margin-top:10px;">
+        <div>Public press releases and SEC filings</div>
+        <div>Government regulatory authority publications</div>
+        <div>Sage internal telemetry and CRM data</div>
+        <div>Public review platforms (G2, Trustpilot, Capterra)</div>
+        <div>Public hiring data (Lever.co, LinkedIn careers pages)</div>
+        <div>Conference and event public records</div>
+      </div>
+    </div>
+
+    <div class="dash-card" style="border-left:3px solid var(--amber);">
+      <div class="dash-label" style="color:var(--amber);">Hypothesis-stage</div>
+      <div style="font-size:12px;color:var(--text2);line-height:1.7;margin-top:10px;">
+        <div>Pattern interpretation across multiple signals</div>
+        <div>Competitive intent inferred from hiring + funding + product moves</div>
+        <div>Customer sentiment trajectory (corroboration recommended)</div>
+        <div>Forward-looking strategic implications</div>
+        <div>Counter-narrative effectiveness predictions</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="dash-card reveal" style="margin-bottom:20px;background:rgba(255,181,0,0.06);border-color:var(--amberborder);">
+    <div class="dash-label" style="color:#9C6B00;">Honest disclosure on confidence levels</div>
+    <div style="font-size:12px;color:var(--text2);line-height:1.7;margin-top:10px;">
+      Every signal in the hub is dated and sourced. When the source is a public document, the confidence is high. When the source is interpretation across multiple data points, confidence is moderate. When the source is a single hiring signal or rumour, confidence is low and the signal is marked Watch. The hub does not present hypothesis as fact.
+    </div>
+  </div>
+
+  <!-- WHAT IT DOES NOT COVER -->
+  <div style="font-family:var(--font);font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--g);margin:32px 0 12px 0;" class="reveal">What this hub deliberately does not cover</div>
+
+  <div class="dash-card reveal" style="margin-bottom:20px;">
+    <div style="font-size:12px;color:var(--text2);line-height:1.7;">
+      <div style="margin-bottom:10px;"><strong style="color:var(--text);">Primary buyer research.</strong> Customer interviews, win/loss programmes, pricing-sensitivity studies. These run as separate PMM workstreams - the hub captures the synthesis of their findings, not their execution.</div>
+      <div style="margin-bottom:10px;"><strong style="color:var(--text);">Pricing analytics.</strong> Internal pricing committee outputs and revenue models sit in pricing-team systems. The hub references them but does not duplicate them.</div>
+      <div style="margin-bottom:10px;"><strong style="color:var(--text);">Customer NPS / CSAT data.</strong> Handled by customer experience programmes. The hub references public sentiment signals but is not the system of record for CX data.</div>
+      <div style="margin-bottom:10px;"><strong style="color:var(--text);">Confidential M&amp;A intelligence.</strong> Strategic accelerator and corporate development workstreams operate separately and securely.</div>
+      <div><strong style="color:var(--text);">Personal performance data.</strong> Skill assessments stored locally in browser only - never transmitted, never aggregated.</div>
+    </div>
+  </div>
+
+  <!-- LIMITATIONS -->
+  <div style="font-family:var(--font);font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--g);margin:32px 0 12px 0;" class="reveal">Limitations - the honest list</div>
+
+  <div class="dash-card reveal" style="margin-bottom:20px;background:rgba(220,38,38,0.04);border-left:3px solid var(--red);">
+    <div style="font-size:12px;color:var(--text2);line-height:1.7;">
+      <div style="margin-bottom:10px;"><strong style="color:var(--text);">No paid analyst access.</strong> Gartner, Forrester, IDC research is consumed via public summaries. Analyst engagement programme is on the FY26 capability roadmap.</div>
+      <div style="margin-bottom:10px;"><strong style="color:var(--text);">No proprietary databases.</strong> Hub does not have access to subscription data services like Crunchbase Pro, PitchBook, SimilarWeb. Where these would add value, signals are flagged for follow-up.</div>
+      <div style="margin-bottom:10px;"><strong style="color:var(--text);">Public-source dependent.</strong> Most signals come from public sources. Private competitive intelligence (anonymous source quotes, leaked roadmaps) is not captured.</div>
+      <div style="margin-bottom:10px;"><strong style="color:var(--text);">Language coverage.</strong> Native French, Spanish, German, and Portuguese sources are scanned via translation. Subtle nuance can be lost. In-country PMM review compensates.</div>
+      <div><strong style="color:var(--text);">No real-time adversarial intelligence.</strong> The hub cannot predict competitive surprise. It captures patterns and probabilities, not certainties.</div>
+    </div>
+  </div>
+
+  <!-- HOW TO USE IT -->
+  <div style="font-family:var(--font);font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--g);margin:32px 0 12px 0;" class="reveal">How to use the hub - by audience</div>
+
+  <div class="grid-3 reveal" style="margin-bottom:20px;">
+    <div class="dash-card">
+      <div class="dash-label">For WiSE PMMs</div>
+      <div style="font-size:12px;color:var(--text2);line-height:1.6;margin-top:10px;">
+        <strong style="color:var(--text);">Daily.</strong> Open the dashboard. Click 'Give me a summary'. Scan the strategic insight summary. Act on critical signals. Reference battle cards before customer calls.
+      </div>
+    </div>
+
+    <div class="dash-card">
+      <div class="dash-label">For country leads</div>
+      <div style="font-size:12px;color:var(--text2);line-height:1.6;margin-top:10px;">
+        <strong style="color:var(--text);">Weekly.</strong> Review your country page Latest intelligence. Cross-reference with competitor signals. Use the Signals page filter to deep-dive a category. Brief regional teams.
+      </div>
+    </div>
+
+    <div class="dash-card">
+      <div class="dash-label">For ELT &amp; Steerco</div>
+      <div style="font-size:12px;color:var(--text2);line-height:1.6;margin-top:10px;">
+        <strong style="color:var(--text);">Monthly minimum.</strong> Receive the ELT Brief (text or PowerPoint) generated directly from the hub. Strategic Progress Tracker shows RAG. Use as input to investment decisions.
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="dash-card reveal" style="margin-bottom:20px;background:linear-gradient(135deg,var(--g),var(--g2));color:#fff;">
+    <div style="font-family:var(--font);font-size:10px;font-weight:700;letter-spacing:1px;color:#fff;margin-bottom:8px;opacity:0.9;">Hub ownership</div>
+    <div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:8px;">Maintained by WiSE PMM</div>
+    <div style="font-size:12px;color:rgba(255,255,255,0.92);line-height:1.6;">Source code on GitHub. Make.com automation runs on a managed pipeline. Methodology is open to challenge - the hub is more credible when its logic is transparent. Feedback, additions and challenges welcome from any reader.</div>
+  </div>
+
+</div><!-- end page-methodology -->
+
+
 </div><!-- /#main -->
 
 
@@ -5368,7 +5651,7 @@ loadLiveSignals();
 <!-- ══════ SEARCH OVERLAY ══════ -->
 <div id="search-overlay">
  <div id="search-box-wrap">
- <input id="search-input" type="text" placeholder="Search all 27 pages…" data-placeholder-en="Search all 27 pages…" data-placeholder-fr="Rechercher dans les 27 pages…" data-placeholder-es="Buscar en las 27 páginas…" autocomplete="off" spellcheck="false">
+ <input id="search-input" type="text" placeholder="Search all 28 pages…" data-placeholder-en="Search all 28 pages…" data-placeholder-fr="Rechercher dans les 28 pages…" data-placeholder-es="Buscar en las 28 páginas…" autocomplete="off" spellcheck="false">
  <div id="search-meta"></div>
  </div>
  <div id="search-results"></div>
@@ -5409,7 +5692,8 @@ function buildSearchIndex() {
  'smb-direct':'Direct Channel - SMB Direct Playbook',
  'competitor-compare':'Direct Channel - Competitor Compare',
  '5ds':'PMM Toolkit - 5Ds Framework',
- 'craft-skills':'PMM Toolkit - Craft Skills'
+ 'craft-skills':'PMM Toolkit - Craft Skills',
+ 'methodology':'Methodology - Why this hub is trusted'
  };
 
  document.querySelectorAll('.page-section').forEach(page => {
