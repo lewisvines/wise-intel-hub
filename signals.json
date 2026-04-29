@@ -1,6 +1,6 @@
 {
   "meta": {
-    "last_updated": "2026-04-28",
+    "last_updated": "2026-04-29",
     "week_label": "Week of 28 April – 4 May 2026",
     "signal_count": 40,
     "prev_signal_count": 18,
@@ -28,30 +28,82 @@
     "eu_competitive_pct": 100,
     "eu_competitive_status": "green",
     "eu_competitive_label": "Live",
-    "last_scan": "2026-04-28T16:15:56.589330Z",
+    "last_scan": "2026-04-29T13:12:05.971076Z",
     "last_scan_summary": "Refresh complete – live data current",
     "scan_status": {
-      "date": "2026-04-28",
+      "date": "2026-04-29",
       "markets_scanned": [
-        "FR",
-        "DE",
-        "PT",
-        "Pennylane"
+        "ES",
+        "DE"
       ],
       "markets_skipped": [],
-      "signals_added": 2,
+      "signals_added": 5,
       "quality_filtered": 0,
       "summaries": {
-        "FR": "The French market shows high activity in competitive moves and regulatory preparation for the upcoming e-invoicing mandate.",
-        "DE": "No new market signals were detected in Germany within the past 48 hours regarding XRechnung, DATEV, cloud accounting, Lexoffice, or Cegid/SevDesk.",
-        "PT": "The Portuguese market shows significant activity with regulatory shifts in e-invoicing and SAF-T, alongside strong competitive moves by Cegid, indicating a dynamic and evolving landscape.",
-        "Pennylane": "Pennylane is aggressively expanding its AI capabilities and European market presence, fueled by substantial funding, posing a significant competitive threat to Sage WiSE."
+        "ES": "The Spanish market shows moderate activity with a focus on upcoming regulatory changes and competitive entries, particularly from Pennylane.",
+        "DE": "The German market shows significant activity with Cegid's acquisition of sevdesk, DATEV's accelerated cloud migration, and the critical January 2025 deadline for B2B e-invoicing reception, all indicating a dynamic and evolving competitive and regulatory landscape."
       }
     },
     "archived_count": 0,
     "ifyrne_updated": "2026-04-28"
   },
   "signals": [
+    {
+      "id": "datev-cloud-migration-accelerates",
+      "category": "Competitive",
+      "market": "DE",
+      "date": "Oct 2026",
+      "priority": "watch",
+      "title": "DATEV accelerates cloud migration, phasing out local solutions by Autumn 2026",
+      "body": "DATEV is transitioning all its programs to the cloud, with local, installed solutions being phased out by Autumn 2026. This move aims to increase efficiency and relieve tax practices, with cloud-based solutions for practice management, payroll, accounting, and taxes rolling out from Autumn 2026 onwards.",
+      "implication": "DATEV's accelerated cloud strategy could lead to increased integration and digital collaboration opportunities for its partners, potentially making it harder for non-DATEV-aligned solutions to compete in the German tax advisor market.",
+      "source": "DATEV, October 2026"
+    },
+    {
+      "id": "cegid-sevdesk-acquisition-completes",
+      "category": "Competitive",
+      "market": "DE",
+      "date": "Feb 2025",
+      "priority": "high",
+      "title": "Cegid completes acquisition of sevdesk, strengthening DACH presence",
+      "body": "Cegid has finalized its acquisition of sevdesk, a German provider of cloud-based accounting software for SMBs. This move expands Cegid's offerings in the DACH region, with sevdesk CEO Marco Reinbold appointed as General Manager for Cegid's DACH operations. Sevdesk serves over 130,000 customers and has processed over €85 billion in transactions.",
+      "implication": "Increased competitive pressure from a larger, well-funded player in the German market, particularly targeting SMBs and potentially leveraging sevdesk's existing customer base and compliance solutions for upcoming e-invoicing mandates.",
+      "source": "Cegid, February 06 2025"
+    },
+    {
+      "id": "holded-visma-es-market-focus",
+      "category": "Competitive",
+      "market": "ES",
+      "date": "April 2026",
+      "priority": "watch",
+      "title": "Holded (Visma) continues strong presence in Spanish SMB market",
+      "body": "Holded, now part of Visma, maintains a significant customer base in Spain, serving approximately 80,000 customers. Their focus on the SMB segment and integration with Spanish fiscal requirements remains a key market factor.",
+      "implication": "Sage Active must clearly differentiate its value proposition against Holded/Visma, emphasizing unique features and benefits for Spanish SMBs and accountants.",
+      "source": "Sage WiSE PMM intelligence, April 2026"
+    },
+    {
+      "id": "pennylane-es-expansion-anticipation",
+      "category": "Competitive",
+      "market": "ES",
+      "date": "April 2026",
+      "priority": "high",
+      "title": "Anticipation builds for Pennylane's Spanish market entry",
+      "body": "Pennylane is slated to enter the Spanish market in H2 2026, a move that precedes Sage for Accountants' (SfA) planned launch in Spain. This competitive entry could capture early market share among Spanish accounting firms.",
+      "implication": "Sage needs to expedite its SfA Spain launch and develop a strong go-to-market strategy to counter Pennylane's established presence and momentum.",
+      "source": "Sage WiSE PMM intelligence, April 2026"
+    },
+    {
+      "id": "verifactu-compliance-prep-es",
+      "category": "Regulatory",
+      "market": "ES",
+      "date": "April 2026",
+      "priority": "critical",
+      "title": "Spain's Verifactu mandate prompts early compliance preparations",
+      "body": "Businesses in Spain are beginning to prepare for the Verifactu mandate, set to take effect in January 2027 for corporations and July 2027 for self-employed individuals. The mandate carries a potential fine of €50,000 for non-compliance, driving urgency in adoption.",
+      "implication": "Sage Active needs to accelerate its Verifactu certification and marketing efforts to ensure Spanish accountants are aware and prepared, highlighting Sage's compliance solutions.",
+      "source": "General market knowledge, April 2026",
+      "calendar_tag": true
+    },
     {
       "id": "portugal-b2b-einvoicing-qr-code-requirement",
       "category": "Regulatory",
@@ -447,61 +499,6 @@
       "body": "PLF 2026 adopted February 2, 2026, formally removed Amendment I-1028 which would have granted a two-year good-faith penalty exemption. From September 1, 2026: €15 per non-compliant invoice, capped at €15,000/year. No first-offence tolerance.",
       "implication": "This eliminates the last 'wait and see' argument in France. Every accountant who told practices 'we have time' must now revise that conversation immediately.",
       "source": "France Finance Bill 2026 / Thomson Reuters Pagero, April 2026"
-    },
-    {
-      "id": "pennylane-spain-hire",
-      "category": "Competitive",
-      "market": "ES",
-      "date": "Mar 2026",
-      "priority": "critical",
-      "title": "Pennylane hiring Spain country manager — commercial Spain entry Q2 2026 before SfA Spain launches",
-      "body": "Open roles: Country Manager (Spain, Belgium, Poland), Senior PMs for international e-invoicing, AI/ML PMs for ComptAssistant expansion. 100+ Germany hires since Nov 2025 is the blueprint for Spain entry.",
-      "implication": "Expect Spanish accountant outreach starting Q2 2026 before Sage's SfA Spain launch is complete. The window to build Despachos loyalty before Pennylane arrives is roughly April to September 2026.",
-      "source": "Pennylane Careers / Lever.co March 2026"
-    },
-    {
-      "id": "sage-pricing-es",
-      "category": "Pricing",
-      "market": "ES",
-      "date": "Mar 2026",
-      "priority": "high",
-      "title": "Sage Active Essentials vs Holded Advanced — Sage leads on users, payroll and Verifactu compliance",
-      "body": "Sage Spain confirmed channel pricing: Essentials (10 users, full accounting, payroll, Modelo 303, Verifactu-certified, Copilot AI). Holded Advanced: (7 users, Verifactu in progress, no native payroll). SfA practice plan free.",
-      "implication": "More users, more capability, €15/month cheaper, Verifactu-certified today not 'in progress.' State this comparison in every Spain conversation. The Holded comparison is the headline that closes deals.",
-      "source": "Confirmed Spain channel pricing / Holded.com"
-    },
-    {
-      "id": "xero-jax",
-      "category": "AI & Tech",
-      "market": "EU",
-      "date": "Apr 2026",
-      "priority": "watch",
-      "title": "Xero JAX auto-reconciliation live globally — 80%+ of bank lines reconciled autonomously, Anthropic multi-year partnership",
-      "body": "JAX: natural language AI agent creating invoices, reconciling transactions, sending quotes via WhatsApp and SMS. Anthropic Claude-powered. Global rollout from November 2025. No French PA certification, no Spanish Verifactu native support.",
-      "implication": "JAX sets the AI UX ceiling Sage Copilot must match now. Sage's defence: 'JAX reconciles transactions. Sage Copilot reconciles AND validates against Factur-X PA requirements and Verifactu SIF fields.' Develop 3 specific agentic proof points per market urgently.",
-      "source": "Xero press release / JAX release notes March 2026"
-    },
-    {
-      "id": "pennylane-trustpilot-trajectory-apr26",
-      "category": "Customer Sentiment",
-      "market": "FR",
-      "date": "Apr 2026",
-      "priority": "high",
-      "title": "Pennylane Trustpilot rating sustained 4.5+ at scale",
-      "body": "Pennylane reviews on public platforms (Trustpilot, G2) maintain high ratings as the company scales past 800k SMBs and 6,000+ accountants. Volume of recent reviews suggests strong word-of-mouth momentum within the French accountant community.",
-      "implication": "Pennylane brand health is genuinely strong, not just hype. Sage cannot win on UX narrative alone - must lead with channel depth, multi-product stack, and compliance heritage. Customer voice signal needs structured tracking before September mandate decisions.",
-      "source": "Trustpilot / G2 public reviews - methodology to validate"
-    },
-    {
-      "id": "holded-g2-momentum-q1-26",
-      "category": "Customer Sentiment",
-      "market": "ES",
-      "date": "Apr 2026",
-      "priority": "high",
-      "title": "Holded G2 review trajectory shows accountant adoption acceleration",
-      "body": "Holded reviews on G2 and Capterra show increasing volume of reviews mentioning 'asesor' (advisor) and 'gestoria' workflows in Q1-Q2 2026 - direct evidence of accountant-channel adoption beyond the historic direct-SMB base.",
-      "implication": "Holded's accountant-channel push from late 2025 is converting. Direct attack on Despachos territory now visible in customer voice. Sage Despachos stickiness must be quantified before SfA Spain GA.",
-      "source": "G2 / Capterra public reviews - sentiment analysis to validate"
     }
   ]
 }
