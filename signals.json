@@ -1,6 +1,6 @@
 {
   "meta": {
-    "last_updated": "2026-04-29",
+    "last_updated": "2026-04-30",
     "week_label": "Week of 28 April – 4 May 2026",
     "signal_count": 40,
     "prev_signal_count": 18,
@@ -28,26 +28,84 @@
     "eu_competitive_pct": 100,
     "eu_competitive_status": "green",
     "eu_competitive_label": "Live",
-    "last_scan": "2026-04-29T13:12:05.971076Z",
+    "last_scan": "2026-04-30T10:06:55.763295Z",
     "last_scan_summary": "Refresh complete – live data current",
     "scan_status": {
-      "date": "2026-04-29",
+      "date": "2026-04-30",
       "markets_scanned": [
-        "ES",
-        "DE"
+        "DE",
+        "PT",
+        "Pennylane"
       ],
       "markets_skipped": [],
       "signals_added": 5,
       "quality_filtered": 0,
       "summaries": {
-        "ES": "The Spanish market shows moderate activity with a focus on upcoming regulatory changes and competitive entries, particularly from Pennylane.",
-        "DE": "The German market shows significant activity with Cegid's acquisition of sevdesk, DATEV's accelerated cloud migration, and the critical January 2025 deadline for B2B e-invoicing reception, all indicating a dynamic and evolving competitive and regulatory landscape."
+        "DE": "The German market shows significant activity with DATEV's cloud migration, Cegid's strategic acquisition, and upcoming B2B e-invoicing mandates, indicating a dynamic competitive and regulatory landscape.",
+        "PT": "Recent market signals in Portugal indicate significant competitive consolidation by Cegid, alongside evolving regulatory deadlines for e-invoicing and SAF-T, with a particular focus on B2G mandates for SMEs.",
+        "Pennylane": "Pennylane is aggressively expanding its product offerings and European market presence, heavily investing in AI and securing substantial funding, positioning it as a primary competitive threat to Sage."
       }
     },
     "archived_count": 0,
     "ifyrne_updated": "2026-04-28"
   },
   "signals": [
+    {
+      "id": "pennylane-germany-expansion-2025",
+      "category": "Competitive",
+      "market": "DE",
+      "date": "Nov 2025",
+      "priority": "high",
+      "title": "Pennylane officially enters German market, targeting 100 hires",
+      "body": "Pennylane launched its first overseas office in Germany in November 2025, with plans to hire 100 local staff. The company aims to tailor its product for German regulatory requirements and sees Germany as a large market with complex accounting regulations but slow digitalization.",
+      "implication": "Pennylane's early entry and significant hiring in Germany ahead of Sage's potential launch there presents a substantial risk, as they could establish a strong foothold and brand recognition before Sage can effectively compete.",
+      "source": "Tech.eu and other outlets, November 2025"
+    },
+    {
+      "id": "pennylane-comptassistant-ai-enhancements",
+      "category": "AI & Tech",
+      "market": "FR",
+      "date": "Ongoing",
+      "priority": "high",
+      "title": "Pennylane enhances ComptAssistant AI for accountants, focusing on productivity and advisory services",
+      "body": "Pennylane is heavily investing in generative AI, aiming to create an AI-powered co-pilot, 'ComptAssistant,' to enhance advisory services for accountants. This tool helps analyze data, automate bookkeeping, and provide richer insights to clients. It is designed to assist accountants with tasks related to taxation, regulation, contract analysis, and financial health assessments.",
+      "implication": "Pennylane's focus on advanced AI features like ComptAssistant could offer a significant technological advantage, potentially attracting accounting firms looking to leverage AI for efficiency and enhanced client advisory, thereby drawing them away from Sage's offerings.",
+      "source": "Pennylane resources and tech news, ongoing"
+    },
+    {
+      "id": "pennylane-funding-expansion-2026",
+      "category": "Competitive",
+      "market": "EU",
+      "date": "Jan 2026",
+      "priority": "critical",
+      "title": "Pennylane secures €175M, valued at $4.25B, to fuel AI development and European expansion",
+      "body": "Pennylane has raised €175 million in a Series E funding round, bringing its valuation to $4.25 billion. The capital will be used to accelerate AI-driven product development, expand across Europe, and enhance payment and cash management features. The company has already launched in Germany and plans to enter Poland, Spain, and Belgium.",
+      "implication": "Pennylane's significant funding and aggressive expansion plans, particularly in Germany and other key European markets, pose a direct competitive threat to Sage's market share and growth objectives in these regions.",
+      "source": "Multiple news outlets, January 2026"
+    },
+    {
+      "id": "portugal-e-invoicing-b2g-focus",
+      "category": "Regulatory",
+      "market": "PT",
+      "date": "Jan 2026",
+      "priority": "high",
+      "title": "Portugal Mandates e-Invoicing for SMEs with Public Administrations from Jan 2026",
+      "body": "Starting January 1, 2026, small and medium-sized enterprises (SMEs) in Portugal must comply with mandatory e-invoicing for transactions with public administrations. All invoices issued in Portugal must include a QR code and an ATCUD unique code. PDF invoices will require a Qualified Electronic Signature (QES) from January 1, 2027.",
+      "implication": "This B2G mandate is a key driver for e-invoicing adoption. Sage needs to ensure its solutions fully support these requirements for Portuguese SMEs engaging with the public sector.",
+      "source": "Sovos, ecosio, Apr 2026",
+      "calendar_tag": true
+    },
+    {
+      "id": "cegid-sevdesk-expansion-2025",
+      "category": "Competitive",
+      "market": "DE",
+      "date": "Feb 2025",
+      "priority": "high",
+      "title": "Cegid acquires sevdesk, strengthening its DACH region presence.",
+      "body": "Cegid acquired sevdesk, a German provider of pre-accounting, accounting, and e-invoicing software, in February 2025. This acquisition expands Cegid's offerings in German-speaking Europe and positions them to assist businesses with upcoming e-invoicing reforms. Sevdesk serves over 130,000 customers in the DACH region.",
+      "implication": "Cegid's acquisition of sevdesk directly impacts the German market, increasing competitive pressure. This move by Cegid, a European leader, indicates a strategic focus on the German market and its e-invoicing compliance needs.",
+      "source": "Cegid/sevdesk announcements (Feb 2025)"
+    },
     {
       "id": "datev-cloud-migration-accelerates",
       "category": "Competitive",
@@ -58,17 +116,6 @@
       "body": "DATEV is transitioning all its programs to the cloud, with local, installed solutions being phased out by Autumn 2026. This move aims to increase efficiency and relieve tax practices, with cloud-based solutions for practice management, payroll, accounting, and taxes rolling out from Autumn 2026 onwards.",
       "implication": "DATEV's accelerated cloud strategy could lead to increased integration and digital collaboration opportunities for its partners, potentially making it harder for non-DATEV-aligned solutions to compete in the German tax advisor market.",
       "source": "DATEV, October 2026"
-    },
-    {
-      "id": "cegid-sevdesk-acquisition-completes",
-      "category": "Competitive",
-      "market": "DE",
-      "date": "Feb 2025",
-      "priority": "high",
-      "title": "Cegid completes acquisition of sevdesk, strengthening DACH presence",
-      "body": "Cegid has finalized its acquisition of sevdesk, a German provider of cloud-based accounting software for SMBs. This move expands Cegid's offerings in the DACH region, with sevdesk CEO Marco Reinbold appointed as General Manager for Cegid's DACH operations. Sevdesk serves over 130,000 customers and has processed over €85 billion in transactions.",
-      "implication": "Increased competitive pressure from a larger, well-funded player in the German market, particularly targeting SMBs and potentially leveraging sevdesk's existing customer base and compliance solutions for upcoming e-invoicing mandates.",
-      "source": "Cegid, February 06 2025"
     },
     {
       "id": "holded-visma-es-market-focus",
@@ -454,51 +501,6 @@
       "body": "The acquisition of EBP by Cegid, finalized in April 2024, has created a significant European leader in business management software for SMBs. Cegid's strategy includes strengthening its position in the French market, particularly for small businesses, by integrating EBP's offerings. This combined entity aims to leverage regulatory changes, like e-invoicing, to drive growth and expand its reach within the French accounting and business software landscape.",
       "implication": "The combined strength of Cegid and EBP presents a formidable competitor in the French market, especially for SMBs and the expert-comptable channel. Sage WiSE must monitor their specific go-to-market strategies and product integrations to identify competitive threats and opportunities, particularly concerning their focus on French practices.",
       "source": "Vertex AI Search results (April 23, 2024)"
-    },
-    {
-      "id": "pennylane-accountant-channel-push",
-      "category": "Competitive",
-      "market": "FR",
-      "date": "Apr 2026",
-      "priority": "high",
-      "title": "Pennylane emphasizes accountant collaboration and real-time financial visibility",
-      "body": "Recent articles highlight Pennylane's strategy of positioning itself as a platform that centralizes financial data for real-time visibility and seamless collaboration with accountants. They emphasize time savings on administrative tasks and optimized accounting/tax management, directly targeting the expert-comptable channel. This suggests a continued aggressive push by Pennylane to capture market share within the accounting professional segment.",
-      "implication": "Pennylane's focus on accountant collaboration and real-time data directly competes with Sage for Accountants (SfA). Sage WiSE needs to reinforce its value proposition to accountants, emphasizing SfA's integrated capabilities and highlighting any unique advantages in real-time collaboration and financial insights.",
-      "source": "Vertex AI Search results (March 31, 2026)"
-    },
-    {
-      "id": "fr-pa-mandate-reminder-dgfip",
-      "category": "Regulatory",
-      "market": "FR",
-      "date": "Apr 2026",
-      "priority": "critical",
-      "title": "DGFiP reminds businesses of 2026 e-invoicing mandate via direct email",
-      "body": "The French tax authority (DGFiP) sent a mass email to businesses reminding them of the September 1, 2026, deadline for receiving electronic invoices. The direct and unusually firm tone of the message has reportedly spurred immediate action, with one platform seeing a tenfold increase in registrations within 24 hours. This indicates a significant portion of businesses are unprepared for the upcoming regulatory change.",
-      "implication": "This direct regulatory push from the DGFiP highlights a critical compliance gap for many French businesses. Sage WiSE needs to accelerate its messaging and enablement efforts to ensure its customers are aware and prepared, potentially leveraging this urgency to drive adoption of compliant solutions.",
-      "source": "Impots.gouv.fr / DGFiP (April 21, 2026)",
-      "calendar_tag": true
-    },
-    {
-      "id": "fr-pa-mandate",
-      "category": "Regulatory",
-      "market": "FR",
-      "date": "Sept 2026",
-      "priority": "critical",
-      "title": "France PA mandate: under 5 months away — every VAT-registered business must connect to a registered PA by September 1",
-      "body": "Phase 1: All businesses must receive e-invoices via a DGFiP-registered Plateforme Agréée. Large/ETI must also issue. Formats: Factur-X, UBL, CII, PEPPOL. Fine: €15/invoice, capped €15k/year. 7.9 million businesses in scope. Sage is one of the officially DGFiP-registered PAs.",
-      "implication": "This is the single most important commercial deadline in the WiSE calendar. Every GE practice must choose a PA for their entire client book. Sage is PA-registered. The pitch: 'Your clients need a PA. Sage already is one. You're already in GE. One conversation, no disruption.'",
-      "source": "DGFiP / Sage Europe PMM"
-    },
-    {
-      "id": "fr-no-grace",
-      "category": "Regulatory",
-      "market": "FR",
-      "date": "Apr 2026",
-      "priority": "critical",
-      "title": "France Finance Bill 2026 confirms no grace period — September 2026 penalties live from day one",
-      "body": "PLF 2026 adopted February 2, 2026, formally removed Amendment I-1028 which would have granted a two-year good-faith penalty exemption. From September 1, 2026: €15 per non-compliant invoice, capped at €15,000/year. No first-offence tolerance.",
-      "implication": "This eliminates the last 'wait and see' argument in France. Every accountant who told practices 'we have time' must now revise that conversation immediately.",
-      "source": "France Finance Bill 2026 / Thomson Reuters Pagero, April 2026"
     }
   ]
 }
