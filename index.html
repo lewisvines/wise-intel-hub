@@ -2,6 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<meta name="bingbot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<meta name="referrer" content="no-referrer">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>WiSE Intel Hub - Sage Europe PMM Intelligence Platform</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -655,6 +659,98 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:16
 </style>
 </head>
 <body>
+
+<!-- ══════════ ACCESS GATE ══════════ -->
+<div id="access-gate" style="position:fixed;inset:0;z-index:9999;background:#003D29;display:flex;align-items:center;justify-content:center;font-family:'DM Sans',-apple-system,system-ui,sans-serif;">
+  <div style="max-width:480px;width:90%;padding:48px 40px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.10);border-radius:14px;backdrop-filter:blur(8px);">
+    <div style="font-family:'DM Serif Display',Georgia,serif;font-size:22px;color:#9DD4A4;font-style:italic;margin-bottom:6px;">Sage</div>
+    <div style="font-size:11px;font-weight:700;letter-spacing:3px;color:#00B050;text-transform:uppercase;margin-bottom:18px;">Restricted Access</div>
+    <div style="font-family:'DM Serif Display',Georgia,serif;font-size:28px;color:#fff;line-height:1.25;margin-bottom:14px;">WiSE PMM Intelligence Hub</div>
+    <div style="font-size:13px;color:rgba(255,255,255,0.70);line-height:1.6;margin-bottom:28px;">This platform contains internal Sage strategic intelligence. Access is restricted to authorised personnel.</div>
+
+    <label style="display:block;font-size:11px;font-weight:600;letter-spacing:1px;color:rgba(255,255,255,0.65);text-transform:uppercase;margin-bottom:8px;">Access key</label>
+    <input type="password" id="access-input" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false"
+      style="width:100%;padding:13px 14px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.16);border-radius:8px;color:#fff;font-size:15px;font-family:inherit;outline:none;box-sizing:border-box;letter-spacing:1px;"
+      onkeydown="if(event.key==='Enter'){tryUnlock();}" />
+
+    <button onclick="tryUnlock()" style="width:100%;margin-top:14px;padding:13px;background:#00B050;border:none;border-radius:8px;color:#fff;font-size:14px;font-weight:600;font-family:inherit;cursor:pointer;letter-spacing:0.5px;transition:background 0.15s;"
+      onmouseover="this.style.background='#00D060'" onmouseout="this.style.background='#00B050'">Unlock</button>
+
+    <div id="access-error" style="margin-top:14px;font-size:12px;color:#FCA5A5;display:none;">Incorrect access key. Please contact Lewis Vines for access.</div>
+
+    <div style="margin-top:28px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.10);font-size:11px;color:rgba(255,255,255,0.45);line-height:1.6;">
+      Sage Group plc - Internal use only<br>Not indexable by search engines - Do not share publicly
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  const HUB_PASSWORD_HASH = "3c018ff5ae7222c0d17b1dbfcc292772f0cda9cb1928c013d91abdf65dffb28a";
+  const STORAGE_KEY = 'wise_hub_unlocked_v1';
+
+  // SHA-256 implementation using Web Crypto API
+  async function sha256(text) {
+    const buf = new TextEncoder().encode(text);
+    const hashBuf = await crypto.subtle.digest('SHA-256', buf);
+    return Array.from(new Uint8Array(hashBuf)).map(b => b.toString(16).padStart(2, '0')).join('');
+  }
+
+  // Check on load: if previously unlocked in this browser, hide gate
+  document.addEventListener('DOMContentLoaded', function() {
+    try {
+      if (sessionStorage.getItem(STORAGE_KEY) === HUB_PASSWORD_HASH) {
+        const gate = document.getElementById('access-gate');
+        if (gate) gate.style.display = 'none';
+        document.body.style.overflow = '';
+      } else {
+        // Lock the body scroll while gate is showing
+        document.body.style.overflow = 'hidden';
+        // Auto-focus the input
+        setTimeout(() => {
+          const input = document.getElementById('access-input');
+          if (input) input.focus();
+        }, 100);
+      }
+    } catch(e) { /* sessionStorage may be blocked - gate stays visible, that's fine */ }
+  });
+
+  window.tryUnlock = async function() {
+    const input = document.getElementById('access-input');
+    const errorEl = document.getElementById('access-error');
+    if (!input || !errorEl) return;
+    const value = input.value;
+    if (!value) {
+      errorEl.textContent = 'Please enter the access key.';
+      errorEl.style.display = 'block';
+      return;
+    }
+    try {
+      const hash = await sha256(value);
+      if (hash === HUB_PASSWORD_HASH) {
+        try { sessionStorage.setItem(STORAGE_KEY, hash); } catch(e) {}
+        const gate = document.getElementById('access-gate');
+        if (gate) {
+          gate.style.opacity = '0';
+          gate.style.transition = 'opacity 0.25s';
+          setTimeout(() => { gate.style.display = 'none'; document.body.style.overflow = ''; }, 250);
+        }
+      } else {
+        errorEl.textContent = 'Incorrect access key. Please contact Lewis Vines for access.';
+        errorEl.style.display = 'block';
+        input.value = '';
+        input.focus();
+      }
+    } catch(e) {
+      errorEl.textContent = 'Browser security feature unavailable. Please use a modern browser.';
+      errorEl.style.display = 'block';
+    }
+  };
+})();
+</script>
+<!-- ══════════ END ACCESS GATE ══════════ -->
+
+
 <div id="progress"></div>
 <!-- SIDEBAR -->
 <div id="sidebar">
