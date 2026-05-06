@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet" />
+    <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet" />
+    <meta name="referrer" content="no-referrer" />
+    <title>/*[|template_title|]*/0</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+
+    <style>
+        :root {
+            --sage-green-dark: #003D29;
+            --sage-green: #00563A;
+            --sage-green-bright: #00B050;
+            --sage-lime: #9DD4A4;
+            --line: rgba(255, 255, 255, 0.10);
+            --text-dim: rgba(255, 255, 255, 0.65);
+            --text-muted: rgba(255, 255, 255, 0.45);
+        }
+        * { box-sizing: border-box; }
+        html, body {
+            margin: 0; padding: 0; height: 100%;
+            background: var(--sage-green-dark);
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+            color: #fff;
+            -webkit-font-smoothing: antialiased;
+        }
+        .staticrypt-page {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+        .staticrypt-card {
+            width: 100%;
+            max-width: 480px;
+            padding: 48px 40px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            backdrop-filter: blur(8px);
+        }
+        .brand-mark {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: 22px;
+            font-style: italic;
+            color: var(--sage-lime);
+            margin-bottom: 6px;
+        }
+        .eyebrow {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            color: var(--sage-green-bright);
+            text-transform: uppercase;
+            margin-bottom: 18px;
+        }
+        .staticrypt-title {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: 28px;
+            color: #fff;
+            line-height: 1.25;
+            margin: 0 0 14px;
+            font-weight: 400;
+        }
+        .staticrypt-instructions {
+            font-size: 13px;
+            color: var(--text-dim);
+            line-height: 1.6;
+            margin-bottom: 28px;
+        }
+        label.field-label {
+            display: block;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            margin: 16px 0 8px;
+        }
+        input[type=email],
+        input#staticrypt-password {
+            width: 100%;
+            padding: 13px 14px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            border-radius: 8px;
+            color: #fff;
+            font-size: 15px;
+            font-family: inherit;
+            outline: none;
+            letter-spacing: 0.3px;
+            transition: border-color 0.15s;
+        }
+        input[type=email]:focus,
+        input#staticrypt-password:focus {
+            border-color: var(--sage-green-bright);
+        }
+        input::placeholder { color: rgba(255, 255, 255, 0.30); }
+        .staticrypt-password-container {
+            position: relative;
+        }
+        .staticrypt-toggle-password-visibility { display: none; }
+        .staticrypt-decrypt-button {
+            width: 100%;
+            margin-top: 24px;
+            padding: 13px;
+            background: var(--sage-green-bright);
+            border: none;
+            border-radius: 8px;
+            color: #fff;
+            font-size: 14px;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+            letter-spacing: 0.5px;
+            transition: background 0.15s;
+        }
+        .staticrypt-decrypt-button:hover { background: #00CC60; }
+        .staticrypt-remember {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 18px;
+            font-size: 12px;
+            color: var(--text-dim);
+            cursor: pointer;
+            user-select: none;
+        }
+        .staticrypt-remember input { width: auto; cursor: pointer; }
+        .staticrypt-remember.hidden { display: none; }
+        .err-msg {
+            margin-top: 14px;
+            font-size: 12px;
+            color: #FCA5A5;
+            min-height: 1.2em;
+        }
+        .footer-note {
+            margin-top: 28px;
+            padding-top: 20px;
+            border-top: 1px solid var(--line);
+            font-size: 11px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+        .staticrypt-spinner {
+            width: 40px; height: 40px;
+            margin: 100px auto;
+            border: 3px solid var(--line);
+            border-top-color: var(--sage-green-bright);
+            border-radius: 50%;
+            animation: spin 0.7s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .hidden { display: none !important; }
+    </style>
+</head>
+<body>
+    <div id="staticrypt_loading" class="staticrypt-page">
+        <div class="staticrypt-spinner"></div>
+    </div>
+
+    <div id="staticrypt_content" class="staticrypt-page hidden">
+        <div class="staticrypt-card">
+            <div class="brand-mark">Sage</div>
+            <div class="eyebrow">Restricted Access</div>
+            <h1 class="staticrypt-title">/*[|template_title|]*/0</h1>
+            <p class="staticrypt-instructions">/*[|template_instructions|]*/0</p>
+
+            <form id="staticrypt-form" action="#" method="post">
+                <label for="staticrypt-email" class="field-label">Work email</label>
+                <input
+                    id="staticrypt-email"
+                    type="email"
+                    name="email"
+                    placeholder="you@sage.com"
+                    autocomplete="email"
+                    required
+                    autocapitalize="off"
+                    autocorrect="off"
+                    spellcheck="false"
+                />
+
+                <label for="staticrypt-password" class="field-label">/*[|template_placeholder|]*/0</label>
+                <div class="staticrypt-password-container">
+                    <input
+                        id="staticrypt-password"
+                        type="password"
+                        name="password"
+                        autocomplete="current-password"
+                        required
+                        autocapitalize="off"
+                        autocorrect="off"
+                        spellcheck="false"
+                    />
+                    <img
+                        class="staticrypt-toggle-password-visibility"
+                        alt="/*[|template_toggle_show|]*/0"
+                        title="/*[|template_toggle_show|]*/0"
+                        src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NDAgNTEyIj48cGF0aCBkPSJNMzguOCA1LjFDMjguNC0zLjEgMTMuMy0xLjIgNS4xIDkuMlMtMS4yIDM0LjcgOS4yIDQyLjlsNTkyIDQ2NGMxMC40IDguMiAyNS41IDYuMyAzMy43LTQuMXM2LjMtMjUuNS00LjEtMzMuN0w1MjUuNiAzODYuN3oiLz48L3N2Zz4="
+                    />
+                </div>
+
+                <label id="staticrypt-remember-label" class="staticrypt-remember hidden">
+                    <input id="staticrypt-remember" type="checkbox" name="remember" />
+                    <span>/*[|template_remember|]*/0</span>
+                </label>
+
+                <input type="submit" class="staticrypt-decrypt-button" value="/*[|template_button|]*/0" />
+
+                <div id="staticrypt-decrypt-msg" class="err-msg" aria-live="polite"></div>
+            </form>
+
+            <div class="footer-note">
+                Sage Group plc - Internal use only<br />
+                Not indexable by search engines - Do not share publicly
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Staticrypt template variables (these will be replaced at encryption time)
+        const staticryptInitiator = /*[|js_staticrypt|]*/ 0;
+        const templateError = "/*[|template_error|]*/0",
+            templateToggleAltShow = "/*[|template_toggle_show|]*/0",
+            templateToggleAltHide = "/*[|template_toggle_hide|]*/0",
+            isRememberEnabled = /*[|is_remember_enabled|]*/ 0,
+            staticryptConfig = /*[|staticrypt_config|]*/ 0;
+
+        const templateConfig = {
+            rememberExpirationKey: "staticrypt_expiration",
+            rememberPassphraseKey: "staticrypt_passphrase",
+            replaceHtmlCallback: null,
+            clearLocalStorageCallback: null,
+        };
+
+        // init the staticrypt engine
+        const staticrypt = staticryptInitiator.init(staticryptConfig, templateConfig);
+
+        // try to automatically decrypt on load if there is a saved password
+        window.onload = async function () {
+            const { isSuccessful } = await staticrypt.handleDecryptOnLoad();
+            // If not auto-unlocked, show the form
+            if (!isSuccessful) {
+                document.getElementById("staticrypt_loading").classList.add("hidden");
+                document.getElementById("staticrypt_content").classList.remove("hidden");
+                // Auto-focus email field
+                setTimeout(() => {
+                    const emailEl = document.getElementById("staticrypt-email");
+                    if (emailEl) emailEl.focus();
+                }, 50);
+            }
+        };
+
+        document.getElementById("staticrypt-form").addEventListener("submit", async function (e) {
+            e.preventDefault();
+
+            const errEl = document.getElementById("staticrypt-decrypt-msg");
+            errEl.textContent = "";
+
+            const emailRaw = document.getElementById("staticrypt-email").value || "";
+            const email = emailRaw.trim().toLowerCase();
+            const key = document.getElementById("staticrypt-password").value || "";
+            const isRememberChecked = document.getElementById("staticrypt-remember").checked;
+
+            const atIdx = email.indexOf("@");
+            const domain = atIdx >= 0 ? email.slice(atIdx + 1) : "";
+
+            if (!email || !key || !domain) {
+                errEl.textContent = templateError;
+                return;
+            }
+
+            // LOAD-BEARING: AES password = <key>@<email-domain>
+            // Only @sage.com produces the correct password. Wrong domain = AES failure.
+            const composedPassword = key + "@" + domain;
+
+            const { isSuccessful } = await staticrypt.handleDecryptionOfPage(composedPassword, isRememberChecked);
+
+            if (!isSuccessful) {
+                errEl.textContent = templateError;
+                document.getElementById("staticrypt-password").value = "";
+                document.getElementById("staticrypt-password").focus();
+            }
+            // success: staticrypt replaces the document
+        });
+    </script>
+</body>
+</html>

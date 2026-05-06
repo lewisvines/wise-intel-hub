@@ -1,0 +1,5 @@
+# Build output - encrypted files written to repo root, not build/
+build/
+node_modules/
+.DS_Store
+*.log

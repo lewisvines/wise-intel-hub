@@ -1,8 +1,10 @@
 # WiSE PMM Intelligence Hub - Internal Sage resource
-# Not for public indexing under any circumstance
+# Not indexable under any circumstance
 
 User-agent: *
 Disallow: /
+Disallow: /signals.json
+Disallow: /src/
 
 User-agent: Googlebot
 Disallow: /
