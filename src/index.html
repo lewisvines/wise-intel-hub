@@ -3042,18 +3042,35 @@ function renderScanHealth(meta) {
  const hoursAgo = lastScan ? Math.round((Date.now() - lastScan.getTime()) / 3600000) : null;
  const err = status.error || '';
  const fallback = status.source === 'rss_fallback';
- const skipped = (status.markets_skipped || []).length;
- const scanned = (status.markets_scanned || []).length;
+
+ // The scanner attempts all 4 WiSE markets every run. A market only counts
+ // as "skipped" if the scanner explicitly failed to reach it (auth error,
+ // quota exhausted, network failure). Markets that returned no qualifying
+ // signals are still considered scanned — silence is data.
+ const WISE_MARKETS = 4;
+ const skippedMarkets = status.markets_skipped || [];
+ const scannedCount = WISE_MARKETS - skippedMarkets.length;
+ const marketsWithSignals = (status.markets_scanned || []).length; // markets that returned signals today
 
  let level = 'green', label = 'Healthy';
  if (err === 'quota_exhausted_preflight' && !fallback) { level = 'red'; label = 'API quota exhausted'; }
  else if (fallback) { level = 'amber'; label = 'RSS fallback active'; }
  else if (hoursAgo !== null && hoursAgo > 72) { level = 'red'; label = `Stale (${Math.round(hoursAgo/24)}d)`; }
  else if (hoursAgo !== null && hoursAgo > 36) { level = 'amber'; label = `${hoursAgo}h since scan`; }
- else if (skipped > 0) { level = 'amber'; label = `${skipped}/4 markets skipped`; }
+ else if (skippedMarkets.length > 0) { level = 'amber'; label = `${skippedMarkets.length}/4 markets skipped`; }
 
  const when = lastScan ? lastScan.toUTCString().replace(' GMT','Z').slice(5) : 'unknown';
- const scanLabel = err ? `Error: ${err}` : (fallback ? 'Source: Google/Bing RSS (Gemini unavailable)' : `${scanned}/4 markets scanned`);
+ // Sub-label: always show "X/4 markets scanned" plus how many produced new signals.
+ // No new signals from a market is normal — most days, most markets are quiet.
+ let scanLabel;
+ if (err) {
+   scanLabel = `Error: ${err}`;
+ } else if (fallback) {
+   scanLabel = 'Source: Google/Bing RSS (Gemini unavailable)';
+ } else {
+   const newCount = (status.signals_added !== undefined) ? status.signals_added : marketsWithSignals;
+   scanLabel = `${scannedCount}/4 markets scanned · ${newCount} new signal${newCount === 1 ? '' : 's'}`;
+ }
 
  mount.innerHTML = `
  <div class="sh-wrap sh-${level}">
