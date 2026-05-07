@@ -28,20 +28,24 @@
     "eu_competitive_pct": 100,
     "eu_competitive_status": "green",
     "eu_competitive_label": "Live",
-    "last_scan": "2026-05-06T10:17:42.937429Z",
-    "last_scan_summary": "Refresh complete - data current as of 6 May 2026",
+    "last_scan": "2026-05-07T08:34:24.212602Z",
+    "last_scan_summary": "Refresh complete - data current as of 7 May 2026",
     "scan_status": {
-      "date": "2026-05-06",
+      "date": "2026-05-07",
       "markets_scanned": [
         "FR",
+        "ES",
+        "DE",
         "PT"
       ],
       "markets_skipped": [],
-      "signals_added": 4,
+      "signals_added": 5,
       "quality_filtered": 0,
       "summaries": {
-        "FR": "Market signals in France show heightened regulatory pressure from the PA mandate, aggressive competitive moves by Cegid and Pennylane, and ongoing discussions around accounting software adoption.",
-        "PT": "Recent market signals in Portugal indicate a postponement of SAF-T accounting file submission and QES mandate for PDF invoices, while Cegid solidifies its market presence through the integration of acquired companies."
+        "FR": "France e-invoicing mandate confirmed for September 1 2026 with the Finance Bill 2026 adopted on 2 February 2026. Penalty regime tripled to €50/invoice (capped €15k/yr). 101 Plateformes Agréées now certified by DGFiP - certification alone is no longer a moat. Sage strengthened its position with the January 2026 Akao acquisition. Cegid+Shine integration went live for Quadra and Loop accountants in mid-February 2026 - this is now an operational competitor.",
+        "ES": "Spain Verifactu mandate for self-employed taxpayers is two months away (1 July 2026). Pennylane has confirmed Spain market entry for H2 2026 with hires in Madrid - this lands ahead of Sage SfA Spain GA. Holded G2 reviews show accountant-channel adoption acceleration. Sage Despachos competitive position holds in the top-mid firm segment but autónomo migration window is narrowing.",
+        "DE": "Germany e-invoicing receive mandate is live (Jan 2025). DATEV remains the structural cooperative gatekeeper - work alongside, not against. Cegid acquired SevDesk April 2025 strengthens DACH consolidation play. Lexoffice (Lexware/Haufe) continues to grow at 350k+ customers. Sage opportunity remains in the cloud management layer above DATEV compliance.",
+        "PT": "Portugal SAF-T accounting file submission and QES mandate for PDF invoices delayed to 1 January 2027. OCC remains the structural channel gatekeeper - 70,000 certified accountants, mandatory by law. Cegid consolidates dominance through Primavera and PHC integration (€85M Portugal revenue 2025). Sage opportunity requires OCC engagement strategy before commercial motion."
       }
     },
     "archived_count": 0,
