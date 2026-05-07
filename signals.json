@@ -1,12 +1,12 @@
 {
   "meta": {
-    "last_updated": "2026-05-06",
+    "last_updated": "2026-05-07",
     "week_label": "Week of 4 May – 10 May 2026",
-    "signal_count": 40,
+    "signal_count": 45,
     "prev_signal_count": 18,
     "intensity": "CRITICAL",
-    "intensity_reason": "France PA mandate under 4 months · Cegid 100-rep blitz active · Pennylane Spain entry confirmed for H2",
-    "ifyrne": "The French PA mandate of September 1, 2026 is now under four months away. Sage for Accountants and Sage Active must be fully PA-compliant and accountant-ready before that date. PA registration is at 50% - acceleration is essential. Cegid is actively deploying 100 new reps targeting GE practices. Pennylane has confirmed Spain market entry for H2 2026 with hires in Madrid. Cegid+Shine integration is in execution phase, opening a buying window for accountants worried about platform churn. Spain Verifactu mandate for self-employed is two months away (Jul 1 2026).",
+    "intensity_reason": "France PA mandate under 4 months · 101 PAs certified · Penalty regime tripled (€50/invoice, €15k cap) · Cegid 100-rep blitz live",
+    "ifyrne": "The French PA mandate of September 1, 2026 is now under four months away. 101 Plateformes Agréées have been certified by the DGFiP — Sage is one of them, but certification alone is no longer a differentiator. The 2026 Finance Bill, adopted in February 2026, tripled the penalty regime: €50 per non-compliant invoice (was €15), capped at €15,000/year. Sage strengthened its France e-invoicing stack with the January 2026 acquisition of Akao - 2,700 customers, full invoicing lifecycle capability now in-house. Cegid+Shine integration went live for Quadra and Loop accountants in mid-February 2026 - this is now an operational competitor, not a still-integrating threat. PA registration sits at 50% — acceleration is essential before competitors lock in accountant relationships. Cegid is actively deploying 100 new reps targeting GE practices. Pennylane has confirmed Spain market entry for H2 2026 with hires in Madrid. Spain Verifactu mandate for self-employed is two months away (Jul 1 2026).",
     "pa_registration_pct": 50,
     "pa_registration_status": "amber",
     "pa_registration_label": "In progress – 50% registered",
@@ -45,7 +45,7 @@
       }
     },
     "archived_count": 0,
-    "ifyrne_updated": "2026-05-06"
+    "ifyrne_updated": "2026-05-07"
   },
   "signals": [
     {
@@ -499,6 +499,61 @@
       "implication": "Sage must ensure SfA Spain is compliant with XRechnung and other German e-invoicing standards by the 2028 deadline, potentially requiring significant development effort and impacting launch timelines if not addressed proactively.",
       "source": "Axway Blog, May 15 2025",
       "calendar_tag": true
+    },
+    {
+      "id": "fr-pa-101-certified-may26",
+      "category": "Regulatory",
+      "market": "FR",
+      "date": "May 2026",
+      "priority": "high",
+      "title": "101 PAs now certified by DGFiP — competitive certification race intensifies",
+      "body": "The French tax authority has certified 101 Plateformes Agréées as of May 2026, well above earlier projections. As of mid-April 2026, only a handful are actively exchanging invoices despite certification. Activity expected to ramp through Q2-Q3 2026 ahead of the September deadline. FNFE-MPE confirmed the 1 September 2026 hard deadline is unchanged.",
+      "implication": "PA certification is no longer a moat - 101 platforms now have it. Sage's differentiation must shift to depth of accountant integration, multi-product stack, and existing customer relationships. The race is now about which PAs get accountants and SMBs to actually exchange invoices through them - certification alone is table stakes.",
+      "source": "FNFE-MPE meeting April 16 2026 / Marosa VAT / Tradeshift compliance update"
+    },
+    {
+      "id": "fr-finance-bill-feb26-penalties",
+      "category": "Regulatory",
+      "market": "FR",
+      "date": "May 2026",
+      "priority": "critical",
+      "title": "Finance Bill 2026 adopted — penalty regime tripled, mandate legally binding",
+      "body": "The 2026 Finance Bill was formally adopted on 2 February 2026, making the September 2026 e-invoicing mandate legally effective. The penalty for non-compliant invoices increased from €15 to €50 each, capped at €15,000 per calendar year. E-reporting failures carry €500 per transmission, also capped at €15,000/year. Platform negligence carries additional penalties.",
+      "implication": "The penalty escalation makes non-compliance materially more expensive for SMBs and their accountants. This sharpens Sage's commercial positioning - GE practices that delay PA registration expose their clients to up to €15k/year fines. The financial argument for moving NOW is now quantifiable, not abstract.",
+      "source": "PLF 2026 adoption Feb 2 2026 / Rossum compliance analysis"
+    },
+    {
+      "id": "fr-mandate-confirmed-unchanged-may26",
+      "category": "Regulatory",
+      "market": "FR",
+      "date": "May 2026",
+      "priority": "watch",
+      "title": "France e-invoicing simplification measures — administrative relief, deadline unchanged",
+      "body": "August 2025 simplification measures from French government remain in force: removal of line-item e-reporting for international incoming invoices, no requirement to submit blank e-reports if no taxable transactions occur. These reduce administrative burden but the September 2026 deadline is untouched.",
+      "implication": "Simplifications reduce friction for accountants who manage clients with cross-border transactions. Sage messaging can lean into this: 'less complexity than you feared, but the September deadline is real'. Useful objection-handling for accountants currently delaying PA registration.",
+      "source": "EY Tax Alert / DGFiP August 2025 announcement"
+    },
+    {
+      "id": "sage-akao-acquisition-jan26",
+      "category": "Sage News",
+      "market": "FR",
+      "date": "May 2026",
+      "priority": "high",
+      "title": "Sage acquired Akao to bolster French e-invoicing pre-accounting capability",
+      "body": "On 7 January 2026, Sage announced the acquisition of Akao, a long-standing Sage ISV partner with 2,700 customers handling 100,000+ invoices per day. Akao's SaaS platform covers the full invoicing lifecycle - supplier invoice receipt, customer invoice issuance, document digitisation, digital archiving, compliance, and end-to-end process management.",
+      "implication": "This acquisition closes a critical gap in Sage's France e-invoicing stack. Pre-accounting capability is now in-house, not partner-dependent. WiSE PMM positioning of SfA as the accountant-led compliance hub gains significant credibility with this. Akao's existing 2,700 customers also represent a warm channel for Active and SfA cross-sell.",
+      "source": "Sage press release Jan 7 2026 / Sage Investor announcement"
+    },
+    {
+      "id": "cegid-shine-integration-live-feb26",
+      "category": "Competitive",
+      "market": "FR",
+      "date": "May 2026",
+      "priority": "critical",
+      "title": "Cegid+Shine accountant integration LIVE for Quadra and Loop practices",
+      "body": "The Cegid+Shine integration went live in mid-February 2026 for accountancy practices using Cegid Quadra and Loop. Accountants can now activate Shine for their clients and use the collection/integration flows. Cegid Expert Plus deployment follows during 2026. The combined offering targets the e-invoicing mandate as the primary forcing function, replacing the legacy BIM! product.",
+      "implication": "The 'Cegid is still integrating Shine' counter-narrative is no longer accurate for Quadra and Loop accountants - it is operational. WiSE messaging needs to shift from 'no migration vs disruption' to 'one-product depth vs duct-taped acquisitions'. Sales objection handling needs updating before next Steerco. CRITICAL.",
+      "source": "Cegid press May 2026 / Compta-Online integration announcement"
     }
   ]
 }
