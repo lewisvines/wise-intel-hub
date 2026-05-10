@@ -1,8 +1,8 @@
 {
   "meta": {
-    "last_updated": "2026-05-09",
+    "last_updated": "2026-05-10",
     "week_label": "Week of 4 May – 10 May 2026",
-    "signal_count": 40,
+    "signal_count": 36,
     "prev_signal_count": 18,
     "intensity": "CRITICAL",
     "intensity_reason": "France PA mandate under 4 months · 101 PAs certified · Penalty regime tripled (€50/invoice, €15k cap) · Cegid 100-rep blitz live",
@@ -28,62 +28,46 @@
     "eu_competitive_pct": 100,
     "eu_competitive_status": "green",
     "eu_competitive_label": "Live",
-    "last_scan": "2026-05-09T09:19:43.933447Z",
+    "last_scan": "2026-05-10T09:28:00.338962Z",
     "last_scan_summary": "Refresh complete - data current as of 7 May 2026",
     "scan_status": {
-      "date": "2026-05-09",
+      "date": "2026-05-10",
       "markets_scanned": [
-        "FR",
-        "ES",
-        "DE",
-        "Pennylane"
+        "DE"
       ],
       "markets_skipped": [],
-      "signals_added": 9,
+      "signals_added": 2,
       "quality_filtered": 0,
       "summaries": {
-        "FR": "Market signals in France show critical regulatory deadlines approaching, intense competition among key players like Pennylane, Sage, and Cegid, and strategic acquisitions shaping the competitive landscape.",
-        "ES": "The Spanish market shows significant activity with Verifactu deadline extensions, substantial competitive investment from Pennylane, and established players like Holded actively preparing for regulatory changes.",
-        "DE": "The German market shows significant activity with Cegid's acquisition of sevdesk, ongoing regulatory developments in e-invoicing, and DATEV's strategic shift towards cloud services, indicating a dynamic competitive and regulatory landscape.",
-        "Pennylane": "Pennylane is aggressively expanding across Europe with significant funding, a strong focus on AI for accountants, and strategic market entries, positioning itself as a primary competitive threat to Sage WiSE."
+        "DE": "Market signals for Germany show significant activity in competitive acquisitions (Cegid/sevDesk), regulatory mandates (B2B e-invoicing), and shifts towards cloud solutions (DATEV)."
       }
     },
-    "archived_count": 0,
+    "archived_count": 2,
     "ifyrne_updated": "2026-05-07"
   },
   "signals": [
     {
-      "id": "pennylane-germany-expansion-hiring",
-      "category": "Competitive",
+      "id": "germany-b2b-e-invoicing-2027-2028",
+      "category": "Regulatory",
       "market": "DE",
-      "date": "Nov 2025",
-      "priority": "high",
-      "title": "Pennylane launches in Germany, targeting 100 hires and challenging DATEV",
-      "body": "Pennylane has launched its first overseas office in Germany, with plans to hire 100 local staff. The company aims to compete with German powerhouse DATEV, leveraging its GenAI capabilities and API ecosystem. Future international markets may include Poland, Spain, and Belgium.",
-      "implication": "Pennylane's entry into Germany, a key market for Sage, and its aggressive hiring strategy present a significant challenge. Sage must ensure its German offering is competitive and rapidly address any perceived gaps, especially concerning AI and local compliance.",
-      "source": "Tech.eu, EU-Startups, Tracxn - Nov 2025"
-    },
-    {
-      "id": "pennylane-funding-ai-expansion",
-      "category": "Competitive",
-      "market": "EU",
-      "date": "Jan 2026",
+      "date": "Jan 2027/2028",
       "priority": "critical",
-      "title": "Pennylane secures €175M for AI, European expansion, and potential consolidation",
-      "body": "Pennylane raised €175 million in a Series E round led by TCV and Blackstone Growth, with participation from existing investors. The funding will accelerate AI capabilities, European market expansion, and prepare for market consolidation. The company aims to become a leading financial operating system for European SMEs and accountants.",
-      "implication": "Pennylane's significant funding and aggressive expansion plans, particularly in AI and new markets, pose a direct competitive threat to Sage WiSE's European strategy. Sage needs to accelerate its own AI development and market penetration to counter Pennylane's momentum.",
-      "source": "MEXC News, Vestbee, Pulse 2.0, Startup Researcher, EU-Startups, Tech.eu, GlobalData, TCV, Tracxn - Jan 2026"
+      "title": "Germany mandates B2B e-invoicing from 2027/2028",
+      "body": "Germany will mandate B2B e-invoicing starting January 1, 2027, for large businesses (turnover > €800,000), with all other businesses required to comply by January 1, 2028. This phased introduction aims to combat VAT fraud and modernize tax administration. The XRechnung format is the official XML-based format for B2G transactions, while ZUGFeRD is also accepted for B2B.",
+      "implication": "This regulatory change presents a significant opportunity for Sage's e-invoicing solutions. Proactive engagement with German businesses to ensure compliance with XRechnung or ZUGFeRD is crucial. Failure to adapt could lead to non-compliance risks for Sage customers.",
+      "source": "Compliant e-invoicing in Germany with XRechnung and ZUGFeRD - Dynatos (March 13 2025), E-Invoicing Requirements in Germany: Guide, Steps and Timeline - Trustpair (February 27 2026)",
+      "calendar_tag": true
     },
     {
-      "id": "datev-cloud-strategy-2026",
+      "id": "cegid-sevdesk-acquisition-2025",
       "category": "Competitive",
       "market": "DE",
-      "date": "Dec 2025",
+      "date": "Feb 2025",
       "priority": "high",
-      "title": "DATEV plans cloud migration and new data export services for 2026/2027",
-      "body": "DATEV is preparing for a significant shift towards cloud-based solutions, with plans to migrate its accounting and 'Unternehmen online' services. A new 'Datenservice Export Rechnungswesen' is planned for 2026, allowing structured data export via the cloud, potentially as a file export rather than a direct API. The transition to new cloud programs is expected to begin in late 2026, with full migration in 2027-2028.",
-      "implication": "DATEV's move towards cloud services and improved data export capabilities could enhance its competitive offering and potentially reduce lock-in for its users, posing a challenge to Sage's cloud strategy in Germany.",
-      "source": "DATEV 2026 - the calm before the storm? (December 23 2025)"
+      "title": "Cegid acquires sevDesk, strengthening its DACH cloud and e-invoicing offerings",
+      "body": "Cegid completed the acquisition of sevDesk GmbH in February 2025. This move expands Cegid's presence in German-speaking Europe, a market with over 5 million micro and SMB businesses experiencing rapid demand for cloud solutions and e-invoicing compliance. SevDesk, founded in 2013, offers cloud-based accounting and invoicing software, serving over 130,000 customers.",
+      "implication": "Cegid's acquisition of sevDesk positions them as a stronger competitor in the German market, particularly with upcoming e-invoicing mandates. This could impact Sage Active's market share and requires a strategic response to counter Cegid's expanded offering.",
+      "source": "Cegid - Sevdesk | Transaction Details - Houlihan Lokey (May 22 2025), sevdesk is now part of Cegid (February 06 2025)"
     },
     {
       "id": "germany-b2b-e-invoicing-mandate-update",
@@ -96,39 +80,6 @@
       "implication": "The upcoming mandatory e-invoicing for all businesses by Jan 2028, with a significant portion of businesses needing to comply by Jan 2027, creates urgency for Sage to ensure its solutions are fully compliant and to highlight this to German customers.",
       "source": "Germany E-Invoicing 2026: Where the Mandate Stands (May 07 2026)",
       "calendar_tag": true
-    },
-    {
-      "id": "cegid-sevdesk-acquisition-germany",
-      "category": "Competitive",
-      "market": "DE",
-      "date": "Feb 2025",
-      "priority": "high",
-      "title": "Cegid completes acquisition of German accounting software firm sevdesk",
-      "body": "Cegid has finalized its acquisition of sevdesk, a German provider of cloud-based accounting software for small businesses and freelancers. This move strengthens Cegid's presence in the DACH region, integrating sevdesk's offerings, which include invoicing, expense management, and tax reporting tools, into Cegid's broader European strategy. Sevdesk serves over 130,000 customers.",
-      "implication": "Cegid's strengthened position in Germany with a cloud-native SMB offering poses a direct competitive threat to Sage Active and Sage for Accountants in the German market.",
-      "source": "Cegid completes acquisition of sevdesk (Feb 06 2025)"
-    },
-    {
-      "id": "holded-verifactu-readiness",
-      "category": "Competitive",
-      "market": "ES",
-      "date": "Jun 2025",
-      "priority": "watch",
-      "title": "Holded actively preparing for Verifactu compliance and partners with accounting firms",
-      "body": "Holded, a popular invoicing and business management platform in Spain, is actively working to ensure its software complies with Verifactu technical standards. The company is also positioning itself as an official partner for accounting firms, aiming to simplify the transition for their clients. Holded emphasizes its readiness for the Verifactu system and its role in helping businesses meet regulatory requirements.",
-      "implication": "Holded's proactive approach to Verifactu and its partnerships with accounting firms indicate a strong competitive play in the Spanish market. Sage needs to monitor Holded's progress and its impact on the 'despachos' channel, especially as Verifactu deadlines approach.",
-      "source": "Vertex AI Search Results"
-    },
-    {
-      "id": "cegid-ebp-strengthens-fr-presence",
-      "category": "Competitive",
-      "market": "FR",
-      "date": "June 2024",
-      "priority": "high",
-      "title": "Cegid acquires EBP, bolstering its French market presence",
-      "body": "Cegid's acquisition of EBP, a French company specializing in payroll and serving a large base of French SMEs, strengthens Cegid's position in the French market. This move, driven partly by the regulatory context, aims to enhance Cegid's national and European ambitions. EBP has been serving the French market for nearly 40 years with a client base of 275,000 users.",
-      "implication": "Increased competitive pressure from Cegid in France, particularly in the SME segment and with a focus on payroll. This acquisition may lead to more aggressive market strategies from Cegid.",
-      "source": "Celge (June 07 2024)"
     },
     {
       "id": "pennylane-vs-sage-cegid-fr-comparison-may2026",
@@ -504,6 +455,30 @@
       "implication": "Sage is actively positioning itself as a solution provider for the upcoming French e-invoicing mandate. This suggests a proactive strategy to capture market share among businesses needing to comply. Sage's messaging emphasizes ease of transition and compliance, which could be a strong selling point.",
       "source": "Sage France (April 2026)",
       "calendar_tag": true
+    },
+    {
+      "id": "pennylane-funding-ai-expansion",
+      "category": "Competitive",
+      "market": "EU",
+      "date": "Jan 2026",
+      "priority": "critical",
+      "title": "Pennylane secures €175M for AI, European expansion, and potential consolidation",
+      "body": "Pennylane raised €175 million in a Series E round led by TCV and Blackstone Growth, with participation from existing investors. The funding will accelerate AI capabilities, European market expansion, and prepare for market consolidation. The company aims to become a leading financial operating system for European SMEs and accountants.",
+      "implication": "Pennylane's significant funding and aggressive expansion plans, particularly in AI and new markets, pose a direct competitive threat to Sage WiSE's European strategy. Sage needs to accelerate its own AI development and market penetration to counter Pennylane's momentum.",
+      "source": "MEXC News, Vestbee, Pulse 2.0, Startup Researcher, EU-Startups, Tech.eu, GlobalData, TCV, Tracxn - Jan 2026",
+      "archived": true
+    },
+    {
+      "id": "datev-cloud-strategy-2026",
+      "category": "Competitive",
+      "market": "DE",
+      "date": "Dec 2025",
+      "priority": "high",
+      "title": "DATEV plans cloud migration and new data export services for 2026/2027",
+      "body": "DATEV is preparing for a significant shift towards cloud-based solutions, with plans to migrate its accounting and 'Unternehmen online' services. A new 'Datenservice Export Rechnungswesen' is planned for 2026, allowing structured data export via the cloud, potentially as a file export rather than a direct API. The transition to new cloud programs is expected to begin in late 2026, with full migration in 2027-2028.",
+      "implication": "DATEV's move towards cloud services and improved data export capabilities could enhance its competitive offering and potentially reduce lock-in for its users, posing a challenge to Sage's cloud strategy in Germany.",
+      "source": "DATEV 2026 - the calm before the storm? (December 23 2025)",
+      "archived": true
     }
   ]
 }
