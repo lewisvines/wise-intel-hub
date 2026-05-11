@@ -1,7 +1,7 @@
 {
   "meta": {
     "last_updated": "2026-05-11",
-    "week_label": "Week of 4 May – 10 May 2026",
+    "week_label": "Week of 11 May – 17 May 2026",
     "signal_count": 40,
     "prev_signal_count": 18,
     "intensity": "CRITICAL",
@@ -29,7 +29,7 @@
     "eu_competitive_status": "green",
     "eu_competitive_label": "Live",
     "last_scan": "2026-05-11T12:54:29.650966Z",
-    "last_scan_summary": "Refresh complete - data current as of 7 May 2026",
+    "last_scan_summary": "Refresh complete - data current as of 11 May 2026",
     "scan_status": {
       "date": "2026-05-11",
       "markets_scanned": [
