@@ -1,12 +1,12 @@
 {
   "meta": {
-    "last_updated": "2026-05-10",
+    "last_updated": "2026-05-11",
     "week_label": "Week of 4 May – 10 May 2026",
-    "signal_count": 36,
+    "signal_count": 38,
     "prev_signal_count": 18,
     "intensity": "CRITICAL",
     "intensity_reason": "France PA mandate under 4 months · 101 PAs certified · Penalty regime tripled (€50/invoice, €15k cap) · Cegid 100-rep blitz live",
-    "ifyrne": "The French PA mandate of September 1, 2026 is now under four months away. 101 Plateformes Agréées have been certified by the DGFiP — Sage is one of them, but certification alone is no longer a differentiator. The 2026 Finance Bill, adopted in February 2026, tripled the penalty regime: €50 per non-compliant invoice (was €15), capped at €15,000/year. Sage strengthened its France e-invoicing stack with the January 2026 acquisition of Akao - 2,700 customers, full invoicing lifecycle capability now in-house. Cegid+Shine integration went live for Quadra and Loop accountants in mid-February 2026 - this is now an operational competitor, not a still-integrating threat. PA registration sits at 50% — acceleration is essential before competitors lock in accountant relationships. Cegid is actively deploying 100 new reps targeting GE practices. Pennylane has confirmed Spain market entry for H2 2026 with hires in Madrid. Spain Verifactu mandate for self-employed is two months away (Jul 1 2026).",
+    "ifyrne": "The French PA mandate deadline of September 1, 2026, is fast approaching, requiring immediate focus on Sage Active and Sage for Accountants readiness, especially with competitors like Pennylane aggressively entering the Spanish market ahead of our own launch. Germany's upcoming XRechnung mandate, effective January 2028, presents a significant opportunity for our e-invoicing solutions, but we must also counter Cegid's aggressive expansion into the German market with 100 new sales reps. While Portugal's SAF-T mandate is delayed to January 2027, we must ensure our solutions are prepared to meet the compliance needs of our clients across Europe. Given the escalating competitive pressures and looming regulatory deadlines, Sage must prioritize resolving the GE-Active sync issue this week to ensure product parity and a unified European strategy.",
     "pa_registration_pct": 50,
     "pa_registration_status": "amber",
     "pa_registration_label": "In progress – 50% registered",
@@ -28,24 +28,58 @@
     "eu_competitive_pct": 100,
     "eu_competitive_status": "green",
     "eu_competitive_label": "Live",
-    "last_scan": "2026-05-10T09:28:00.338962Z",
+    "last_scan": "2026-05-11T11:19:11.339653Z",
     "last_scan_summary": "Refresh complete - data current as of 7 May 2026",
     "scan_status": {
-      "date": "2026-05-10",
+      "date": "2026-05-11",
       "markets_scanned": [
-        "DE"
+        "FR"
       ],
       "markets_skipped": [],
-      "signals_added": 2,
+      "signals_added": 3,
       "quality_filtered": 0,
       "summaries": {
-        "DE": "Market signals for Germany show significant activity in competitive acquisitions (Cegid/sevDesk), regulatory mandates (B2B e-invoicing), and shifts towards cloud solutions (DATEV)."
+        "FR": "The French market shows continued regulatory pressure with the confirmed PA mandate, ongoing competitive activity from Pennylane, and Sage's strategic focus on cloud and AI in Sage Active."
       }
     },
     "archived_count": 2,
-    "ifyrne_updated": "2026-05-07"
+    "ifyrne_updated": "2026-05-11"
   },
   "signals": [
+    {
+      "id": "pennylane-fr-expansion",
+      "category": "Competitive",
+      "market": "FR",
+      "date": "Ongoing",
+      "priority": "high",
+      "title": "Pennylane Continues Aggressive Expansion and Partnership Strategy in France",
+      "body": "Pennylane is positioning itself as a revolutionary French accounting software, emphasizing its hyper-connected, real-time approach. The company actively seeks partnerships with accounting firms to complement its service offering. Pennylane highlights its ability to handle 100% of accounting within its platform and its focus on client experience through connected tools.",
+      "implication": "Pennylane's strong presence and partnership strategy in France pose a direct competitive threat, especially as they target the expert-comptable channel. Sage needs to monitor Pennylane's specific moves and offerings to counter their market penetration.",
+      "source": "Pennylane"
+    },
+    {
+      "id": "sage-active-ai-features",
+      "category": "AI & Tech",
+      "market": "FR",
+      "date": "Feb 2023",
+      "priority": "watch",
+      "title": "Sage Active Enhances SMB Offerings with Cloud and AI Capabilities",
+      "body": "Sage launched Sage Active, a cloud-based management solution for SMBs (10-250 employees), in February 2023. It aims to simplify accounting and financial management with features like AI-powered invoice capture and processing. Sage Active is designed to be scalable and integrates with other business tools, reflecting Sage's cloud strategy and investment in Europe.",
+      "implication": "While not a new signal, the continued emphasis on AI within Sage Active suggests a strategic direction that could be leveraged against competitors. Monitoring its adoption and feature development in France is crucial.",
+      "source": "La profession comptable, February 23 2023, BDM, Sage France"
+    },
+    {
+      "id": "fr-pa-mandate-confirmation",
+      "category": "Regulatory",
+      "market": "FR",
+      "date": "May 2026",
+      "priority": "critical",
+      "title": "France Confirms September 1, 2026 PA Mandate Deadline Amidst Pilot Phase",
+      "body": "The French government has confirmed that the electronic invoicing mandate will proceed as scheduled on September 1, 2026. A national pilot phase for real-time electronic invoice exchanges between businesses began on February 27, 2026. The administration acknowledges that not everything will be perfect by the September 1st deadline, adopting a pragmatic approach. All VAT-subjected companies in France must register in the central directory before this date.",
+      "implication": "This confirmation reinforces the urgency for Sage to ensure its solutions are fully compliant and that partners are prepared for the mandate. It also highlights a potential window for competitive advantage if Sage can offer a smoother transition than competitors.",
+      "source": "Compta Online, May 08 2026",
+      "calendar_tag": true
+    },
     {
       "id": "germany-b2b-e-invoicing-2027-2028",
       "category": "Regulatory",
@@ -57,17 +91,6 @@
       "implication": "This regulatory change presents a significant opportunity for Sage's e-invoicing solutions. Proactive engagement with German businesses to ensure compliance with XRechnung or ZUGFeRD is crucial. Failure to adapt could lead to non-compliance risks for Sage customers.",
       "source": "Compliant e-invoicing in Germany with XRechnung and ZUGFeRD - Dynatos (March 13 2025), E-Invoicing Requirements in Germany: Guide, Steps and Timeline - Trustpair (February 27 2026)",
       "calendar_tag": true
-    },
-    {
-      "id": "cegid-sevdesk-acquisition-2025",
-      "category": "Competitive",
-      "market": "DE",
-      "date": "Feb 2025",
-      "priority": "high",
-      "title": "Cegid acquires sevDesk, strengthening its DACH cloud and e-invoicing offerings",
-      "body": "Cegid completed the acquisition of sevDesk GmbH in February 2025. This move expands Cegid's presence in German-speaking Europe, a market with over 5 million micro and SMB businesses experiencing rapid demand for cloud solutions and e-invoicing compliance. SevDesk, founded in 2013, offers cloud-based accounting and invoicing software, serving over 130,000 customers.",
-      "implication": "Cegid's acquisition of sevDesk positions them as a stronger competitor in the German market, particularly with upcoming e-invoicing mandates. This could impact Sage Active's market share and requires a strategic response to counter Cegid's expanded offering.",
-      "source": "Cegid - Sevdesk | Transaction Details - Houlihan Lokey (May 22 2025), sevdesk is now part of Cegid (February 06 2025)"
     },
     {
       "id": "germany-b2b-e-invoicing-mandate-update",
