@@ -70,6 +70,12 @@ const FEEDS = [
   { url:'https://www.sevdesk.de/blog/feed/',           source:'SevDesk Blog',         category:'Competitive',        market:'DE', topic:'competitor', label:'SevDesk/Cegid DE (blog)', maxItems:2 },
   { url:'https://blog.qonto.com/fr/feed/',             source:'Qonto Blog FR',        category:'Competitive',        market:'FR', topic:'competitor', label:'Qonto (blog)',             maxItems:3, keywords:['comptabilit','expert','facture','regate','partenaire','cabinet'] },
   { url:'https://www.myunisoft.fr/blog/feed/',         source:'MyUnisoft Blog',       category:'Competitive',        market:'FR', topic:'competitor', label:'MyUnisoft (blog)',         maxItems:2 },
+  // ── FR competitors: Isacompta (AGIRIS), ACD Groupe, fulll ───────────────
+  { url:'https://www.agiris.fr/blog/feed/', source:'AGIRIS Blog', category:'Competitive', market:'FR', topic:'competitor', label:'Isacompta (AGIRIS)', keywords:['isacompta','agiris','expert-comptable'], maxItems:2 },
+  { url:'https://news.google.com/rss/search?q=isacompta+OR+agiris+logiciel+expert+comptable&hl=fr&gl=FR&ceid=FR:fr', source:'Google News FR', category:'Competitive', market:'FR', topic:'competitor', label:'Isacompta (GNews FR)', keywords:['isacompta','agiris'], maxItems:3 },
+  { url:'https://news.google.com/rss/search?q=%22ACD+groupe%22+OR+%22suite+expert+comptable%22&hl=fr&gl=FR&ceid=FR:fr', source:'Google News FR', category:'Competitive', market:'FR', topic:'competitor', label:'ACD Groupe (GNews FR)', keywords:['acd groupe'], maxItems:3 },
+  { url:'https://news.google.com/rss/search?q=%22fulll%22+logiciel+comptable+OR+%22ibiza+software%22&hl=fr&gl=FR&ceid=FR:fr', source:'Google News FR', category:'Competitive', market:'FR', topic:'competitor', label:'fulll (GNews FR)', keywords:['fulll','ibiza software'], maxItems:3 },
+  { url:'https://news.google.com/rss/search?q=isacompta+OR+%22acd+groupe%22+OR+fulll+expert+comptable&hl=en&gl=GB&ceid=GB:en', source:'Google News EN', category:'Competitive', market:'FR', topic:'competitor', label:'FR Competitors EN (GNews)', keywords:['isacompta','acd','fulll'], maxItems:3 },
   { url:'https://www.sage.com/en-gb/blog/feed/',       source:'Sage Global Blog',     category:'Sage News',          market:'EU', topic:'sage',       label:'Sage Global (blog)',       maxItems:3 },
   { url:'https://www.sage.com/fr-fr/blog/feed/',       source:'Sage France Blog',     category:'Sage News',          market:'FR', topic:'sage',       label:'Sage France (blog)',       maxItems:3 },
   { url:'https://developer.sage.com/blog/feed/',       source:'Sage Developer Blog',  category:'Sage News',          market:'EU', topic:'sage',       label:'Sage Developer (blog)',    maxItems:2 },
@@ -276,6 +282,7 @@ const seenEventKeys = new Set();
 const ENTITIES = [
   'pennylane','cegid','holded','datev','qonto','regate','myunisoft','lexoffice',
   'sevdesk','xero','quickbooks','intuit','sage','visma','shine','ageras',
+  'isacompta','agiris','acd groupe','fulll','ibiza software',
   'anthropic','openai','mistral',
   'verifactu','xrechnung','e-rechnung','e-rechnungspflicht','zugferd','vida','saf-t','factur-x',
   'dgfip','aeat','hacienda','bundesfinanzministerium','bmf',
@@ -457,6 +464,9 @@ function implication({ category, market, label='', title='', source='' }) {
     if (l.includes('xero')) return 'BENCHMARK: Xero JAX AI Anthropic partnership. No French PA cert, no Spanish Verifactu today. Monitor EU compliance feature adds monthly - if JAX gains EU compliance H2 2026 landscape changes.';
     if (l.includes('lexoffice')||l.includes('sevdesk')) return 'GERMANY: Cegid owns SevDesk since April 2025. Monitor for DATEV integration moves - that signals a serious attack on the German accountant base.';
     if (l.includes('sage')) return 'SAGE NEWS: Use positive Sage news in accountant conversations. Monitor for product or partnership announcements relevant to WiSE markets.';
+    if (l.includes('isacompta') || l.includes('agiris')) return 'FRANCE: Isacompta/AGIRIS competes directly with Génération Experts in French accountant practices. Their AI automation (AmiCompta) is accelerating. Any product update or pricing move is a GE retention risk. Isacompta practices are SfA conversion targets.';
+    if (l.includes('acd groupe') || l.includes('suite expert')) return 'FRANCE: ACD Groupe Suite Expert is a direct competitor in French accountant practices. Any PA certification or e-invoicing feature ahead of September 2026 is strategically significant. ACD practices are a priority SfA conversion target.';
+    if (l.includes('fulll') || l.includes('ibiza software')) return 'FRANCE: fulll (formerly Ibiza Software/In Extenso Digital) is 100% cloud, competing on accounting + payroll. Watch for PA certification announcement ahead of September 2026 — if certified, they become a direct compliance competitor.';
     return 'MARKET SIGNAL: Competitor movement detected. Assess impact on FR/ES/DE/PT positioning and update the relevant battlecard.';
   }
 
@@ -751,6 +761,9 @@ function criticalityScore(sig) {
   if (text.includes('holded')) score += 12;
   if (text.includes('datev')) score += 8;
   if (text.includes('regate') || text.includes('qonto')) score += 10;
+  if (text.includes('isacompta') || text.includes('agiris')) score += 12;
+  if (text.includes('acd groupe') || text.includes('suite expert')) score += 10;
+  if (text.includes('fulll') || text.includes('ibiza software')) score += 10;
   if (text.includes('xero')) score += 6;
   if (text.includes('lexoffice') || text.includes('sevdesk')) score += 6;
 
