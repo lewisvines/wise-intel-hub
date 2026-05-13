@@ -665,7 +665,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:16
 <div id="sidebar">
  <div class="sb-logo">
  <div class="sb-logo-text">WiSE <span>Intel Hub</span></div>
- <div class="sb-badge"><span class="pulse-dot"></span>Live · 11 May 2026</div>
+ <div class="sb-badge"><span class="pulse-dot"></span><span id="hub-live-date">Live · ...</span></div>
  </div>
 
  <div class="sb-section-label">Overview</div>
@@ -729,7 +729,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:16
  <div class="sb-meta" style="margin-top:20px;">
  FR · ES · DE · PT<br>
  Sage Europe · Small Business &amp; Accountants<br>
- Updated: May 11, 2026 · Signals refreshed daily
+ <span id="hub-updated-date">Updated: ...</span> · Signals refreshed daily
  </div>
 </div>
 
@@ -7199,5 +7199,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+
+<script>
+(function(){var d=new Date();var m=["January","February","March","April","May","June","July","August","September","October","November","December"];var l=document.getElementById("hub-live-date");var u=document.getElementById("hub-updated-date");if(l)l.textContent="Live · "+d.getDate()+" "+m[d.getMonth()]+" "+d.getFullYear();if(u)u.textContent="Updated: "+m[d.getMonth()]+" "+d.getDate()+", "+d.getFullYear();})();
+</script>
 </body>
 </html>
