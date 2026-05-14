@@ -818,6 +818,37 @@ function init(staticryptConfig, templateConfig) {
                 footer.innerHTML = 'Sage Group plc &middot; Internal use only<br><span id="hub-updated-date">Updated: ...</span>';
                 sb.appendChild(footer);
 
+                // ── Ensure topbar buttons are visible ──────────────
+                var tb = document.getElementById('topbar');
+                if (tb) {
+                  tb.style.display = 'flex';
+                  tb.style.alignItems = 'center';
+                  tb.style.padding = '0 20px';
+                  tb.style.height = '52px';
+                  tb.style.background = '#fff';
+                  tb.style.borderBottom = '1px solid #E0E0E0';
+                  tb.style.position = 'fixed';
+                  tb.style.top = '0';
+                  tb.style.left = '240px';
+                  tb.style.right = '0';
+                  tb.style.zIndex = '100';
+                  tb.style.gap = '10px';
+                }
+                // Style each topbar button
+                ['search-btn'].forEach(function(bid) {
+                  var b = document.getElementById(bid);
+                  if (b) {
+                    b.style.cssText = 'background:#f4f4f4;border:1px solid #E0E0E0;border-radius:6px;padding:6px 14px;font-size:13px;font-weight:500;cursor:pointer;color:#333;font-family:Inter,sans-serif;';
+                  }
+                });
+                document.querySelectorAll('.tb-btn, .tb-share-btn').forEach(function(b) {
+                  if (b.classList.contains('tb-share-btn') || b.textContent.includes('Share')) {
+                    b.style.cssText = 'background:#00B050;border:none;border-radius:6px;padding:7px 16px;font-size:13px;font-weight:700;cursor:pointer;color:#fff;font-family:Inter,sans-serif;';
+                  } else {
+                    b.style.cssText = 'background:#f4f4f4;border:1px solid #E0E0E0;border-radius:6px;padding:6px 14px;font-size:13px;font-weight:500;cursor:pointer;color:#333;font-family:Inter,sans-serif;';
+                  }
+                });
+
                 // ── Set dates ──────────────────────────────────────────
                 var d2 = new Date();
                 var mo = ['January','February','March','April','May','June','July','August','September','October','November','December'];
