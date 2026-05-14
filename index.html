@@ -637,7 +637,9 @@ function init(staticryptConfig, templateConfig) {
         if (typeof replaceHtmlCallback === "function") {
             replaceHtmlCallback(plainHTML);
         } else {
-            document.write(plainHTML);
+            // Auto-patch dates before rendering
+            const _autoDateScript = '<script>(function(){var d=new Date();var m=["January","February","March","April","May","June","July","August","September","October","November","December"];var lv=document.getElementById("hub-live-date");var uv=document.getElementById("hub-updated-date");if(lv)lv.textContent="Live \u00b7 "+d.getDate()+" "+m[d.getMonth()]+" "+d.getFullYear();if(uv)uv.textContent="Updated: "+m[d.getMonth()]+" "+d.getDate()+", "+d.getFullYear();})();<\/script>';
+            document.write(plainHTML.replace('<\/body>', _autoDateScript + '<\/body>'));
             document.close();
         }
 
