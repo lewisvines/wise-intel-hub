@@ -656,6 +656,73 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:16
  flex-shrink: 0;
  font-family: var(--font);
 }
+
+/* ══ BATTLE ROOM ══════════════════════════════════════════════ */
+.br-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px;margin-bottom:24px;}
+.br-comp-card{background:var(--bg1);border:1px solid var(--border);border-radius:10px;padding:20px;position:relative;overflow:hidden;}
+.br-comp-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;}
+.br-comp-card.c-critical::before{background:#dc2626;}
+.br-comp-card.c-high::before{background:var(--amber);}
+.br-comp-card.c-partner::before{background:#2563eb;}
+.br-comp-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:14px;gap:10px;}
+.br-comp-name{font-size:15px;font-weight:800;color:var(--text);letter-spacing:-0.3px;}
+.br-comp-mkts{font-size:11px;color:var(--text3);margin-top:2px;}
+.br-badge{font-size:10px;font-weight:700;padding:3px 9px;border-radius:10px;letter-spacing:0.4px;text-transform:uppercase;flex-shrink:0;}
+.br-badge.critical{background:rgba(220,38,38,.1);color:#b91c1c;border:1px solid rgba(220,38,38,.2);}
+.br-badge.high{background:rgba(255,181,0,.12);color:#92400e;border:1px solid rgba(255,181,0,.25);}
+.br-badge.partner{background:rgba(37,99,235,.1);color:#1e40af;border:1px solid rgba(37,99,235,.2);}
+.br-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px;}
+.br-stat{text-align:center;background:var(--bg3);border-radius:6px;padding:8px 4px;}
+.br-stat-n{font-size:17px;font-weight:900;line-height:1;}
+.br-stat-n.red{color:#dc2626;} .br-stat-n.amber{color:#d97706;} .br-stat-n.green{color:var(--g2);} .br-stat-n.blue{color:#2563eb;}
+.br-stat-l{font-size:9px;font-weight:600;letter-spacing:.3px;text-transform:uppercase;color:var(--text3);margin-top:3px;}
+.br-bar-label{display:flex;justify-content:space-between;font-size:11px;font-weight:600;color:var(--text2);margin-bottom:4px;}
+.br-bar-track{height:7px;background:var(--border);border-radius:4px;overflow:hidden;margin-bottom:14px;}
+.br-bar-fill{height:100%;border-radius:4px;transition:width .5s ease;}
+.br-bar-fill.red{background:#dc2626;} .br-bar-fill.amber{background:var(--amber);} .br-bar-fill.green{background:var(--g);} .br-bar-fill.blue{background:#2563eb;}
+.br-feed-box{background:var(--bg3);border-radius:8px;padding:12px;}
+.br-feed-title{font-size:10px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--text3);margin-bottom:8px;}
+.br-feed-item{font-size:12px;color:var(--text2);padding:5px 0;border-bottom:1px solid var(--border);line-height:1.5;}
+.br-feed-item:last-child{border-bottom:none;}
+.br-feed-item em{font-style:normal;font-weight:600;color:var(--text);}
+.br-feed-empty{font-size:12px;color:var(--text3);font-style:italic;}
+.br-context-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:24px;}
+.br-ctx-card{background:var(--bg1);border:1px solid var(--border);border-radius:8px;padding:14px;text-align:center;}
+.br-ctx-n{font-size:24px;font-weight:900;line-height:1;}
+.br-ctx-l{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.3px;color:var(--text3);margin-top:4px;}
+.br-alert{background:rgba(220,38,38,.05);border:1px solid rgba(220,38,38,.2);border-left:3px solid #dc2626;border-radius:0 8px 8px 0;padding:12px 16px;margin-bottom:20px;}
+.br-alert-title{font-size:13px;font-weight:700;color:#b91c1c;margin-bottom:3px;}
+.br-alert-body{font-size:12px;color:var(--text2);line-height:1.5;}
+
+/* ══ WEEKLY BRIEF ════════════════════════════════════════════ */
+.wb-hero{background:linear-gradient(135deg,#0A0A0A 0%,#1a2e1a 100%);border-radius:12px;padding:28px 32px;color:#fff;margin-bottom:22px;position:relative;overflow:hidden;}
+.wb-hero::after{content:'';position:absolute;top:-40px;right:-40px;width:140px;height:140px;border-radius:50%;background:rgba(0,176,80,.12);}
+.wb-hero-eye{font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:rgba(0,176,80,.8);margin-bottom:6px;}
+.wb-hero-title{font-size:22px;font-weight:900;letter-spacing:-.5px;margin-bottom:4px;}
+.wb-hero-sub{font-size:13px;color:rgba(255,255,255,.65);line-height:1.5;margin-bottom:18px;}
+.wb-gen-btn{display:inline-flex;align-items:center;gap:8px;background:var(--g);border:none;color:#fff;font-family:var(--font);font-size:13px;font-weight:700;padding:11px 22px;border-radius:7px;cursor:pointer;transition:background .15s;letter-spacing:-.1px;}
+.wb-gen-btn:hover{background:var(--g2);}
+.wb-gen-btn:disabled{opacity:.5;cursor:not-allowed;}
+.wb-ctx-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-bottom:20px;}
+.wb-ctx-card{background:var(--bg1);border:1px solid var(--border);border-radius:8px;padding:14px;}
+.wb-ctx-label{font-size:10px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;color:var(--text3);margin-bottom:4px;}
+.wb-ctx-val{font-size:20px;font-weight:900;color:var(--text);line-height:1.1;}
+.wb-ctx-sub{font-size:11px;color:var(--text3);margin-top:3px;}
+.wb-output-card{background:var(--bg1);border:1px solid var(--border);border-radius:10px;padding:24px;margin-bottom:16px;}
+.wb-output-empty{text-align:center;padding:48px 24px;color:var(--text3);}
+.wb-output-empty-icon{font-size:32px;margin-bottom:10px;}
+.wb-output-empty-text{font-size:13px;line-height:1.6;}
+.wb-section-label{font-size:10px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--g2);margin:16px 0 6px;padding-bottom:4px;border-bottom:1px solid var(--gdim);}
+.wb-section-label:first-child{margin-top:0;}
+.wb-brief-body{font-size:14px;color:var(--text2);line-height:1.8;}
+.wb-brief-body p{margin:0 0 10px;}
+.wb-brief-body strong{color:var(--text);font-weight:700;}
+.wb-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px;}
+.wb-act-btn{display:inline-flex;align-items:center;gap:6px;background:var(--bg3);border:1px solid var(--border);color:var(--text2);font-family:var(--font);font-size:12px;font-weight:600;padding:8px 16px;border-radius:6px;cursor:pointer;transition:all .12s;}
+.wb-act-btn:hover{background:var(--gdim);color:var(--g2);border-color:rgba(0,176,80,.3);}
+.wb-spinner{display:inline-block;width:14px;height:14px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite;}
+.wb-progress{font-size:12px;color:rgba(255,255,255,.7);margin-top:10px;min-height:18px;}
+
 </style>
 </head>
 <body>
@@ -675,6 +742,8 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:16
  <button class="sb-link active" data-page="signals"><span class="sb-dot"></span><span data-i18n='Signals' data-fr='Signaux' data-es='Señales'>Signals</span></button>
  <button class="sb-link" data-page="competitors"><span class="sb-dot"></span><span data-i18n='Competitors' data-fr='Concurrents' data-es='Competidores'>Competitors</span></button>
  <button class="sb-link" data-page="ai-watch"><span class="sb-dot"></span><span data-i18n='AI Watch' data-fr='Veille IA' data-es='Seguimiento IA'>AI Watch</span></button>
+ <button class="sb-link" data-page="battle-room"><span class="sb-dot"></span>Battle Room</button>
+ <button class="sb-link" data-page="weekly-brief"><span class="sb-dot"></span>Weekly Brief</button>
  <button class="sb-link" data-page="brand"><span class="sb-dot"></span><span data-i18n='Brand Positioning' data-fr='Positionnement de marque' data-es='Posicionamiento de marca'>Brand Positioning</span></button>
  <button class="sb-link" data-page="hiring"><span class="sb-dot"></span><span data-i18n='Hiring Signals' data-fr='Signaux de recrutement' data-es='Señales de contratación'>Hiring Signals</span></button>
  <button class="sb-link" data-page="regulatory"><span class="sb-dot"></span><span data-i18n='Regulatory Calendar' data-fr='Calendrier réglementaire' data-es='Calendario regulatorio'>Regulatory Calendar</span></button>
@@ -2852,6 +2921,14 @@ const titles = {
 };
 
 function showPage(id) {
+  if (id === 'battle-room') { setTimeout(initBattleRoom, 100); }
+  if (id === 'weekly-brief') { 
+    const r = fetch(SIGNALS_URL + '?v=' + Date.now()).then(r=>r.json()).then(d=>{
+      const count = document.getElementById('wb-signal-count');
+      const signals = Array.isArray(d) ? d : (d.signals||[]);
+      if(count) count.textContent = signals.length;
+    }).catch(()=>{});
+  }
  pages.forEach(p => p.classList.remove('active'));
  navLinks.forEach(l => l.classList.remove('active'));
  const target = document.getElementById('page-' + id);
@@ -5635,6 +5712,186 @@ loadLiveSignals();
 </div><!-- end page-methodology -->
 
 
+
+
+<!-- ══ BATTLE ROOM ══════════════════════════════════════════════════════ -->
+<div class="page-section" id="page-battle-room">
+ <div class="page-header reveal">
+  <div class="page-eyebrow">Intelligence — Competitive Battle Room</div>
+  <div class="page-title">Competitive <em>Battle Room</em></div>
+  <div class="page-subtitle">Win/loss signals by competitor updated daily. Alert thresholds fire when signal criticality spikes. Use this to coach conversations and prioritise counter-moves.</div>
+ </div>
+
+ <div class="br-context-row reveal" id="br-ctx-row">
+  <div class="br-ctx-card"><div class="br-ctx-n" id="br-total">—</div><div class="br-ctx-l">Signals This Week</div></div>
+  <div class="br-ctx-card"><div class="br-ctx-n red" id="br-critical">—</div><div class="br-ctx-l">Critical Alerts</div></div>
+  <div class="br-ctx-card"><div class="br-ctx-n amber" id="br-high">—</div><div class="br-ctx-l">High Alerts</div></div>
+  <div class="br-ctx-card"><div class="br-ctx-n green">6</div><div class="br-ctx-l">Tracked Competitors</div></div>
+ </div>
+
+ <div class="br-alert reveal" id="br-main-alert" style="display:none">
+  <div class="br-alert-title" id="br-alert-title">⚡ COMPETITIVE ALERT</div>
+  <div class="br-alert-body" id="br-alert-body"></div>
+ </div>
+
+ <div class="br-grid reveal">
+
+  <div class="br-comp-card c-critical">
+   <div class="br-comp-header"><div><div class="br-comp-name">Pennylane</div><div class="br-comp-mkts">🇫🇷 FR · 🇩🇪 DE active · 🇪🇸 ES H2 2026</div></div><span class="br-badge critical">Critical</span></div>
+   <div class="br-stats">
+    <div class="br-stat"><div class="br-stat-n red">€175M</div><div class="br-stat-l">Jan 2026 raise</div></div>
+    <div class="br-stat"><div class="br-stat-n amber">6,000+</div><div class="br-stat-l">Accountant firms</div></div>
+    <div class="br-stat"><div class="br-stat-n red">€115M</div><div class="br-stat-l">ARR 2025</div></div>
+   </div>
+   <div class="br-bar-label"><span>Competitive pressure index</span><span style="color:#dc2626">Extreme</span></div>
+   <div class="br-bar-track"><div class="br-bar-fill red" style="width:88%"></div></div>
+   <div class="br-feed-box">
+    <div class="br-feed-title">Latest intelligence</div>
+    <div id="br-feed-pennylane"><span class="br-feed-empty">Fetching signals…</span></div>
+   </div>
+  </div>
+
+  <div class="br-comp-card c-critical">
+   <div class="br-comp-header"><div><div class="br-comp-name">Cegid + EBP + Shine</div><div class="br-comp-mkts">🇫🇷 FR · 🇵🇹 PT via Primavera · 🇩🇪 DE via SevDesk</div></div><span class="br-badge critical">Critical</span></div>
+   <div class="br-stats">
+    <div class="br-stat"><div class="br-stat-n red">€967M</div><div class="br-stat-l">Revenue 2024</div></div>
+    <div class="br-stat"><div class="br-stat-n amber">15k</div><div class="br-stat-l">Accountants</div></div>
+    <div class="br-stat"><div class="br-stat-n red">100</div><div class="br-stat-l">New FR reps Q2</div></div>
+   </div>
+   <div class="br-bar-label"><span>Competitive pressure index</span><span style="color:#dc2626">Extreme</span></div>
+   <div class="br-bar-track"><div class="br-bar-fill red" style="width:82%"></div></div>
+   <div class="br-feed-box">
+    <div class="br-feed-title">Latest intelligence</div>
+    <div id="br-feed-cegid"><span class="br-feed-empty">Fetching signals…</span></div>
+   </div>
+  </div>
+
+  <div class="br-comp-card c-critical">
+   <div class="br-comp-header"><div><div class="br-comp-name">Holded / Visma</div><div class="br-comp-mkts">🇪🇸 ES primary · Verifactu race underway</div></div><span class="br-badge critical">Critical</span></div>
+   <div class="br-stats">
+    <div class="br-stat"><div class="br-stat-n amber">80k+</div><div class="br-stat-l">Customers</div></div>
+    <div class="br-stat"><div class="br-stat-n amber">700+</div><div class="br-stat-l">Integrations</div></div>
+    <div class="br-stat"><div class="br-stat-n red">Jan 27</div><div class="br-stat-l">Verifactu target</div></div>
+   </div>
+   <div class="br-bar-label"><span>Competitive pressure index (ES)</span><span style="color:#d97706">High</span></div>
+   <div class="br-bar-track"><div class="br-bar-fill amber" style="width:72%"></div></div>
+   <div class="br-feed-box">
+    <div class="br-feed-title">Latest intelligence</div>
+    <div id="br-feed-holded"><span class="br-feed-empty">Fetching signals…</span></div>
+   </div>
+  </div>
+
+  <div class="br-comp-card c-high">
+   <div class="br-comp-header"><div><div class="br-comp-name">Isacompta / AGIRIS</div><div class="br-comp-mkts">🇫🇷 FR — direct GE segment competitor</div></div><span class="br-badge high">High</span></div>
+   <div class="br-stats">
+    <div class="br-stat"><div class="br-stat-n amber">AI</div><div class="br-stat-l">AmiCompta</div></div>
+    <div class="br-stat"><div class="br-stat-n amber">GE</div><div class="br-stat-l">Same segment</div></div>
+    <div class="br-stat"><div class="br-stat-n green">20yr+</div><div class="br-stat-l">FR heritage</div></div>
+   </div>
+   <div class="br-bar-label"><span>Competitive pressure index (FR practices)</span><span style="color:#d97706">High</span></div>
+   <div class="br-bar-track"><div class="br-bar-fill amber" style="width:58%"></div></div>
+   <div class="br-feed-box">
+    <div class="br-feed-title">Latest intelligence</div>
+    <div id="br-feed-isacompta"><span class="br-feed-empty">Fetching signals…</span></div>
+   </div>
+  </div>
+
+  <div class="br-comp-card c-high">
+   <div class="br-comp-header"><div><div class="br-comp-name">MyUnisoft</div><div class="br-comp-mkts">🇫🇷 FR — cloud-native challenger</div></div><span class="br-badge high">High</span></div>
+   <div class="br-stats">
+    <div class="br-stat"><div class="br-stat-n amber">Cloud</div><div class="br-stat-l">Native</div></div>
+    <div class="br-stat"><div class="br-stat-n amber">PA?</div><div class="br-stat-l">Status: watch</div></div>
+    <div class="br-stat"><div class="br-stat-n green">SfA</div><div class="br-stat-l">Target base</div></div>
+   </div>
+   <div class="br-bar-label"><span>Competitive pressure index (FR)</span><span style="color:#d97706">Medium-High</span></div>
+   <div class="br-bar-track"><div class="br-bar-fill amber" style="width:45%"></div></div>
+   <div class="br-feed-box">
+    <div class="br-feed-title">Latest intelligence</div>
+    <div id="br-feed-myunisoft"><span class="br-feed-empty">Fetching signals…</span></div>
+   </div>
+  </div>
+
+  <div class="br-comp-card c-partner">
+   <div class="br-comp-header"><div><div class="br-comp-name">DATEV</div><div class="br-comp-mkts">🇩🇪 DE — strategic partner, not a fight</div></div><span class="br-badge partner">Partner</span></div>
+   <div class="br-stats">
+    <div class="br-stat"><div class="br-stat-n blue">70%</div><div class="br-stat-l">DE market share</div></div>
+    <div class="br-stat"><div class="br-stat-n blue">2.8M</div><div class="br-stat-l">Businesses</div></div>
+    <div class="br-stat"><div class="br-stat-n green">✓</div><div class="br-stat-l">Work alongside</div></div>
+   </div>
+   <div class="br-bar-label"><span>Partnership opportunity index (DE)</span><span style="color:#2563eb">Strategic</span></div>
+   <div class="br-bar-track"><div class="br-bar-fill blue" style="width:70%;background:#2563eb"></div></div>
+   <div class="br-feed-box">
+    <div class="br-feed-title">Strategic watch</div>
+    <div id="br-feed-datev"><span class="br-feed-empty">Fetching signals…</span></div>
+   </div>
+  </div>
+
+ </div>
+</div><!-- end page-battle-room -->
+
+
+<!-- ══ WEEKLY BRIEF ══════════════════════════════════════════════════════ -->
+<div class="page-section" id="page-weekly-brief">
+ <div class="page-header reveal">
+  <div class="page-eyebrow">Intelligence — WiSE Weekly Brief</div>
+  <div class="page-title">WiSE <em>Weekly Brief</em></div>
+  <div class="page-subtitle">AI-generated strategic summary of the week's market signals. One click to a board-ready brief you can drop straight into Steerco.</div>
+ </div>
+
+ <div class="wb-hero reveal">
+  <div class="wb-hero-eye">📋 AI STRATEGIC BRIEF</div>
+  <div class="wb-hero-title">Week of 14 May 2026</div>
+  <div class="wb-hero-sub">Powered by Claude AI — reads this week's WiSE signals and synthesises what moved, what it means for FR/ES/DE/PT, and the single most important action for the week.</div>
+  <button class="wb-gen-btn" id="wb-generate-btn" onclick="generateWeeklyBrief()">
+   <span id="wb-btn-icon">✦</span> <span id="wb-btn-text">Generate This Week's Brief</span>
+  </button>
+  <div class="wb-progress" id="wb-progress"></div>
+ </div>
+
+ <div class="wb-ctx-grid reveal">
+  <div class="wb-ctx-card">
+   <div class="wb-ctx-label">France PA Mandate</div>
+   <div class="wb-ctx-val red" id="wb-fr-days">110</div>
+   <div class="wb-ctx-sub">days to Sept 1 2026</div>
+  </div>
+  <div class="wb-ctx-card">
+   <div class="wb-ctx-label">Signal Intensity</div>
+   <div class="wb-ctx-val" id="wb-signal-count">—</div>
+   <div class="wb-ctx-sub">signals this week</div>
+  </div>
+  <div class="wb-ctx-card">
+   <div class="wb-ctx-label">Top Threat</div>
+   <div class="wb-ctx-val red" style="font-size:14px">Pennylane</div>
+   <div class="wb-ctx-sub">+ Cegid 100 reps Q2</div>
+  </div>
+  <div class="wb-ctx-card">
+   <div class="wb-ctx-label">Markets In Scope</div>
+   <div class="wb-ctx-val" style="font-size:14px">FR · ES · DE · PT</div>
+   <div class="wb-ctx-sub">WiSE territory</div>
+  </div>
+ </div>
+
+ <div class="wb-output-card reveal" id="wb-output">
+  <div class="wb-output-empty" id="wb-empty-state">
+   <div class="wb-output-empty-icon">✦</div>
+   <div class="wb-output-empty-text">Click <strong>Generate This Week's Brief</strong> above.<br>Claude will read this week's WiSE signals and write a board-ready strategic summary in under 30 seconds.</div>
+  </div>
+  <div id="wb-brief-content" style="display:none">
+   <div class="wb-section-label">What moved this week</div>
+   <div class="wb-brief-body" id="wb-section-1"></div>
+   <div class="wb-section-label">Market implications — FR · ES · DE · PT</div>
+   <div class="wb-brief-body" id="wb-section-2"></div>
+   <div class="wb-section-label">Single priority action</div>
+   <div class="wb-brief-body" id="wb-section-3"></div>
+   <div class="wb-actions">
+    <button class="wb-act-btn" onclick="copyBrief()">📋 Copy brief</button>
+    <button class="wb-act-btn" onclick="downloadBrief()">⬇ Download .txt</button>
+   </div>
+  </div>
+ </div>
+
+</div><!-- end page-weekly-brief -->
+
 </div><!-- /#main -->
 
 
@@ -7202,6 +7459,208 @@ document.addEventListener('DOMContentLoaded', () => {
 
 <script>
 (function(){var d=new Date();var m=["January","February","March","April","May","June","July","August","September","October","November","December"];var l=document.getElementById("hub-live-date");var u=document.getElementById("hub-updated-date");if(l)l.textContent="Live · "+d.getDate()+" "+m[d.getMonth()]+" "+d.getFullYear();if(u)u.textContent="Updated: "+m[d.getMonth()]+" "+d.getDate()+", "+d.getFullYear();})();
+
+
+// ══ BATTLE ROOM ════════════════════════════════════════════════════════
+async function initBattleRoom() {
+  try {
+    const r = await fetch(SIGNALS_URL + '?v=' + Date.now());
+    if (!r.ok) return;
+    const payload = await r.json();
+    const signals = Array.isArray(payload) ? payload : (payload.signals || []);
+
+    // Count stats
+    const total = signals.length;
+    const critical = signals.filter(s => (s.criticality||s.severity||'').toLowerCase() === 'critical').length;
+    const high = signals.filter(s => (s.criticality||s.severity||'').toLowerCase() === 'high').length;
+
+    const el = id => document.getElementById(id);
+    if(el('br-total')) el('br-total').textContent = total;
+    if(el('br-critical')) el('br-critical').textContent = critical;
+    if(el('br-high')) el('br-high').textContent = high;
+
+    // Trigger alert if critical >= 5
+    if (critical >= 5) {
+      const banner = el('br-main-alert');
+      if (banner) {
+        banner.style.display = 'block';
+        if(el('br-alert-title')) el('br-alert-title').textContent = '⚡ HIGH COMPETITIVE ALERT — ' + critical + ' critical signals this week';
+        if(el('br-alert-body')) el('br-alert-body').textContent = 'Signal intensity has crossed the critical threshold. Immediate attention required on Pennylane and Cegid movements. Review feed below and escalate to steerco if pattern continues next 48hrs.';
+      }
+    }
+
+    // Route signals to competitor feeds
+    const feeds = {
+      'pennylane': 'br-feed-pennylane',
+      'cegid': 'br-feed-cegid',
+      'holded': 'br-feed-holded',
+      'isacompta': 'br-feed-isacompta',
+      'agiris': 'br-feed-isacompta',
+      'myunisoft': 'br-feed-myunisoft',
+      'datev': 'br-feed-datev'
+    };
+
+    const feedItems = {};
+    signals.forEach(s => {
+      const t = ((s.title||'') + ' ' + (s.implication||'') + ' ' + (s.source||'')).toLowerCase();
+      Object.entries(feeds).forEach(([kw, feedId]) => {
+        if (t.includes(kw)) {
+          if (!feedItems[feedId]) feedItems[feedId] = [];
+          if (feedItems[feedId].length < 3) feedItems[feedId].push(s);
+        }
+      });
+    });
+
+    // Render feeds
+    Object.entries(feedItems).forEach(([feedId, items]) => {
+      const container = document.getElementById(feedId);
+      if (!container) return;
+      container.innerHTML = items.map(s => {
+        const title = s.title || 'Signal';
+        const impl = s.implication || '';
+        const date = s.date || '';
+        return '<div class="br-feed-item"><em>' + title.slice(0,70) + (title.length>70?'…':'') + '</em>' +
+          (impl ? '<br><span style="font-size:11px;color:var(--text3)">' + impl.slice(0,120) + (impl.length>120?'…':'') + '</span>' : '') +
+          (date ? '<span style="float:right;font-size:10px;color:var(--text4)">' + date + '</span>' : '') +
+          '</div>';
+      }).join('');
+    });
+
+    // Fill any empty feeds
+    Object.values(feeds).forEach(feedId => {
+      const container = document.getElementById(feedId);
+      if (container && container.innerHTML.includes('Fetching')) {
+        container.innerHTML = '<span class="br-feed-empty">No new signals this week — monitoring</span>';
+      }
+    });
+
+  } catch(e) { console.warn('Battle Room load error:', e); }
+}
+
+// ══ WEEKLY BRIEF ═══════════════════════════════════════════════════════
+let _briefText = '';
+
+async function generateWeeklyBrief() {
+  const btn = document.getElementById('wb-generate-btn');
+  const btnText = document.getElementById('wb-btn-text');
+  const btnIcon = document.getElementById('wb-btn-icon');
+  const progress = document.getElementById('wb-progress');
+  const emptyState = document.getElementById('wb-empty-state');
+  const briefContent = document.getElementById('wb-brief-content');
+
+  if (!btn) return;
+  btn.disabled = true;
+  btnText.textContent = 'Generating…';
+  btnIcon.innerHTML = '<span class="wb-spinner"></span>';
+  progress.textContent = 'Reading this week's WiSE signals…';
+
+  try {
+    // Fetch signals for context
+    const r = await fetch(SIGNALS_URL + '?v=' + Date.now());
+    const payload = await r.json();
+    const signals = Array.isArray(payload) ? payload : (payload.signals || []);
+
+    // Update signal count
+    const countEl = document.getElementById('wb-signal-count');
+    if (countEl) countEl.textContent = signals.length;
+
+    progress.textContent = 'Synthesising intelligence with Claude AI…';
+
+    // Build context from top signals
+    const topSignals = signals.slice(0, 25).map((s,i) =>
+      (i+1) + '. [' + (s.criticality||'—') + '] ' + (s.title||'Signal') + ' — ' + (s.implication||'').slice(0,150)
+    ).join('\n');
+
+    const today = new Date();
+    const weekStr = today.toLocaleDateString('en-GB', {day:'numeric', month:'long', year:'numeric'});
+
+    const prompt = `You are the WiSE PMM Intelligence Analyst for Sage Europe. It is ${weekStr}.
+
+WISE TERRITORY: France, Spain, Germany, Portugal. The accountant channel is Sage's primary growth engine. Key products: Sage for Accountants (SfA), AutoEntry (AE), Sage Active (AI-first cloud accounting, €6/month through accountants), Génération Experts (GE — 2,700 French practices), Sage Despachos (5,200 Spanish practices).
+
+STRATEGIC CONTEXT:
+- France mandate: All businesses must receive e-invoices via certified PA (Plateforme de dématérialisation agréée) from September 1 2026 — ${(new Date('2026-09-01') - today) / 86400000 | 0} days away
+- Primary threat: Pennylane (€115M ARR, 6,000+ accountant firms, PA-certified, expanding to Germany and Spain H2 2026)
+- Secondary threat: Cegid (100 new sales reps targeting GE practices from Q2 2026, EBP acquisition = 275k French SMB clients)
+- Spain window: Verifactu Jan 2027 corporate deadline — Holded is the key competitor
+- Sage moats: GE installed base (France), Despachos loyalty (Spain), 40-year compliance depth, AE+GoProposal+Sage Prévision ecosystem
+
+THIS WEEK'S TOP SIGNALS:
+${topSignals}
+
+Write a WiSE PMM Strategic Brief with exactly THREE sections using these headings:
+1. WHAT MOVED THIS WEEK
+2. MARKET IMPLICATIONS — FR · ES · DE · PT  
+3. SINGLE PRIORITY ACTION
+
+Rules:
+- Be specific, data-driven, and name competitors and numbers
+- Each section 3-5 sentences max
+- Section 3 must be ONE specific, actionable, named task with a deadline
+- Write in the voice of a senior PMM analyst briefing a VP
+- No fluff, no caveats, no "it's important to note that"
+- Use HTML: wrap competitor names in <strong> tags`;
+
+    const response = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 1000,
+        messages: [{ role: 'user', content: prompt }]
+      })
+    });
+
+    const data = await response.json();
+    const text = data.content?.[0]?.text || '';
+    _briefText = text;
+
+    // Parse into sections
+    const sec1Match = text.match(/1\.\s*WHAT MOVED[\s\S]*?(?=2\.|$)/i);
+    const sec2Match = text.match(/2\.\s*MARKET IMPL[\s\S]*?(?=3\.|$)/i);
+    const sec3Match = text.match(/3\.\s*SINGLE PRIORITY[\s\S]*$/i);
+
+    const clean = t => t.replace(/^\d+\.\s*[A-Z][A-Z\s·—-]+\n?/, '').trim();
+
+    const s1 = document.getElementById('wb-section-1');
+    const s2 = document.getElementById('wb-section-2');
+    const s3 = document.getElementById('wb-section-3');
+
+    if (s1) s1.innerHTML = '<p>' + (sec1Match ? clean(sec1Match[0]).replace(/\n/g,'</p><p>') : text.slice(0,300)) + '</p>';
+    if (s2) s2.innerHTML = '<p>' + (sec2Match ? clean(sec2Match[0]).replace(/\n/g,'</p><p>') : '') + '</p>';
+    if (s3) s3.innerHTML = '<p>' + (sec3Match ? clean(sec3Match[0]).replace(/\n/g,'</p><p>') : '') + '</p>';
+
+    emptyState.style.display = 'none';
+    briefContent.style.display = 'block';
+    progress.textContent = '✓ Brief generated — ' + new Date().toLocaleTimeString('en-GB', {hour:'2-digit',minute:'2-digit'});
+
+  } catch(e) {
+    progress.textContent = '⚠ Error generating brief — ' + e.message;
+    console.error('Brief generation error:', e);
+  } finally {
+    btn.disabled = false;
+    btnText.textContent = 'Regenerate Brief';
+    btnIcon.textContent = '↺';
+  }
+}
+
+function copyBrief() {
+  navigator.clipboard.writeText(_briefText).then(() => {
+    const btn = event.target;
+    btn.textContent = '✓ Copied!';
+    setTimeout(() => btn.textContent = '📋 Copy brief', 2000);
+  });
+}
+
+function downloadBrief() {
+  const today = new Date().toISOString().slice(0,10);
+  const blob = new Blob([_briefText], {type:'text/plain'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'WiSE-Brief-' + today + '.txt';
+  a.click();
+}
+
 </script>
 </body>
 </html>
