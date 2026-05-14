@@ -712,102 +712,190 @@ function init(staticryptConfig, templateConfig) {
             document.close();
 
             // ── Post-render: rebuild sidebar + add tiled home page ──────────
-            function _sbGroup(id, label, links) {
-              var linksHTML = links.map(function(l){ return '<button class=\"sb-link\" onclick=\"showPage(' + l[0] + ')\"><span class=\"sb-dot\"></span>' + l[1] + '</button>'; }).join('');
-              return '<div class=\"sb-group\" id=\"sbg-' + id + '\">' +
-                '<button class=\"sb-group-hdr\" onclick=\"toggleSbGroup(\\'' + id + '\\')\">' + label + '<span class=\"sb-group-hdr-arrow\">›</span></button>' +
-                '<div class=\"sb-group-body\">' + linksHTML + '</div>' +
-              '</div>';
-            }
-            function _hnTile(icon, label, title, desc, links) {
-              var linksHTML = links.map(function(l){ return '<span class=\"hn-tile-link\" onclick=\"showPage(' + l[0] + ')\">' + l[1] + '</span>'; }).join('');
-              return '<div class=\"hn-tile\" onclick=\"showPage(' + links[0][0] + ')\">' +
-                '<div class=\"hn-tile-arrow\">›</div>' +
-                '<div class=\"hn-tile-icon\">' + icon + '</div>' +
-                '<div class=\"hn-tile-label\">' + label + '</div>' +
-                '<div class=\"hn-tile-title\">' + title + '</div>' +
-                '<div class=\"hn-tile-desc\">' + desc + '</div>' +
-                '<div class=\"hn-tile-links\">' + linksHTML + '</div>' +
-              '</div>';
-            }
-            function toggleSbGroup(id) {
-              var g = document.getElementById('sbg-' + id);
-              if (!g) return;
-              var isOpen = g.classList.contains('open');
-              document.querySelectorAll('.sb-group').forEach(function(x){x.classList.remove('open');});
-              if (!isOpen) g.classList.add('open');
-            }
             setTimeout(function() {
               try {
-                // 1. Replace sidebar HTML with new Sage-branded collapsible nav
-                var sidebar = document.getElementById('sidebar');
-                if (sidebar) {
-                  sidebar.innerHTML = '' +
-                    '<div class="sb-logo">' +
-                      '<div class="sb-logo-inner">' +
-                        '<svg class="sage-s-mark" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">' +
-                          '<rect width="40" height="40" rx="8" fill="#00B050"/>' +
-                          '<path d="M28 14.5C26.4 12.4 24 11.5 21.5 11.5C17.3 11.5 14 14.2 14 17.8C14 21 16.4 22.8 20.2 24.1L21.7 24.6C24 25.5 25 26 25 27.4C25 28.4 24.1 29.4 22.2 29.4C20.3 29.4 18.4 28.4 17 26.9L14.7 29.7C16.6 31.6 19 32.5 22.2 32.5C26.4 32.5 29.8 29.8 29.8 26.1C29.8 22.9 27.5 21.1 23.7 19.8L22.2 19.3C20.3 18.4 18.8 17.9 18.8 16.5C18.8 15.5 19.7 14.5 21.5 14.5C23 14.5 24.4 15 25.4 16.5L28 14.5Z" fill="white"/>' +
-                        '</svg>' +
-                        '<div class="sb-brand-text">' +
-                          '<div class="sb-brand-sage">Sage</div>' +
-                          '<div class="sb-brand-hub">WiSE Intel Hub</div>' +
-                        '</div>' +
-                      '</div>' +
-                      '<div class="sb-live-pill"><span class="sb-pulse"></span><span id="hub-live-date">Live</span></div>' +
-                    '</div>' +
-                    '<nav class="sb-nav">' +
-                      '<button class="sb-dashboard-btn" onclick="showPage(\'home-nav\')">⊞ &nbsp;Browse All</button>' +
-                      '<button class="sb-link" data-page="dashboard" onclick="showPage(\'dashboard\')" style="margin:4px 8px;width:calc(100% - 16px);border-radius:5px;">⌂ &nbsp;Dashboard</button>' +
-                      _sbGroup('intelligence','◈ Intelligence',[['\'signals\'','Signals Feed'],['\'battle-room\'','Battle Room'],['\'weekly-brief\'','Weekly Brief'],['\'competitors\'','Competitors'],['\'ai-watch\'','AI Watch'],['\'hiring\'','Hiring Signals'],['\'brand\'','Brand Positioning'],['\'regulatory\'','Regulatory']])+
-                      _sbGroup('markets','◎ Markets',[['\'country-fr\'','<span class=\"sb-country-tag tag-fr\">FR</span>France'],['\'country-es\'','<span class=\"sb-country-tag tag-es\">ES</span>Spain'],['\'country-de\'','<span class=\"sb-country-tag tag-de\">DE</span>Germany'],['\'country-pt\'','<span class=\"sb-country-tag tag-pt\">PT</span>Portugal'],['\'country-uk\'','UK'],['\'country-us\'','US']])+
-                      _sbGroup('products','◻ Products & Customers',[['\'products\'','Products Overview'],['\'accountant-personas\'','Accountant Personas'],['\'smb-segments\'','SMB Segments']])+
-                      _sbGroup('sales','◇ Sales Tools',[['\'battlecards\'','Battle Cards'],['\'deal-intel\'','Deal Intelligence'],['\'campaign-alerts\'','Campaign Alerts'],['\'sales-enablement\'','Sales Enablement']])+
-                      _sbGroup('strategy','◈ Strategy',[['\'messaging-library\'','Messaging Library'],['\'win-loss\'','Win / Loss Intel'],['\'campaign-calendar\'','Campaign Calendar'],['\'competitor-compare\'','Competitor Compare']])+
-                      _sbGroup('toolkit','◉ PMM Toolkit',[['\'smb-direct\'','SMB Direct Playbook'],['\'5ds\'','5Ds Framework'],['\'craft-skills\'','Craft Skills'],['\'methodology\'','Methodology']])+
-                    '</nav>' +
-                    '<div class="sb-footer">Sage Group plc · Internal use only<br><span id="hub-updated-date">Updated: ...</span></div>';
-                }
+                // ── Rebuild sidebar ──────────────────────────────────────
+                var sb = document.getElementById('sidebar');
+                if (!sb) return;
+                sb.innerHTML = '';
 
-                // 2. Set today dates
+                // Logo section
+                var logo = document.createElement('div');
+                logo.className = 'sb-logo';
+                logo.innerHTML = '<div class="sb-logo-inner">' +
+                  '<svg class="sage-s-mark" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">' +
+                  '<rect width="40" height="40" rx="8" fill="#00B050"/>' +
+                  '<path d="M28 14.5C26.4 12.4 24 11.5 21.5 11.5C17.3 11.5 14 14.2 14 17.8C14 21 16.4 22.8 20.2 24.1L21.7 24.6C24 25.5 25 26 25 27.4C25 28.4 24.1 29.4 22.2 29.4C20.3 29.4 18.4 28.4 17 26.9L14.7 29.7C16.6 31.6 19 32.5 22.2 32.5C26.4 32.5 29.8 29.8 29.8 26.1C29.8 22.9 27.5 21.1 23.7 19.8L22.2 19.3C20.3 18.4 18.8 17.9 18.8 16.5C18.8 15.5 19.7 14.5 21.5 14.5C23 14.5 24.4 15 25.4 16.5L28 14.5Z" fill="white"/>' +
+                  '</svg>' +
+                  '<div class="sb-brand-text">' +
+                  '<div class="sb-brand-sage">Sage</div>' +
+                  '<div class="sb-brand-hub">WiSE Intel Hub</div>' +
+                  '</div></div>' +
+                  '<div class="sb-live-pill"><span class="sb-pulse"></span><span id="hub-live-date">Live</span></div>';
+                sb.appendChild(logo);
+
+                // Nav
+                var nav = document.createElement('nav');
+                nav.className = 'sb-nav';
+
+                // Browse All button
+                var browseBtn = document.createElement('button');
+                browseBtn.className = 'sb-dashboard-btn';
+                browseBtn.textContent = '⊞  Browse All';
+                browseBtn.onclick = function(){ showPage('home-nav'); };
+                nav.appendChild(browseBtn);
+
+                // Dashboard button
+                var dashBtn = document.createElement('button');
+                dashBtn.className = 'sb-link';
+                dashBtn.setAttribute('data-page', 'dashboard');
+                dashBtn.style.cssText = 'margin:4px 8px;width:calc(100% - 16px);border-radius:5px;';
+                dashBtn.innerHTML = '<span class="sb-dot"></span>Dashboard';
+                dashBtn.onclick = function(){ showPage('dashboard'); };
+                nav.appendChild(dashBtn);
+
+                // Define nav groups
+                var groups = [
+                  { id:'intelligence', label:'Intelligence', pages:[
+                    ['signals','Signals Feed'],['battle-room','Battle Room'],['weekly-brief','Weekly Brief'],
+                    ['competitors','Competitors'],['ai-watch','AI Watch'],['hiring','Hiring Signals'],
+                    ['brand','Brand Positioning'],['regulatory','Regulatory']
+                  ]},
+                  { id:'markets', label:'Markets', pages:[
+                    ['country-fr','France'],['country-es','Spain'],['country-de','Germany'],
+                    ['country-pt','Portugal'],['country-uk','United Kingdom'],['country-us','United States']
+                  ]},
+                  { id:'products', label:'Products & Customers', pages:[
+                    ['products','Products Overview'],['accountant-personas','Accountant Personas'],['smb-segments','SMB Segments']
+                  ]},
+                  { id:'sales', label:'Sales Tools', pages:[
+                    ['battlecards','Battle Cards'],['deal-intel','Deal Intelligence'],
+                    ['campaign-alerts','Campaign Alerts'],['sales-enablement','Sales Enablement']
+                  ]},
+                  { id:'strategy', label:'Strategy', pages:[
+                    ['messaging-library','Messaging Library'],['win-loss','Win / Loss Intel'],
+                    ['campaign-calendar','Campaign Calendar'],['competitor-compare','Competitor Compare']
+                  ]},
+                  { id:'toolkit', label:'PMM Toolkit', pages:[
+                    ['smb-direct','SMB Direct Playbook'],['5ds','5Ds Framework'],
+                    ['craft-skills','Craft Skills'],['methodology','Methodology']
+                  ]}
+                ];
+
+                groups.forEach(function(g) {
+                  var grpDiv = document.createElement('div');
+                  grpDiv.className = 'sb-group';
+                  grpDiv.id = 'sbg-' + g.id;
+
+                  var hdr = document.createElement('button');
+                  hdr.className = 'sb-group-hdr';
+                  hdr.innerHTML = g.label + '<span class="sb-group-hdr-arrow">&#xBB;</span>';
+                  hdr.onclick = (function(gid){ return function(){
+                    document.querySelectorAll('.sb-group').forEach(function(x){x.classList.remove('open');});
+                    document.getElementById('sbg-' + gid).classList.toggle('open');
+                  }; })(g.id);
+                  grpDiv.appendChild(hdr);
+
+                  var body = document.createElement('div');
+                  body.className = 'sb-group-body';
+                  g.pages.forEach(function(p) {
+                    var btn = document.createElement('button');
+                    btn.className = 'sb-link';
+                    btn.setAttribute('data-page', p[0]);
+                    btn.innerHTML = '<span class="sb-dot"></span>' + p[1];
+                    btn.onclick = (function(pid){ return function(){ showPage(pid); }; })(p[0]);
+                    body.appendChild(btn);
+                  });
+                  grpDiv.appendChild(body);
+                  nav.appendChild(grpDiv);
+                });
+
+                sb.appendChild(nav);
+
+                // Footer
+                var footer = document.createElement('div');
+                footer.className = 'sb-footer';
+                footer.innerHTML = 'Sage Group plc &middot; Internal use only<br><span id="hub-updated-date">Updated: ...</span>';
+                sb.appendChild(footer);
+
+                // ── Set dates ──────────────────────────────────────────
                 var d2 = new Date();
-                var mo = ["January","February","March","April","May","June","July","August","September","October","November","December"];
-                var el = document.getElementById('hub-live-date');
-                if(el) el.textContent = 'Live · ' + d2.getDate() + ' ' + mo[d2.getMonth()] + ' ' + d2.getFullYear();
-                var el2 = document.getElementById('hub-updated-date');
-                if(el2) el2.textContent = 'Updated: ' + mo[d2.getMonth()] + ' ' + d2.getDate() + ', ' + d2.getFullYear();
+                var mo = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+                var lEl = document.getElementById('hub-live-date');
+                if(lEl) lEl.textContent = 'Live \u00b7 ' + d2.getDate() + ' ' + mo[d2.getMonth()] + ' ' + d2.getFullYear();
+                var uEl = document.getElementById('hub-updated-date');
+                if(uEl) uEl.textContent = 'Updated: ' + mo[d2.getMonth()] + ' ' + d2.getDate() + ', ' + d2.getFullYear();
 
-                // 3. Add tiled home-nav page to #main
+                // ── Tiled home page ────────────────────────────────────
                 var main = document.getElementById('main');
                 if (main && !document.getElementById('page-home-nav')) {
-                  var homeDiv = document.createElement('div');
-                  homeDiv.className = 'page-section';
-                  homeDiv.id = 'page-home-nav';
-                  homeDiv.innerHTML = '' +
-                    '<div class="hn-header">' +
-                      '<div class="hn-eyebrow">WiSE Intel Hub · Sage Europe</div>' +
-                      '<div class="hn-title">What do you want to explore?</div>' +
-                      '<div class="hn-sub">Your accountant channel intelligence for France, Spain, Germany and Portugal. Click a tile to dive into any area.</div>' +
-                    '</div>' +
-                    '<div class="hn-grid">' +
-                      _hnTile('◈','Intelligence','Market Signals & Competitive Intel','Live competitor moves, AI watch, brand signals and the weekly AI-generated brief.',[['\'signals\'','Signals Feed'],['\'battle-room\'','Battle Room'],['\'weekly-brief\'','Weekly Brief'],['\'competitors\'','Competitor Profiles'],['\'ai-watch\'','AI Watch']])+
-                      _hnTile('◎','Markets','FR · ES · DE · PT Deep Dives','Country-level strategy, mandate timelines, market share and accountant channel performance.',[['\'country-fr\'','France (PA Mandate — 110 days)'],['\'country-es\'','Spain (Verifactu Jan 2027)'],['\'country-de\'','Germany (DATEV strategy)'],['\'country-pt\'','Portugal (SAF-T)']])+
-                      _hnTile('◻','Products & Customers','Portfolio · Personas · Segments','SfA, Active, AE, GoProposal and Sage Prévision positioning. Accountant and SMB buyer profiles.',[['\'products\'','Products Overview'],['\'accountant-personas\'','Accountant Personas'],['\'smb-segments\'','SMB Segments']])+
-                      _hnTile('◇','Sales Tools','Battle Cards · Deal Intel · Alerts','Everything your commercial team needs to win conversations and respond to competitive moves.',[['\'battlecards\'','Battle Cards'],['\'deal-intel\'','Deal Intelligence'],['\'campaign-alerts\'','Campaign Alerts'],['\'sales-enablement\'','Sales Enablement']])+
-                      _hnTile('◈','Strategy','Messaging · Win/Loss · Calendar','Core positioning, win/loss patterns, campaign timing and comparative competitor analysis.',[['\'messaging-library\'','Messaging Library'],['\'win-loss\'','Win / Loss Intel'],['\'campaign-calendar\'','Campaign Calendar'],['\'competitor-compare\'','Competitor Compare']])+
-                      _hnTile('◉','PMM Toolkit','Frameworks · Skills · Methodology','5Ds GTM checklist, craft skills framework, SMB direct playbook and methodology.',[['\'smb-direct\'','SMB Direct Playbook'],['\'5ds\'','5Ds Framework'],['\'craft-skills\'','Craft Skills']])+
-                    '</div>';
-                  main.insertBefore(homeDiv, main.firstChild);
-                }
+                  var home = document.createElement('div');
+                  home.className = 'page-section';
+                  home.id = 'page-home-nav';
 
-                // 4. Wire up active state on nav clicks
-                document.querySelectorAll('.sb-link[data-page]').forEach(function(btn) {
-                  btn.addEventListener('click', function() {
-                    document.querySelectorAll('.sb-link').forEach(function(b){b.classList.remove('active');});
-                    btn.classList.add('active');
-                    showPage(btn.getAttribute('data-page'));
+                  var tiles = [
+                    { icon:'◈', label:'Intelligence', title:'Market Signals & Competitive Intel',
+                      desc:'Live competitor moves, AI watch, the Battle Room and AI-generated weekly brief.',
+                      pages:[['signals','Signals Feed'],['battle-room','Battle Room'],['weekly-brief','Weekly Brief'],['competitors','Competitor Profiles'],['ai-watch','AI Watch']]},
+                    { icon:'◎', label:'Markets', title:'FR · ES · DE · PT Deep Dives',
+                      desc:'Country-level strategy, mandate timelines and accountant channel performance by market.',
+                      pages:[['country-fr','France — PA Mandate 110 days'],['country-es','Spain — Verifactu Jan 2027'],['country-de','Germany — DATEV strategy'],['country-pt','Portugal — SAF-T Jan 2027']]},
+                    { icon:'◻', label:'Products & Customers', title:'Portfolio · Personas · Segments',
+                      desc:'SfA, Active, AE, GoProposal and Sage Prévision positioning. Accountant and SMB buyer profiles.',
+                      pages:[['products','Products Overview'],['accountant-personas','Accountant Personas'],['smb-segments','SMB Segments']]},
+                    { icon:'◇', label:'Sales Tools', title:'Battle Cards · Deal Intel · Alerts',
+                      desc:'Everything your commercial team needs to win conversations and respond to competitive moves fast.',
+                      pages:[['battlecards','Battle Cards'],['deal-intel','Deal Intelligence'],['campaign-alerts','Campaign Alerts'],['sales-enablement','Sales Enablement']]},
+                    { icon:'◈', label:'Strategy', title:'Messaging · Win/Loss · Calendar',
+                      desc:'Core positioning, win/loss patterns, campaign timing and comparative competitor analysis.',
+                      pages:[['messaging-library','Messaging Library'],['win-loss','Win / Loss Intel'],['campaign-calendar','Campaign Calendar'],['competitor-compare','Competitor Compare']]},
+                    { icon:'◉', label:'PMM Toolkit', title:'Frameworks · Skills · Methodology',
+                      desc:'5Ds GTM checklist, craft skills framework, SMB direct playbook and hub methodology.',
+                      pages:[['smb-direct','SMB Direct Playbook'],['5ds','5Ds Framework'],['craft-skills','Craft Skills'],['methodology','Methodology']]}
+                  ];
+
+                  var hdr = document.createElement('div');
+                  hdr.className = 'hn-header';
+                  hdr.innerHTML = '<div class="hn-eyebrow">WiSE Intel Hub &middot; Sage Europe PMM</div>' +
+                    '<div class="hn-title">What do you want to explore?</div>' +
+                    '<div class="hn-sub">Your accountant channel intelligence for France, Spain, Germany and Portugal. Select a tile to deep dive into any area.</div>';
+                  home.appendChild(hdr);
+
+                  var grid = document.createElement('div');
+                  grid.className = 'hn-grid';
+
+                  tiles.forEach(function(t) {
+                    var tile = document.createElement('div');
+                    tile.className = 'hn-tile';
+                    tile.onclick = (function(pid){ return function(){ showPage(pid); }; })(t.pages[0][0]);
+
+                    var linksHTML = t.pages.map(function(p) {
+                      return '<span class="hn-tile-link" data-page="' + p[0] + '">' + p[1] + '</span>';
+                    }).join('');
+
+                    tile.innerHTML =
+                      '<div class="hn-tile-arrow">&rsaquo;</div>' +
+                      '<div class="hn-tile-icon">' + t.icon + '</div>' +
+                      '<div class="hn-tile-label">' + t.label + '</div>' +
+                      '<div class="hn-tile-title">' + t.title + '</div>' +
+                      '<div class="hn-tile-desc">' + t.desc + '</div>' +
+                      '<div class="hn-tile-links">' + linksHTML + '</div>';
+
+                    // Wire up deep link clicks
+                    tile.querySelectorAll && setTimeout(function(tl){
+                      tl.querySelectorAll('.hn-tile-link').forEach(function(lk) {
+                        lk.onclick = function(e) {
+                          e.stopPropagation();
+                          showPage(lk.getAttribute('data-page'));
+                        };
+                      });
+                    }, 50, tile);
+
+                    grid.appendChild(tile);
                   });
-                });
+                  home.appendChild(grid);
+                  main.insertBefore(home, main.firstChild);
+                }
 
               } catch(e) { console.warn('WiSE UX inject error:', e); }
             }, 200);
