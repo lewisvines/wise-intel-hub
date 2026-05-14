@@ -637,9 +637,20 @@ function init(staticryptConfig, templateConfig) {
         if (typeof replaceHtmlCallback === "function") {
             replaceHtmlCallback(plainHTML);
         } else {
-            // Auto-patch dates before rendering
-            const _autoDateScript = '<script>(function(){var d=new Date();var m=["January","February","March","April","May","June","July","August","September","October","November","December"];var lv=document.getElementById("hub-live-date");var uv=document.getElementById("hub-updated-date");if(lv)lv.textContent="Live \u00b7 "+d.getDate()+" "+m[d.getMonth()]+" "+d.getFullYear();if(uv)uv.textContent="Updated: "+m[d.getMonth()]+" "+d.getDate()+", "+d.getFullYear();})();<\/script>';
-            document.write(plainHTML.replace('</body>', _autoDateScript + '</body>'));
+            // Inject today's date directly into the HTML before writing
+            (function() {
+              var d = new Date();
+              var months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+              var liveStr = "Live \u00b7 " + d.getDate() + " " + months[d.getMonth()] + " " + d.getFullYear();
+              var updStr  = "Updated: " + months[d.getMonth()] + " " + d.getDate() + ", " + d.getFullYear();
+              // Replace the static placeholder text in the HTML string directly
+              var patched = plainHTML
+                .replace(/Live \u00b7 \d+ \w+ \d{4}/, liveStr)
+                .replace(/>Live · \.\.\.<//span>/, ">" + liveStr + "</span>")
+                .replace(/Updated: \w+ \d+, \d{4}/, updStr)
+                .replace(/>Updated: \.\.\.<//span>/, ">" + updStr + "</span>");
+              document.write(patched);
+            })();
             document.close();
         }
 
