@@ -646,9 +646,9 @@ function init(staticryptConfig, templateConfig) {
               // Replace the static placeholder text in the HTML string directly
               var patched = plainHTML
                 .replace(/Live \u00b7 \d+ \w+ \d{4}/, liveStr)
-                .replace(/>Live · \.\.\.<//span>/, ">" + liveStr + "</span>")
+                /* removed broken regex */
                 .replace(/Updated: \w+ \d+, \d{4}/, updStr)
-                .replace(/>Updated: \.\.\.<//span>/, ">" + updStr + "</span>");
+                ; /* removed broken regex */
               document.write(patched);
             })();
             document.close();
