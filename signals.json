@@ -1,8 +1,8 @@
 {
   "meta": {
-    "last_updated": "2026-05-14",
+    "last_updated": "2026-05-15",
     "week_label": "Week of 11 May – 17 May 2026",
-    "signal_count": 37,
+    "signal_count": 38,
     "prev_signal_count": 18,
     "intensity": "CRITICAL",
     "intensity_reason": "France PA mandate under 4 months · 101 PAs certified · Penalty regime tripled (€50/invoice, €15k cap) · Cegid 100-rep blitz live",
@@ -28,47 +28,59 @@
     "eu_competitive_pct": 100,
     "eu_competitive_status": "green",
     "eu_competitive_label": "Live",
-    "last_scan": "2026-05-14T18:27:43.525184Z",
+    "last_scan": "2026-05-15T09:47:52.497401Z",
     "last_scan_summary": "Refresh complete - data current as of 11 May 2026",
     "scan_status": {
-      "date": "2026-05-14",
+      "date": "2026-05-15",
       "markets_scanned": [
-        "FR",
-        "ES"
+        "DE",
+        "PT"
       ],
       "markets_skipped": [],
       "signals_added": 3,
       "quality_filtered": 0,
       "summaries": {
-        "FR": "Recent market signals in France indicate a strong focus on the upcoming e-invoicing mandate, with clear deadlines and a pragmatic approach to enforcement, while competitive pressures from players like Pennylane are intensifying, and technology providers like AutoEntry are expanding their reach.",
-        "ES": "Recent market signals for Spain primarily concern the Verifactu regulation's extended deadlines and competitor preparations, alongside the introduction of AI features for Sage Active."
+        "DE": "The German market shows significant activity with DATEV's cloud migration, Cegid's strategic acquisition of sevDesk, and upcoming B2B e-invoicing mandates creating a dynamic competitive and regulatory landscape.",
+        "PT": "Recent market signals in Portugal indicate a significant regulatory shift with the expansion of B2G e-invoicing to SMEs and a major competitive consolidation through Cegid's acquisition of PHC, alongside a delay in QES and SAF-T deadlines."
       }
     },
-    "archived_count": 3,
+    "archived_count": 2,
     "ifyrne_updated": "2026-05-11"
   },
   "signals": [
     {
-      "id": "sage-active-ai-features-spain",
-      "category": "AI & Tech",
-      "market": "ES",
-      "date": "Oct 2024",
+      "id": "pt-e-invoicing-b2g-expansion",
+      "category": "Regulatory",
+      "market": "PT",
+      "date": "Jan 2026",
       "priority": "watch",
-      "title": "Sage Copilot launched for Sage Active in Spain",
-      "body": "Sage Copilot, a generative AI-powered assistant, is now available for Sage Active users in Spain. This tool aims to automate routine tasks, provide insights, and support smarter business decisions for small businesses and accountants.",
-      "implication": "The availability of Sage Copilot in Spain strengthens Sage Active's offering with advanced AI capabilities. This could be a key differentiator against competitors, especially as AI adoption grows in the accounting sector.",
-      "source": "Sage (Oct 15 2024)"
+      "title": "Portugal Expands B2G E-invoicing Mandate to SMEs",
+      "body": "Starting January 1, 2026, small and medium-sized enterprises (SMEs) and micro-enterprises in Portugal must comply with mandatory e-invoicing for business-to-government (B2G) transactions. This expands the existing mandate, which previously applied only to large companies since January 2021.",
+      "implication": "This regulatory change presents an opportunity for Sage to offer compliant solutions to a broader range of Portuguese businesses. It also highlights the need to ensure Sage for Accountants (SfA) and other relevant products are fully equipped to support these B2G e-invoicing requirements.",
+      "source": "European Commission (March 06 2026), ecosio, Comarch (May 11 2026)",
+      "calendar_tag": true
     },
     {
-      "id": "fr-autoentry-france-availability",
-      "category": "AI & Tech",
-      "market": "FR",
+      "id": "pt-cegid-phc-acquisition-synergy",
+      "category": "Competitive",
+      "market": "PT",
+      "date": "Jan 2025",
+      "priority": "high",
+      "title": "Cegid Acquires PHC, Consolidating Market Position in Portugal",
+      "body": "Cegid Group, a European leader in cloud-based business management solutions, has acquired PHC Business Software, a Portuguese technology company. PHC has a portfolio of 37,000 client companies and 170,000 users across Portugal, Spain, Angola, and Mozambique. This acquisition, along with Cegid's prior acquisition of Primavera BSS, significantly strengthens Cegid's presence in the Portuguese market for SME management software.",
+      "implication": "The consolidation of PHC and Primavera under Cegid creates a dominant player in the Portuguese SME market, increasing competitive pressure on Sage's offerings in the region. Sage needs to monitor Cegid's integrated strategy and product roadmap closely.",
+      "source": "Cuatrecasas (Jan 27 2025)"
+    },
+    {
+      "id": "cegid-sevdesk-acquisition-2025",
+      "category": "Competitive",
+      "market": "DE",
       "date": "Feb 2025",
-      "priority": "watch",
-      "title": "AutoEntry Now Available in France",
-      "body": "AutoEntry, an AI-powered data entry automation solution, has announced its availability in France. The service integrates with various accounting software, including Sage, to capture and process invoice and receipt data, aiming to save time and reduce manual administrative tasks.",
-      "implication": "This expansion of AutoEntry into France presents an opportunity for Sage to leverage this document capture solution for its French accountant partners and customers, potentially enhancing the Sage for Accountants offering.",
-      "source": "App Store, February 4, 2025"
+      "priority": "high",
+      "title": "Cegid Completes Acquisition of sevDesk, Strengthening DACH Presence",
+      "body": "Cegid finalized its acquisition of sevDesk GmbH in February 2025, a German provider of cloud-based accounting and invoicing software for SMEs and freelancers. This acquisition significantly expands Cegid's offering in German-speaking Europe, positioning it to capitalize on the growing demand for cloud solutions and compliant e-invoicing systems.",
+      "implication": "Cegid's strengthened presence in the DACH region, particularly with sevDesk's established customer base, represents a direct competitive threat to Sage's ambitions in Germany. This move could accelerate market consolidation and increase pressure on Sage to differentiate its offerings.",
+      "source": "Cegid - Sevdesk | Transaction Details (Feb 2025), sevdesk is now part of Cegid (Feb 2025)"
     },
     {
       "id": "fr-pennylane-competitive-move",
@@ -490,19 +502,6 @@
       "body": "Pennylane raised €175 million in a Series E round led by TCV and Blackstone Growth, with participation from existing investors. The company plans to use the funds to accelerate AI investments, strengthen its e-invoicing infrastructure, and expand into additional European markets. Pennylane also stated a commitment to \"no price increases\" and continuity of product strategy. The company currently serves 6,000 accounting firms and 800,000 SMEs across Europe.",
       "implication": "Pennylane's significant funding and stated commitment to expansion and maintaining pricing will intensify competition across Europe, particularly in markets with upcoming e-invoicing mandates. Sage WiSE needs to monitor their market entry and product development closely.",
       "source": "Multiple sources (e.g., Sifted, TechCrunch, TCV) - January 2026",
-      "archived": true
-    },
-    {
-      "id": "pt-saf-t-qes-deadline-extension",
-      "category": "Regulatory",
-      "market": "PT",
-      "date": "Dec 2025",
-      "priority": "high",
-      "title": "Portugal Postpones Qualified Electronic Signature (QES) and SAF-T Accounting Deadlines",
-      "body": "Portugal has postponed the mandatory Qualified Electronic Signature (QES) requirement for PDF invoices to January 1, 2027. Additionally, the mandatory periodic submission of the SAF-T Accounting file has been delayed to 2028, for the financial year 2027. These changes were confirmed with the approval of the 2026 Draft State Budget.",
-      "implication": "This extension provides a slight buffer for compliance with SAF-T accounting and QES for PDF invoices, but the core deadlines for SAF-T remain critical for 2027. Sage needs to ensure its solutions are ready for the new deadlines.",
-      "source": "Comarch (Dec 09 2025), Sovos (Dec 01 2025), VertexAI Search (Dec 02 2025)",
-      "calendar_tag": true,
       "archived": true
     }
   ]
