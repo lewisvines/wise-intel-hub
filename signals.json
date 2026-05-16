@@ -1,8 +1,8 @@
 {
   "meta": {
-    "last_updated": "2026-05-15",
+    "last_updated": "2026-05-16",
     "week_label": "Week of 11 May – 17 May 2026",
-    "signal_count": 40,
+    "signal_count": 33,
     "prev_signal_count": 18,
     "intensity": "CRITICAL",
     "intensity_reason": "France PA mandate under 4 months · 101 PAs certified · Penalty regime tripled (€50/invoice, €15k cap) · Cegid 100-rep blitz live",
@@ -28,64 +28,36 @@
     "eu_competitive_pct": 100,
     "eu_competitive_status": "green",
     "eu_competitive_label": "Live",
-    "last_scan": "2026-05-15T18:19:08.581822Z",
+    "last_scan": "2026-05-16T08:47:34.801740Z",
     "last_scan_summary": "Refresh complete - data current as of 11 May 2026",
     "scan_status": {
-      "date": "2026-05-15",
+      "date": "2026-05-16",
       "markets_scanned": [
-        "FR",
         "ES",
-        "DE",
-        "PT",
-        "Pennylane"
+        "DE"
       ],
       "markets_skipped": [],
-      "signals_added": 11,
+      "signals_added": 1,
       "quality_filtered": 0,
       "summaries": {
-        "FR": "The French market shows significant activity with the confirmed e-invoicing deadline, increased competitive consolidation via the Cegid-EBP merger, and the expansion of document capture solutions like AutoEntry.",
-        "ES": "The Spanish market shows significant activity regarding Verifactu compliance and competitive expansion, with key players like Holded and Pennylane making strategic moves.",
-        "DE": "The German market shows significant activity with DATEV's major cloud transformation, Cegid's strategic acquisition of sevDesk, and upcoming B2B e-invoicing mandates, indicating a dynamic and evolving landscape.",
-        "PT": "Recent market signals for Portugal show a postponement of e-invoicing signature deadlines and SAF-T accounting file submission, alongside a significant competitive move by Cegid acquiring PHC Software, further consolidating its market presence.",
-        "Pennylane": "Pennylane is aggressively expanding across Europe with significant funding, a strong focus on AI, and recent entry into the German market, posing a substantial competitive threat to Sage."
+        "ES": "The Spanish market shows significant activity around Verifactu compliance, with regulatory deadlines extended and competitors like Holded actively promoting their readiness, while Sage is enhancing its AI offerings with Sage Copilot for Sage Active.",
+        "DE": "The German market shows significant activity with DATEV's major cloud migration, Cegid's strategic acquisition of sevDesk, and upcoming B2B e-invoicing mandates, indicating a dynamic and evolving landscape."
       }
     },
-    "archived_count": 0,
+    "archived_count": 2,
     "ifyrne_updated": "2026-05-11"
   },
   "signals": [
     {
-      "id": "pennylane-germany-launch-2025",
-      "category": "Competitive",
-      "market": "DE",
-      "date": "Nov 2025",
-      "priority": "high",
-      "title": "Pennylane launches in Germany, targeting 100 hires and challenging DATEV",
-      "body": "Pennylane has officially launched in Germany, establishing its first overseas office with plans to hire 100 local staff. The company aims to modernize the German accounting market, which it describes as complex and slow to digitalize, and will compete directly with the dominant player, DATEV.",
-      "implication": "Pennylane's entry into Germany is a direct competitive move into a market where Sage also operates. Their aggressive hiring and stated intention to challenge DATEV indicate a strong commitment to gaining market share, posing a significant threat to Sage's position in Germany.",
-      "source": "Tech.eu, EU-Startups, Pennylane, November 2025"
-    },
-    {
-      "id": "pennylane-comptassistant-ai-focus",
+      "id": "sage-active-ai-in-spain",
       "category": "AI & Tech",
-      "market": "FR",
-      "date": "Apr 2024",
-      "priority": "high",
-      "title": "Pennylane's ComptAssistant AI aims to revolutionize accountant advisory services",
-      "body": "Pennylane's ComptAssistant AI is designed as a co-pilot for accountants, providing insights from accounting data to enhance advisory services and client retention. It aims to automate analysis, generate financial reports, and offer suggestions for financial steering, without replacing the accountant.",
-      "implication": "Pennylane's investment in AI tools like ComptAssistant positions them as an innovative partner for accounting firms, potentially drawing firms away from competitors. Sage needs to ensure its own AI capabilities are competitive and clearly communicated to the market.",
-      "source": "Pennylane, YouTube, April 2024"
-    },
-    {
-      "id": "cegid-acquires-phc-software",
-      "category": "Competitive",
-      "market": "PT",
-      "date": "Jan 2025",
-      "priority": "critical",
-      "title": "Cegid Acquires PHC Software, Strengthening Portuguese Market Position",
-      "body": "Cegid has acquired PHC Software, a significant player in the Portuguese SME market, for an undisclosed sum. PHC Software has over 37,000 client companies and 170,000 users. This acquisition follows Cegid's earlier purchase of Primavera BSS, consolidating its presence and offerings in Portugal.",
-      "implication": "Cegid's acquisition of PHC Software, following its acquisition of Primavera, significantly strengthens its competitive position in the Portuguese market, potentially impacting Sage's market share for SfA and Sage Active.",
-      "source": "Vertex AI Search (multiple sources, e.g.,)"
+      "market": "ES",
+      "date": "Oct 2024",
+      "priority": "watch",
+      "title": "Sage Copilot AI assistant launched for Sage Active in Spain",
+      "body": "Sage has launched Sage Copilot, its generative AI-powered assistant, for users of Sage Active in Spain, France, and Germany. This tool aims to automate tasks, provide insights, and help businesses make smarter decisions. It is designed to assist both small businesses and their accountants, enhancing collaboration and offering proactive advice.",
+      "implication": "Sage is investing in AI capabilities for Sage Active in Spain, which could be a differentiator. This aligns with the broader trend of AI adoption in accounting and may influence competitive positioning against AI-focused solutions.",
+      "source": "Vertex AI Search (Oct 2024)"
     },
     {
       "id": "portugal-saf-t-accounting-delay",
@@ -112,17 +84,6 @@
       "calendar_tag": true
     },
     {
-      "id": "cegid-sevdesk-acquisition-2025",
-      "category": "Competitive",
-      "market": "DE",
-      "date": "Feb 2025",
-      "priority": "high",
-      "title": "Cegid acquires sevDesk, strengthening its position in the German SMB market.",
-      "body": "Cegid completed the acquisition of sevDesk GmbH in February 2025. SevDesk offers cloud-based accounting and invoicing software for freelancers, self-employed individuals, and small to medium-sized businesses (SMBs) in the DACH region. This acquisition expands Cegid's offerings in German-speaking Europe, a significant market with over 5 million SMBs.",
-      "implication": "Cegid's acquisition of sevDesk positions them as a stronger competitor in the German SMB market, particularly for cloud-based solutions and e-invoicing compliance. Sage Active and Sage for Accountants need to monitor Cegid's integration and market penetration strategies closely.",
-      "source": "sevdesk ist nun Teil von Cegid (February 06 2025), Cegid - Sevdesk | Transaction Details - Houlihan Lokey (February 24 2025)"
-    },
-    {
       "id": "datev-cloud-migration-2026",
       "category": "AI & Tech",
       "market": "DE",
@@ -132,51 +93,6 @@
       "body": "DATEV is undertaking its most significant portfolio transformation, migrating all on-premises solutions to the cloud. This includes core applications like MyDATEV Kanzlei, DATEV Kanzleimanagement, and DATEV Rechnungswesen in the cloud (starting H2 2026). The transition is expected to take 24-36 months and presents both risks and opportunities for tax firms to adopt automation and AI tools.",
       "implication": "This cloud migration by DATEV, a dominant player in the German market, will necessitate a shift in how tax advisors operate. Sage needs to ensure its solutions can integrate seamlessly with this evolving DATEV ecosystem or offer a compelling cloud-native alternative that addresses the needs of German tax professionals.",
       "source": "DATEV Cloud-Migration 2026: Was Kanzleien wirklich bedenken müssen (April 23 2026)"
-    },
-    {
-      "id": "pennylane-spain-expansion-plans",
-      "category": "Competitive",
-      "market": "ES",
-      "date": "Jan 2026",
-      "priority": "critical",
-      "title": "Pennylane secures significant funding for European expansion, including Spain.",
-      "body": "Pennylane has raised $204 million (reported $4.25B valuation) to fuel international growth, with plans to establish a presence in Spain in H2 2026. The company is investing in AI and strengthening its e-invoicing infrastructure.",
-      "implication": "Pennylane's imminent entry into the Spanish market with substantial funding and a focus on AI and e-invoicing poses a significant competitive threat to Sage's existing and planned offerings in Spain.",
-      "source": "Vertex AI Search"
-    },
-    {
-      "id": "verifactu-deadline-extension-2027",
-      "category": "Regulatory",
-      "market": "ES",
-      "date": "Dec 2025",
-      "priority": "high",
-      "title": "Spain Verifactu e-invoicing deadlines extended to Jan 2027 (companies) and Jul 2027 (self-employed).",
-      "body": "The Spanish government has officially postponed the mandatory adoption of Verifactu, the new e-invoicing system, to January 1, 2027, for corporate taxpayers and July 1, 2027, for self-employed individuals. This extension, confirmed by Royal Decree-Law 15/2025, provides an additional year for compliance.",
-      "implication": "This extension provides more time for Sage Active and its partners to ensure full compliance and market readiness for Verifactu, potentially reducing immediate pressure but also extending the competitive window for rivals.",
-      "source": "Vertex AI Search",
-      "calendar_tag": true
-    },
-    {
-      "id": "autoentry-launches-in-france",
-      "category": "AI & Tech",
-      "market": "FR",
-      "date": "August 2025",
-      "priority": "watch",
-      "title": "AutoEntry Now Available in France, Enhancing Document Capture Capabilities",
-      "body": "AutoEntry, an AI-powered document capture and data entry automation solution, has announced its availability in France. The service integrates with various accounting software, including Sage, and aims to streamline the processing of invoices, receipts, and other financial documents. Recent updates to the AutoEntry app include improved image processing and intelligent detection for a more seamless user experience.",
-      "implication": "The expansion of AutoEntry into France presents an opportunity to enhance Sage's document capture offering for French accountants and their clients. It also signifies increased competition in the document capture market.",
-      "source": "App Store / Sage US - August 2025"
-    },
-    {
-      "id": "cegid-ebp-strengthens-fr-market-position",
-      "category": "Competitive",
-      "market": "FR",
-      "date": "July 2024",
-      "priority": "high",
-      "title": "Cegid Completes EBP Acquisition, Bolstering French Market Presence",
-      "body": "Cegid has finalized its acquisition of EBP, a significant player in French invoicing and accounting solutions for VSEs and SMEs. This move integrates EBP's 650 employees and 275,000 clients into Cegid's operations. The acquisition aims to accelerate Cegid's European strategy, particularly in France, by complementing its existing offerings with EBP's solutions tailored for small businesses and specific vertical markets.",
-      "implication": "This consolidation increases competitive pressure from Cegid in the French market, especially for SMBs and accounting practices. Sage needs to monitor Cegid's go-to-market strategy and product integration with EBP.",
-      "source": "La profession comptable / Celge - July 2024"
     },
     {
       "id": "fr-pennylane-competitive-move",
@@ -509,6 +425,31 @@
       "implication": "This regulatory deadline is a critical driver for adoption of compliant software. Sage Active's Verifactu-certification for Spain suggests a capability that needs to be clearly communicated and potentially adapted for Germany's XRechnung standard to capture market share.",
       "source": "Axway, Flick Network, SoftCo, ClearTax (Sep 2024 - Apr 2026)",
       "calendar_tag": true
+    },
+    {
+      "id": "pennylane-spain-expansion-plans",
+      "category": "Competitive",
+      "market": "ES",
+      "date": "Jan 2026",
+      "priority": "critical",
+      "title": "Pennylane secures significant funding for European expansion, including Spain.",
+      "body": "Pennylane has raised $204 million (reported $4.25B valuation) to fuel international growth, with plans to establish a presence in Spain in H2 2026. The company is investing in AI and strengthening its e-invoicing infrastructure.",
+      "implication": "Pennylane's imminent entry into the Spanish market with substantial funding and a focus on AI and e-invoicing poses a significant competitive threat to Sage's existing and planned offerings in Spain.",
+      "source": "Vertex AI Search",
+      "archived": true
+    },
+    {
+      "id": "verifactu-deadline-extension-2027",
+      "category": "Regulatory",
+      "market": "ES",
+      "date": "Dec 2025",
+      "priority": "high",
+      "title": "Spain Verifactu e-invoicing deadlines extended to Jan 2027 (companies) and Jul 2027 (self-employed).",
+      "body": "The Spanish government has officially postponed the mandatory adoption of Verifactu, the new e-invoicing system, to January 1, 2027, for corporate taxpayers and July 1, 2027, for self-employed individuals. This extension, confirmed by Royal Decree-Law 15/2025, provides an additional year for compliance.",
+      "implication": "This extension provides more time for Sage Active and its partners to ensure full compliance and market readiness for Verifactu, potentially reducing immediate pressure but also extending the competitive window for rivals.",
+      "source": "Vertex AI Search",
+      "calendar_tag": true,
+      "archived": true
     }
   ]
 }
