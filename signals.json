@@ -1,12 +1,12 @@
 {
   "meta": {
-    "last_updated": "2026-05-17",
+    "last_updated": "2026-05-18",
     "week_label": "Week of 11 May – 17 May 2026",
     "signal_count": 40,
     "prev_signal_count": 18,
     "intensity": "CRITICAL",
     "intensity_reason": "France PA mandate under 4 months · 101 PAs certified · Penalty regime tripled (€50/invoice, €15k cap) · Cegid 100-rep blitz live",
-    "ifyrne": "France's confirmed September 1, 2026, PA mandate deadline intensifies the competitive pressure, particularly with Pennylane's imminent Spanish launch and Cegid's aggressive German expansion targeting practices. Our Sage Active and Sage for Accountants solutions must be fully compliant and client-ready to capture this significant opportunity, while also addressing the unresolved GE-Active sync and stalled PA registration. The German XRechnung mandate by January 2028 and Portugal's SAF-T by January 2027 present further compliance challenges and strategic openings we cannot afford to miss. This week, Sage must prioritize the resolution of the GE-Active sync to unblock PA registration and ensure our competitive readiness across all key European markets.",
+    "ifyrne": "The French PA mandate looms large with a September 1, 2026, deadline and significant fines, demanding immediate action to ensure Sage Active and AutoEntry+AKAO are fully compliant and communicated to our customers. While Spain's Verifactu mandate has seen extensions to 2027, Pennylane's planned H2 2026 entry into the Spanish market, specifically targeting accountants, presents a critical competitive threat that must be addressed proactively before Sage for Accountants Spain launches. Cegid's aggressive expansion in Germany with 100 new sales reps targeting practices further intensifies the competitive landscape. Given these converging pressures, Sage must prioritize resolving the GE-Active sync issue this week to ensure product readiness and competitive parity.",
     "pa_registration_pct": 50,
     "pa_registration_status": "amber",
     "pa_registration_label": "In progress – 50% registered",
@@ -28,38 +28,72 @@
     "eu_competitive_pct": 100,
     "eu_competitive_status": "green",
     "eu_competitive_label": "Live",
-    "last_scan": "2026-05-17T17:46:17.761865Z",
+    "last_scan": "2026-05-18T11:09:27.636570Z",
     "last_scan_summary": "Refresh complete - data current as of 11 May 2026",
     "scan_status": {
-      "date": "2026-05-17",
+      "date": "2026-05-18",
       "markets_scanned": [
         "FR",
         "ES",
         "Pennylane"
       ],
       "markets_skipped": [],
-      "signals_added": 6,
+      "signals_added": 4,
       "quality_filtered": 0,
       "summaries": {
-        "FR": "Market signals in France show significant competitive activity from Pennylane and Cegid/EBP, alongside ongoing regulatory pressure from the PA mandate, indicating a dynamic and competitive landscape.",
-        "ES": "Recent market signals for Spain indicate significant competitive activity from Pennylane and a strengthened Holded (via Visma acquisition), alongside regulatory clarity on Verifactu deadlines, all of which present strategic challenges and opportunities for Sage Active's market entry.",
-        "Pennylane": "Pennylane is aggressively expanding across Europe, particularly in Germany, fueled by substantial funding and a strong focus on AI-driven product enhancements and regulatory compliance."
+        "FR": "The French market shows significant activity in regulatory updates for electronic invoicing, competitive moves by Pennylane, and expansion in document capture technology.",
+        "ES": "Market signals for Spain show a significant regulatory push with Verifactu deadlines, strong competitive moves from Pennylane, and active positioning by Holded, indicating a dynamic and competitive landscape.",
+        "Pennylane": "No new relevant signals found for Pennylane in the last 48 hours."
       }
     },
     "archived_count": 0,
-    "ifyrne_updated": "2026-05-11"
+    "ifyrne_updated": "2026-05-18"
   },
   "signals": [
     {
-      "id": "pennylane-market-entry-germany-2026",
+      "id": "pennylane-spain-expansion",
       "category": "Competitive",
-      "market": "DE",
-      "date": "Jan 2026",
+      "market": "ES",
+      "date": "H2 2026",
+      "priority": "critical",
+      "title": "Pennylane plans Spain entry in H2 2026 with significant funding",
+      "body": "Pennylane, a French accounting software provider, has raised €175 million and plans to establish a presence in Spain in the second half of 2026. The company aims to expand its AI capabilities and electronic invoicing systems across Europe, serving both SMEs and accounting firms.",
+      "implication": "Pennylane's entry into Spain before Sage for Accountants Spain launch poses a direct competitive threat, especially with their strong funding and focus on AI and e-invoicing.",
+      "source": "Vertex AI Search Results"
+    },
+    {
+      "id": "verifactu-deadline-extension",
+      "category": "Regulatory",
+      "market": "ES",
+      "date": "Dec 2025",
       "priority": "high",
-      "title": "Pennylane Refines Product for German Market Entry",
-      "body": "As part of its European expansion, Pennylane is channeling fresh capital into refining its product for the German market, where it has recently launched. This includes localization efforts to meet German regulatory requirements.",
-      "implication": "Pennylane's focused efforts on the German market ahead of Sage's potential expansion there presents a significant competitive challenge, especially given Germany's upcoming XRechnung mandate.",
-      "source": "Multiple sources (e.g., TechCrunch, EU-Startups) Jan 2026"
+      "title": "Spain Verifactu deadlines extended to Jan 2027 (companies) and Jul 2027 (self-employed)",
+      "body": "The Spanish Tax Agency (AEAT) has extended the mandatory deadlines for Verifactu compliance. Companies now have until January 1, 2027, and self-employed individuals until July 1, 2027, to adopt anti-fraud-compliant invoicing systems. This extension provides additional time for adaptation but emphasizes that the regulation itself remains in effect.",
+      "implication": "This provides a longer runway for Sage Active and SfA Spain to ensure full compliance and market readiness for Verifactu, potentially easing competitive pressure from early adopters.",
+      "source": "Vertex AI Search Results",
+      "calendar_tag": true
+    },
+    {
+      "id": "autoentry-france-launch",
+      "category": "AI & Tech",
+      "market": "FR",
+      "date": "Feb 2026",
+      "priority": "watch",
+      "title": "AutoEntry Officially Available in France, Enhancing Document Capture",
+      "body": "AutoEntry has officially launched in France, as indicated by app store release notes from February 4, 2026. The platform automates data entry by capturing, analyzing, and publishing invoices, receipts, and expenses into accounting software. This expansion into the French market strengthens its position in document capture solutions.",
+      "implication": "Sage's AutoEntry+AKAO product faces direct competition with AutoEntry's established presence and ongoing development in France. Sage should monitor AutoEntry's market penetration and feature advancements.",
+      "source": "App Store, February 04, 2026"
+    },
+    {
+      "id": "pennylane-france-2026-focus",
+      "category": "Competitive",
+      "market": "FR",
+      "date": "May 2026",
+      "priority": "high",
+      "title": "Pennylane Intensifies Focus on French Accountant Market for 2026",
+      "body": "Pennylane is actively positioning itself within the French accounting software market, with content and events specifically targeting chartered accountants for 2026. Their 'Rendez-vous Pennylane 2026' event in Nantes on March 18th will focus on electronic invoicing, AI, and the recomposition of accounting services. Pennylane is also emphasizing its role as a financial management and accounting platform for businesses, highlighting integrations with other financial tools.",
+      "implication": "Pennylane's aggressive market engagement in France requires Sage to accelerate its SfA Spain launch and potentially adapt its French strategy to counter Pennylane's growing influence.",
+      "source": "Pennylane, May 13, 2025, Pennylane, March 18, 2026, Hayot Expertise, May 03, 2026"
     },
     {
       "id": "pennylane-product-enhancements-2026",
@@ -71,40 +105,6 @@
       "body": "Pennylane has introduced updates to its ComptAssistant AI, which provides answers to complex accounting questions by cross-referencing accounting plans, tax data, and client information. The platform also boasts an OCR accuracy of 93% for invoice data extraction and has obtained NF525 certification. New features include simplified year-end transitions, improved client email collaboration within the platform, and an agricultural accounting plan.",
       "implication": "Pennylane's continuous improvement of its AI and compliance features, particularly in its home market of France, strengthens its offering and competitive position against Sage Active and other solutions targeting French SMEs and accountants.",
       "source": "Noxcod, March 22, 2026"
-    },
-    {
-      "id": "holded-visma-market-position",
-      "category": "Competitive",
-      "market": "ES",
-      "date": "Jun 2021",
-      "priority": "high",
-      "title": "Visma's Acquisition of Holded Strengthens Market Position in Spain",
-      "body": "Visma acquired Holded in June 2021 for over €120 million, consolidating Holded's position as a leading cloud ERP and accounting software provider in Spain. Holded continues to operate independently, focusing on product development and expanding its services for SMEs and accounting offices. This acquisition signifies a strong incumbent presence in the Spanish market that Sage Active will need to contend with.",
-      "implication": "Holded, now backed by Visma, represents a well-established and resourced competitor in the Spanish market, particularly for SMEs and the 'despachos' channel. Sage Active's entry will face a strong incumbent.",
-      "source": "IBS Intelligence (Jan 2026), Visma (Jun 2021), Catalonia Trade & Investment (2025)"
-    },
-    {
-      "id": "verifactu-deadline-extension-2027",
-      "category": "Regulatory",
-      "market": "ES",
-      "date": "Dec 2025",
-      "priority": "critical",
-      "title": "Spain Extends Verifactu Compliance Deadlines to 2027",
-      "body": "The Spanish government has officially extended the deadlines for adapting invoicing software systems to Verifactu requirements. Corporate Income Taxpayers now have until January 1, 2027, and all other taxpayers, including freelancers and SMEs, until July 1, 2027. This extension, driven by pressure from business associations, provides more time for adaptation but underscores the inevitability of the regulation.",
-      "implication": "This provides a slight buffer for Sage Active's Verifactu compliance in Spain, but the core challenge of market entry and competition remains. It also highlights the ongoing regulatory complexity in Spain.",
-      "source": "Fiskaly (Dec 2025), Tax & Law Spain (Dec 2025), Wolters Kluwer (Dec 2025), Global VAT Compliance (Dec 2025), Holded (Dec 2025), Marosa VAT (Dec 2025)",
-      "calendar_tag": true
-    },
-    {
-      "id": "cegid-ebp-fr-accountant-focus",
-      "category": "Competitive",
-      "market": "FR",
-      "date": "April 2024",
-      "priority": "high",
-      "title": "Cegid strengthens French accountant channel with EBP acquisition",
-      "body": "Cegid's acquisition of EBP, a French software specialist, is aimed at reinforcing its European leadership, particularly in the French market targeting small businesses and accounting practices. This move is expected to accelerate Cegid's European strategy and leverage the regulatory environment for growth.",
-      "implication": "Cegid is making significant strategic moves to capture the French accounting market, directly impacting Sage's existing customer base and future growth opportunities.",
-      "source": "Celge, June 07, 2024; Cegid, April 23, 2024"
     },
     {
       "id": "fr-pa-mandate-deadline-reminder",
