@@ -28,24 +28,20 @@
     "eu_competitive_pct": 100,
     "eu_competitive_status": "green",
     "eu_competitive_label": "Live",
-    "last_scan": "2026-05-19T10:42:26.570221Z",
+    "last_scan": "2026-05-19T18:32:14.845484Z",
     "last_scan_summary": "Refresh complete - data current as of 11 May 2026",
     "scan_status": {
       "date": "2026-05-19",
       "markets_scanned": [
         "FR",
-        "ES",
-        "PT",
-        "Pennylane"
+        "ES"
       ],
       "markets_skipped": [],
-      "signals_added": 8,
+      "signals_added": 3,
       "quality_filtered": 0,
       "summaries": {
-        "FR": "The French market shows significant activity in regulatory compliance for electronic invoicing and strong competitive moves from established players like Pennylane and the Cegid-EBP alliance, indicating a dynamic and competitive landscape.",
-        "ES": "Recent market signals for Spain indicate a strong focus on Verifactu compliance, with competitors like Holded and Contasol actively promoting their readiness, and confirmed regulatory deadlines for 2027.",
-        "PT": "Recent market signals in Portugal indicate a delay in SAF-T accounting file submission and QES mandate, while Cegid's acquisition of PHC significantly alters the competitive landscape.",
-        "Pennylane": "Pennylane is aggressively expanding across Europe with significant funding, advanced AI features, and strategic market entries, posing a critical competitive threat to Sage WiSE."
+        "FR": "The French market shows significant activity with confirmation of the e-invoicing mandate, a major competitive move by Cegid with the EBP acquisition, and the expansion of document capture solutions like AutoEntry.",
+        "ES": "Market signals for Spain show strong activity around Verifactu compliance, with Holded integrating the system and Contasol highlighting its readiness, alongside confirmed regulatory deadlines for 2027."
       }
     },
     "archived_count": 0,
@@ -53,26 +49,37 @@
   },
   "signals": [
     {
-      "id": "pennylane-germany-expansion-nov2025",
-      "category": "Market Entry",
-      "market": "DE",
-      "date": "Nov 2025",
+      "id": "verifactu-holded-integration-may2026",
+      "category": "Competitive",
+      "market": "ES",
+      "date": "May 2026",
       "priority": "high",
-      "title": "Pennylane launches in Germany, targeting 100 hires",
-      "body": "Pennylane has opened its first overseas office in Germany, with plans to hire 100 local staff. The company sees Germany as a large but slow-to-digitalize market, aiming to compete with established players like DATEV. Potential future markets include Poland, Spain, and Belgium.",
-      "implication": "Pennylane's direct entry into Germany, a key market for Sage, ahead of Sage's own planned Spain launch, intensifies competitive pressure. Their aggressive hiring and localization efforts signal a strong commitment to challenging incumbents.",
-      "source": "Tech.eu, EU-Startups - Nov 2025"
+      "title": "Holded integrates Verifactu for invoice reception and validation",
+      "body": "Holded has integrated Verifactu, the Spanish tax agency's verifiable invoicing system. This integration, effective May 2026, allows users to receive and validate Verifactu invoices within Holded. While Holded stores the QR code and original document, the recipient remains responsible for validating the QR against the AEAT service and ensuring no duplicate invoices are entered.",
+      "implication": "Holded is actively adapting to Verifactu, potentially capturing market share from Sage Active in Spain. Sage needs to ensure its Verifactu compliance is robust and clearly communicated to the Spanish market.",
+      "source": "ininvoice (May 13 2026)"
     },
     {
-      "id": "pennylane-funding-jan2026",
-      "category": "Funding",
-      "market": "EU",
-      "date": "Jan 2026",
-      "priority": "critical",
-      "title": "Pennylane secures €175M Series E funding, valuing company at $4.25B",
-      "body": "Pennylane raised €175 million in a Series E round led by TCV and Blackstone Growth, with participation from existing investors. The funding values the company at $4.25 billion. The capital will be used to accelerate AI investments, enhance electronic invoicing systems, and expand into additional European markets. Pennylane also pledged \"no price increases\" and continuity of product strategy. The company currently serves 6,000 accounting firms and 800,000 SMEs across Europe.",
-      "implication": "Significant capital injection allows Pennylane to aggressively pursue market share across Europe, directly challenging Sage's position in key markets. Their focus on AI and e-invoicing aligns with upcoming regulatory deadlines, posing a direct threat.",
-      "source": "Vestbee, Pulse 2.0, Tech.eu, Tech in Asia, TCV, MEXC News - Jan 2026"
+      "id": "autoentry-fr-launch",
+      "category": "AI & Tech",
+      "market": "FR",
+      "date": "February 2025",
+      "priority": "watch",
+      "title": "AutoEntry Now Available in France",
+      "body": "AutoEntry, an AI-powered document capture solution, has officially launched in France. This expansion allows French businesses and accountants to leverage AutoEntry's capabilities for automating data entry from invoices and receipts, integrating with various accounting software.",
+      "implication": "Increased competition in the document capture market in France, requiring Sage to highlight the advantages of its integrated solutions like AutoEntry+AKAO.",
+      "source": "App Store, February 04, 2025"
+    },
+    {
+      "id": "cegid-ebp-fr-expansion",
+      "category": "Competitive",
+      "market": "FR",
+      "date": "June 2024",
+      "priority": "high",
+      "title": "Cegid Acquires EBP to Strengthen European Presence",
+      "body": "Cegid acquired EBP, a French company specializing in payroll and accounting software, in June 2024. This move aims to bolster Cegid's European strategy, particularly in serving small businesses, and expand its reach in the French market. The combined entity will offer a comprehensive suite of solutions for accounting professionals and SMEs.",
+      "implication": "This acquisition significantly strengthens Cegid's competitive position in France, potentially impacting Sage's market share, especially within the expert-comptable channel.",
+      "source": "Celge, June 07, 2024"
     },
     {
       "id": "portugal-qes-mandate-delay",
@@ -85,17 +92,6 @@
       "implication": "This delay provides additional time for adoption of QES, but the eventual mandate will require updates to invoicing processes and software.",
       "source": "Comarch, December 09, 2025",
       "calendar_tag": true
-    },
-    {
-      "id": "cegid-primavera-phc-acquisition-impact",
-      "category": "Competitive",
-      "market": "PT",
-      "date": "Jan 2025",
-      "priority": "high",
-      "title": "Cegid Acquires PHC, Consolidating Market Position in Portugal",
-      "body": "Cegid Group has acquired PHC Business Software, a Portuguese technology company, for an undisclosed sum. This acquisition, following Cegid's earlier purchase of Primavera BSS, consolidates Cegid's presence in the Iberian market and Portuguese-speaking Africa, bringing together two significant players in the Portuguese ERP landscape.",
-      "implication": "The consolidation of PHC and Primavera under Cegid creates a dominant player in the Portuguese market, increasing competitive pressure on Sage for accountants and SMBs.",
-      "source": "Cuatrecasas, January 27, 2025"
     },
     {
       "id": "holded-integrates-verifactu-receipts",
