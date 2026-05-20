@@ -1,6 +1,6 @@
 {
   "meta": {
-    "last_updated": "2026-05-19",
+    "last_updated": "2026-05-20",
     "week_label": "Week of 11 May – 17 May 2026",
     "signal_count": 40,
     "prev_signal_count": 18,
@@ -28,26 +28,46 @@
     "eu_competitive_pct": 100,
     "eu_competitive_status": "green",
     "eu_competitive_label": "Live",
-    "last_scan": "2026-05-19T18:32:14.845484Z",
+    "last_scan": "2026-05-20T10:26:35.679329Z",
     "last_scan_summary": "Refresh complete - data current as of 11 May 2026",
     "scan_status": {
-      "date": "2026-05-19",
+      "date": "2026-05-20",
       "markets_scanned": [
-        "FR",
-        "ES"
+        "DE"
       ],
       "markets_skipped": [],
-      "signals_added": 3,
+      "signals_added": 2,
       "quality_filtered": 0,
       "summaries": {
-        "FR": "The French market shows significant activity with confirmation of the e-invoicing mandate, a major competitive move by Cegid with the EBP acquisition, and the expansion of document capture solutions like AutoEntry.",
-        "ES": "Market signals for Spain show strong activity around Verifactu compliance, with Holded integrating the system and Contasol highlighting its readiness, alongside confirmed regulatory deadlines for 2027."
+        "DE": "Recent market signals in Germany show significant competitive activity with Cegid's acquisition of sevdesk and Lexoffice's rebranding, alongside critical regulatory developments regarding the phased implementation of B2B e-invoicing mandates."
       }
     },
     "archived_count": 0,
     "ifyrne_updated": "2026-05-18"
   },
   "signals": [
+    {
+      "id": "lexoffice-rebrands-to-lexware-office",
+      "category": "Competitive",
+      "market": "DE",
+      "date": "Dec 2025",
+      "priority": "watch",
+      "title": "Lexoffice rebrands to Lexware Office, integrating into broader Lexware brand",
+      "body": "Lexoffice, a cloud-based accounting software for the German market, has been rebranded to Lexware Office as part of the Haufe Group's strategy to consolidate its accounting products under the Lexware brand. This integration aims to provide a unified brand experience and leverage synergies within the Lexware product family. The core functionality and cloud-based nature of the software remain unchanged.",
+      "implication": "While the core product remains, the rebranding signifies a stronger push for Lexware's accounting solutions in the German SMB market, potentially increasing competitive pressure.",
+      "source": "Lexware (Dec 06 2025)"
+    },
+    {
+      "id": "cegid-sevdesk-acquisition-completes",
+      "category": "Competitive",
+      "market": "DE",
+      "date": "Feb 2025",
+      "priority": "high",
+      "title": "Cegid completes acquisition of sevdesk, strengthening DACH presence",
+      "body": "Cegid has finalized its acquisition of sevdesk, a German provider of cloud-based accounting software for SMBs. This move expands Cegid's footprint in the DACH region, integrating sevdesk's solutions for pre-accounting, accounting, and e-invoicing. Sevdesk serves over 130,000 customers and supports over €85 billion in invoiced transactions. The acquisition aims to bolster Cegid's pan-European leadership in the SMB software segment.",
+      "implication": "Increased competition in the German market, particularly for cloud SMB solutions and e-invoicing compliance, as Cegid leverages sevdesk's established customer base and technology.",
+      "source": "Cegid (Feb 06 2025), Houlihan Lokey (Feb 24 2025)"
+    },
     {
       "id": "verifactu-holded-integration-may2026",
       "category": "Competitive",
@@ -58,28 +78,6 @@
       "body": "Holded has integrated Verifactu, the Spanish tax agency's verifiable invoicing system. This integration, effective May 2026, allows users to receive and validate Verifactu invoices within Holded. While Holded stores the QR code and original document, the recipient remains responsible for validating the QR against the AEAT service and ensuring no duplicate invoices are entered.",
       "implication": "Holded is actively adapting to Verifactu, potentially capturing market share from Sage Active in Spain. Sage needs to ensure its Verifactu compliance is robust and clearly communicated to the Spanish market.",
       "source": "ininvoice (May 13 2026)"
-    },
-    {
-      "id": "autoentry-fr-launch",
-      "category": "AI & Tech",
-      "market": "FR",
-      "date": "February 2025",
-      "priority": "watch",
-      "title": "AutoEntry Now Available in France",
-      "body": "AutoEntry, an AI-powered document capture solution, has officially launched in France. This expansion allows French businesses and accountants to leverage AutoEntry's capabilities for automating data entry from invoices and receipts, integrating with various accounting software.",
-      "implication": "Increased competition in the document capture market in France, requiring Sage to highlight the advantages of its integrated solutions like AutoEntry+AKAO.",
-      "source": "App Store, February 04, 2025"
-    },
-    {
-      "id": "cegid-ebp-fr-expansion",
-      "category": "Competitive",
-      "market": "FR",
-      "date": "June 2024",
-      "priority": "high",
-      "title": "Cegid Acquires EBP to Strengthen European Presence",
-      "body": "Cegid acquired EBP, a French company specializing in payroll and accounting software, in June 2024. This move aims to bolster Cegid's European strategy, particularly in serving small businesses, and expand its reach in the French market. The combined entity will offer a comprehensive suite of solutions for accounting professionals and SMEs.",
-      "implication": "This acquisition significantly strengthens Cegid's competitive position in France, potentially impacting Sage's market share, especially within the expert-comptable channel.",
-      "source": "Celge, June 07, 2024"
     },
     {
       "id": "portugal-qes-mandate-delay",
