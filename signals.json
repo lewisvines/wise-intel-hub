@@ -28,22 +28,22 @@
     "eu_competitive_pct": 100,
     "eu_competitive_status": "green",
     "eu_competitive_label": "Live",
-    "last_scan": "2026-05-21T10:41:07.479032Z",
+    "last_scan": "2026-05-21T18:51:43.322987Z",
     "last_scan_summary": "Refresh complete - data current as of 11 May 2026",
     "scan_status": {
       "date": "2026-05-21",
       "markets_scanned": [
         "FR",
-        "DE",
-        "PT"
+        "ES",
+        "DE"
       ],
       "markets_skipped": [],
-      "signals_added": 5,
+      "signals_added": 4,
       "quality_filtered": 0,
       "summaries": {
-        "FR": "The French market shows high activity with critical regulatory deadlines driving competitive moves and product positioning, especially around e-invoicing and integrated solutions for accounting practices.",
-        "DE": "The German market shows significant activity with Cegid's acquisition of sevdesk, DATEV's major cloud migration, and ongoing clarifications around XRechnung compliance, indicating a dynamic competitive and regulatory landscape.",
-        "PT": "Recent market signals in Portugal focus on regulatory deadlines for SAF-T and e-invoicing, alongside competitive consolidation through acquisitions."
+        "FR": "Market signals indicate heightened regulatory pressure for the French PA mandate, aggressive sales expansion by Cegid in the accounting sector, and continued competitive moves by Pennylane into new European markets.",
+        "ES": "The Spanish market shows significant activity with confirmed Verifactu deadlines, proactive competitor integration by Holded, and aggressive expansion plans from Pennylane, indicating a dynamic and competitive landscape.",
+        "DE": "Market signals show significant competitive and regulatory activity in Germany, with a strong push towards cloud adoption by DATEV and a clear regulatory timeline for e-invoicing."
       }
     },
     "archived_count": 0,
@@ -51,15 +51,50 @@
   },
   "signals": [
     {
-      "id": "cegid-phc-integration-impact",
+      "id": "holded-verifactu-integration",
       "category": "Competitive",
-      "market": "PT",
-      "date": "Jan 2025",
-      "priority": "watch",
-      "title": "Cegid's acquisition of PHC strengthens its market position in Portugal",
-      "body": "Cegid's acquisition of PHC Business Software in January 2025, following its earlier acquisition of Primavera, consolidates its presence in the Portuguese ERP market. PHC has a significant client base of 37,000 companies and 170,000 users across Portugal and other Portuguese-speaking countries.",
-      "implication": "The integration of PHC into Cegid's portfolio, alongside Cegid Primavera, creates a more formidable competitor in the Portuguese SME market. Sage needs to monitor how this consolidation impacts competitive dynamics and customer acquisition strategies.",
-      "source": "ECO SAPO (May 19 2026), Cegid Group (Jan 27 2025)"
+      "market": "ES",
+      "date": "Dec 2025",
+      "priority": "high",
+      "title": "Holded actively integrating Verifactu compliance into its POS system.",
+      "body": "Holded's documentation details the setup and configuration of Verifactu within its Point of Sale (POS) system, indicating active development and readiness for the Spanish regulatory changes. This includes creating specific rules for sales and ensuring electronic certificates are uploaded for automatic submission to the Tax Agency.",
+      "implication": "Holded's proactive integration of Verifactu into its POS system demonstrates a strong commitment to the Spanish market and regulatory compliance. This could pose a competitive threat to Sage Active if Holded's solution is perceived as more seamless or user-friendly by Spanish businesses and 'despachos'.",
+      "source": "Holded Academy (Dec 02 2025)"
+    },
+    {
+      "id": "verifactu-deadline-clarification",
+      "category": "Regulatory",
+      "market": "ES",
+      "date": "Dec 2025",
+      "priority": "critical",
+      "title": "Verifactu deadlines confirmed for Jan/Jul 2027 after government postponement.",
+      "body": "The Spanish government has confirmed new deadlines for Verifactu compliance following a postponement. Corporate Income Tax taxpayers must comply by January 1, 2027, while all other businesses and self-employed individuals have until July 1, 2027. This second extension provides additional adaptation time for businesses.",
+      "implication": "This extended timeline for Verifactu compliance in Spain provides a grace period but underscores the inevitability of the regulation. Sage Active needs to ensure its Spanish offering is fully compliant and marketed effectively to capture market share before the deadlines.",
+      "source": "Marosa VAT (Dec 01 2025), Wolters Kluwer (date not specified in snippet)",
+      "calendar_tag": true
+    },
+    {
+      "id": "pennylane-fr-es-expansion",
+      "category": "Competitive",
+      "market": "FR",
+      "date": "H2 2026",
+      "priority": "high",
+      "title": "Pennylane targets Spain launch in H2 2026, increasing competitive pressure",
+      "body": "Pennylane, a key competitor, is set to launch in Spain in the second half of 2026. This expansion into a new market, following its primary focus on France, intensifies competition for Sage's accounting solutions in Europe.",
+      "implication": "Pennylane's expansion into Spain before Sage's SfA Spain launch poses a direct competitive threat, necessitating a review of Sage's go-to-market strategy and timelines for the Spanish market.",
+      "source": "Competitor Information (H2 2026)"
+    },
+    {
+      "id": "fr-pa-mandate-readiness",
+      "category": "Regulatory",
+      "market": "FR",
+      "date": "May 2026",
+      "priority": "critical",
+      "title": "French PA mandate readiness efforts intensify among accounting bodies",
+      "body": "The French Ordre des experts-comptables is actively promoting readiness for the September 1, 2026, electronic invoicing mandate. They are offering workshops and an 'E-Factu' tool to help firms and their clients prepare for the upcoming regulations and potential fines.",
+      "implication": "Sage needs to accelerate its customer readiness programs and ensure its solutions are fully compliant and easily adoptable to avoid clients facing penalties.",
+      "source": "Ordre des experts-comptables Paris (May 2026)",
+      "calendar_tag": true
     },
     {
       "id": "pt-saf-t-qes-deadline-extension",
@@ -84,17 +119,6 @@
       "implication": "The clear deadlines and strict validation rules for XRechnung reinforce the urgency for businesses and software providers to ensure compliance. Sage Active's readiness for these mandates is critical for its success in the German market.",
       "source": "Google Search, May 05, 2026",
       "calendar_tag": true
-    },
-    {
-      "id": "cegid-sevdesk-germany-expansion",
-      "category": "Competitive",
-      "market": "DE",
-      "date": "Feb 2025",
-      "priority": "high",
-      "title": "Cegid completes acquisition of sevdesk, strengthening DACH presence",
-      "body": "Cegid has completed its acquisition of sevdesk, a German provider of cloud-based accounting software for SMBs. This move expands Cegid's footprint in the DACH region, integrating sevdesk's tools for invoicing, expense management, and tax reporting into Cegid's portfolio. Sevdesk serves over 130,000 customers and accounting professionals.",
-      "implication": "Increased competition from a well-funded European player in the German market, potentially impacting Sage's market share, especially with upcoming regulatory changes like XRechnung.",
-      "source": "Houlihan Lokey, February 24, 2025"
     },
     {
       "id": "fr-pa-mandate-reminder",
@@ -482,28 +506,6 @@
       "implication": "The upcoming B2B XRechnung mandate in Germany by January 2028 requires urgent attention. Sage must ensure its products, particularly Sage Active and Sage for Accountants, are fully compliant and can seamlessly integrate with XRechnung to avoid penalties and support German customers. This presents an opportunity to highlight compliance features.",
       "source": "Germany E-Invoicing Mandate (Jan 2028)",
       "calendar_tag": true
-    },
-    {
-      "id": "contasol-delsol-verifactu-support",
-      "category": "Competitive",
-      "market": "ES",
-      "date": "May 2026",
-      "priority": "watch",
-      "title": "Contasol (Software DELSOL) offers Verifactu support for SMEs and freelancers",
-      "body": "Contasol, an accounting software from Software DELSOL, is designed for SMEs and freelancers and explicitly provides electronic invoicing and Veri*Factu support. The software aims to automate accounting tasks and ensure compliance with fiscal obligations.",
-      "implication": "Contasol's established presence and explicit Verifactu support in the SME and freelancer segments represent direct competition for Sage Active in Spain. Sage needs to ensure its offering is competitive in features and ease of use, particularly for these segments.",
-      "source": "Solevant (May 2026), Software DELSOL (May 2026)"
-    },
-    {
-      "id": "holded-verifactu-readiness",
-      "category": "Competitive",
-      "market": "ES",
-      "date": "May 2026",
-      "priority": "watch",
-      "title": "Holded actively promotes Verifactu compliance and integration",
-      "body": "Holded is actively marketing its readiness for Verifactu, highlighting its compliance with Anti-Fraud Law regulations and offering configuration within user accounts. They are also promoting webinars and resources to help businesses understand and adapt to the new system.",
-      "implication": "Holded's proactive stance on Verifactu compliance positions them as a strong competitor in the Spanish market, potentially attracting businesses seeking immediate solutions. Sage Active needs to ensure its Verifactu readiness is clearly communicated and easily accessible to Spanish users.",
-      "source": "Holded (May 5, 2026)"
     }
   ]
 }
