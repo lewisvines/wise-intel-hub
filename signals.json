@@ -1,6 +1,6 @@
 {
   "meta": {
-    "last_updated": "2026-05-26",
+    "last_updated": "2026-05-27",
     "week_label": "Week of 11 May – 17 May 2026",
     "signal_count": 40,
     "prev_signal_count": 18,
@@ -28,24 +28,20 @@
     "eu_competitive_pct": 100,
     "eu_competitive_status": "green",
     "eu_competitive_label": "Live",
-    "last_scan": "2026-05-26T19:12:46.820598Z",
+    "last_scan": "2026-05-27T10:55:30.960233Z",
     "last_scan_summary": "Refresh complete - data current as of 11 May 2026",
     "scan_status": {
-      "date": "2026-05-26",
+      "date": "2026-05-27",
       "markets_scanned": [
         "FR",
-        "ES",
-        "DE",
-        "Pennylane"
+        "ES"
       ],
       "markets_skipped": [],
-      "signals_added": 6,
+      "signals_added": 4,
       "quality_filtered": 0,
       "summaries": {
-        "FR": "The French market shows significant activity related to the upcoming PA mandate, with strong competitive moves from Pennylane and the consolidation of Cegid and EBP, indicating a dynamic and competitive landscape.",
-        "ES": "Market signals for Spain show a continued focus on Verifactu compliance, with competitors like Holded actively promoting their solutions, and established free offerings like Contasol remaining strong in the SME and autónomo segments.",
-        "DE": "The German market shows significant activity with Cegid's acquisition of sevdesk, clear regulatory deadlines for e-invoicing, and brand consolidation by Lexware, indicating a dynamic competitive and compliance landscape.",
-        "Pennylane": "Pennylane is aggressively expanding across Europe with significant funding, enhancing its AI capabilities, and preparing for regulatory e-invoicing mandates, positioning it as a major competitive threat."
+        "FR": "The French market shows high activity around the upcoming PA mandate, with numerous platforms emerging and competitors like Pennylane and the merged Cegid-EBP entity actively expanding their offerings and market share.",
+        "ES": "Recent market signals for Spain show a significant regulatory shift with Verifactu deadlines extended to 2027, a critical competitive move with Pennylane's Spanish launch in early 2026, and a strengthening of a competitor through Visma's acquisition of Holded in 2021."
       }
     },
     "archived_count": 0,
@@ -53,38 +49,49 @@
   },
   "signals": [
     {
-      "id": "pennylane-e-invoicing-readiness",
-      "category": "Regulatory",
-      "market": "FR",
+      "id": "holded-visma-acquisition-june-2021",
+      "category": "Competitive",
+      "market": "ES",
+      "date": "Jun 2021",
+      "priority": "watch",
+      "title": "Visma acquires Holded, strengthening its position in Spain",
+      "body": "Visma acquired Holded, described as the fastest-growing cloud ERP & accounting software provider in Spain, in June 2021. Holded has over 80,000 customers in Spain and is a leading cloud ERP solution for small businesses. This acquisition positions Visma to capitalize on the Spanish market, which is characterized by a high concentration of SMEs and undergoing digital transformation.",
+      "implication": "Holded's integration into Visma's broader ecosystem could lead to increased competition and a more robust offering in the Spanish SMB market, requiring Sage to monitor their competitive strategies.",
+      "source": "Visma, Jun 2021"
+    },
+    {
+      "id": "pennylane-spain-expansion-jan-2026",
+      "category": "Competitive",
+      "market": "ES",
       "date": "Jan 2026",
-      "priority": "high",
-      "title": "Pennylane Ready for French E-invoicing Mandate",
-      "body": "Pennylane is positioning itself as a key player for France's mandatory electronic invoicing reform (September 1, 2026), being a certified PDP (Plateforme de Dématérialisation Partenaire). The platform is actively preparing its users for this transition, strengthening its infrastructure to facilitate compliance.",
-      "implication": "Pennylane's proactive stance and certification for the upcoming French e-invoicing mandate (Sept 1, 2026) directly addresses a critical regulatory deadline. This could give them a competitive edge over Sage if Sage's solutions are not perceived as equally prepared or compliant.",
-      "source": "Multiple news outlets (e.g., EU-Startups, Vestbee) - January 2026",
+      "priority": "critical",
+      "title": "Pennylane launches in Spain with localized OS",
+      "body": "Pennylane has officially expanded into Spain and Italy with localized operating system versions in January 2026. This move is part of their broader European expansion strategy, aiming to establish a presence in several more European markets. Pennylane has also raised significant funding, reaching a $4.25 billion valuation.",
+      "implication": "Pennylane's entry into the Spanish market poses a direct competitive threat to Sage for Accountants (SfA) and Sage Active, especially given Pennylane's rapid growth and investor backing.",
+      "source": "Pennylane, Jan 2026"
+    },
+    {
+      "id": "verifactu-deadline-extension-2027",
+      "category": "Regulatory",
+      "market": "ES",
+      "date": "Dec 2025",
+      "priority": "critical",
+      "title": "Verifactu deadlines officially postponed to 2027",
+      "body": "The Spanish government has officially postponed the mandatory Verifactu system deadlines to January 1, 2027, for corporate taxpayers and July 1, 2027, for self-employed individuals. This is the second delay, originally planned for 2025 and then 2026. Software providers must have compliant systems ready by July 29, 2025.",
+      "implication": "This extended timeline provides a grace period for Sage Active and SfA to ensure full compliance and market readiness in Spain, potentially shifting competitive focus to other areas in the interim.",
+      "source": "Multiple sources, Dec 2025",
       "calendar_tag": true
     },
     {
-      "id": "lexware-rebrands-lexoffice",
+      "id": "pennylane-fr-expansion-focus",
       "category": "Competitive",
-      "market": "DE",
-      "date": "Dec 2025",
-      "priority": "watch",
-      "title": "Lexware rebrands lexoffice to Lexware Office",
-      "body": "The Haufe Group has rebranded its popular lexoffice accounting software to Lexware Office as part of a brand strategy to consolidate its accounting products under the Lexware brand. This aims to provide a unified brand experience and easier access to other Lexware products for users.",
-      "implication": "While a rebranding, it signifies continued investment and integration within the Lexware ecosystem, potentially strengthening its market position against Sage's offerings.",
-      "source": "Lutz Consulting (Apr 2026), Vertex AI Search (Dec 2025)"
-    },
-    {
-      "id": "cegid-sevdesk-acquisition-germany",
-      "category": "Competitive",
-      "market": "DE",
-      "date": "Feb 2025",
+      "market": "FR",
+      "date": "May 2026",
       "priority": "high",
-      "title": "Cegid completes acquisition of German accounting software firm sevdesk",
-      "body": "Cegid has finalized its acquisition of sevdesk, a German provider of cloud-based accounting software for SMBs. This move strengthens Cegid's presence in the DACH region and expands its portfolio with sevdesk's offerings, including pre-accounting, accounting, and e-invoicing solutions. Sevdesk serves over 130,000 customers and supports billions in invoiced transactions.",
-      "implication": "Increased competition in the German market, particularly for cloud SMB solutions. Sage needs to monitor Cegid's integration strategy and potential cross-selling opportunities.",
-      "source": "NKP | M&A Insights (Jan 2025), Vertex AI Search (Feb 2025)"
+      "title": "Pennylane positions itself as a comprehensive, AI-enhanced accounting platform.",
+      "body": "Pennylane is actively marketing its AI-augmented accounting platform, emphasizing its comprehensive features including invoicing, bank reconciliation, expense management, and real-time financial dashboards. The platform is designed for seamless collaboration with accounting firms and is highlighted as being compatible with the upcoming 2026 e-invoicing obligations. Pennylane's strategy appears to be a premium, feature-rich offering.",
+      "implication": "Pennylane is a strong, well-funded competitor in France, focusing on advanced features and AI. Sage needs to clearly differentiate its value proposition, especially regarding AI and compliance.",
+      "source": "Appvizer, May 19 2026; Hayot Expertise, May 03 2026"
     },
     {
       "id": "contasol-free-tier-market-share",
@@ -497,17 +504,6 @@
       "implication": "This delay provides additional time for adoption of QES, but the eventual mandate will require updates to invoicing processes and software.",
       "source": "Comarch, December 09, 2025",
       "calendar_tag": true
-    },
-    {
-      "id": "holded-integrates-verifactu-receipts",
-      "category": "Competitive",
-      "market": "ES",
-      "date": "May 2026",
-      "priority": "high",
-      "title": "Holded integrates Verifactu invoice receipt validation.",
-      "body": "Holded has integrated functionality to receive and validate Verifactu invoices, including QR code verification against the AEAT. This allows users to manage incoming Verifactu invoices within Holded, with the ERP storing the document and the user responsible for QR validation against AEAT services.",
-      "implication": "This move by Holded strengthens their offering for the Spanish market, particularly concerning Verifactu compliance. Sage needs to monitor Holded's market penetration and ensure Sage Active's Verifactu capabilities are competitive.",
-      "source": "ininvoice (May 2026)"
     }
   ]
 }
