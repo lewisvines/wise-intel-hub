@@ -1,0 +1,64 @@
+name: Encrypt & Publish Hub
+
+# Re-encrypts src/index.html -> root index.html whenever the source changes,
+# so the static site actually updates. The password lives ONLY in the repo
+# secret STATICRYPT_PASSWORD (Settings > Secrets and variables > Actions).
+# It is never stored in the repo and never shared with anyone.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'src/index.html'
+      - '.staticrypt.json'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: encrypt-publish
+  cancel-in-progress: true
+
+jobs:
+  encrypt:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Read salt from .staticrypt.json
+        id: salt
+        run: echo "value=$(node -p "require('./.staticrypt.json').salt")" >> "$GITHUB_OUTPUT"
+
+      - name: Encrypt src/index.html -> index.html
+        env:
+          PW: ${{ secrets.STATICRYPT_PASSWORD }}
+        run: |
+          if [ -z "$PW" ]; then
+            echo "::error::STATICRYPT_PASSWORD secret is not set. Add it under Settings > Secrets and variables > Actions."
+            exit 1
+          fi
+          cp src/index.html index.html
+          # Reuses the existing salt so your current password keeps working.
+          # To preserve the Sage-branded password gate, add: --template path/to/your-template.html
+          npx --yes staticrypt index.html \
+            --password "$PW" \
+            --salt "${{ steps.salt.outputs.value }}" \
+            --short \
+            -d .
+
+      - name: Commit re-encrypted index.html if it changed
+        run: |
+          if ! git diff --quiet index.html; then
+            git config user.name "wise-hub-bot"
+            git config user.email "actions@users.noreply.github.com"
+            git add index.html
+            git commit -m "Re-encrypt index.html from src [skip ci]"
+            git push
+          else
+            echo "index.html unchanged - nothing to publish."
+          fi

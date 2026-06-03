@@ -2,7 +2,7 @@
   "meta": {
     "last_updated": "2026-06-03",
     "week_label": "Week of 1 Jun - 7 Jun 2026",
-    "signal_count": 27,
+    "signal_count": 32,
     "prev_signal_count": 40,
     "intensity": "CRITICAL",
     "intensity_reason": "France PA mandate under 90 days away - 100+ PAs certified - certified-vs-not gap visible by September - Pennylane EUR 175M war chest + AI co-pilot - Cegid in integration mode after Shine",
@@ -342,6 +342,61 @@
       "body": "Cegid continues integrating PHC and Primavera to consolidate its Iberian presence across Portugal and Spain, targeting the SMB-and-accountant segment.",
       "implication": "Cegid is the consolidation threat in Iberia as well as France. Despachos as the Spain anchor and a clear Portugal ecosystem story are the counter.",
       "source": "Cegid, 2026"
+    },
+    {
+      "id": "es-pennylane-madrid-hiring",
+      "category": "Hiring",
+      "market": "ES",
+      "date": "May 2026",
+      "priority": "high",
+      "title": "Pennylane opening engineering and revenue roles in Madrid - Spain entry leading indicator",
+      "body": "Pennylane's careers listings show software-engineering, growth and revenue roles in Madrid (and Lisbon), alongside a Country Manager search covering Spain, Belgium and Poland, ahead of any public launch announcement in those markets. Germany's ~100-hire build since November 2025 is the template.",
+      "implication": "The hiring pattern is the launch announcement. A Spain country-manager and commercial build would put Pennylane outreach into the Spanish accountant channel in 2026, before Sage Active Spain fully lands. Speed to Despachos loyalty is the protective OKR.",
+      "source": "Pennylane careers / Maddyness, May 2026"
+    },
+    {
+      "id": "es-holded-compliance-hiring",
+      "category": "Hiring",
+      "market": "ES",
+      "date": "May 2026",
+      "priority": "watch",
+      "title": "Holded hiring AEAT/Verifactu engineers and Spain SDRs - direct-to-SME motion",
+      "body": "Holded careers signals point to billing-compliance PMs, backend engineers for AEAT SIF integration, and SDRs for direct Spanish SMB outreach, indicating a full Verifactu-ready stack ahead of the 2027 deadline and a direct-to-SME motion that bypasses the accountant channel.",
+      "implication": "Compliance-engineer hiring is the leading indicator of an in-market compliant product by Q3 2026. The new SDR motion is a second front against the segment Despachos has held - worth watching, though Sage's accountant-channel model remains the structural defence.",
+      "source": "Holded careers, May 2026"
+    },
+    {
+      "id": "fr-cegid-integration-hiring",
+      "category": "Hiring",
+      "market": "FR",
+      "date": "May 2026",
+      "priority": "watch",
+      "title": "Cegid hiring shifts from expansion to integration after Shine",
+      "body": "Following the Shine acquisition, Cegid's hiring has tilted toward platform-consolidation roles - integration engineers, data-migration leads and unified-product PMs across FR, DACH, ES, PT, NL, DK and BE - rather than net-new market expansion.",
+      "implication": "Integration-mode hiring confirms the buying window: accountants will be unsettled by platform consolidation. Sage's 'decades of compliance heritage, no disruption' message is most credible now and weakens once the unified Cegid product ships.",
+      "source": "Cegid careers, May 2026"
+    },
+    {
+      "id": "eu-ai-agent-engineer-hiring",
+      "category": "Hiring",
+      "market": "FR",
+      "date": "May 2026",
+      "priority": "watch",
+      "title": "Competitor AI hiring titles shift to 'AI agent engineer' - operational, not experimental",
+      "body": "Across Cegid, Holded, Xero and Pennylane the AI hiring titles have moved from ML researcher to AI agent engineer and applied-LLM PM - a shift from experimentation to operational deployment. Each such hire typically equals a shipped competitive feature in 6-9 months.",
+      "implication": "Sage Copilot's positioning needs to track this with outcome-led messaging, not capability messaging - accountants want the AI to do the job, not be the job. Pair the agent story with Sage's compliance depth (DSN, Factur-X, PA submission).",
+      "source": "Competitor careers pages, May 2026"
+    },
+    {
+      "id": "de-lexware-channel-hiring",
+      "category": "Hiring",
+      "market": "DE",
+      "date": "May 2026",
+      "priority": "watch",
+      "title": "Lexware Office hiring suggests a tax-advisor channel push against DATEV",
+      "body": "Lexware Office (formerly Lexoffice, ~350k customers) shows marketing and channel hiring consistent with a parallel push into the German tax-advisor channel, with cloud-native UX and a compliance build aimed at the 2027 B2B mandate.",
+      "implication": "A second German challenger moving up-channel toward advisors as DATEV completes its cloud migration. Reinforces the need for a coherent German ecosystem and GE-Active readiness ahead of 2027.",
+      "source": "Lexware careers, May 2026"
     },
     {
       "id": "eu-vida-trajectory",
