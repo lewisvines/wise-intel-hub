@@ -2,7 +2,7 @@
   "meta": {
     "last_updated": "2026-06-03",
     "week_label": "Week of 1 Jun - 7 Jun 2026",
-    "signal_count": 32,
+    "signal_count": 36,
     "prev_signal_count": 40,
     "intensity": "CRITICAL",
     "intensity_reason": "France PA mandate under 90 days away - 100+ PAs certified - certified-vs-not gap visible by September - Pennylane EUR 175M war chest + AI co-pilot - Cegid in integration mode after Shine",
@@ -28,28 +28,94 @@
     "eu_competitive_pct": 100,
     "eu_competitive_status": "green",
     "eu_competitive_label": "Live",
-    "last_scan": "2026-06-03T07:40:00Z",
+    "last_scan": "2026-06-03T11:56:22.389110Z",
     "last_scan_summary": "Manual deep refresh - data current as of 3 June 2026",
     "scan_status": {
       "date": "2026-06-03",
       "markets_scanned": [
-        "FR",
         "ES",
-        "DE",
         "PT"
       ],
       "markets_skipped": [],
-      "signals_added": 12,
-      "quality_filtered": 18,
+      "signals_added": 6,
+      "quality_filtered": 0,
       "summaries": {
-        "FR": "Under 90 days to the 1 September mandate. 100+ PAs certified; Pennylane's EUR 175M Series E and AI co-pilot and Cegid's Shine-led consolidation dominate the competitive picture, while Xero is still not an accredited PA.",
-        "ES": "Verifactu confirmed delayed to 2027 (Jan corporates, Jul others). Holded is Verifactu-certified and marketing hard; Pennylane has registered a Spanish branch; Contasol pushes a free Verifactu-ready tier.",
-        "DE": "B2B issuance mandate consolidated: from Jan 2027 for firms above EUR 800k turnover, all businesses from Jan 2028. DATEV targets completion of its cloud migration by autumn 2026; Cegid scales DACH via sevDesk and Shine.",
-        "PT": "2026 State Budget pushed QES to Jan 2027 and the first SAF-T Accounting file to 2028, while B2G CIUS-PT now covers SMEs from Jan 2026. Cegid continues consolidating Iberia through PHC and Primavera."
+        "ES": "Market signals for Spain show confirmed Verifactu deadlines, aggressive competitive entry from Pennylane, and strong promotional activity from Holded regarding regulatory compliance.",
+        "PT": "Recent market signals in Portugal indicate a shift in regulatory deadlines for SAF-T accounting and QES, alongside significant competitive consolidation by Cegid through its acquisitions of Primavera and PHC."
       }
-    }
+    },
+    "archived_count": 1
   },
   "signals": [
+    {
+      "id": "cegid-primavera-phc-market-consolidation",
+      "category": "Competitive",
+      "market": "PT",
+      "date": "2025-2026",
+      "priority": "high",
+      "title": "Cegid Consolidates Portuguese Market with Primavera and PHC Acquisitions, Targeting 10% Growth",
+      "body": "Cegid reported €85 million in revenue in Portugal for 2025, the year it acquired PHC Software. With operations now fully integrated, Cegid aims for 10% growth in 2026. The company has 700 employees in Portugal and serves approximately 60,000 clients. Cegid also acquired Primavera BSS, strengthening its position in the Iberian market and Portuguese-speaking Africa.",
+      "implication": "Cegid's aggressive consolidation in Portugal, combining Primavera and PHC, creates a formidable competitor with a significant market share. Sage WiSE needs to differentiate its offerings and focus on specific market segments or value propositions to compete effectively.",
+      "source": "ECO (Apr 27 2026), Cegid Portugal (2026)"
+    },
+    {
+      "id": "pt-qes-deadline-shift",
+      "category": "Regulatory",
+      "market": "PT",
+      "date": "2027-01-01",
+      "priority": "watch",
+      "title": "Qualified Electronic Signature (QES) Mandatory for PDF Invoices in Portugal from Jan 1, 2027",
+      "body": "Starting January 1, 2027, all PDF invoices in Portugal, unless exchanged via Electronic Data Interchange (EDI), must include a Qualified Electronic Signature (QES) to be considered valid. This applies to B2B and B2C transactions, while B2G transactions already have stricter e-invoicing requirements. Simple PDF invoices are accepted until December 31, 2026.",
+      "implication": "This regulatory change will impact how SMBs and accountants handle invoicing in Portugal. Sage needs to ensure its platform supports QES integration for PDF invoices to maintain compliance for its Portuguese customers.",
+      "source": "EDICOM (Mar 07 2026), Comarch (Dec 09 2025), ECO (Apr 27 2026)",
+      "calendar_tag": true
+    },
+    {
+      "id": "pt-saf-t-deadline-shift",
+      "category": "Regulatory",
+      "market": "PT",
+      "date": "2026-2028",
+      "priority": "watch",
+      "title": "Portugal SAF-T Accounting File Submission Delayed to FY2027, First Submission in 2028",
+      "body": "The mandatory submission of the SAF-T accounting file in Portugal has been postponed to fiscal year 2027, with the first submission due in 2028. This affects businesses with a permanent establishment or effective management in Portugal and requires digital submission of tax and accounting data. The monthly SAF-T Billing file remains mandatory with a deadline of the 5th of the following month.",
+      "implication": "This delay provides additional time for compliance but also means a more complex data submission for accounting compared to the billing SAF-T. Sage needs to ensure its solutions support the upcoming SAF-T accounting requirements by the new deadlines.",
+      "source": "EDICOM (Dec 01 2025), RTC Suite (Apr 29 2025), Comarch (Dec 09 2025), ECO (Apr 27 2026)",
+      "calendar_tag": true
+    },
+    {
+      "id": "holded-verifactu-readiness",
+      "category": "Competitive",
+      "market": "ES",
+      "date": "Ongoing",
+      "priority": "watch",
+      "title": "Holded actively promotes Verifactu compliance features for Spanish businesses",
+      "body": "Holded is actively marketing its platform's readiness for Spain's Verifactu regulation, highlighting features such as draft invoices, invoice cancellation, and an event log for audit trails. They emphasize their role as an e-invoicing software provider compliant with AEAT requirements.",
+      "implication": "Holded is positioning itself as a Verifactu-ready solution, potentially capturing market share from businesses seeking compliance. Sage Active needs to ensure its Verifactu capabilities are clearly communicated and superior.",
+      "source": "Holded"
+    },
+    {
+      "id": "pennylane-spain-expansion-confirmed",
+      "category": "Competitive",
+      "market": "ES",
+      "date": "H2 2026",
+      "priority": "critical",
+      "title": "Pennylane confirms Spain entry in H2 2026, targeting 6,000+ firms",
+      "body": "Pennylane, a French accounting software startup, has announced plans to establish a presence in Spain in the second half of 2026, backed by significant funding. The company already supports over 6,000 firms and aims to expand its reach into new European markets.",
+      "implication": "Pennylane's entry into Spain before Sage for Accountants (SfA) Spain launch poses a significant competitive threat, especially in the 'despachos' (accounting firms) channel.",
+      "source": "SiliconANGLE, EU-Startups"
+    },
+    {
+      "id": "verifactu-deadline-clarification",
+      "category": "Regulatory",
+      "market": "ES",
+      "date": "Jul 2027",
+      "priority": "high",
+      "title": "Spain Verifactu deadlines confirmed for Jan 2027 (corporate) and Jul 2027 (self-employed)",
+      "body": "The final mandatory dates for Verifactu compliance in Spain have been confirmed: January 1, 2027, for companies subject to corporate income tax, and July 1, 2027, for all other businesses and self-employed individuals. This regulation aims to combat tax fraud through real-time invoice verification.",
+      "implication": "Sage Active Spain needs to ensure full compliance with Verifactu by these deadlines, especially for the self-employed segment, which is a key target for Sage WiSE.",
+      "source": "Wolters Kluwer, Datisa ERP, Holded, SelloQR",
+      "calendar_tag": true
+    },
     {
       "id": "fr-mandate-sep-2026-confirmed",
       "category": "Regulatory",
@@ -275,17 +341,6 @@
       "source": "Cegid, Apr 2026"
     },
     {
-      "id": "de-lexware-office-rebrand",
-      "category": "Brand",
-      "market": "DE",
-      "date": "Dec 2025",
-      "priority": "watch",
-      "title": "Lexoffice rebrands to Lexware Office under Haufe Group",
-      "body": "Haufe Group rebranded Lexoffice to Lexware Office (December 2025), consolidating its accounting products under the stronger Lexware brand for a unified experience.",
-      "implication": "A brand consolidation signalling continued investment in the German SMB segment. Not urgent, but a marker of Haufe's intent to defend the low-to-mid German market.",
-      "source": "Lexware, Dec 2025"
-    },
-    {
       "id": "de-tax-advisory-ai-agents",
       "category": "AI & Tech",
       "market": "DE",
@@ -319,18 +374,6 @@
       "body": "The first mandatory annual SAF-T (PT) Accounting file submission, covering 2026 transactions, has been postponed to 2028 (from 2027), giving businesses an extra year - though the file must still be produced on demand during inspections.",
       "implication": "Reduces near-term compliance pressure in Portugal and reinforces a value-first rather than deadline-first pitch for the PT accountant channel.",
       "source": "2026 State Budget / VATupdate, Dec 2025"
-    },
-    {
-      "id": "pt-b2g-cius-sme",
-      "category": "Regulatory",
-      "market": "PT",
-      "date": "Jan 2026",
-      "priority": "watch",
-      "calendar_tag": true,
-      "title": "B2G e-invoicing (CIUS-PT) extended to SMEs and micro-enterprises from Jan 2026",
-      "body": "From 1 January 2026, all suppliers to Portuguese public administration - including SMEs and micro-enterprises - must issue structured CIUS-PT e-invoices (UBL 2.1 / CEFACT), extending a mandate that has applied to large companies since 2021.",
-      "implication": "A live B2G obligation already touching small Portuguese firms - a practical hook for accountant conversations about structured invoicing ahead of the 2027 changes.",
-      "source": "eSPap / RTC, 2026"
     },
     {
       "id": "pt-cegid-phc",
@@ -409,6 +452,19 @@
       "body": "The EU's VAT in the Digital Age (ViDA) package was adopted on 11 March 2025, with a major cross-border digital reporting and e-invoicing stage from 1 July 2030. The national mandates (FR 2026, DE 2027/28, ES and PT 2027) sit underneath it.",
       "implication": "The direction is unmistakable across all four WiSE markets. Building structured-invoicing readiness now is reusable infrastructure for ViDA later - a strategic, not just tactical, reason for accountants to move with Sage.",
       "source": "EU Commission / Deloitte, 2026"
+    },
+    {
+      "id": "pt-b2g-cius-sme",
+      "category": "Regulatory",
+      "market": "PT",
+      "date": "Jan 2026",
+      "priority": "watch",
+      "calendar_tag": true,
+      "title": "B2G e-invoicing (CIUS-PT) extended to SMEs and micro-enterprises from Jan 2026",
+      "body": "From 1 January 2026, all suppliers to Portuguese public administration - including SMEs and micro-enterprises - must issue structured CIUS-PT e-invoices (UBL 2.1 / CEFACT), extending a mandate that has applied to large companies since 2021.",
+      "implication": "A live B2G obligation already touching small Portuguese firms - a practical hook for accountant conversations about structured invoicing ahead of the 2027 changes.",
+      "source": "eSPap / RTC, 2026",
+      "archived": true
     }
   ]
 }
