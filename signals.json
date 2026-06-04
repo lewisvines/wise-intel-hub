@@ -28,60 +28,61 @@
     "eu_competitive_pct": 100,
     "eu_competitive_status": "green",
     "eu_competitive_label": "Live",
-    "last_scan": "2026-06-04T10:38:41.589896Z",
+    "last_scan": "2026-06-04T19:11:38.836231Z",
     "last_scan_summary": "Manual deep refresh - data current as of 3 June 2026",
     "scan_status": {
       "date": "2026-06-04",
       "markets_scanned": [
         "ES",
         "DE",
-        "PT"
+        "PT",
+        "Pennylane"
       ],
       "markets_skipped": [],
-      "signals_added": 4,
+      "signals_added": 3,
       "quality_filtered": 0,
       "summaries": {
-        "ES": "Market signals for Spain show strong competitive activity around Verifactu compliance, with Holded actively promoting its features and Contasol offering a free tier, while regulatory deadlines are firming up for 2027.",
-        "DE": "The German market shows significant activity with DATEV's cloud transformation, Cegid's strategic acquisition of sevdesk, and the firming up of the B2B e-invoicing mandate, indicating a dynamic competitive and regulatory landscape.",
-        "PT": "Recent market signals in Portugal indicate a shift in SAF-T accounting deadlines and a critical upcoming mandate for Qualified Electronic Signatures, while Cegid's strategic integration of Primavera and PHC significantly strengthens its competitive position."
+        "ES": "The Spanish market shows significant activity regarding the Verifactu regulation, with competitors like Holded and Contasol actively positioning themselves, while regulatory deadlines have been extended.",
+        "DE": "Market signals for Germany show significant competitive moves with Cegid's acquisition of sevDesk and a clear regulatory push with the B2B e-invoicing mandate approaching in 2028, alongside DATEV's major cloud transformation.",
+        "PT": "Recent market signals in Portugal indicate a continued regulatory push towards digital invoicing with mandatory QES by January 2027 and a postponed SAF-T Accounting file submission to 2028, while the competitive landscape intensifies with Cegid's full integration of PHC.",
+        "Pennylane": "Pennylane is aggressively expanding across Europe with significant funding, a strong focus on AI, and strategic market entries, posing a critical competitive threat to Sage WiSE."
       }
     },
     "archived_count": 0
   },
   "signals": [
     {
-      "id": "cegid-primavera-phc-integration",
-      "category": "Competitive",
-      "market": "PT",
-      "date": "Jan 2025",
-      "priority": "critical",
-      "title": "Cegid Completes Integration of PHC Software, Strengthening Market Position",
-      "body": "Cegid Group finalized its acquisition and integration of Portuguese technology company PHC Business Software in January 2025. This move, following the earlier acquisition of Primavera, consolidates Cegid's presence in Portugal and Portuguese-speaking Africa, with a combined portfolio of 37,000 client companies and 170,000 users.",
-      "implication": "The full integration of Cegid's Primavera and PHC offerings creates a formidable competitor in the Portuguese market, particularly for accounting firms and SMEs, requiring Sage to accelerate its go-to-market strategy and product localization.",
-      "source": "ECO - SAPO (Apr 27 2026), Cegid Group (Jan 27 2025)"
-    },
-    {
-      "id": "germany-b2b-e-invoicing-mandate-2028",
-      "category": "Regulatory",
-      "market": "DE",
-      "date": "May 2025",
-      "priority": "critical",
-      "title": "Germany proposes B2B e-invoicing mandate, with full implementation for all businesses by January 2028.",
-      "body": "Germany is moving towards a mandatory B2B e-invoicing system. By January 2025, all companies must be able to process inbound electronic invoices. In January 2027, large companies (over €800k turnover) will be required to send electronic invoices, and by January 2028, this mandate will extend to all businesses, irrespective of turnover. After January 2028, only EN16931 compliant invoices will be accepted.",
-      "implication": "The impending B2B e-invoicing mandate in Germany by January 2028 is a critical deadline. Sage WiSE must ensure its products, particularly Sage Active and AutoEntry+AKAO, are fully compliant and positioned to help clients meet these requirements. Failure to do so could result in significant penalties for clients and a loss of market share for Sage.",
-      "source": "Unlocking Deutschland XRechnung: Your Guide to German E-Invoicing - Axway Blog (May 15 2025); E-Invoicing Requirements in Germany: Guide, Steps and Timeline - Trustpair (February 27 2026)",
-      "calendar_tag": true
-    },
-    {
-      "id": "cegid-sevdesk-expansion-germany",
+      "id": "pennylane-germany-launch-nov2025",
       "category": "Competitive",
       "market": "DE",
-      "date": "Feb 2025",
+      "date": "Nov 2025",
       "priority": "high",
-      "title": "Cegid acquires sevdesk, strengthening its presence in German-speaking Europe for cloud and e-invoicing solutions.",
-      "body": "Cegid's acquisition of sevdesk, a German provider of digital invoicing and accounting solutions, aims to expand its offerings in German-speaking Europe. Sevdesk serves over 130,000 micro and SMB customers and accounting professionals, with a focus on cloud-native solutions and e-invoicing compliance. This move positions Cegid to assist businesses in navigating digitalization and upcoming e-invoicing reforms.",
-      "implication": "Cegid's strengthened presence in Germany via sevdesk poses a direct competitive threat, particularly as both companies focus on cloud SMB solutions and e-invoicing compliance, areas critical for Sage WiSE. This acquisition could accelerate Cegid's market penetration and challenge Sage's existing or planned offerings in the region.",
-      "source": "sevdesk ist nun Teil von Cegid (February 06 2025); Cegid - Sevdesk | Transaction Details - Houlihan Lokey; Sevdesk continues their success story together with Cegid - PwC (May 22 2025)"
+      "title": "Pennylane officially enters the German market",
+      "body": "Pennylane officially launched in Germany in November 2025, with plans to hire 100 local staff to grow its presence. The company is also focusing on product localization to meet German regulatory requirements.",
+      "implication": "Pennylane's early entry into Germany, coupled with its substantial funding and focus on localization, poses a direct threat to Sage's position in this key market, especially given the upcoming German XRechnung mandate in 2028.",
+      "source": "EU-Startups, theCUBE Research Nov 2025"
+    },
+    {
+      "id": "pennylane-funding-expansion-jan2026",
+      "category": "Competitive",
+      "market": "EU",
+      "date": "Jan 2026",
+      "priority": "critical",
+      "title": "Pennylane secures €175M for AI and European expansion",
+      "body": "Pennylane raised €175 million in a funding round led by TCV, with participation from Blackstone Growth and existing investors. This capital will accelerate AI capabilities and expand its presence across Europe, positioning the company for potential market consolidation. The company is also focusing on product localization for Germany and enhancing payment/cash management features.",
+      "implication": "Pennylane's significant funding and strategic focus on AI and European expansion represent a major competitive threat, particularly in Germany and other key markets. Sage WiSE needs to accelerate its own AI development and market entry strategies to counter this.",
+      "source": "MEXC News, EU-Startups, International Accounting Bulletin, TNW, Vestbee, Tech.eu, theCUBE Research, baby vc Jan 2026"
+    },
+    {
+      "id": "contasol-free-tier-verifactu",
+      "category": "Competitive",
+      "market": "ES",
+      "date": "May 2026",
+      "priority": "watch",
+      "title": "Contasol offers free tier with Verifactu compliance for Spanish SMBs",
+      "body": "Contasol, a Spanish accounting software, offers a permanent free tier for one user, which is updated to comply with Spanish tax regulations for 2026, including Verifactu. This positions Contasol as a low-cost entry point for small businesses and freelancers in Spain, potentially impacting the 'autónomo' segment.",
+      "implication": "The free tier offering from Contasol, coupled with Verifactu compliance, presents a significant challenge for Sage Active's entry into the 'autónomo' segment in Spain, especially for price-sensitive customers.",
+      "source": "Capterra, May 29, 2026"
     },
     {
       "id": "datev-cloud-migration-2026",
