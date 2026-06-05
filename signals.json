@@ -2,7 +2,7 @@
   "meta": {
     "last_updated": "2026-06-05",
     "week_label": "Week of 1 Jun - 7 Jun 2026",
-    "signal_count": 40,
+    "signal_count": 37,
     "prev_signal_count": 40,
     "intensity": "CRITICAL",
     "intensity_reason": "France PA mandate under 90 days away - 100+ PAs certified - certified-vs-not gap visible by September - Pennylane EUR 175M war chest + AI co-pilot - Cegid in integration mode after Shine",
@@ -28,52 +28,46 @@
     "eu_competitive_pct": 100,
     "eu_competitive_status": "green",
     "eu_competitive_label": "Live",
-    "last_scan": "2026-06-05T10:46:28.626513Z",
+    "last_scan": "2026-06-05T18:53:44.466238Z",
     "last_scan_summary": "Manual deep refresh - data current as of 3 June 2026",
     "scan_status": {
       "date": "2026-06-05",
       "markets_scanned": [
-        "FR",
-        "ES",
-        "DE",
         "PT",
         "Pennylane"
       ],
       "markets_skipped": [],
-      "signals_added": 9,
+      "signals_added": 2,
       "quality_filtered": 0,
       "summaries": {
-        "FR": "The French market shows significant activity around the upcoming e-invoicing mandate, with regulatory confirmations and competitive moves by major players like Sage and Cegid, alongside the ongoing development of document capture and AI-driven solutions.",
-        "ES": "The Spanish market shows significant activity with Pennylane's planned entry, Holded's proactive Verifactu compliance marketing, and confirmed regulatory deadlines for Verifactu, indicating a competitive and compliance-driven environment.",
-        "DE": "The German market shows significant competitive activity with Cegid's acquisition of sevDesk and Lexware's rebranding of lexoffice, alongside the critical approaching deadline for B2B e-invoicing compliance, indicating a dynamic and regulatory-driven landscape.",
-        "PT": "Portugal's regulatory landscape is rapidly evolving with upcoming deadlines for Qualified Electronic Signatures (QES) in 2027 and SAF-T accounting file submissions in 2028, while competitive consolidation is evident with Cegid's acquisition of PHC.",
-        "Pennylane": "Pennylane is aggressively expanding its AI capabilities and European market presence, posing a significant competitive threat to Sage WiSE."
+        "PT": "Recent market signals in Portugal show regulatory shifts with delays in SAF-T and QES mandates, alongside significant competitive activity from Cegid's post-acquisition integration and revenue growth.",
+        "Pennylane": "Pennylane is aggressively expanding across Europe, heavily investing in AI, and securing significant funding, positioning it as a primary competitive threat to Sage WiSE."
       }
     },
     "archived_count": 0
   },
   "signals": [
     {
-      "id": "pennylane-product-expansion-germany",
-      "category": "Competitive",
-      "market": "DE",
-      "date": "Nov 2025",
-      "priority": "high",
-      "title": "Pennylane Launches in Germany, Eyes Further EU Expansion",
-      "body": "Pennylane officially entered the German market in November 2025 and is planning to establish a presence in several more European markets, including Poland, Spain, and Belgium. The company is also focused on product localization for the German market and enriching its payment and cash management offerings.",
-      "implication": "Pennylane's proactive market entry into Germany before Sage's planned Spain launch creates a competitive disadvantage. Sage must expedite its German and Spanish market strategies to counter Pennylane's growing footprint.",
-      "source": "EU-Startups, theCUBE (Nov 2025)"
+      "id": "pennylane-funding-expansion-ai",
+      "category": "Competitive|AI & Tech",
+      "market": "EU",
+      "date": "Jan 2026",
+      "priority": "critical",
+      "title": "Pennylane secures €175M for AI development and European expansion",
+      "body": "Pennylane has raised €175 million in a Series E funding round led by TCV and Blackstone Growth, with participation from existing investors. The capital will be used to accelerate AI capabilities, expand its presence across Europe, and prepare for market consolidation. The company's valuation is reported to be around $4.25 billion.",
+      "implication": "Pennylane's significant funding and clear focus on AI and European expansion directly threaten Sage WiSE's market share, especially in new territories.",
+      "source": "MEXC News, Maddyness UK, Tech.eu, EU-Startups, Vestbee, SelectHub, TNW, Tracxn, baby vc, TCV, PitchBook (Jan 2026)"
     },
     {
-      "id": "cegid-acquires-phc-strengthens-pt-market",
+      "id": "cegid-phc-integration-progress",
       "category": "Competitive",
       "market": "PT",
-      "date": "Jan 2025",
+      "date": "Apr 2026",
       "priority": "high",
-      "title": "Cegid acquires PHC Software, consolidating its position in the Portuguese market",
-      "body": "Cegid Group acquired the Portuguese technology company PHC Software in January 2025, integrating its 262 employees and a portfolio of 37,000 client companies. This acquisition strengthens Cegid's presence in the Iberian Peninsula and Portuguese-speaking Africa, particularly in the SME management software solutions market. PHC reported net profits of €4.9 million in 2023.",
-      "implication": "The acquisition of PHC by Cegid, a major competitor, significantly increases their market share and product offering in Portugal, posing a greater competitive threat to Sage's existing and future market entry.",
-      "source": "ECO, SAPO, Vertex AI Search (January 21 2025); Cegid Group, Vertex AI Search (January 27 2025)"
+      "title": "Cegid reports €85M revenue in Portugal in 2025, post-PHC acquisition",
+      "body": "Cegid achieved €85 million in revenue in Portugal in 2025, the year it acquired PHC Software. The company expects a 10% growth this year, with operations now fully integrated. Cegid has approximately 700 employees and 60,000 clients in the region.",
+      "implication": "Cegid's strong performance and successful integration of PHC Software in Portugal indicate increased competitive pressure. Sage needs to monitor their market strategy and product development closely, especially regarding their combined offerings for the Portuguese market.",
+      "source": "ECO - SAPO (April 27 2026)"
     },
     {
       "id": "germany-e-invoicing-deadline-approaching",
@@ -88,28 +82,6 @@
       "calendar_tag": true
     },
     {
-      "id": "lexware-rebrands-lexoffice",
-      "category": "Competitive",
-      "market": "DE",
-      "date": "Dec 2025",
-      "priority": "watch",
-      "title": "Lexware rebrands lexoffice to Lexware Office",
-      "body": "Haufe Group is rebranding its popular accounting software lexoffice to Lexware Office as part of a brand strategy to consolidate its accounting products under the Lexware brand. This aims to create a unified brand experience and leverage Lexware's established reputation for quality and reliability in the German market.",
-      "implication": "Lexware Office will benefit from the established Lexware brand, potentially increasing its market share and visibility. This could impact Sage's positioning, especially if Lexware Office emphasizes its integration with the DATEV ecosystem.",
-      "source": "lexoffice heißt jetzt Lexware Office: Änderungen im Überblick (Dec 06 2025)"
-    },
-    {
-      "id": "cegid-sevdesk-acquisition-completes",
-      "category": "Competitive",
-      "market": "DE",
-      "date": "Feb 2025",
-      "priority": "high",
-      "title": "Cegid completes acquisition of German accounting software provider sevDesk",
-      "body": "Cegid has finalized its acquisition of sevDesk, a German provider of cloud-based accounting software for micro and SMB businesses. This move expands Cegid's presence in the DACH region and strengthens its position in the European SMB software market. SevDesk serves over 130,000 customers and has processed over €85 billion in transactions.",
-      "implication": "Increased competition in the German SMB accounting market with a well-funded European player. Sage Active and Sage for Accountants need to monitor Cegid's integration and market strategy in Germany.",
-      "source": "Cegid completes acquisition of sevdesk (Feb 06 2025)"
-    },
-    {
       "id": "pennylane-spain-h2-2026-entry",
       "category": "Competitive",
       "market": "ES",
@@ -119,17 +91,6 @@
       "body": "Pennylane, a French accounting software startup, has raised $496M and plans to establish a presence in Spain in the second half of 2026. The company aims to leverage its AI-powered financial OS and accounting platform to capture market share, with a reported valuation of $4.25 billion and €115M ARR. This expansion into Spain poses a direct competitive threat to Sage's existing and planned offerings in the market.",
       "implication": "Sage needs to accelerate its Spain market entry and product roadmap for Sage for Accountants to counter Pennylane's aggressive expansion and established valuation.",
       "source": "Pennylane Funding and Expansion News (Jan 2026)"
-    },
-    {
-      "id": "cegid-ebp-strategic-alignment-apr2025",
-      "category": "Competitive",
-      "market": "FR",
-      "date": "April 2025",
-      "priority": "high",
-      "title": "Cegid and EBP Deepen Integration for French Accountants and Clients",
-      "body": "Cegid has announced the native integration of its 'Plateforme de Dématérialisation Partenaire' (PDP) into both Cegid and EBP solutions. This integration is specifically targeted at French accountants and their clients, aiming to streamline compliance with upcoming regulations, including e-invoicing. Cegid highlights its extensive experience in data management and its role as a PDP provider in France.",
-      "implication": "Cegid's strategic integration with EBP strengthens its position in the French market, particularly within the expert-comptable channel. This move directly challenges Sage's presence and requires a robust response from Sage WiSE.",
-      "source": "Cegid Press Release, April 14, 2025"
     },
     {
       "id": "sage-active-ai-integration-may2026",
