@@ -1,8 +1,8 @@
 {
   "meta": {
-    "last_updated": "2026-06-05",
+    "last_updated": "2026-06-06",
     "week_label": "Week of 1 Jun - 7 Jun 2026",
-    "signal_count": 37,
+    "signal_count": 39,
     "prev_signal_count": 40,
     "intensity": "CRITICAL",
     "intensity_reason": "France PA mandate under 90 days away - 100+ PAs certified - certified-vs-not gap visible by September - Pennylane EUR 175M war chest + AI co-pilot - Cegid in integration mode after Shine",
@@ -28,35 +28,56 @@
     "eu_competitive_pct": 100,
     "eu_competitive_status": "green",
     "eu_competitive_label": "Live",
-    "last_scan": "2026-06-05T18:53:44.466238Z",
+    "last_scan": "2026-06-06T09:24:57.840514Z",
     "last_scan_summary": "Manual deep refresh - data current as of 3 June 2026",
     "scan_status": {
-      "date": "2026-06-05",
+      "date": "2026-06-06",
       "markets_scanned": [
-        "PT",
-        "Pennylane"
+        "DE"
       ],
       "markets_skipped": [],
-      "signals_added": 2,
+      "signals_added": 3,
       "quality_filtered": 0,
       "summaries": {
-        "PT": "Recent market signals in Portugal show regulatory shifts with delays in SAF-T and QES mandates, alongside significant competitive activity from Cegid's post-acquisition integration and revenue growth.",
-        "Pennylane": "Pennylane is aggressively expanding across Europe, heavily investing in AI, and securing significant funding, positioning it as a primary competitive threat to Sage WiSE."
+        "DE": "Market signals in Germany show significant competitive and regulatory activity, with a major acquisition, a phased e-invoicing mandate, and a key competitor rebranding, indicating a dynamic and evolving landscape."
       }
     },
-    "archived_count": 0
+    "archived_count": 1
   },
   "signals": [
     {
-      "id": "pennylane-funding-expansion-ai",
-      "category": "Competitive|AI & Tech",
-      "market": "EU",
-      "date": "Jan 2026",
+      "id": "lexoffice-rebrands-to-lexware-office",
+      "category": "Brand",
+      "market": "DE",
+      "date": "Dec 2025",
+      "priority": "watch",
+      "title": "Lexoffice rebrands to Lexware Office as part of Haufe Group's strategy",
+      "body": "Lexoffice, a popular online accounting software in Germany targeting small businesses and freelancers, has been rebranded to Lexware Office. This change aligns it with the broader Lexware brand, known for its accounting solutions. The core functionalities and cloud-based nature of the software remain the same.",
+      "implication": "While a rebranding, it signifies continued investment and integration within the Haufe Group ecosystem, potentially strengthening its market position against Sage's offerings in the SMB segment.",
+      "source": "Haufe Group (Dec 2025)"
+    },
+    {
+      "id": "germany-xrechnung-b2b-mandate-phasing",
+      "category": "Regulatory",
+      "market": "DE",
+      "date": "Jan 2027-2028",
       "priority": "critical",
-      "title": "Pennylane secures €175M for AI development and European expansion",
-      "body": "Pennylane has raised €175 million in a Series E funding round led by TCV and Blackstone Growth, with participation from existing investors. The capital will be used to accelerate AI capabilities, expand its presence across Europe, and prepare for market consolidation. The company's valuation is reported to be around $4.25 billion.",
-      "implication": "Pennylane's significant funding and clear focus on AI and European expansion directly threaten Sage WiSE's market share, especially in new territories.",
-      "source": "MEXC News, Maddyness UK, Tech.eu, EU-Startups, Vestbee, SelectHub, TNW, Tracxn, baby vc, TCV, PitchBook (Jan 2026)"
+      "title": "Germany's B2B e-invoicing mandate phases in from 2027, full adoption by 2028",
+      "body": "Germany's Growth Opportunities Act mandates B2B e-invoicing, with businesses needing to receive e-invoices from January 2025. Larger businesses (over €800,000 annual revenue) must issue e-invoices from January 2027, and all businesses by January 2028. XRechnung and ZUGFeRD are the compliant formats.",
+      "implication": "Urgent need for Sage products in Germany to be fully compliant with XRechnung and ZUGFeRD standards to avoid penalties and ensure market access. This directly impacts Sage for Accountants and Sage Active.",
+      "source": "Vertex AI Search (April 2026)",
+      "calendar_tag": true
+    },
+    {
+      "id": "cegid-sevdesk-acquisition-completion",
+      "category": "Competitive",
+      "market": "DE",
+      "date": "Feb 2025",
+      "priority": "high",
+      "title": "Cegid completes acquisition of sevDesk, strengthening DACH presence",
+      "body": "Cegid has finalized its acquisition of sevDesk, a German cloud accounting software provider. This move expands Cegid's footprint in the DACH region, integrating sevDesk's offerings for SMBs and tax professionals. Marco Reinbold, co-founder of sevDesk, has been appointed General Manager for Cegid's DACH operations.",
+      "implication": "Increased competitive pressure from a well-funded European player in the German SMB market, potentially impacting Sage Active and SfA's cloud offerings.",
+      "source": "Cegid, Houlihan Lokey (Feb 2025)"
     },
     {
       "id": "cegid-phc-integration-progress",
@@ -463,6 +484,18 @@
       "body": "Contasol is offering a free single-user tier with Verifactu compliance, reinforcing the Spanish freemium battleground at the low end.",
       "implication": "The freemium fight (Contasol, free tiers) does not overlap with Sage Active's ICP, but it shapes price expectations. Hold the value-led line; do not chase the free segment.",
       "source": "Software DELSOL, May 2026"
+    },
+    {
+      "id": "pennylane-funding-expansion-ai",
+      "category": "Competitive|AI & Tech",
+      "market": "EU",
+      "date": "Jan 2026",
+      "priority": "critical",
+      "title": "Pennylane secures €175M for AI development and European expansion",
+      "body": "Pennylane has raised €175 million in a Series E funding round led by TCV and Blackstone Growth, with participation from existing investors. The capital will be used to accelerate AI capabilities, expand its presence across Europe, and prepare for market consolidation. The company's valuation is reported to be around $4.25 billion.",
+      "implication": "Pennylane's significant funding and clear focus on AI and European expansion directly threaten Sage WiSE's market share, especially in new territories.",
+      "source": "MEXC News, Maddyness UK, Tech.eu, EU-Startups, Vestbee, SelectHub, TNW, Tracxn, baby vc, TCV, PitchBook (Jan 2026)",
+      "archived": true
     }
   ]
 }
