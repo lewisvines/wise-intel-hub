@@ -1,6 +1,6 @@
 {
   "meta": {
-    "last_updated": "2026-06-06",
+    "last_updated": "2026-06-07",
     "week_label": "Week of 1 Jun - 7 Jun 2026",
     "signal_count": 40,
     "prev_signal_count": 40,
@@ -28,31 +28,94 @@
     "eu_competitive_pct": 100,
     "eu_competitive_status": "green",
     "eu_competitive_label": "Live",
-    "last_scan": "2026-06-06T17:59:24.199285Z",
+    "last_scan": "2026-06-07T09:59:21.226923Z",
     "last_scan_summary": "Manual deep refresh - data current as of 3 June 2026",
     "scan_status": {
-      "date": "2026-06-06",
+      "date": "2026-06-07",
       "markets_scanned": [
         "FR",
         "ES",
-        "DE",
-        "PT",
-        "Pennylane"
+        "DE"
       ],
       "markets_skipped": [],
-      "signals_added": 8,
+      "signals_added": 6,
       "quality_filtered": 0,
       "summaries": {
-        "FR": "Market signals in France show critical regulatory updates on the PA mandate, and high-priority competitive moves from Pennylane and Cegid/EBP targeting the expert-comptable channel.",
-        "ES": "The Spanish market shows significant activity around Verifactu compliance and competitive entries, with Pennylane's planned expansion and Holded's proactive marketing of compliance features being key signals.",
-        "DE": "The German market shows significant activity with DATEV's major cloud migration, Cegid's strategic acquisition of sevDesk, and the firming up of the B2B e-invoicing mandate timeline, indicating a dynamic competitive and regulatory landscape.",
-        "PT": "Recent market signals in Portugal indicate a shift in SAF-T deadlines, a mandatory QES requirement for invoices in 2027, and a significant competitive move with Cegid's acquisition of PHC.",
-        "Pennylane": "Pennylane is aggressively expanding across Europe, particularly in Germany, backed by substantial funding and advanced AI features, posing a significant competitive threat to Sage WiSE."
+        "FR": "Market signals in France over the past 48 hours show continued regulatory momentum for the e-invoicing mandate, competitive activity from Cegid/EBP and Pennylane, and ongoing product developments in document capture and accounting software.",
+        "ES": "Recent market signals for Spain show a continued focus on regulatory compliance with Verifactu deadlines, significant competitive activity through acquisitions like Holded by Visma, and technological advancements with Sage's AI offerings.",
+        "DE": "The German market shows significant activity in cloud migration, competitive consolidation, and regulatory preparation for e-invoicing."
       }
     },
     "archived_count": 0
   },
   "signals": [
+    {
+      "id": "germany-b2b-e-invoicing-2028",
+      "category": "Regulatory",
+      "market": "DE",
+      "date": "Jan 2028",
+      "priority": "critical",
+      "title": "Germany mandates B2B e-invoicing for all businesses by January 2028.",
+      "body": "Following a phased rollout, all German businesses will be required to send and receive electronic invoices for B2B transactions by January 2028. This mandate is based on the European Commission's Value Added Tax in the Digital Age (ViDA) framework.",
+      "implication": "This regulatory deadline is a critical driver for adoption of e-invoicing solutions like Sage Active and AutoEntry+AKAO in Germany. Competitors like Cegid/sevDesk are already positioning themselves to address this.",
+      "source": "Unlocking Deutschland XRechnung: Your Guide to German E-Invoicing - Axway Blog (May 15 2025)",
+      "calendar_tag": true
+    },
+    {
+      "id": "cegid-sevdesk-expansion-germany",
+      "category": "Competitive",
+      "market": "DE",
+      "date": "Feb 2025",
+      "priority": "critical",
+      "title": "Cegid acquires sevDesk, strengthening its position in German-speaking Europe.",
+      "body": "Cegid's acquisition of sevDesk, a German provider of digital invoicing and accounting solutions for SMBs, aims to expand its offerings in German-speaking Europe. SevDesk serves over 130,000 customers and is preparing them for upcoming e-invoicing reforms starting in 2025.",
+      "implication": "Cegid's increased presence in Germany via sevDesk, a direct competitor in the SMB cloud accounting space, intensifies competition, especially with upcoming e-invoicing mandates.",
+      "source": "sevdesk is now part of Cegid (February 06 2025)"
+    },
+    {
+      "id": "sage-active-ai-copilot-spain-2024",
+      "category": "AI & Tech",
+      "market": "ES",
+      "date": "Oct 2024",
+      "priority": "watch",
+      "title": "Sage Copilot AI assistant launched for Sage Active in Spain",
+      "body": "Sage launched Sage Copilot, its generative AI-powered assistant, for users of Sage Active in Spain, France, and Germany in October 2024. This AI assistant aims to automate routine tasks, provide insights, and help small businesses and accountants make faster, more informed decisions.",
+      "implication": "This launch positions Sage as an innovator in AI for accounting in Spain. It's crucial to highlight these AI capabilities to differentiate Sage for Accountants and Sage Active from competitors, especially as AI adoption grows within the 'despachos' channel.",
+      "source": "Sage press release, October 2024"
+    },
+    {
+      "id": "holded-visma-acquisition-2021",
+      "category": "Competitive",
+      "market": "ES",
+      "date": "June 2021",
+      "priority": "watch",
+      "title": "Visma acquired Holded for over €120M",
+      "body": "Visma Group, a Scandinavian software company, acquired Holded, a Spanish ERP and accounting platform, for over €120 million in June 2021. Holded serves over 80,000 customers in Spain and offers cloud ERP solutions for small businesses and accounting offices. This acquisition strengthens Visma's presence in the Spanish market.",
+      "implication": "Holded, now backed by Visma, will likely accelerate its product development and market penetration in Spain. Sage needs to monitor Holded's competitive moves, especially in the SMB and 'despachos' segments, and ensure its own offerings remain competitive.",
+      "source": "EU-Startups, Tech.eu, June 2021"
+    },
+    {
+      "id": "pennylane-prepares-for-fr-invoicing-reform",
+      "category": "Competitive",
+      "market": "FR",
+      "date": "March 2026",
+      "priority": "high",
+      "title": "Pennylane Positions for French Electronic Invoicing Reform",
+      "body": "Pennylane is actively preparing for and marketing its readiness for the French electronic invoicing reform, scheduled for September 2026. The platform emphasizes its all-in-one financial management capabilities, including invoicing, accounting, and banking, and its collaborative space with accountants. Pennylane also highlights its compatibility with the upcoming reform in its marketing materials and events.",
+      "implication": "Pennylane's proactive positioning and marketing around the French e-invoicing reform could capture market share. Sage needs to ensure its own messaging and product capabilities are clearly communicated to the French market.",
+      "source": "Hayot Expertise, Pennylane - March 2026"
+    },
+    {
+      "id": "cegid-ebp-strengthens-fr-offering",
+      "category": "Competitive",
+      "market": "FR",
+      "date": "May 2026",
+      "priority": "high",
+      "title": "Cegid and EBP Enhance French Accountant Channel Offerings",
+      "body": "Cegid, in partnership with EBP, is actively targeting the French accounting profession with dedicated solutions. EBP, now part of Cegid, offers specialized accounting and tax software, with a recent promotional offer for CJEC members. Cegid also emphasizes its AI-driven solutions for accounting firms and its integrated PA (Plateforme Agréée) for electronic invoicing compliance within its software suite.",
+      "implication": "Cegid/EBP's focused efforts on the expert-comptable channel in France present a significant competitive threat, especially with their integrated PA solution. Sage needs to monitor their specific go-to-market strategies and product bundling.",
+      "source": "CJEC, BDM - May 2026"
+    },
     {
       "id": "pennylane-comptassistant-ai-features",
       "category": "AI & Tech",
@@ -65,28 +128,6 @@
       "source": "Capterra, Jun 03 2026, Pennylane, 2026"
     },
     {
-      "id": "pennylane-germany-expansion-pricing",
-      "category": "Competitive",
-      "market": "DE",
-      "date": "Nov 2025",
-      "priority": "high",
-      "title": "Pennylane expands into Germany, offers tiered pricing starting at €14/month",
-      "body": "Pennylane officially entered the German market in November 2025. The company offers tiered pricing starting at €14 per month for its Basic plan, with Essential at €24 and Premium + Accounting Module at €79. A free trial is available.",
-      "implication": "Pennylane's entry into Germany, a key market for Sage, with competitive pricing, poses a direct threat to Sage for Accountants. Their established presence and pricing strategy could capture market share before Sage for Spain launches.",
-      "source": "EU-Startups, Jan 20 2026, Capterra, Jun 03 2026"
-    },
-    {
-      "id": "cegid-primavera-phc-integration",
-      "category": "Competitive",
-      "market": "PT",
-      "date": "2025-01-27",
-      "priority": "critical",
-      "title": "Cegid acquires PHC, strengthening Iberian market presence",
-      "body": "Cegid Group acquired PHC Business Software, a Portuguese technology company, on January 27, 2025. This acquisition integrates PHC's 37,000 client companies and 170,000 users across Portugal and other markets into Cegid's portfolio, significantly boosting Cegid's growth in management software solutions for SMEs on the Iberian Peninsula.",
-      "implication": "The acquisition of PHC by Cegid creates a stronger competitor in the Portuguese market, potentially impacting Sage's market share and requiring a strategic response to counter Cegid's expanded reach and integrated offerings.",
-      "source": "Google Search (January 27 2025)"
-    },
-    {
       "id": "germany-b2b-e-invoicing-timeline",
       "category": "Regulatory",
       "market": "DE",
@@ -97,17 +138,6 @@
       "implication": "This critical regulatory deadline necessitates that Sage's products, particularly Sage Active, are fully compliant with German e-invoicing standards (XRechnung/ZUGFeRD) well in advance of the January 2028 deadline to avoid market exclusion and ensure customer adoption.",
       "source": "Unlocking Deutschland XRechnung: Your Guide to German E-Invoicing - Axway Blog (May 15 2025)",
       "calendar_tag": true
-    },
-    {
-      "id": "cegid-sevdesk-germany-expansion",
-      "category": "Competitive",
-      "market": "DE",
-      "date": "Feb 2025",
-      "priority": "high",
-      "title": "Cegid acquires sevDesk, strengthening its DACH presence and cloud offerings.",
-      "body": "Cegid completed the acquisition of sevDesk on February 24, 2025, expanding its offerings in German-speaking Europe. SevDesk, with over 130,000 customers, provides cloud-native pre-accounting, accounting, e-invoicing, and online tax declaration software for micro and SMB businesses. This acquisition positions Cegid to assist businesses with upcoming e-invoicing reforms.",
-      "implication": "Cegid's strengthened position in the German market via sevDesk, a direct competitor to Sage Active in the cloud SMB space, requires a proactive strategy to counter their expanded reach and offerings, especially concerning e-invoicing compliance.",
-      "source": "Cegid - Sevdesk | Transaction Details - Houlihan Lokey (February 24 2025)"
     },
     {
       "id": "pennylane-spain-expansion-h2-2026",
@@ -470,39 +500,6 @@
       "body": "At Sage Future (April 2026) Sage extended its agentic AI agents across finance, HR and operations - including the Sage Intacct Finance Intelligence Agent and Sage X3 agents - with Sage Copilot expanding across Intacct, X3, Sage Accounting, Sage Active and Sage for Accountants. In February Sage shipped a Payments Agent in Sage Sole Trader.",
       "implication": "Sage has a credible agentic story to match Pennylane's AI co-pilot positioning. French accountant messaging should pair compliance readiness with the Sage Copilot productivity narrative inside SfA and Sage Active.",
       "source": "Sage / GlobeNewswire, Apr 2026"
-    },
-    {
-      "id": "fr-pennylane-ai-copilot",
-      "category": "AI & Tech",
-      "market": "FR",
-      "date": "May 2026",
-      "priority": "high",
-      "title": "Pennylane channels Series E into a generative-AI co-pilot for accountants",
-      "body": "Much of Pennylane's EUR 175M raise is earmarked for generative-AI tooling - an analysis co-pilot to help accountants interpret data, automate bookkeeping and deliver advisory insights - plus German localisation and payments.",
-      "implication": "The AI advisory layer is the new competitive front, not just compliance. Sage Prevision and Sage Copilot need a clear accountant-facing advisory narrative to avoid ceding the 'insight' ground to Pennylane.",
-      "source": "Sifted / EU-Startups, Jan 2026"
-    },
-    {
-      "id": "fr-pennylane-hiring-gate",
-      "category": "Hiring",
-      "market": "FR",
-      "date": "May 2026",
-      "priority": "watch",
-      "title": "Pennylane scaling to ~1,200 staff (600 devs); next market gated on hiring",
-      "body": "Pennylane is scaling to roughly 1,200 employees by year-end, including 600 developers, with the H2 2026 third-country launch explicitly gated on recruiting engineers and product managers in the target market.",
-      "implication": "Hiring location is the earliest tell of Pennylane's next market. Track PL/ES/BE engineering and PMM postings as a leading indicator for WiSE planning.",
-      "source": "Maddyness, Jan 2026"
-    },
-    {
-      "id": "fr-pennylane-payments-os",
-      "category": "Competitive",
-      "market": "FR",
-      "date": "May 2026",
-      "priority": "watch",
-      "title": "Pennylane beta-launches payment terminals, pushing toward a financial OS",
-      "body": "Pennylane began a beta of payment terminals (~1,000 companies pre-registered) as it pushes to become a full financial operating system for very small businesses and SMEs, extending beyond accounting into payments and cash management.",
-      "implication": "Pennylane is widening from accounting into embedded finance - the same direction as Cegid+Shine. Sage's ecosystem (Sage Active, Sage ID, Sage PA, AutoEntry, Sage Prevision) should be narrated as an equivalent connected platform.",
-      "source": "Maddyness, Jan-Feb 2026"
     }
   ]
 }
