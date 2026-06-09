@@ -1,6 +1,6 @@
 {
   "meta": {
-    "last_updated": "2026-06-08",
+    "last_updated": "2026-06-09",
     "week_label": "Week of 1 Jun - 7 Jun 2026",
     "signal_count": 40,
     "prev_signal_count": 40,
@@ -28,22 +28,20 @@
     "eu_competitive_pct": 100,
     "eu_competitive_status": "green",
     "eu_competitive_label": "Live",
-    "last_scan": "2026-06-08T19:13:17.113085Z",
+    "last_scan": "2026-06-09T10:34:16.723980Z",
     "last_scan_summary": "Manual deep refresh - data current as of 3 June 2026",
     "scan_status": {
-      "date": "2026-06-08",
+      "date": "2026-06-09",
       "markets_scanned": [
         "FR",
-        "DE",
-        "Pennylane"
+        "PT"
       ],
       "markets_skipped": [],
-      "signals_added": 4,
+      "signals_added": 3,
       "quality_filtered": 0,
       "summaries": {
-        "FR": "Recent market signals indicate a high level of activity in the French market, driven by impending regulatory deadlines for e-invoicing and aggressive competitive moves by key players like Pennylane, Cegid, and EBP.",
-        "DE": "The German market shows significant activity with DATEV's cloud migration, Cegid's strategic acquisition, and upcoming B2B e-invoicing mandates, indicating a dynamic and evolving landscape.",
-        "Pennylane": "No new signals found in the last 48 hours regarding Pennylane's competitive activities."
+        "FR": "Recent market signals show significant activity in France related to the upcoming e-invoicing mandate, with key players like Pennylane and Sage Active achieving regulatory compliance, while Cegid's acquisition of EBP signals a major consolidation effort in the competitive landscape.",
+        "PT": "Recent market signals indicate a critical regulatory deadline for Qualified Electronic Signatures in Portugal by January 2027, a postponement of the SAF-T accounting file submission to 2028, and continued competitive pressure from Cegid's integration of PHC and focus on AI."
       }
     },
     "archived_count": 0,
@@ -51,15 +49,39 @@
   },
   "signals": [
     {
-      "id": "cegid-sevdesk-expansion-germany",
+      "id": "cegid-ebp-fr-market-consolidation",
       "category": "Competitive",
-      "market": "DE",
-      "date": "Feb 2025",
+      "market": "FR",
+      "date": "May 2024",
+      "priority": "critical",
+      "title": "Cegid acquires EBP, strengthening its position in the French TPE/SME software market",
+      "body": "Cegid has entered into exclusive negotiations to acquire EBP, a significant player in French management software for TPEs and SMEs. This move aims to create a European leader in this segment, bolstering Cegid's presence in France and potentially impacting the competitive landscape for solutions like Sage Active and Pennylane. The acquisition is expected to enhance Cegid's offering in invoicing, commercial management, and accounting, particularly for the French market.",
+      "implication": "The Cegid-EBP consolidation creates a formidable competitor in the French market, especially with the upcoming e-invoicing mandate. This move could intensify competition for Sage's products targeting similar segments, requiring a strategic response to maintain market share.",
+      "source": "Vertex AI Search (May 31, 2024 & April 23, 2024)"
+    },
+    {
+      "id": "sage-active-fr-pa-compliance",
+      "category": "Regulatory",
+      "market": "FR",
+      "date": "June 2026",
       "priority": "high",
-      "title": "Cegid acquires sevdesk, strengthening its presence in German-speaking Europe.",
-      "body": "Cegid has acquired sevdesk, a leading provider of accounting and e-invoicing software solutions for the DACH region. This acquisition expands Cegid's offerings in German-speaking Europe, a market with over 5 million micro and SMB businesses experiencing rapid demand for cloud solutions and e-invoicing compliance. Sevdesk supports over 130,000 customers and has processed over €85 billion in invoiced transactions.",
-      "implication": "Cegid's acquisition of sevdesk increases competitive pressure in the German market, particularly for SMBs and accountants. This move by a European leader signals a strategic focus on Germany, which may impact Sage's market share and require a refined competitive strategy.",
-      "source": "Houlihan Lokey (January 9, 2025), PwC (May 22, 2025), Cegid (February 6, 2025)"
+      "title": "Sage Active integrates DGFiP-approved platform for e-invoicing",
+      "body": "Sage Active now natively integrates the Sage-approved platform (formerly PDP) for sending and receiving compliant e-invoices directly within its interface. This integration ensures compliance with the French e-invoicing reform effective September 1, 2026, and includes features like AI-powered OCR for invoice capture and collaboration spaces for accountants.",
+      "implication": "Sage Active's proactive integration with a DGFiP-approved platform strengthens its offering for the French market ahead of the 2026 mandate, presenting a competitive solution for accountants and SMBs.",
+      "source": "Vertex AI Search (June 03, 2026)",
+      "calendar_tag": true
+    },
+    {
+      "id": "pennylane-fr-pa-2026-compliance",
+      "category": "Regulatory",
+      "market": "FR",
+      "date": "May 2026",
+      "priority": "high",
+      "title": "Pennylane achieves DGFiP accreditation for 2026 e-invoicing mandate",
+      "body": "Pennylane has been accredited by the DGFiP as a Platforme Agréée (PA) for the upcoming 2026 e-invoicing reform in France. This accreditation means Pennylane can natively handle Factur-X, UBL, and CII formats, along with VAT e-reporting, positioning them to fully support businesses in meeting the new regulatory requirements.",
+      "implication": "Pennylane is well-positioned to capture market share among French businesses and accountants preparing for the September 1, 2026, PA mandate, potentially drawing customers away from solutions not yet accredited or fully compliant.",
+      "source": "Vertex AI Search (May 21, 2026)",
+      "calendar_tag": true
     },
     {
       "id": "cegid-ebp-strengthen-fr-offering",
@@ -71,17 +93,6 @@
       "body": "Cegid, a European leader in business management solutions, has integrated EBP's expertise, particularly in payroll, to enhance its French market offerings. Cegid aims to leverage regulatory contexts for growth and has over 500,000 clients globally. EBP, with nearly 40 years of experience in France, serves a significant base of VSEs and SMEs. Their combined efforts, including specific offers for accounting professionals, position them as a strong competitor in the French market.",
       "implication": "The combined strength of Cegid and EBP in France, especially with their focus on accounting professionals and regulatory compliance, poses a significant competitive challenge. Sage must differentiate its offerings and emphasize its unique advantages for the French market.",
       "source": "Celge (June 07, 2024), Dynamips (October 09, 2025)"
-    },
-    {
-      "id": "pennylane-expands-accountant-events",
-      "category": "Competitive",
-      "market": "FR",
-      "date": "Jan 2026",
-      "priority": "high",
-      "title": "Pennylane Continues Aggressive Outreach to French Accountants with 'Rendez-Vous' Events",
-      "body": "Pennylane is hosting its 'Rendez-Vous Pennylane 2026' events across France, including a session in Toulouse on January 20, 2026. These events focus on the future of the accounting profession, discussing key transformations like e-invoicing, AI, and service offering recomposition. The target audience includes accountants and their staff, indicating a strong push to embed Pennylane within the expert-comptable channel.",
-      "implication": "Pennylane's continued focus on the expert-comptable channel in France presents a direct competitive threat. Sage needs to reinforce its relationships with French accountants and highlight its own value proposition for this segment.",
-      "source": "Pennylane (June 08, 2026)"
     },
     {
       "id": "fr-pa-mandate-deadline-approaching",
@@ -493,17 +504,6 @@
       "body": "Cegid agreed to acquire fintech unicorn Shine (400,000+ SMB customers across FR, DK, NL, DE), folding it into its Small Business division. Combined with the earlier Primavera and sevDesk deals, Cegid claims 1M+ SMBs and 15,000 accountants across FR, DACH, ES, PT, NL, DK and BE, positioning itself as Europe's financial copilot with an integrated e-invoicing, accounting, payments and payroll stack.",
       "implication": "Cegid is in integration mode, not innovation mode - merging stacks rather than shipping a unified product. That is the buying window: Sage's accountant stack is shipped and in-market today. Counter consolidation anxiety with a 'no disruption' message, and keep value-led language for the GE-to-SfA transition.",
       "source": "Cegid / BusinessWire, Nov 2025"
-    },
-    {
-      "id": "fr-cegid-pa-ebp",
-      "category": "Competitive",
-      "market": "FR",
-      "date": "May 2026",
-      "priority": "high",
-      "title": "Cegid (parent of EBP) registered as a PA, targeting ETI and PME",
-      "body": "Cegid, now parent of EBP, is a registered Plateforme Agreee and is marketing an integrated compliance-plus-accounting offer to ETI and PME segments ahead of September.",
-      "implication": "Cegid's installed EBP accountant base plus PA status make it the incumbent threat in the French accountant channel. GE as the platform anchor and SfA as the connecting layer must be the front-foot answer.",
-      "source": "Cegid, May 2026"
     }
   ]
 }
