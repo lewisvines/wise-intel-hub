@@ -2973,7 +2973,7 @@ function showPage(id) {
  // Init new pages on first view
  if (id === 'battle-room') { setTimeout(initBattleRoom, 150); }
  if (id === 'weekly-brief') {
-   fetch(SIGNALS_URL + '?v=' + Date.now()).then(function(r){return r.json();}).then(function(d){
+   fetchSignals().then(function(r){return r.json();}).then(function(d){
      var signals = Array.isArray(d) ? d : (d.signals||[]);
      var el = document.getElementById('wb-signal-count');
      if(el) el.textContent = signals.length;
@@ -3149,6 +3149,18 @@ function copyELT() {
 // commits daily). Signals are inside an object with meta+signals keys.
 const SIGNALS_URL = 'https://raw.githubusercontent.com/lewisvines/wise-intel-hub/main/signals.json';
 
+// Resilient loader: prefer the Netlify /api/signals function (works when the hub
+// is served from Netlify), fall back to the committed raw signals.json (works on
+// GitHub Pages). Always resolves to a Response so callers can use .ok / .json().
+async function fetchSignals(){
+ const bust = '?v=' + Date.now();
+ try {
+  const r = await fetch('/api/signals' + bust);
+  if (r && r.ok) return r;
+ } catch (e) {}
+ return fetch(SIGNALS_URL + bust);
+}
+
 // ── Scan health indicator (runs on signals page load) ─────────────────
 // Shows last scan time, status colour, and markets scanned/skipped.
 // Green = scan < 36h ago and no error
@@ -3314,7 +3326,7 @@ async function loadLiveSignals() {
  const list = document.getElementById('signal-list');
  if (!list) return;
  try {
- const r = await fetch(SIGNALS_URL + '?v=' + Date.now());
+ const r = await fetchSignals();
  if (!r.ok) return;
  const payload = await r.json();
 
@@ -7453,7 +7465,7 @@ const _origShowPage = showPage;
 // ══ BATTLE ROOM ═════════════════════════════════════════════════
 async function initBattleRoom() {
   try {
-    const r = await fetch(SIGNALS_URL + '?v=' + Date.now());
+    const r = await fetchSignals();
     if (!r.ok) return;
     const payload = await r.json();
     const signals = Array.isArray(payload) ? payload : (payload.signals || []);
@@ -7538,7 +7550,7 @@ async function generateWeeklyBrief() {
   if(progress) progress.textContent = 'Reading this week\'s WiSE signals\u2026';
 
   try {
-    const r = await fetch(SIGNALS_URL + '?v=' + Date.now());
+    const r = await fetchSignals();
     const payload = await r.json();
     const signals = Array.isArray(payload) ? payload : (payload.signals || []);
     const countEl = document.getElementById('wb-signal-count');
