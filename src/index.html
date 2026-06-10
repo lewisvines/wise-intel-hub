@@ -3161,6 +3161,12 @@ async function fetchSignals(){
  return fetch(SIGNALS_URL + bust);
 }
 
+// Weekly Brief proxy -- keeps the Anthropic key server-side (netlify/functions/brief.mjs).
+// Relative path works when the hub is served from Netlify. If the hub is served
+// from GitHub Pages, set this to the absolute URL, e.g.
+// 'https://<your-netlify-site>.netlify.app/api/brief'.
+const BRIEF_API = '/api/brief';
+
 // ── Scan health indicator (runs on signals page load) ─────────────────
 // Shows last scan time, status colour, and markets scanned/skipped.
 // Green = scan < 36h ago and no error
@@ -7567,13 +7573,14 @@ async function generateWeeklyBrief() {
 
     const prompt = 'You are the WiSE PMM Intelligence Analyst for Sage Europe. Date: ' + dStr + '.\n\nWiSE TERRITORY: France, Spain, Germany, Portugal. Accountant channel = primary growth engine.\nKEY PRODUCTS: Sage for Accountants (SfA), AutoEntry (AE), Sage Active (€6/mo through accountants), GE (2,700 FR practices), Despachos (5,200 ES practices).\nFRANCE MANDATE: Sept 1 2026 — ' + frDays + ' days away. All businesses receive e-invoices via PA (plateforme agréée). Sage is PA-registered.\nPRIMARY THREAT: Pennylane (€115M ARR, 6k+ accountant firms, PA-certified, Germany active, Spain H2 2026).\nSECONDARY THREAT: Cegid (100 new FR reps Q2 2026 targeting GE practices, EBP = 275k FR SMB clients).\nSAGE MOATS: GE installed base (FR), Despachos loyalty (ES), 40yr compliance depth, AE+GoProposal+Sage Prévision ecosystem.\n\nTHIS WEEK\'S TOP SIGNALS:\n' + topSignals + '\n\nWrite a WiSE PMM Strategic Brief with EXACTLY THREE sections using these headings:\n1. WHAT MOVED THIS WEEK\n2. MARKET IMPLICATIONS — FR · ES · DE · PT\n3. SINGLE PRIORITY ACTION\n\nRules: Be specific and name competitors and numbers. Max 4 sentences per section. Section 3 = one named, actionable task with deadline. VP-level analyst voice. No fluff. Use <strong> tags around competitor names.';
 
-    const resp = await fetch('https://api.anthropic.com/v1/messages', {
+    const resp = await fetch(BRIEF_API, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ model: 'claude-sonnet-4-20250514', max_tokens: 1000, messages: [{ role: 'user', content: prompt }] })
+      body: JSON.stringify({ prompt })
     });
     const data = await resp.json();
-    const text = data.content?.[0]?.text || '';
+    if (!resp.ok) throw new Error((data && data.error) ? data.error : ('Brief API ' + resp.status));
+    const text = data.text || (data.content && data.content[0] && data.content[0].text) || '';
     _briefText = text;
 
     const sec1 = text.match(/1\.\s*WHAT MOVED[\s\S]*?(?=2\.|$)/i);
