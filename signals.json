@@ -1,6 +1,6 @@
 {
   "meta": {
-    "last_updated": "2026-06-10",
+    "last_updated": "2026-06-11",
     "week_label": "Week of 1 Jun - 7 Jun 2026",
     "signal_count": 40,
     "prev_signal_count": 40,
@@ -28,30 +28,47 @@
     "eu_competitive_pct": 100,
     "eu_competitive_status": "green",
     "eu_competitive_label": "Live",
-    "last_scan": "2026-06-10T19:28:58.160993Z",
+    "last_scan": "2026-06-11T11:22:15.649649Z",
     "last_scan_summary": "Manual deep refresh - data current as of 3 June 2026",
     "scan_status": {
-      "date": "2026-06-10",
+      "date": "2026-06-11",
       "markets_scanned": [
-        "FR",
-        "ES",
-        "DE",
-        "Pennylane"
+        "ES"
       ],
       "markets_skipped": [],
-      "signals_added": 7,
+      "signals_added": 2,
       "quality_filtered": 0,
       "summaries": {
-        "FR": "The French market shows high activity with regulatory deadlines driving competitive moves and platform updates, particularly concerning electronic invoicing and accounting software.",
-        "ES": "The Spanish market shows significant activity around the Verifactu regulation, with competitors actively promoting compliance and some offering free tiers, while the regulatory deadline has been confirmed for 2027.",
-        "DE": "The German market shows significant activity with Cegid's acquisition of sevdesk, ongoing regulatory deadlines for e-invoicing, and DATEV's strategic cloud transition, indicating a dynamic competitive and regulatory landscape.",
-        "Pennylane": "Pennylane is aggressively expanding across Europe, heavily investing in AI and product development, and poses a significant competitive threat to Sage WiSE."
+        "ES": "Market signals show a significant focus on Verifactu compliance, with deadlines extended to 2027, and competitors like Holded and Contasol actively marketing their readiness."
       }
     },
     "archived_count": 0,
     "ifyrne_updated": "2026-06-08"
   },
   "signals": [
+    {
+      "id": "holded-verifactu-readiness",
+      "category": "Competitive",
+      "market": "ES",
+      "date": "Jun 2026",
+      "priority": "watch",
+      "title": "Holded emphasizes Verifactu compliance and features",
+      "body": "Holded is actively promoting its Verifactu compliance, highlighting features like draft invoices, invoice cancellation with AEAT connection, and an event log. They position themselves as a solution ready for the AEAT's anti-fraud system, aiming to simplify the transition for businesses.",
+      "implication": "Holded's proactive messaging on Verifactu readiness indicates strong competitive positioning in the Spanish market. Sage needs to ensure its own offerings are clearly communicated as compliant and user-friendly to counter this.",
+      "source": "Vertex AI Search Results [4, 9, 13, 16]"
+    },
+    {
+      "id": "verifactu-deadline-extension-2027",
+      "category": "Regulatory",
+      "market": "ES",
+      "date": "Dec 2025",
+      "priority": "high",
+      "title": "Verifactu deadlines extended to 2027 for companies and freelancers",
+      "body": "The mandatory implementation of Verifactu, Spain's e-invoicing verification system, has been postponed. Companies will now be required to comply from January 1, 2027, and self-employed individuals from July 1, 2027. This extension is due to the need for more time for SMEs and software providers to adapt to the new requirements.",
+      "implication": "This delay provides a grace period for Sage Active and Sage for Accountants to ensure full compliance and market readiness for Verifactu, potentially reducing immediate pressure but also requiring continued strategic planning for the new deadlines.",
+      "source": "Vertex AI Search Results [2, 3, 6, 8, 9]",
+      "calendar_tag": true
+    },
     {
       "id": "pennylane-market-entry-germany-poland-spain-belgium",
       "category": "Competitive",
@@ -73,29 +90,6 @@
       "body": "Pennylane is focusing on R&D for AI tools, including a \"ComptAssistant\" AI chatbot for accountants and generative AI for financial analysis. They are also upgrading payment and cash management features and strengthening their electronic invoicing infrastructure to comply with upcoming regulations like France's e-invoicing reform in September 2026.",
       "implication": "Pennylane's investment in AI and compliance-driven features directly addresses market needs that Sage WiSE also targets, potentially giving Pennylane a competitive edge in user adoption and feature set.",
       "source": "Maddyness UK, Vestbee, EU-Startups, MEXC News, Accountio, TCV, FinTech Futures, GlobalData, Tech.eu, Tracxn, Capterra, SoftwareWorld, Pennylane API v2 Changelog (January-April 2026)"
-    },
-    {
-      "id": "cegid-sevdesk-acquisition-germany",
-      "category": "Competitive",
-      "market": "DE",
-      "date": "Feb 2025",
-      "priority": "high",
-      "title": "Cegid completes acquisition of sevdesk, strengthening DACH presence",
-      "body": "Cegid has completed its acquisition of sevdesk, a German provider of cloud-based accounting software for small businesses, freelancers, and startups. This move expands Cegid's footprint in the DACH region, enhancing its portfolio with sevdesk's financial management tools and positioning it to capitalize on the growing demand for cloud solutions and e-invoicing compliance in Germany. SevDesk serves over 130,000 customers.",
-      "implication": "Increased competition in the German SMB market, particularly with sevdesk's existing customer base and Cegid's strategic focus on the region.",
-      "source": "NKP | M&A Insights, Feb 2025; Houlihan Lokey, Feb 2025"
-    },
-    {
-      "id": "verifactu-deadline-shift-2027",
-      "category": "Regulatory",
-      "market": "ES",
-      "date": "Dec 2025",
-      "priority": "critical",
-      "title": "Spain's Verifactu e-invoicing mandate delayed to 2027",
-      "body": "The mandatory implementation of Spain's Verifactu e-invoicing system has been postponed to January 1, 2027, for companies and July 1, 2027, for the self-employed. This delay, confirmed in December 2025, provides businesses with more time to adapt their systems and addresses concerns about technical readiness and workload.",
-      "implication": "This delay provides a grace period but reinforces the inevitability of Verifactu. Sage must continue to emphasize compliance and support for Verifactu in its Spanish offerings, potentially adjusting launch timelines for Sage Active in Spain if not already aligned.",
-      "source": "Tax & Law Spain, ILIA ETL GLOBAL, AEAT (Dec 2025)",
-      "calendar_tag": true
     },
     {
       "id": "Cegid-EBP-strengthen-FR-channel",
