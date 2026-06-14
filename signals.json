@@ -1,6 +1,6 @@
 {
   "meta": {
-    "last_updated": "2026-06-13",
+    "last_updated": "2026-06-14",
     "week_label": "Week of 1 Jun - 7 Jun 2026",
     "signal_count": 40,
     "prev_signal_count": 40,
@@ -28,28 +28,47 @@
     "eu_competitive_pct": 100,
     "eu_competitive_status": "green",
     "eu_competitive_label": "Live",
-    "last_scan": "2026-06-13T18:02:16.147128Z",
+    "last_scan": "2026-06-14T10:24:10.502194Z",
     "last_scan_summary": "Manual deep refresh - data current as of 3 June 2026",
     "scan_status": {
-      "date": "2026-06-13",
+      "date": "2026-06-14",
       "markets_scanned": [
-        "DE",
-        "PT",
-        "Pennylane"
+        "FR"
       ],
       "markets_skipped": [],
-      "signals_added": 5,
+      "signals_added": 2,
       "quality_filtered": 0,
       "summaries": {
-        "DE": "The German market shows significant activity with Cegid's acquisition of sevDesk, DATEV's major cloud migration, and the upcoming B2B e-invoicing mandate, indicating a dynamic competitive and regulatory landscape.",
-        "PT": "Recent market signals in Portugal indicate a slight delay in regulatory deadlines for e-invoicing signatures, significant competitive consolidation by Cegid following the PHC acquisition, and a strong focus on digitalization within the accounting profession highlighted by the upcoming OCC Congress.",
-        "Pennylane": "Pennylane is aggressively expanding its European presence, heavily investing in AI capabilities, and launching in key markets like Germany, posing a significant competitive threat to Sage WiSE."
+        "FR": "The French market shows high activity regarding the upcoming e-invoicing mandate, with significant competitive moves from Pennylane and Cegid, and regulatory updates from the DGFiP, indicating a critical period for compliance solutions."
       }
     },
     "archived_count": 0,
     "ifyrne_updated": "2026-06-08"
   },
   "signals": [
+    {
+      "id": "cegid-ebp-offer-apr2026",
+      "category": "Competitive",
+      "market": "FR",
+      "date": "Apr 2026",
+      "priority": "high",
+      "title": "Cegid & EBP offer integrated PA solution for e-invoicing",
+      "body": "Cegid integrates its accredited platform (PA) for e-invoicing natively and free of charge into all Cegid and EBP software. This integrated solution allows TPE-PME to create and send compliant Factur-X invoices, ensuring smooth transition to the e-invoicing reform starting September 1, 2026. Cegid aims to boost client productivity through centralized and automated invoice management.",
+      "implication": "Cegid's aggressive bundling of their PA solution with EBP software presents a strong competitive threat, especially given their stated goal of targeting German practices with 100 new sales reps. Sage needs to counter this by clearly articulating the value and compliance of its own integrated solutions for the French market.",
+      "source": "Cegid, April 2026"
+    },
+    {
+      "id": "pennylane-pa-status-may2026",
+      "category": "Regulatory",
+      "market": "FR",
+      "date": "May 2026",
+      "priority": "high",
+      "title": "Pennylane positioned as a PA for French e-invoicing reform",
+      "body": "Pennylane has positioned itself as a \"PA candidate\" for the French tax authority's (DGFiP) e-invoicing reform, which mandates reception from September 1, 2026. The platform natively supports Factur-X, e-reporting, and connection to the central directory. This move is critical as the reform requires businesses to use accredited platforms (PA) for electronic invoicing.",
+      "implication": "Pennylane's early positioning as an accredited platform (PA) for the French e-invoicing mandate could give them a significant advantage in capturing the expert-comptable channel before Sage Active Spain launches. This requires a swift response to ensure Sage's offerings are also recognized and promoted as compliant.",
+      "source": "Hayot Expertise, May 19, 2026",
+      "calendar_tag": true
+    },
     {
       "id": "occ-congress-digitalization-focus",
       "category": "Brand",
@@ -94,17 +113,6 @@
       "body": "Starting in 2026, DATEV is undertaking its largest portfolio transformation, migrating all on-premises solutions to the cloud, including DATEV Rechnungswesen in the cloud (H2 2026). This 24-36 month transition aims to enhance efficiency and modernize workflows for tax advisors and their clients.",
       "implication": "DATEV's significant shift to the cloud presents an opportunity for Sage to position its cloud offerings as a more agile and modern alternative, especially if DATEV's transition proves complex or slow for some users. It also highlights the increasing importance of cloud-native solutions in the German market.",
       "source": "DATEV Cloud-Migration 2026: Was Kanzleien wirklich bedenken müssen (April 23 2026), 2026 beginnt die Umstellung - DATEV (undatiert)"
-    },
-    {
-      "id": "cegid_sevdesk_acquisition_2025",
-      "category": "Competitive",
-      "market": "DE",
-      "date": "Feb 2025",
-      "priority": "high",
-      "title": "Cegid acquires sevDesk, strengthening its cloud offering in German-speaking Europe",
-      "body": "Cegid completed the acquisition of sevDesk in February 2025, a German provider of cloud-based accounting and invoicing software for SMBs. This move expands Cegid's presence in the DACH region, a significant market with over 5 million SMBs, and positions them to capitalize on the growing demand for cloud solutions and e-invoicing compliance.",
-      "implication": "Cegid's acquisition of sevDesk increases their competitive presence in the German market, particularly for SMBs and cloud accounting solutions. This could accelerate their market penetration ahead of Sage Active's full rollout in Germany.",
-      "source": "sevdesk is now part of Cegid (Feb 06 2025), Cegid - Sevdesk | Transaction Details (Feb 24 2025)"
     },
     {
       "id": "pennylane-fr-accountant-events",
@@ -493,18 +501,6 @@
       "body": "Pennylane is organizing its Comptatech 2026 event on June 15, 2026, which will focus on key transformations in the accounting sector: electronic invoicing, artificial intelligence, and service offering recomposition. The event targets accounting professionals and aims to foster discussions on how these elements will reshape the market.",
       "implication": "Pennylane is actively engaging with the expert-comptable channel and positioning itself as a thought leader in key areas relevant to Sage's strategy. This highlights a direct competitive push.",
       "source": "La profession comptable, February 23, 2023"
-    },
-    {
-      "id": "germany-xrechnung-b2b-mandate-phasing",
-      "category": "Regulatory",
-      "market": "DE",
-      "date": "Jan 2027-2028",
-      "priority": "critical",
-      "title": "Germany's B2B e-invoicing mandate phases in from 2027, full adoption by 2028",
-      "body": "Germany's Growth Opportunities Act mandates B2B e-invoicing, with businesses needing to receive e-invoices from January 2025. Larger businesses (over €800,000 annual revenue) must issue e-invoices from January 2027, and all businesses by January 2028. XRechnung and ZUGFeRD are the compliant formats.",
-      "implication": "Urgent need for Sage products in Germany to be fully compliant with XRechnung and ZUGFeRD standards to avoid penalties and ensure market access. This directly impacts Sage for Accountants and Sage Active.",
-      "source": "Vertex AI Search (April 2026)",
-      "calendar_tag": true
     }
   ]
 }
