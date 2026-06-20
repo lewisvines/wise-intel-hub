@@ -1,6 +1,6 @@
 {
   "meta": {
-    "last_updated": "2026-06-19",
+    "last_updated": "2026-06-20",
     "week_label": "Week of 1 Jun - 7 Jun 2026",
     "signal_count": 40,
     "prev_signal_count": 40,
@@ -28,26 +28,24 @@
     "eu_competitive_pct": 100,
     "eu_competitive_status": "green",
     "eu_competitive_label": "Live",
-    "last_scan": "2026-06-19T18:27:34.986250Z",
+    "last_scan": "2026-06-20T10:08:34.894687Z",
     "last_scan_summary": "Manual deep refresh - data current as of 3 June 2026",
     "scan_status": {
-      "date": "2026-06-19",
+      "date": "2026-06-20",
       "markets_scanned": [
         "FR",
         "ES",
-        "DE",
         "PT",
         "Pennylane"
       ],
       "markets_skipped": [],
-      "signals_added": 4,
+      "signals_added": 5,
       "quality_filtered": 0,
       "summaries": {
-        "FR": "Recent market signals indicate significant activity around the French e-invoicing mandate, with competitors like Cegid and Pennylane making strategic moves and highlighting their readiness.",
-        "ES": "Market signals in Spain show a high level of activity around Verifactu compliance and competitive expansion, with key players like Holded and Pennylane making significant moves.",
-        "DE": "The German market shows significant activity with the completion of the Cegid-sevdesk acquisition, a clear regulatory push with the B2B e-invoicing mandate timeline, and ongoing competition dynamics around the dominant DATEV platform.",
-        "PT": "Recent market signals in Portugal show a postponement of regulatory deadlines for SAF-T and QES, while Cegid's successful integration of PHC and growth ambitions highlight increasing competitive pressure.",
-        "Pennylane": "No new signals detected in the last 48 hours regarding Pennylane's competitive activities."
+        "FR": "The French market shows high activity with competitors solidifying their positions ahead of the September 2026 e-invoicing mandate, and regulatory bodies providing clear readiness updates.",
+        "ES": "Market signals for Spain show a strong focus on Verifactu compliance, with competitors actively promoting their readiness and regulatory deadlines approaching.",
+        "PT": "Recent market signals for Portugal indicate a significant competitive push from Cegid following its acquisition of PHC, alongside upcoming regulatory deadlines for Qualified Electronic Signatures and SAF-T accounting files.",
+        "Pennylane": "Pennylane is aggressively expanding across Europe, particularly in Germany, and heavily investing in AI features, posing a significant competitive threat to Sage WiSE."
       }
     },
     "archived_count": 0,
@@ -55,37 +53,60 @@
   },
   "signals": [
     {
-      "id": "datev-dominance-in-german-accounting",
+      "id": "pennylane-germany-expansion",
       "category": "Competitive",
       "market": "DE",
-      "date": "Mar 2026",
-      "priority": "watch",
-      "title": "DATEV remains dominant in German accounting, but alternatives are emerging",
-      "body": "DATEV, a cooperative owned by tax advisors, holds a near-monopoly in the German accounting software market, with over 40,000 member firms. While DATEV offers comprehensive solutions, its complexity and cost make it less accessible for businesses seeking self-service options. Emerging alternatives like sevDesk, Lexoffice, and Norman are gaining traction by offering more modern, affordable, and user-friendly solutions, particularly for SMEs and freelancers.",
-      "implication": "While DATEV's established position is a barrier, the growing demand for simpler, cloud-based solutions presents an opportunity for Sage. Understanding the strengths and weaknesses of DATEV and its alternatives is crucial for market entry and partnership strategies.",
-      "source": "Norman Finance, OMR, TaxDome, IT-techBlog"
+      "date": "Nov 2025",
+      "priority": "high",
+      "title": "Pennylane launches in Germany, targeting 100 hires",
+      "body": "Pennylane has officially launched in Germany, its first overseas market, with plans to hire 100 local staff. The company aims to modernize the German accounting sector, which is considered complex and slow to digitalize, positioning itself against established players like DATEV.",
+      "implication": "Pennylane's entry into the German market, a key territory for Sage WiSE, presents a direct competitive threat. Sage needs to monitor Pennylane's traction and adapt its strategy for the German market, especially given Pennylane's stated intention to challenge DATEV.",
+      "source": "EU-Startups, Tech.eu (Nov 2025)"
     },
     {
-      "id": "pennylane-spain-expansion-plans",
+      "id": "pennylane-funding-expansion-ai",
+      "category": "Competitive",
+      "market": "EU",
+      "date": "Jan 2026",
+      "priority": "critical",
+      "title": "Pennylane secures €175M for European expansion and AI development",
+      "body": "Pennylane has raised €175 million in a Series E funding round led by TCV and Blackstone Growth. The capital will be used to expand its presence across Europe, enhance R&D with a focus on AI tools for accountants, and upgrade its payments and cash management systems. The company's valuation has reached €3.5 billion.",
+      "implication": "Significant capital injection for Pennylane will accelerate its competitive threat across Europe, particularly in AI-driven features and market expansion, requiring Sage WiSE to reassess its own R&D and market entry strategies.",
+      "source": "Vestbee, Maddyness UK, MEXC News, EU-Startups, FinTech Futures, GlobalData, TNW, Tech.eu, Sifted (Jan 2026)"
+    },
+    {
+      "id": "contasol-delsol-verifactu-readiness",
       "category": "Competitive",
       "market": "ES",
-      "date": "January 2026",
-      "priority": "critical",
-      "title": "Pennylane confirms Spain as a target market for international expansion",
-      "body": "Pennylane, a French accounting software startup, has raised significant funding and plans to establish a presence in several more European markets, including Spain. The company is already registered as an Authorised Platform by the tax administration and has an operational electronic invoicing solution.",
-      "implication": "Pennylane's confirmed entry into Spain poses a direct competitive threat, especially given their strong funding and established AI capabilities, potentially impacting Sage's market share in the 'despachos' and 'autónomo' segments.",
-      "source": "SiliconANGLE, EU-Startups, January 2026"
+      "date": "2026",
+      "priority": "watch",
+      "title": "Contasol (Software DELSOL) Highlights Verifactu Compliance in 2026 Updates",
+      "body": "Contasol, a Spanish accounting software from Software DELSOL, is being updated to be compliant with Spain's 2026 fiscal regulations, including Verifactu and electronic invoicing. The software is promoted as being adapted to the Verifactu norm and is available with a free version for one user, targeting SMEs and freelancers.",
+      "implication": "Contasol's established presence and free tier could attract a significant segment of the Spanish market, particularly freelancers and small businesses. Sage Active needs to differentiate its offering, potentially through advanced features or superior integration capabilities, to compete effectively.",
+      "source": "Contasol and Software DELSOL websites, updated through 2026"
     },
     {
-      "id": "cegid-ebp-acquisition-july2024",
+      "id": "france-e-invoicing-readiness-update",
+      "category": "Regulatory",
+      "market": "FR",
+      "date": "June 2026",
+      "priority": "high",
+      "title": "France's e-invoicing mandate: All businesses must be ready to receive by Sept 1, 2026",
+      "body": "As of September 1, 2026, all VAT-registered companies in France must be capable of receiving compliant electronic invoices. The central directory for invoice reception is now open, and companies need to register their reception address before the September deadline.",
+      "implication": "This regulatory deadline is fast approaching, and any delays or unresolved issues with Sage's e-invoicing capabilities could put them at a disadvantage compared to competitors who are fully compliant and certified.",
+      "source": "1er septembre 2026 : ce qui change pour les factures reçues (June 19 2026)",
+      "calendar_tag": true
+    },
+    {
+      "id": "cegid-ebp-strengthens-market-position",
       "category": "Competitive",
       "market": "FR",
-      "date": "July 2024",
+      "date": "April 2024",
       "priority": "high",
-      "title": "Cegid Acquires EBP, Strengthening European Market Position",
-      "body": "Cegid finalized its acquisition of EBP in July 2024, integrating EBP's solutions for TPE/PME in invoicing and accounting. This move significantly strengthens Cegid's European leadership, particularly in the French market, and positions them to capitalize on the e-invoicing reform.",
-      "implication": "The combined strength of Cegid and EBP presents a formidable competitor in the French market, especially for the expert-comptable channel. This acquisition enhances Cegid's offering for small and medium-sized businesses, directly impacting Sage Active and Sage for Accountants.",
-      "source": "Cegid (July 2024)"
+      "title": "Cegid in exclusive negotiations to acquire EBP, aiming for European leadership",
+      "body": "Cegid has entered into exclusive negotiations to acquire EBP, a move that would create a major European player in management software for SMEs. This acquisition, if completed, would significantly strengthen Cegid's position in the French market, particularly with EBP's existing base of 275,000 users.",
+      "implication": "The potential Cegid-EBP merger could create a formidable competitor in France, impacting Sage's market share, especially if they combine their sales efforts and product offerings.",
+      "source": "EBP, A Cegid Company - CJEC (Accessed June 20, 2026)"
     },
     {
       "id": "fr-pa-mandate-readiness-may2026",
@@ -486,28 +507,6 @@
       "body": "DATEV is the dominant accounting software for German tax advisors. While DATEV's own cloud offerings are improving, many businesses use front-end solutions like Lexoffice or sevDesk, which then export data to DATEV via DATEV-Connect. Both Lexoffice and sevDesk offer DATEV interfaces, indicating a strong integration ecosystem.",
       "implication": "Sage needs to understand the DATEV-centric ecosystem and how its products can integrate or compete within it. Direct competition with DATEV is unlikely, but competing with its integrated partners is key.",
       "source": "Global Fin Info, April 06 2026, OMR, June 15 2025"
-    },
-    {
-      "id": "pennylane-expands-e-invoicing-capabilities",
-      "category": "Competitive",
-      "market": "FR",
-      "date": "April 2026",
-      "priority": "high",
-      "title": "Pennylane prepares for 2026 e-invoicing reform with new platform features",
-      "body": "Pennylane has been registered as an Authorised Platform (formerly PDP) by the French tax administration since 2024 and is actively developing its electronic invoicing and e-reporting solutions. A webinar in April 2026 highlighted their readiness for the September 2026 deadline, showcasing features for both receiving and issuing e-invoices, as well as e-reporting functionalities.",
-      "implication": "Pennylane is actively positioning itself to be a key player in the French e-invoicing market, posing a direct competitive threat to Sage's offerings in this space.",
-      "source": "EU-Startups, YouTube (April 2026)"
-    },
-    {
-      "id": "holded-verifactu-readiness",
-      "category": "Competitive",
-      "market": "ES",
-      "date": "Jun 2026",
-      "priority": "watch",
-      "title": "Holded emphasizes Verifactu compliance and features",
-      "body": "Holded is actively promoting its Verifactu compliance, highlighting features like draft invoices, invoice cancellation with AEAT connection, and an event log. They position themselves as a solution ready for the AEAT's anti-fraud system, aiming to simplify the transition for businesses.",
-      "implication": "Holded's proactive messaging on Verifactu readiness indicates strong competitive positioning in the Spanish market. Sage needs to ensure its own offerings are clearly communicated as compliant and user-friendly to counter this.",
-      "source": "Vertex AI Search Results [4, 9, 13, 16]"
     }
   ]
 }
