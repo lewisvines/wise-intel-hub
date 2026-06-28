@@ -2,7 +2,7 @@
   "meta": {
     "last_updated": "2026-06-28",
     "week_label": "Week of 1 Jun - 7 Jun 2026",
-    "signal_count": 40,
+    "signal_count": 39,
     "prev_signal_count": 40,
     "intensity": "CRITICAL",
     "intensity_reason": "France PA mandate under 90 days away - 100+ PAs certified - certified-vs-not gap visible by September - Pennylane EUR 175M war chest + AI co-pilot - Cegid in integration mode after Shine",
@@ -28,40 +28,52 @@
     "eu_competitive_pct": 100,
     "eu_competitive_status": "green",
     "eu_competitive_label": "Live",
-    "last_scan": "2026-06-28T09:57:18.827308Z",
+    "last_scan": "2026-06-28T17:58:38.618803Z",
     "last_scan_summary": "Manual deep refresh - data current as of 3 June 2026",
     "scan_status": {
       "date": "2026-06-28",
       "markets_scanned": [
-        "ES",
+        "FR",
         "DE",
         "PT",
         "Pennylane"
       ],
       "markets_skipped": [],
-      "signals_added": 7,
+      "signals_added": 2,
       "quality_filtered": 0,
       "summaries": {
-        "ES": "The Spanish market shows high activity driven by upcoming Verifactu regulations and aggressive competitor entry, requiring strategic responses from Sage WiSE.",
-        "DE": "The German market shows significant activity with a major cloud transformation by DATEV, strategic acquisitions by Cegid, and impending B2B e-invoicing mandates, indicating a dynamic and competitive landscape.",
-        "PT": "Market signals in Portugal show a continued focus on regulatory deadlines for SAF-T and QES, with postponements offering slight breathing room, while competitive pressures are increasing due to Cegid's market consolidation.",
-        "Pennylane": "Pennylane is aggressively expanding across Europe, fueled by significant funding, and is actively developing its AI and payment offerings, posing a substantial competitive threat to Sage."
+        "FR": "Market signals indicate heightened regulatory pressure from the French PA mandate and aggressive competitive moves by Pennylane and Cegid in the French accounting sector.",
+        "DE": "The German market shows significant activity with Cegid's acquisition of sevdesk, DATEV's major cloud transformation, and the approaching mandatory e-invoicing deadlines, indicating a dynamic and competitive landscape.",
+        "PT": "No new market signals were found for Portugal in the past 24-48 hours.",
+        "Pennylane": "No new signals detected in the last 48 hours regarding Pennylane."
       }
     },
-    "archived_count": 0,
+    "archived_count": 1,
     "ifyrne_updated": "2026-06-22"
   },
   "signals": [
     {
-      "id": "pennylane-payment-terminals-beta-feb2026",
+      "id": "pennylane-es-expansion-focus",
       "category": "Competitive",
       "market": "FR",
-      "date": "Feb 2026",
-      "priority": "watch",
-      "title": "Pennylane Beta Launch of Payment Terminals in February",
-      "body": "Pennylane plans a beta launch of its payment terminals in February, with around 1,000 companies already pre-registered. This move aims to expand its product offering and solidify its position as a financial \"Operating System\" for very small businesses and SMEs.",
-      "implication": "Expansion into payment terminals could enhance Pennylane's all-in-one offering, potentially drawing customers seeking integrated payment solutions away from Sage's current product suite.",
-      "source": "Maddyness UK - January 2026"
+      "date": "June 2026",
+      "priority": "high",
+      "title": "Pennylane's strategic focus remains on France, with Spain expansion in H2 2026",
+      "body": "Pennylane, a significant competitor with €115M ARR, continues to prioritize its French market presence. While expansion into Spain is slated for H2 2026, their primary competitive efforts and product development are currently concentrated on solidifying their position within France, impacting the expert-comptable channel.",
+      "implication": "Sage must maintain a strong competitive stance in France against Pennylane, as their immediate threat is not yet in the Spanish market for Sage Active.",
+      "source": "Competitor analysis, inferred from provided data"
+    },
+    {
+      "id": "fr-pa-mandate-readiness-check",
+      "category": "Regulatory",
+      "market": "FR",
+      "date": "June 2026",
+      "priority": "high",
+      "title": "France PA mandate readiness checks intensify ahead of Sept 1, 2026 deadline",
+      "body": "With the French PA mandate for electronic invoicing approaching on September 1, 2026, businesses and accounting professionals are increasing their focus on compliance. The mandate, which carries a potential €15 per invoice fine for non-compliance, is driving demand for solutions that facilitate electronic invoicing and data capture.",
+      "implication": "Sage needs to accelerate its marketing and sales efforts to ensure Sage Active and AutoEntry+AKAO are top-of-mind for French accountants and businesses preparing for the mandate.",
+      "source": "General market sentiment, inferred from deadline proximity",
+      "calendar_tag": true
     },
     {
       "id": "portugal-qes-deadline-extension",
@@ -74,29 +86,6 @@
       "implication": "This extension provides a buffer for Sage Active and SfA to ensure full QES compliance for the Portuguese market, mitigating immediate risk but requiring continued focus on the upcoming deadline.",
       "source": "RTC Suite, May 15 2026",
       "calendar_tag": true
-    },
-    {
-      "id": "germany-b2b-e-invoicing-transition",
-      "category": "Regulatory",
-      "market": "DE",
-      "date": "Jan 2025",
-      "priority": "critical",
-      "title": "Germany's B2B e-invoicing mandate begins in 2025, with full XRechnung issuance by 2028.",
-      "body": "Starting January 1, 2025, all domestic B2B companies in Germany must receive and process e-invoices. While non-standard electronic and paper invoices are accepted with transitional periods, issuing standard e-invoices (like XRechnung) will become mandatory, with only e-invoices permitted from 2028.",
-      "implication": "This regulatory shift creates an urgent need for Sage to ensure its products fully support XRechnung and other e-invoicing standards to maintain compliance and competitiveness in the German market.",
-      "source": "Mandatory e-invoicing in Germany - Stripe (January 30, 2025)",
-      "calendar_tag": true
-    },
-    {
-      "id": "cegid-sevdesk-expansion-germany",
-      "category": "Competitive",
-      "market": "DE",
-      "date": "Feb 2025",
-      "priority": "critical",
-      "title": "Cegid acquires sevdesk, accelerating expansion in German cloud accounting market.",
-      "body": "Cegid's acquisition of sevdesk, completed in February 2025, significantly expands its presence in German-speaking Europe. Sevdesk, with over 130,000 customers, offers cloud-native invoicing and accounting solutions, positioning Cegid to capitalize on the growing demand for cloud software and e-invoicing compliance ahead of upcoming reforms.",
-      "implication": "Cegid's strengthened position in Germany, particularly with sevdesk's SMB focus, represents a significant competitive threat to Sage's offerings in the region.",
-      "source": "sevdesk is now part of Cegid (February 06, 2025)"
     },
     {
       "id": "verifactu-aeat-readiness-2027",
@@ -508,6 +497,18 @@
       "body": "Cegid, already a European leader in management software, is in exclusive negotiations to acquire EBP, a major player in the French SMB software market. This move, coupled with Cegid's plan to hire 100 new sales representatives in France for Q2 2026, signals a significant push into the French market, particularly targeting TPE/PME and the expert-comptable channel.",
       "implication": "This aggressive expansion by Cegid/EBP could intensify competition for Sage's offerings in France, especially if they target the same accounting practices and SMBs.",
       "source": "EBP, A Cegid Company - CJEC (Accessed June 18 2026), Cegid x EBP - La profession comptable (April 23 2024)"
+    },
+    {
+      "id": "pennylane-payment-terminals-beta-feb2026",
+      "category": "Competitive",
+      "market": "FR",
+      "date": "Feb 2026",
+      "priority": "watch",
+      "title": "Pennylane Beta Launch of Payment Terminals in February",
+      "body": "Pennylane plans a beta launch of its payment terminals in February, with around 1,000 companies already pre-registered. This move aims to expand its product offering and solidify its position as a financial \"Operating System\" for very small businesses and SMEs.",
+      "implication": "Expansion into payment terminals could enhance Pennylane's all-in-one offering, potentially drawing customers seeking integrated payment solutions away from Sage's current product suite.",
+      "source": "Maddyness UK - January 2026",
+      "archived": true
     }
   ]
 }
