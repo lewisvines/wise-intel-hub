@@ -28,30 +28,46 @@
     "eu_competitive_pct": 100,
     "eu_competitive_status": "green",
     "eu_competitive_label": "Live",
-    "last_scan": "2026-06-30T10:35:26.830350Z",
+    "last_scan": "2026-06-30T18:31:14.826219Z",
     "last_scan_summary": "Manual deep refresh - data current as of 3 June 2026",
     "scan_status": {
       "date": "2026-06-30",
       "markets_scanned": [
-        "FR",
-        "DE",
-        "PT",
-        "Pennylane"
+        "FR"
       ],
       "markets_skipped": [],
-      "signals_added": 3,
+      "signals_added": 2,
       "quality_filtered": 0,
       "summaries": {
-        "FR": "The French market shows significant activity related to the upcoming e-invoicing mandate, with competitors like Pennylane and Cegid (through its potential merger with EBP) actively engaging the accounting profession and consolidating their market positions.",
-        "DE": "HTTP 503: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n",
-        "PT": "Recent market signals from Portugal indicate regulatory shifts with postponed deadlines for SAF-T Accounting and Qualified Electronic Signatures, while also highlighting competitor advancements in AI integration within ERP solutions.",
-        "Pennylane": "HTTP 503: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+        "FR": "Recent market signals indicate intense activity in the French market around the upcoming e-invoicing mandate, with key competitors like Pennylane and the merged Cegid-EBP entity actively positioning themselves and highlighting their compliance solutions."
       }
     },
     "archived_count": 1,
     "ifyrne_updated": "2026-06-29"
   },
   "signals": [
+    {
+      "id": "cegid-ebp-strengthen-fr-offering",
+      "category": "Competitive",
+      "market": "FR",
+      "date": "Ongoing",
+      "priority": "high",
+      "title": "Cegid and EBP Strengthen French Market Presence with Integrated Solutions",
+      "body": "Cegid's acquisition of EBP positions the combined entity as a major player in the French TPE/PME software market, particularly with the upcoming e-invoicing reform. They offer a broad range of solutions covering accounting, payroll, and HR, with EBP being highlighted for its value for TPEs and artisans, and Cegid for its strength in integrated management solutions.",
+      "implication": "The combined Cegid-EBP offering presents a formidable competitor in the French market, especially for the TPE/PME segment. Sage needs to differentiate its offerings and highlight the specific advantages of Sage Active and its ecosystem in the face of this consolidated competitor.",
+      "source": "Dynamips (October 09, 2025), facturation électronique (2026)"
+    },
+    {
+      "id": "pennylane-expands-fr-market-share",
+      "category": "Competitive",
+      "market": "FR",
+      "date": "Ongoing",
+      "priority": "high",
+      "title": "Pennylane Solidifies Position in French Accountant Market, Emphasizes 2026 E-invoicing Readiness",
+      "body": "Pennylane continues to gain traction among French accounting firms, with resources and marketing materials from early 2026 highlighting its readiness for the 2026 e-invoicing reform. The platform is actively positioning itself as a solution for accountants and their clients to navigate the upcoming regulatory changes, emphasizing features like automated data capture and real-time accounting.",
+      "implication": "Pennylane's proactive approach to the e-invoicing mandate and its established presence in the French market pose a significant competitive threat. Sage needs to accelerate its own compliance messaging and feature development for Sage Active and other relevant products.",
+      "source": "Hayot Expertise (January 09, 2026), Cecca (February 11, 2026)"
+    },
     {
       "id": "cegid-primavera-ai-integration",
       "category": "AI & Tech",
@@ -62,28 +78,6 @@
       "body": "Cegid Primavera's ERP solutions are being updated with Artificial Intelligence (AI) capabilities to adapt to businesses and optimize management. This includes features like 'smart actions' across accounting, payroll, and compliance, aiming to enhance operational efficiency.",
       "implication": "The increasing integration of AI by competitors like Cegid Primavera in Portugal necessitates a strategic evaluation of Sage's own AI roadmap and competitive positioning in the region.",
       "source": "Vertex AI Search (multiple sources, e.g., [15, 16, 27, 33])"
-    },
-    {
-      "id": "cegid-ebp-fr-consolidation",
-      "category": "Competitive",
-      "market": "FR",
-      "date": "2024-04-23",
-      "priority": "high",
-      "title": "Cegid and EBP Enter Exclusive Negotiations for Merger",
-      "body": "Cegid and EBP have entered exclusive negotiations for a potential merger, aiming to create a European leader in management software for SMEs. This strategic move, particularly relevant with the advent of e-invoicing, would significantly strengthen Cegid's position in the French market, complementing its existing offerings with EBP's expertise in solutions for small and medium-sized businesses.",
-      "implication": "The potential consolidation of Cegid and EBP creates a formidable competitor in the French market, especially for accounting practices. This move could lead to increased competition for Sage Active and other Sage products targeting French SMEs.",
-      "source": "La profession comptable, April 23 2024"
-    },
-    {
-      "id": "pennylane-fr-expansion",
-      "category": "Competitive",
-      "market": "FR",
-      "date": "2026-03-18",
-      "priority": "high",
-      "title": "Pennylane Hosts 'Rendez-vous' Event for French Accountants",
-      "body": "Pennylane held its annual 'Rendez-vous' event in Nantes on March 18, 2026, focusing on the future of the accounting profession. Discussions centered on e-invoicing opportunities, AI as a lever, and offering recomposition. The event targeted accountants and aimed to foster exchange on reshaping the accounting landscape.",
-      "implication": "Pennylane is actively engaging with the French accounting channel, positioning itself as a forward-thinking partner. This highlights their commitment to the French market and potential for increased market share.",
-      "source": "Pennylane, March 18 2026"
     },
     {
       "id": "cegid-primavera-phc-market-consolidation",
@@ -499,15 +493,15 @@
       "calendar_tag": true
     },
     {
-      "id": "datev-cloud-migration-2026",
-      "category": "AI & Tech",
-      "market": "DE",
-      "date": "Apr 2026",
+      "id": "pennylane-fr-expansion",
+      "category": "Competitive",
+      "market": "FR",
+      "date": "2026-03-18",
       "priority": "high",
-      "title": "DATEV initiates major cloud transformation in 2026, phasing out on-premises solutions",
-      "body": "DATEV is undertaking its largest portfolio transformation, migrating all core applications to the cloud by 2026. On-premises solutions will be phased out, with cloud versions of key applications like 'MyDATEV Kanzlei' and 'DATEV Rechnungswesen' scheduled for release in H2 2026. This strategic shift impacts all core applications and workflows, presenting both risks and opportunities for tax firms.",
-      "implication": "This significant shift by DATEV, the dominant player in the German tax advisor market, necessitates a strategic response. Sage needs to understand how this cloud migration will affect their integration points and potential partnerships or competitive positioning within the German accounting ecosystem.",
-      "source": "DATEV Cloud-Migration 2026: Was Kanzleien wirklich bedenken müssen - clara-agent.de (April 23 2026)",
+      "title": "Pennylane Hosts 'Rendez-vous' Event for French Accountants",
+      "body": "Pennylane held its annual 'Rendez-vous' event in Nantes on March 18, 2026, focusing on the future of the accounting profession. Discussions centered on e-invoicing opportunities, AI as a lever, and offering recomposition. The event targeted accountants and aimed to foster exchange on reshaping the accounting landscape.",
+      "implication": "Pennylane is actively engaging with the French accounting channel, positioning itself as a forward-thinking partner. This highlights their commitment to the French market and potential for increased market share.",
+      "source": "Pennylane, March 18 2026",
       "archived": true
     }
   ]
