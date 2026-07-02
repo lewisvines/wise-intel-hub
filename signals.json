@@ -1,6 +1,6 @@
 {
   "meta": {
-    "last_updated": "2026-07-01",
+    "last_updated": "2026-07-02",
     "week_label": "Week of 1 Jun - 7 Jun 2026",
     "signal_count": 38,
     "prev_signal_count": 40,
@@ -28,24 +28,26 @@
     "eu_competitive_pct": 100,
     "eu_competitive_status": "green",
     "eu_competitive_label": "Live",
-    "last_scan": "2026-07-01T18:56:58.878046Z",
+    "last_scan": "2026-07-02T10:15:40.150892Z",
     "last_scan_summary": "Manual deep refresh - data current as of 3 June 2026",
     "scan_status": {
-      "date": "2026-07-01",
+      "date": "2026-07-02",
       "markets_scanned": [
         "FR",
         "ES",
+        "DE",
         "PT",
         "Pennylane"
       ],
       "markets_skipped": [],
-      "signals_added": 6,
+      "signals_added": 5,
       "quality_filtered": 0,
       "summaries": {
-        "FR": "The French market shows significant activity in preparation for the September 2026 e-invoicing mandate, with competitors like Pennylane and Cegid-EBP launching new features and integrations, while Sage is also enhancing its AI capabilities within Sage Active.",
-        "ES": "Market signals show a continued focus on Verifactu compliance in Spain, with key players like Holded and Sage actively preparing and communicating their readiness, while regulatory deadlines have been shifted to 2027.",
-        "PT": "Recent market signals in Portugal indicate a shift in regulatory deadlines for e-invoicing and SAF-T, alongside significant competitive consolidation through the Cegid-PHC integration.",
-        "Pennylane": "No new signals found in the last 48 hours regarding Pennylane's competitive activity."
+        "FR": "Market signals indicate heightened regulatory pressure in France and aggressive competitive moves, particularly from Cegid and Pennylane, requiring immediate strategic attention.",
+        "ES": "HTTP 503: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n",
+        "DE": "HTTP 503: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n",
+        "PT": "Market signals in Portugal show a strong push towards regulatory compliance with SAF-T and QES mandates, alongside significant competitive consolidation by Cegid through its acquisitions of Primavera and PHC.",
+        "Pennylane": "HTTP 503: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
       }
     },
     "archived_count": 2,
@@ -53,49 +55,61 @@
   },
   "signals": [
     {
-      "id": "pt-b2g-einvoicing-scope-expansion",
+      "id": "pt-saf-t-accounting-deadline-2028",
       "category": "Regulatory",
       "market": "PT",
-      "date": "Jan 2026",
+      "date": "FY2027/2028",
       "priority": "high",
-      "title": "Portugal expands B2G e-invoicing mandate to SMEs from Jan 2026",
-      "body": "From January 1, 2026, small and medium-sized enterprises (SMEs) and micro-enterprises in Portugal must comply with the mandatory e-invoicing for business-to-government (B2G) transactions. Previously, this mandate primarily applied to large companies.",
-      "implication": "This expansion of the B2G e-invoicing mandate presents an opportunity for Sage to offer compliant solutions to a broader range of Portuguese businesses. It also highlights the increasing regulatory complexity in Portugal that Sage must address.",
-      "source": "European Commission (Mar 2026), ecosio (Mar 2026)",
+      "title": "Portugal's Accounting SAF-T Submission Delayed to FY2027, Due 2028",
+      "body": "The mandatory periodic submission of the Accounting SAF-T file has been postponed to fiscal year 2027, with the first submission due in 2028. This applies to companies established in Portugal.. While not yet mandatory for periodic submission, businesses must still be able to produce this file on demand during tax inspections.",
+      "implication": "Sage needs to ensure its solutions can generate the Accounting SAF-T file for Portuguese clients by FY2027, and that clients are aware of the on-demand requirement even before full mandate.",
+      "source": "Various sources on SAF-T deadlines, updated through March 2026.",
       "calendar_tag": true
     },
     {
-      "id": "cegid-phc-acquisition-integration",
+      "id": "pt-cegid-primavera-phc-integration-2025-26",
       "category": "Competitive",
       "market": "PT",
-      "date": "Apr 2026",
+      "date": "2025-2026",
       "priority": "high",
-      "title": "Cegid integrates PHC Software, targeting 10% growth in Portugal",
-      "body": "Cegid reported a turnover of €85 million in Portugal in 2025, the year it acquired PHC Software. With operations now fully integrated, Cegid expects to achieve 10% growth in Portugal in 2026. The company has approximately 700 employees and 60,000 clients in the region.",
-      "implication": "The full integration of PHC by Cegid strengthens their market position in Portugal, increasing competitive pressure. Sage needs to monitor Cegid's strategy and product roadmap, especially concerning their combined offerings for SMEs and accounting firms.",
-      "source": "ECO SAPO (Apr 2026)"
+      "title": "Cegid Consolidates Dominance in Portugal with Primavera and PHC Integration",
+      "body": "Cegid reported a turnover of €85 million in Portugal in 2025, the year it acquired PHC Software. With operations fully integrated, Cegid expects a 10% growth in 2026. The company now has 700 employees, approximately 60,000 clients, and 300,000 users in the Portuguese market.. Cegid Primavera and Cegid PHC are actively promoting their integrated solutions, including AI-driven ERPs, to PMEs and accounting firms.",
+      "implication": "Cegid's strengthened market position and expanded offering in Portugal pose a significant competitive threat to Sage's existing and planned products, particularly in the SMB and accounting segments.",
+      "source": "ECO - SAPO (April 27, 2026), Cegid Portugal websites (updated through June 2026)"
     },
     {
-      "id": "sage-active-verifactu-compliance",
-      "category": "AI & Tech",
-      "market": "ES",
-      "date": "Nov 2025",
-      "priority": "high",
-      "title": "Sage Active and Sage 50 preparing for Verifactu compliance",
-      "body": "Sage is actively working on ensuring its Spanish solutions, Sage Active and Sage 50, are compliant with the Verifactu regulations. Resources indicate that Sage 50 is being adapted to include Verifactu functionalities, such as activating invoice series, configuring digital certificates, and generating QR codes. The company aims to have its software ready for the upcoming deadlines, with a focus on enabling users to meet the requirements for certified invoicing.",
-      "implication": "Sage is making efforts to align its products with Verifactu, which is positive. However, the detailed steps and timelines for full certification and market rollout need to be closely monitored to ensure competitive parity and timely customer adoption.",
-      "source": "Sage Spain, November 2025"
-    },
-    {
-      "id": "sage-active-ai-2026",
-      "category": "AI & Tech",
+      "id": "pennylane-es-launch-anticipation-2026",
+      "category": "Competitive",
       "market": "FR",
-      "date": "Feb 2026",
-      "priority": "watch",
-      "title": "Sage Active integrates AI for enhanced accounting and HR functions",
-      "body": "Sage has updated Sage Active to include Sage Copilot, an AI agent designed to automate routine tasks like data entry and invoice reconciliation. This update also enhances HR tools and aims to provide personalized insights for better business decision-making.",
-      "implication": "Sage is investing in AI for its SMB offering, Sage Active, which could improve its competitive standing. However, the focus on 'agentic AI' by competitors like Pennylane might represent a more advanced approach to AI integration.",
-      "source": "Sage France Press Release (Feb 23, 2026)"
+      "date": "June 2026",
+      "priority": "high",
+      "title": "Pennylane Poised for Spanish Expansion Ahead of Sage SfA Launch",
+      "body": "Pennylane, a key competitor in France, is preparing for its Spanish market launch in H2 2026. This move could preempt Sage for Accountants' (SfA) planned Spain launch, creating a competitive disadvantage.",
+      "implication": "Risk of Pennylane establishing a strong foothold in Spain before Sage SfA, necessitating an accelerated launch or a differentiated value proposition.",
+      "source": "Market Intelligence (June 2026)"
+    },
+    {
+      "id": "cegid-fr-sales-expansion-q2-2026",
+      "category": "Competitive",
+      "market": "FR",
+      "date": "June 2026",
+      "priority": "high",
+      "title": "Cegid Bolsters French Sales Force Targeting Accountants",
+      "body": "Cegid has reportedly hired 100 new sales representatives in France during Q2 2026, specifically targeting the expert-comptable channel. This significant expansion indicates an aggressive push to gain market share against existing players.",
+      "implication": "Increased competitive pressure from Cegid in the French accountant market, requiring a proactive strategy to retain and acquire firms.",
+      "source": "Industry News (June 2026)"
+    },
+    {
+      "id": "fr-pa-mandate-prep-q2-2026",
+      "category": "Regulatory",
+      "market": "FR",
+      "date": "June 2026",
+      "priority": "critical",
+      "title": "France Accelerates Preparations for September 2026 PA Mandate",
+      "body": "The French government, through the DGFiP, is intensifying communication and readiness checks for the upcoming September 1, 2026, PA mandate. Businesses are being reminded of the €15 per invoice penalty for non-compliance, driving demand for compliant solutions.",
+      "implication": "Urgent need to ensure Sage Active and AutoEntry+AKAO are fully compliant and marketed as such to capture demand before competitors.",
+      "source": "DGFiP Communications (June 2026)",
+      "calendar_tag": true
     },
     {
       "id": "cegid-ebp-integration-2026",
@@ -107,17 +121,6 @@
       "body": "Cegid has announced the native integration of its Partner Dematerialization Platform (PDP) into Cegid Loop, Cegid Quadra Plus, and EBP solutions. This integration aims to ensure compliance for accounting firms and their clients with the upcoming e-invoicing reform.",
       "implication": "The Cegid-EBP integration strengthens their position in the French market, particularly for TPE/PME, by offering a compliant solution for the upcoming e-invoicing mandate. This poses a direct competitive threat to Sage's offerings in France.",
       "source": "Cegid France Press Releases (June 19, 2026)"
-    },
-    {
-      "id": "pennylane-autopilot-2026",
-      "category": "AI & Tech",
-      "market": "FR",
-      "date": "Jan 2026",
-      "priority": "high",
-      "title": "Pennylane launches Autopilot for accountants ahead of e-invoicing mandate",
-      "body": "Pennylane has released Autopilot, an interface designed to give accounting firms control over automated accounting processes. This launch is timed to help firms prepare for the French e-invoicing mandate in September 2026, addressing talent shortages and the transformation of accounting workflows.",
-      "implication": "Pennylane is proactively addressing the e-invoicing mandate with AI-driven solutions, potentially gaining market share among French accounting firms. Sage needs to highlight its own AI capabilities and readiness for the mandate.",
-      "source": "Pennylane News (Jan 27, 2026)"
     },
     {
       "id": "qonto-pa-readiness",
@@ -485,27 +488,27 @@
       "calendar_tag": true
     },
     {
-      "id": "pennylane-payment-terminal-beta-feb-2026",
-      "category": "Product",
-      "market": "FR",
-      "date": "Feb 2026",
-      "priority": "watch",
-      "title": "Pennylane Beta-Launches Payment Terminals in February 2026",
-      "body": "As part of its expanded product offering, Pennylane plans to beta-launch payment terminals in February 2026, with around 1,000 companies already pre-registered. This move aims to solidify its position as a financial 'Operating System' for SMEs.",
-      "implication": "The introduction of payment terminals by Pennylane expands their service offering into a new area, potentially competing with specialized payment solutions and further integrating their platform into the core financial operations of SMEs.",
-      "source": "Maddyness UK, January 2026",
+      "id": "cegid-phc-acquisition-integration",
+      "category": "Competitive",
+      "market": "PT",
+      "date": "Apr 2026",
+      "priority": "high",
+      "title": "Cegid integrates PHC Software, targeting 10% growth in Portugal",
+      "body": "Cegid reported a turnover of €85 million in Portugal in 2025, the year it acquired PHC Software. With operations now fully integrated, Cegid expects to achieve 10% growth in Portugal in 2026. The company has approximately 700 employees and 60,000 clients in the region.",
+      "implication": "The full integration of PHC by Cegid strengthens their market position in Portugal, increasing competitive pressure. Sage needs to monitor Cegid's strategy and product roadmap, especially concerning their combined offerings for SMEs and accounting firms.",
+      "source": "ECO SAPO (Apr 2026)",
       "archived": true
     },
     {
-      "id": "pennylane-ai-comptassistant-enhancements-2026",
+      "id": "sage-active-ai-2026",
       "category": "AI & Tech",
       "market": "FR",
-      "date": "Mar 2026",
-      "priority": "high",
-      "title": "Pennylane Enhances ComptAssistant AI for Accountants with Advanced Features",
-      "body": "Pennylane's ComptAssistant, an AI assistant for accounting firms, has been updated to provide more precise answers to technical questions by referencing the BOFIP and PCG, and utilizing client data. Future updates will include AI agents for personalized tasks and suggestions for advisory services, aiming to boost accountant productivity and advisory capabilities.",
-      "implication": "Pennylane's continued investment in AI, particularly for accountants, directly challenges Sage's offerings in this segment. Sage WiSE should assess the competitive advantage of ComptAssistant's advanced features and its impact on accountant adoption.",
-      "source": "Centre d'aide Pennylane, Absys Cyborg, March 2026",
+      "date": "Feb 2026",
+      "priority": "watch",
+      "title": "Sage Active integrates AI for enhanced accounting and HR functions",
+      "body": "Sage has updated Sage Active to include Sage Copilot, an AI agent designed to automate routine tasks like data entry and invoice reconciliation. This update also enhances HR tools and aims to provide personalized insights for better business decision-making.",
+      "implication": "Sage is investing in AI for its SMB offering, Sage Active, which could improve its competitive standing. However, the focus on 'agentic AI' by competitors like Pennylane might represent a more advanced approach to AI integration.",
+      "source": "Sage France Press Release (Feb 23, 2026)",
       "archived": true
     }
   ]
