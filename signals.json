@@ -28,22 +28,24 @@
     "eu_competitive_pct": 100,
     "eu_competitive_status": "green",
     "eu_competitive_label": "Live",
-    "last_scan": "2026-07-03T09:57:33.244426Z",
+    "last_scan": "2026-07-03T18:07:48.851614Z",
     "last_scan_summary": "Manual deep refresh - data current as of 3 June 2026",
     "scan_status": {
       "date": "2026-07-03",
       "markets_scanned": [
         "FR",
         "DE",
+        "PT",
         "Pennylane"
       ],
       "markets_skipped": [],
-      "signals_added": 5,
+      "signals_added": 3,
       "quality_filtered": 0,
       "summaries": {
-        "FR": "Market signals indicate high activity around the French e-invoicing mandate, with competitors like Pennylane and Cegid (via EBP acquisition) actively positioning themselves, and regulatory deadlines becoming increasingly concrete.",
-        "DE": "The German market shows significant activity with Cegid's acquisition of sevdesk, DATEV's major cloud transformation, and the approaching B2B e-invoicing deadlines, indicating a dynamic and competitive landscape.",
-        "Pennylane": "No new signals detected in the last 48 hours regarding Pennylane's competitive activities."
+        "FR": "The French market shows significant activity around the upcoming 2026 e-invoicing mandate, with key competitors like Pennylane and the newly consolidated Cegid/EBP actively positioning themselves, posing a critical competitive threat to Sage.",
+        "DE": "The German market shows significant activity with DATEV's major cloud transformation, Cegid's strategic acquisition of sevDesk targeting the SMB segment, and the ongoing implementation of e-invoicing regulations for B2B transactions.",
+        "PT": "No new market signals for Portugal were detected in the past 24-48 hours.",
+        "Pennylane": "No new signals regarding Pennylane were found in the last 48 hours."
       }
     },
     "archived_count": 0,
@@ -51,26 +53,38 @@
   },
   "signals": [
     {
-      "id": "datev-cloud-transformation-2026",
-      "category": "Competitive",
+      "id": "xrechnung-b2b-impact-2025-2028",
+      "category": "Regulatory",
       "market": "DE",
-      "date": "Apr 2026",
+      "date": "Mar 2026",
       "priority": "high",
-      "title": "DATEV initiates major cloud transformation in 2026, impacting core applications",
-      "body": "DATEV is undergoing its largest portfolio transformation, migrating all core on-premises applications to the cloud starting in 2026. This multi-year process will affect applications like MyDATEV Kanzlei, DATEV Kanzleimanagement, and DATEV Rechnungswesen. The shift aims to enhance efficiency and digital collaboration with clients, presenting both risks and opportunities for tax advisory firms.",
-      "implication": "DATEV's significant cloud migration presents an opportunity for Sage to position its cloud solutions as a modern alternative, potentially attracting firms hesitant about DATEV's transition or seeking more agile cloud offerings. It also highlights the increasing importance of cloud infrastructure in the German market.",
-      "source": "DATEV, Apr 23 2026; DATEV, 2026"
+      "title": "Germany's B2B e-invoicing mandate begins 2025 with transitional periods through 2028.",
+      "body": "While XRechnung has been mandatory for B2G (business-to-government) invoices since November 2020, the B2B e-invoicing obligation in Germany begins gradually from 2025, with transitional periods extending through 2028. XRechnung is a pure XML format, machine-readable and validated automatically, based on the European standard EN 16931. For B2B transactions, ZUGFeRD is often used as a hybrid format.",
+      "implication": "The upcoming B2B e-invoicing mandate in Germany, even with transitional periods, will require businesses and their accounting software providers to adapt. Sage Active, with its PA-certified FR and Verifactu-certified ES capabilities, needs to ensure its German offering is compliant with XRechnung or compatible with solutions that are. This regulatory shift presents an opportunity for Sage to highlight its compliance capabilities.",
+      "source": "XRechnung e-Invoicing Format? How to Create, Examples, Specifications (March 24 2026)",
+      "calendar_tag": true
     },
     {
-      "id": "cegid-sevdesk-acquisition-germany",
+      "id": "cegid-sevdesk-acquisition-2025",
       "category": "Competitive",
       "market": "DE",
       "date": "Feb 2025",
       "priority": "high",
-      "title": "Cegid completes acquisition of sevdesk, strengthening DACH presence",
-      "body": "Cegid has finalized its acquisition of sevdesk, a German provider of cloud-based accounting software for SMBs. This move expands Cegid's footprint in the DACH region, integrating sevdesk's platform, which serves over 130,000 customers, into Cegid's European strategy. Marco Reinbold, co-founder of sevdesk, has been appointed General Manager for Cegid's DACH operations.",
-      "implication": "Cegid's strengthened presence in Germany with sevdesk acquisition poses a direct competitive threat, especially as they target SMBs and potentially leverage sevdesk's existing customer base and technology for e-invoicing compliance.",
-      "source": "M&A Insights, Feb 06 2025; Houlihan Lokey, Feb 24 2025"
+      "title": "Cegid acquires sevDesk, strengthening its position in German-speaking SMB market.",
+      "body": "Cegid completed the acquisition of sevDesk GmbH in February 2025. SevDesk offers cloud-based accounting and invoicing software for freelancers, self-employed individuals, and small to medium-sized businesses (SMBs) in the DACH region. This acquisition expands Cegid's offerings in German-speaking Europe, a market with over 5 million micro and SMB businesses experiencing rapid demand for cloud solutions and e-invoicing compliance.",
+      "implication": "Cegid's acquisition of sevDesk directly targets the SMB and self-employed segment in Germany, a key market for Sage. This move increases competitive pressure from a European player with a growing presence and focus on cloud and e-invoicing. Sage needs to monitor Cegid's integration and product roadmap in Germany closely.",
+      "source": "Cegid - Sevdesk | Transaction Details (February 06 2025), sevdesk is now part of Cegid (February 06 2025), McDermott Advises Cegid on the Acquisition of sevdesk (January 09 2025)"
+    },
+    {
+      "id": "cegid-ebp-fr-consolidation",
+      "category": "Competitive",
+      "market": "FR",
+      "date": "2024",
+      "priority": "critical",
+      "title": "Cegid acquires EBP, strengthening its French SMB and accountant market position",
+      "body": "Cegid has entered into exclusive negotiations to acquire EBP, a significant player in the French SMB and accounting software market. This move, announced in April 2024, aims to create a European leader in management solutions for TPEs and SMEs, with a strong focus on the French market and the upcoming e-invoicing reform.",
+      "implication": "The acquisition of EBP by Cegid significantly strengthens a key competitor in France, particularly for the SMB and accountant segments. This consolidation will likely intensify competition for Sage's SfA and Active products, especially as Cegid leverages EBP's established customer base and market presence to push its own solutions, potentially targeting French practices more aggressively.",
+      "source": "Cegid (Apr 2024)"
     },
     {
       "id": "fr-e-invoicing-deadline-clarification",
@@ -83,17 +97,6 @@
       "implication": "This reinforces the urgency for all businesses, including Sage's clients, to adopt compliant e-invoicing solutions. Sage must ensure its products fully support these requirements and communicate this clearly.",
       "source": "Facture électronique 2026 pour TPE/PME - EBP, Dites adieu aux factures PDF par mail : la facturation électronique arrive en septembre, voici comment vous préparer - Les Numériques",
       "calendar_tag": true
-    },
-    {
-      "id": "cegid-ebp-strengthens-fr-market-presence",
-      "category": "Competitive",
-      "market": "FR",
-      "date": "July 2024",
-      "priority": "high",
-      "title": "Cegid completes EBP acquisition, bolstering its French SMB software offering.",
-      "body": "Cegid finalized its acquisition of EBP in July 2024, integrating EBP as 'EBP, A Cegid Company'. This move significantly strengthens Cegid's position in the French SMB software market, adding EBP's 275,000 clients and expanding Cegid's reach in invoicing, commercial management, and accounting solutions.",
-      "implication": "This consolidation creates a larger, more formidable competitor in France. Sage needs to monitor Cegid's integration strategy and potential cross-selling efforts to EBP's customer base.",
-      "source": "Cegid confirme l'acquisition d'EBP et donne naissance à un leader européen sur le marché hautement stratégique des logiciels de gestion pour les TPE et PME, Cegid x EBP - La profession comptable"
     },
     {
       "id": "fr-pa-mandate-readiness-pennylane",
