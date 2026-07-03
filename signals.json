@@ -1,6 +1,6 @@
 {
   "meta": {
-    "last_updated": "2026-07-02",
+    "last_updated": "2026-07-03",
     "week_label": "Week of 1 Jun - 7 Jun 2026",
     "signal_count": 40,
     "prev_signal_count": 40,
@@ -28,22 +28,22 @@
     "eu_competitive_pct": 100,
     "eu_competitive_status": "green",
     "eu_competitive_label": "Live",
-    "last_scan": "2026-07-02T18:25:11.250218Z",
+    "last_scan": "2026-07-03T09:57:33.244426Z",
     "last_scan_summary": "Manual deep refresh - data current as of 3 June 2026",
     "scan_status": {
-      "date": "2026-07-02",
+      "date": "2026-07-03",
       "markets_scanned": [
         "FR",
-        "ES",
-        "PT"
+        "DE",
+        "Pennylane"
       ],
       "markets_skipped": [],
-      "signals_added": 8,
+      "signals_added": 5,
       "quality_filtered": 0,
       "summaries": {
-        "FR": "The French market shows significant activity with regulatory deadlines approaching, major competitive consolidation, and ongoing platform advancements.",
-        "ES": "The Spanish market shows significant activity around the Verifactu e-invoicing mandate, with competitors like Holded already achieving certification, while Sage Active continues to leverage its AI capabilities.",
-        "PT": "Recent market signals for Portugal highlight upcoming regulatory deadlines for e-invoicing and SAF-T, alongside continued competitive activity from Cegid following its acquisition of PHC."
+        "FR": "Market signals indicate high activity around the French e-invoicing mandate, with competitors like Pennylane and Cegid (via EBP acquisition) actively positioning themselves, and regulatory deadlines becoming increasingly concrete.",
+        "DE": "The German market shows significant activity with Cegid's acquisition of sevdesk, DATEV's major cloud transformation, and the approaching B2B e-invoicing deadlines, indicating a dynamic and competitive landscape.",
+        "Pennylane": "No new signals detected in the last 48 hours regarding Pennylane's competitive activities."
       }
     },
     "archived_count": 0,
@@ -51,38 +51,61 @@
   },
   "signals": [
     {
-      "id": "pt-b2g-einvoicing-sme-deadline",
+      "id": "datev-cloud-transformation-2026",
+      "category": "Competitive",
+      "market": "DE",
+      "date": "Apr 2026",
+      "priority": "high",
+      "title": "DATEV initiates major cloud transformation in 2026, impacting core applications",
+      "body": "DATEV is undergoing its largest portfolio transformation, migrating all core on-premises applications to the cloud starting in 2026. This multi-year process will affect applications like MyDATEV Kanzlei, DATEV Kanzleimanagement, and DATEV Rechnungswesen. The shift aims to enhance efficiency and digital collaboration with clients, presenting both risks and opportunities for tax advisory firms.",
+      "implication": "DATEV's significant cloud migration presents an opportunity for Sage to position its cloud solutions as a modern alternative, potentially attracting firms hesitant about DATEV's transition or seeking more agile cloud offerings. It also highlights the increasing importance of cloud infrastructure in the German market.",
+      "source": "DATEV, Apr 23 2026; DATEV, 2026"
+    },
+    {
+      "id": "cegid-sevdesk-acquisition-germany",
+      "category": "Competitive",
+      "market": "DE",
+      "date": "Feb 2025",
+      "priority": "high",
+      "title": "Cegid completes acquisition of sevdesk, strengthening DACH presence",
+      "body": "Cegid has finalized its acquisition of sevdesk, a German provider of cloud-based accounting software for SMBs. This move expands Cegid's footprint in the DACH region, integrating sevdesk's platform, which serves over 130,000 customers, into Cegid's European strategy. Marco Reinbold, co-founder of sevdesk, has been appointed General Manager for Cegid's DACH operations.",
+      "implication": "Cegid's strengthened presence in Germany with sevdesk acquisition poses a direct competitive threat, especially as they target SMBs and potentially leverage sevdesk's existing customer base and technology for e-invoicing compliance.",
+      "source": "M&A Insights, Feb 06 2025; Houlihan Lokey, Feb 24 2025"
+    },
+    {
+      "id": "fr-e-invoicing-deadline-clarification",
       "category": "Regulatory",
-      "market": "PT",
-      "date": "Jan 2026",
-      "priority": "watch",
-      "title": "SMEs in Portugal must comply with B2G e-invoicing from Jan 2026",
-      "body": "Small and medium-sized enterprises (SMEs) and micro-enterprises in Portugal are now required to comply with B2G e-invoicing mandates from January 1, 2026. Large companies have been compliant since January 2021.",
-      "implication": "This regulatory shift impacts a significant portion of the Portuguese business landscape. Sage Active and SfA should be positioned to support these SMEs in their B2G e-invoicing compliance.",
-      "source": "ecosio (March 06 2026), European Commission (March 06 2026)",
+      "market": "FR",
+      "date": "May 2026",
+      "priority": "high",
+      "title": "France's e-invoicing reform: Key dates and sanctions clarified.",
+      "body": "The French e-invoicing reform mandates that all VAT-registered businesses must be able to receive structured electronic invoices by September 1, 2026. Issuance becomes mandatory for large enterprises and ETIs on the same date, with SMEs and micro-enterprises following on September 1, 2027. Non-compliance can result in fines. PDF invoices sent by email will no longer be considered compliant.",
+      "implication": "This reinforces the urgency for all businesses, including Sage's clients, to adopt compliant e-invoicing solutions. Sage must ensure its products fully support these requirements and communicate this clearly.",
+      "source": "Facture électronique 2026 pour TPE/PME - EBP, Dites adieu aux factures PDF par mail : la facturation électronique arrive en septembre, voici comment vous préparer - Les Numériques",
       "calendar_tag": true
     },
     {
-      "id": "cegid-primavera-phc-integration-progress",
+      "id": "cegid-ebp-strengthens-fr-market-presence",
       "category": "Competitive",
-      "market": "PT",
-      "date": "Apr 2026",
+      "market": "FR",
+      "date": "July 2024",
       "priority": "high",
-      "title": "Cegid reports strong performance in Portugal post-PHC acquisition",
-      "body": "Cegid Group achieved €85 million in revenue in Portugal in 2025, the year of its acquisition of PHC Software. The company expects a 10% growth in 2026, with operations fully integrated. Cegid Portugal has 700 employees and approximately 60,000 clients.",
-      "implication": "Cegid's successful integration of PHC and strong market presence in Portugal intensifies competition, particularly for accountants and SMBs. Sage needs to monitor Cegid's product roadmap and competitive positioning closely.",
-      "source": "ECO - SAPO (Apr 27 2026)"
+      "title": "Cegid completes EBP acquisition, bolstering its French SMB software offering.",
+      "body": "Cegid finalized its acquisition of EBP in July 2024, integrating EBP as 'EBP, A Cegid Company'. This move significantly strengthens Cegid's position in the French SMB software market, adding EBP's 275,000 clients and expanding Cegid's reach in invoicing, commercial management, and accounting solutions.",
+      "implication": "This consolidation creates a larger, more formidable competitor in France. Sage needs to monitor Cegid's integration strategy and potential cross-selling efforts to EBP's customer base.",
+      "source": "Cegid confirme l'acquisition d'EBP et donne naissance à un leader européen sur le marché hautement stratégique des logiciels de gestion pour les TPE et PME, Cegid x EBP - La profession comptable"
     },
     {
-      "id": "sage-active-ai-spain-2024",
-      "category": "AI & Tech",
-      "market": "ES",
-      "date": "October 2024",
-      "priority": "watch",
-      "title": "Sage Active launched with AI capabilities in Spain",
-      "body": "Sage Active, Sage's cloud and AI accounting product, was launched in Spain in October 2024, featuring Sage Copilot, an AI-powered assistant. This integration aims to automate tasks, provide insights, and support smarter business decisions for small businesses and accountants in Spain.",
-      "implication": "While Sage Active has AI capabilities, the competitive landscape is evolving rapidly. Continuous innovation and clear differentiation will be key to maintaining a competitive edge against rivals also investing in AI.",
-      "source": "Vertex AI Search, July 2026"
+      "id": "fr-pa-mandate-readiness-pennylane",
+      "category": "Regulatory",
+      "market": "FR",
+      "date": "June 2026",
+      "priority": "critical",
+      "title": "Pennylane emphasizes readiness for France's Sept 1, 2026 e-invoicing mandate.",
+      "body": "Pennylane is actively promoting its platform's compliance with the upcoming French e-invoicing reform, scheduled for September 1, 2026. They highlight their status as an accredited platform (PA) and offer resources to help businesses prepare, including a free option for micro-enterprises. This indicates a strong competitive push to capture market share ahead of the mandate.",
+      "implication": "Sage must accelerate its own PA registration and communication efforts to ensure customers are aware of Sage's compliance and readiness for the Sept 1, 2026 mandate.",
+      "source": "Pennylane France accountant 2026, Pennylane: Plateforme tout-en-un de gestion financière & comptabilité Pennylane, Logiciel de facture électronique : preparez-vous pour 2026 - Pennylane",
+      "calendar_tag": true
     },
     {
       "id": "holded-certified-verifactu",
@@ -117,17 +140,6 @@
       "body": "Pennylane, a financial management and accounting platform, is preparing for a launch in Spain in the second half of 2026. The company has already gained significant traction in France, with over 1 million leaders, independents, and financial directors adopting their platform. Pennylane emphasizes automation and real-time data for strategic decision-making.",
       "implication": "Pennylane's continued expansion and strong performance in France, coupled with its upcoming entry into Spain, represent a significant competitive threat to Sage's market share in both regions.",
       "source": "Pennylane (ongoing)"
-    },
-    {
-      "id": "cegid-ebp-fr-consolidation",
-      "category": "Competitive",
-      "market": "FR",
-      "date": "Apr 2024",
-      "priority": "high",
-      "title": "Cegid enters exclusive negotiations to acquire EBP, aiming for European leadership.",
-      "body": "Cegid, a European leader in cloud management solutions, is in exclusive negotiations to acquire EBP, a major player in French SMB software. This move aims to create a European leader in the TPE/PME software market, particularly with the advent of e-invoicing. EBP serves approximately 275,000 clients in France.",
-      "implication": "This consolidation strengthens Cegid's position in the French market, potentially increasing competitive pressure on Sage's offerings for French SMBs and expert-comptables.",
-      "source": "EBP, A Cegid Company (Apr 23, 2024)"
     },
     {
       "id": "fr-pa-mandate-readiness",
@@ -494,17 +506,6 @@
       "implication": "The approaching January 2027 deadline for larger German businesses to issue e-invoices creates an urgent need for compliant solutions. Sage Active's PA-certified FR and Verifactu-certified ES capabilities need to be extended to DE to meet this critical regulatory requirement and competitive pressure from players like Cegid and sevdesk.",
       "source": "Tradeshift, Flick Network, Invoxo, ClearTax (various dates in 2026)",
       "calendar_tag": true
-    },
-    {
-      "id": "contasol-delsol-free-tier-expansion",
-      "category": "Competitive",
-      "market": "ES",
-      "date": "June 2026",
-      "priority": "watch",
-      "title": "Contasol and Delsol expand free tier offerings to capture autónomo segment.",
-      "body": "Spanish competitors Contasol and Delsol are reportedly expanding their free tier services, specifically targeting the 'autónomo' (self-employed) segment. This strategy aims to capture a large user base before the July 2027 Verifactu deadline for this group.",
-      "implication": "The aggressive free tier strategy by Contasol and Delsol could make it harder for Sage Active to acquire self-employed users in Spain, especially if they do not offer a compelling entry-level or free option.",
-      "source": "Industry News - June 2026"
     }
   ]
 }
