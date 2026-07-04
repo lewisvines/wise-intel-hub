@@ -1,6 +1,6 @@
 {
   "meta": {
-    "last_updated": "2026-07-03",
+    "last_updated": "2026-07-04",
     "week_label": "Week of 1 Jun - 7 Jun 2026",
     "signal_count": 40,
     "prev_signal_count": 40,
@@ -28,24 +28,18 @@
     "eu_competitive_pct": 100,
     "eu_competitive_status": "green",
     "eu_competitive_label": "Live",
-    "last_scan": "2026-07-03T18:07:48.851614Z",
+    "last_scan": "2026-07-04T09:24:27.070840Z",
     "last_scan_summary": "Manual deep refresh - data current as of 3 June 2026",
     "scan_status": {
-      "date": "2026-07-03",
+      "date": "2026-07-04",
       "markets_scanned": [
-        "FR",
-        "DE",
-        "PT",
-        "Pennylane"
+        "PT"
       ],
       "markets_skipped": [],
-      "signals_added": 3,
+      "signals_added": 2,
       "quality_filtered": 0,
       "summaries": {
-        "FR": "The French market shows significant activity around the upcoming 2026 e-invoicing mandate, with key competitors like Pennylane and the newly consolidated Cegid/EBP actively positioning themselves, posing a critical competitive threat to Sage.",
-        "DE": "The German market shows significant activity with DATEV's major cloud transformation, Cegid's strategic acquisition of sevDesk targeting the SMB segment, and the ongoing implementation of e-invoicing regulations for B2B transactions.",
-        "PT": "No new market signals for Portugal were detected in the past 24-48 hours.",
-        "Pennylane": "No new signals regarding Pennylane were found in the last 48 hours."
+        "PT": "Recent market signals in Portugal indicate a shift in regulatory deadlines for e-invoicing and SAF-T, alongside significant competitive consolidation through Cegid's acquisition of PHC Software."
       }
     },
     "archived_count": 0,
@@ -53,27 +47,27 @@
   },
   "signals": [
     {
-      "id": "xrechnung-b2b-impact-2025-2028",
-      "category": "Regulatory",
-      "market": "DE",
-      "date": "Mar 2026",
-      "priority": "high",
-      "title": "Germany's B2B e-invoicing mandate begins 2025 with transitional periods through 2028.",
-      "body": "While XRechnung has been mandatory for B2G (business-to-government) invoices since November 2020, the B2B e-invoicing obligation in Germany begins gradually from 2025, with transitional periods extending through 2028. XRechnung is a pure XML format, machine-readable and validated automatically, based on the European standard EN 16931. For B2B transactions, ZUGFeRD is often used as a hybrid format.",
-      "implication": "The upcoming B2B e-invoicing mandate in Germany, even with transitional periods, will require businesses and their accounting software providers to adapt. Sage Active, with its PA-certified FR and Verifactu-certified ES capabilities, needs to ensure its German offering is compliant with XRechnung or compatible with solutions that are. This regulatory shift presents an opportunity for Sage to highlight its compliance capabilities.",
-      "source": "XRechnung e-Invoicing Format? How to Create, Examples, Specifications (March 24 2026)",
-      "calendar_tag": true
+      "id": "cegid-acquires-phc-strengthens-market",
+      "category": "Competitive",
+      "market": "PT",
+      "date": "Jan 2025",
+      "priority": "critical",
+      "title": "Cegid Acquires PHC Software, Consolidating Iberian Market Presence",
+      "body": "Cegid Group acquired Portuguese technology company PHC Business Software (PHC) in January 2025. This acquisition, incorporating 262 employees and PHC's portfolio of 37,000 client companies, significantly boosts Cegid's growth in the management software market for SMEs on the Iberian Peninsula.",
+      "implication": "This acquisition strengthens Cegid's position in Portugal, potentially increasing competitive pressure on Sage's offerings in the region.",
+      "source": "PitchBook, January 21 2025"
     },
     {
-      "id": "cegid-sevdesk-acquisition-2025",
-      "category": "Competitive",
-      "market": "DE",
-      "date": "Feb 2025",
+      "id": "pt-b2g-einvoicing-sme-deadline",
+      "category": "Regulatory",
+      "market": "PT",
+      "date": "Jan 2026",
       "priority": "high",
-      "title": "Cegid acquires sevDesk, strengthening its position in German-speaking SMB market.",
-      "body": "Cegid completed the acquisition of sevDesk GmbH in February 2025. SevDesk offers cloud-based accounting and invoicing software for freelancers, self-employed individuals, and small to medium-sized businesses (SMBs) in the DACH region. This acquisition expands Cegid's offerings in German-speaking Europe, a market with over 5 million micro and SMB businesses experiencing rapid demand for cloud solutions and e-invoicing compliance.",
-      "implication": "Cegid's acquisition of sevDesk directly targets the SMB and self-employed segment in Germany, a key market for Sage. This move increases competitive pressure from a European player with a growing presence and focus on cloud and e-invoicing. Sage needs to monitor Cegid's integration and product roadmap in Germany closely.",
-      "source": "Cegid - Sevdesk | Transaction Details (February 06 2025), sevdesk is now part of Cegid (February 06 2025), McDermott Advises Cegid on the Acquisition of sevdesk (January 09 2025)"
+      "title": "SMEs in Portugal Must Comply with B2G E-invoicing from Jan 2026",
+      "body": "Small and medium-sized enterprises (SMEs) and micro-enterprises in Portugal must comply with B2G e-invoicing requirements from January 1, 2026. Large companies have been compliant since January 2021.",
+      "implication": "This expansion of the B2G e-invoicing mandate to SMEs presents a significant compliance challenge and opportunity for accounting software providers.",
+      "source": "ecosio, March 06 2026",
+      "calendar_tag": true
     },
     {
       "id": "cegid-ebp-fr-consolidation",
