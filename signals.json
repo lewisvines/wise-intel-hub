@@ -28,28 +28,63 @@
     "eu_competitive_pct": 100,
     "eu_competitive_status": "green",
     "eu_competitive_label": "Live",
-    "last_scan": "2026-07-05T09:44:25.498860Z",
+    "last_scan": "2026-07-05T17:56:14.596882Z",
     "last_scan_summary": "Manual deep refresh - data current as of 3 June 2026",
     "scan_status": {
       "date": "2026-07-05",
       "markets_scanned": [
+        "FR",
+        "ES",
         "DE",
-        "PT",
         "Pennylane"
       ],
       "markets_skipped": [],
-      "signals_added": 5,
+      "signals_added": 3,
       "quality_filtered": 0,
       "summaries": {
-        "DE": "The German market shows significant activity with Cegid's acquisition of sevdesk, DATEV's accelerated cloud migration, and Lexware's rebranding of lexoffice, indicating a competitive landscape focused on cloud solutions and market consolidation.",
-        "PT": "Recent market signals for Portugal indicate a high priority on upcoming regulatory changes regarding SAF-T accounting and Qualified Electronic Signatures, alongside continued competitive pressure from the integrated Cegid PHC offering.",
-        "Pennylane": "No new signals detected in the last 48 hours regarding Pennylane's competitive activity."
+        "FR": "The French market shows significant activity in regulatory compliance for e-invoicing, with a strong competitive push from Cegid/EBP and Pennylane targeting the expert-comptable channel.",
+        "ES": "HTTP 503: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n",
+        "DE": "The German market shows significant activity with Cegid's acquisition of sevdesk, DATEV's accelerated cloud migration, and Lexware's rebranding of lexoffice, indicating a dynamic competitive and technological landscape.",
+        "Pennylane": "No new signals regarding Pennylane were found in the last 48 hours."
       }
     },
     "archived_count": 0,
     "ifyrne_updated": "2026-06-29"
   },
   "signals": [
+    {
+      "id": "lexware-rebrands-lexoffice",
+      "category": "Brand",
+      "market": "DE",
+      "date": "Dec 2025",
+      "priority": "watch",
+      "title": "Lexware rebrands lexoffice to Lexware Office as part of brand consolidation",
+      "body": "Haufe Group has rebranded its popular online accounting software, lexoffice, to Lexware Office. This rebranding aligns lexoffice with the broader Lexware brand, known for its quality accounting software for self-employed individuals and small businesses. The move aims to create a unified brand experience and leverage synergies within the Lexware product family.",
+      "implication": "While primarily a branding change, this consolidation under the Lexware umbrella could signal a more aggressive market push for the combined offering, potentially increasing pressure on Sage's cloud SMB solutions in Germany. It also simplifies the competitive landscape by presenting a clearer, unified brand.",
+      "source": "Haufe Group - Dec 2025"
+    },
+    {
+      "id": "pennylane-expert-comptable-focus",
+      "category": "Competitive",
+      "market": "FR",
+      "date": "2026-02-10",
+      "priority": "high",
+      "title": "Pennylane Intensifies Focus on Expert-Comptable Channel with 2026 Events",
+      "body": "Pennylane is actively engaging with the 'expert-comptable' channel through its 'Rendez-Vous Pennylane 2026' events across France (Paris, Toulouse, Nantes, Grenoble). These events focus on e-invoicing opportunities, AI as a lever, and offer recomposition, indicating a strategic push to capture the accounting professional market.",
+      "implication": "Pennylane's direct engagement with accounting firms signals a strong competitive drive. Sage needs to ensure its 'Sage for Accountants' (SfA) offering is clearly communicated and positioned as superior or more beneficial to these firms.",
+      "source": "Pennylane (Feb-Mar 2026)"
+    },
+    {
+      "id": "cegid-ebp-fr-expansion",
+      "category": "Competitive",
+      "market": "FR",
+      "date": "2024-04-23",
+      "priority": "high",
+      "title": "Cegid and EBP Forge Strategic Alliance to Lead European TPE/SME Software Market",
+      "body": "Cegid and EBP have entered exclusive negotiations to merge, aiming to create a European leader in TPE/SME management software. This strategic move, particularly significant with the advent of e-invoicing, will bolster Cegid's presence in the French market for invoicing and accounting solutions. EBP brings a strong user experience focus and nearly 40 years of expertise, serving 275,000 clients in France.",
+      "implication": "This merger creates a formidable competitor in France, directly challenging Sage's market share in the TPE/SME segment. Sage must differentiate its offerings and highlight its specific advantages for French accountants and businesses.",
+      "source": "Cegid, EBP (April 2024)"
+    },
     {
       "id": "cegid-phc-integration-progress",
       "category": "Competitive",
@@ -74,17 +109,6 @@
       "calendar_tag": true
     },
     {
-      "id": "lexware-rebrands-lexoffice",
-      "category": "Competitive",
-      "market": "DE",
-      "date": "Dec 2025",
-      "priority": "watch",
-      "title": "Lexware rebrands lexoffice to Lexware Office, integrating into broader Lexware brand",
-      "body": "Haufe Group is rebranding its popular lexoffice accounting software to Lexware Office. This strategic move aims to consolidate all accounting products under the established Lexware brand, known for its quality and reliability for freelancers and small businesses. The rebranding is part of a strategy to offer a unified brand experience and facilitate access to other Lexware products.",
-      "implication": "While a rebranding, it signifies Haufe Group's commitment to strengthening its position in the German SMB accounting market under a unified brand, potentially leading to increased marketing efforts and product integration that could impact Sage's market share.",
-      "source": "Haufe Group, Dec 2025"
-    },
-    {
       "id": "datev-cloud-migration-accelerates",
       "category": "Competitive",
       "market": "DE",
@@ -94,17 +118,6 @@
       "body": "DATEV is transitioning all its programs to the cloud, with locally installed solutions being phased out by late 2026. This move aims to enhance efficiency and collaboration between tax advisors and clients. The transition will begin with Kanzleimanagement (office management) in autumn 2026, followed by other areas like payroll, financial accounting, and taxes.",
       "implication": "DATEV's cloud push creates a more integrated digital ecosystem, potentially increasing pressure on competitors to offer similar cloud-native solutions and seamless client collaboration features. This also signals a shift in how German tax advisors will operate.",
       "source": "DATEV, Dec 2025"
-    },
-    {
-      "id": "cegid-sevdesk-acquisition-completes",
-      "category": "Competitive",
-      "market": "DE",
-      "date": "Feb 2025",
-      "priority": "high",
-      "title": "Cegid completes acquisition of sevdesk, strengthening DACH presence",
-      "body": "Cegid has finalized its acquisition of sevdesk, a German provider of cloud-based accounting software for SMBs. This move expands Cegid's footprint in the DACH region, integrating sevdesk's solutions for pre-accounting, accounting, and e-invoicing. Sevdesk serves over 130,000 customers and accounting professionals.",
-      "implication": "Increased competition in the German market, particularly for cloud SMB solutions, as Cegid leverages sevdesk's established customer base and local expertise.",
-      "source": "M&A Insights, Feb 2025; Houlihan Lokey, Feb 2025"
     },
     {
       "id": "germany-b2b-e-invoicing-transition",
@@ -495,17 +508,6 @@
       "implication": "This delay in the full accounting SAF-T mandate offers some breathing room but reinforces the complexity and evolving nature of Portugal's tax compliance landscape. Sage must continue to prioritize SAF-T compliance for its Portuguese offerings.",
       "source": "KPMG International (Dec 05 2025)",
       "calendar_tag": true
-    },
-    {
-      "id": "holded-verifactu-readiness-2025",
-      "category": "Competitive",
-      "market": "ES",
-      "date": "2026-06-27",
-      "priority": "watch",
-      "title": "Holded actively promoting Verifactu compliance, positioning as a key player for Spanish SMEs.",
-      "body": "Holded is actively promoting its Verifactu compliance, stating that its software is already working to meet the technical standards. They are positioning themselves as a solution that will simplify the transition for Spanish SMEs and freelancers.",
-      "implication": "Holded is a strong local competitor in Spain, and their early focus on Verifactu compliance could capture market share. Sage Active needs to ensure its Spanish offering is clearly communicated as Verifactu-ready and highlight any advantages over Holded.",
-      "source": "VeriFactu in Spain: what it is, how it works and implementation deadlines (2025 Guide) (June 2025)"
     }
   ]
 }
