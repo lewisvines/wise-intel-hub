@@ -1,12 +1,12 @@
 {
   "meta": {
-    "last_updated": "2026-07-05",
+    "last_updated": "2026-07-06",
     "week_label": "Week of 1 Jun - 7 Jun 2026",
-    "signal_count": 40,
+    "signal_count": 39,
     "prev_signal_count": 40,
     "intensity": "CRITICAL",
     "intensity_reason": "France PA mandate under 90 days away - 100+ PAs certified - certified-vs-not gap visible by September - Pennylane EUR 175M war chest + AI co-pilot - Cegid in integration mode after Shine",
-    "ifyrne": "Pennylane's H2 2026 entry into Spain, ahead of our SfA launch, and Cegid's aggressive Portuguese consolidation with Primavera and PHC, significantly heighten competitive pressure across WiSE. While mandate delays for Portugal QES and Spain Verifactu offer a brief compliance reprieve, our stalled Sage Active PA registration in France and unresolved GE-Active sync are critical internal risks. The September 1, 2026, France PA mandate demands immediate resolution to capitalize on the 7.9M business opportunity before Cegid's expanded sales force gains further ground. We must accelerate a differentiated Sage Active Spain launch to preempt Pennylane's arrival and protect early market share. Our most critical action this week is to unblock Sage Active's PA registration in France.",
+    "ifyrne": "The French PA mandate deadline of September 1, 2026, looms large, demanding immediate acceleration of our PA registration and customer communication efforts, especially with competitors like Pennylane actively emphasizing their readiness. In Germany, the B2B e-invoicing mandate, starting in 2025 and extending through 2028, presents a critical compliance challenge and opportunity for Sage Active, while Cegid's acquisition of EBP and deployment of 100 new sales reps in Q2 2026 significantly intensifies competition for German practices. Spain's Verifactu mandate, effective January 2027 for corporations and July 2027 for the self-employed, requires urgent confirmation of Sage Active's compliance to avoid substantial fines. Given these converging deadlines and competitive pressures, Sage must prioritize resolving the GE-Active sync issue this week to enable a robust Spain launch ahead of Pennylane's entry.",
     "pa_registration_pct": 50,
     "pa_registration_status": "amber",
     "pa_registration_label": "In progress - 50% registered",
@@ -28,62 +28,49 @@
     "eu_competitive_pct": 100,
     "eu_competitive_status": "green",
     "eu_competitive_label": "Live",
-    "last_scan": "2026-07-05T17:56:14.596882Z",
+    "last_scan": "2026-07-06T11:32:58.682016Z",
     "last_scan_summary": "Manual deep refresh - data current as of 3 June 2026",
     "scan_status": {
-      "date": "2026-07-05",
+      "date": "2026-07-06",
       "markets_scanned": [
         "FR",
         "ES",
-        "DE",
         "Pennylane"
       ],
       "markets_skipped": [],
-      "signals_added": 3,
+      "signals_added": 2,
       "quality_filtered": 0,
       "summaries": {
-        "FR": "The French market shows significant activity in regulatory compliance for e-invoicing, with a strong competitive push from Cegid/EBP and Pennylane targeting the expert-comptable channel.",
-        "ES": "HTTP 503: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n",
-        "DE": "The German market shows significant activity with Cegid's acquisition of sevdesk, DATEV's accelerated cloud migration, and Lexware's rebranding of lexoffice, indicating a dynamic competitive and technological landscape.",
-        "Pennylane": "No new signals regarding Pennylane were found in the last 48 hours."
+        "FR": "HTTP 503: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n",
+        "ES": "Market signals in Spain show strong competitive activity around Verifactu compliance, with Holded and Contasol actively marketing their solutions, while Sage is highlighting its own Verifactu and AI capabilities in demos.",
+        "Pennylane": "No new signals detected in the last 48 hours regarding Pennylane's product updates, pricing, hiring, press coverage, partnerships, AI features, or market expansion."
       }
     },
-    "archived_count": 0,
-    "ifyrne_updated": "2026-06-29"
+    "archived_count": 1,
+    "ifyrne_updated": "2026-07-06"
   },
   "signals": [
     {
-      "id": "lexware-rebrands-lexoffice",
-      "category": "Brand",
-      "market": "DE",
-      "date": "Dec 2025",
+      "id": "sage-active-spain-verifactu-focus",
+      "category": "AI & Tech",
+      "market": "ES",
+      "date": "April 2026",
+      "priority": "high",
+      "title": "Sage Active Spain demo highlights Verifactu and AI integration",
+      "body": "A recent demo of Sage Active for the Spanish market showcased its capabilities in managing billing, accounting, and treasury, with a specific emphasis on Verifactu compliance and AI integration via Sage Copilot. This indicates a strategic focus on regulatory adherence and advanced features for the Spanish market.",
+      "implication": "Sage is actively positioning Sage Active as a Verifactu-compliant and AI-enhanced solution for Spain. This proactive approach should be amplified in marketing efforts to counter competitive pressures.",
+      "source": "Sage Active Demo Billing, Accounting, and Treasury with AI (YouTube), April 2026"
+    },
+    {
+      "id": "contasol-delsol-verifactu-update",
+      "category": "Competitive",
+      "market": "ES",
+      "date": "June 2026",
       "priority": "watch",
-      "title": "Lexware rebrands lexoffice to Lexware Office as part of brand consolidation",
-      "body": "Haufe Group has rebranded its popular online accounting software, lexoffice, to Lexware Office. This rebranding aligns lexoffice with the broader Lexware brand, known for its quality accounting software for self-employed individuals and small businesses. The move aims to create a unified brand experience and leverage synergies within the Lexware product family.",
-      "implication": "While primarily a branding change, this consolidation under the Lexware umbrella could signal a more aggressive market push for the combined offering, potentially increasing pressure on Sage's cloud SMB solutions in Germany. It also simplifies the competitive landscape by presenting a clearer, unified brand.",
-      "source": "Haufe Group - Dec 2025"
-    },
-    {
-      "id": "pennylane-expert-comptable-focus",
-      "category": "Competitive",
-      "market": "FR",
-      "date": "2026-02-10",
-      "priority": "high",
-      "title": "Pennylane Intensifies Focus on Expert-Comptable Channel with 2026 Events",
-      "body": "Pennylane is actively engaging with the 'expert-comptable' channel through its 'Rendez-Vous Pennylane 2026' events across France (Paris, Toulouse, Nantes, Grenoble). These events focus on e-invoicing opportunities, AI as a lever, and offer recomposition, indicating a strategic push to capture the accounting professional market.",
-      "implication": "Pennylane's direct engagement with accounting firms signals a strong competitive drive. Sage needs to ensure its 'Sage for Accountants' (SfA) offering is clearly communicated and positioned as superior or more beneficial to these firms.",
-      "source": "Pennylane (Feb-Mar 2026)"
-    },
-    {
-      "id": "cegid-ebp-fr-expansion",
-      "category": "Competitive",
-      "market": "FR",
-      "date": "2024-04-23",
-      "priority": "high",
-      "title": "Cegid and EBP Forge Strategic Alliance to Lead European TPE/SME Software Market",
-      "body": "Cegid and EBP have entered exclusive negotiations to merge, aiming to create a European leader in TPE/SME management software. This strategic move, particularly significant with the advent of e-invoicing, will bolster Cegid's presence in the French market for invoicing and accounting solutions. EBP brings a strong user experience focus and nearly 40 years of expertise, serving 275,000 clients in France.",
-      "implication": "This merger creates a formidable competitor in France, directly challenging Sage's market share in the TPE/SME segment. Sage must differentiate its offerings and highlight its specific advantages for French accountants and businesses.",
-      "source": "Cegid, EBP (April 2024)"
+      "title": "Contasol/Delsol promotes Verifactu compliance in free tier",
+      "body": "Software DELSOL's Contasol accounting software, which offers a free tier for one user, is now updated for 2026 Spanish tax regulations, including Verifactu compliance. This move by a significant player in the Spanish market, offering a free entry point with regulatory compliance, could attract a large segment of autónomos and small businesses.",
+      "implication": "Sage must monitor the adoption of Contasol's free tier, as it could capture a significant portion of the autónomo market, potentially impacting Sage Active's market share in Spain.",
+      "source": "Contasol/Delsol product information, June 2026"
     },
     {
       "id": "cegid-phc-integration-progress",
@@ -508,6 +495,18 @@
       "implication": "This delay in the full accounting SAF-T mandate offers some breathing room but reinforces the complexity and evolving nature of Portugal's tax compliance landscape. Sage must continue to prioritize SAF-T compliance for its Portuguese offerings.",
       "source": "KPMG International (Dec 05 2025)",
       "calendar_tag": true
+    },
+    {
+      "id": "pennylane-expert-comptable-focus",
+      "category": "Competitive",
+      "market": "FR",
+      "date": "2026-02-10",
+      "priority": "high",
+      "title": "Pennylane Intensifies Focus on Expert-Comptable Channel with 2026 Events",
+      "body": "Pennylane is actively engaging with the 'expert-comptable' channel through its 'Rendez-Vous Pennylane 2026' events across France (Paris, Toulouse, Nantes, Grenoble). These events focus on e-invoicing opportunities, AI as a lever, and offer recomposition, indicating a strategic push to capture the accounting professional market.",
+      "implication": "Pennylane's direct engagement with accounting firms signals a strong competitive drive. Sage needs to ensure its 'Sage for Accountants' (SfA) offering is clearly communicated and positioned as superior or more beneficial to these firms.",
+      "source": "Pennylane (Feb-Mar 2026)",
+      "archived": true
     }
   ]
 }
