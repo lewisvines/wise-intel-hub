@@ -2,7 +2,7 @@
   "meta": {
     "last_updated": "2026-07-07",
     "week_label": "Week of 6 Jul - 12 Jul 2026",
-    "signal_count": 43,
+    "signal_count": 40,
     "prev_signal_count": 40,
     "intensity": "CRITICAL",
     "intensity_reason": "France PA mandate under 8 weeks away (1 Sept 2026) with PA registration ~50% - Cegid closes EUR 1.1bn Shine acquisition (1M+ SMBs, 15,000 accountants across 7 markets) - Pennylane now live in Germany and valued at USD 4.25bn - converging FR/ES/DE/PT compliance deadlines",
@@ -28,32 +28,50 @@
     "eu_competitive_pct": 100,
     "eu_competitive_status": "green",
     "eu_competitive_label": "Live",
-    "last_scan": "2026-07-07T09:15:00.000000Z",
+    "last_scan": "2026-07-07T10:28:33.348633Z",
     "last_scan_summary": "Manual deep refresh - data current as of 7 July 2026",
     "scan_status": {
       "date": "2026-07-07",
       "markets_scanned": [
-        "FR",
         "ES",
         "DE",
-        "PT",
-        "Pennylane",
-        "Cegid"
+        "Pennylane"
       ],
       "markets_skipped": [],
-      "signals_added": 3,
+      "signals_added": 2,
       "quality_filtered": 0,
       "summaries": {
-        "FR": "Cegid has closed its EUR 1.1bn acquisition of Shine, consolidating the French and pan-European SMB/accountant market ahead of the 1 September 2026 PA mandate; Pennylane continues aggressive readiness positioning.",
-        "ES": "Verifactu confirmed for 1 January 2027 (companies) and 1 July 2027 (autonomos), with fines up to EUR 50,000 for non-certified software; Holded is AEAT-certified and Pennylane is preparing a market entry in H2 2026.",
-        "DE": "Pennylane is now live in Germany (Munich HQ) and heavily funded; Cegid-Shine adds German reach; the B2B e-invoicing timeline (Jan 2027 / Jan 2028) was reconfirmed at the June 2026 Berlin summit, and ZUGFeRD 2.5 was released.",
-        "Pennylane": "Pennylane raised USD 204M at a USD 4.25bn valuation in January 2026 and is investing in German localisation and e-invoicing; ~EUR 100M ARR and nearing profitability."
+        "ES": "HTTP 503: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n",
+        "DE": "The German market shows significant activity with DATEV's cloud migration, Cegid's strategic acquisition of sevDesk, and the ongoing implementation of the XRechnung B2B e-invoicing mandate, indicating a dynamic competitive and regulatory landscape.",
+        "Pennylane": "No new signals found in the last 48 hours regarding Pennylane's competitive activity."
       }
     },
     "archived_count": 0,
     "ifyrne_updated": "2026-07-07"
   },
   "signals": [
+    {
+      "id": "cegid-sevdesk-expansion-2025",
+      "category": "Competitive",
+      "market": "DE",
+      "date": "Feb 2025",
+      "priority": "high",
+      "title": "Cegid acquires sevDesk, strengthening its cloud accounting presence in German-speaking Europe.",
+      "body": "Cegid completed the acquisition of sevDesk GmbH in February 2025, a provider of cloud-based accounting and invoicing software for freelancers and SMBs in the DACH region. SevDesk serves over 130,000 customers and its integration aims to accelerate Cegid's growth in this market, particularly in light of upcoming e-invoicing reforms.",
+      "implication": "Cegid's acquisition of sevDesk positions them as a significant competitor in the German SMB cloud accounting space, directly challenging Sage Active and other cloud offerings. Their focus on e-invoicing compliance is also a key differentiator.",
+      "source": "Cegid acquires sevDesk (February 6, 2025)"
+    },
+    {
+      "id": "datev-cloud-migration-2026",
+      "category": "Competitive",
+      "market": "DE",
+      "date": "Apr 2026",
+      "priority": "high",
+      "title": "DATEV initiates major cloud portfolio transformation in 2026, phasing out on-premises solutions.",
+      "body": "DATEV is undergoing its largest portfolio transformation, migrating core applications to the cloud, including \"Rechnungswesen in der Cloud\" planned for H2 2026. This transition is expected to take 24-36 months and impacts all core applications and workflows for tax firms.",
+      "implication": "This shift by DATEV presents an opportunity for Sage to offer cloud solutions that can integrate with or complement DATEV's new cloud offerings, potentially capturing market share from firms struggling with the migration or seeking alternatives. It also highlights the increasing importance of cloud-native solutions in the German accounting market.",
+      "source": "DATEV Cloud-Migration 2026 (April 23, 2026)"
+    },
     {
       "id": "cegid-shine-acquisition-closed",
       "category": "Competitive",
@@ -64,17 +82,6 @@
       "body": "Cegid has completed its acquisition of fintech unicorn Shine (June 2026), backed by a €1.1bn financing package from Arcmont and Ares. The combined group serves more than 1 million SMBs and 15,000 accountants across France, Germany, Spain, Portugal, Denmark, the Netherlands and Belgium, and is positioned as 'Europe's first complete AI-driven platform for SMBs and accountants.' Shine brings 400,000+ SMB customers plus e-invoicing, business accounts, accounting and payroll.",
       "implication": "This is no longer an integration in progress but a live, heavily-financed competitor spanning all four WiSE markets plus three more. Cegid can now bundle e-invoicing compliance, banking and payroll for the TPE/PME and accountant channel ahead of the France PA mandate. Sage must sharpen SfA and Active differentiation and accelerate PA readiness.",
       "source": "Businesswire (Jun 7 2026), FintechFutures (Jun 2026), IDC (Jun 2026)"
-    },
-    {
-      "id": "pennylane-germany-launch-valuation",
-      "category": "Competitive",
-      "market": "DE",
-      "date": "Jan 2026",
-      "priority": "critical",
-      "title": "Pennylane live in Germany and valued at $4.25bn after $204M Series E",
-      "body": "Pennylane launched in Germany in November 2025 (Munich HQ, Berlin office, Managing Director Tobias Janiesch), targeting 100 hires. In January 2026 it raised $204M / €175M at a $4.25bn valuation — nearly double its April 2025 level — from TCV, CapitalG (Alphabet), Blackstone, Sequoia and DST Global. The company reports ~€100M ARR for 2025 and says it is nearing profitability. Funds are earmarked for German regulatory localisation, e-invoicing infrastructure, and payments/cash management.",
-      "implication": "Pennylane is no longer a France-and-Spain story: it is already operating in Germany, the market where Sage's GE-Active sync remains unresolved. Its war chest and AI/e-invoicing focus make it a direct threat in the German accountant channel ahead of the January 2027 B2B e-invoicing mandate. Sage needs a Germany competitive response, not only a Spain one.",
-      "source": "Tech.eu (Nov 2025 & Jan 2026), SiliconANGLE (Jan 20 2026), Sifted (Jan 2026), Startbase (Nov 2025)"
     },
     {
       "id": "germany-b2b-timeline-reconfirmed-2026",
@@ -110,28 +117,6 @@
       "implication": "Urgent need for Sage Active and Sage for Accountants to ensure full compliance with XRechnung and ZUGFeRD standards for the German market. This deadline is a critical driver for cloud adoption and product development.",
       "source": "Vertex AI Search, Mar 2026",
       "calendar_tag": true
-    },
-    {
-      "id": "cegid-sevdesk-acquisition-completion",
-      "category": "Competitive",
-      "market": "DE",
-      "date": "Feb 2025",
-      "priority": "high",
-      "title": "Cegid completes acquisition of sevDesk, strengthening DACH cloud presence",
-      "body": "Cegid has finalized its acquisition of sevDesk, a German cloud accounting software provider. This move expands Cegid's footprint in the DACH region, integrating sevDesk's solutions for SMBs and tax advisors. Marco Reinbold, sevDesk's co-founder, has been appointed General Manager for Cegid's DACH operations.",
-      "implication": "Increased competition in the German SMB cloud accounting market. Sage needs to monitor Cegid's integration strategy and product roadmap for sevDesk, especially concerning e-invoicing compliance and potential cross-selling opportunities.",
-      "source": "Cegid, Feb 2025"
-    },
-    {
-      "id": "sage-active-france-positioning",
-      "category": "Market",
-      "market": "FR",
-      "date": "February 2023",
-      "priority": "watch",
-      "title": "Sage Active positioned for French SMBs with cloud-first strategy.",
-      "body": "Sage Active was launched in February 2023 as a cloud-native solution for SMBs (10-250 employees) in France, aiming to complement existing Sage accounting solutions. It emphasizes a scalable, open, and customizable experience, leveraging Microsoft Azure.",
-      "implication": "While Sage Active has been available, its specific positioning and recent updates in the French market, especially in light of the PA mandate and competitive landscape, warrant continued monitoring.",
-      "source": "La profession comptable (February 23 2023)"
     },
     {
       "id": "france-pa-mandate-readiness",
@@ -520,30 +505,6 @@
       "body": "The requirement for Qualified Electronic Signatures (QES) on PDF invoices in Portugal has been extended to January 1, 2027. Until December 31, 2026, PDF invoices issued by certified software with ATCUD and QR code will remain valid without a QES. This applies to B2B and B2C transactions.",
       "implication": "This extension provides a buffer for Sage Active and SfA to ensure full QES compliance for the Portuguese market, mitigating immediate risk but requiring continued focus on the upcoming deadline.",
       "source": "RTC Suite, May 15 2026",
-      "calendar_tag": true
-    },
-    {
-      "id": "verifactu-aeat-readiness-2027",
-      "category": "Regulatory",
-      "market": "ES",
-      "date": "June 2026",
-      "priority": "high",
-      "title": "Spain's Verifactu mandate deadline approaching for AEAT compliance",
-      "body": "The Spanish Tax Agency (AEAT) mandate for Verifactu is set for January 2027 for corporate entities and July 2027 for self-employed individuals, with significant fines for non-compliance. This creates a strong push for accounting software adoption and upgrades.",
-      "implication": "This regulatory deadline is a key driver for the 'despachos' channel and 'autónomo' segment to seek compliant solutions, making Sage Active's readiness and offering critical for market penetration.",
-      "source": "Sage WiSE PMM intelligence",
-      "calendar_tag": true
-    },
-    {
-      "id": "holded-verifactu-compliance-2027",
-      "category": "Regulatory",
-      "market": "ES",
-      "date": "June 2026",
-      "priority": "high",
-      "title": "Holded prepares for Spain's Verifactu mandate deadline",
-      "body": "Holded, a competitor with 80,000 customers in Spain, is actively preparing for the Verifactu mandate, which comes into effect for corporations in January 2027 and for the self-employed in July 2027. This regulatory deadline presents an opportunity for solutions like Sage Active to gain traction if positioned correctly.",
-      "implication": "Sage Active must ensure its Verifactu compliance is robust and clearly communicated to the 'despachos' channel and 'autónomo' segment to compete with Holded.",
-      "source": "Sage WiSE PMM intelligence",
       "calendar_tag": true
     }
   ]
