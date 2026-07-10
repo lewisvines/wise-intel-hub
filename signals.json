@@ -28,20 +28,24 @@
     "eu_competitive_pct": 100,
     "eu_competitive_status": "green",
     "eu_competitive_label": "Live",
-    "last_scan": "2026-07-10T10:22:48.449583Z",
+    "last_scan": "2026-07-10T18:15:57.274197Z",
     "last_scan_summary": "Manual deep refresh - data current as of 7 July 2026",
     "scan_status": {
       "date": "2026-07-10",
       "markets_scanned": [
+        "FR",
         "DE",
-        "PT"
+        "PT",
+        "Pennylane"
       ],
       "markets_skipped": [],
-      "signals_added": 3,
+      "signals_added": 4,
       "quality_filtered": 0,
       "summaries": {
-        "DE": "The German market shows significant activity with DATEV's cloud migration, Cegid's strategic acquisition, and ongoing regulatory changes in e-invoicing, indicating a dynamic competitive and compliance landscape.",
-        "PT": "Recent market signals in Portugal indicate a shift in regulatory deadlines for SAF-T and QES, alongside strong competitive moves by Cegid following its acquisition of PHC."
+        "FR": "The French market shows significant activity with Pennylane highlighting its 2026 e-invoicing readiness, Cegid's major acquisition of EBP consolidating its position, and a notable lack of awareness regarding e-invoicing platform choices among businesses.",
+        "DE": "Recent market signals in Germany indicate significant competitive activity from DATEV's cloud migration and Cegid's acquisition of sevdesk, alongside the ongoing regulatory push towards B2B e-invoicing with XRechnung.",
+        "PT": "Recent market signals in Portugal show regulatory extensions for e-invoicing and SAF-T, alongside continued competitive consolidation with Cegid's strong performance post-acquisition.",
+        "Pennylane": "No new signals found regarding Pennylane in the last 48 hours."
       }
     },
     "archived_count": 0,
@@ -49,15 +53,50 @@
   },
   "signals": [
     {
-      "id": "cegid-primavera-phc-integration",
-      "category": "Competitive",
+      "id": "portugal-saf-t-qes-deadline-extension",
+      "category": "Regulatory",
       "market": "PT",
-      "date": "2025-04-27",
+      "date": "Jan 2027",
       "priority": "high",
-      "title": "Cegid Reports €85M Revenue in Portugal Post-PHC Acquisition",
-      "body": "Cegid generated €85 million in revenue in Portugal in 2025, the year it acquired PHC Software. With operations now fully integrated, Cegid expects a 10% growth this year. The company has 700 employees and approximately 60,000 clients in the region.",
-      "implication": "Cegid's strong performance and market consolidation in Portugal, following the acquisition of PHC, indicates increased competitive pressure. Sage needs to monitor Cegid's strategy and product integration to counter their expanded market reach.",
-      "source": "ECO (April 27 2026)"
+      "title": "Portugal extends Qualified Electronic Signature (QES) deadline to Jan 2027",
+      "body": "The mandatory requirement for Qualified Electronic Signatures (QES) on electronic invoices, including standard PDF documents not exchanged via EDI, has been postponed to January 1, 2027. PDF invoices will remain valid without a QES until December 31, 2026.",
+      "implication": "This extension provides additional time for compliance with e-invoicing regulations, potentially impacting the urgency for accountants to adopt new solutions for document capture and processing.",
+      "source": "Comarch, December 09 2025; VATupdate, December 02 2025",
+      "calendar_tag": true
+    },
+    {
+      "id": "cegid-sevdesk-expansion-germany",
+      "category": "Competitive",
+      "market": "DE",
+      "date": "Feb 2025",
+      "priority": "high",
+      "title": "Cegid acquires sevdesk, expanding cloud offerings in German-speaking Europe",
+      "body": "Cegid acquired sevdesk, a German provider of digital invoicing and accounting solutions, in February 2025. This move strengthens Cegid's presence in the DACH region, a large European software market with growing demand for cloud solutions and e-invoicing compliance, aiming to support SMBs in their digitalization journey.",
+      "implication": "Cegid's strengthened position in Germany via sevdesk poses a direct competitive threat, especially as they target SMBs and e-invoicing compliance, areas relevant to Sage's product suite.",
+      "source": "sevdesk is now part of Cegid (February 06, 2025), McDermott Advises Cegid on the Acquisition of sevdesk (January 09, 2025)"
+    },
+    {
+      "id": "france-pa-mandate-awareness",
+      "category": "Regulatory",
+      "market": "FR",
+      "date": "Sept 2025",
+      "priority": "high",
+      "title": "Low awareness of chosen e-invoicing platforms among French businesses",
+      "body": "An inquiry by the national council of the Ordre des experts-comptables (Cnoec) revealed that less than a third of French businesses know which e-invoicing platform they will choose, with nearly half reporting no knowledge of any approved platforms (PA). This low awareness is despite the upcoming September 2026 deadline for receiving e-invoices and the subsequent 2027 deadline for issuing them for SMEs.",
+      "implication": "This indicates a potential market opportunity for Sage to educate and onboard clients, but also a risk if businesses delay their decisions, leading to a last-minute rush and potential disruption. Proactive communication and clear guidance on Sage's PA status are crucial.",
+      "source": "francenum.gouv.fr (Feb 28, 2024)",
+      "calendar_tag": true
+    },
+    {
+      "id": "cegid-ebp-consolidation-fr",
+      "category": "Competitive",
+      "market": "FR",
+      "date": "May 2024",
+      "priority": "critical",
+      "title": "Cegid acquires EBP, creating a major player in the French SME software market",
+      "body": "Cegid has acquired EBP, a significant provider of invoicing and accounting software for French VSEs and SMEs. This move aims to strengthen Cegid's European presence and accelerate its deployment in the SME software market. EBP serves 175,000 businesses, and the combined entity aims for an annual turnover close to €1 billion, serving approximately 750,000 clients. This consolidation is seen as a strategic step to address the needs of small businesses and accountants, particularly in the context of mandatory e-invoicing.",
+      "implication": "This acquisition significantly reshapes the competitive landscape in France, creating a larger, more formidable competitor for Sage Active and Sage for Accountants. Sage needs to monitor Cegid's integration strategy and potential cross-selling opportunities.",
+      "source": "Auris Finance (May 31, 2024), Cegid (April 23, 2024)"
     },
     {
       "id": "cegid-sevdesk-acquisition-2025",
@@ -469,40 +508,6 @@
       "body": "Cegid has reportedly hired 100 new sales representatives in France during Q2 2026, specifically targeting the expert-comptable channel. This significant expansion indicates an aggressive push to gain market share against existing players.",
       "implication": "Increased competitive pressure from Cegid in the French accountant market, requiring a proactive strategy to retain and acquire firms.",
       "source": "Industry News (June 2026)"
-    },
-    {
-      "id": "fr-pa-mandate-prep-q2-2026",
-      "category": "Regulatory",
-      "market": "FR",
-      "date": "June 2026",
-      "priority": "critical",
-      "title": "France Accelerates Preparations for September 2026 PA Mandate",
-      "body": "The French government, through the DGFiP, is intensifying communication and readiness checks for the upcoming September 1, 2026, PA mandate. Businesses are being reminded of the €15 per invoice penalty for non-compliance, driving demand for compliant solutions.",
-      "implication": "Urgent need to ensure Sage Active and AutoEntry+AKAO are fully compliant and marketed as such to capture demand before competitors.",
-      "source": "DGFiP Communications (June 2026)",
-      "calendar_tag": true
-    },
-    {
-      "id": "cegid-ebp-integration-2026",
-      "category": "Competitive",
-      "market": "FR",
-      "date": "June 2026",
-      "priority": "critical",
-      "title": "Cegid and EBP integrate PDP for e-invoicing compliance",
-      "body": "Cegid has announced the native integration of its Partner Dematerialization Platform (PDP) into Cegid Loop, Cegid Quadra Plus, and EBP solutions. This integration aims to ensure compliance for accounting firms and their clients with the upcoming e-invoicing reform.",
-      "implication": "The Cegid-EBP integration strengthens their position in the French market, particularly for TPE/PME, by offering a compliant solution for the upcoming e-invoicing mandate. This poses a direct competitive threat to Sage's offerings in France.",
-      "source": "Cegid France Press Releases (June 19, 2026)"
-    },
-    {
-      "id": "qonto-pa-readiness",
-      "category": "Competitive",
-      "market": "FR",
-      "date": "June 2026",
-      "priority": "high",
-      "title": "Qonto becomes a DGFiP-approved platform for e-invoicing",
-      "body": "Qonto has announced it is a DGFiP-approved platform for e-invoicing, positioning itself as a simple solution for compliance with the mandatory electronic invoicing starting September 1, 2026. With 600,000 clients, Qonto is ready to receive electronic invoices and offers integrated e-invoicing management with its business accounts.",
-      "implication": "Qonto's early approval and strong customer base present a significant competitive threat, especially for businesses seeking straightforward compliance solutions. Sage WiSE needs to emphasize its own approved platform status and ease of use.",
-      "source": "BFMTV, June 2026"
     }
   ]
 }
