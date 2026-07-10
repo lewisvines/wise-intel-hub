@@ -1,6 +1,6 @@
 {
   "meta": {
-    "last_updated": "2026-07-09",
+    "last_updated": "2026-07-10",
     "week_label": "Week of 6 Jul - 12 Jul 2026",
     "signal_count": 40,
     "prev_signal_count": 40,
@@ -28,20 +28,20 @@
     "eu_competitive_pct": 100,
     "eu_competitive_status": "green",
     "eu_competitive_label": "Live",
-    "last_scan": "2026-07-09T18:45:30.636307Z",
+    "last_scan": "2026-07-10T10:22:48.449583Z",
     "last_scan_summary": "Manual deep refresh - data current as of 7 July 2026",
     "scan_status": {
-      "date": "2026-07-09",
+      "date": "2026-07-10",
       "markets_scanned": [
-        "FR",
-        "ES"
+        "DE",
+        "PT"
       ],
       "markets_skipped": [],
-      "signals_added": 2,
+      "signals_added": 3,
       "quality_filtered": 0,
       "summaries": {
-        "FR": "HTTP 404: {\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"This model models/gemini-2.5-flash-lite is no longer available. Please update your code to use a newer model for the latest features and improvements.\",",
-        "ES": "Market signals in Spain show strong competitive activity from Holded and Pennylane, with a critical regulatory deadline for Verifactu compliance approaching in 2027."
+        "DE": "The German market shows significant activity with DATEV's cloud migration, Cegid's strategic acquisition, and ongoing regulatory changes in e-invoicing, indicating a dynamic competitive and compliance landscape.",
+        "PT": "Recent market signals in Portugal indicate a shift in regulatory deadlines for SAF-T and QES, alongside strong competitive moves by Cegid following its acquisition of PHC."
       }
     },
     "archived_count": 0,
@@ -49,15 +49,37 @@
   },
   "signals": [
     {
-      "id": "pennylane-spain-expansion-plans",
+      "id": "cegid-primavera-phc-integration",
       "category": "Competitive",
-      "market": "ES",
-      "date": "Jan 2026",
-      "priority": "critical",
-      "title": "Pennylane plans Spain entry in H2 2026, leveraging AI and e-invoicing",
-      "body": "Pennylane, a French fintech unicorn, has secured significant funding and plans to establish a presence in Spain in the second half of 2026. Their expansion will focus on AI-powered features and e-invoicing solutions, aligning with upcoming regulatory changes. Pennylane already supports over 6,000 firms and is registered as an Authorised Platform for electronic invoicing in France.",
-      "implication": "Pennylane's entry into Spain before Sage for Accountants (SfA) Spain launch poses a direct competitive threat, especially with their AI focus. Sage must accelerate its own AI development and Spanish market entry strategy to counter Pennylane's momentum.",
-      "source": "Tech news reports on Pennylane funding and expansion (e.g.,)"
+      "market": "PT",
+      "date": "2025-04-27",
+      "priority": "high",
+      "title": "Cegid Reports €85M Revenue in Portugal Post-PHC Acquisition",
+      "body": "Cegid generated €85 million in revenue in Portugal in 2025, the year it acquired PHC Software. With operations now fully integrated, Cegid expects a 10% growth this year. The company has 700 employees and approximately 60,000 clients in the region.",
+      "implication": "Cegid's strong performance and market consolidation in Portugal, following the acquisition of PHC, indicates increased competitive pressure. Sage needs to monitor Cegid's strategy and product integration to counter their expanded market reach.",
+      "source": "ECO (April 27 2026)"
+    },
+    {
+      "id": "cegid-sevdesk-acquisition-2025",
+      "category": "Competitive",
+      "market": "DE",
+      "date": "2025",
+      "priority": "high",
+      "title": "Cegid acquired sevDesk in February 2025, strengthening its German market presence.",
+      "body": "Cegid completed the acquisition of sevDesk, a cloud-based accounting and invoicing software provider for SMEs in the DACH region, on February 6, 2025. This acquisition expands Cegid's offerings in German-speaking Europe, a significant market with accelerating demand for cloud software and e-invoicing compliance. SevDesk serves over 130,000 customers.",
+      "implication": "Cegid's strengthened position in Germany via sevDesk increases competitive pressure, particularly for cloud SMB solutions. Sage needs to monitor sevDesk's integration and feature roadmap within Cegid's portfolio.",
+      "source": "Cegid - Sevdesk | Transaction Details"
+    },
+    {
+      "id": "datev-cloud-migration-2026",
+      "category": "AI & Tech",
+      "market": "DE",
+      "date": "2026",
+      "priority": "high",
+      "title": "DATEV begins major cloud migration in 2026, phasing out on-premises solutions.",
+      "body": "DATEV is undertaking its largest portfolio transformation in 2026, migrating all core applications to the cloud, including Kanzleimanagement, Lohn, Finanzbuchhaltung, and tax modules. On-premises versions will be phased out over the coming years, with the Kanzleimanagement module moving first in autumn 2026. This strategic shift aims to increase efficiency and support digitalization for tax advisors and their clients.",
+      "implication": "This migration presents an opportunity for Sage to position its cloud-native solutions as a modern alternative to DATEV's evolving on-premises offerings, potentially attracting firms hesitant about DATEV's transition timeline or seeking more agile cloud solutions.",
+      "source": "DATEV Cloud Migration 2026"
     },
     {
       "id": "verifactu-deadline-confirmation-2027",
@@ -481,29 +503,6 @@
       "body": "Qonto has announced it is a DGFiP-approved platform for e-invoicing, positioning itself as a simple solution for compliance with the mandatory electronic invoicing starting September 1, 2026. With 600,000 clients, Qonto is ready to receive electronic invoices and offers integrated e-invoicing management with its business accounts.",
       "implication": "Qonto's early approval and strong customer base present a significant competitive threat, especially for businesses seeking straightforward compliance solutions. Sage WiSE needs to emphasize its own approved platform status and ease of use.",
       "source": "BFMTV, June 2026"
-    },
-    {
-      "id": "sage-active-pa-readiness",
-      "category": "Regulatory",
-      "market": "FR",
-      "date": "June 2026",
-      "priority": "high",
-      "title": "Sage Active integrates with PA for e-invoicing mandate",
-      "body": "Sage Active now integrates natively with the Sage Approved Platform (formerly PDP) for compliant e-invoicing, enabling direct sending and receiving of electronic invoices. This ensures compliance with the French e-invoicing mandate effective September 1, 2026. The platform also features AI-powered OCR for invoice capture and automated accounting entries.",
-      "implication": "Sage Active is positioning itself to meet the upcoming French PA mandate, potentially capturing market share from competitors less prepared for this regulatory shift. This reinforces the need for Sage WiSE to highlight its own compliance and readiness.",
-      "source": "La Fabrique du Net, June 2026",
-      "calendar_tag": true
-    },
-    {
-      "id": "cegid-ebp-strengthen-fr-offering",
-      "category": "Competitive",
-      "market": "FR",
-      "date": "Ongoing",
-      "priority": "high",
-      "title": "Cegid and EBP Strengthen French Market Presence with Integrated Solutions",
-      "body": "Cegid's acquisition of EBP positions the combined entity as a major player in the French TPE/PME software market, particularly with the upcoming e-invoicing reform. They offer a broad range of solutions covering accounting, payroll, and HR, with EBP being highlighted for its value for TPEs and artisans, and Cegid for its strength in integrated management solutions.",
-      "implication": "The combined Cegid-EBP offering presents a formidable competitor in the French market, especially for the TPE/PME segment. Sage needs to differentiate its offerings and highlight the specific advantages of Sage Active and its ecosystem in the face of this consolidated competitor.",
-      "source": "Dynamips (October 09, 2025), facturation électronique (2026)"
     }
   ]
 }
