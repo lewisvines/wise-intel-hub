@@ -28,30 +28,63 @@
     "eu_competitive_pct": 100,
     "eu_competitive_status": "green",
     "eu_competitive_label": "Live",
-    "last_scan": "2026-07-12T09:02:58.329579Z",
+    "last_scan": "2026-07-12T17:48:17.096258Z",
     "last_scan_summary": "Manual deep refresh - data current as of 7 July 2026",
     "scan_status": {
       "date": "2026-07-12",
       "markets_scanned": [
         "FR",
         "ES",
-        "DE",
-        "PT"
+        "DE"
       ],
       "markets_skipped": [],
-      "signals_added": 7,
+      "signals_added": 3,
       "quality_filtered": 0,
       "summaries": {
-        "FR": "The French market shows high regulatory pressure with the PA mandate deadline, significant competitive activity from Cegid's sales expansion and Pennylane's upcoming Spanish launch, and ongoing preparations for e-invoicing.",
-        "ES": "Market signals show a slight delay in Verifactu for autónomos, competitive moves from Holded, and continued anticipation of Pennylane's Spanish market entry.",
-        "DE": "The German market shows significant activity with DATEV's major cloud transformation, Cegid's strategic acquisition of sevdesk, and Lexoffice's continued product enhancements, indicating a highly competitive and evolving landscape.",
-        "PT": "The Portuguese market shows significant activity with regulatory shifts in e-invoicing and SAF-T, alongside strong competitive moves by Cegid, indicating a dynamic and evolving landscape."
+        "FR": "The French market shows high activity around the upcoming e-invoicing mandate, with significant competitive moves from Pennylane and Cegid, and ongoing advancements in AI-driven document capture.",
+        "ES": "Recent market signals for Spain focus on the confirmed Verifactu deadlines, the stabilization of autónomo rates, and ongoing AI enhancements to Sage Active, indicating a dynamic regulatory and technological landscape.",
+        "DE": "The German market shows significant activity in regulatory deadlines for e-invoicing, competitive landscape shifts with acquisitions, and major infrastructure changes with DATEV's cloud migration, indicating a dynamic environment."
       }
     },
     "archived_count": 0,
     "ifyrne_updated": "2026-07-07"
   },
   "signals": [
+    {
+      "id": "xrechnung-b2b-mandate-2025-2028",
+      "category": "Regulatory",
+      "market": "DE",
+      "date": "2025-2028",
+      "priority": "critical",
+      "title": "Germany's B2B e-invoicing mandate to be fully implemented by 2028.",
+      "body": "While XRechnung has been mandatory for B2G (business-to-government) invoices since November 2020, Germany's B2B e-invoicing obligation begins in 2025 with transitional periods extending through 2028. From 2025-2026, non-standard electronic and paper invoices will be accepted alongside e-invoices. This will be limited to companies with a turnover below €800,000 in 2026, and from 2028, only e-invoices will be permitted.",
+      "implication": "The upcoming B2B e-invoicing mandate is a critical deadline for all businesses operating in Germany. Sage must ensure its products are fully compliant with XRechnung and other relevant e-invoicing standards to avoid penalties and maintain market relevance. Proactive communication and support for customers navigating this transition will be key.",
+      "source": "Mandatory e-invoicing in Germany - Stripe (January 30 2025), XRechnung e-Invoicing Format? How to Create, Examples, Specifications - ClearTax (March 24 2026)",
+      "calendar_tag": true
+    },
+    {
+      "id": "sage-active-ai-enhancements-spain",
+      "category": "AI & Tech",
+      "market": "ES",
+      "date": "March 2025",
+      "priority": "watch",
+      "title": "Sage Active enhances AI capabilities for Spanish market",
+      "body": "Sage Active has introduced new AI-driven financial insights and automation tools, including enhancements to Sage Copilot. These updates aim to help small businesses in Spain improve productivity, streamline workflows, and manage cash flow more effectively. Features include instant balance sheet analysis and enhanced quote and invoice insights.",
+      "implication": "This demonstrates Sage's ongoing investment in AI for its Spanish offerings, positioning Sage Active as a technologically advanced solution. It's crucial to monitor how these AI features are received and adopted by Spanish accountants and SMBs, and how competitors are responding.",
+      "source": "Vertex AI Search Results"
+    },
+    {
+      "id": "autonomo-rates-frozen-2026",
+      "category": "Regulatory",
+      "market": "ES",
+      "date": "May 2026",
+      "priority": "watch",
+      "title": "Spain's autónomo rates frozen at 2025 levels for 2026",
+      "body": "Proposed increases to Spain's autónomo (self-employed) rates for 2026 were scrapped due to significant backlash. Rates remain frozen at 2025 levels, with monthly contributions ranging from approximately €206 to €607. The only minor change is a slight increase in the MEI surcharge from 0.8% to 0.9%. New freelancers can still benefit from the €80/month 'tarifa plana' for the first 12 months.",
+      "implication": "While not a direct threat, stable autónomo costs may encourage more individuals to start businesses, potentially increasing the market for SMB accounting solutions. Sage Active should monitor any shifts in this segment.",
+      "source": "Vertex AI Search Results",
+      "calendar_tag": true
+    },
     {
       "id": "qes-pdf-invoice-deadline-2027",
       "category": "Regulatory",
@@ -63,39 +96,6 @@
       "implication": "This regulatory change presents a clear deadline for Sage to ensure its Portuguese offerings support QES for PDF invoices. Failure to comply could lead to non-compliant customer solutions and competitive disadvantage against solutions that are already QES-ready.",
       "source": "KPMG International (December 05 2025), Vertex AI Search",
       "calendar_tag": true
-    },
-    {
-      "id": "lexoffice-enhances-cloud-features-and-tax-advisor-integration",
-      "category": "Competitive",
-      "market": "DE",
-      "date": "Jan 2026",
-      "priority": "watch",
-      "title": "Lexware Office (lexoffice) highlights advanced cloud features and seamless tax advisor integration.",
-      "body": "Lexware Office, a leading cloud accounting software in Germany with 250,000 users, emphasizes features like automated document capture, AI-driven booking suggestions, and direct integration with tax advisors. Recent accolades include being a 'Buchhaltungssoftware Testsieger 2025 & 2026' by Chip and ntv.",
-      "implication": "Lexoffice's continued innovation in cloud features and strong tax advisor partnerships present a robust competitive threat. Sage needs to ensure its SfA offering provides comparable or superior integration and automation to remain competitive.",
-      "source": "Buchhaltungssoftware: Cloud Testsieger 2025 | Lexware Office (Accessed July 2026)"
-    },
-    {
-      "id": "cegid-sevdesk-strengthens-german-market-presence",
-      "category": "Competitive",
-      "market": "DE",
-      "date": "Feb 2025",
-      "priority": "high",
-      "title": "Cegid acquires sevdesk, bolstering its cloud accounting and e-invoicing offerings in German-speaking Europe.",
-      "body": "Cegid's acquisition of sevdesk, a German-focused cloud accounting and invoicing provider, strengthens its presence in German-speaking Europe. Sevdesk serves over 130,000 SMB customers and is preparing clients for upcoming e-invoicing reforms starting in 2025.",
-      "implication": "This acquisition by Cegid, a known competitor, increases their footprint in the German market, particularly in the SMB segment, and enhances their capabilities in cloud accounting and e-invoicing, directly competing with Sage's offerings.",
-      "source": "sevdesk is now part of Cegid (February 06, 2025)"
-    },
-    {
-      "id": "datev-cloud-transformation-accelerates",
-      "category": "Competitive",
-      "market": "DE",
-      "date": "Apr 2026",
-      "priority": "high",
-      "title": "DATEV initiates largest portfolio transformation, moving core applications to the cloud by H2 2026.",
-      "body": "DATEV is undergoing its largest portfolio transformation, with core on-premises solutions migrating to the cloud, including MyDATEV Kanzlei, DATEV Kanzleimanagement, and DATEV Rechnungswesen in the cloud (starting H2 2026). This 24-36 month project impacts all core applications and workflows, presenting both risks and opportunities for tax firms.",
-      "implication": "This significant shift by DATEV, the dominant player in the German tax advisor market, creates an opportunity for Sage to position its cloud solutions as a modern alternative or complementary offering, especially for firms looking to accelerate their digital transformation beyond DATEV's pace.",
-      "source": "DATEV Cloud-Migration 2026: Was Kanzleien bedenken müssen (April 23, 2026)"
     },
     {
       "id": "holded-verifactu-certification",
