@@ -1,12 +1,12 @@
 {
   "meta": {
-    "last_updated": "2026-07-12",
+    "last_updated": "2026-07-13",
     "week_label": "Week of 6 Jul - 12 Jul 2026",
     "signal_count": 40,
     "prev_signal_count": 40,
     "intensity": "CRITICAL",
     "intensity_reason": "France PA mandate under 8 weeks away (1 Sept 2026) with PA registration ~50% - Cegid closes EUR 1.1bn Shine acquisition (1M+ SMBs, 15,000 accountants across 7 markets) - Pennylane now live in Germany and valued at USD 4.25bn - converging FR/ES/DE/PT compliance deadlines",
-    "ifyrne": "The competitive picture has shifted from 'coming soon' to 'here.' Cegid has now closed its EUR 1.1bn acquisition of Shine (June 2026), creating a live, heavily-financed platform serving 1M+ SMBs and 15,000 accountants across all four of our markets plus Denmark, the Netherlands and Belgium - no longer an integration in progress. At the same time Pennylane, now valued at USD 4.25bn after its January raise, is no longer just a Spanish threat: it has been live in Germany since November 2025 (Munich HQ, 100 hires planned), directly into the market where our GE-Active sync is still unresolved. With the France PA mandate now under 8 weeks away and our PA registration still around 50%, the single most important action this week is to close France PA registration and stand up a Germany competitive response before Cegid-Shine and Pennylane consolidate the accountant channel.",
+    "ifyrne": "The French PA mandate on September 1, 2026, and Spain's Verifactu deadlines in January and July 2027 necessitate immediate product readiness for Sage Active and Sage for Accountants. Pennylane's confirmed entry into Spain in H2 2026, coupled with Cegid's aggressive expansion in Germany, presents a significant competitive threat that demands a swift and decisive response. While Germany's XRechnung mandate in 2028 and Portugal's SAF-T in 2027 provide slightly longer timelines, proactive compliance is essential to avoid future risks. Given these converging regulatory and competitive pressures, Sage must prioritize the resolution of the GE-Active sync issue this week to ensure seamless integration and maintain market momentum.",
     "pa_registration_pct": 50,
     "pa_registration_status": "amber",
     "pa_registration_label": "In progress - 50% registered",
@@ -28,28 +28,74 @@
     "eu_competitive_pct": 100,
     "eu_competitive_status": "green",
     "eu_competitive_label": "Live",
-    "last_scan": "2026-07-12T17:48:17.096258Z",
+    "last_scan": "2026-07-13T10:28:22.485557Z",
     "last_scan_summary": "Manual deep refresh - data current as of 7 July 2026",
     "scan_status": {
-      "date": "2026-07-12",
+      "date": "2026-07-13",
       "markets_scanned": [
         "FR",
-        "ES",
-        "DE"
+        "DE",
+        "Pennylane"
       ],
       "markets_skipped": [],
-      "signals_added": 3,
+      "signals_added": 4,
       "quality_filtered": 0,
       "summaries": {
-        "FR": "The French market shows high activity around the upcoming e-invoicing mandate, with significant competitive moves from Pennylane and Cegid, and ongoing advancements in AI-driven document capture.",
-        "ES": "Recent market signals for Spain focus on the confirmed Verifactu deadlines, the stabilization of autónomo rates, and ongoing AI enhancements to Sage Active, indicating a dynamic regulatory and technological landscape.",
-        "DE": "The German market shows significant activity in regulatory deadlines for e-invoicing, competitive landscape shifts with acquisitions, and major infrastructure changes with DATEV's cloud migration, indicating a dynamic environment."
+        "FR": "Market signals in France show intense competitive activity from Pennylane and Cegid-EBP, alongside a critical regulatory push for electronic invoicing compliance, all within the last 48 hours.",
+        "DE": "Market signals for Germany show significant activity in cloud migration, competitive acquisitions, and upcoming regulatory e-invoicing obligations.",
+        "Pennylane": "No new signals found in the last 48 hours regarding Pennylane's competitive activities."
       }
     },
     "archived_count": 0,
-    "ifyrne_updated": "2026-07-07"
+    "ifyrne_updated": "2026-07-13"
   },
   "signals": [
+    {
+      "id": "xrechnung-b2b-obligation-2025",
+      "category": "Regulatory",
+      "market": "DE",
+      "date": "Jan 2025",
+      "priority": "critical",
+      "title": "Germany's B2B e-invoicing obligation begins in 2025, with XRechnung as a key format.",
+      "body": "While XRechnung has been mandatory for B2G (business-to-government) transactions since November 2020, the B2B e-invoicing obligation in Germany starts gradually from 2025, with transitional periods through 2028. Businesses must be able to accept structured formats like XRechnung.",
+      "implication": "Sage must ensure its products are fully compliant with XRechnung and other upcoming B2B e-invoicing mandates in Germany to avoid market exclusion and ensure customer adoption.",
+      "source": "XRechnung e-Invoicing Format? How to Create, Examples, Specifications - ClearTax (March 24 2026)",
+      "calendar_tag": true
+    },
+    {
+      "id": "fr-pa-mandate-readiness-update",
+      "category": "Regulatory",
+      "market": "FR",
+      "date": "July 2026",
+      "priority": "critical",
+      "title": "France's electronic invoicing mandate deadline approaching; platform readiness is key.",
+      "body": "With the French electronic invoicing mandate set for September 1, 2026, businesses and accounting firms are urged to choose and implement an accredited platform. As of early July 2026, over 137 platforms have been accredited by the DGFiP. Failure to comply by the deadline carries penalties, including a €15 fine per non-compliant invoice. While reception compliance is mandatory for all VAT-paying businesses by September 1, 2026, issuance compliance for larger companies begins on the same date, with smaller businesses following in September 2027.",
+      "implication": "This regulatory deadline is a critical driver for adoption of compliant software. Sage must ensure its solutions (SfA, Sage Active) are fully compliant and actively communicate this to the market, highlighting any accredited platform integrations. The risk of non-compliance for customers is high.",
+      "source": "Comparateur e-Facturation (July 03 2026), economie.gouv.fr (undated)",
+      "calendar_tag": true
+    },
+    {
+      "id": "cegid-ebp-fr-sales-push",
+      "category": "Competitive",
+      "market": "FR",
+      "date": "Q2 2026",
+      "priority": "high",
+      "title": "Cegid-EBP alliance strengthens French market presence with dedicated sales efforts.",
+      "body": "The Cegid and EBP integration is actively pursuing the French market, with EBP, now part of Cegid, offering specialized solutions for accounting firms. Recent promotions target members of the CJEC (a French accounting body), indicating a focused sales push. Cegid's acquisition of EBP aims to create a European leader in SMB/TPE management software, with a strong emphasis on the French market and the upcoming electronic invoicing reform.",
+      "implication": "The combined strength of Cegid and EBP, backed by dedicated sales efforts and a focus on the French accounting sector, represents a significant competitive challenge. Sage needs to monitor their market penetration closely and differentiate its offerings, particularly in light of the PA mandate.",
+      "source": "CJEC (undated, context suggests Q2 2026)"
+    },
+    {
+      "id": "pennylane-fr-accountant-2026-focus",
+      "category": "Competitive",
+      "market": "FR",
+      "date": "July 2026",
+      "priority": "high",
+      "title": "Pennylane intensifies focus on French accountant channel with new features and partnerships.",
+      "body": "Pennylane is actively targeting the French accountant market, emphasizing its collaborative platform for real-time data sharing between businesses and accountants. Recent updates highlight features for managing multiple client files and a growing network of over 4,500 accounting partners. The company is also positioning itself to address the upcoming electronic invoicing mandate in September 2026.",
+      "implication": "Pennylane's aggressive expansion in the French accountant channel poses a direct competitive threat to Sage for Accountants (SfA) in France. Sage needs to accelerate its own channel strategy and product roadmap to counter Pennylane's momentum.",
+      "source": "Apogea (July 06 2026)"
+    },
     {
       "id": "xrechnung-b2b-mandate-2025-2028",
       "category": "Regulatory",
@@ -61,17 +107,6 @@
       "implication": "The upcoming B2B e-invoicing mandate is a critical deadline for all businesses operating in Germany. Sage must ensure its products are fully compliant with XRechnung and other relevant e-invoicing standards to avoid penalties and maintain market relevance. Proactive communication and support for customers navigating this transition will be key.",
       "source": "Mandatory e-invoicing in Germany - Stripe (January 30 2025), XRechnung e-Invoicing Format? How to Create, Examples, Specifications - ClearTax (March 24 2026)",
       "calendar_tag": true
-    },
-    {
-      "id": "sage-active-ai-enhancements-spain",
-      "category": "AI & Tech",
-      "market": "ES",
-      "date": "March 2025",
-      "priority": "watch",
-      "title": "Sage Active enhances AI capabilities for Spanish market",
-      "body": "Sage Active has introduced new AI-driven financial insights and automation tools, including enhancements to Sage Copilot. These updates aim to help small businesses in Spain improve productivity, streamline workflows, and manage cash flow more effectively. Features include instant balance sheet analysis and enhanced quote and invoice insights.",
-      "implication": "This demonstrates Sage's ongoing investment in AI for its Spanish offerings, positioning Sage Active as a technologically advanced solution. It's crucial to monitor how these AI features are received and adopted by Spanish accountants and SMBs, and how competitors are responding.",
-      "source": "Vertex AI Search Results"
     },
     {
       "id": "autonomo-rates-frozen-2026",
@@ -472,40 +507,6 @@
       "implication": "Sage needs to ensure its invoicing solutions support QES for Portugal by the January 2027 deadline to maintain compliance and marketability.",
       "source": "Comarch, December 09 2025; EDICOM, December 01 2025; Vertex AI Search, March 07 2026",
       "calendar_tag": true
-    },
-    {
-      "id": "datev-cloud-migration-accelerates",
-      "category": "Competitive",
-      "market": "DE",
-      "date": "Oct 2026",
-      "priority": "high",
-      "title": "DATEV accelerates cloud migration, phasing out local solutions by late 2026",
-      "body": "DATEV is transitioning all its programs to the cloud, with locally installed solutions being phased out by late 2026. This move aims to enhance efficiency and collaboration between tax advisors and clients. The transition will begin with Kanzleimanagement (office management) in autumn 2026, followed by other areas like payroll, financial accounting, and taxes.",
-      "implication": "DATEV's cloud push creates a more integrated digital ecosystem, potentially increasing pressure on competitors to offer similar cloud-native solutions and seamless client collaboration features. This also signals a shift in how German tax advisors will operate.",
-      "source": "DATEV, Dec 2025"
-    },
-    {
-      "id": "germany-b2b-e-invoicing-transition",
-      "category": "Regulatory",
-      "market": "DE",
-      "date": "2025-2028",
-      "priority": "critical",
-      "title": "Germany's B2B e-invoicing mandate begins in 2025 with transitional periods through 2028.",
-      "body": "While XRechnung has been mandatory for B2G (business-to-government) transactions since November 2020, Germany's B2B e-invoicing obligation starts gradually from 2025, with transitional periods extending through 2028. Businesses must be prepared to accept structured e-invoicing formats like XRechnung, even if not directly issuing them.",
-      "implication": "The upcoming B2B e-invoicing mandate in Germany creates a significant compliance challenge and opportunity. Sage needs to ensure its solutions fully support XRechnung and other relevant structured e-invoicing formats to assist clients in meeting these new regulatory requirements.",
-      "source": "XRechnung e-Invoicing Format? How to Create, Examples, Specifications - ClearTax (Mar 24 2026)",
-      "calendar_tag": true
-    },
-    {
-      "id": "holded-verifactu-readiness",
-      "category": "Competitive",
-      "market": "ES",
-      "date": "Ongoing",
-      "priority": "watch",
-      "title": "Holded actively adapting to Verifactu requirements",
-      "body": "Holded has been actively adapting its platform to meet Verifactu requirements, positioning itself as a safe choice for businesses preparing for Spain's e-invoicing mandates. Holded is already Verifactu-compliant and has been for some time, with software developers required to have compliant solutions available from July 2025.",
-      "implication": "Holded's proactive approach to Verifactu compliance strengthens its position in the Spanish market, particularly among SMEs and autónomos who are prioritizing regulatory readiness. Sage needs to ensure its Verifactu compliance is clearly communicated and demonstrably robust.",
-      "source": "Holded official website, Vertex AI search results (e.g., Vertex AI search results for Holded Verifactu Spain, Vertex AI search results for Best Accounting Software for Small Businesses in Spain)"
     }
   ]
 }
