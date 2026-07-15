@@ -1,8 +1,8 @@
 {
   "meta": {
-    "last_updated": "2026-07-14",
+    "last_updated": "2026-07-15",
     "week_label": "Week of 6 Jul - 12 Jul 2026",
-    "signal_count": 40,
+    "signal_count": 38,
     "prev_signal_count": 40,
     "intensity": "CRITICAL",
     "intensity_reason": "France PA mandate under 8 weeks away (1 Sept 2026) with PA registration ~50% - Cegid closes EUR 1.1bn Shine acquisition (1M+ SMBs, 15,000 accountants across 7 markets) - Pennylane now live in Germany and valued at USD 4.25bn - converging FR/ES/DE/PT compliance deadlines",
@@ -28,30 +28,35 @@
     "eu_competitive_pct": 100,
     "eu_competitive_status": "green",
     "eu_competitive_label": "Live",
-    "last_scan": "2026-07-14T17:55:17.437598Z",
+    "last_scan": "2026-07-15T09:08:49.376035Z",
     "last_scan_summary": "Manual deep refresh - data current as of 7 July 2026",
     "scan_status": {
-      "date": "2026-07-14",
+      "date": "2026-07-15",
       "markets_scanned": [
-        "FR",
-        "ES",
-        "PT",
-        "Pennylane"
+        "ES"
       ],
       "markets_skipped": [],
-      "signals_added": 8,
+      "signals_added": 1,
       "quality_filtered": 0,
       "summaries": {
-        "FR": "Market signals in France show significant activity in regulatory compliance (e-invoicing), competitive consolidation (Cegid/EBP), and technological advancement (AI in Sage Active).",
-        "ES": "Market signals for Spain show strong competitive activity from Holded and Pennylane, alongside confirmed regulatory deadlines for Verifactu compliance.",
-        "PT": "Market signals for Portugal show continued regulatory evolution with postponements in SAF-T and QES mandates, while competitors like Cegid Primavera are actively strengthening their market position.",
-        "Pennylane": "No new signals detected in the last 48 hours regarding Pennylane's competitive activities."
+        "ES": "Market signals for Spain show a critical focus on Verifactu compliance with confirmed deadlines and competitor certifications, alongside advancements in AI integration for Sage Active."
       }
     },
     "archived_count": 0,
     "ifyrne_updated": "2026-07-13"
   },
   "signals": [
+    {
+      "id": "sage-active-spain-compliance",
+      "category": "AI & Tech",
+      "market": "ES",
+      "date": "October 2024",
+      "priority": "watch",
+      "title": "Sage Active Spain now supports Sage Copilot AI assistant",
+      "body": "Sage Active in Spain, France, and Germany now supports Sage Copilot, a generative AI-powered assistant. This integration aims to automate tasks, provide insights, and drive smarter business decisions for small businesses and accountants.",
+      "implication": "While not directly related to Verifactu, the integration of advanced AI features like Sage Copilot into Sage Active Spain positions it as a modern solution. This could be a differentiator against competitors if effectively communicated, but the primary focus for Spain remains Verifactu compliance.",
+      "source": "Sage Copilot launch for Sage Active, October 2024"
+    },
     {
       "id": "cegid-primavera-portugal-expansion",
       "category": "Competitive",
@@ -108,40 +113,6 @@
       "body": "Holded is actively promoting its platform's readiness for Spain's Verifactu regulation, highlighting features like automatic invoice signing and real-time reporting to the AEAT. They are positioning themselves as a solution for businesses to comply with Verifactu requirements out-of-the-box.",
       "implication": "Holded is a strong competitor in the Spanish market, particularly for SMEs and freelancers needing to comply with Verifactu. Sage needs to ensure its offering is equally robust and clearly communicated.",
       "source": "Holded (multiple sources)"
-    },
-    {
-      "id": "sage-active-fr-ai-features",
-      "category": "AI & Tech",
-      "market": "FR",
-      "date": "May 2021",
-      "priority": "watch",
-      "title": "Sage Active in France integrates AI for enhanced accounting and financial management.",
-      "body": "Sage Active, a cloud-based management solution in France, is incorporating AI features to automate tasks such as invoice capture via OCR, bank reconciliation, and payment reminders. The platform aims to provide real-time financial insights and streamline daily operations for SMEs.",
-      "implication": "The integration of AI in Sage Active demonstrates Sage's commitment to modernizing its offerings. This could be a competitive advantage if effectively marketed, but it also signals the increasing importance of AI in document capture and accounting processes, an area where AutoEntry+AKAO needs to remain competitive.",
-      "source": "Sage Active France (May 06 2021) and Notre avis sur Sage Active en 2026 - Analyse & Test indépendant - La Fabrique du Net (Undated)"
-    },
-    {
-      "id": "cegid-ebp-fr-market-consolidation",
-      "category": "Competitive",
-      "market": "FR",
-      "date": "Apr 2024",
-      "priority": "high",
-      "title": "Cegid in exclusive negotiations to acquire EBP, creating a major French software player.",
-      "body": "Cegid is in exclusive negotiations to acquire EBP, a French software provider with nearly 40 years of experience and 275,000 users. This move aims to create a European leader in management software for VSEs and SMEs, particularly strengthening Cegid's position in the French market with EBP's expertise in invoicing, commercial management, and accounting.",
-      "implication": "The potential consolidation of Cegid and EBP creates a significant competitor in the French market, particularly for VSEs and SMEs. This could intensify competition for Sage Active and Sage for Accountants in France, especially if Cegid leverages EBP's user base and market knowledge to expand its offerings.",
-      "source": "EBP, A Cegid Company - CJEC (Apr 23 2024)"
-    },
-    {
-      "id": "pennylane-fr-pa-readiness-2026",
-      "category": "Regulatory",
-      "market": "FR",
-      "date": "Jan 2026",
-      "priority": "critical",
-      "title": "Pennylane emphasizes its readiness for France's 2026 e-invoicing mandate.",
-      "body": "Pennylane has obtained PDP (Plateforme de Dématérialisation Partenaire) certification from the French tax authority (DGFiP) for the upcoming e-invoicing reform. The mandatory e-invoicing implementation begins September 1, 2026, for all VAT-registered businesses to receive electronic invoices, with issuance obligations for larger companies following in 2027 and SMEs in 2028.",
-      "implication": "Pennylane is positioning itself as a compliant solution for the French e-invoicing mandate, potentially capturing market share from competitors not yet certified or emphasizing their readiness. This highlights the urgency for Sage to ensure its solutions, particularly SfA Spain, are fully compliant and marketed as such.",
-      "source": "Pennylane review 2026: chartered accountant analysis - Hayot Expertise (Feb 02 2026)",
-      "calendar_tag": true
     },
     {
       "id": "xrechnung-b2b-transition",
