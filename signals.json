@@ -2,7 +2,7 @@
   "meta": {
     "last_updated": "2026-07-15",
     "week_label": "Week of 6 Jul - 12 Jul 2026",
-    "signal_count": 38,
+    "signal_count": 40,
     "prev_signal_count": 40,
     "intensity": "CRITICAL",
     "intensity_reason": "France PA mandate under 8 weeks away (1 Sept 2026) with PA registration ~50% - Cegid closes EUR 1.1bn Shine acquisition (1M+ SMBs, 15,000 accountants across 7 markets) - Pennylane now live in Germany and valued at USD 4.25bn - converging FR/ES/DE/PT compliance deadlines",
@@ -28,18 +28,20 @@
     "eu_competitive_pct": 100,
     "eu_competitive_status": "green",
     "eu_competitive_label": "Live",
-    "last_scan": "2026-07-15T09:08:49.376035Z",
+    "last_scan": "2026-07-15T18:03:57.902116Z",
     "last_scan_summary": "Manual deep refresh - data current as of 7 July 2026",
     "scan_status": {
       "date": "2026-07-15",
       "markets_scanned": [
-        "ES"
+        "FR",
+        "DE"
       ],
       "markets_skipped": [],
-      "signals_added": 1,
+      "signals_added": 4,
       "quality_filtered": 0,
       "summaries": {
-        "ES": "Market signals for Spain show a critical focus on Verifactu compliance with confirmed deadlines and competitor certifications, alongside advancements in AI integration for Sage Active."
+        "FR": "The French market shows significant activity around the upcoming e-invoicing mandate, with competitors like Pennylane and Cegid actively expanding their reach within the accounting professional channel, while Sage Active highlights its compliance and cloud capabilities.",
+        "DE": "The German market shows significant activity with DATEV's major cloud migration, Cegid's aggressive expansion via sevdesk, and the ongoing B2B e-invoicing (XRechnung) transition, indicating a dynamic competitive and regulatory landscape."
       }
     },
     "archived_count": 0,
@@ -47,15 +49,49 @@
   },
   "signals": [
     {
-      "id": "sage-active-spain-compliance",
+      "id": "CEGID_SEVDESK_EXPANSION_DACH",
+      "category": "Competitive",
+      "market": "DE",
+      "date": "2025-2026",
+      "priority": "high",
+      "title": "Cegid accelerates DACH expansion with sevdesk acquisition, targeting SMBs",
+      "body": "Cegid's acquisition of sevdesk, a German provider of digital invoicing and accounting solutions for SMBs, is a key step in its international growth strategy. Sevdesk serves over 130,000 customers in the DACH region and is focused on preparing businesses for upcoming e-invoicing reforms. Cegid aims to leverage sevdesk's platform to help businesses navigate digitalization and e-invoicing compliance.",
+      "implication": "Cegid's strengthened presence in the DACH market through sevdesk poses a direct competitive threat to Sage Active and Sage for Accountants. Their focus on SMBs and e-invoicing compliance aligns with upcoming German regulations, requiring Sage to highlight its own compliance and cloud capabilities in the region.",
+      "source": "sevdesk ist nun Teil von Cegid (February 06 2025), Sevdesk continues their success story together with Cegid - PwC (May 22 2025), Cegid - Sevdesk | Transaction Details - Houlihan Lokey (February 24 2025)"
+    },
+    {
+      "id": "sage-active-fr-compliance",
       "category": "AI & Tech",
-      "market": "ES",
-      "date": "October 2024",
+      "market": "FR",
+      "date": "Jul 2026",
       "priority": "watch",
-      "title": "Sage Active Spain now supports Sage Copilot AI assistant",
-      "body": "Sage Active in Spain, France, and Germany now supports Sage Copilot, a generative AI-powered assistant. This integration aims to automate tasks, provide insights, and drive smarter business decisions for small businesses and accountants.",
-      "implication": "While not directly related to Verifactu, the integration of advanced AI features like Sage Copilot into Sage Active Spain positions it as a modern solution. This could be a differentiator against competitors if effectively communicated, but the primary focus for Spain remains Verifactu compliance.",
-      "source": "Sage Copilot launch for Sage Active, October 2024"
+      "title": "Sage Active France emphasizes DGFiP compliance and cloud integration",
+      "body": "Sage Active in France is being highlighted for its cloud-based management solutions for SMEs, with a particular focus on its integration with Sage Network, a platform approved by the DGFiP (French tax authority). This positioning aims to assure French businesses of its compliance with upcoming regulatory requirements, such as the e-invoicing mandate.",
+      "implication": "Sage's emphasis on DGFiP compliance for Sage Active in France is a positive signal, but it needs to be clearly communicated to the market. The company should also monitor how competitors are leveraging AI and cloud technologies to enhance their offerings in this space.",
+      "source": "Sage France (July 2026)"
+    },
+    {
+      "id": "pennylane-cegid-fr-expansion",
+      "category": "Competitive",
+      "market": "FR",
+      "date": "Jul 2026",
+      "priority": "high",
+      "title": "Pennylane and Cegid continue aggressive expansion in French accounting market",
+      "body": "Pennylane is actively engaging with accounting professionals through events like 'Les Rendez-Vous Pennylane' in February 2026, focusing on the impact of e-invoicing and AI on the profession. Cegid, a major player in French accounting software, is also noted for its strategic moves, including acquisitions and expanding its sales force, indicating a strong push to capture market share within the expert-comptable channel.",
+      "implication": "Increased competitive pressure from Pennylane and Cegid in the French market, particularly targeting the expert-comptable channel. Sage WiSE needs to differentiate its offerings and strengthen its relationships with French accountants to counter these moves.",
+      "source": "Pennylane, Cegid (July 2026)"
+    },
+    {
+      "id": "fr-pa-mandate-readiness",
+      "category": "Regulatory",
+      "market": "FR",
+      "date": "Jul 2026",
+      "priority": "critical",
+      "title": "France's e-invoicing mandate deadline approaching: Businesses urged to prepare",
+      "body": "With the French e-invoicing mandate set to take effect on September 1, 2026, businesses are being strongly advised to prepare for the transition. The mandate requires all companies to receive electronic invoices, with larger companies also needing to issue them. Failure to comply can result in fines, emphasizing the urgency for businesses to adopt compliant solutions and for accounting professionals to guide their clients through this significant regulatory change.",
+      "implication": "Sage needs to ensure its French clients are fully aware of the upcoming mandate and have compliant solutions in place. Proactive communication and support are crucial to avoid client churn and maintain market position.",
+      "source": "Impots.gouv.fr, economie.gouv.fr, Les Numériques (July 2026)",
+      "calendar_tag": true
     },
     {
       "id": "cegid-primavera-portugal-expansion",
@@ -469,17 +505,6 @@
       "implication": "Sage Active and Sage for Accountants must be fully compliant with Verifactu requirements well before the deadlines to avoid penalties and ensure smooth adoption for Spanish users. Competitive advantage can be gained by highlighting compliance early.",
       "source": "Multiple sources on Verifactu deadlines (e.g.,)",
       "calendar_tag": true
-    },
-    {
-      "id": "pennylane-pricing-and-plans-2026",
-      "category": "Pricing",
-      "market": "FR",
-      "date": "Jun 2026",
-      "priority": "watch",
-      "title": "Pennylane Offers Tiered Pricing with a Recommended Premium Plan for Accountants",
-      "body": "Pennylane offers tiered pricing starting at €14 per month per feature for the Basic plan, with Essential at €24 and Premium + Accounting Module at €79. A free trial is available, and the Premium plan is specifically recommended for accountants.",
-      "implication": "Pennylane's clear pricing structure, with a premium offering tailored for accountants, provides a competitive alternative to Sage's pricing models. The availability of a free trial and a recommended plan for their key target audience could attract accounting firms.",
-      "source": "Capterra, June 2026"
     }
   ]
 }
