@@ -28,28 +28,82 @@
     "eu_competitive_pct": 100,
     "eu_competitive_status": "green",
     "eu_competitive_label": "Live",
-    "last_scan": "2026-07-16T09:14:36.592355Z",
+    "last_scan": "2026-07-16T17:59:49.312658Z",
     "last_scan_summary": "Manual deep refresh - data current as of 7 July 2026",
     "scan_status": {
       "date": "2026-07-16",
       "markets_scanned": [
-        "FR",
-        "PT",
+        "ES",
         "Pennylane"
       ],
       "markets_skipped": [],
       "signals_added": 5,
       "quality_filtered": 0,
       "summaries": {
-        "FR": "Market signals indicate strong regulatory momentum with Sage Active and Pennylane confirming e-invoicing compliance, while Cegid's acquisition of EBP signals intensified competition in the French accountant channel.",
-        "PT": "Recent market signals in Portugal indicate a continued evolution of SAF-T and e-invoicing regulations, alongside significant competitive consolidation driven by Cegid's strategic acquisitions.",
-        "Pennylane": "Pennylane is aggressively expanding its European footprint and enhancing its AI capabilities, positioning itself as a significant competitive threat to Sage, particularly with upcoming regulatory changes in France."
+        "ES": "Market signals for Spain are active, with significant competitive and regulatory developments requiring immediate attention.",
+        "Pennylane": "Pennylane is aggressively expanding across Europe, heavily investing in AI and integrated financial services, posing a significant and growing competitive threat."
       }
     },
     "archived_count": 0,
     "ifyrne_updated": "2026-07-13"
   },
   "signals": [
+    {
+      "id": "pennylane-banking-integration-july2026",
+      "category": "Competitive",
+      "market": "EU",
+      "date": "Jul 2026",
+      "priority": "high",
+      "title": "Pennylane integrates digital wallet and payment features via Swan partnership",
+      "body": "Pennylane has partnered with Swan to embed a digital wallet functionality and enable digital payments directly within its platform. This integration, known as the Pennylane Wallet, allows for one-click bill payments and automated reconciliation, streamlining financial operations for businesses and accountants.",
+      "implication": "The enhanced banking and payment integration strengthens Pennylane's 'all-in-one' offering, potentially making it a more comprehensive solution than Sage's current offerings and increasing customer stickiness.",
+      "source": "Pennylane official resources"
+    },
+    {
+      "id": "pennylane-ai-features-june2026",
+      "category": "AI & Tech",
+      "market": "FR",
+      "date": "Jun 2026",
+      "priority": "high",
+      "title": "Pennylane enhances AI capabilities with ComptAssistant and GenAI Analysis",
+      "body": "Pennylane has integrated advanced AI features, including 'ComptAssistant,' an AI chatbot for accounting firms, and 'GenAI Financial Analysis' for automated report insights. These features aim to automate accounting tasks and provide deeper financial insights, enhancing the platform's value proposition for accountants and SMEs.",
+      "implication": "Pennylane's continued investment in AI, particularly for accounting firms, directly challenges Sage's AI offerings and could attract firms seeking advanced automation and advisory tools.",
+      "source": "GetApp, Pennylane official resources"
+    },
+    {
+      "id": "holded-verifactu-integration-progress",
+      "category": "Competitive",
+      "market": "ES",
+      "date": "July 2026",
+      "priority": "watch",
+      "title": "Holded Demonstrates Verifactu Readiness",
+      "body": "Holded, a Visma-owned platform with a strong customer base in Spain, has showcased early integration capabilities for the upcoming Verifactu mandate. Their focus on the Spanish market and existing user base suggests a potential advantage in capturing businesses seeking compliant solutions ahead of the 2027 deadlines.",
+      "implication": "Holded's progress in Verifactu integration could capture market share from businesses seeking immediate compliance solutions, impacting Sage Active's adoption rate if Sage's own integration is perceived as slower or less robust.",
+      "source": "Holded Product Demos & Press - July 2026"
+    },
+    {
+      "id": "pennylane-spain-expansion-plans",
+      "category": "Competitive",
+      "market": "ES",
+      "date": "July 2026",
+      "priority": "high",
+      "title": "Pennylane Accelerates Spain Entry, Targeting H2 2026 Launch",
+      "body": "Pennylane is reportedly finalizing its expansion into the Spanish market, with a planned launch in the second half of 2026. The French competitor, which has achieved significant ARR in its home market, is expected to target Spanish accounting firms (despachos) and the autónomo segment, potentially leveraging its existing platform and funding.",
+      "implication": "Pennylane's imminent entry into Spain poses a direct competitive threat to Sage for Accountants (SfA) Spain launch, especially if they gain traction before Sage. This requires a proactive and aggressive go-to-market strategy for Sage in Spain.",
+      "source": "Industry News & Analyst Reports - July 2026"
+    },
+    {
+      "id": "verifactu-aeat-compliance-update",
+      "category": "Regulatory",
+      "market": "ES",
+      "date": "July 2026",
+      "priority": "critical",
+      "title": "Verifactu AEAT: New Guidance Issued for Compliance",
+      "body": "The Spanish Tax Agency (AEAT) has released updated guidance regarding the Verifactu mandate, effective January 2027 for corporations and July 2027 for self-employed individuals. The guidance clarifies technical requirements and reporting obligations, emphasizing the need for timely integration of compliant software solutions to avoid penalties of up to €50,000.",
+      "implication": "Sage Active and other Sage products must accelerate Verifactu integration and communication to ensure Spanish customers are prepared and compliant, mitigating risk of penalties and competitive disadvantage.",
+      "source": "AEAT Official Communications - July 2026",
+      "calendar_tag": true
+    },
     {
       "id": "pennylane-e-invoicing-compliance-sept-2026",
       "category": "Regulatory",
@@ -72,17 +126,6 @@
       "body": "A May 2026 webinar showcased Pennylane's AI capabilities, including automated bank reconciliation, financial data centralization, and the ComptAssistant AI chatbot designed to help accounting professionals with technical questions and client advisory services. The platform also demonstrated features for automated invoice entry, VAT management, and expense reporting, emphasizing time savings and compliance with upcoming e-invoicing regulations.",
       "implication": "Pennylane's continued investment in AI, specifically with tools like ComptAssistant, enhances its offering for accountants, potentially drawing them away from Sage solutions.",
       "source": "YouTube, May 27, 2026"
-    },
-    {
-      "id": "pennylane-series-e-funding-jan-2026",
-      "category": "Competitive",
-      "market": "EU",
-      "date": "Jan 2026",
-      "priority": "critical",
-      "title": "Pennylane secures €175M Series E funding, valuing it at $4.25B, for European expansion and AI development.",
-      "body": "Pennylane raised €175 million in a Series E round led by TCV and Blackstone Growth, with existing investors also participating. The funding round values the company at $4.25 billion and will be used to accelerate R&D, particularly in AI tools for accountants, and to expand its presence across Europe. The company has also recently launched in Germany and plans further expansion into Poland, Spain, and Belgium.",
-      "implication": "Significant capital injection for Pennylane will accelerate its competitive threat across Europe, particularly in AI-driven features and market expansion, directly challenging Sage's market share.",
-      "source": "Vestbee, January 21, 2026"
     },
     {
       "id": "cegid-primavera-phc-market-consolidation",
@@ -461,51 +504,6 @@
       "implication": "Provides a slight buffer for Sage Active and SfA Spain to ensure compliance and market readiness, but also indicates a potentially fluid regulatory landscape.",
       "source": "Multiple sources (e.g., Holded, Campus Datisa, Marosa VAT) confirm the shift to 2027.",
       "calendar_tag": true
-    },
-    {
-      "id": "pennylane-expert-comptable-focus-july2026",
-      "category": "Competitive",
-      "market": "FR",
-      "date": "Jul 2026",
-      "priority": "high",
-      "title": "Pennylane Intensifies Focus on Expert-Comptable Channel",
-      "body": "Pennylane is actively engaging with the expert-comptable channel through events like 'Les Rendez-Vous Pennylane' in Paris and Toulouse, scheduled for February 2026. These events focus on the future of the accounting profession, highlighting electronic invoicing and AI as key drivers of change. Pennylane also offers a dedicated plan for accounting firms to manage multiple clients from a centralized interface.",
-      "implication": "Pennylane is strengthening its relationships and offerings for accounting firms in France, potentially drawing them away from Sage's partner ecosystem. Their focus on future trends like AI and e-invoicing aligns with the evolving needs of the market.",
-      "source": "Pennylane (various event pages, accessed July 2026)"
-    },
-    {
-      "id": "cegid-ebp-fr-expansion-july2026",
-      "category": "Competitive",
-      "market": "FR",
-      "date": "Jul 2026",
-      "priority": "high",
-      "title": "Cegid-EBP Merger Creates Stronger French Competitor",
-      "body": "Cegid's acquisition of EBP, finalized in early May 2024, has created a significant European player in the SMB and SME software market. EBP brings a strong base of 275,000 French clients, complementing Cegid's existing international presence and expertise in HR and integrated management solutions. This merger positions them as a formidable competitor in the French market, particularly with the upcoming electronic invoicing mandate.",
-      "implication": "Increased competitive pressure from a consolidated entity with a broad client base and product offering in France. Potential for aggressive cross-selling and market share gains.",
-      "source": "Captivea (May 16, 2024)"
-    },
-    {
-      "id": "fr-pa-mandate-readiness-july2026",
-      "category": "Regulatory",
-      "market": "FR",
-      "date": "Jul 2026",
-      "priority": "critical",
-      "title": "France PA Mandate Deadline Approaching: Widespread Lack of Readiness",
-      "body": "A recent survey indicates that less than a third of French businesses have identified their chosen Platform Agréée (PA) for the upcoming electronic invoicing mandate, with nearly half unaware of any available PAs. The mandate, effective September 1, 2026, requires all VAT-subject businesses to receive e-invoices, with penalties of €15 per invoice for non-compliance.",
-      "implication": "Significant risk for Sage Active and Sage for Accountants clients in France if adoption of PAs is not accelerated. Potential for a last-minute rush and increased support burden.",
-      "source": "francenum.gouv.fr (Feb 28, 2024)",
-      "calendar_tag": true
-    },
-    {
-      "id": "contasol-delsol-free-tier",
-      "category": "Competitive",
-      "market": "ES",
-      "date": "2026-07-11",
-      "priority": "watch",
-      "title": "Contasol/Delsol offers free accounting software",
-      "body": "Software DELSOL (TeamSystem) offers Contasol, a professional accounting program for businesses, which is available for free. It supports multi-company and multi-user use, and can be accessed in the cloud. The software is designed for ease of use and includes features for VAT, IRPF, and other accounting tasks.",
-      "implication": "The availability of a free, professional-grade accounting solution like Contasol could attract price-sensitive autónomo and small business segments in Spain, potentially impacting Sage's market share if they do not offer competitive entry-level pricing or a compelling value proposition.",
-      "source": "Software DelSol (multiple sources, accessed July 2026)"
     }
   ]
 }
