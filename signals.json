@@ -28,22 +28,20 @@
     "eu_competitive_pct": 100,
     "eu_competitive_status": "green",
     "eu_competitive_label": "Live",
-    "last_scan": "2026-07-19T09:04:59.985984Z",
+    "last_scan": "2026-07-19T17:46:57.402294Z",
     "last_scan_summary": "Manual deep refresh - data current as of 7 July 2026",
     "scan_status": {
       "date": "2026-07-19",
       "markets_scanned": [
         "FR",
-        "DE",
-        "PT"
+        "DE"
       ],
       "markets_skipped": [],
-      "signals_added": 7,
+      "signals_added": 4,
       "quality_filtered": 0,
       "summaries": {
-        "FR": "The French market shows high activity regarding the upcoming e-invoicing mandate, with significant competitive moves from Pennylane and Cegid, and a focus on compliance and AI in solutions like Sage Active.",
-        "DE": "The German market shows significant activity with DATEV's major cloud transformation, Cegid's acquisition of sevDesk strengthening its competitive position, and Lexware increasing its brand visibility through sports sponsorship.",
-        "PT": "The Portuguese market shows significant activity around upcoming e-invoicing and SAF-T deadlines, with strong competitive moves from Cegid and continued evolution of regulatory requirements."
+        "FR": "Recent market signals in France show a strong focus on the upcoming e-invoicing mandate, with regulatory bodies releasing guidance and companies like Sage and Cegid making strategic moves to capture market share.",
+        "DE": "The German market shows significant activity with Cegid's acquisition of sevDesk, DATEV's major cloud transformation, and Lexware's continued focus on cloud and AI, indicating a highly competitive landscape."
       }
     },
     "archived_count": 0,
@@ -51,49 +49,49 @@
   },
   "signals": [
     {
-      "id": "pt-e-invoicing-b2g-2026-deadline",
-      "category": "Regulatory",
-      "market": "PT",
-      "date": "Jan 2026",
-      "priority": "watch",
-      "title": "Portugal's B2G E-invoicing Mandate for SMEs Effective January 2026",
-      "body": "While e-invoicing is mandatory for B2G transactions in Portugal, the mandate for small and medium-sized enterprises (SMEs) and micro-enterprises to comply with this requirement is effective from January 1, 2026. Large companies have been compliant since 2021. There is no general mandate for B2B or B2C e-invoices, but all invoices must be created using AT-certified software, reported via SAF-T, and include specific codes and QR codes.",
-      "implication": "This deadline for SMEs in Portugal presents an opportunity for Sage to offer compliant solutions. However, it also means that competitors like Cegid Primavera and PHC will be actively promoting their e-invoicing capabilities to this segment.",
-      "source": "Multiple sources citing January 2026",
-      "calendar_tag": true
-    },
-    {
-      "id": "cegid-primavera-market-dominance-pt",
-      "category": "Competitive",
-      "market": "PT",
-      "date": "Apr 2026",
-      "priority": "high",
-      "title": "Cegid Reports Strong Performance in Portugal Post-PHC Acquisition",
-      "body": "Cegid generated €85 million in revenue in Portugal in 2025, the year it acquired PHC Software. The company expects a 10% growth in 2026. Cegid Portugal and Lusophone Africa has approximately 700 employees, 60,000 clients, and 300,000 users. Globally, Cegid reported €1.07 billion in revenue for 2025. Cegid Primavera is actively positioning itself as a market leader in Portugal, aiming for further growth through organic expansion and potential acquisitions.",
-      "implication": "Cegid's continued investment and market presence in Portugal, especially after integrating PHC, intensifies competition. Sage WiSE needs to monitor Cegid's strategy and product development closely, particularly in areas where they overlap with Sage for Accountants and other Sage offerings.",
-      "source": "ECO (April 27, 2026)"
-    },
-    {
-      "id": "lexware-sc-freiburg-sponsorship",
-      "category": "Brand",
-      "market": "DE",
-      "date": "Feb 2026",
-      "priority": "watch",
-      "title": "Lexware becomes main sponsor of SC Freiburg",
-      "body": "Lexware, part of the Haufe Group and a significant player in the German accounting software market for SMEs, announced in February 2026 that it has become the new main sponsor of the football club SC Freiburg. This sponsorship aims to enhance brand visibility and engagement.",
-      "implication": "This sponsorship by Lexware, a key competitor, could increase their brand recognition and market penetration in Germany. Sage should monitor the impact of this increased brand presence on customer acquisition and retention.",
-      "source": "Lexware - Wikipedia (Updated April 22 2026)"
-    },
-    {
-      "id": "cegid-sevdesk-acquisition-completes",
+      "id": "cegid-sevdesk-acquisition-germany",
       "category": "Competitive",
       "market": "DE",
       "date": "Feb 2025",
       "priority": "high",
-      "title": "Cegid completes acquisition of German cloud accounting provider sevDesk",
-      "body": "Cegid finalized its acquisition of sevDesk, a German provider of cloud-based accounting and invoicing software for SMEs, on February 24, 2025. This move significantly expands Cegid's offering in German-speaking Europe, aiming to accelerate growth in the SMB cloud software segment. SevDesk is preparing its customers for upcoming e-invoicing reforms starting from 2025.",
-      "implication": "Cegid's strengthened presence in Germany with sevDesk poses a direct competitive threat, especially as they are preparing customers for e-invoicing reforms. Sage needs to monitor sevDesk's integration and feature roadmap within Cegid, particularly concerning XRechnung compliance.",
-      "source": "Cegid - Sevdesk | Transaction Details (February 24 2025), Sevdesk continues their success story together with Cegid (May 22 2025)"
+      "title": "Cegid completes acquisition of sevDesk, strengthening its German market presence",
+      "body": "Cegid finalized its acquisition of sevDesk, a German provider of cloud-based accounting and invoicing software for SMEs, in February 2025. This move expands Cegid's offering in German-speaking European markets and accelerates its growth in the SMB cloud software segment. SevDesk is preparing its customers for upcoming e-invoicing reforms.",
+      "implication": "Cegid's increased presence and focus on German SMEs, particularly with an eye on e-invoicing readiness, poses a direct competitive threat to Sage Active and Sage for Accountants in Germany.",
+      "source": "Houlihan Lokey, McDermott, PwC (May 2025)"
+    },
+    {
+      "id": "france-e-invoicing-readiness-guide",
+      "category": "Regulatory",
+      "market": "FR",
+      "date": "Jul 2026",
+      "priority": "critical",
+      "title": "DGFiP Releases Practical Guide for E-invoicing Reform Ahead of September 2026 Deadline",
+      "body": "The DGFiP (French tax authority) released a practical guide on impots.gouv.fr on July 17, 2026, to assist businesses in preparing for the e-invoicing reform starting September 1, 2026. The guide provides concrete instructions for businesses, especially those who have not yet designated an accredited platform for receiving invoices.",
+      "implication": "The imminent release of this guide indicates a heightened focus on compliance for the September 1, 2026, e-invoicing mandate. Sage needs to ensure its solutions and messaging are aligned with these official guidelines and that its customers are fully prepared.",
+      "source": "impots.gouv.fr (Jul 17, 2026)",
+      "calendar_tag": true
+    },
+    {
+      "id": "cegid-ebp-acquisition-impact",
+      "category": "Competitive",
+      "market": "FR",
+      "date": "Apr 2024",
+      "priority": "high",
+      "title": "Cegid's Potential Acquisition of EBP Strengthens French Market Position",
+      "body": "Cegid entered exclusive negotiations to acquire EBP, a major player in French SMB management solutions, on April 23, 2024. This move aims to create a leading European entity in the growing market for TPE/PME management software, particularly in light of the upcoming e-invoicing reform. EBP serves approximately 275,000 clients in France.",
+      "implication": "This consolidation significantly strengthens Cegid's presence in the French market, potentially increasing competitive pressure on Sage Active and other SMB solutions, especially as they target the TPE/PME segment.",
+      "source": "Cegid (Apr 23, 2024)"
+    },
+    {
+      "id": "sage-sfa-france-launch",
+      "category": "Brand",
+      "market": "FR",
+      "date": "Sep 2024",
+      "priority": "watch",
+      "title": "Sage for Accountants (SFA) Suite Launched in France",
+      "body": "Sage launched its scalable, AI-powered Sage for Accountants (SFA) suite in France on September 24, 2024. The suite aims to support the transformation of accountancy practices and help firms grow through innovative solutions tailored for evolving needs, including regulatory requirements like e-invoicing.",
+      "implication": "This launch positions Sage directly within the French expert-comptable channel, potentially competing with existing players and offering a comprehensive solution ahead of the e-invoicing mandate.",
+      "source": "Sage Newsroom (Sep 24, 2024)"
     },
     {
       "id": "sage-active-fr-compliance-focus",
