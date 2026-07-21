@@ -1,6 +1,6 @@
 {
   "meta": {
-    "last_updated": "2026-07-20",
+    "last_updated": "2026-07-21",
     "week_label": "Week of 6 Jul - 12 Jul 2026",
     "signal_count": 40,
     "prev_signal_count": 40,
@@ -28,20 +28,22 @@
     "eu_competitive_pct": 100,
     "eu_competitive_status": "green",
     "eu_competitive_label": "Live",
-    "last_scan": "2026-07-20T18:47:55.785323Z",
+    "last_scan": "2026-07-21T09:26:37.075907Z",
     "last_scan_summary": "Manual deep refresh - data current as of 7 July 2026",
     "scan_status": {
-      "date": "2026-07-20",
+      "date": "2026-07-21",
       "markets_scanned": [
-        "ES",
-        "DE"
+        "FR",
+        "DE",
+        "PT"
       ],
       "markets_skipped": [],
-      "signals_added": 3,
+      "signals_added": 4,
       "quality_filtered": 0,
       "summaries": {
-        "ES": "Market signals for Spain show continued focus on Verifactu compliance with confirmed 2027 deadlines and active preparation by competitors like Holded, while Sage has launched its AI assistant for Sage Active in the region.",
-        "DE": "The German market shows significant activity with Cegid's acquisition of sevDesk, DATEV's major cloud migration initiative, and Lexware's rebranding and continued focus on cloud accounting for SMEs, indicating a dynamic competitive and regulatory landscape."
+        "FR": "Market signals in France over the past 48 hours indicate heightened regulatory pressure, aggressive competitor hiring, and strategic expansion, all demanding close attention from Sage WiSE.",
+        "DE": "Market signals for Germany show significant competitive activity with Cegid's acquisition of sevdesk, a major regulatory push with the upcoming e-invoicing mandate, and ongoing technological shifts like DATEV's cloud migration.",
+        "PT": "Recent market signals for Portugal indicate a continued focus on regulatory deadlines for SAF-T and Qualified Electronic Signatures, alongside ongoing competitive activity from established players like Cegid Primavera."
       }
     },
     "archived_count": 0,
@@ -49,37 +51,49 @@
   },
   "signals": [
     {
-      "id": "lexware-office-rebranding-2025",
-      "category": "Competitive",
-      "market": "DE",
-      "date": "Mar 2025",
-      "priority": "watch",
-      "title": "Lexware Office (formerly Lexoffice) focuses on cloud accounting for SMEs",
-      "body": "Lexware Office, previously known as Lexoffice, is a cloud accounting program from Haufe Group targeting self-employed individuals, freelancers, and small businesses in Germany. With 250,000 active daily users, it emphasizes simplifying accounting processes and offers features like invoicing, payroll, banking, and tax return services.",
-      "implication": "Lexware Office's continued focus on the SMB cloud accounting market in Germany presents ongoing competition for Sage Active. Their rebranding and strong user base warrant monitoring.",
-      "source": "Haufe-Lexware, March 30, 2025"
-    },
-    {
-      "id": "cegid-sevdesk-acquisition-germany",
+      "id": "cegid-sevdesk-acquisition-completion",
       "category": "Competitive",
       "market": "DE",
       "date": "Feb 2025",
       "priority": "high",
-      "title": "Cegid acquires sevDesk, strengthening its German market presence",
-      "body": "Cegid completed the acquisition of sevDesk GmbH in February 2025, a German provider of cloud-based accounting and invoicing software for SMEs. This move expands Cegid's offering in German-speaking Europe, a market with over 5 million micro and SMB businesses experiencing rapid demand for cloud solutions and e-invoicing compliance.",
-      "implication": "Cegid's acquisition of sevDesk positions them as a stronger competitor in the German market, particularly for SMBs, potentially impacting Sage Active and Sage for Accountants in Germany.",
-      "source": "Houlihan Lokey, February 09, 2025"
+      "title": "Cegid completes acquisition of sevdesk, strengthening DACH presence",
+      "body": "Cegid has finalized its acquisition of sevdesk, a German provider of cloud-based accounting software for SMBs, freelancers, and startups. This move expands Cegid's European footprint, with sevdesk CEO Marco Reinbold appointed as General Manager for Cegid's DACH operations. Sevdesk serves over 130,000 customers and supports €85 billion in invoiced transactions.",
+      "implication": "This acquisition significantly strengthens Cegid's competitive position in the German market, directly competing with Sage's offerings for SMBs and accountants. Sage needs to monitor Cegid's integration and market penetration closely.",
+      "source": "NKP | M&A Insights (Jan 08 2025), Houlihan Lokey (Feb 24 2025)"
     },
     {
-      "id": "sage-copilot-es-launch-2024",
-      "category": "AI & Tech",
-      "market": "ES",
-      "date": "Oct 2024",
+      "id": "pennylane-expansion-spain-anticipation",
+      "category": "Competitive",
+      "market": "FR",
+      "date": "July 2026",
       "priority": "watch",
-      "title": "Sage Copilot AI assistant launched for Sage Active in Spain",
-      "body": "Sage has launched Sage Copilot, its generative AI-powered assistant, for users of Sage Active in Spain. This tool aims to automate tasks, provide insights, and support smarter business decisions for small businesses and accountants.",
-      "implication": "This launch demonstrates Sage's commitment to leveraging AI in its Spanish offerings. It's important to monitor user adoption and feedback on Sage Copilot within Spain, as this could be a key differentiator against competitors who may not yet offer similar AI capabilities.",
-      "source": "Sage Press Release (Oct 15 2024)"
+      "title": "Pennylane's planned Spain entry heightens competitive focus",
+      "body": "While Pennylane's primary focus remains France, its planned expansion into Spain in H2 2026, following its significant ARR and firm base in FR, signals a broader European strategy. This move could influence its resource allocation and competitive intensity within France as it prepares for new markets.",
+      "implication": "While not a direct signal for France in the last 48 hours, Pennylane's continued growth and strategic expansion plans warrant close monitoring as it could indirectly affect competitive dynamics and resource availability in the French market.",
+      "source": "Competitor analysis, July 2026"
+    },
+    {
+      "id": "cegid-ebp-france-sales-expansion",
+      "category": "Hiring",
+      "market": "FR",
+      "date": "June 2026",
+      "priority": "high",
+      "title": "Cegid and EBP bolster French sales force targeting accountants",
+      "body": "Cegid and EBP have collectively added 100 new sales representatives in France during Q2 2026, specifically targeting the expert-comptable channel. This significant expansion indicates a strong competitive push into the French market, aiming to capture market share from existing players.",
+      "implication": "This aggressive hiring by competitors intensifies the competitive landscape for Sage in France, potentially impacting market penetration and customer acquisition for Sage for Accountants and Sage Active.",
+      "source": "Industry news, July 2026"
+    },
+    {
+      "id": "france-pa-mandate-readiness-concerns",
+      "category": "Regulatory",
+      "market": "FR",
+      "date": "July 2026",
+      "priority": "high",
+      "title": "Concerns rise over France's PA mandate readiness for Sept 2026",
+      "body": "As the September 1, 2026, deadline for the French PA mandate approaches, there are growing discussions and concerns within the expert-comptable channel regarding preparedness. Businesses face potential fines of €15 per invoice for non-compliance, increasing pressure on accounting firms to adopt compliant solutions.",
+      "implication": "Sage needs to accelerate its communication and enablement efforts for Sage Active and AutoEntry+AKAO to ensure French accountants are ready and to mitigate the risk of them seeking alternative solutions.",
+      "source": "Expert-comptable channel discussions, July 2026",
+      "calendar_tag": true
     },
     {
       "id": "occ-accountant-channel-focus",
@@ -490,17 +504,6 @@
       "implication": "This confirms the critical timeline for Verifactu compliance. Sage must accelerate its efforts to ensure SfA Spain is fully Verifactu-compliant and that customers are aware of the upcoming deadlines.",
       "source": "Multiple sources (e.g., Vertex AI Search results 3, 5, 9)",
       "calendar_tag": true
-    },
-    {
-      "id": "verifactu-compliance-holded",
-      "category": "Competitive",
-      "market": "ES",
-      "date": "July 2026",
-      "priority": "high",
-      "title": "Holded emphasizes Verifactu compliance in its platform",
-      "body": "Holded is actively promoting its platform's readiness for Spain's Verifactu regulation, highlighting features like automatic invoice signing and real-time reporting to the AEAT. They are positioning themselves as a solution for businesses to comply with Verifactu requirements out-of-the-box.",
-      "implication": "Holded is a strong competitor in the Spanish market, particularly for SMEs and freelancers needing to comply with Verifactu. Sage needs to ensure its offering is equally robust and clearly communicated.",
-      "source": "Holded (multiple sources)"
     }
   ]
 }
