@@ -28,7 +28,7 @@
     "eu_competitive_pct": 100,
     "eu_competitive_status": "green",
     "eu_competitive_label": "Live",
-    "last_scan": "2026-07-28T09:35:42.295293Z",
+    "last_scan": "2026-07-28T18:06:42.714371Z",
     "last_scan_summary": "Manual deep refresh - data current as of 7 July 2026",
     "scan_status": {
       "date": "2026-07-28",
@@ -38,18 +38,62 @@
         "Pennylane"
       ],
       "markets_skipped": [],
-      "signals_added": 5,
+      "signals_added": 4,
       "quality_filtered": 0,
       "summaries": {
-        "FR": "The French market shows significant activity related to the upcoming e-invoicing mandate, with strong competitive moves from Cegid/EBP and market expansion by AutoEntry.",
-        "ES": "The Spanish market shows significant activity regarding Verifactu compliance deadlines and competitive entries, with Pennylane's upcoming expansion being a key concern.",
-        "Pennylane": "No new signals regarding Pennylane were found in the last 48 hours."
+        "FR": "The French market shows significant activity with a critical regulatory deadline approaching, increased competitive hiring, and new market entrants in document capture.",
+        "ES": "The Spanish market shows significant activity regarding Verifactu compliance and competitive expansion, with Holded preparing for regulatory changes and Pennylane securing substantial funding for AI-driven growth and market entry.",
+        "Pennylane": "Pennylane is aggressively expanding across Europe, particularly in Germany, and is heavily investing in AI features for its accounting platform, positioning itself as a formidable competitor."
       }
     },
     "archived_count": 0,
     "ifyrne_updated": "2026-07-27"
   },
   "signals": [
+    {
+      "id": "pennylane-germany-expansion",
+      "category": "Market Expansion",
+      "market": "DE",
+      "date": "Nov 2025",
+      "priority": "high",
+      "title": "Pennylane Officially Enters German Market",
+      "body": "Pennylane officially entered the German market in November 2025, with plans to hire 100 local staff to grow its presence. The company has also been refining its product for the German market and is preparing for regulatory shifts, including electronic invoicing.",
+      "implication": "Pennylane's direct entry into Germany, a key market for Sage WiSE, ahead of Sage's own SfA Spain launch, presents a significant competitive challenge. Their focus on product localization and regulatory compliance indicates a serious commitment to this market.",
+      "source": "EU-Startups, Tech.eu (Jan 2026)"
+    },
+    {
+      "id": "pennylane-comptassistant-ai",
+      "category": "AI & Tech",
+      "market": "FR",
+      "date": "Mar 2026",
+      "priority": "high",
+      "title": "Pennylane Enhances ComptAssistant AI for Accountants",
+      "body": "Pennylane's ComptAssistant, an integrated AI assistant, has been updated to help accountants save time and better understand client accounts. It can answer questions on taxation, regulations, financial health, and portfolio segmentation, drawing on accounting data, official publications, and help center articles. The AI is designed to act as a co-pilot, contextualizing responses based on the client's file.",
+      "implication": "Pennylane's continued investment in AI for its core accounting product strengthens its offering for accountants, potentially drawing them away from Sage's solutions if Sage does not match or exceed these AI capabilities.",
+      "source": "Pennylane Help Center (Mar 2026)"
+    },
+    {
+      "id": "pennylane-series-e-funding",
+      "category": "Funding|Brand|Market Expansion",
+      "market": "EU",
+      "date": "Jan 2026",
+      "priority": "high",
+      "title": "Pennylane Secures €175M Series E, Valued at $4.25B, for European Expansion and AI Focus",
+      "body": "Pennylane announced a €175 million Series E funding round, valuing the company at $4.25 billion. The funding, led by TCV and Blackstone Growth, will accelerate R&D, particularly in AI tools for accountants, and support European market expansion, including product localization for Germany. The company has also recently expanded into Germany and launched new services like payment terminals and SEPA direct debits.",
+      "implication": "Significant capital injection and increased valuation indicate aggressive growth plans and a strong focus on AI, posing a direct competitive threat to Sage WiSE's market share and innovation roadmap.",
+      "source": "Vestbee, Arabian FinTech, EU-Startups, Tech.eu, Sifted, Pulse 2.0, GlobalData (Jan 2026)"
+    },
+    {
+      "id": "pennylane-expansion-ai-focus",
+      "category": "Competitive",
+      "market": "ES",
+      "date": "Jan 2026",
+      "priority": "critical",
+      "title": "Pennylane secures €175M for AI focus and European expansion, including Spain",
+      "body": "French fintech Pennylane has raised €175 million, led by TCV, to enhance its AI capabilities and accelerate European expansion. The funding will be used to automate financial and accounting processes and strengthen its position in key continental markets, with Spain being a target market for their growth.",
+      "implication": "Pennylane's significant funding and focus on AI for automation poses a direct competitive threat, especially as they expand into Spain. Sage WiSE must accelerate its own AI initiatives and ensure its value proposition in Spain is clearly differentiated.",
+      "source": "Vertex AI Search (Result 23)"
+    },
     {
       "id": "holded-verifactu-readiness",
       "category": "Competitive",
@@ -71,28 +115,6 @@
       "body": "Pennylane, a French fintech startup, has secured significant funding and plans to establish a presence in Spain in the second half of 2026. The company focuses on a unified accounting and financial management platform for SMEs and accountants, with a strong emphasis on AI.",
       "implication": "Pennylane's entry into Spain before Sage for Accountants (SfA) Spain launch presents a direct competitive threat. Their AI focus and significant funding suggest a strong market push.",
       "source": "Vertex AI Search Results [14, 22, 23, 25, 26]"
-    },
-    {
-      "id": "autoentry-france-launch-june2025",
-      "category": "Brand",
-      "market": "FR",
-      "date": "Jun 2025",
-      "priority": "watch",
-      "title": "AutoEntry Now Available in France, Enhancing Document Capture for SMEs",
-      "body": "AutoEntry has officially launched in France, allowing users to easily upload and process invoices. The service integrates with major accounting software like Sage, Xero, and QuickBooks. This expansion aims to provide automated data capture for accountants and SMEs.",
-      "implication": "AutoEntry's expansion into France presents a direct competitive threat in the document capture market. Sage should assess how AutoEntry's AI capabilities and integrations compare to its own AutoEntry+AKAO offering and consider strategies to highlight its unique selling propositions.",
-      "source": "AutoEntry App Store (June 30, 2025)"
-    },
-    {
-      "id": "cegid-ebp-integration-expert-comptable-focus",
-      "category": "Competitive",
-      "market": "FR",
-      "date": "Apr 2025",
-      "priority": "high",
-      "title": "Cegid and EBP Integrate PDP for Expert-Comptable Channel Ahead of E-invoicing Reform",
-      "body": "Cegid has announced the native integration of its Partner Dematerialization Platform (PDP) into both Cegid and EBP solutions. This move is specifically targeted at accounting firms and their clients, aiming to facilitate compliance with the e-invoicing reform starting September 1, 2026. This integration is seen as a significant step for accounting firms to maintain control over crucial client data.",
-      "implication": "This strategic move by Cegid and EBP strengthens their position in the French expert-comptable channel. Sage needs to monitor the adoption and effectiveness of this integrated solution and ensure its own offerings provide comparable or superior value to accounting professionals.",
-      "source": "Cegid (April 14, 2025)"
     },
     {
       "id": "fr-pa-mandate-readiness-july2026",
@@ -482,29 +504,6 @@
       "implication": "This regulatory deadline is a critical driver for businesses in Germany to adopt e-invoicing solutions. Sage must ensure its products are fully compliant and marketed effectively to address this upcoming mandate, highlighting the risks of non-compliance (e.g., fines).",
       "source": "Germany Expands X-Rechnung as the Core of Its E-Invoicing System,; E-Invoice - XRechnung - EinfachX,; Germany E-Invoicing Requirements: What Receivers Need to Know, February 25 2026",
       "calendar_tag": true
-    },
-    {
-      "id": "france-e-invoicing-readiness-guide",
-      "category": "Regulatory",
-      "market": "FR",
-      "date": "Jul 2026",
-      "priority": "critical",
-      "title": "DGFiP Releases Practical Guide for E-invoicing Reform Ahead of September 2026 Deadline",
-      "body": "The DGFiP (French tax authority) released a practical guide on impots.gouv.fr on July 17, 2026, to assist businesses in preparing for the e-invoicing reform starting September 1, 2026. The guide provides concrete instructions for businesses, especially those who have not yet designated an accredited platform for receiving invoices.",
-      "implication": "The imminent release of this guide indicates a heightened focus on compliance for the September 1, 2026, e-invoicing mandate. Sage needs to ensure its solutions and messaging are aligned with these official guidelines and that its customers are fully prepared.",
-      "source": "impots.gouv.fr (Jul 17, 2026)",
-      "calendar_tag": true
-    },
-    {
-      "id": "sage-active-fr-compliance-focus",
-      "category": "AI & Tech",
-      "market": "FR",
-      "date": "July 2026",
-      "priority": "watch",
-      "title": "Sage Active emphasizes AI and compliance for French SMBs.",
-      "body": "Sage Active is being promoted as a cloud-based management solution for French SMBs, with a strong emphasis on AI capabilities and compliance with electronic invoicing regulations. The platform aims to simplify accounting, invoicing, and commercial management for small businesses.",
-      "implication": "Sage WiSE should monitor the adoption and feature set of Sage Active in France, particularly its AI and compliance capabilities, to identify potential synergies or competitive threats.",
-      "source": "Sage France (July 2026), Vertex AI Search (July 2026)"
     }
   ]
 }
