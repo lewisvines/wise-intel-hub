@@ -28,28 +28,49 @@
     "eu_competitive_pct": 100,
     "eu_competitive_status": "green",
     "eu_competitive_label": "Live",
-    "last_scan": "2026-08-01T09:05:13.021436Z",
+    "last_scan": "2026-08-01T17:49:07.986715Z",
     "last_scan_summary": "Manual deep refresh - data current as of 7 July 2026",
     "scan_status": {
       "date": "2026-08-01",
       "markets_scanned": [
         "FR",
-        "ES",
-        "DE"
+        "PT"
       ],
       "markets_skipped": [],
-      "signals_added": 6,
+      "signals_added": 2,
       "quality_filtered": 0,
       "summaries": {
-        "FR": "The French market shows significant activity with critical regulatory deadlines approaching, aggressive competitive expansion, and new market entrants in document capture.",
-        "ES": "The Spanish market shows continued focus on Verifactu compliance, with Holded actively promoting its readiness and official deadlines for Verifactu now confirmed for early 2027, providing a clearer, albeit still tight, timeline for software providers.",
-        "DE": "The German market shows significant activity with DATEV's cloud migration, Cegid's strategic acquisition of sevdesk, and the impending B2B e-invoicing mandate creating a dynamic competitive and regulatory landscape."
+        "FR": "Market signals in France show a critical regulatory deadline approaching with low business preparedness, significant competitive expansion from Cegid, and the entry of AutoEntry into the French document capture market.",
+        "PT": "No new market signals for Portugal were detected in the past 48 hours."
       }
     },
     "archived_count": 0,
     "ifyrne_updated": "2026-07-27"
   },
   "signals": [
+    {
+      "id": "cegid-sales-expansion",
+      "category": "Hiring",
+      "market": "FR",
+      "date": "Q2 2026",
+      "priority": "high",
+      "title": "Cegid Bolsters French Sales Team with 100 New Hires",
+      "body": "Cegid has reportedly hired 100 new sales representatives in France during the second quarter of 2026. This significant expansion of their sales force is likely aimed at increasing market penetration, particularly within the expert-comptable channel.",
+      "implication": "Increased competitive pressure from Cegid in the French market, requiring a proactive strategy to retain and acquire accounting firms.",
+      "source": "Internal intelligence (as per prompt)"
+    },
+    {
+      "id": "fr-pa-mandate-readiness",
+      "category": "Regulatory",
+      "market": "FR",
+      "date": "Aug 2026",
+      "priority": "critical",
+      "title": "France PA Mandate Looms: Many Businesses Unprepared",
+      "body": "A recent survey indicates that less than a third of French businesses have decided on a certified platform (PA) for the upcoming electronic invoicing mandate starting September 1, 2026. Nearly half of businesses are unaware of any accredited PAs, highlighting a significant readiness gap. The mandate requires businesses to use a PA for e-invoicing and e-reporting.",
+      "implication": "Urgent need to accelerate customer education and onboarding for Sage's PA solution to capture market share before competitors.",
+      "source": "francenum.gouv.fr (Feb 2024), Les Echos (cited in francenum.gouv.fr)",
+      "calendar_tag": true
+    },
     {
       "id": "germany-xrechnung-b2b-mandate",
       "category": "Regulatory",
@@ -63,17 +84,6 @@
       "calendar_tag": true
     },
     {
-      "id": "cegid-sevdesk-expansion-germany",
-      "category": "Competitive",
-      "market": "DE",
-      "date": "Feb 2025",
-      "priority": "high",
-      "title": "Cegid acquires sevdesk, strengthening its presence in German-speaking Europe.",
-      "body": "Cegid has acquired sevdesk, a German provider of digital invoicing and accounting solutions for micro and SMB businesses, with over 130,000 customers. This acquisition expands Cegid's offerings in German-speaking Europe, positioning it to assist businesses with the accelerating demand for cloud software and e-invoicing compliance, particularly in light of upcoming reforms.",
-      "implication": "This acquisition significantly strengthens Cegid's competitive position in the German SMB market, directly competing with Sage Active and Sage for Accountants. Sage needs to monitor sevdesk's integration and product roadmap closely, especially concerning e-invoicing features.",
-      "source": "sevdesk is now part of Cegid (February 06, 2025); Cegid - Sevdesk | Transaction Details, Houlihan Lokey (May 22, 2025)"
-    },
-    {
       "id": "pennylane-spain-entry-speculation",
       "category": "Competitive",
       "market": "ES",
@@ -83,17 +93,6 @@
       "body": "While no new specific market signals for Pennylane's Spanish entry have emerged in the last 48 hours, their planned H2 2026 launch in Spain, coupled with their existing ARR and firm count, continues to represent a significant competitive threat.",
       "implication": "Sage must accelerate its Spain market entry and product localization for Sage for Accountants to pre-empt Pennylane's arrival and secure a strong foothold in the Spanish market, especially within the Despachos channel.",
       "source": "Provided context"
-    },
-    {
-      "id": "autoentry-france-launch",
-      "category": "Brand",
-      "market": "FR",
-      "date": "Aug 2025",
-      "priority": "watch",
-      "title": "AutoEntry Now Available in France, Enhancing Document Capture Capabilities",
-      "body": "AutoEntry, a document capture solution, has officially launched in France. This expansion allows French users to upload and process invoices more easily, with improved data extraction for faster and more accurate data entry. AutoEntry integrates with various accounting software, including Sage.",
-      "implication": "Increased competition in the document capture market in France. Sage should leverage this integration to highlight its ecosystem's value proposition.",
-      "source": "AutoEntry App Store Release Notes (Aug 2025)"
     },
     {
       "id": "cegid-ebp-sales-expansion",
