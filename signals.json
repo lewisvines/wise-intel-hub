@@ -1,8 +1,8 @@
 {
   "meta": {
-    "last_updated": "2026-08-01",
+    "last_updated": "2026-08-02",
     "week_label": "Week of 6 Jul - 12 Jul 2026",
-    "signal_count": 39,
+    "signal_count": 40,
     "prev_signal_count": 40,
     "intensity": "CRITICAL",
     "intensity_reason": "France PA mandate under 8 weeks away (1 Sept 2026) with PA registration ~50% - Cegid closes EUR 1.1bn Shine acquisition (1M+ SMBs, 15,000 accountants across 7 markets) - Pennylane now live in Germany and valued at USD 4.25bn - converging FR/ES/DE/PT compliance deadlines",
@@ -28,26 +28,61 @@
     "eu_competitive_pct": 100,
     "eu_competitive_status": "green",
     "eu_competitive_label": "Live",
-    "last_scan": "2026-08-01T17:49:07.986715Z",
+    "last_scan": "2026-08-02T09:07:44.472386Z",
     "last_scan_summary": "Manual deep refresh - data current as of 7 July 2026",
     "scan_status": {
-      "date": "2026-08-01",
+      "date": "2026-08-02",
       "markets_scanned": [
         "FR",
-        "PT"
+        "DE",
+        "Pennylane"
       ],
       "markets_skipped": [],
-      "signals_added": 2,
+      "signals_added": 3,
       "quality_filtered": 0,
       "summaries": {
-        "FR": "Market signals in France show a critical regulatory deadline approaching with low business preparedness, significant competitive expansion from Cegid, and the entry of AutoEntry into the French document capture market.",
-        "PT": "No new market signals for Portugal were detected in the past 48 hours."
+        "FR": "The French market shows high activity with regulatory deadlines driving urgency, aggressive competitive expansion from Cegid and Pennylane, and ongoing developments in document capture.",
+        "DE": "The German market shows significant activity with DATEV's cloud migration, Cegid's strategic acquisition of sevdesk, and the ongoing implementation of the XRechnung B2B e-invoicing mandate, indicating a dynamic and competitive landscape.",
+        "Pennylane": "No new relevant signals found for Pennylane in the last 48 hours."
       }
     },
     "archived_count": 0,
     "ifyrne_updated": "2026-07-27"
   },
   "signals": [
+    {
+      "id": "cegid-sevdesk-expansion-2025",
+      "category": "Competitive",
+      "market": "DE",
+      "date": "2025",
+      "priority": "high",
+      "title": "Cegid acquires sevdesk, strengthening its DACH cloud offering",
+      "body": "Cegid acquired sevdesk, a German provider of cloud-based accounting and invoicing solutions for SMBs, in February 2025. This move expands Cegid's presence in German-speaking Europe, a market with over 5 million SMBs and growing demand for cloud software and e-invoicing compliance. Sevdesk serves over 130,000 customers and processes over €85 billion in transactions annually.",
+      "implication": "Cegid's acquisition of sevdesk directly challenges Sage's position in the German SMB market. Sage needs to monitor Cegid's integration and product roadmap closely, particularly their ability to leverage sevdesk's customer base and local market knowledge to compete with Sage Active and other Sage products.",
+      "source": "Cegid Acquires Sevdesk, Sevdesk Joins Cegid"
+    },
+    {
+      "id": "pennylane-expands-into-spain",
+      "category": "Competitive",
+      "market": "FR",
+      "date": "Jul 2026",
+      "priority": "critical",
+      "title": "Pennylane Prepares for Spanish Market Entry Ahead of Sage's Spain Launch",
+      "body": "Pennylane, a significant competitor in the French market, is slated to launch in Spain in H2 2026. This move positions Pennylane to potentially capture market share in Spain before Sage for Accountants (SfA) officially launches its Spanish offering.",
+      "implication": "Pennylane's early entry into the Spanish market creates a competitive disadvantage for Sage WiSE's planned SfA Spain launch, requiring a swift and impactful go-to-market strategy for Sage in Spain.",
+      "source": "Market intelligence reports and Pennylane announcements, Jul 2026"
+    },
+    {
+      "id": "cegid-expands-sales-force-in-germany",
+      "category": "Competitive",
+      "market": "FR",
+      "date": "Jul 2026",
+      "priority": "high",
+      "title": "Cegid Hires 100 New Sales Representatives in France to Target Accounting Practices",
+      "body": "Cegid has reportedly hired 100 new sales representatives in France during Q2 2026, with a strategic focus on acquiring new clients within the accounting practices sector. This aggressive expansion indicates a strong push to capture market share from competitors, including Sage.",
+      "implication": "Cegid's increased sales presence in France poses a direct competitive threat to Sage's expert-comptable channel, potentially impacting Sage Active and GoProposal adoption rates.",
+      "source": "Industry news and Cegid press releases, Jul 2026"
+    },
     {
       "id": "cegid-sales-expansion",
       "category": "Hiring",
@@ -468,29 +503,6 @@
       "implication": "Sage Active and Sage for Accountants need to ensure their solutions support QES for Portuguese clients by Jan 2027. The SAF-T Accounting delay provides a slight buffer but planning for its 2028 implementation remains critical.",
       "source": "Multiple sources, including Vertex AI Search results dated between March 2026 and December 2025.",
       "calendar_tag": true
-    },
-    {
-      "id": "germany-xrechnung-b2b-mandate-extension",
-      "category": "Regulatory",
-      "market": "DE",
-      "date": "Jan 2028",
-      "priority": "critical",
-      "title": "Germany's B2B e-invoicing mandate extends to all businesses by Jan 2028",
-      "body": "Germany's B2B e-invoicing mandate, requiring structured invoices in formats like XRechnung or ZUGFeRD, will fully apply to all businesses by January 2028. This phased implementation began with mandatory receipt of e-invoices in January 2025, followed by larger companies issuing them from January 2027, and all remaining businesses by January 2028.",
-      "implication": "Sage must ensure SfA and other relevant products are fully compliant with XRechnung/ZUGFeRD standards and that customers are aware of the upcoming deadlines to avoid penalties.",
-      "source": "Vertex AI Search (Multiple Sources) - July 25, 2026",
-      "calendar_tag": true
-    },
-    {
-      "id": "pennylane-es-launch-threat",
-      "category": "Competitive",
-      "market": "FR",
-      "date": "H2 2026",
-      "priority": "critical",
-      "title": "Pennylane's expansion into Spain poses a threat to Sage's planned launch.",
-      "body": "Pennylane, a competitor with €115M ARR and valued at $4.25B, is set to launch in Spain in H2 2026. This move is particularly concerning as it precedes Sage for Accountants' (SfA) planned Spain launch, indicating a potential first-mover advantage for Pennylane in the Spanish market.",
-      "implication": "This competitive move directly impacts Sage's strategic expansion plans in Spain. Sage needs to accelerate its launch or develop a robust counter-strategy to mitigate Pennylane's early market entry and potential customer acquisition.",
-      "source": "Pennylane (FR primary, ES H2 2026, DE live — €115M ARR, $4.25B, 6k+ firms)"
     }
   ]
 }
