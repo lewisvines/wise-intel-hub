@@ -30,6 +30,9 @@ jobs:
         with:
           node-version: '20'
 
+      - name: Validate hub trust gates
+        run: node scripts/validate-hub.mjs
+
       - name: Read salt from .staticrypt.json
         id: salt
         run: echo "value=$(node -p "require('./.staticrypt.json').salt")" >> "$GITHUB_OUTPUT"

@@ -12,6 +12,7 @@ Improvements:
 """
 
 import os, json, re, datetime, time, urllib.request, urllib.parse, urllib.error
+from email.utils import parsedate_to_datetime
 
 SIGNALS_FILE = "signals.json"
 MAX_NEW_PER_MARKET = 3
@@ -76,17 +77,26 @@ JSON_SCHEMA = """Return ONLY valid JSON, no markdown, no explanation:
       "id": "unique-slug-max-40-chars",
       "category": "Competitive|Regulatory|AI & Tech|Pricing|Hiring|Brand",
       "market": "MARKET_CODE",
-      "date": "Apr 2026",
+      "date": "2026-04-22",
+      "published_at": "2026-04-22",
+      "accessed_at": "YYYY-MM-DD",
       "priority": "critical|high|watch",
       "title": "Precise headline under 120 chars",
       "body": "2-3 sentences of factual detail with numbers, dates, names.",
       "implication": "Specific action or risk for Sage WiSE strategy.",
-      "source": "Source name and date"
+      "source": "Human-readable source title and organisation",
+      "source_url": "https://direct-page-containing-the-evidence",
+      "source_type": "primary|secondary|internal",
+      "evidence_status": "verified|corroborated|pending",
+      "confidence": "high|medium|watch"
     }
   ],
   "scan_summary": "1 sentence summary of market intensity today"
 }
-Rules: Only new signals (past 48h). Empty array if nothing new. Never fabricate. Max 3 signals."""
+Rules: Only new signals (past 48h). Empty array if nothing new. Never fabricate. Max 3 signals.
+Use exact ISO dates. Link to the specific evidence page, not a search result or homepage.
+Critical and high signals require a direct HTTPS source URL and verified or corroborated evidence.
+Prefer primary regulators, company announcements, filings and official product or pricing pages."""
 
 # ── QUALITY GUARDRAILS ──────────────────────────────────────────────────────
 
@@ -99,9 +109,37 @@ def validate_signal(sig, existing_titles):
         if not sig.get(field, "").strip():
             errors.append(f"missing {field}")
 
-    # Must have a source (no sourceless signals published)
+    # Must have an attributable source and an evidence record.
     if not sig.get("source", "").strip():
         errors.append("no source")
+    source_url = sig.get("source_url", "").strip()
+    if not re.match(r"^https://[^\s]+$", source_url):
+        errors.append("no direct HTTPS source_url")
+
+    published_at = sig.get("published_at", sig.get("date", "")).strip()
+    try:
+        datetime.date.fromisoformat(published_at)
+    except (TypeError, ValueError):
+        errors.append("published_at is not an exact ISO date")
+
+    accessed_at = sig.get("accessed_at", "").strip()
+    try:
+        datetime.date.fromisoformat(accessed_at)
+    except (TypeError, ValueError):
+        errors.append("accessed_at is not an exact ISO date")
+
+    if sig.get("source_type") not in ("primary", "secondary", "internal"):
+        errors.append("invalid source_type")
+    if sig.get("evidence_status") not in ("verified", "corroborated", "pending"):
+        errors.append("invalid evidence_status")
+    if sig.get("confidence") not in ("high", "medium", "watch"):
+        errors.append("invalid confidence")
+    if sig.get("priority") in ("critical", "high") and sig.get("evidence_status") == "pending":
+        errors.append("critical/high evidence is still pending")
+
+    # Keep the legacy display field aligned while the front end migrates.
+    if published_at:
+        sig["date"] = published_at
 
     # Implication must be specific — reject generic phrases
     impl = sig.get("implication", "").lower()
@@ -142,12 +180,12 @@ def apply_expiry(signals):
 
     for sig in signals:
         # Parse signal date
-        date_str = sig.get("date", "")
+        date_str = sig.get("published_at", sig.get("date", ""))
         sig_date = None
         for fmt in ["%b %Y", "%B %Y", "%Y-%m-%d"]:
             try:
                 parsed = datetime.datetime.strptime(date_str, fmt)
-                sig_date = parsed.date().replace(day=1)
+                sig_date = parsed.date() if fmt == "%Y-%m-%d" else parsed.date().replace(day=1)
                 break
             except:
                 continue
@@ -386,7 +424,6 @@ def merge_all(existing_data, all_new, summaries, new_ifyrne=None):
 
     existing_ids = {s["id"] for s in existing}
     existing_titles = [s["title"] for s in existing]
-    month = datetime.date.today().strftime("%b %Y")
     added = 0
 
     for sig in all_new:
@@ -394,8 +431,10 @@ def merge_all(existing_data, all_new, summaries, new_ifyrne=None):
             sig["id"] = make_id(sig.get("title","signal"))
         if sig["id"] in existing_ids:
             continue
+        if not sig.get("published_at"):
+            sig["published_at"] = datetime.date.today().isoformat()
         if not sig.get("date"):
-            sig["date"] = month
+            sig["date"] = sig["published_at"]
         existing.insert(0, sig)
         existing_ids.add(sig["id"])
         existing_titles.insert(0, sig["title"])
@@ -408,6 +447,13 @@ def merge_all(existing_data, all_new, summaries, new_ifyrne=None):
     meta["last_scan"] = datetime.datetime.utcnow().isoformat() + "Z"
     meta["signal_count"] = len([s for s in existing if not s.get("archived")])
     meta["archived_count"] = len([s for s in existing if s.get("archived")])
+    monday = datetime.date.today() - datetime.timedelta(days=datetime.date.today().weekday())
+    sunday = monday + datetime.timedelta(days=6)
+    meta["week_label"] = f"Week of {monday.day} {monday.strftime('%b')} - {sunday.day} {sunday.strftime('%b %Y')}"
+    meta["last_scan_summary"] = (
+        f"Automated evidence scan completed: {added} new signal"
+        f"{'s' if added != 1 else ''} passed source, date and quality checks."
+    )
 
     # Scan status for hub dashboard display
     meta["scan_status"] = {
@@ -516,16 +562,26 @@ def rss_fallback_scan(existing_titles, max_per_market=1):
                 # Skip if title is already in our hub
                 if any(it["title"][:40].lower() in t.lower() for t in existing_titles):
                     continue
+                try:
+                    published_at = parsedate_to_datetime(it["pub"]).date().isoformat()
+                except (TypeError, ValueError, OverflowError):
+                    published_at = datetime.date.today().isoformat()
                 out.append({
                     "id": make_id("rss-" + market + "-" + it["title"][:30]),
                     "category": "RSS-Fallback",
                     "market": market,
-                    "date": datetime.date.today().strftime("%b %Y"),
+                    "date": published_at,
+                    "published_at": published_at,
+                    "accessed_at": datetime.date.today().isoformat(),
                     "priority": "watch",
                     "title": it["title"][:180],
                     "body": (it["desc"] or "Surfaced via RSS safety net; no Gemini quota available this scan.")[:400],
                     "implication": "Flagged by RSS fallback — requires human review for strategic relevance.",
                     "source": f"{source_name} RSS ({market}) — {it['pub'][:25]}",
+                    "source_url": it["link"],
+                    "source_type": "secondary",
+                    "evidence_status": "pending",
+                    "confidence": "watch",
                 })
             print(f"  [{market}] {source_name} RSS: {len(items)} items fetched for query '{q[:40]}'")
     print(f"  RSS fallback: {len(out)} signals prepared")

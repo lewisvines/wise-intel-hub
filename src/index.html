@@ -1,4 +1,4 @@
-<!DOCTYPE html><!-- WiSE Intel Hub v11 - content refresh 2026-05-14 -->
+<!DOCTYPE html><!-- WiSE Intel Hub v12 - trust-first refresh 2026-08-03 -->
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -82,6 +82,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:16
 .tb-btn:hover{background:var(--gdim);color:var(--g2);border-color:rgba(0,176,80,0.3);}
 .tb-btn.primary{background:var(--g);border-color:var(--g);color:#000;}
 .tb-btn.primary:hover{background:var(--g2);}
+.tb-menu{display:none;}
 
 /* ── PAGE SECTIONS ── */
 .page-section{display:none !important;padding:36px 48px 80px;background:var(--bg);}
@@ -324,6 +325,21 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:16
 /* ── RESPONSIVE ── */
 @media(max-width:1100px){.grid-3{grid-template-columns:1fr 1fr;}.grid-4{grid-template-columns:1fr 1fr;}}
 @media(max-width:900px){#sidebar{position:fixed;left:0;top:0;width:220px;height:100vh;background:#0A0A0A;border-right:1px solid rgba(255,255,255,0.08);display:flex;flex-direction:column;z-index:200;overflow-y:auto;padding:20px 0 32px;}#main{margin-left:0;}.persona-grid,.grid-2{grid-template-columns:1fr;}.stat-row{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:700px){
+ #sidebar{width:260px;transform:translateX(-100%);transition:transform .18s ease;box-shadow:10px 0 30px rgba(0,0,0,.28);}
+ #sidebar.mobile-open{transform:translateX(0);}
+ #main{left:0;}
+ #topbar{height:52px;padding:0 12px;gap:8px;justify-content:space-between;}
+ .tb-menu{display:inline-flex;align-items:center;}
+ .tb-breadcrumb{display:none;}
+ .tb-actions{gap:6px !important;}
+ .tb-actions .tb-btn:not(.primary),#search-btn{display:none;}
+ .tb-btn{padding:6px 10px;font-size:12px;}
+ .page-section{padding:24px 18px 64px;}
+ .page-title{font-size:28px;}
+ .page-subtitle{font-size:15px;}
+ .trust-strip,.grid-3,.grid-4,.stat-row{grid-template-columns:1fr !important;}
+}
 
 /* ══ INNER TABS ══ */
 .tab-bar{display:flex;gap:2px;background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:3px;margin-bottom:24px;}
@@ -745,6 +761,36 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:16
 .wb-spinner{display:inline-block;width:14px;height:14px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite;}
 .wb-progress{font-size:12px;color:rgba(255,255,255,.65);margin-top:10px;min-height:18px;}
 
+/* TRUST-FIRST COMMAND CENTRE */
+.trust-strip{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-bottom:20px;}
+.trust-cell{background:var(--bg1);padding:14px 16px;min-height:78px;}
+.trust-k{font-size:9px;font-weight:800;letter-spacing:.7px;text-transform:uppercase;color:var(--text3);margin-bottom:5px;}
+.trust-v{font-size:18px;font-weight:900;color:var(--text);line-height:1.1;}
+.trust-v.good{color:var(--g2)}.trust-v.warn{color:var(--amber)}.trust-v.bad{color:var(--red)}
+.trust-s{font-size:10px;color:var(--text3);margin-top:4px;line-height:1.35;}
+.today-grid{display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:14px;margin-bottom:20px;}
+.today-card{background:var(--bg1);border:1px solid var(--border);border-radius:10px;padding:18px;min-height:210px;}
+.today-card.primary{border-top:3px solid var(--g)}
+.today-k{font-size:10px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;color:var(--text3);margin-bottom:12px;}
+.today-item{padding:10px 0;border-top:1px solid var(--border);}
+.today-item:first-of-type{border-top:0;padding-top:0}.today-item:last-child{padding-bottom:0}
+.today-title{font-size:13px;font-weight:750;color:var(--text);line-height:1.4;margin-bottom:4px;}
+.today-meta{font-size:10px;color:var(--text3);line-height:1.45;}
+.today-body{font-size:12px;color:var(--text2);line-height:1.55;}
+.evidence-pill{display:inline-flex;align-items:center;gap:4px;font-size:9px;font-weight:800;letter-spacing:.35px;text-transform:uppercase;border-radius:999px;padding:3px 7px;margin-right:5px;}
+.evidence-pill.verified{background:rgba(0,176,80,.09);color:var(--g2);border:1px solid rgba(0,176,80,.22)}
+.evidence-pill.pending{background:rgba(217,119,6,.08);color:#a85d05;border:1px solid rgba(217,119,6,.2)}
+.evidence-pill.legacy{background:rgba(220,38,38,.06);color:#b91c1c;border:1px solid rgba(220,38,38,.16)}
+.decision-board{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-bottom:20px;}
+.decision-card{background:var(--bg1);border:1px solid var(--border);border-left:3px solid var(--amber);border-radius:0 10px 10px 0;padding:18px;}
+.decision-id{font-size:9px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;color:var(--text3);margin-bottom:5px;}
+.decision-title{font-size:15px;font-weight:850;color:var(--text);line-height:1.35;margin-bottom:7px;}
+.decision-body{font-size:12px;color:var(--text2);line-height:1.6;}
+.decision-status{display:inline-block;margin-top:10px;font-size:9px;font-weight:800;letter-spacing:.45px;text-transform:uppercase;color:#a85d05;background:rgba(217,119,6,.08);border:1px solid rgba(217,119,6,.2);border-radius:999px;padding:3px 8px;}
+.truth-note{font-size:11px;line-height:1.55;color:var(--text2);background:rgba(217,119,6,.06);border:1px solid rgba(217,119,6,.17);border-radius:8px;padding:11px 13px;margin-bottom:18px;}
+#signal-list > .signal-card{display:none;}
+@media(max-width:1100px){.trust-strip{grid-template-columns:repeat(3,1fr)}.today-grid{grid-template-columns:1fr}.decision-board{grid-template-columns:1fr}}
+
 </style>
 </head>
 <body>
@@ -757,11 +803,11 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:16
    <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0"><circle cx="16" cy="16" r="16" fill="#00B050"/><path d="M22.4 11.2C21.2 9.6 19.2 8.8 17.2 8.8C13.6 8.8 10.8 11.2 10.8 14.4C10.8 17.2 12.8 18.8 16 20L17.2 20.4C19.2 21.2 20 21.6 20 22.8C20 23.6 19.2 24.4 17.6 24.4C16 24.4 14.4 23.6 13.2 22.4L11.2 24.8C12.8 26.4 14.8 27.2 17.6 27.2C21.2 27.2 24 24.8 24 21.6C24 18.8 22 17.2 18.8 16L17.6 15.6C16 14.8 14.8 14.4 14.8 13.2C14.8 12.4 15.6 11.6 17.2 11.6C18.4 11.6 19.6 12 20.4 13.2L22.4 11.2Z" fill="white"/></svg>
    <span class="sb-wordmark">WiSE <span>Intel Hub</span></span>
   </div>
-  <div class="sb-badge"><span class="pulse-dot"></span><span id="hub-live-date">Live · ...</span></div>
+  <div class="sb-badge"><span class="pulse-dot"></span><span id="hub-live-date">Hub · status checking</span></div>
  </div>
 
- <!-- Dashboard always visible -->
- <button class="sb-home-btn sb-link active" data-page="dashboard">⌂ Dashboard</button>
+ <!-- Today is always visible -->
+ <button class="sb-home-btn sb-link active" data-page="dashboard">⌂ Today</button>
 
  <!-- Collapsible nav groups -->
  <div class="sb-group" id="sbg-intelligence">
@@ -771,6 +817,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:16
   <div class="sb-group-body">
    <button class="sb-link" data-page="signals"><span class="sb-dot"></span>Signals Feed</button>
    <button class="sb-link" data-page="battle-room"><span class="sb-dot"></span>Battle Room</button>
+   <button class="sb-link" data-page="decisions"><span class="sb-dot"></span>Decisions &amp; Evidence</button>
    <button class="sb-link" data-page="weekly-brief"><span class="sb-dot"></span>Weekly Brief</button>
    <button class="sb-link" data-page="competitors"><span class="sb-dot"></span>Competitors</button>
    <button class="sb-link" data-page="ai-watch"><span class="sb-dot"></span>AI Watch</button>
@@ -789,8 +836,6 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:16
    <button class="sb-link" data-page="country-es" data-country="ES"><span class="sb-country-badge es">ES</span>Spain</button>
    <button class="sb-link" data-page="country-de" data-country="DE"><span class="sb-country-badge de">DE</span>Germany</button>
    <button class="sb-link" data-page="country-pt" data-country="PT"><span class="sb-country-badge pt">PT</span>Portugal</button>
-   <button class="sb-link" data-page="country-uk" data-country="GB"><span class="sb-country-badge gb">GB</span>United Kingdom</button>
-   <button class="sb-link" data-page="country-us" data-country="US"><span class="sb-country-badge us">US</span>United States</button>
   </div>
  </div>
 
@@ -834,6 +879,8 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:16
    <span class="sb-group-icon">◉</span><span>PMM Toolkit</span><span class="sb-group-arrow">›</span>
   </button>
   <div class="sb-group-body">
+   <button class="sb-link" data-page="country-uk" data-country="GB"><span class="sb-country-badge gb">GB</span>UK benchmark</button>
+   <button class="sb-link" data-page="country-us" data-country="US"><span class="sb-country-badge us">US</span>US benchmark</button>
    <button class="sb-link" data-page="smb-direct"><span class="sb-dot"></span>SMB Direct Playbook</button>
    <button class="sb-link" data-page="5ds"><span class="sb-dot"></span>5Ds Framework</button>
    <button class="sb-link" data-page="craft-skills"><span class="sb-dot"></span>Craft Skills</button>
@@ -843,7 +890,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:16
 
  <div class="sb-meta" style="margin-top:auto;padding:16px 16px 12px;border-top:1px solid rgba(255,255,255,0.06);">
   <div style="font-size:9px;font-weight:600;letter-spacing:.4px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:3px;">Sage Group plc · Internal</div>
-  <span id="hub-updated-date" style="font-size:10px;color:rgba(255,255,255,.25)">Updated: ...</span>
+  <span id="hub-updated-date" style="font-size:10px;color:rgba(255,255,255,.25)">Session: ...</span>
  </div>
 </div>
 
@@ -851,13 +898,13 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:16
 
 <!-- TOPBAR -->
 <div id="topbar">
+ <button class="tb-btn tb-menu" id="mobile-menu-btn" type="button" aria-controls="sidebar" aria-expanded="false" onclick="toggleMobileMenu()">Menu</button>
  <div class="tb-breadcrumb" data-i18n="hub_name">WiSE Intel Hub &nbsp;/&nbsp; <span id="tb-current">Signals</span></div>
  <div class="tb-actions" style="display:flex;align-items:center;gap:10px;">
  <button id="search-btn" onclick="openSearch()" title="Search hub (Ctrl+K)" data-i18n="Search" data-fr="Rechercher" data-es="Buscar" data-i18n="btn_search">Search</button>
- <button class="tb-btn" onclick="openELT()" data-i18n="ELT Export" data-fr="Export DG" data-es="Exportar DG">ELT Brief</button>
- <button class="tb-btn" onclick="generateELTPpt()" data-i18n="ELT PPT" data-fr="PPT DG" data-es="PPT DG">ELT PPT</button>
- <button class="tb-btn" onclick="generatePlaybook()" data-i18n="PMM Playbook" data-fr="Playbook PMM" data-es="Manual PMM">PMM Playbook</button>
- <button class="tb-btn primary" onclick="window.print()" data-i18n="btn_share">Share Brief</button>
+ <button class="tb-btn" onclick="showPage('decisions')">Decision view</button>
+ <button class="tb-btn" onclick="showPage('weekly-brief')">Weekly brief</button>
+ <button class="tb-btn primary" onclick="window.print()" data-i18n="btn_share">Print / share</button>
  </div>
 </div>
 <!-- ══════ SIGNALS PAGE ══════ -->
@@ -865,9 +912,25 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:16
 <div class="page-section" id="page-dashboard">
  <div class="page-header reveal">
  <div class="page-eyebrow" data-i18n="00 · Command Centre" data-fr="00 · Centre de commandement" data-es="00 · Centro de mando">00 · Command Centre</div>
- <div class="page-title">WiSE PMM <em>Dashboard</em></div>
- <div class="page-subtitle">Strategic overview of the European accountant market - mandate timelines, competitive pressure and Sage's position across France, Spain, Germany and Portugal.</div>
+ <div class="page-title">What needs attention <em>today</em></div>
+ <div class="page-subtitle">A decision-first view of verified change, strategic implications and evidence gaps across France, Spain, Germany and Portugal.</div>
  </div>
+
+ <div class="trust-strip reveal" id="trust-strip" aria-label="Intelligence trust status">
+  <div class="trust-cell"><div class="trust-k">Pipeline</div><div class="trust-v" id="trust-pipeline">Loading</div><div class="trust-s" id="trust-pipeline-sub">Checking the latest scan</div></div>
+  <div class="trust-cell"><div class="trust-k">Active signals</div><div class="trust-v" id="trust-active">—</div><div class="trust-s">Archive excluded</div></div>
+  <div class="trust-cell"><div class="trust-k">Source links</div><div class="trust-v" id="trust-links">—</div><div class="trust-s">Direct URLs in the evidence record</div></div>
+  <div class="trust-cell"><div class="trust-k">Exact dates</div><div class="trust-v" id="trust-dates">—</div><div class="trust-s">ISO publication dates</div></div>
+  <div class="trust-cell"><div class="trust-k">Evidence register</div><div class="trust-v warn">Not populated</div><div class="trust-s">Do not treat legacy claims as verified</div></div>
+ </div>
+
+ <div class="today-grid reveal">
+  <div class="today-card primary"><div class="today-k">What changed</div><div id="today-changed"><div class="today-body">Loading the latest evidence-backed signals…</div></div></div>
+  <div class="today-card"><div class="today-k">What it changes for Sage</div><div id="today-implications"><div class="today-body">Waiting for the live feed…</div></div></div>
+  <div class="today-card"><div class="today-k">Decisions needed</div><div id="today-decisions"></div></div>
+ </div>
+
+ <div class="truth-note reveal"><strong>Evidence rule:</strong> a signal is “verified” here only when it carries a direct source URL and an exact publication date. Older records remain searchable as legacy intelligence, but are excluded from the verified Today view until rechecked.</div>
 
  <!-- MANDATE COUNTDOWN -->
  <div class="dash-card green reveal" style="margin-bottom:20px;display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:20px;padding:24px;">
@@ -894,7 +957,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:16
  </div>
 
  <!-- BRIEF ME TODAY -->
- <div class="brief-tile reveal" onclick="generateBriefMeToday()">
+ <div class="brief-tile reveal" onclick="showPage('weekly-brief');generateWeeklyBrief()">
  <div class="brief-tile-icon"></div>
  <div class="brief-tile-content">
  <div class="brief-tile-title">Give me a summary of what is happening</div>
@@ -914,7 +977,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:16
  <!-- STRATEGIC PROGRESS + COMPETITIVE PRESSURE -->
  <div class="grid-2 reveal" style="margin-bottom:20px;">
  <div class="dash-card">
- <div class="dash-label" style="margin-bottom:12px;" data-i18n="dash_progress">Strategic Progress Tracker</div>
+ <div class="dash-label" style="margin-bottom:12px;" data-i18n="dash_progress">Internal KPI snapshot — source, owner and update date TBC</div>
  <div class="okr-row">
  <div class="rag-dot rag-a"></div>
  <div class="okr-name">France PA Registration (Sept 2026)</div>
@@ -966,7 +1029,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:16
  </div>
 
  <div class="dash-card">
- <div class="dash-label" style="margin-bottom:12px;" data-i18n="dash_pressure">Competitive Pressure Index</div>
+ <div class="dash-label" style="margin-bottom:12px;" data-i18n="dash_pressure">Baseline competitive pressure — evidence recheck required</div>
  <div class="okr-row">
  <div class="rag-dot rag-r"></div>
  <div class="okr-name">Pennylane (FR + ES H2 2026)</div>
@@ -1014,36 +1077,36 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:16
 
  <!-- MANDATE TIMELINE -->
  <div class="dash-card reveal">
- <div class="dash-label" style="margin-bottom:14px;">Critical Mandate Timeline - Next 30 Months</div>
+ <div class="dash-label" style="margin-bottom:14px;">Planning timeline — confirm dates and penalties against primary regulator sources</div>
  <div class="timeline-row">
  <div class="timeline-date" style="color:var(--red);font-size:11px;">Sept 1 2026</div>
  <div class="timeline-content"><div class="timeline-title">France PA Mandate - ALL businesses receive via DGFiP PA</div><div class="timeline-desc">7.9M businesses in scope. €50/invoice penalty (capped €15k/yr). Sage is registered PA. GE practices must choose now.</div></div>
- <span class="tag t-red">4 months</span>
+ <span class="tag t-grey">See live countdown</span>
  </div>
  <div class="timeline-row">
  <div class="timeline-date" style="color:var(--red);font-size:11px;">Jan 1 2027</div>
  <div class="timeline-content"><div class="timeline-title">Spain Verifactu - Corporate taxpayers</div><div class="timeline-desc">Royal Decreto-ley 15/2025 confirmed. €50k/yr penalty per non-compliant taxpayer. Sage Active Verifactu-certified today.</div></div>
- <span class="tag t-red">9 months</span>
+ <span class="tag t-grey">See live countdown</span>
  </div>
  <div class="timeline-row">
  <div class="timeline-date" style="color:var(--amber);font-size:11px;">Jul 1 2027</div>
  <div class="timeline-content"><div class="timeline-title">Spain Verifactu - Autónomos (sole traders)</div><div class="timeline-desc">Second phase. Self-employed must comply. Massive opportunity for accountant channel to drive Active adoption.</div></div>
- <span class="tag t-amber">14 months</span>
+ <span class="tag t-grey">Date recheck required</span>
  </div>
  <div class="timeline-row">
  <div class="timeline-date" style="color:var(--amber);font-size:11px;">Sept 2027</div>
  <div class="timeline-content"><div class="timeline-title">France PA Mandate - SME/micro must ISSUE</div><div class="timeline-desc">Phase 2. All SMEs must issue via PA. Full ecosystem compliance. Active + AutoEntry/AKAO complete solution.</div></div>
- <span class="tag t-amber">17 months</span>
+ <span class="tag t-grey">Date recheck required</span>
  </div>
  <div class="timeline-row">
  <div class="timeline-date" style="color:var(--text3);font-size:11px;">Jan 2028</div>
  <div class="timeline-content"><div class="timeline-title">Germany E-invoicing - All businesses must issue</div><div class="timeline-desc">XRechnung/ZUGFeRD format. DATEV cooperation required. Cloud management layer opportunity for Sage Active.</div></div>
- <span class="tag t-grey">21 months</span>
+ <span class="tag t-grey">Date recheck required</span>
  </div>
  <div class="timeline-row">
  <div class="timeline-date" style="color:var(--text3);font-size:11px;">Jan 2028</div>
  <div class="timeline-content"><div class="timeline-title">Portugal SAF-T Accounting</div><div class="timeline-desc">Full SAF-T accounting requirement. QES for PDF documents. B2G live since 2024. OCC accountant channel critical.</div></div>
- <span class="tag t-grey">21 months</span>
+ <span class="tag t-grey">Date recheck required</span>
  </div>
  </div>
 </div>
@@ -1223,22 +1286,22 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:16
  <div class="page-header reveal">
  <div class="page-eyebrow"><span class="pulse-dot"></span>01 · Weekly Intelligence</div>
  <div class="page-title">What's moving in <em>the market</em></div>
- <div class="page-subtitle">Live signal feed · Signal intensity: CRITICAL · Pennylane and Cegid both in acceleration mode</div>
+ <div class="page-subtitle">Live signal feed with explicit source coverage, publication dates and verification status.</div>
  </div>
 
  <!-- Live scan health indicator - populated by renderScanHealth(meta) -->
  <div id="scan-health" class="reveal"></div>
 
  <div class="stat-row reveal">
- <div class="stat-cell"><div class="stat-l">Signals this week<br>vs last week</div><div class="stat-n">18</div></div>
- <div class="stat-cell"><div class="stat-l">Intensity rating<br>Pennylane + Cegid moving</div><div class="stat-n">CRITICAL</div></div>
- <div class="stat-cell"><div class="stat-l">To France PA mandate<br>Sept 1 2026</div><div class="stat-n">4 mo</div></div>
- <div class="stat-cell"><div class="stat-l">To Spain self-employed Verifactu<br>Jul 1 2026</div><div class="stat-n">2 mo</div></div>
+ <div class="stat-cell"><div class="stat-l">Active signals<br>archive excluded</div><div class="stat-n" id="signals-active-stat">—</div></div>
+ <div class="stat-cell"><div class="stat-l">Evidence-backed<br>URL + exact date</div><div class="stat-n" id="signals-verified-stat">—</div></div>
+ <div class="stat-cell"><div class="stat-l">Source-link coverage<br>across active feed</div><div class="stat-n" id="signals-link-stat">—</div></div>
+ <div class="stat-cell"><div class="stat-l">Feed intensity<br>scanner assessment</div><div class="stat-n" id="signals-intensity-stat">—</div></div>
  </div>
 
  <div class="ifyrne reveal">
- <div class="ifyrne-label">If You Read Nothing Else</div>
- <p>Pennylane raised €175M at $4.25B to acquire legacy accounting software - Sage's GE-class tools are the implied target. Cegid absorbed Shine (400k+ French SMBs, banking) and now fields 100 new salespeople targeting the same GE practices Sage needs to convert. Both primary challengers are using the September 2026 France mandate and January 2027 Spain Verifactu as their growth accelerant. Sage's thousands of Despachos and thousands of GE practices are the moat. The question is whether Sage activates them before the competition does.</p>
+ <div class="ifyrne-label">Evidence-led readout</div>
+ <p id="signals-ifyrne">Loading the evidence-backed readout…</p>
  </div>
 
  <div class="filter-bar reveal">
@@ -2937,8 +3000,11 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:16
 const pages = document.querySelectorAll('.page-section');
 const navLinks = document.querySelectorAll('.sb-link[data-page]');
 const titles = {
- 'dashboard':'Command Centre - Dashboard',
+ 'dashboard':'Command Centre - Today',
  'signals':'Intelligence - Signals',
+ 'decisions':'Command Centre - Decisions & Evidence',
+ 'battle-room':'Intelligence - Battle Room',
+ 'weekly-brief':'Intelligence - Weekly Brief',
  'competitors':'Intelligence - Competitors',
  'ai-watch':'Intelligence - AI Watch',
  'brand':'Intelligence - Brand Positioning',
@@ -2964,8 +3030,21 @@ const titles = {
  'competitor-compare':'Direct Channel - Competitor Compare',
 };
 
+// Defined before first-page initialisation so navigation cannot abort start-up.
+function openGroupForPage(pageId) {
+ const btn = document.querySelector('.sb-link[data-page="' + pageId + '"]');
+ if (!btn) return;
+ const group = btn.closest('.sb-group');
+ if (group) {
+  document.querySelectorAll('.sb-group').forEach(g => g.classList.remove('open'));
+  group.classList.add('open');
+ }
+}
+
 function showPage(id) {
- pages.forEach(p => p.classList.remove('active'));
+ // Query at navigation time because decision pages are declared after the
+ // core script and are not present in the initial NodeList.
+ document.querySelectorAll('.page-section').forEach(p => p.classList.remove('active'));
  navLinks.forEach(l => l.classList.remove('active'));
  const target = document.getElementById('page-' + id);
  // Open sidebar group for this page
@@ -2974,7 +3053,7 @@ function showPage(id) {
  if (id === 'battle-room') { setTimeout(initBattleRoom, 150); }
  if (id === 'weekly-brief') {
    fetchSignals().then(function(r){return r.json();}).then(function(d){
-     var signals = Array.isArray(d) ? d : (d.signals||[]);
+     var signals = (Array.isArray(d) ? d : (d.signals||[])).filter(function(s){ return !s.archived; });
      var el = document.getElementById('wb-signal-count');
      if(el) el.textContent = signals.length;
    }).catch(function(){});
@@ -2997,6 +3076,19 @@ function showPage(id) {
  if (link) link.classList.add('active');
  const bc = document.getElementById('tb-current');
  if (bc) bc.textContent = titles[id] || id;
+ if (window.innerWidth <= 700) setMobileMenu(false);
+}
+
+function setMobileMenu(open) {
+ const sidebar = document.getElementById('sidebar');
+ const button = document.getElementById('mobile-menu-btn');
+ if (sidebar) sidebar.classList.toggle('mobile-open', open);
+ if (button) button.setAttribute('aria-expanded', open ? 'true' : 'false');
+}
+
+function toggleMobileMenu() {
+ const sidebar = document.getElementById('sidebar');
+ setMobileMenu(!(sidebar && sidebar.classList.contains('mobile-open')));
 }
 
 // Use event delegation so all sb-links work even if added after init
@@ -3145,27 +3237,14 @@ function copyELT() {
 }
 
 // ══════ LIVE SIGNALS FETCH ══════
-// Reads from main branch (where the hardened Gemini scanner + RSS fallback
-// commits daily). Signals are inside an object with meta+signals keys.
-const SIGNALS_URL = 'https://raw.githubusercontent.com/lewisvines/wise-intel-hub/main/signals.json';
+// GitHub Pages serves the committed feed beside the protected hub. Keep the
+// loader same-origin so deployment and browser cache checks see the same file.
+const SIGNALS_URL = 'signals.json';
 
-// Resilient loader: prefer the Netlify /api/signals function (works when the hub
-// is served from Netlify), fall back to the committed raw signals.json (works on
-// GitHub Pages). Always resolves to a Response so callers can use .ok / .json().
 async function fetchSignals(){
  const bust = '?v=' + Date.now();
- try {
-  const r = await fetch('/api/signals' + bust);
-  if (r && r.ok) return r;
- } catch (e) {}
- return fetch(SIGNALS_URL + bust);
+ return fetch(SIGNALS_URL + bust, { cache: 'no-store' });
 }
-
-// Weekly Brief proxy -- keeps the Anthropic key server-side (netlify/functions/brief.mjs).
-// Relative path works when the hub is served from Netlify. If the hub is served
-// from GitHub Pages, set this to the absolute URL, e.g.
-// 'https://<your-netlify-site>.netlify.app/api/brief'.
-const BRIEF_API = '/api/brief';
 
 // ── Scan health indicator (runs on signals page load) ─────────────────
 // Shows last scan time, status colour, and markets scanned/skipped.
@@ -3328,12 +3407,91 @@ function marketTag(mkt) {
  return `<span class="tag t-grey">${map[mkt]||mkt||'EU'}</span>`;
 }
 
+function escapeHubHtml(value) {
+ return String(value || '').replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+}
+
+function signalSourceUrl(sig) {
+ const url = sig && (sig.source_url || sig.link);
+ return typeof url === 'string' && /^https:\/\//i.test(url) ? url : '';
+}
+
+function signalPublishedAt(sig) {
+ return (sig && (sig.published_at || sig.date)) || '';
+}
+
+function isExactSignalDate(value) {
+ return /^\d{4}-\d{2}-\d{2}$/.test(String(value || ''));
+}
+
+function isEvidenceBacked(sig) {
+ return Boolean(signalSourceUrl(sig) && isExactSignalDate(signalPublishedAt(sig)));
+}
+
+function renderTrustDashboard(meta, signals) {
+ const active = signals.filter(s => !s.archived);
+ const linked = active.filter(s => signalSourceUrl(s));
+ const dated = active.filter(s => isExactSignalDate(signalPublishedAt(s)));
+ const verified = active.filter(isEvidenceBacked);
+ const pct = (n, total) => total ? Math.round((n / total) * 100) + '%' : '0%';
+ const set = (id, value, cls) => {
+  const el = document.getElementById(id); if (!el) return;
+  el.textContent = value;
+  if (cls) el.className = 'trust-v ' + cls;
+ };
+
+ const lastScan = meta && meta.last_scan ? new Date(meta.last_scan) : null;
+ const ageHours = lastScan && !Number.isNaN(lastScan.getTime()) ? Math.round((Date.now() - lastScan.getTime()) / 3600000) : null;
+ const pipelineClass = ageHours === null || ageHours > 72 ? 'bad' : ageHours > 36 ? 'warn' : 'good';
+ const pipelineLabel = ageHours === null ? 'Unknown' : ageHours < 1 ? 'Live' : ageHours + 'h ago';
+ set('trust-pipeline', pipelineLabel, pipelineClass);
+ const pipelineSub = document.getElementById('trust-pipeline-sub');
+ if (pipelineSub) pipelineSub.textContent = meta && meta.scan_status && meta.scan_status.error ? 'Scanner error: ' + meta.scan_status.error : 'Latest automated scan';
+ set('trust-active', String(active.length));
+ set('trust-links', pct(linked.length, active.length), linked.length === active.length ? 'good' : 'warn');
+ set('trust-dates', pct(dated.length, active.length), dated.length === active.length ? 'good' : 'warn');
+
+ const statValues = {
+  'signals-active-stat': active.length,
+  'signals-verified-stat': verified.length,
+  'signals-link-stat': pct(linked.length, active.length),
+  'signals-intensity-stat': (meta && meta.intensity) || 'TBC',
+  'wb-signal-count': active.length,
+  'wb-verified-count': verified.length
+ };
+ Object.entries(statValues).forEach(([id, value]) => { const el = document.getElementById(id); if (el) el.textContent = value; });
+
+ const readout = document.getElementById('signals-ifyrne');
+ if (readout) {
+  readout.textContent = verified.length
+   ? verified.slice(0,3).map(s => `${s.market || 'EU'}: ${s.title}`).join(' ')
+   : 'No active signal yet meets the evidence-backed standard. Treat the feed below as discovery leads until each claim has a direct source URL and exact publication date.';
+ }
+
+ const frDays = Math.ceil((new Date('2026-09-01T00:00:00') - new Date()) / 86400000);
+ const frEl = document.getElementById('wb-fr-days'); if (frEl) frEl.textContent = Math.max(0, frDays);
+ const monday = new Date(); monday.setDate(monday.getDate() - ((monday.getDay() + 6) % 7));
+ const sunday = new Date(monday); sunday.setDate(monday.getDate() + 6);
+ const weekEl = document.getElementById('wb-week-title');
+ if (weekEl) weekEl.textContent = 'Week of ' + monday.toLocaleDateString('en-GB',{day:'numeric',month:'short'}) + ' – ' + sunday.toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
+
+ const ranked = [...verified, ...active.filter(s => !isEvidenceBacked(s))].slice(0, 3);
+ const changed = document.getElementById('today-changed');
+ const implications = document.getElementById('today-implications');
+ const evidenceClass = sig => isEvidenceBacked(sig) ? 'verified' : signalSourceUrl(sig) ? 'pending' : 'legacy';
+ const evidenceLabel = sig => isEvidenceBacked(sig) ? 'Verified' : signalSourceUrl(sig) ? 'Date pending' : 'Legacy evidence';
+ if (changed) changed.innerHTML = ranked.length ? ranked.map(sig => `<div class="today-item"><div class="today-title">${escapeHubHtml(sig.title)}</div><div class="today-meta"><span class="evidence-pill ${evidenceClass(sig)}">${evidenceLabel(sig)}</span>${escapeHubHtml(sig.market || 'EU')} · ${escapeHubHtml(signalPublishedAt(sig) || 'date missing')}</div></div>`).join('') : '<div class="today-body">No active signals are available. The scanner status above is the controlling indicator.</div>';
+ if (implications) implications.innerHTML = ranked.length ? ranked.map(sig => `<div class="today-item"><div class="today-body">${escapeHubHtml(sig.implication || 'Implication not yet written.')}</div></div>`).join('') : '<div class="today-body">No implications can be produced without active signals.</div>';
+ const decisions = document.getElementById('today-decisions');
+ if (decisions) decisions.innerHTML = '<div class="today-item"><div class="today-title">Endorse the two-audience strategy</div><div class="today-meta">D-002 · decision date TBC</div></div><div class="today-item"><div class="today-title">Agree Early Access learning gates</div><div class="today-meta">D-003 · 10–20 design partners</div></div><div class="today-item"><div class="today-title">Set expansion evidence thresholds</div><div class="today-meta">ES · PT · DE · owners and dates TBC</div></div>';
+}
+
 async function loadLiveSignals() {
  const list = document.getElementById('signal-list');
  if (!list) return;
  try {
  const r = await fetchSignals();
- if (!r.ok) return;
+ if (!r.ok) throw new Error('signal feed returned ' + r.status);
  const payload = await r.json();
 
  // Support both shapes: new {meta, signals:[]} from Gemini scanner on main,
@@ -3342,13 +3500,18 @@ async function loadLiveSignals() {
  ? payload
  : (Array.isArray(payload.signals) ? payload.signals : []);
  const meta = (!Array.isArray(payload) && payload.meta) ? payload.meta : null;
- window.LIVE_SIGNALS = allSignals;
+ const activeSignals = allSignals.filter(sig => !sig.archived);
+ window.LIVE_SIGNALS = activeSignals;
  window.LIVE_SIGNALS_META = meta || {};
+ renderTrustDashboard(meta || {}, allSignals);
 
  // ── Surface scan health on dashboard (amber/red if stale or errored) ──
  try { renderScanHealth(meta); } catch (e) { /* non-fatal */ }
 
- if (allSignals.length === 0) return;
+ if (allSignals.length === 0) {
+  list.innerHTML = '<div class="truth-note">No active signals are available. Check the pipeline status; silence is only useful when the scan itself is healthy.</div>';
+  return;
+ }
 
  // ── Criticality scoring (mirrors fetch-signals.js logic) ──────
  function clientCriticality(sig) {
@@ -3457,7 +3620,7 @@ async function loadLiveSignals() {
  });
 
  // Score, filter and sort by criticality then date
- const scored = allSignals
+ const scored = activeSignals
  .map(sig => ({ sig, score: scoreSignal(sig), crit: clientCriticality(sig) }))
  .filter(({ score }) => score >= 12)
  .sort((a, b) => {
@@ -3472,7 +3635,7 @@ async function loadLiveSignals() {
  .slice(0, 40);
 
  if (scored.length === 0) {
- const fallback = allSignals
+ const fallback = activeSignals
  .map(sig => ({ sig, score: scoreSignal(sig), crit: clientCriticality(sig) }))
  .sort((a, b) => b.crit - a.crit || (b.sig.date||'').localeCompare(a.sig.date||''))
  .slice(0, 20);
@@ -3481,41 +3644,43 @@ async function loadLiveSignals() {
 
  const liveSection = document.createElement('div');
  liveSection.id = 'live-signals-block';
- const updateDate = scored[0]?.sig?.date ? new Date(scored[0].sig.date).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}) : 'Today';
+ const updateDate = meta && meta.last_updated ? new Date(meta.last_updated + 'T00:00:00').toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}) : 'status unknown';
  liveSection.innerHTML = `
  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
  <div style="font-family:var(--font);font-size:11px;font-weight:700;letter-spacing:0.6px;text-transform:uppercase;color:var(--g);display:flex;align-items:center;gap:8px;">
  <span class="pulse-dot"></span>LIVE INTELLIGENCE FEED - ${updateDate}
  </div>
- <div style="font-family:var(--font);font-size:11px;color:var(--text3);">${scored.length} WiSE-relevant signals from ${allSignals.length} sources</div>
+ <div style="font-family:var(--font);font-size:11px;color:var(--text3);">${scored.length} active signals · ${activeSignals.filter(isEvidenceBacked).length} evidence-backed</div>
  </div>`;
 
  scored.forEach(({ sig, score, crit }) => {
  const card = document.createElement('div');
  card.className = 'signal-card';
- // Colour-code border by urgency
- const urgency = crit >= 60 ? 'var(--red)' : crit >= 40 ? 'var(--amber)' : 'var(--g)';
- const urgencyLabel = crit >= 60 ? 'CRITICAL' : crit >= 40 ? 'HIGH' : 'WATCH';
- const urgencyColor = crit >= 60 ? 'var(--red)' : crit >= 40 ? 'var(--amber)' : 'var(--g)';
+ // Unverified discovery leads never receive a leadership urgency label.
+ const evidenceBacked = isEvidenceBacked(sig);
+ const urgency = !evidenceBacked ? 'var(--amber)' : crit >= 60 ? 'var(--red)' : crit >= 40 ? 'var(--amber)' : 'var(--g)';
+ const urgencyLabel = !evidenceBacked ? 'UNVERIFIED' : crit >= 60 ? 'CRITICAL' : crit >= 40 ? 'HIGH' : 'WATCH';
+ const urgencyColor = !evidenceBacked ? 'var(--amber)' : crit >= 60 ? 'var(--red)' : crit >= 40 ? 'var(--amber)' : 'var(--g)';
  card.style.borderLeft = `3px solid ${urgency}`;
  card.style.marginBottom = '12px';
  
- const sourceLabel = sig.source ? `<span style="font-size:11px;color:var(--text3);font-style:italic;">${sig.source}</span>` : '';
- const linkHtml = sig.link && sig.link.startsWith('http') 
- ? `<a href="${sig.link}" target="_blank" rel="noopener" style="font-size:11px;color:var(--g2);text-decoration:none;font-weight:500;">Read source →</a>` 
- : '';
+ const sourceUrl = signalSourceUrl(sig);
+ const sourceLabel = sig.source ? `<span style="font-size:11px;color:var(--text3);font-style:italic;">${escapeHubHtml(sig.source)}</span>` : '<span style="font-size:11px;color:var(--red);">Source label missing</span>';
+ const linkHtml = sourceUrl
+ ? `<a href="${escapeHubHtml(sourceUrl)}" target="_blank" rel="noopener" style="font-size:11px;color:var(--g2);text-decoration:none;font-weight:500;">Read source →</a>`
+ : '<span class="evidence-pill legacy">Source link missing</span>';
 
  card.innerHTML = `
  <div class="sc-top" style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:8px;">
  <div class="sc-tags" style="display:flex;gap:6px;flex-wrap:wrap;">${categoryTag(sig.category)}${marketTag(sig.market)}<span style="font-size:10px;font-weight:700;padding:2px 7px;border-radius:3px;background:rgba(0,0,0,0.04);color:${urgencyColor};border:1px solid ${urgencyColor};letter-spacing:0.4px;">${urgencyLabel}</span></div>
- <span class="sc-date" style="font-size:11px;color:var(--text3);white-space:nowrap;">${sig.date||''}</span>
+ <span class="sc-date" style="font-size:11px;color:var(--text3);white-space:nowrap;">${escapeHubHtml(signalPublishedAt(sig) || 'date missing')}</span>
  </div>
- <div class="sc-title" style="font-size:14px;font-weight:600;color:var(--text);line-height:1.4;margin-bottom:6px;">${sig.title||'Signal'}</div>
- <div class="sc-body" style="font-size:13px;color:var(--text2);line-height:1.6;margin-bottom:${sig.implication ? '10px' : '0'};">${sig.body||''}</div>
+ <div class="sc-title" style="font-size:14px;font-weight:600;color:var(--text);line-height:1.4;margin-bottom:6px;">${escapeHubHtml(sig.title||'Signal')}</div>
+ <div class="sc-body" style="font-size:13px;color:var(--text2);line-height:1.6;margin-bottom:${sig.implication ? '10px' : '0'};">${escapeHubHtml(sig.body||'')}</div>
  ${sig.implication ? `
  <div class="sc-implication" style="background:rgba(0,176,80,0.04);border:1px solid rgba(0,176,80,0.15);border-radius:6px;padding:10px 12px;margin-bottom:8px;">
  <div class="sc-impl-label" style="font-size:10px;font-weight:700;letter-spacing:0.6px;text-transform:uppercase;color:var(--g2);margin-bottom:4px;">WiSE Strategic Implication</div>
- <div class="sc-impl-body" style="font-size:12px;color:var(--text2);line-height:1.6;">${sig.implication}</div>
+ <div class="sc-impl-body" style="font-size:12px;color:var(--text2);line-height:1.6;">${escapeHubHtml(sig.implication)}</div>
  </div>` : ''}
  <div style="display:flex;align-items:center;justify-content:space-between;margin-top:4px;">
  ${sourceLabel}
@@ -3524,11 +3689,17 @@ async function loadLiveSignals() {
  liveSection.appendChild(card);
  });
 
+ // Live data is the sole current feed; static cards are legacy reference copy.
+ Array.from(list.children).filter(el => el.classList.contains('signal-card')).forEach(el => el.remove());
  // Replace any existing live block or prepend
  const existing = document.getElementById('live-signals-block');
  if (existing) existing.remove();
  list.insertBefore(liveSection, list.firstChild);
  } catch(e) {
+ const pipeline = document.getElementById('trust-pipeline');
+ if (pipeline) { pipeline.textContent = 'Unavailable'; pipeline.className = 'trust-v bad'; }
+ const changed = document.getElementById('today-changed');
+ if (changed) changed.innerHTML = '<div class="today-body">The live feed could not be loaded. No static signal has been substituted; check the pipeline before using this hub.</div>';
  console.log('Live signals not yet available:', e.message);
  }
 }
@@ -3613,7 +3784,7 @@ loadLiveSignals();
 
  <div style="font-family:var(--font);font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--g);margin:24px 0 12px 0;" class="reveal">France - Latest intelligence</div>
  <div class="dash-card reveal" style="margin-bottom:24px;border-left:3px solid var(--g);">
- <div class="dash-label" style="margin-bottom:14px;">Refreshed May 2026 - Source: WiSE PMM Intelligence Hub live signal feed</div>
+ <div class="dash-label" style="margin-bottom:14px;">Baseline intelligence — last verified May 2026 · Recheck against the live evidence feed</div>
  <div style="display:grid;grid-template-columns:80px 1fr;gap:14px;padding:12px 0;border-top:1px solid var(--border);">
  <div style="font-family:var(--font);font-size:10px;font-weight:800;letter-spacing:1px;color:var(--red);align-self:start;">CRITICAL</div>
  <div>
@@ -3798,7 +3969,7 @@ loadLiveSignals();
 
  <div style="font-family:var(--font);font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--g);margin:24px 0 12px 0;" class="reveal">Spain - Latest intelligence</div>
  <div class="dash-card reveal" style="margin-bottom:24px;border-left:3px solid var(--g);">
- <div class="dash-label" style="margin-bottom:14px;">Refreshed May 2026 - Source: WiSE PMM Intelligence Hub live signal feed</div>
+ <div class="dash-label" style="margin-bottom:14px;">Baseline intelligence — last verified May 2026 · Recheck against the live evidence feed</div>
  <div style="display:grid;grid-template-columns:80px 1fr;gap:14px;padding:12px 0;border-top:1px solid var(--border);">
  <div style="font-family:var(--font);font-size:10px;font-weight:800;letter-spacing:1px;color:var(--red);align-self:start;">CRITICAL</div>
  <div>
@@ -3983,7 +4154,7 @@ loadLiveSignals();
 
  <div style="font-family:var(--font);font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--g);margin:24px 0 12px 0;" class="reveal">Germany - Latest intelligence</div>
  <div class="dash-card reveal" style="margin-bottom:24px;border-left:3px solid var(--g);">
- <div class="dash-label" style="margin-bottom:14px;">Refreshed May 2026 - Source: WiSE PMM Intelligence Hub live signal feed</div>
+ <div class="dash-label" style="margin-bottom:14px;">Baseline intelligence — last verified May 2026 · Recheck against the live evidence feed</div>
  <div style="display:grid;grid-template-columns:80px 1fr;gap:14px;padding:12px 0;border-top:1px solid var(--border);">
  <div style="font-family:var(--font);font-size:10px;font-weight:800;letter-spacing:1px;color:var(--red);align-self:start;">CRITICAL</div>
  <div>
@@ -4143,7 +4314,7 @@ loadLiveSignals();
 
  <div style="font-family:var(--font);font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--g);margin:24px 0 12px 0;" class="reveal">Portugal - Latest intelligence</div>
  <div class="dash-card reveal" style="margin-bottom:24px;border-left:3px solid var(--g);">
- <div class="dash-label" style="margin-bottom:14px;">Refreshed May 2026 - Source: WiSE PMM Intelligence Hub live signal feed</div>
+ <div class="dash-label" style="margin-bottom:14px;">Baseline intelligence — last verified May 2026 · Recheck against the live evidence feed</div>
  <div style="display:grid;grid-template-columns:80px 1fr;gap:14px;padding:12px 0;border-top:1px solid var(--border);">
  <div style="font-family:var(--font);font-size:10px;font-weight:800;letter-spacing:1px;color:var(--amber);align-self:start;">HIGH</div>
  <div>
@@ -4312,7 +4483,7 @@ loadLiveSignals();
 
  <div style="font-family:var(--font);font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--g);margin:24px 0 12px 0;" class="reveal">United Kingdom - Latest intelligence</div>
  <div class="dash-card reveal" style="margin-bottom:24px;border-left:3px solid var(--g);">
- <div class="dash-label" style="margin-bottom:14px;">Refreshed May 2026 - Source: WiSE PMM Intelligence Hub live signal feed</div>
+ <div class="dash-label" style="margin-bottom:14px;">Baseline intelligence — last verified May 2026 · Recheck against the live evidence feed</div>
  <div style="display:grid;grid-template-columns:80px 1fr;gap:14px;padding:12px 0;border-top:1px solid var(--border);">
  <div style="font-family:var(--font);font-size:10px;font-weight:800;letter-spacing:1px;color:var(--red);align-self:start;">CRITICAL</div>
  <div>
@@ -4435,7 +4606,7 @@ loadLiveSignals();
 
  <div style="font-family:var(--font);font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--g);margin:24px 0 12px 0;" class="reveal">United States - Latest intelligence</div>
  <div class="dash-card reveal" style="margin-bottom:24px;border-left:3px solid var(--g);">
- <div class="dash-label" style="margin-bottom:14px;">Refreshed May 2026 - Source: WiSE PMM Intelligence Hub live signal feed</div>
+ <div class="dash-label" style="margin-bottom:14px;">Baseline intelligence — last verified May 2026 · Recheck against the live evidence feed</div>
  <div style="display:grid;grid-template-columns:80px 1fr;gap:14px;padding:12px 0;border-top:1px solid var(--border);">
  <div style="font-family:var(--font);font-size:10px;font-weight:800;letter-spacing:1px;color:var(--red);align-self:start;">CRITICAL</div>
  <div>
@@ -5784,12 +5955,13 @@ loadLiveSignals();
  <div class="page-header reveal">
   <div class="page-eyebrow">Intelligence — Competitive Battle Room</div>
   <div class="page-title">Competitive <em>Battle Room</em></div>
-  <div class="page-subtitle">Win/loss signals by competitor updated daily. Alert thresholds fire when signal criticality spikes. Use this to coach conversations and prioritise counter-moves.</div>
+  <div class="page-subtitle">Competitor patterns, live discovery signals and explicit evidence status. Use it to frame questions—not to repeat an unverified claim.</div>
  </div>
+ <div class="truth-note reveal"><strong>Evidence status:</strong> the competitor cards are baseline hypotheses. Only evidence-backed signals count towards the verified alert totals below; all other items require source re-verification.</div>
  <div class="br-context-row reveal">
-  <div class="br-ctx-card"><div class="br-ctx-n" id="br-total">—</div><div class="br-ctx-l">Signals This Week</div></div>
-  <div class="br-ctx-card"><div class="br-ctx-n red" id="br-critical">—</div><div class="br-ctx-l">Critical Alerts</div></div>
-  <div class="br-ctx-card"><div class="br-ctx-n amber" id="br-high">—</div><div class="br-ctx-l">High Alerts</div></div>
+  <div class="br-ctx-card"><div class="br-ctx-n" id="br-total">—</div><div class="br-ctx-l">Active Leads</div></div>
+  <div class="br-ctx-card"><div class="br-ctx-n red" id="br-critical">—</div><div class="br-ctx-l">Verified Critical</div></div>
+  <div class="br-ctx-card"><div class="br-ctx-n amber" id="br-high">—</div><div class="br-ctx-l">Verified High</div></div>
   <div class="br-ctx-card"><div class="br-ctx-n green">6</div><div class="br-ctx-l">Tracked Competitors</div></div>
  </div>
  <div class="br-alert reveal" id="br-main-alert" style="display:none">
@@ -5797,36 +5969,36 @@ loadLiveSignals();
   <div class="br-alert-body" id="br-alert-body"></div>
  </div>
  <div class="br-grid reveal">
-  <div class="br-comp-card c-critical">
-   <div class="br-comp-header"><div><div class="br-comp-name">Pennylane</div><div class="br-comp-mkts">🇫🇷 FR · 🇩🇪 DE active · 🇪🇸 ES H2 2026</div></div><span class="br-badge critical">Critical</span></div>
+  <div class="br-comp-card c-high">
+   <div class="br-comp-header"><div><div class="br-comp-name">Pennylane</div><div class="br-comp-mkts">🇫🇷 FR · 🇩🇪 DE active · 🇪🇸 ES H2 2026</div></div><span class="br-badge high">Baseline</span></div>
    <div class="br-stats"><div class="br-stat"><div class="br-stat-n red">€175M</div><div class="br-stat-l">Jan 2026 raise</div></div><div class="br-stat"><div class="br-stat-n amber">6,000+</div><div class="br-stat-l">Accountant firms</div></div><div class="br-stat"><div class="br-stat-n red">€115M</div><div class="br-stat-l">ARR 2025</div></div></div>
-   <div class="br-bar-label"><span>Competitive pressure</span><span style="color:#dc2626">Extreme</span></div>
-   <div class="br-bar-track"><div class="br-bar-fill red" style="width:88%"></div></div>
+   <div class="br-bar-label"><span>Baseline pressure hypothesis</span><span style="color:#d97706">Recheck</span></div>
+   <div class="br-bar-track"><div class="br-bar-fill amber" style="width:88%"></div></div>
    <div class="br-feed-box"><div class="br-feed-title">Latest intelligence</div><div id="br-feed-pennylane"><span class="br-feed-empty">Fetching signals…</span></div></div>
   </div>
-  <div class="br-comp-card c-critical">
-   <div class="br-comp-header"><div><div class="br-comp-name">Cegid + EBP + Shine</div><div class="br-comp-mkts">🇫🇷 FR · 🇵🇹 PT · 🇩🇪 DE via SevDesk</div></div><span class="br-badge critical">Critical</span></div>
+  <div class="br-comp-card c-high">
+   <div class="br-comp-header"><div><div class="br-comp-name">Cegid + EBP + Shine</div><div class="br-comp-mkts">🇫🇷 FR · 🇵🇹 PT · 🇩🇪 DE via SevDesk</div></div><span class="br-badge high">Baseline</span></div>
    <div class="br-stats"><div class="br-stat"><div class="br-stat-n red">€967M</div><div class="br-stat-l">Revenue 2024</div></div><div class="br-stat"><div class="br-stat-n amber">15k</div><div class="br-stat-l">Accountants</div></div><div class="br-stat"><div class="br-stat-n red">100</div><div class="br-stat-l">New FR reps Q2</div></div></div>
-   <div class="br-bar-label"><span>Competitive pressure</span><span style="color:#dc2626">Extreme</span></div>
-   <div class="br-bar-track"><div class="br-bar-fill red" style="width:82%"></div></div>
+   <div class="br-bar-label"><span>Baseline pressure hypothesis</span><span style="color:#d97706">Recheck</span></div>
+   <div class="br-bar-track"><div class="br-bar-fill amber" style="width:82%"></div></div>
    <div class="br-feed-box"><div class="br-feed-title">Latest intelligence</div><div id="br-feed-cegid"><span class="br-feed-empty">Fetching signals…</span></div></div>
   </div>
-  <div class="br-comp-card c-critical">
-   <div class="br-comp-header"><div><div class="br-comp-name">Holded / Visma</div><div class="br-comp-mkts">🇪🇸 ES primary · Verifactu race underway</div></div><span class="br-badge critical">Critical</span></div>
+  <div class="br-comp-card c-high">
+   <div class="br-comp-header"><div><div class="br-comp-name">Holded / Visma</div><div class="br-comp-mkts">🇪🇸 ES primary · Verifactu race underway</div></div><span class="br-badge high">Baseline</span></div>
    <div class="br-stats"><div class="br-stat"><div class="br-stat-n amber">80k+</div><div class="br-stat-l">Customers</div></div><div class="br-stat"><div class="br-stat-n amber">700+</div><div class="br-stat-l">Integrations</div></div><div class="br-stat"><div class="br-stat-n red">Jan 27</div><div class="br-stat-l">Verifactu target</div></div></div>
-   <div class="br-bar-label"><span>Competitive pressure (ES)</span><span style="color:#d97706">High</span></div>
+   <div class="br-bar-label"><span>Baseline pressure hypothesis (ES)</span><span style="color:#d97706">Recheck</span></div>
    <div class="br-bar-track"><div class="br-bar-fill amber" style="width:72%"></div></div>
    <div class="br-feed-box"><div class="br-feed-title">Latest intelligence</div><div id="br-feed-holded"><span class="br-feed-empty">Fetching signals…</span></div></div>
   </div>
   <div class="br-comp-card c-high">
-   <div class="br-comp-header"><div><div class="br-comp-name">Isacompta / AGIRIS</div><div class="br-comp-mkts">🇫🇷 FR — direct GE competitor</div></div><span class="br-badge high">High</span></div>
+   <div class="br-comp-header"><div><div class="br-comp-name">Isacompta / AGIRIS</div><div class="br-comp-mkts">🇫🇷 FR — direct GE competitor</div></div><span class="br-badge high">Baseline</span></div>
    <div class="br-stats"><div class="br-stat"><div class="br-stat-n amber">AI</div><div class="br-stat-l">AmiCompta</div></div><div class="br-stat"><div class="br-stat-n amber">GE</div><div class="br-stat-l">Same segment</div></div><div class="br-stat"><div class="br-stat-n green">20yr+</div><div class="br-stat-l">FR heritage</div></div></div>
    <div class="br-bar-label"><span>Competitive pressure (FR practices)</span><span style="color:#d97706">High</span></div>
    <div class="br-bar-track"><div class="br-bar-fill amber" style="width:58%"></div></div>
    <div class="br-feed-box"><div class="br-feed-title">Latest intelligence</div><div id="br-feed-isacompta"><span class="br-feed-empty">Fetching signals…</span></div></div>
   </div>
   <div class="br-comp-card c-high">
-   <div class="br-comp-header"><div><div class="br-comp-name">MyUnisoft</div><div class="br-comp-mkts">🇫🇷 FR — cloud-native challenger</div></div><span class="br-badge high">High</span></div>
+   <div class="br-comp-header"><div><div class="br-comp-name">MyUnisoft</div><div class="br-comp-mkts">🇫🇷 FR — cloud-native challenger</div></div><span class="br-badge high">Baseline</span></div>
    <div class="br-stats"><div class="br-stat"><div class="br-stat-n amber">Cloud</div><div class="br-stat-l">Native</div></div><div class="br-stat"><div class="br-stat-n amber">PA?</div><div class="br-stat-l">Status: watch</div></div><div class="br-stat"><div class="br-stat-n green">SfA</div><div class="br-stat-l">Target base</div></div></div>
    <div class="br-bar-label"><span>Competitive pressure (FR)</span><span style="color:#d97706">Medium-High</span></div>
    <div class="br-bar-track"><div class="br-bar-fill amber" style="width:45%"></div></div>
@@ -5844,31 +6016,55 @@ loadLiveSignals();
 
 
 <!-- ══ WEEKLY BRIEF ═════════════════════════════════════════════ -->
+<!-- DECISIONS & EVIDENCE -->
+<div class="page-section" id="page-decisions">
+ <div class="page-header reveal">
+  <div class="page-eyebrow">Command centre — decisions and evidence</div>
+  <div class="page-title">Turn intelligence into <em>decisions</em></div>
+  <div class="page-subtitle">A read-only decision layer aligned to the WiSE Brain. The Brain remains the action source of truth; this page explains what the intelligence needs leadership to decide.</div>
+ </div>
+ <div class="truth-note reveal"><strong>Authority:</strong> this is a decision-support view, not a second action tracker. Status, ownership and dates must be confirmed in the WiSE Brain before being treated as committed.</div>
+ <div class="decision-board reveal" id="decision-board">
+  <div class="decision-card"><div class="decision-id">D-002 · Strategy</div><div class="decision-title">Endorse the two-audience strategy</div><div class="decision-body">Use new-client acquisition as the beachhead while protecting and activating the in-life Sage base. Evidence still needs to distinguish the two motions clearly.</div><span class="decision-status">Decision required · date TBC</span></div>
+  <div class="decision-card"><div class="decision-id">D-003 · Early Access</div><div class="decision-title">Agree learning gates before promising scale</div><div class="decision-body">Recruit 10–20 design-partner firms, define evidence thresholds and let observed behaviour determine readiness for wider expansion.</div><span class="decision-status">Decision required · date TBC</span></div>
+  <div class="decision-card"><div class="decision-id">Evidence gap · France</div><div class="decision-title">Prove the beachhead before broadening the ICP</div><div class="decision-body">The proposition for cloud-native, advisory-leaning micro-cabinets needs countable demand, willingness-to-switch and workflow evidence—not persona confidence alone.</div><span class="decision-status">Evidence required</span></div>
+  <div class="decision-card"><div class="decision-id">Expansion gate · ES · PT · DE</div><div class="decision-title">Sequence markets through explicit readiness gates</div><div class="decision-body">Do not let regulatory urgency substitute for route-to-market, product readiness, owner capacity or partner evidence. Market dates and owners remain TBC until recorded in the Brain.</div><span class="decision-status">Gate design required</span></div>
+ </div>
+ <div class="dash-card reveal" style="border-top:3px solid var(--g);">
+  <div class="dash-label" style="margin-bottom:10px;">THE ASK</div>
+  <ol style="margin:0;padding-left:20px;font-size:13px;color:var(--text2);line-height:1.8;">
+   <li><strong>Endorse</strong> the two-audience strategy and its distinct success measures.</li>
+   <li><strong>Approve</strong> Early Access as a learning programme with 10–20 design-partner firms.</li>
+   <li><strong>Agree</strong> the evidence thresholds that unlock the next market and the next investment.</li>
+  </ol>
+ </div>
+</div><!-- end page-decisions -->
+
 <div class="page-section" id="page-weekly-brief">
  <div class="page-header reveal">
   <div class="page-eyebrow">Intelligence — WiSE Weekly Brief</div>
   <div class="page-title">WiSE <em>Weekly Brief</em></div>
-  <div class="page-subtitle">AI-generated strategic summary of the week's market signals. One click to a board-ready brief you can drop straight into Steerco.</div>
+  <div class="page-subtitle">A deterministic, source-aware summary of the current feed. No hidden API and no invented facts.</div>
  </div>
  <div class="wb-hero reveal">
-  <div class="wb-hero-eye">✦ AI STRATEGIC BRIEF</div>
-  <div class="wb-hero-title">Week of 14 May 2026</div>
-  <div class="wb-hero-sub">Claude AI reads this week's WiSE signals and synthesises what moved, what it means for FR/ES/DE/PT, and the single most important action for the week.</div>
-  <button class="wb-gen-btn" id="wb-generate-btn" onclick="generateWeeklyBrief()"><span id="wb-btn-icon">✦</span> <span id="wb-btn-text">Generate This Week's Brief</span></button>
+  <div class="wb-hero-eye">SOURCE-AWARE STRATEGIC BRIEF</div>
+  <div class="wb-hero-title" id="wb-week-title">Current decision brief</div>
+  <div class="wb-hero-sub">Builds only from the live feed, separates verified evidence from legacy intelligence and ends with an explicit decision ask.</div>
+  <button class="wb-gen-btn" id="wb-generate-btn" onclick="generateWeeklyBrief()"><span id="wb-btn-icon">→</span> <span id="wb-btn-text">Build Current Brief</span></button>
   <div class="wb-progress" id="wb-progress"></div>
  </div>
  <div class="wb-ctx-grid reveal">
-  <div class="wb-ctx-card"><div class="wb-ctx-label">France PA Mandate</div><div class="wb-ctx-val" style="color:#dc2626">110</div><div class="wb-ctx-sub">days to Sept 1 2026</div></div>
-  <div class="wb-ctx-card"><div class="wb-ctx-label">Signal Count</div><div class="wb-ctx-val" id="wb-signal-count">—</div><div class="wb-ctx-sub">signals this week</div></div>
-  <div class="wb-ctx-card"><div class="wb-ctx-label">Top Threat</div><div class="wb-ctx-val" style="font-size:14px;color:#dc2626">Pennylane</div><div class="wb-ctx-sub">+ Cegid 100 reps Q2</div></div>
+  <div class="wb-ctx-card"><div class="wb-ctx-label">France mandate</div><div class="wb-ctx-val" id="wb-fr-days" style="color:#dc2626">—</div><div class="wb-ctx-sub">days to 1 Sept 2026</div></div>
+  <div class="wb-ctx-card"><div class="wb-ctx-label">Active signals</div><div class="wb-ctx-val" id="wb-signal-count">—</div><div class="wb-ctx-sub">archive excluded</div></div>
+  <div class="wb-ctx-card"><div class="wb-ctx-label">Evidence-backed</div><div class="wb-ctx-val" id="wb-verified-count">—</div><div class="wb-ctx-sub">URL + exact date</div></div>
   <div class="wb-ctx-card"><div class="wb-ctx-label">Markets In Scope</div><div class="wb-ctx-val" style="font-size:14px">FR · ES · DE · PT</div><div class="wb-ctx-sub">WiSE territory</div></div>
  </div>
  <div class="wb-output-card reveal" id="wb-output">
-  <div class="wb-empty" id="wb-empty-state"><div class="wb-empty-icon">✦</div><div class="wb-empty-text">Click <strong>Generate This Week's Brief</strong> above.<br>Claude will read this week's WiSE signals and write a board-ready strategic summary in under 30 seconds.</div></div>
+  <div class="wb-empty" id="wb-empty-state"><div class="wb-empty-icon">→</div><div class="wb-empty-text">Click <strong>Build Current Brief</strong> above.<br>The hub will use the current evidence state and flag anything that still needs verification.</div></div>
   <div id="wb-brief-content" style="display:none">
    <div class="wb-sec-label">What moved this week</div><div class="wb-brief-body" id="wb-section-1"></div>
    <div class="wb-sec-label">Market implications — FR · ES · DE · PT</div><div class="wb-brief-body" id="wb-section-2"></div>
-   <div class="wb-sec-label">Single priority action</div><div class="wb-brief-body" id="wb-section-3"></div>
+   <div class="wb-sec-label">THE ASK</div><div class="wb-brief-body" id="wb-section-3"></div>
    <div class="wb-actions"><button class="wb-act-btn" onclick="copyBrief()">📋 Copy brief</button><button class="wb-act-btn" onclick="downloadBrief()">⬇ Download .txt</button></div>
   </div>
  </div>
@@ -7440,7 +7636,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 <script>
-(function(){var d=new Date();var m=["January","February","March","April","May","June","July","August","September","October","November","December"];var l=document.getElementById("hub-live-date");var u=document.getElementById("hub-updated-date");if(l)l.textContent="Live · "+d.getDate()+" "+m[d.getMonth()]+" "+d.getFullYear();if(u)u.textContent="Updated: "+m[d.getMonth()]+" "+d.getDate()+", "+d.getFullYear();})();
+(function(){var d=new Date();var m=["January","February","March","April","May","June","July","August","September","October","November","December"];var l=document.getElementById("hub-live-date");var u=document.getElementById("hub-updated-date");if(l)l.textContent="Hub · "+d.getDate()+" "+m[d.getMonth()]+" "+d.getFullYear();if(u)u.textContent="Session: "+d.getDate()+" "+m[d.getMonth()]+" "+d.getFullYear();})();
 
 // ══ SIDEBAR GROUP TOGGLE ═══════════════════════════════════════
 function toggleSbGroup(id) {
@@ -7453,32 +7649,17 @@ function toggleSbGroup(id) {
   if (!isOpen) group.classList.add('open');
 }
 
-// Auto-open the group containing the active page
-function openGroupForPage(pageId) {
-  const btn = document.querySelector('.sb-link[data-page="' + pageId + '"]');
-  if (!btn) return;
-  const group = btn.closest('.sb-group');
-  if (group) {
-    document.querySelectorAll('.sb-group').forEach(g => g.classList.remove('open'));
-    group.classList.add('open');
-  }
-}
-
-// Override showPage to handle group opening and new page init
-const _origShowPage = showPage;
-
-
 // ══ BATTLE ROOM ═════════════════════════════════════════════════
 async function initBattleRoom() {
   try {
     const r = await fetchSignals();
     if (!r.ok) return;
     const payload = await r.json();
-    const signals = Array.isArray(payload) ? payload : (payload.signals || []);
+    const signals = (Array.isArray(payload) ? payload : (payload.signals || [])).filter(s => !s.archived);
 
     const total = signals.length;
-    const critical = signals.filter(s => (s.criticality||s.severity||'').toLowerCase() === 'critical').length;
-    const high = signals.filter(s => (s.criticality||s.severity||'').toLowerCase() === 'high').length;
+    const critical = signals.filter(s => isEvidenceBacked(s) && (s.priority||s.criticality||s.severity||'').toLowerCase() === 'critical').length;
+    const high = signals.filter(s => isEvidenceBacked(s) && (s.priority||s.criticality||s.severity||'').toLowerCase() === 'high').length;
 
     const gel = id => document.getElementById(id);
     if(gel('br-total')) gel('br-total').textContent = total;
@@ -7489,8 +7670,8 @@ async function initBattleRoom() {
       const banner = gel('br-main-alert');
       if (banner) {
         banner.style.display = 'block';
-        if(gel('br-alert-title')) gel('br-alert-title').textContent = '\u26a1 ' + critical + ' CRITICAL SIGNALS THIS WEEK';
-        if(gel('br-alert-body')) gel('br-alert-body').textContent = 'Signal intensity has crossed the critical threshold. Pennylane and Cegid are both in acceleration mode. Review feeds below and consider escalating to steerco.';
+        if(gel('br-alert-title')) gel('br-alert-title').textContent = '\u26a1 ' + critical + ' CRITICAL ACTIVE SIGNALS';
+        if(gel('br-alert-body')) gel('br-alert-body').textContent = 'Signal intensity has crossed the critical threshold. Verify source status before escalation, then use the decision view to frame the leadership ask.';
       }
     }
 
@@ -7521,7 +7702,7 @@ async function initBattleRoom() {
       container.innerHTML = items.map(s => {
         const title = (s.title||'Signal').slice(0,75);
         const impl = (s.implication||'').slice(0,110);
-        const date = s.date || '';
+        const date = s.published_at || s.date || '';
         return '<div class="br-feed-item"><em>' + title + (title.length===75?'\u2026':'') + '</em>' +
           (impl ? '<br><span style="font-size:11px;color:var(--text3)">' + impl + (impl.length===110?'\u2026':'') + '</span>' : '') +
           (date ? '<span style="float:right;font-size:10px;color:var(--text4)">' + date + '</span>' : '') +
@@ -7533,7 +7714,7 @@ async function initBattleRoom() {
     allFeedIds.forEach(fid => {
       const el = document.getElementById(fid);
       if (el && el.querySelector('.br-feed-empty') && el.querySelector('.br-feed-empty').textContent.includes('Fetching')) {
-        el.innerHTML = '<span class="br-feed-empty">No new signals this week \u2014 monitoring</span>';
+        el.innerHTML = '<span class="br-feed-empty">No matching active signals — monitoring</span>';
       }
     });
   } catch(e) { console.warn('Battle Room error:', e); }
@@ -7542,7 +7723,7 @@ async function initBattleRoom() {
 // ══ WEEKLY BRIEF ════════════════════════════════════════════════
 let _briefText = '';
 
-async function generateWeeklyBrief() {
+async function _legacyApiBriefDisabled() {
   const btn = document.getElementById('wb-generate-btn');
   const btnText = document.getElementById('wb-btn-text');
   const btnIcon = document.getElementById('wb-btn-icon');
@@ -7604,6 +7785,53 @@ async function generateWeeklyBrief() {
     btn.disabled = false;
     if(btnText) btnText.textContent = 'Regenerate Brief';
     if(btnIcon) btnIcon.textContent = '\u21ba';
+  }
+}
+
+async function generateWeeklyBrief() {
+  const btn = document.getElementById('wb-generate-btn');
+  const btnText = document.getElementById('wb-btn-text');
+  const btnIcon = document.getElementById('wb-btn-icon');
+  const progress = document.getElementById('wb-progress');
+  const emptyState = document.getElementById('wb-empty-state');
+  const briefContent = document.getElementById('wb-brief-content');
+  if (!btn) return;
+  btn.disabled = true;
+  if (btnText) btnText.textContent = 'Building…';
+  if (btnIcon) btnIcon.innerHTML = '<span class="wb-spinner"></span>';
+  if (progress) progress.textContent = 'Reading the current evidence state…';
+
+  try {
+    if (!window.LIVE_SIGNALS) await loadLiveSignals();
+    const signals = (window.LIVE_SIGNALS || []).filter(s => !s.archived);
+    const verified = signals.filter(isEvidenceBacked);
+    const ranked = (verified.length ? verified : signals).slice(0, 5);
+    const evidenceNote = verified.length
+      ? `${verified.length} of ${signals.length} active signals have both a direct source URL and exact publication date.`
+      : `None of the ${signals.length} active signals yet meet the hub's evidence-backed standard. The items below are leads to verify, not leadership-ready facts.`;
+
+    const movedHtml = ranked.length
+      ? '<p><strong>' + escapeHubHtml(evidenceNote) + '</strong></p>' + ranked.slice(0,3).map(s => `<p><strong>${escapeHubHtml(s.market || 'EU')} — ${escapeHubHtml(s.title)}</strong><br>${escapeHubHtml(s.body || '')} ${isEvidenceBacked(s) ? `<a href="${escapeHubHtml(signalSourceUrl(s))}" target="_blank" rel="noopener">Source ↗</a>` : '<span class="evidence-pill legacy">verification required</span>'}</p>`).join('')
+      : '<p><strong>No active signals are available.</strong> Check the pipeline status before drawing a conclusion from silence.</p>';
+    const implicationHtml = ranked.length
+      ? ranked.slice(0,3).map(s => `<p><strong>${escapeHubHtml(s.market || 'EU')}:</strong> ${escapeHubHtml(s.implication || 'Strategic implication not yet recorded.')}</p>`).join('')
+      : '<p>No implication is asserted without an active signal.</p>';
+    const askHtml = '<p><strong>1. Endorse</strong> the two-audience strategy and its separate success measures.</p><p><strong>2. Approve</strong> Early Access as a 10–20 firm learning programme.</p><p><strong>3. Agree</strong> the evidence thresholds that unlock the next market and investment.</p>';
+
+    const s1 = document.getElementById('wb-section-1'); if (s1) s1.innerHTML = movedHtml;
+    const s2 = document.getElementById('wb-section-2'); if (s2) s2.innerHTML = implicationHtml;
+    const s3 = document.getElementById('wb-section-3'); if (s3) s3.innerHTML = askHtml;
+    _briefText = `WISE INTEL HUB — CURRENT DECISION BRIEF\nGenerated ${new Date().toLocaleDateString('en-GB')}\n\nWHAT MOVED\n${evidenceNote}\n${ranked.slice(0,3).map(s => `- [${s.market || 'EU'}] ${s.title}\n  ${s.body || ''}\n  Source: ${signalSourceUrl(s) || 'VERIFICATION REQUIRED'}`).join('\n')}\n\nWHAT IT CHANGES FOR SAGE\n${ranked.slice(0,3).map(s => `- [${s.market || 'EU'}] ${s.implication || 'Implication not yet recorded.'}`).join('\n')}\n\nTHE ASK\n1. Endorse the two-audience strategy and its separate success measures.\n2. Approve Early Access as a 10–20 firm learning programme.\n3. Agree the evidence thresholds that unlock the next market and investment.\n\nAuthority note: the WiSE Brain remains the action source of truth.`;
+
+    if (emptyState) emptyState.style.display = 'none';
+    if (briefContent) briefContent.style.display = 'block';
+    if (progress) progress.textContent = '✓ Brief built from the current feed · ' + verified.length + ' evidence-backed signal' + (verified.length === 1 ? '' : 's');
+  } catch (e) {
+    if (progress) progress.textContent = '⚠ Unable to build brief: ' + e.message;
+  } finally {
+    btn.disabled = false;
+    if (btnText) btnText.textContent = 'Rebuild Current Brief';
+    if (btnIcon) btnIcon.textContent = '↻';
   }
 }
 

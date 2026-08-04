@@ -1,0 +1,33 @@
+name: Validate Hub Trust Gates
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+    paths:
+      - 'src/index.html'
+      - 'signals.json'
+      - 'scripts/validate-hub.mjs'
+      - '.github/scripts/scan_signals.py'
+      - '.github/workflows/**'
+      - 'package.json'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Validate hub and signal feed
+        run: node scripts/validate-hub.mjs
+      - name: Validate scanner syntax
+        run: python -m py_compile .github/scripts/scan_signals.py

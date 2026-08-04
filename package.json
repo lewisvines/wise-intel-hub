@@ -2,6 +2,9 @@
   "name": "wise-signals-api",
   "version": "1.0.0",
   "type": "module",
+  "scripts": {
+    "validate": "node scripts/validate-hub.mjs"
+  },
   "dependencies": {
     "@netlify/blobs": "^8.0.0"
   }
