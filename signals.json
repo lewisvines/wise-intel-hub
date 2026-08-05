@@ -2,7 +2,7 @@
   "meta": {
     "last_updated": "2026-08-05",
     "week_label": "Week of 3 Aug - 9 Aug 2026",
-    "signal_count": 37,
+    "signal_count": 40,
     "prev_signal_count": 40,
     "intensity": "CRITICAL",
     "intensity_reason": "France PA mandate under 8 weeks away (1 Sept 2026) with PA registration ~50% - Cegid closes EUR 1.1bn Shine acquisition (1M+ SMBs, 15,000 accountants across 7 markets) - Pennylane now live in Germany and valued at USD 4.25bn - converging FR/ES/DE/PT compliance deadlines",
@@ -28,20 +28,95 @@
     "eu_competitive_pct": 100,
     "eu_competitive_status": "green",
     "eu_competitive_label": "Live",
-    "last_scan": "2026-08-05T09:35:38.704696Z",
-    "last_scan_summary": "Automated evidence scan completed: 0 new signals passed source, date and quality checks.",
+    "last_scan": "2026-08-05T18:14:39.676816Z",
+    "last_scan_summary": "Automated evidence scan completed: 4 new signals passed source, date and quality checks.",
     "scan_status": {
       "date": "2026-08-05",
-      "markets_scanned": [],
+      "markets_scanned": [
+        "FR",
+        "PT"
+      ],
       "markets_skipped": [],
-      "signals_added": 0,
+      "signals_added": 4,
       "quality_filtered": 0,
-      "summaries": {}
+      "summaries": {
+        "FR": "The French market shows high activity regarding the upcoming e-invoicing mandate and competitive moves by Cegid/EBP, with AutoEntry expanding its document capture services into France.",
+        "PT": "Portugal's regulatory landscape shows a continued emphasis on SAF-T and e-invoicing, with key deadlines for Qualified Electronic Signatures and Accounting SAF-T submissions in 2027 and 2028 respectively. Competitive signals indicate Cegid's ongoing push with its cloud ERP solutions."
+      }
     },
     "archived_count": 0,
     "ifyrne_updated": "2026-08-03"
   },
   "signals": [
+    {
+      "id": "cegid-primavera-cloud-launch-2026",
+      "category": "Competitive",
+      "market": "PT",
+      "date": "2026-07-30",
+      "published_at": "2026-07-30",
+      "accessed_at": "2026-08-05",
+      "priority": "watch",
+      "title": "Cegid Primavera Evolution Cloud SaaS Recommended for New Implementations in 2026",
+      "body": "Cegid Primavera Evolution Cloud (SaaS) is the recommended deployment for new implementations in 2026 and the natural destination for migrations from v9 or Evolution on-premise. This version offers automatic updates and browser access, managed by Cegid.",
+      "implication": "Cegid is actively pushing its cloud offering in Portugal, potentially increasing competitive pressure on Sage Active's cloud SMB solutions. Sage should monitor adoption rates and feature parity.",
+      "source": "HeraPrime (Cegid Primavera Partner)",
+      "source_url": "https://heraprime.pt/software-erp-cegid-primavera/cegid-primavera-evolution-cloud-saas/",
+      "source_type": "secondary",
+      "evidence_status": "verified",
+      "confidence": "medium"
+    },
+    {
+      "id": "portugal-saf-t-qes-deadline-extension",
+      "category": "Regulatory",
+      "market": "PT",
+      "date": "2025-12-09",
+      "published_at": "2025-12-09",
+      "accessed_at": "2026-08-05",
+      "priority": "high",
+      "title": "Portugal Extends PDF Invoice Validity to Dec 31, 2026; QES Mandatory Jan 1, 2027",
+      "body": "Standard PDF invoices will be accepted as legally valid electronic invoices until December 31, 2026. From January 1, 2027, any electronic invoice not exchanged via EDI must carry a Qualified Electronic Signature (QES) to be considered valid by tax authorities. This also impacts the SAF-T accounting file, with the first mandatory submission for the 2027 fiscal year due in 2028.",
+      "implication": "This extension provides a brief window for businesses to adapt to QES requirements. Sage needs to ensure its solutions support QES by Jan 2027 and that clients are aware of the SAF-T accounting file deadline in 2028.",
+      "source": "Comarch",
+      "source_url": "https://www.comarch.com/solutions/lp/portugal-saf-t-requirements/",
+      "source_type": "secondary",
+      "evidence_status": "verified",
+      "confidence": "high",
+      "calendar_tag": true
+    },
+    {
+      "id": "autoentry-france-launch-aug25",
+      "category": "Brand",
+      "market": "FR",
+      "date": "2025-08-13",
+      "published_at": "2025-08-13",
+      "accessed_at": "2026-08-05",
+      "priority": "watch",
+      "title": "AutoEntry expands into France, enhancing document capture capabilities.",
+      "body": "AutoEntry has launched in France, allowing users to upload and process invoices and receipts. The update includes improved intelligent detection for automatic document edge detection and cropping, alongside other enhancements for a smoother workflow. AutoEntry integrates with various accounting software, including Sage.",
+      "implication": "This expansion by a key competitor in the document capture market into France presents an opportunity and a challenge. Sage should assess the competitive landscape and ensure its own document capture solutions, like AutoEntry+AKAO, remain competitive in the French market.",
+      "source": "App Store (AutoEntry)",
+      "source_url": "https://apps.apple.com/fr/app/autoentry/id1491313568",
+      "source_type": "secondary",
+      "evidence_status": "corroborated",
+      "confidence": "medium"
+    },
+    {
+      "id": "cegid-ebp-integration-expert-comptable",
+      "category": "Competitive",
+      "market": "FR",
+      "date": "2025-04-14",
+      "published_at": "2025-04-14",
+      "accessed_at": "2026-08-05",
+      "priority": "high",
+      "title": "Cegid integrates EBP solutions for expert-comptable channel ahead of e-invoicing reform.",
+      "body": "Cegid announced the native integration of its Partner Dematerialization Platform (PDP) into Cegid Loop and Cegid Quadra Plus solutions for accounting firms, as well as EBP's invoicing, sales management, and accounting solutions. This move aims to help accounting firms comply with the upcoming e-invoicing reform, which begins September 1, 2026, by enabling them to offer Cegid's PDP to their clients and manage the collection of accounting documents.",
+      "implication": "This integration strengthens Cegid's and EBP's position in the French market, particularly within the expert-comptable channel. Sage needs to monitor this competitive move and ensure its own solutions are competitive and well-integrated for this segment.",
+      "source": "LPC (via Cegid)",
+      "source_url": "https://www.cegid.com/fr/actualites/cegid-annonce-lintegration-native-de-la-pdp-de-cegid-dans-les-solutions-de-cegid-et-debp-a-destination-des-experts-comptables-et-de-leurs-clients/",
+      "source_type": "secondary",
+      "evidence_status": "verified",
+      "confidence": "high"
+    },
     {
       "id": "germany-e-invoicing-b2b-mandate-2027-2028",
       "category": "Regulatory",
@@ -462,18 +537,6 @@
       "body": "The mandatory submission of the annual SAF-T accounting file in Portugal has been postponed to 2028, applying to the fiscal year 2027 data. This is the latest in a series of delays for this requirement, which was originally planned for earlier years. Businesses must still be able to produce this file on demand during tax inspections.",
       "implication": "This delay provides additional time for Sage to ensure its solutions are fully compliant with the SAF-T accounting file requirements, potentially reducing immediate development pressure but also extending the period of dual compliance needs.",
       "source": "Comarch (Dec 2025), EDICOM (Dec 2025), Invoice Data Extraction (Mar 2026), Comarch (Dec 2025), Portugal Delays E-Signature and Accounting SAF-T Requirements to 2027 and 2028 (Dec 2025)",
-      "calendar_tag": true
-    },
-    {
-      "id": "xrechnung-compliance-2028",
-      "category": "Regulatory",
-      "market": "DE",
-      "date": "Jan 2028",
-      "priority": "critical",
-      "title": "Germany's XRechnung mandate for e-invoicing set for January 2028.",
-      "body": "Germany is implementing a mandatory e-invoicing system, XRechnung, which is scheduled to take effect in January 2028. This regulation aims to standardize electronic invoice exchange, particularly for business transactions. XRechnung is a purely XML-based format developed for use in the German public sector, though its adoption is expanding.",
-      "implication": "The upcoming XRechnung mandate is a critical deadline for all businesses operating in Germany. Sage must ensure its products, particularly Sage for Accountants and Sage Active, are fully compliant and can facilitate XRechnung generation and processing for its German customers to avoid penalties and maintain market relevance.",
-      "source": "E-invoices in Germany: ZUGFeRD or XRechnung?",
       "calendar_tag": true
     }
   ]
