@@ -1,8 +1,8 @@
 {
   "meta": {
-    "last_updated": "2026-08-07",
+    "last_updated": "2026-08-08",
     "week_label": "Week of 3 Aug - 9 Aug 2026",
-    "signal_count": 39,
+    "signal_count": 40,
     "prev_signal_count": 40,
     "intensity": "CRITICAL",
     "intensity_reason": "France PA mandate under 8 weeks away (1 Sept 2026) with PA registration ~50% - Cegid closes EUR 1.1bn Shine acquisition (1M+ SMBs, 15,000 accountants across 7 markets) - Pennylane now live in Germany and valued at USD 4.25bn - converging FR/ES/DE/PT compliance deadlines",
@@ -28,28 +28,95 @@
     "eu_competitive_pct": 100,
     "eu_competitive_status": "green",
     "eu_competitive_label": "Live",
-    "last_scan": "2026-08-07T17:38:19.697067Z",
-    "last_scan_summary": "Automated evidence scan completed: 5 new signals passed source, date and quality checks.",
+    "last_scan": "2026-08-08T07:47:52.980157Z",
+    "last_scan_summary": "Automated evidence scan completed: 4 new signals passed source, date and quality checks.",
     "scan_status": {
-      "date": "2026-08-07",
+      "date": "2026-08-08",
       "markets_scanned": [
-        "FR",
         "DE",
         "PT"
       ],
       "markets_skipped": [],
-      "signals_added": 5,
+      "signals_added": 4,
       "quality_filtered": 0,
       "summaries": {
-        "FR": "Market signals for France show critical regulatory pressure with the approaching e-invoicing mandate, significant competitive activity from Pennylane and Cegid/EBP in the accountant channel, and ongoing developments in document capture solutions.",
-        "DE": "The German market shows significant activity with DATEV's major cloud migration, Cegid's strategic acquisition of sevDesk, and ongoing focus on e-invoicing compliance, indicating a dynamic and competitive landscape.",
-        "PT": "Recent market signals in Portugal focus on regulatory deadlines for SAF-T accounting and Qualified Electronic Signatures, with postponements creating new timelines. Competitively, Cegid Primavera is emphasizing its cloud solutions for new implementations in 2026."
+        "DE": "Recent market signals for Germany indicate significant competitive activity with Cegid's acquisition of sevdesk, a major cloud migration by DATEV, and the ongoing phased implementation of the B2B e-invoicing mandate, all of which present strategic considerations for Sage WiSE.",
+        "PT": "Recent market signals in Portugal indicate a continued focus on regulatory deadlines like SAF-T, with postponements offering temporary relief, while competitive dynamics are intensifying due to Cegid's strategic acquisitions and cloud-focused product strategies."
       }
     },
-    "archived_count": 1,
+    "archived_count": 0,
     "ifyrne_updated": "2026-08-03"
   },
   "signals": [
+    {
+      "id": "cegid-acquires-phc-software-strengthening-portuguese-market-presence",
+      "category": "Competitive",
+      "market": "PT",
+      "date": "2025-01-27",
+      "published_at": "2025-01-27",
+      "accessed_at": "2026-08-08",
+      "priority": "high",
+      "title": "Cegid Acquires PHC Software, Boosting Iberian Presence",
+      "body": "Cegid Group acquired PHC Business Software, a Portuguese technology company, in a move that significantly strengthens Cegid's position in the Iberian market and Portuguese-speaking Africa.. PHC has a portfolio of 37,000 client companies and 170,000 users across Portugal, Spain, Angola, and Mozambique.",
+      "implication": "Cegid's acquisition of PHC Software significantly increases its market share and user base in Portugal, posing a direct competitive threat to Sage's existing presence and future expansion plans in the region.",
+      "source": "Cuatrecasas",
+      "source_url": "https://cuatrecasas.com/en/news/cegid-group-acquires-portuguese-technology-company-phc-business-software/",
+      "source_type": "secondary",
+      "evidence_status": "verified",
+      "confidence": "high"
+    },
+    {
+      "id": "saf-t-accounting-deadline-postponed-to-2028",
+      "category": "Regulatory",
+      "market": "PT",
+      "date": "2026-03-07",
+      "published_at": "2026-03-07",
+      "accessed_at": "2026-08-08",
+      "priority": "watch",
+      "title": "Portugal's SAF-T Accounting File Submission Postponed to 2028",
+      "body": "The annual accounting SAF-T (Contabilidade) file, originally planned for fiscal year 2025, has been postponed to fiscal year 2027, with the first submission now due in 2028. Businesses must still be able to produce this file on demand during tax inspections.. This postponement provides additional time for businesses and software providers to prepare for the more data-intensive file type.",
+      "implication": "This extended timeline for SAF-T accounting may offer a slight reprieve, but the ongoing evolution of SAF-T in Portugal underscores the need for continuous monitoring and adaptation of Sage's solutions to meet future compliance demands.",
+      "source": "Invoice Data Extraction",
+      "source_url": "https://www.invoicedataextraction.com/portugal-saf-t-requirements-the-complete-guide/",
+      "source_type": "secondary",
+      "evidence_status": "verified",
+      "confidence": "high",
+      "calendar_tag": true
+    },
+    {
+      "id": "datev-cloud-migration-autumn-2026",
+      "category": "AI & Tech",
+      "market": "DE",
+      "date": "2026-05-05",
+      "published_at": "2026-05-05",
+      "accessed_at": "2026-08-08",
+      "priority": "watch",
+      "title": "DATEV to migrate on-premises software to cloud starting autumn 2026.",
+      "body": "DATEV is transitioning its on-premises software to cloud-based delivery, beginning with its practice management module in autumn 2026, followed by payroll, financial accounting, and tax modules. On-premises versions will be phased out over the next few years. This migration is expected to simplify processes and increase efficiency for tax firms.",
+      "implication": "DATEV's move to the cloud could offer a more integrated and modern experience for German tax advisors, potentially increasing their reliance on DATEV's ecosystem and posing a challenge for cloud solutions aiming to sit above or alongside DATEV.",
+      "source": "Facturwise",
+      "source_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEvcwwLlIjG9_6608fXUCwV7Bon64IsDyAbNSP8PEic1ZQUt2-xL8Avrujw0c4_KI7JBmQn28J1-A4VyhSNvErJ3YItooeDYZQIgaXp6sUGTi0Gn25Q7N8-4cf-k2ay_0wExyhNZCinnU35xZEsfHf2RvwJ1emiyKQgj9o0S1p9Fw==",
+      "source_type": "secondary",
+      "evidence_status": "verified",
+      "confidence": "high"
+    },
+    {
+      "id": "cegid-sevdesk-acquisition-completes-dach-expansion",
+      "category": "Competitive",
+      "market": "DE",
+      "date": "2025-02-06",
+      "published_at": "2025-02-06",
+      "accessed_at": "2026-08-08",
+      "priority": "high",
+      "title": "Cegid completes acquisition of sevdesk, expanding its DACH presence.",
+      "body": "Cegid has finalized its acquisition of sevdesk, a German cloud-based accounting software provider. This move strengthens Cegid's position in the DACH region, aiming to serve over 5 million micro and SMB businesses with solutions for pre-accounting, accounting, and e-invoicing. Marco Reinbold, co-founder of sevdesk, has been appointed General Manager for Cegid's DACH operations.",
+      "implication": "Cegid's strengthened presence in Germany with sevdesk could intensify competition for Sage Active and Sage for Accountants, particularly as sevdesk is already established in the German market.",
+      "source": "Cegid Press Release",
+      "source_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF2Hm-r6unlumfoayAiTXz60rZ8uSD1Et1z1mfm6zcqTRGPqNouqFXk7vEn2kJ0roRxmfROPTH3m5anpZvjn7L6ZTKKtVES8YShuW3Gyxv1YcOJt6RlQD7vvCSoRHqGmjuU0ftMKrUqJ2USmWVGuaKy5_Sq9-g=",
+      "source_type": "primary",
+      "evidence_status": "verified",
+      "confidence": "high"
+    },
     {
       "id": "lexware-e-invoicing-training-2026",
       "category": "Regulatory",
@@ -67,40 +134,6 @@
       "evidence_status": "verified",
       "confidence": "high",
       "calendar_tag": true
-    },
-    {
-      "id": "cegid-sevdesk-acquisition-2025",
-      "category": "Competitive",
-      "market": "DE",
-      "date": "2025-02-06",
-      "published_at": "2025-02-06",
-      "accessed_at": "2026-08-07",
-      "priority": "high",
-      "title": "Cegid acquires sevDesk, strengthening its presence in German-speaking Europe.",
-      "body": "Cegid has acquired sevDesk, a leading provider of cloud-based accounting and invoicing solutions for SMBs in the DACH region. This acquisition expands Cegid's offerings in German-speaking Europe, a market with over 5 million SMBs and growing demand for cloud software and e-invoicing compliance. SevDesk serves over 130,000 customers and processes over €85 billion in transactions annually.",
-      "implication": "The acquisition of sevDesk by Cegid strengthens a key competitor in the German market, particularly in the SMB cloud accounting space. This move by Cegid, a significant player in Europe, requires Sage to monitor their competitive strategy and product development closely in Germany.",
-      "source": "Cegid",
-      "source_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEfStomQM757CDLsHRiOfSGF9FaNOru0k439_wsz8fivIHfu8BFuWLvuF6iuF7LEf5qGW2f_kS2JwtIJePnrHzFcJhn0nZ4yKFs1LxXq2hTznDPcgv37MKBwNIJuaKLh-HBlzh3pNOGdn-jxMvFKdSC_GBKHg==",
-      "source_type": "primary",
-      "evidence_status": "verified",
-      "confidence": "high"
-    },
-    {
-      "id": "cegid-ebp-integrate-pdp-for-e-invoicing-apr-2025",
-      "category": "Competitive",
-      "market": "FR",
-      "date": "2025-04-14",
-      "published_at": "2025-04-14",
-      "accessed_at": "2026-08-07",
-      "priority": "watch",
-      "title": "Cegid and EBP integrate Cegid's PDP into their solutions for French accountants.",
-      "body": "Cegid has announced the native integration of Cegid's Partner Dematerialization Platform (PDP) into Cegid and EBP solutions for accounting firms and their clients. This integration aims to help accounting firms prepare for the French electronic invoicing reform, which begins progressively in September 2026. The move is seen as crucial for accounting firms to maintain control over accounting data collection amidst the shift to electronic invoicing.",
-      "implication": "Cegid and EBP are proactively integrating solutions to address the French e-invoicing mandate, potentially strengthening their position with accounting firms. Sage should monitor the adoption and effectiveness of this integration.",
-      "source": "LPC",
-      "source_url": "https://www.lepetitjournal.com/cegid-annonce-l-integration-native-de-la-pdp-de-cegid-dans-les-solutions-de-cegid-et-d-ebp-a-destination-des-experts-comptables-et-de-leurs-clients-20250414",
-      "source_type": "secondary",
-      "evidence_status": "verified",
-      "confidence": "high"
     },
     {
       "id": "pennylane-expands-fr-accountant-market-aug-2026",
@@ -529,35 +562,6 @@
       "body": "Cegid and EBP have solidified their partnership, with EBP (a Cegid Company) actively targeting French accounting practices. EBP offers specific solutions for accountants, including a 'CJEC' offer at a reduced price for members. This strategic move by Cegid aims to capture a larger share of the French expert-comptable channel.",
       "implication": "Sage needs to counter Cegid's aggressive expansion in the French market by highlighting the unique value proposition of Sage for Accountants and its readiness for upcoming regulatory changes.",
       "source": "EBP, Cegid, July 2026"
-    },
-    {
-      "id": "holded-verifactu-readiness",
-      "category": "Competitive",
-      "market": "ES",
-      "date": "Ongoing",
-      "priority": "watch",
-      "title": "Holded actively preparing for Verifactu compliance",
-      "body": "Holded, a significant player in the Spanish market, is actively working to ensure its software complies with Verifactu regulations. They are positioning themselves as a solution provider for businesses needing to adapt to the new invoicing system.",
-      "implication": "Holded's proactive approach to Verifactu compliance could give them an advantage in the Spanish market, especially among SMEs and freelancers who are looking for straightforward solutions. This highlights the need for Sage Active to clearly communicate its own Verifactu readiness.",
-      "source": "Vertex AI Search Results [8, 12]"
-    },
-    {
-      "id": "lexoffice-cloud-accounting-aws",
-      "category": "AI & Tech",
-      "market": "DE",
-      "date": "2026-04-22",
-      "published_at": "2026-04-22",
-      "accessed_at": "2026-08-07",
-      "priority": "watch",
-      "title": "Lexware's lexoffice leverages AWS for performance and scalability.",
-      "body": "Lexware's cloud accounting software, lexoffice, a market leader in Germany with 250,000 users, has migrated its infrastructure to Amazon Web Services (AWS). This migration has improved performance, reduced response times by 50%, and enabled easier scaling to accommodate customer growth. Lexware is also developing new features as microservices on AWS.",
-      "implication": "The continued investment by Lexware/Haufe in cloud infrastructure via AWS highlights their commitment to innovation and scalability. This reinforces their position as a strong competitor in the German SMB market and necessitates that Sage's cloud offerings are equally robust and performant.",
-      "source": "AWS",
-      "source_url": "https://aws.amazon.com/solutions/case-studies/haufe-lexware/",
-      "source_type": "secondary",
-      "evidence_status": "verified",
-      "confidence": "high",
-      "archived": true
     }
   ]
 }
