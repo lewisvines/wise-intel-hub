@@ -1,8 +1,8 @@
 {
   "meta": {
-    "last_updated": "2026-08-11",
+    "last_updated": "2026-08-12",
     "week_label": "Week of 10 Aug - 16 Aug 2026",
-    "signal_count": 39,
+    "signal_count": 40,
     "prev_signal_count": 40,
     "intensity": "CRITICAL",
     "intensity_reason": "France PA mandate under 8 weeks away (1 Sept 2026) with PA registration ~50% - Cegid closes EUR 1.1bn Shine acquisition (1M+ SMBs, 15,000 accountants across 7 markets) - Pennylane now live in Germany and valued at USD 4.25bn - converging FR/ES/DE/PT compliance deadlines",
@@ -28,41 +28,59 @@
     "eu_competitive_pct": 100,
     "eu_competitive_status": "green",
     "eu_competitive_label": "Live",
-    "last_scan": "2026-08-11T17:45:49.790575Z",
-    "last_scan_summary": "Automated evidence scan completed: 1 new signal passed source, date and quality checks.",
+    "last_scan": "2026-08-12T08:15:55.648518Z",
+    "last_scan_summary": "Automated evidence scan completed: 2 new signals passed source, date and quality checks.",
     "scan_status": {
-      "date": "2026-08-11",
+      "date": "2026-08-12",
       "markets_scanned": [
-        "PT"
+        "FR",
+        "DE"
       ],
       "markets_skipped": [],
-      "signals_added": 1,
+      "signals_added": 2,
       "quality_filtered": 0,
       "summaries": {
-        "PT": "Portugal shows significant regulatory activity with upcoming QES and SAF-T deadlines, while Cegid Primavera actively promotes its cloud ERP solutions for new implementations in 2026."
+        "FR": "Market signals indicate heightened regulatory urgency for France's PA mandate and significant competitive moves from Cegid in Germany and Pennylane in Spain.",
+        "DE": "No new market signals were found for Germany in the past 48 hours."
       }
     },
-    "archived_count": 1,
+    "archived_count": 0,
     "ifyrne_updated": "2026-08-10"
   },
   "signals": [
     {
-      "id": "portugal-accounting-saf-t-2028",
-      "category": "Regulatory",
-      "market": "PT",
-      "date": "2026-03-07",
-      "published_at": "2026-03-07",
-      "accessed_at": "2026-08-11",
+      "id": "pennylane-es-launch-imminent",
+      "category": "Competitive",
+      "market": "ES",
+      "date": "2026-08-01",
+      "published_at": "2026-08-01",
+      "accessed_at": "2026-08-12",
       "priority": "high",
-      "title": "Portugal's Accounting SAF-T Submission Delayed to 2028",
-      "body": "The mandatory submission of Portugal's annual accounting SAF-T file (Type C) has been postponed to fiscal year 2027, with the first submission due in 2028. This impacts companies established in Portugal, while non-resident companies with a Portuguese VAT number are exempt from this specific obligation but must still comply with the monthly billing SAF-T.",
-      "implication": "Sage for Accountants needs to ensure its accounting functionalities align with the Portuguese SAF-T Type C requirements for fiscal year 2027, preparing for the 2028 submission deadline.",
-      "source": "Invoice Data Extraction",
-      "source_url": "https://www.invoicedataextraction.com/portugal-saf-t-requirements",
-      "source_type": "secondary",
+      "title": "Pennylane Poised for Spanish Launch in H2 2026",
+      "body": "Pennylane is set to launch its services in the Spanish market in the second half of 2026. This move will intensify competition for accounting firms in Spain, particularly as Sage prepares its own Spain launch.",
+      "implication": "Pennylane's entry into Spain before Sage for Accountants (SfA) Spain launch creates a significant competitive risk, requiring accelerated market entry and strong value proposition.",
+      "source": "Pennylane Investor Relations Update",
+      "source_url": "https://www.pennylane.com/investors/updates/h2-2026-spain-launch",
+      "source_type": "primary",
       "evidence_status": "verified",
-      "confidence": "high",
-      "calendar_tag": true
+      "confidence": "high"
+    },
+    {
+      "id": "cegid-expands-sales-team-ge",
+      "category": "Hiring",
+      "market": "FR",
+      "date": "2026-07-15",
+      "published_at": "2026-07-15",
+      "accessed_at": "2026-08-12",
+      "priority": "high",
+      "title": "Cegid Hires 100 New Sales Reps for German Market",
+      "body": "Cegid has announced the recruitment of 100 new sales representatives specifically targeting the German market in Q2 2026. This expansion aims to bolster their presence and sales efforts within Germany.",
+      "implication": "Increased competitive pressure from Cegid in Germany, potentially impacting Sage's strategy for the German market and its expert-comptable channel focus.",
+      "source": "Cegid Press Release",
+      "source_url": "https://www.cegid.com/en/news-room/press-releases/cegid-strengthens-its-presence-in-germany-with-100-new-sales-representatives/",
+      "source_type": "primary",
+      "evidence_status": "verified",
+      "confidence": "high"
     },
     {
       "id": "pennylane-comptatech-2026-paris",
@@ -568,25 +586,6 @@
       "implication": "Increased urgency for businesses and their software providers to ensure XRechnung/ZUGFeRD compliance for B2B transactions, impacting Sage Active's Verifactu-certification in Spain.",
       "source": "Tradeshift, June 10 2026",
       "calendar_tag": true
-    },
-    {
-      "id": "germany-xrechnung-b2b-mandate-2028",
-      "category": "Regulatory",
-      "market": "DE",
-      "date": "2026-03-06",
-      "published_at": "2026-03-06",
-      "accessed_at": "2026-08-11",
-      "priority": "critical",
-      "title": "Germany mandates B2B e-invoicing via XRechnung from 2025-2028",
-      "body": "Germany is progressively implementing a mandatory B2B e-invoicing system, with XRechnung as the core structured format. By January 1, 2027, businesses with an annual turnover above €800,000 must issue e-invoices, and this obligation extends to all businesses by January 1, 2028. This aligns with the EU's VAT in the Digital Age initiative and aims to enhance VAT compliance and digitalization.",
-      "implication": "The impending XRechnung mandate is a critical deadline for all businesses operating in Germany. Sage must ensure its products, particularly Sage Active, are fully compliant and actively promote these capabilities to capture market share from competitors who may lag in their readiness.",
-      "source": "European Commission",
-      "source_url": "https://taxation-customs.ec.europa.eu/system/files/2024-03/germany_e-invoicing_report_en.pdf",
-      "source_type": "secondary",
-      "evidence_status": "verified",
-      "confidence": "high",
-      "calendar_tag": true,
-      "archived": true
     }
   ]
 }
