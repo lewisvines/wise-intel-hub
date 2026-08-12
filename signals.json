@@ -28,7 +28,7 @@
     "eu_competitive_pct": 100,
     "eu_competitive_status": "green",
     "eu_competitive_label": "Live",
-    "last_scan": "2026-08-12T08:15:55.648518Z",
+    "last_scan": "2026-08-12T17:48:21.898894Z",
     "last_scan_summary": "Automated evidence scan completed: 2 new signals passed source, date and quality checks.",
     "scan_status": {
       "date": "2026-08-12",
@@ -40,14 +40,48 @@
       "signals_added": 2,
       "quality_filtered": 0,
       "summaries": {
-        "FR": "Market signals indicate heightened regulatory urgency for France's PA mandate and significant competitive moves from Cegid in Germany and Pennylane in Spain.",
-        "DE": "No new market signals were found for Germany in the past 48 hours."
+        "FR": "No new market signals were found for France in the past 48 hours related to the specified search terms.",
+        "DE": "The German market shows significant activity with Cegid's acquisition of sevdesk, a clear timeline for the B2B e-invoicing mandate, and a key competitor rebranding, indicating a dynamic and competitive landscape."
       }
     },
     "archived_count": 0,
     "ifyrne_updated": "2026-08-10"
   },
   "signals": [
+    {
+      "id": "lexware-office-rebrand-from-lexoffice",
+      "category": "Competitive",
+      "market": "DE",
+      "date": "2025-12-06",
+      "published_at": "2025-12-06",
+      "accessed_at": "2026-08-12",
+      "priority": "watch",
+      "title": "Lexoffice rebrands to Lexware Office as part of Haufe Group's strategy",
+      "body": "Lexoffice, a cloud accounting software for the German market, has been rebranded to Lexware Office. This change is part of the Haufe Group's strategy to consolidate its accounting products under the established Lexware brand, aiming for a unified market experience and easier access to the broader Lexware product family.",
+      "implication": "The rebranding of Lexoffice to Lexware Office signifies a consolidation of efforts by the Haufe Group in the German SMB market. This could lead to increased investment and a more aggressive market push, potentially impacting Sage Active's market share.",
+      "source": "Haufe Group",
+      "source_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGxZ2dNHQDC1ZP1KKyXmq1pu2la2b_isvAPJGD-eY9Di6n8tcUgWQVnsnD86BVvYmsy9MsiQ17rlCQv2fIUP-h-tmmSOBnqmtZeWJejDu0u6eGSeE1nkD1PNj-FRbtjZeyOkNoifQab5KOPzWcnbBnLlr9eYQ9qGg==",
+      "source_type": "primary",
+      "evidence_status": "verified",
+      "confidence": "high"
+    },
+    {
+      "id": "cegid-sevdesk-acquisition-germany",
+      "category": "Competitive",
+      "market": "DE",
+      "date": "2025-02-06",
+      "published_at": "2025-02-06",
+      "accessed_at": "2026-08-12",
+      "priority": "high",
+      "title": "Cegid completes acquisition of sevdesk, strengthening DACH presence",
+      "body": "Cegid has finalized its acquisition of sevdesk, a German provider of pre-accounting, accounting, and e-invoicing software for SMBs. This move expands Cegid's footprint in the DACH region, appointing sevdesk's CEO as General Manager for Cegid's DACH operations. Sevdesk serves over 130,000 customers and supports over €85 billion in invoiced transactions.",
+      "implication": "Cegid's strengthened presence in Germany with a significant SMB customer base poses a direct competitive threat to Sage Active and Sage for Accountants in the region, especially with upcoming e-invoicing mandates.",
+      "source": "Cegid",
+      "source_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEcPR8C9P0he0Tl-du5DkQ9c7JxBcNeKx4Dnwicx-Duo432yAAx4tmbpjDpkQTW4dA1SWiV6RQM4D9Vo_ttSsSrjdBnEONXgBIC0KtnBs1xidmd8xz-dKQN2ooY399qPlU26BXNZAG29vG8f1kb0Z53s4WwkKs=",
+      "source_type": "primary",
+      "evidence_status": "verified",
+      "confidence": "high"
+    },
     {
       "id": "pennylane-es-launch-imminent",
       "category": "Competitive",
@@ -562,29 +596,6 @@
       "body": "A recent survey by the CNOEC indicates that less than a third of businesses know which e-invoicing platform they will choose, with nearly half unaware of any accredited platforms. This highlights a significant gap in readiness for the September 1, 2026 mandate.",
       "implication": "Sage needs to accelerate customer education and platform adoption to ensure compliance and avoid potential fines for businesses.",
       "source": "francenum.gouv.fr (Feb 2024)",
-      "calendar_tag": true
-    },
-    {
-      "id": "pennylane-germany-expansion-hiring",
-      "category": "Hiring",
-      "market": "DE",
-      "date": "Jul 2026",
-      "priority": "high",
-      "title": "Pennylane actively hiring for Country Manager and Tax Assistant roles in Germany",
-      "body": "Pennylane is actively recruiting for a Country Manager in Poland and a Tax Assistant in Germany, indicating a strong push for market penetration in these regions. The company aims to scale operations, increase market share, and expand into new segments within these countries.",
-      "implication": "Pennylane's direct hiring for key roles in Germany and Poland signals a serious commitment to these markets, posing a direct threat to Sage's planned launches and existing presence.",
-      "source": "Page Executive, Pennylane (Remote Job Listings) - Jul 2026"
-    },
-    {
-      "id": "XRechnung-mandate-clarification-2027-2028",
-      "category": "Regulatory",
-      "market": "DE",
-      "date": "June 2026",
-      "priority": "high",
-      "title": "Germany clarifies B2B e-invoicing mandate deadlines for 2027 and 2028",
-      "body": "From January 1, 2027, German businesses with prior-year revenue above €800,000 must issue structured electronic invoices. By January 1, 2028, this obligation extends to all VAT-registered businesses. Paper and PDF invoices will no longer suffice for in-scope businesses after December 31, 2026.",
-      "implication": "Increased urgency for businesses and their software providers to ensure XRechnung/ZUGFeRD compliance for B2B transactions, impacting Sage Active's Verifactu-certification in Spain.",
-      "source": "Tradeshift, June 10 2026",
       "calendar_tag": true
     }
   ]
