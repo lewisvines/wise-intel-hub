@@ -1,6 +1,6 @@
 {
   "meta": {
-    "last_updated": "2026-08-12",
+    "last_updated": "2026-08-13",
     "week_label": "Week of 10 Aug - 16 Aug 2026",
     "signal_count": 40,
     "prev_signal_count": 40,
@@ -28,20 +28,20 @@
     "eu_competitive_pct": 100,
     "eu_competitive_status": "green",
     "eu_competitive_label": "Live",
-    "last_scan": "2026-08-12T17:48:21.898894Z",
+    "last_scan": "2026-08-13T08:19:30.206552Z",
     "last_scan_summary": "Automated evidence scan completed: 2 new signals passed source, date and quality checks.",
     "scan_status": {
-      "date": "2026-08-12",
+      "date": "2026-08-13",
       "markets_scanned": [
-        "FR",
+        "ES",
         "DE"
       ],
       "markets_skipped": [],
       "signals_added": 2,
       "quality_filtered": 0,
       "summaries": {
-        "FR": "No new market signals were found for France in the past 48 hours related to the specified search terms.",
-        "DE": "The German market shows significant activity with Cegid's acquisition of sevdesk, a clear timeline for the B2B e-invoicing mandate, and a key competitor rebranding, indicating a dynamic and competitive landscape."
+        "ES": "Recent market signals for Spain show continued adaptation to Verifactu regulations, with software providers like Sage and Software DELSOL updating their offerings, and confirmed regulatory deadlines for 2027 providing a clearer compliance roadmap.",
+        "DE": "Recent market signals for Germany indicate increased competitive activity with Cegid's acquisition of sevdesk, a confirmed regulatory deadline for e-invoicing in 2028, and DATEV's strategic move towards cloud migration."
       }
     },
     "archived_count": 0,
@@ -49,38 +49,39 @@
   },
   "signals": [
     {
-      "id": "lexware-office-rebrand-from-lexoffice",
-      "category": "Competitive",
+      "id": "datev-cloud-migration-2026",
+      "category": "AI & Tech",
       "market": "DE",
-      "date": "2025-12-06",
-      "published_at": "2025-12-06",
-      "accessed_at": "2026-08-12",
+      "date": "2026-05-05",
+      "published_at": "2026-05-05",
+      "accessed_at": "2026-08-13",
       "priority": "watch",
-      "title": "Lexoffice rebrands to Lexware Office as part of Haufe Group's strategy",
-      "body": "Lexoffice, a cloud accounting software for the German market, has been rebranded to Lexware Office. This change is part of the Haufe Group's strategy to consolidate its accounting products under the established Lexware brand, aiming for a unified market experience and easier access to the broader Lexware product family.",
-      "implication": "The rebranding of Lexoffice to Lexware Office signifies a consolidation of efforts by the Haufe Group in the German SMB market. This could lead to increased investment and a more aggressive market push, potentially impacting Sage Active's market share.",
-      "source": "Haufe Group",
-      "source_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGxZ2dNHQDC1ZP1KKyXmq1pu2la2b_isvAPJGD-eY9Di6n8tcUgWQVnsnD86BVvYmsy9MsiQ17rlCQv2fIUP-h-tmmSOBnqmtZeWJejDu0u6eGSeE1nkD1PNj-FRbtjZeyOkNoifQab5KOPzWcnbBnLlr9eYQ9qGg==",
-      "source_type": "primary",
+      "title": "DATEV begins cloud migration of its on-premises software in Autumn 2026",
+      "body": "DATEV is migrating its on-premises software to a cloud-based delivery model, starting with the Kanzleimanagement (practice management) module in Autumn 2026. This migration will phase out on-premises versions over the coming years. While underlying data formats will remain compatible, interfaces and workflows will change.",
+      "implication": "DATEV's cloud migration could present an opportunity for Sage to position its cloud solutions as a modern alternative or to explore integration possibilities with DATEV's cloud offerings. It also signals a general market shift towards cloud in Germany.",
+      "source": "Facturwise",
+      "source_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFJG-W01VRJqdl6SqqryNHBGlkZE506ZU49c0jLX58GCaBoUV45Wu0Dz4N7WW7I71XldchXltl-o309H8xQEP1ONRDFUMBJZb7DbWVByzP3lNT2AhrdbfdtIl8bg0sYQ3TCbRyMGSFrfpL2dkJzgAGmxM3fRp82etvK5lKsb1ld-w==",
+      "source_type": "secondary",
       "evidence_status": "verified",
       "confidence": "high"
     },
     {
-      "id": "cegid-sevdesk-acquisition-germany",
-      "category": "Competitive",
-      "market": "DE",
-      "date": "2025-02-06",
-      "published_at": "2025-02-06",
-      "accessed_at": "2026-08-12",
+      "id": "verifactu-deadlines-confirmed-2027",
+      "category": "Regulatory",
+      "market": "ES",
+      "date": "2025-12-02",
+      "published_at": "2025-12-02",
+      "accessed_at": "2026-08-13",
       "priority": "high",
-      "title": "Cegid completes acquisition of sevdesk, strengthening DACH presence",
-      "body": "Cegid has finalized its acquisition of sevdesk, a German provider of pre-accounting, accounting, and e-invoicing software for SMBs. This move expands Cegid's footprint in the DACH region, appointing sevdesk's CEO as General Manager for Cegid's DACH operations. Sevdesk serves over 130,000 customers and supports over €85 billion in invoiced transactions.",
-      "implication": "Cegid's strengthened presence in Germany with a significant SMB customer base poses a direct competitive threat to Sage Active and Sage for Accountants in the region, especially with upcoming e-invoicing mandates.",
-      "source": "Cegid",
-      "source_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEcPR8C9P0he0Tl-du5DkQ9c7JxBcNeKx4Dnwicx-Duo432yAAx4tmbpjDpkQTW4dA1SWiV6RQM4D9Vo_ttSsSrjdBnEONXgBIC0KtnBs1xidmd8xz-dKQN2ooY399qPlU26BXNZAG29vG8f1kb0Z53s4WwkKs=",
-      "source_type": "primary",
+      "title": "Verifactu implementation delayed to January 2027 for companies, July 2027 for freelancers",
+      "body": "The Spanish government has postponed the mandatory implementation of Verifactu. Corporate Income Tax taxpayers must comply by January 1, 2027, and all other taxpayers (freelancers) by July 1, 2027. This postponement grants an additional 18-24 months for adaptation, though software manufacturers must still ensure certified software availability by July 29, 2025.",
+      "implication": "The confirmed deadlines for Verifactu provide clarity but also highlight the extended compliance window. This could allow competitors like Pennylane more time to establish themselves in the Spanish market before the full impact of Verifactu is felt.",
+      "source": "Marosa",
+      "source_url": "https://www.marosa.com/blog/verifactu-in-spain-what-it-is-how-it-works-and-implementation-deadlines-2025-guide/",
+      "source_type": "secondary",
       "evidence_status": "verified",
-      "confidence": "high"
+      "confidence": "high",
+      "calendar_tag": true
     },
     {
       "id": "pennylane-es-launch-imminent",
