@@ -22,6 +22,18 @@ fail(source.includes("document.querySelectorAll('.page-section').forEach(p => p.
   'navigation does not refresh the page list for late-declared decision pages');
 fail(source.includes('id="mobile-menu-btn"'), 'mobile navigation control is missing');
 fail(source.includes('#sidebar.mobile-open{transform:translateX(0);'), 'mobile sidebar open state is missing');
+fail(source.includes('data-page="signals"><span class="sb-dot"></span>All signals'),
+  'primary intelligence navigation is not labelled All signals');
+const requiredSignalFilters = [
+  'all','hiring','ai','launch','pricing','expansion','capital','partnership','marketing','regulatory'
+];
+for (const filter of requiredSignalFilters) {
+  fail(source.includes(`data-f="${filter}"`), `All signals is missing the ${filter} filter`);
+}
+fail(source.includes('card.dataset.c = signalFilterKey(sig);'),
+  'live signal cards are not connected to the strategic-move filters');
+fail(!source.includes('.filter(({ score }) => score >= 12)'),
+  'All signals still suppresses lower-ranked verified records');
 
 const openGroupPos = source.indexOf('function openGroupForPage');
 const showPagePos = source.indexOf('function showPage');

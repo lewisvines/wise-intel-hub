@@ -49,6 +49,11 @@ movement, while UK and US lanes import only signals with a specific European rea
   45 and Critical after 60; archived history is retained separately.
 - If evidence checks or validation fail, publication fails closed. If a scan finds no
   material move, it publishes only truthful scan health; it does not manufacture a signal.
+- The stakeholder interface uses one `All signals` view. It never hides a verified record
+  because of a client-side relevance score; users can filter the full active portfolio by
+  Hiring & capability, AI & automation, Product & feature launches, Pricing & packaging,
+  Market entry & expansion, Investment & M&A, Partnerships, Marketing & messaging, or
+  Regulation & compliance.
 
 ## Local validation
 

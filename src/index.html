@@ -1,4 +1,4 @@
-<!DOCTYPE html><!-- WiSE Intel Hub v13 - Dext and Qonto refresh 2026-08-05 -->
+<!DOCTYPE html><!-- WiSE Intel Hub v14 - all-signals taxonomy 2026-08-14 -->
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -123,9 +123,12 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:16
 .search-input-wrap input{background:none;border:none;outline:none;font-family:var(--body);font-size:13px;color:var(--text);width:100%;}
 .search-input-wrap input::placeholder{color:var(--text4);}
 .filter-pills{display:flex;gap:4px;flex-wrap:wrap;}
-.fp{font-family:var(--font);font-size:10px;font-weight:600;padding:5px 10px;border-radius:5px;border:1px solid var(--border);background:transparent;color:var(--text3);cursor:pointer;transition:all 0.12s;}
+.fp{font-family:var(--font);font-size:10px;font-weight:600;padding:5px 10px;border-radius:5px;border:1px solid var(--border);background:transparent;color:var(--text3);cursor:pointer;transition:all 0.12s;display:inline-flex;align-items:center;gap:6px;}
 .fp:hover{color:var(--text);border-color:var(--border2);}
 .fp.active{background:var(--g);color:#000;border-color:var(--g);}
+.fp-count{min-width:17px;padding:1px 5px;border-radius:999px;background:rgba(0,0,0,0.06);font-size:9px;line-height:1.4;text-align:center;}
+.fp.active .fp-count{background:rgba(0,0,0,0.14);}
+.signal-filter-empty{display:none;padding:22px;border:1px dashed var(--border2);border-radius:8px;color:var(--text3);font-size:12px;line-height:1.6;text-align:center;}
 
 /* ── SIGNAL CARDS ── */
 .signal-stack{display:flex;flex-direction:column;gap:8px;}
@@ -815,14 +818,11 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:16
    <span class="sb-group-icon">◈</span><span>Intelligence</span><span class="sb-group-arrow">›</span>
   </button>
   <div class="sb-group-body">
-   <button class="sb-link" data-page="signals"><span class="sb-dot"></span>Signals Feed</button>
+   <button class="sb-link" data-page="signals"><span class="sb-dot"></span>All signals</button>
    <button class="sb-link" data-page="battle-room"><span class="sb-dot"></span>Battle Room</button>
    <button class="sb-link" data-page="decisions"><span class="sb-dot"></span>Decisions &amp; Evidence</button>
    <button class="sb-link" data-page="weekly-brief"><span class="sb-dot"></span>Weekly Brief</button>
    <button class="sb-link" data-page="competitors"><span class="sb-dot"></span>Competitors</button>
-   <button class="sb-link" data-page="ai-watch"><span class="sb-dot"></span>AI Watch</button>
-   <button class="sb-link" data-page="hiring"><span class="sb-dot"></span>Hiring Signals</button>
-   <button class="sb-link" data-page="brand"><span class="sb-dot"></span>Brand Positioning</button>
    <button class="sb-link" data-page="regulatory"><span class="sb-dot"></span>Regulatory Calendar</button>
   </div>
  </div>
@@ -1284,9 +1284,9 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:16
 
 </div><div class="page-section" id="page-signals">
  <div class="page-header reveal">
- <div class="page-eyebrow"><span class="pulse-dot"></span>01 · Weekly Intelligence</div>
- <div class="page-title">What's moving in <em>the market</em></div>
- <div class="page-subtitle">Live signal feed with explicit source coverage, publication dates and verification status.</div>
+ <div class="page-eyebrow"><span class="pulse-dot"></span>01 · All signals</div>
+ <div class="page-title">See every material move, then <em>filter to the decision</em></div>
+ <div class="page-subtitle">One verified feed covering competitor capability, product, commercial and market moves—with exact dates, source coverage and European relevance.</div>
  </div>
 
  <!-- Live scan health indicator - populated by renderScanHealth(meta) -->
@@ -1306,39 +1306,22 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:16
 
  <div class="filter-bar reveal">
  <div class="search-input-wrap"><span style="color:var(--text4);font-size:13px;">⌕</span><input type="text" id="signal-search" placeholder="Search signals..."></div>
- <div class="filter-pills" id="signal-filters">
- <button class="fp active" data-f="all">All</button>
- <button class="fp" data-f="competitive">Competitive</button>
- <button class="fp" data-f="ai">AI & Tech</button>
- <button class="fp" data-f="regulatory">Regulatory</button>
- <button class="fp" data-f="pricing">Pricing</button>
- <button class="fp" data-f="brand">Brand</button>
- <button class="fp" data-f="hiring">Hiring</button>
+ <div class="filter-pills" id="signal-filters" role="tablist" aria-label="Filter all signals by strategic move">
+ <button class="fp active" data-f="all" role="tab" aria-selected="true">All signals <span class="fp-count">0</span></button>
+ <button class="fp" data-f="hiring" role="tab" aria-selected="false">Hiring &amp; capability <span class="fp-count">0</span></button>
+ <button class="fp" data-f="ai" role="tab" aria-selected="false">AI &amp; automation <span class="fp-count">0</span></button>
+ <button class="fp" data-f="launch" role="tab" aria-selected="false">Product &amp; feature launches <span class="fp-count">0</span></button>
+ <button class="fp" data-f="pricing" role="tab" aria-selected="false">Pricing &amp; packaging <span class="fp-count">0</span></button>
+ <button class="fp" data-f="expansion" role="tab" aria-selected="false">Market entry &amp; expansion <span class="fp-count">0</span></button>
+ <button class="fp" data-f="capital" role="tab" aria-selected="false">Investment &amp; M&amp;A <span class="fp-count">0</span></button>
+ <button class="fp" data-f="partnership" role="tab" aria-selected="false">Partnerships <span class="fp-count">0</span></button>
+ <button class="fp" data-f="marketing" role="tab" aria-selected="false">Marketing &amp; messaging <span class="fp-count">0</span></button>
+ <button class="fp" data-f="regulatory" role="tab" aria-selected="false">Regulation &amp; compliance <span class="fp-count">0</span></button>
  </div>
- </div>
-
- <div style="font-family:var(--font);font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--g);margin:18px 0 12px;" class="reveal">Editorial corrections · 5 Aug 2026</div>
- <div class="signal-stack reveal">
-
- <div class="signal-card" data-c="competitive">
- <div class="sc-top"><div class="sc-tags"><span class="tag t-red">Competitive</span><span class="tag t-grey">Dext</span></div><span class="sc-date">29 Jul 2026</span></div>
- <div class="sc-title"><strong>Dext is now on DGFiP's official PA list</strong> - the old capture-only objection is no longer defensible</div>
- <div class="sc-body">The DGFiP list, modified 29 July 2026, includes Dext among operators satisfying all conditions, including interoperability tests. Dext says its hybrid PA offer is delivered with Serensia, included in existing subscriptions at no extra cost, and already supports mandates, designation, receipt and issue of electronic invoices. E-reporting is still described as forthcoming.</div>
- <div class="sc-implication"><div class="sc-impl-label">Strategic implication</div><div class="sc-impl-body">PA status is now table stakes in the Dext comparison. Stop claiming a certification gap. Lead with what remains differentiated and provable: the native GE/SfA workflow, AutoEntry's verification model, and Sage's ability to connect capture, production and client accounting without a second operating layer.</div></div>
- <div class="sc-source">Sources: <a href="https://www.impots.gouv.fr/je-consulte-la-liste-des-plateformes-agreees" target="_blank" rel="noopener">DGFiP PA list, modified 29 Jul 2026</a> · <a href="https://help.dext.com/fr/articles/692764-la-reforme-de-la-facture-electronique-avec-dext" target="_blank" rel="noopener">Dext help centre, accessed 5 Aug 2026</a></div>
- </div>
-
- <div class="signal-card" data-c="competitive">
- <div class="sc-top"><div class="sc-tags"><span class="tag t-red">Competitive</span><span class="tag t-grey">Qonto</span></div><span class="sc-date">Jul 2026</span></div>
- <div class="sc-title"><strong>Qonto has shipped the accountant workflow around its PA</strong> - Regate migration risk is live, not prospective</div>
- <div class="sc-body">Qonto's July 2026 release gives accountants direct access to transactions, automatically synchronised PA invoices and AI-prefilled accounting codes. Its free Qonto Invoicing account is available to Regate clients by accountant invitation and includes accountant access for that cohort; it has no IBAN or payment transactions.</div>
- <div class="sc-implication"><div class="sc-impl-label">Strategic implication</div><div class="sc-impl-body">Qonto can now make its PA workflow visible to the accountant before selling a full banking account. Treat every unmigrated Regate practice as an active competitive exposure. The Sage response must prove accountant control and native GE/Active continuity in-product, not rely on a future lock-in warning.</div></div>
- <div class="sc-source">Sources: <a href="https://qonto.com/en/product/whats-new" target="_blank" rel="noopener">Qonto product releases, Jul 2026</a> · <a href="https://support-fr.qonto.com/hc/en-us/articles/33228571902865-What-is-the-free-Qonto-Invoicing-account" target="_blank" rel="noopener">Qonto help centre, updated 8 Jul 2026</a></div>
- </div>
-
  </div>
 
  <div class="signal-stack reveal" id="signal-list">
+ <div id="signal-filter-empty" class="signal-filter-empty">No active verified signals match this filter. A zero count is valid when no material move has passed the evidence gate.</div>
 
  <div class="signal-card" data-c="competitive">
  <div class="sc-top"><div class="sc-tags"><span class="tag t-red">Competitive</span><span class="tag t-grey">Pennylane</span></div><span class="sc-date">Jan 2026</span></div>
@@ -3131,19 +3114,64 @@ document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 // ── SIGNAL FILTERS ──
 let signalFilter = 'all';
 let signalSearch = '';
+function signalFilterKey(sig) {
+ const eventType = String(sig && sig.event_type || '').toLowerCase();
+ const eventMap = {
+  'hiring':'hiring',
+  'ai capability':'ai',
+  'launch':'launch',
+  'pricing':'pricing',
+  'expansion':'expansion',
+  'investment':'capital',
+  'm&a':'capital',
+  'partnership':'partnership',
+  'marketing':'marketing',
+  'messaging':'marketing',
+  'regulatory':'regulatory'
+ };
+ if (eventMap[eventType]) return eventMap[eventType];
+ const category = String(sig && sig.category || '').toLowerCase();
+ if (category.includes('hiring')) return 'hiring';
+ if (category.includes('ai')) return 'ai';
+ if (category.includes('pricing')) return 'pricing';
+ if (category.includes('regulatory')) return 'regulatory';
+ if (category.includes('partnership')) return 'partnership';
+ if (category.includes('m&a')) return 'capital';
+ if (category.includes('brand')) return 'marketing';
+ return 'other';
+}
+function updateSignalFilterCounts(signals) {
+ const counts = { all: signals.length };
+ signals.forEach(sig => {
+  const key = signalFilterKey(sig);
+  counts[key] = (counts[key] || 0) + 1;
+ });
+ document.querySelectorAll('#signal-filters .fp').forEach(btn => {
+  const count = btn.querySelector('.fp-count');
+  if (count) count.textContent = String(counts[btn.dataset.f] || 0);
+ });
+}
 function applySignalFilters() {
+ let visible = 0;
  document.querySelectorAll('#signal-list .signal-card').forEach(s => {
  const cat = s.dataset.c || '';
  const text = s.textContent.toLowerCase();
  const mc = signalFilter === 'all' || cat === signalFilter;
  const ms = !signalSearch || text.includes(signalSearch);
  s.style.display = mc && ms ? '' : 'none';
+ if (mc && ms) visible += 1;
  });
+ const empty = document.getElementById('signal-filter-empty');
+ if (empty) empty.style.display = visible ? 'none' : 'block';
 }
 document.querySelectorAll('#signal-filters .fp').forEach(btn => {
  btn.addEventListener('click', () => {
- document.querySelectorAll('#signal-filters .fp').forEach(b => b.classList.remove('active'));
+ document.querySelectorAll('#signal-filters .fp').forEach(b => {
+  b.classList.remove('active');
+  b.setAttribute('aria-selected', 'false');
+ });
  btn.classList.add('active');
+ btn.setAttribute('aria-selected', 'true');
  signalFilter = btn.dataset.f;
  applySignalFilters();
  });
@@ -3660,10 +3688,9 @@ async function loadLiveSignals() {
  sig.implication = clientScrubNames(sig.implication || '');
  });
 
- // Score, filter and sort by criticality then date
+ // All verified signals remain visible on this page; ranking changes order, not inclusion.
  const scored = activeSignals
  .map(sig => ({ sig, score: scoreSignal(sig), crit: clientCriticality(sig) }))
- .filter(({ score }) => score >= 12)
  .sort((a, b) => {
  // Primary: criticality (highest first = most strategically important)
  const critDiff = b.crit - a.crit;
@@ -3674,14 +3701,6 @@ async function loadLiveSignals() {
  return critDiff;
  })
   .slice(0, 42);
-
- if (scored.length === 0) {
- const fallback = activeSignals
- .map(sig => ({ sig, score: scoreSignal(sig), crit: clientCriticality(sig) }))
- .sort((a, b) => b.crit - a.crit || (b.sig.date||'').localeCompare(a.sig.date||''))
- .slice(0, 20);
- scored.push(...fallback);
- }
 
  const liveSection = document.createElement('div');
  liveSection.id = 'live-signals-block';
@@ -3697,6 +3716,7 @@ async function loadLiveSignals() {
  scored.forEach(({ sig, score, crit }) => {
  const card = document.createElement('div');
  card.className = 'signal-card';
+ card.dataset.c = signalFilterKey(sig);
  // Unverified discovery leads never receive a leadership urgency label.
  const evidenceBacked = isEvidenceBacked(sig);
  const urgency = !evidenceBacked ? 'var(--amber)' : crit >= 60 ? 'var(--red)' : crit >= 40 ? 'var(--amber)' : 'var(--g)';
@@ -3740,6 +3760,8 @@ async function loadLiveSignals() {
  const existing = document.getElementById('live-signals-block');
  if (existing) existing.remove();
  list.insertBefore(liveSection, list.firstChild);
+ updateSignalFilterCounts(scored.map(({ sig }) => sig));
+ applySignalFilters();
  } catch(e) {
  const pipeline = document.getElementById('trust-pipeline');
  if (pipeline) { pipeline.textContent = 'Unavailable'; pipeline.className = 'trust-v bad'; }
