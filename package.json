@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "validate": "node scripts/validate-hub.mjs"
+    "validate": "node scripts/validate-hub.mjs && node scripts/check-inline-js.mjs"
   },
   "dependencies": {
     "@netlify/blobs": "^8.0.0"

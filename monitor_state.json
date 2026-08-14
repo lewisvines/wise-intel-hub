@@ -1,0 +1,259 @@
+{
+  "meta": {
+    "schema_version": 1,
+    "note": "Official-page fingerprints are populated by the twice-daily scanner. A changed fingerprint is a research lead, never an auto-published signal.",
+    "last_checked_at": "2026-08-13T13:56:40.758513Z",
+    "pages_configured": 14,
+    "changes_pending_analysis": 0
+  },
+  "pages": {
+    "ee4d571729b6a917": {
+      "entity": "Pennylane",
+      "kind": "pricing",
+      "markets": [
+        "FR",
+        "EU"
+      ],
+      "url": "https://www.pennylane.com/fr/tarifs",
+      "last_checked_at": "2026-08-13T13:56:40.758513Z",
+      "status": "reachable",
+      "http_status": 200,
+      "resolved_url": "https://www.pennylane.com/fr/tarifs",
+      "content_fingerprint": "d81dda027f98964c4f5089761048bd3d35ff423d67adb24968510175bbf03877",
+      "source_content_sha256": "401fefd069afed447d795c1c9c4eb34810592704a0e4c1bdf8486327873060c1",
+      "first_observed_at": "2026-08-13",
+      "change_pending_analysis": false
+    },
+    "8b27c48a8a02a99e": {
+      "entity": "Pennylane",
+      "kind": "careers",
+      "markets": [
+        "FR",
+        "DE",
+        "EU"
+      ],
+      "url": "https://www.pennylane.com/fr/carrieres",
+      "last_checked_at": "2026-08-13T13:56:40.758513Z",
+      "status": "reachable",
+      "http_status": 200,
+      "resolved_url": "https://www.pennylane.com/fr/carrieres",
+      "content_fingerprint": "fb435f26995a851589b59c33dc31aef67a33476f7b8854ed3f4d38a0ad7fec1e",
+      "source_content_sha256": "8f562ce3df5357c9148d8763bfb789ad2787d7013b45941b084969ea53069fa9",
+      "first_observed_at": "2026-08-13",
+      "change_pending_analysis": false
+    },
+    "2c85f498e9adacb2": {
+      "entity": "Cegid",
+      "kind": "careers",
+      "markets": [
+        "FR",
+        "ES",
+        "DE",
+        "PT",
+        "EU"
+      ],
+      "url": "https://jobs.cegid.com/fr/annonces?page=1",
+      "last_checked_at": "2026-08-13T13:56:40.758513Z",
+      "status": "reachable",
+      "http_status": 200,
+      "resolved_url": "https://jobs.cegid.com/fr/annonces?page=1",
+      "content_fingerprint": "16aa1684261dab124dc702d93234fb382ed527ed496e4ec821f0283966b8628c",
+      "source_content_sha256": "0f73318ec93318d3dd4f2a710ede62e2751bf80dde646b64fef9ab43e2a86f99",
+      "first_observed_at": "2026-08-13",
+      "change_pending_analysis": false
+    },
+    "7241dfd1b279d294": {
+      "entity": "Qonto",
+      "kind": "pricing",
+      "markets": [
+        "FR",
+        "ES",
+        "DE",
+        "EU"
+      ],
+      "url": "https://qonto.com/fr/pricing",
+      "last_checked_at": "2026-08-13T13:56:40.758513Z",
+      "status": "reachable",
+      "http_status": 200,
+      "resolved_url": "https://qonto.com/fr/pricing",
+      "content_fingerprint": "752fdd5fc5c9835807eebf746c4dd515f5c5bb9fec47f73cdfeecbfc194daada",
+      "source_content_sha256": "87c87aa3e2ea586e678d9acaa30e4603b9798c55f7616596f8792dc1fae2149f",
+      "first_observed_at": "2026-08-13",
+      "change_pending_analysis": false
+    },
+    "677d42ca322186c4": {
+      "entity": "Qonto",
+      "kind": "careers",
+      "markets": [
+        "FR",
+        "ES",
+        "DE",
+        "EU"
+      ],
+      "url": "https://qonto.com/fr/careers",
+      "last_checked_at": "2026-08-13T13:56:40.758513Z",
+      "status": "reachable",
+      "http_status": 200,
+      "resolved_url": "https://qonto.com/fr/careers",
+      "content_fingerprint": "2dfc095b2447dfcdbbd9d8c4c58d5cb50801e7f23ad38d09b3109051abbbf677",
+      "source_content_sha256": "faf9cd87efcaee303a7bc74c7e6407be158ccdb06225fdadae5502541c00053e",
+      "first_observed_at": "2026-08-13",
+      "change_pending_analysis": false
+    },
+    "6a7b6ed201b21e94": {
+      "entity": "Holded",
+      "kind": "pricing",
+      "markets": [
+        "ES"
+      ],
+      "url": "https://www.holded.com/es/precios",
+      "last_checked_at": "2026-08-13T13:56:40.758513Z",
+      "status": "reachable",
+      "http_status": 200,
+      "resolved_url": "https://www.holded.com/es/precios",
+      "content_fingerprint": "0d2cac28aedf0aadcdacdf019294f5ebbbb4299ed23f03999d89d0bea58d254b",
+      "source_content_sha256": "3b40c104d4d43ffbed9eb561981acc3518a634595620b29b7dc1b0648a46e555",
+      "first_observed_at": "2026-08-13",
+      "change_pending_analysis": false
+    },
+    "f6cf9f97ad86a9c0": {
+      "entity": "Holded",
+      "kind": "careers",
+      "markets": [
+        "ES"
+      ],
+      "url": "https://jobs.holded.com/",
+      "last_checked_at": "2026-08-13T13:56:40.758513Z",
+      "status": "reachable",
+      "http_status": 200,
+      "resolved_url": "https://jobs.holded.com/",
+      "content_fingerprint": "152a1ee56d300cfb2e5e94501bb822822a3dd0f4cca720193802bb0a594593c2",
+      "source_content_sha256": "f370dfa201476595b24559ce16706bb928176097a9da1d8eb84752457361893c",
+      "first_observed_at": "2026-08-13",
+      "change_pending_analysis": false
+    },
+    "ca597147cef8c5a8": {
+      "entity": "sevdesk",
+      "kind": "pricing",
+      "markets": [
+        "DE"
+      ],
+      "url": "https://sevdesk.de/preise/",
+      "last_checked_at": "2026-08-13T13:56:40.758513Z",
+      "status": "reachable",
+      "http_status": 200,
+      "resolved_url": "https://sevdesk.de/preise/",
+      "content_fingerprint": "66d39251125418febaa498ab7d10dcd97aedd959bc2f96a9ad546e7567177203",
+      "source_content_sha256": "bb42e2f91080da9792f8d2e080292d762a6581508ba481d61cda6e663822a0b1",
+      "first_observed_at": "2026-08-13",
+      "change_pending_analysis": false
+    },
+    "b8e6cba1604a9bd9": {
+      "entity": "Lexware Office",
+      "kind": "pricing",
+      "markets": [
+        "DE"
+      ],
+      "url": "https://www.lexware.de/preise/",
+      "last_checked_at": "2026-08-13T13:56:40.758513Z",
+      "status": "reachable",
+      "http_status": 200,
+      "resolved_url": "https://www.lexware.de/preise/",
+      "content_fingerprint": "0fe3bf339d182766ed63c4264d21f3b3dc997e1ec2706998224668b3ccbfc59b",
+      "source_content_sha256": "7fd9a33edb72a635dacd184a4ddad455984b93bd6bc3c57ff99b485b77c3aa5d",
+      "first_observed_at": "2026-08-13",
+      "change_pending_analysis": false
+    },
+    "9d7b0582741c799e": {
+      "entity": "Pennylane",
+      "kind": "newsroom",
+      "markets": [
+        "FR",
+        "DE",
+        "EU"
+      ],
+      "url": "https://www.pennylane.com/fr/blog/pennylane-news",
+      "last_checked_at": "2026-08-13T13:56:40.758513Z",
+      "status": "reachable",
+      "http_status": 200,
+      "resolved_url": "https://www.pennylane.com/fr/blog/pennylane-news",
+      "content_fingerprint": "c56fbd4af234907d185955fda92dea39cd6d860450743be657e094e7b369a4e6",
+      "source_content_sha256": "ae7bf7feea83e04f6167dbc256f3a69560c458139c81bc5a589d7883c06287f7",
+      "first_observed_at": "2026-08-13",
+      "change_pending_analysis": false
+    },
+    "7c05cbc402f57111": {
+      "entity": "Pennylane",
+      "kind": "events",
+      "markets": [
+        "FR",
+        "EU"
+      ],
+      "url": "https://www.pennylane.com/fr/evenements",
+      "last_checked_at": "2026-08-13T13:56:40.758513Z",
+      "status": "reachable",
+      "http_status": 200,
+      "resolved_url": "https://www.pennylane.com/fr/evenements",
+      "content_fingerprint": "91647787428af9685afe1d2022f300d1c5915a14f14b8775c5387831fd0cfa15",
+      "source_content_sha256": "1e2b7ce1d4b51bfdfb84481a85171a357c60ef532e881beedba3980a15a250a2",
+      "first_observed_at": "2026-08-13",
+      "change_pending_analysis": false
+    },
+    "73053bee0baa4a70": {
+      "entity": "Cegid",
+      "kind": "newsroom",
+      "markets": [
+        "FR",
+        "ES",
+        "DE",
+        "PT",
+        "EU"
+      ],
+      "url": "https://www.cegid.com/fr/communique-presse/?lang=en",
+      "last_checked_at": "2026-08-13T13:56:40.758513Z",
+      "status": "reachable",
+      "http_status": 200,
+      "resolved_url": "https://www.cegid.com/fr/communique-presse/?lang=en",
+      "content_fingerprint": "fe8f8b4468b3aaf70c4e5bdb33b7c5348477bcf6b11df48d899a4b3d48814fd8",
+      "source_content_sha256": "38d72d06c778edf6a6ea3f2fc0e8c643d9665bd8bb44399f8b9b93d2a53079ca",
+      "first_observed_at": "2026-08-13",
+      "change_pending_analysis": false
+    },
+    "c221e2da75e2111a": {
+      "entity": "Qonto",
+      "kind": "newsroom",
+      "markets": [
+        "FR",
+        "ES",
+        "DE",
+        "PT",
+        "EU"
+      ],
+      "url": "https://qonto.com/fr/press",
+      "last_checked_at": "2026-08-13T13:56:40.758513Z",
+      "status": "reachable",
+      "http_status": 200,
+      "resolved_url": "https://qonto.com/fr/press",
+      "content_fingerprint": "fdd273210ecefd944454a282118322b0f85e70d1c69a48c264b0df8093da8beb",
+      "source_content_sha256": "78a5c2cbd1100394112ec493add3cd811918f59ab6a6ae84a62fabc1fb97823d",
+      "first_observed_at": "2026-08-13",
+      "change_pending_analysis": false
+    },
+    "c1d8e1c16d9e7d44": {
+      "entity": "Holded",
+      "kind": "newsroom",
+      "markets": [
+        "ES"
+      ],
+      "url": "https://www.holded.com/es/blog/categoria/holded",
+      "last_checked_at": "2026-08-13T13:56:40.758513Z",
+      "status": "reachable",
+      "http_status": 200,
+      "resolved_url": "https://www.holded.com/es/blog/categoria/holded",
+      "content_fingerprint": "71c7cb54011174b9c1d4eede28c912feafd644bb03b416e66e6745424e45b3b7",
+      "source_content_sha256": "f1977eb0d8ce334447a9da283d1e937a7ddadf1e30e3cfd9937b624a748e298b",
+      "first_observed_at": "2026-08-13",
+      "change_pending_analysis": false
+    }
+  }
+}

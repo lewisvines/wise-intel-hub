@@ -8,6 +8,7 @@ on:
       - 'src/index.html'
       - 'signals.json'
       - 'scripts/validate-hub.mjs'
+      - 'scripts/check-inline-js.mjs'
       - '.github/scripts/scan_signals.py'
       - '.github/workflows/**'
       - 'package.json'
@@ -28,6 +29,8 @@ jobs:
         with:
           python-version: '3.11'
       - name: Validate hub and signal feed
-        run: node scripts/validate-hub.mjs
-      - name: Validate scanner syntax
-        run: python -m py_compile .github/scripts/scan_signals.py
+        run: npm run validate
+      - name: Validate scanner and quality gates
+        run: |
+          python -m py_compile .github/scripts/scan_signals.py .github/scripts/test_scan_signals.py
+          python .github/scripts/test_scan_signals.py

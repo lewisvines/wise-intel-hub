@@ -1,0 +1,72 @@
+{
+  "monitoring_lenses": [
+    "hiring",
+    "marketing",
+    "launches",
+    "pricing",
+    "messaging",
+    "expansion_investment"
+  ],
+  "materiality": {
+    "pricing_percent_threshold": 10,
+    "active_verified_limit": 42,
+    "per_competitor_limit": 4,
+    "notes": "The active feed is a balanced decision portfolio, not a volume target. No-change scans are healthy."
+  },
+  "lane_limits": {
+    "FR": 10,
+    "ES": 6,
+    "DE": 6,
+    "PT": 6,
+    "EU": 7,
+    "GB": 4,
+    "US": 3
+  },
+  "watch_pages": [
+    {"entity": "Pennylane", "kind": "pricing", "markets": ["FR", "EU"], "url": "https://www.pennylane.com/fr/tarifs"},
+    {"entity": "Pennylane", "kind": "careers", "markets": ["FR", "DE", "EU"], "url": "https://www.pennylane.com/fr/carrieres"},
+    {"entity": "Pennylane", "kind": "newsroom", "markets": ["FR", "DE", "EU"], "url": "https://www.pennylane.com/fr/blog/pennylane-news"},
+    {"entity": "Pennylane", "kind": "events", "markets": ["FR", "EU"], "url": "https://www.pennylane.com/fr/evenements"},
+    {"entity": "Cegid", "kind": "careers", "markets": ["FR", "ES", "DE", "PT", "EU"], "url": "https://jobs.cegid.com/fr/annonces?page=1"},
+    {"entity": "Cegid", "kind": "newsroom", "markets": ["FR", "ES", "DE", "PT", "EU"], "url": "https://www.cegid.com/fr/communique-presse/?lang=en"},
+    {"entity": "Qonto", "kind": "pricing", "markets": ["FR", "ES", "DE", "EU"], "url": "https://qonto.com/fr/pricing"},
+    {"entity": "Qonto", "kind": "careers", "markets": ["FR", "ES", "DE", "EU"], "url": "https://qonto.com/fr/careers"},
+    {"entity": "Qonto", "kind": "newsroom", "markets": ["FR", "ES", "DE", "PT", "EU"], "url": "https://qonto.com/fr/press"},
+    {"entity": "Holded", "kind": "pricing", "markets": ["ES"], "url": "https://www.holded.com/es/precios"},
+    {"entity": "Holded", "kind": "careers", "markets": ["ES"], "url": "https://jobs.holded.com/"},
+    {"entity": "Holded", "kind": "newsroom", "markets": ["ES"], "url": "https://www.holded.com/es/blog/categoria/holded"},
+    {"entity": "sevdesk", "kind": "pricing", "markets": ["DE"], "url": "https://sevdesk.de/preise/"},
+    {"entity": "Lexware Office", "kind": "pricing", "markets": ["DE"], "url": "https://www.lexware.de/preise/"}
+  ],
+  "competitors": [
+    {"name": "Pennylane", "tier": 1, "markets": ["FR", "ES", "DE", "EU"], "official_domains": ["pennylane.com"]},
+    {"name": "Cegid", "tier": 1, "markets": ["FR", "ES", "DE", "PT", "EU"], "official_domains": ["cegid.com"]},
+    {"name": "EBP", "tier": 1, "markets": ["FR"], "official_domains": ["ebp.com"]},
+    {"name": "MyUnisoft", "tier": 1, "markets": ["FR"], "official_domains": ["myunisoft.fr"]},
+    {"name": "Qonto", "tier": 1, "markets": ["FR", "ES", "DE", "EU"], "official_domains": ["qonto.com"]},
+    {"name": "Regate", "tier": 1, "markets": ["FR", "EU"], "official_domains": ["regate.io"]},
+    {"name": "Dext", "tier": 1, "markets": ["FR", "GB", "EU"], "official_domains": ["dext.com"]},
+    {"name": "Holded", "tier": 1, "markets": ["ES", "EU"], "official_domains": ["holded.com"]},
+    {"name": "Visma", "tier": 1, "markets": ["ES", "EU"], "official_domains": ["visma.com"]},
+    {"name": "sevdesk", "tier": 1, "markets": ["DE", "EU"], "official_domains": ["sevdesk.de"]},
+    {"name": "DATEV", "tier": 1, "markets": ["DE"], "official_domains": ["datev.de"]},
+    {"name": "Lexware Office", "tier": 1, "markets": ["DE"], "official_domains": ["lexware.de"]},
+    {"name": "PHC", "tier": 1, "markets": ["PT"], "official_domains": ["phcsoftware.com"]},
+    {"name": "TOConline", "tier": 1, "markets": ["PT"], "official_domains": ["toconline.pt"]},
+    {"name": "Wolters Kluwer", "tier": 2, "markets": ["ES", "DE", "EU"], "official_domains": ["wolterskluwer.com"]},
+    {"name": "IRIS", "tier": 2, "markets": ["GB"], "official_domains": ["iris.co.uk"]},
+    {"name": "Xero", "tier": 2, "markets": ["GB", "US", "EU"], "official_domains": ["xero.com"]},
+    {"name": "Intuit QuickBooks", "tier": 2, "markets": ["GB", "US", "EU"], "official_domains": ["intuit.com", "quickbooks.intuit.com"]},
+    {"name": "FreeAgent", "tier": 2, "markets": ["GB"], "official_domains": ["freeagent.com"]},
+    {"name": "Microsoft", "tier": 3, "markets": ["US", "EU"], "official_domains": ["microsoft.com"]},
+    {"name": "OpenAI", "tier": 3, "markets": ["US", "EU"], "official_domains": ["openai.com"]},
+    {"name": "Anthropic", "tier": 3, "markets": ["US", "EU"], "official_domains": ["anthropic.com"]}
+  ],
+  "regulatory_anchors": [
+    {"name": "France e-invoicing", "markets": ["FR"], "effective_dates": ["2026-09-01", "2027-09-01"], "themes": ["PA", "e-invoicing", "e-reporting", "Factur-X"]},
+    {"name": "Spain VeriFactu and e-invoicing", "markets": ["ES"], "themes": ["VeriFactu", "Facturae", "e-invoicing"]},
+    {"name": "Germany B2B e-invoicing", "markets": ["DE"], "effective_dates": ["2027-01-01", "2028-01-01"], "themes": ["E-Rechnung", "XRechnung", "ZUGFeRD"]},
+    {"name": "Portugal invoicing and SAF-T", "markets": ["PT"], "themes": ["SAF-T", "ATCUD", "QES", "e-invoicing"]},
+    {"name": "EU digital tax and AI", "markets": ["EU"], "themes": ["ViDA", "EU AI Act", "e-invoicing", "digital reporting"]}
+  ]
+}

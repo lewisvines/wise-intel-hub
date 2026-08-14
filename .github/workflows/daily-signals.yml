@@ -2,6 +2,8 @@ name: WiSE Daily Signal Scanner
 
 on:
   schedule:
+    # Twice daily. GitHub schedules use UTC: 08:00/18:00 UK summer time,
+    # 07:00/17:00 UK winter time.
     - cron: '0 7 * * *'
     - cron: '0 17 * * *'
   workflow_dispatch:
@@ -9,9 +11,14 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: wise-signal-scanner
+  cancel-in-progress: false
+
 jobs:
   scan-signals:
     runs-on: ubuntu-latest
+    timeout-minutes: 25
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
@@ -26,15 +33,23 @@ jobs:
       - name: Run signal scanner
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          PYTHONUNBUFFERED: '1'
         run: python .github/scripts/scan_signals.py
 
-      - name: Validate evidence and feed integrity
-        run: node scripts/validate-hub.mjs
+      - name: Test scanner quality gates
+        run: python .github/scripts/test_scan_signals.py
 
-      - name: Commit updated signals.json
+      - name: Validate evidence, coverage and feed integrity
+        run: npm run validate
+
+      - name: Commit verified feed and official-page watch state
         run: |
           git config user.name "WiSE Signal Bot"
           git config user.email "wise-bot@lewisvines.github.io"
-          git add signals.json
-          git diff --staged --quiet || git commit -m "chore: daily signal scan $(date -u '+%Y-%m-%d %H:%M UTC')"
+          git add signals.json monitor_state.json
+          if git diff --staged --quiet; then
+            echo "No feed or scan-health change to publish."
+            exit 0
+          fi
+          git commit -m "chore: twice-daily verified signal scan $(date -u '+%Y-%m-%d %H:%M UTC')"
           git push origin main

@@ -1,4 +1,4 @@
-<!DOCTYPE html><!-- WiSE Intel Hub v12 - trust-first refresh 2026-08-03 -->
+<!DOCTYPE html><!-- WiSE Intel Hub v14 - all-signals taxonomy 2026-08-14 -->
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -123,9 +123,12 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:16
 .search-input-wrap input{background:none;border:none;outline:none;font-family:var(--body);font-size:13px;color:var(--text);width:100%;}
 .search-input-wrap input::placeholder{color:var(--text4);}
 .filter-pills{display:flex;gap:4px;flex-wrap:wrap;}
-.fp{font-family:var(--font);font-size:10px;font-weight:600;padding:5px 10px;border-radius:5px;border:1px solid var(--border);background:transparent;color:var(--text3);cursor:pointer;transition:all 0.12s;}
+.fp{font-family:var(--font);font-size:10px;font-weight:600;padding:5px 10px;border-radius:5px;border:1px solid var(--border);background:transparent;color:var(--text3);cursor:pointer;transition:all 0.12s;display:inline-flex;align-items:center;gap:6px;}
 .fp:hover{color:var(--text);border-color:var(--border2);}
 .fp.active{background:var(--g);color:#000;border-color:var(--g);}
+.fp-count{min-width:17px;padding:1px 5px;border-radius:999px;background:rgba(0,0,0,0.06);font-size:9px;line-height:1.4;text-align:center;}
+.fp.active .fp-count{background:rgba(0,0,0,0.14);}
+.signal-filter-empty{display:none;padding:22px;border:1px dashed var(--border2);border-radius:8px;color:var(--text3);font-size:12px;line-height:1.6;text-align:center;}
 
 /* ── SIGNAL CARDS ── */
 .signal-stack{display:flex;flex-direction:column;gap:8px;}
@@ -815,14 +818,11 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:16
    <span class="sb-group-icon">◈</span><span>Intelligence</span><span class="sb-group-arrow">›</span>
   </button>
   <div class="sb-group-body">
-   <button class="sb-link" data-page="signals"><span class="sb-dot"></span>Signals Feed</button>
+   <button class="sb-link" data-page="signals"><span class="sb-dot"></span>All signals</button>
    <button class="sb-link" data-page="battle-room"><span class="sb-dot"></span>Battle Room</button>
    <button class="sb-link" data-page="decisions"><span class="sb-dot"></span>Decisions &amp; Evidence</button>
    <button class="sb-link" data-page="weekly-brief"><span class="sb-dot"></span>Weekly Brief</button>
    <button class="sb-link" data-page="competitors"><span class="sb-dot"></span>Competitors</button>
-   <button class="sb-link" data-page="ai-watch"><span class="sb-dot"></span>AI Watch</button>
-   <button class="sb-link" data-page="hiring"><span class="sb-dot"></span>Hiring Signals</button>
-   <button class="sb-link" data-page="brand"><span class="sb-dot"></span>Brand Positioning</button>
    <button class="sb-link" data-page="regulatory"><span class="sb-dot"></span>Regulatory Calendar</button>
   </div>
  </div>
@@ -930,7 +930,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:16
   <div class="today-card"><div class="today-k">Decisions needed</div><div id="today-decisions"></div></div>
  </div>
 
- <div class="truth-note reveal"><strong>Evidence rule:</strong> a signal is “verified” here only when it carries a direct source URL and an exact publication date. Older records remain searchable as legacy intelligence, but are excluded from the verified Today view until rechecked.</div>
+ <div class="truth-note reveal"><strong>Evidence rule:</strong> a signal is “verified” here only after the scanner reaches a direct evidence page, matches the claim and figures to that page, confirms exact dates, checks European relevance and rejects duplicates. Older records remain searchable as legacy intelligence, but are excluded from the verified Today view until rechecked.</div>
 
  <!-- MANDATE COUNTDOWN -->
  <div class="dash-card green reveal" style="margin-bottom:20px;display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:20px;padding:24px;">
@@ -1284,9 +1284,9 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:16
 
 </div><div class="page-section" id="page-signals">
  <div class="page-header reveal">
- <div class="page-eyebrow"><span class="pulse-dot"></span>01 · Weekly Intelligence</div>
- <div class="page-title">What's moving in <em>the market</em></div>
- <div class="page-subtitle">Live signal feed with explicit source coverage, publication dates and verification status.</div>
+ <div class="page-eyebrow"><span class="pulse-dot"></span>01 · All signals</div>
+ <div class="page-title">See every material move, then <em>filter to the decision</em></div>
+ <div class="page-subtitle">One verified feed covering competitor capability, product, commercial and market moves—with exact dates, source coverage and European relevance.</div>
  </div>
 
  <!-- Live scan health indicator - populated by renderScanHealth(meta) -->
@@ -1306,18 +1306,22 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:16
 
  <div class="filter-bar reveal">
  <div class="search-input-wrap"><span style="color:var(--text4);font-size:13px;">⌕</span><input type="text" id="signal-search" placeholder="Search signals..."></div>
- <div class="filter-pills" id="signal-filters">
- <button class="fp active" data-f="all">All</button>
- <button class="fp" data-f="competitive">Competitive</button>
- <button class="fp" data-f="ai">AI & Tech</button>
- <button class="fp" data-f="regulatory">Regulatory</button>
- <button class="fp" data-f="pricing">Pricing</button>
- <button class="fp" data-f="brand">Brand</button>
- <button class="fp" data-f="hiring">Hiring</button>
+ <div class="filter-pills" id="signal-filters" role="tablist" aria-label="Filter all signals by strategic move">
+ <button class="fp active" data-f="all" role="tab" aria-selected="true">All signals <span class="fp-count">0</span></button>
+ <button class="fp" data-f="hiring" role="tab" aria-selected="false">Hiring &amp; capability <span class="fp-count">0</span></button>
+ <button class="fp" data-f="ai" role="tab" aria-selected="false">AI &amp; automation <span class="fp-count">0</span></button>
+ <button class="fp" data-f="launch" role="tab" aria-selected="false">Product &amp; feature launches <span class="fp-count">0</span></button>
+ <button class="fp" data-f="pricing" role="tab" aria-selected="false">Pricing &amp; packaging <span class="fp-count">0</span></button>
+ <button class="fp" data-f="expansion" role="tab" aria-selected="false">Market entry &amp; expansion <span class="fp-count">0</span></button>
+ <button class="fp" data-f="capital" role="tab" aria-selected="false">Investment &amp; M&amp;A <span class="fp-count">0</span></button>
+ <button class="fp" data-f="partnership" role="tab" aria-selected="false">Partnerships <span class="fp-count">0</span></button>
+ <button class="fp" data-f="marketing" role="tab" aria-selected="false">Marketing &amp; messaging <span class="fp-count">0</span></button>
+ <button class="fp" data-f="regulatory" role="tab" aria-selected="false">Regulation &amp; compliance <span class="fp-count">0</span></button>
  </div>
  </div>
 
  <div class="signal-stack reveal" id="signal-list">
+ <div id="signal-filter-empty" class="signal-filter-empty">No active verified signals match this filter. A zero count is valid when no material move has passed the evidence gate.</div>
 
  <div class="signal-card" data-c="competitive">
  <div class="sc-top"><div class="sc-tags"><span class="tag t-red">Competitive</span><span class="tag t-grey">Pennylane</span></div><span class="sc-date">Jan 2026</span></div>
@@ -1549,8 +1553,8 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:16
 
  <div class="signal-card" style="border-left:3px solid var(--amber);">
  <div class="sc-top"><div class="sc-tags"><span class="tag t-amber">High</span><span class="tag t-grey">FR</span></div></div>
- <div class="sc-title"><strong>Regate / Qonto</strong> - A migration threat hiding in plain sight</div>
- <div class="sc-body">Qonto acquired Regate, combining business banking + pre-accounting + PA registration. Practices on Regate today are being absorbed into Qonto's ecosystem - which has its own PA registration and banking. Each Regate practice that doesn't migrate to Active is a practice that builds its compliance workflow with Qonto instead.<br><br><strong>How to beat it:</strong> "Regate practices need a PA solution for September 2026. Qonto will offer them one - but it locks your clients into a banking relationship, not an accounting one. Sage Active keeps you as the accountant at the centre. Move Regate clients to Active now - before Qonto makes them a banking customer who doesn't need you."</div>
+ <div class="sc-title"><strong>Regate / Qonto</strong> - A live accountant-workflow threat, not just a migration risk</div>
+ <div class="sc-body">Qonto now gives accountants direct transaction access, automatically synchronised PA invoices and AI-prefilled accounting codes. Its free invoicing account is available to Regate clients by accountant invitation, creating a low-friction route into Qonto's financial-management layer without first requiring a Qonto IBAN.<br><br><strong>How to beat it:</strong> "Qonto has built a credible accountant workflow. Sage's advantage must be demonstrated inside the production process: native GE and Active continuity, verified document handling, and the accountant retaining control of the client relationship. Move Regate practices while Sage can still prove that workflow side by side."</div>
  </div>
 
  <div class="signal-card" style="border-left:3px solid var(--amber);">
@@ -1581,7 +1585,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:16
  </div>
  <div class="country-block">
  <div class="cb-title">Dext <span class="tag t-grey">EU Expansion</span></div>
- <div class="cb-body">AutoEntry's primary UK competitor. Growing EU presence in document capture. No PA registration. No Factur-X processing. Good accountant relationships in UK. If Dext builds EU compliance infrastructure, it becomes a direct AutoEntry competitor across all 4 WiSE markets. Monitor: Dext EU job postings are the leading indicator.</div>
+ <div class="cb-body">AutoEntry's primary UK competitor is now an officially listed French PA through a hybrid offer with Serensia. Dext says PA access is included in existing subscriptions and that mandates, designation, receipt and issue are live; e-reporting remains forthcoming. The watch question has moved from whether Dext will build French compliance to how quickly it converts existing accountant relationships into PA designations.</div>
  </div>
  <div class="country-block">
  <div class="cb-title">Contasol / Delsol <span class="tag t-grey">ES Price threat</span></div>
@@ -2517,14 +2521,14 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:16
  <div class="bc-col-header">Sage responds</div>
  <div class="bc-row">AutoEntry's human verification layer gives a verified accuracy rate - not AI-only OCR that makes plausible errors on French tax documents. For PA submissions, a verified invoice is a legally different document to an AI-processed one.</div>
  <div class="bc-row">AutoEntry is built into SfA - no separate app purchase, no separate login, no separate contract. For GE practices, it's part of the workflow already.</div>
- <div class="bc-row">Dext has no French PA certification, no Factur-X processing, no DGFiP registration. For September 2026, Dext is a capture tool. AutoEntry + AKAO is the PA-certified e-invoicing bridge.</div>
+ <div class="bc-row">Dext is on DGFiP's official PA list and says receipt and issue are live through its hybrid offer with Serensia; e-reporting is still forthcoming. PA registration is no longer a Sage-only counter-position.</div>
  <div class="bc-row">AutoEntry's credit model is better for variable-volume practices - you pay for what you process. Dext's per-client subscription charges even during quiet months.</div>
  <div class="bc-row">AutoEntry integrates natively with GE, Active, and the Sage ecosystem. Dext's "works with Sage" is an API integration, not a native workflow. The difference matters at month-end.</div>
  </div>
  </div>
  <div class="bc-killer">
  <div class="bc-killer-label">The killer line</div>
- <div class="bc-killer-line">"Dext is a great capture tool for Xero practices in the UK. For French e-invoicing compliance in September 2026, you need a DGFiP-registered PA, Factur-X processing, and a native GE integration. AutoEntry + AKAO is the only complete French compliance bridge. Dext doesn't have a single element of that."</div>
+ <div class="bc-killer-line">"Dext can now cover the PA requirement. The decision is whether you want a separate capture-and-PA layer or a verified workflow connected to the Sage production system your practice already runs. Make Dext prove the month-end hand-off; Sage should prove it in the native GE/SfA workflow."</div>
  </div>
  </div>
 
@@ -2886,7 +2890,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:16
  <table class="data-table">
  <thead><tr><th style="min-width:160px;">Claim</th><th>Proof Point</th><th>Competitor this beats</th><th>Source</th></tr></thead>
  <tbody>
- <tr><td class="td-name">Sage is DGFiP-registered PA</td><td>One of only ~30 registered PAs in France. Active + AutoEntry/AKAO forms the complete e-invoicing bridge.</td><td>Dext, Conciliator, Holded (all have zero PA)</td><td>DGFiP official register</td></tr>
+ <tr><td class="td-name">Sage is on DGFiP's official PA list</td><td>Sage appears on the official list of operators satisfying all conditions, including interoperability tests. Active + AutoEntry/AKAO forms Sage's e-invoicing bridge.</td><td>PA status is table stakes: Dext, Qonto, Pennylane, Cegid and other material rivals are also listed.</td><td><a href="https://www.impots.gouv.fr/je-consulte-la-liste-des-plateformes-agreees" target="_blank" rel="noopener">DGFiP official list · modified 29 Jul 2026</a></td></tr>
  <tr><td class="td-name">Active Essentials beats Holded on price AND features</td><td>More users, payroll included, Verifactu-certified, Modelo 303, Verifactu-certified) vs Holded Advanced Holded Advanced pricing (7 users, no payroll, Verifactu "in progress")</td><td>Holded / Visma</td><td>Confirmed Spain channel pricing · Holded.com</td></tr>
  <tr><td class="td-name">Pennylane raised to acquire legacy tools</td><td>€175M Series E Jan 2026. CEO explicitly stated plans to acquire "historical accounting software that has not made the shift to SaaS".</td><td>Pennylane (turns their M&A against them)</td><td>TechFundingNews / Sifted Jan 2026</td></tr>
  <tr><td class="td-name">Cegid has 100 new reps targeting GE practices</td><td>LinkedIn confirms 100 commercial hires (Lyon + Boulogne) starting Q2 2026, explicitly targeting French accountant market.</td><td>Cegid (creates urgency to move first)</td><td>LinkedIn (refreshed May 2026)</td></tr>
@@ -3110,19 +3114,64 @@ document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 // ── SIGNAL FILTERS ──
 let signalFilter = 'all';
 let signalSearch = '';
+function signalFilterKey(sig) {
+ const eventType = String(sig && sig.event_type || '').toLowerCase();
+ const eventMap = {
+  'hiring':'hiring',
+  'ai capability':'ai',
+  'launch':'launch',
+  'pricing':'pricing',
+  'expansion':'expansion',
+  'investment':'capital',
+  'm&a':'capital',
+  'partnership':'partnership',
+  'marketing':'marketing',
+  'messaging':'marketing',
+  'regulatory':'regulatory'
+ };
+ if (eventMap[eventType]) return eventMap[eventType];
+ const category = String(sig && sig.category || '').toLowerCase();
+ if (category.includes('hiring')) return 'hiring';
+ if (category.includes('ai')) return 'ai';
+ if (category.includes('pricing')) return 'pricing';
+ if (category.includes('regulatory')) return 'regulatory';
+ if (category.includes('partnership')) return 'partnership';
+ if (category.includes('m&a')) return 'capital';
+ if (category.includes('brand')) return 'marketing';
+ return 'other';
+}
+function updateSignalFilterCounts(signals) {
+ const counts = { all: signals.length };
+ signals.forEach(sig => {
+  const key = signalFilterKey(sig);
+  counts[key] = (counts[key] || 0) + 1;
+ });
+ document.querySelectorAll('#signal-filters .fp').forEach(btn => {
+  const count = btn.querySelector('.fp-count');
+  if (count) count.textContent = String(counts[btn.dataset.f] || 0);
+ });
+}
 function applySignalFilters() {
+ let visible = 0;
  document.querySelectorAll('#signal-list .signal-card').forEach(s => {
  const cat = s.dataset.c || '';
  const text = s.textContent.toLowerCase();
  const mc = signalFilter === 'all' || cat === signalFilter;
  const ms = !signalSearch || text.includes(signalSearch);
  s.style.display = mc && ms ? '' : 'none';
+ if (mc && ms) visible += 1;
  });
+ const empty = document.getElementById('signal-filter-empty');
+ if (empty) empty.style.display = visible ? 'none' : 'block';
 }
 document.querySelectorAll('#signal-filters .fp').forEach(btn => {
  btn.addEventListener('click', () => {
- document.querySelectorAll('#signal-filters .fp').forEach(b => b.classList.remove('active'));
+ document.querySelectorAll('#signal-filters .fp').forEach(b => {
+  b.classList.remove('active');
+  b.setAttribute('aria-selected', 'false');
+ });
  btn.classList.add('active');
+ btn.setAttribute('aria-selected', 'true');
  signalFilter = btn.dataset.f;
  applySignalFilters();
  });
@@ -3403,7 +3452,7 @@ function categoryTag(cat) {
 }
 
 function marketTag(mkt) {
- const map = {'FR':'FR','ES':'ES','DE':'DE','PT':'PT','EU':'EU','UK':'UK'};
+ const map = {'FR':'FR','ES':'ES','DE':'DE','PT':'PT','EU':'EU','GB':'UK','US':'US'};
  return `<span class="tag t-grey">${map[mkt]||mkt||'EU'}</span>`;
 }
 
@@ -3417,7 +3466,16 @@ function signalSourceUrl(sig) {
 }
 
 function signalPublishedAt(sig) {
- return (sig && (sig.published_at || sig.date)) || '';
+ return (sig && (sig.event_date || sig.published_at || sig.date)) || '';
+}
+
+function signalDateLabel(sig) {
+ if (!sig) return 'date missing';
+ const eventDate = signalPublishedAt(sig);
+ const basis = sig.date_basis === 'observed_change' ? 'First observed' : 'Published';
+ const accessed = sig.accessed_at ? ` · accessed ${sig.accessed_at}` : '';
+ const effective = sig.effective_date ? ` · effective ${sig.effective_date}` : '';
+ return eventDate ? `${basis} ${eventDate}${effective}${accessed}` : 'date missing';
 }
 
 function isExactSignalDate(value) {
@@ -3425,7 +3483,11 @@ function isExactSignalDate(value) {
 }
 
 function isEvidenceBacked(sig) {
- return Boolean(signalSourceUrl(sig) && isExactSignalDate(signalPublishedAt(sig)));
+ return Boolean(
+   sig && sig.quality_version === 3 &&
+  ['verified','corroborated'].includes(sig.evidence_status) &&
+  signalSourceUrl(sig) && isExactSignalDate(signalPublishedAt(sig))
+ );
 }
 
 function renderTrustDashboard(meta, signals) {
@@ -3442,11 +3504,18 @@ function renderTrustDashboard(meta, signals) {
 
  const lastScan = meta && meta.last_scan ? new Date(meta.last_scan) : null;
  const ageHours = lastScan && !Number.isNaN(lastScan.getTime()) ? Math.round((Date.now() - lastScan.getTime()) / 3600000) : null;
- const pipelineClass = ageHours === null || ageHours > 72 ? 'bad' : ageHours > 36 ? 'warn' : 'good';
- const pipelineLabel = ageHours === null ? 'Unknown' : ageHours < 1 ? 'Live' : ageHours + 'h ago';
+ const coverageStatus = meta && meta.scan_status && meta.scan_status.status;
+ const pipelineClass = ageHours === null || ageHours > 72 ? 'bad' : coverageStatus === 'partial' || ageHours > 36 ? 'warn' : 'good';
+ const pipelineLabel = ageHours === null ? 'Unknown' : coverageStatus === 'partial' ? 'Partial' : ageHours < 1 ? 'Live' : ageHours + 'h ago';
  set('trust-pipeline', pipelineLabel, pipelineClass);
  const pipelineSub = document.getElementById('trust-pipeline-sub');
- if (pipelineSub) pipelineSub.textContent = meta && meta.scan_status && meta.scan_status.error ? 'Scanner error: ' + meta.scan_status.error : 'Latest automated scan';
+ if (pipelineSub) {
+  const scanned = (meta && meta.scan_status && meta.scan_status.markets_scanned) || [];
+  const skipped = (meta && meta.scan_status && meta.scan_status.markets_skipped) || [];
+   pipelineSub.textContent = meta && meta.scan_status && meta.scan_status.quality_version === 3
+   ? `${scanned.length}/${scanned.length + skipped.length} EU / UK / US lanes completed`
+   : 'Latest automated scan';
+ }
  set('trust-active', String(active.length));
  set('trust-links', pct(linked.length, active.length), linked.length === active.length ? 'good' : 'warn');
  set('trust-dates', pct(dated.length, active.length), dated.length === active.length ? 'good' : 'warn');
@@ -3465,7 +3534,7 @@ function renderTrustDashboard(meta, signals) {
  if (readout) {
   readout.textContent = verified.length
    ? verified.slice(0,3).map(s => `${s.market || 'EU'}: ${s.title}`).join(' ')
-   : 'No active signal yet meets the evidence-backed standard. Treat the feed below as discovery leads until each claim has a direct source URL and exact publication date.';
+   : 'No active signal yet meets the automated quality contract. Legacy items remain discovery leads, not leadership-ready facts.';
  }
 
  const frDays = Math.ceil((new Date('2026-09-01T00:00:00') - new Date()) / 86400000);
@@ -3475,12 +3544,12 @@ function renderTrustDashboard(meta, signals) {
  const weekEl = document.getElementById('wb-week-title');
  if (weekEl) weekEl.textContent = 'Week of ' + monday.toLocaleDateString('en-GB',{day:'numeric',month:'short'}) + ' – ' + sunday.toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
 
- const ranked = [...verified, ...active.filter(s => !isEvidenceBacked(s))].slice(0, 3);
+ const ranked = verified.slice(0, 3);
  const changed = document.getElementById('today-changed');
  const implications = document.getElementById('today-implications');
- const evidenceClass = sig => isEvidenceBacked(sig) ? 'verified' : signalSourceUrl(sig) ? 'pending' : 'legacy';
- const evidenceLabel = sig => isEvidenceBacked(sig) ? 'Verified' : signalSourceUrl(sig) ? 'Date pending' : 'Legacy evidence';
- if (changed) changed.innerHTML = ranked.length ? ranked.map(sig => `<div class="today-item"><div class="today-title">${escapeHubHtml(sig.title)}</div><div class="today-meta"><span class="evidence-pill ${evidenceClass(sig)}">${evidenceLabel(sig)}</span>${escapeHubHtml(sig.market || 'EU')} · ${escapeHubHtml(signalPublishedAt(sig) || 'date missing')}</div></div>`).join('') : '<div class="today-body">No active signals are available. The scanner status above is the controlling indicator.</div>';
+  const evidenceClass = sig => isEvidenceBacked(sig) ? 'verified' : sig && sig.quality_version === 3 ? 'pending' : 'legacy';
+  const evidenceLabel = sig => isEvidenceBacked(sig) ? 'Verified' : sig && sig.quality_version === 3 ? 'Verification failed' : 'Legacy — recheck';
+  if (changed) changed.innerHTML = ranked.length ? ranked.map(sig => `<div class="today-item"><div class="today-title">${escapeHubHtml(sig.title)}</div><div class="today-meta"><span class="evidence-pill ${evidenceClass(sig)}">${evidenceLabel(sig)}</span>${escapeHubHtml(sig.market || 'EU')} · ${escapeHubHtml(signalDateLabel(sig))}</div></div>`).join('') : '<div class="today-body">No new signal has passed the automated quality contract. Check pipeline coverage before treating this as a nothing-burger.</div>';
  if (implications) implications.innerHTML = ranked.length ? ranked.map(sig => `<div class="today-item"><div class="today-body">${escapeHubHtml(sig.implication || 'Implication not yet written.')}</div></div>`).join('') : '<div class="today-body">No implications can be produced without active signals.</div>';
  const decisions = document.getElementById('today-decisions');
  if (decisions) decisions.innerHTML = '<div class="today-item"><div class="today-title">Endorse the two-audience strategy</div><div class="today-meta">D-002 · decision date TBC</div></div><div class="today-item"><div class="today-title">Agree Early Access learning gates</div><div class="today-meta">D-003 · 10–20 design partners</div></div><div class="today-item"><div class="today-title">Set expansion evidence thresholds</div><div class="today-meta">ES · PT · DE · owners and dates TBC</div></div>';
@@ -3619,10 +3688,9 @@ async function loadLiveSignals() {
  sig.implication = clientScrubNames(sig.implication || '');
  });
 
- // Score, filter and sort by criticality then date
+ // All verified signals remain visible on this page; ranking changes order, not inclusion.
  const scored = activeSignals
  .map(sig => ({ sig, score: scoreSignal(sig), crit: clientCriticality(sig) }))
- .filter(({ score }) => score >= 12)
  .sort((a, b) => {
  // Primary: criticality (highest first = most strategically important)
  const critDiff = b.crit - a.crit;
@@ -3632,15 +3700,7 @@ async function loadLiveSignals() {
  if (dateDiff !== 0) return dateDiff;
  return critDiff;
  })
- .slice(0, 40);
-
- if (scored.length === 0) {
- const fallback = activeSignals
- .map(sig => ({ sig, score: scoreSignal(sig), crit: clientCriticality(sig) }))
- .sort((a, b) => b.crit - a.crit || (b.sig.date||'').localeCompare(a.sig.date||''))
- .slice(0, 20);
- scored.push(...fallback);
- }
+  .slice(0, 42);
 
  const liveSection = document.createElement('div');
  liveSection.id = 'live-signals-block';
@@ -3656,6 +3716,7 @@ async function loadLiveSignals() {
  scored.forEach(({ sig, score, crit }) => {
  const card = document.createElement('div');
  card.className = 'signal-card';
+ card.dataset.c = signalFilterKey(sig);
  // Unverified discovery leads never receive a leadership urgency label.
  const evidenceBacked = isEvidenceBacked(sig);
  const urgency = !evidenceBacked ? 'var(--amber)' : crit >= 60 ? 'var(--red)' : crit >= 40 ? 'var(--amber)' : 'var(--g)';
@@ -3666,17 +3727,21 @@ async function loadLiveSignals() {
  
  const sourceUrl = signalSourceUrl(sig);
  const sourceLabel = sig.source ? `<span style="font-size:11px;color:var(--text3);font-style:italic;">${escapeHubHtml(sig.source)}</span>` : '<span style="font-size:11px;color:var(--red);">Source label missing</span>';
- const linkHtml = sourceUrl
- ? `<a href="${escapeHubHtml(sourceUrl)}" target="_blank" rel="noopener" style="font-size:11px;color:var(--g2);text-decoration:none;font-weight:500;">Read source →</a>`
- : '<span class="evidence-pill legacy">Source link missing</span>';
+  const linkHtml = sourceUrl
+  ? `<a href="${escapeHubHtml(sourceUrl)}" target="_blank" rel="noopener" style="font-size:11px;color:var(--g2);text-decoration:none;font-weight:500;">Read source →</a>`
+  : '<span class="evidence-pill legacy">Source link missing</span>';
+  const baselineHtml = sig.baseline_url
+  ? `<a href="${escapeHubHtml(sig.baseline_url)}" target="_blank" rel="noopener" style="font-size:11px;color:var(--text3);text-decoration:none;">Historical baseline (${escapeHubHtml(sig.baseline_date || 'date missing')}) →</a>`
+  : '';
 
  card.innerHTML = `
  <div class="sc-top" style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:8px;">
- <div class="sc-tags" style="display:flex;gap:6px;flex-wrap:wrap;">${categoryTag(sig.category)}${marketTag(sig.market)}<span style="font-size:10px;font-weight:700;padding:2px 7px;border-radius:3px;background:rgba(0,0,0,0.04);color:${urgencyColor};border:1px solid ${urgencyColor};letter-spacing:0.4px;">${urgencyLabel}</span></div>
- <span class="sc-date" style="font-size:11px;color:var(--text3);white-space:nowrap;">${escapeHubHtml(signalPublishedAt(sig) || 'date missing')}</span>
+  <div class="sc-tags" style="display:flex;gap:6px;flex-wrap:wrap;">${categoryTag(sig.category)}${marketTag(sig.market)}<span class="tag t-grey">${escapeHubHtml(sig.event_type || 'Event')}</span><span style="font-size:10px;font-weight:700;padding:2px 7px;border-radius:3px;background:rgba(0,0,0,0.04);color:${urgencyColor};border:1px solid ${urgencyColor};letter-spacing:0.4px;">${urgencyLabel}</span></div>
+  <span class="sc-date" style="font-size:11px;color:var(--text3);white-space:nowrap;">${escapeHubHtml(signalDateLabel(sig))}</span>
  </div>
  <div class="sc-title" style="font-size:14px;font-weight:600;color:var(--text);line-height:1.4;margin-bottom:6px;">${escapeHubHtml(sig.title||'Signal')}</div>
- <div class="sc-body" style="font-size:13px;color:var(--text2);line-height:1.6;margin-bottom:${sig.implication ? '10px' : '0'};">${escapeHubHtml(sig.body||'')}</div>
+  <div class="sc-body" style="font-size:13px;color:var(--text2);line-height:1.6;margin-bottom:${sig.implication ? '10px' : '0'};">${escapeHubHtml(sig.body||'')}</div>
+  ${sig.leading_indicator ? `<div style="font-size:12px;color:var(--text2);line-height:1.5;margin:0 0 10px 0;"><strong>Leading indicator:</strong> ${escapeHubHtml(sig.leading_indicator.replace(/^Inference:\s*/, ''))}</div>` : ''}
  ${sig.implication ? `
  <div class="sc-implication" style="background:rgba(0,176,80,0.04);border:1px solid rgba(0,176,80,0.15);border-radius:6px;padding:10px 12px;margin-bottom:8px;">
  <div class="sc-impl-label" style="font-size:10px;font-weight:700;letter-spacing:0.6px;text-transform:uppercase;color:var(--g2);margin-bottom:4px;">WiSE Strategic Implication</div>
@@ -3684,7 +3749,7 @@ async function loadLiveSignals() {
  </div>` : ''}
  <div style="display:flex;align-items:center;justify-content:space-between;margin-top:4px;">
  ${sourceLabel}
- ${linkHtml}
+  <span style="display:flex;gap:12px;align-items:center;">${baselineHtml}${linkHtml}</span>
  </div>`;
  liveSection.appendChild(card);
  });
@@ -3695,6 +3760,8 @@ async function loadLiveSignals() {
  const existing = document.getElementById('live-signals-block');
  if (existing) existing.remove();
  list.insertBefore(liveSection, list.firstChild);
+ updateSignalFilterCounts(scored.map(({ sig }) => sig));
+ applySignalFilters();
  } catch(e) {
  const pipeline = document.getElementById('trust-pipeline');
  if (pipeline) { pipeline.textContent = 'Unavailable'; pipeline.className = 'trust-v bad'; }
@@ -3784,7 +3851,7 @@ loadLiveSignals();
 
  <div style="font-family:var(--font);font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--g);margin:24px 0 12px 0;" class="reveal">France - Latest intelligence</div>
  <div class="dash-card reveal" style="margin-bottom:24px;border-left:3px solid var(--g);">
- <div class="dash-label" style="margin-bottom:14px;">Baseline intelligence — last verified May 2026 · Recheck against the live evidence feed</div>
+ <div class="dash-label" style="margin-bottom:14px;">France intelligence — refreshed 5 Aug 2026 · Official-source checks</div>
  <div style="display:grid;grid-template-columns:80px 1fr;gap:14px;padding:12px 0;border-top:1px solid var(--border);">
  <div style="font-family:var(--font);font-size:10px;font-weight:800;letter-spacing:1px;color:var(--red);align-self:start;">CRITICAL</div>
  <div>
@@ -3802,15 +3869,15 @@ loadLiveSignals();
  <div style="display:grid;grid-template-columns:80px 1fr;gap:14px;padding:12px 0;border-top:1px solid var(--border);">
  <div style="font-family:var(--font);font-size:10px;font-weight:800;letter-spacing:1px;color:var(--amber);align-self:start;">HIGH</div>
  <div>
- <div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:4px;">AKAO acquired Jan 2026</div>
- <div style="font-size:12px;color:var(--text2);line-height:1.6;">Strategic asset for FR e-invoicing. Integration path being scoped. Use this as proof-point on every PA conversation: 'Sage is PA-certified through AKAO and through Active.'</div>
+ <div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:4px;">Dext is now on DGFiP's official PA list</div>
+ <div style="font-size:12px;color:var(--text2);line-height:1.6;">DGFiP list modified 29 Jul 2026. Dext says PA access is included in existing subscriptions; receipt and issue are live, while e-reporting is still forthcoming. Remove the obsolete certification-gap argument.</div>
  </div>
  </div>
  <div style="display:grid;grid-template-columns:80px 1fr;gap:14px;padding:12px 0;border-top:1px solid var(--border);">
  <div style="font-family:var(--font);font-size:10px;font-weight:800;letter-spacing:1px;color:var(--amber);align-self:start;">HIGH</div>
  <div>
- <div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:4px;">Cegid+Shine integration in execution phase</div>
- <div style="font-size:12px;color:var(--text2);line-height:1.6;">Major buying window for accountants worried about platform churn. 'No migration, no disruption' message must land in every Sage conversation through Q2-Q3.</div>
+ <div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:4px;">Qonto's accountant workflow is live</div>
+ <div style="font-size:12px;color:var(--text2);line-height:1.6;">July 2026 release: direct transaction access, automatically synchronised PA invoices and AI-prefilled accounting codes. Regate migration is now an active competitive motion, not a future watch item.</div>
  </div>
  </div>
  </div>
@@ -3848,9 +3915,9 @@ loadLiveSignals();
  <div class="cb-title">4. Conciliator <span class="tag t-amber">High</span></div>
  <div class="cb-body">Direct AutoEntry competitor in France. OCR + bank reconciliation. Growing presence in accountant document capture workflows. PA-registered. Does not have SfA ecosystem integration depth or the AKAO DGFiP compliance bridge - but pricing is competitive and UX is modern.</div>
  </div>
- <div class="country-block" style="border-top:3px solid var(--text3);">
- <div class="cb-title">5. Regate / Qonto <span class="tag t-grey">Watch</span></div>
- <div class="cb-body">Qonto acquired Regate, creating an accountant-facing banking + pre-accounting platform. Qonto owns a PA registration. The Regate migration is a strategic WiSE imperative - practices currently on Regate must be transitioned to Active before they are absorbed by Qonto's ecosystem.</div>
+ <div class="country-block" style="border-top:3px solid var(--amber);">
+ <div class="cb-title">5. Regate / Qonto <span class="tag t-amber">High</span></div>
+ <div class="cb-body">Qonto's July 2026 release gives accountants direct transaction access, automatically synchronised PA invoices and AI-prefilled accounting codes. Its free Qonto Invoicing account is available to Regate clients by accountant invitation. The migration exposure is live: Sage must prove native GE/Active continuity before Qonto becomes the accountant's daily collaboration layer.</div>
  </div>
  <div class="country-block" style="border-top:3px solid var(--text3);">
  <div class="cb-title">6. AKAO (now Sage) <span class="tag t-green">Acquired</span></div>
@@ -3912,8 +3979,8 @@ loadLiveSignals();
  <div class="cb-body">LinkedIn confirms 100 new Cegid commercial hires (Lyon + Boulogne) deploying Q2 2026, explicitly targeting French accountant market - the same GE practices Sage needs to convert. Sage must reach these practices before Cegid's sales force does. The window is April-September 2026.</div>
  </div>
  <div class="country-block" style="border-left:3px solid var(--amber);">
- <div class="cb-title">Regate Migration Risk</div>
- <div class="cb-body">Qonto owns Regate. Practices currently on Regate will be absorbed into Qonto's ecosystem unless Sage actively migrates them to Active. Each Regate practice lost is a practice that may adopt Qonto's PA platform instead - directly competing with Sage's compliance bridge story.</div>
+ <div class="cb-title">Regate Migration Risk Is Live</div>
+ <div class="cb-body">Qonto has shipped direct accountant access, synchronised PA invoices and AI-prefilled accounting codes. Practices no longer need to wait for a future integration to build their compliance workflow in Qonto. Each unmigrated Regate practice is an active exposure; Sage must demonstrate the GE/Active workflow and migrate with named ownership.</div>
  </div>
  <div class="country-block" style="border-left:3px solid var(--text3);">
  <div class="cb-title">Product Confidence Gap</div>
@@ -3954,7 +4021,7 @@ loadLiveSignals();
  <strong style="color:var(--g);">2. Speed beats perfection.</strong> Sage has the product. The GE-Active sync must be unblocked urgently. PA client onboarding must be treated as a crisis-level commercial priority. Pennylane and Cegid are moving - Sage must move faster.<br><br>
  <strong style="color:var(--g);">3. Own the Congrès narrative.</strong> The 81st Congrès in October 2026 is a post-mandate event. Every practice that hasn't chosen a PA will be at that conference. Sage's Atelier must be the definitive conversation about what comes after September 1 - not just compliance, but practice growth.<br><br>
  <strong style="color:var(--g);">4. AI specificity, not AI generality.</strong> "Sage Copilot knows DSN, Factur-X and PA submission in French law. No other AI copilot does." Build three concrete, demo-able French compliance proof points and deploy them in every conversation where Pennylane's AI is raised.<br><br>
- <strong style="color:var(--g);">5. Regate to Active migration.</strong> Every Regate practice migrated to Active before Qonto activates its commercial motion is a defended account. The Regate migration must be resourced and accelerated.
+ <strong style="color:var(--g);">5. Regate to Active migration.</strong> Qonto's accountant workflow is already live. Give every unmigrated Regate practice a named owner, a dated migration plan and an in-product proof of GE/Active continuity; future-tense warnings are no longer enough.
  </div>
  </div>
 </div>
@@ -5264,7 +5331,7 @@ loadLiveSignals();
  <tr style="border-bottom:1px solid var(--border);background:var(--bg1);">
  <td style="padding:10px;font-weight:600;">Regate / Qonto</td>
  <td style="padding:10px;text-align:center;"><span class="tag t-green">PA (Qonto)</span></td>
- <td style="padding:10px;text-align:center;"><span class="tag t-amber">Banking AI features</span></td>
+ <td style="padding:10px;text-align:center;"><span class="tag t-amber">PA sync + AI-prefilled codes</span></td>
  <td style="padding:10px;text-align:center;"><span class="tag t-amber">Mixed - banking-led</span></td>
  <td style="padding:10px;text-align:center;"><span class="tag t-amber">Banking + SaaS</span></td>
  <td style="padding:10px;">FR primary · EU banking expansion</td>
@@ -6516,9 +6583,9 @@ function generatePlaybook() {
  subtitle: "Most urgent market - Protect, Amplify, Expand",
  sections: [
  { label: "MARKET CONTEXT", content: "France is Europe's second largest accounting software market. Sage is #2 behind Cegid. Position has declined materially since 2019, driven by pricing increases rather than customer growth. The accountant channel covers thousands of GE practices and the production suite is the deepest Sage operates in any market." },
- { label: "TOP COMPETITORS", content: "Pennylane (CRITICAL - €115M ARR, $4.25B valuation, 800k SMBs, 6,000+ accountants). Cegid+Shine (CRITICAL - 2,000+ employees, M&A machine). Regate by Qonto (HIGH - migration track active). Conciliator (HIGH - document AI accuracy). MyUnisoft (MEDIUM). EBP (now Cegid - LOW)." },
+ { label: "TOP COMPETITORS", content: "Pennylane (CRITICAL - €115M ARR, $4.25B valuation, 800k SMBs, 6,000+ accountants). Cegid+Shine (CRITICAL - 2,000+ employees, M&A machine). Regate by Qonto (HIGH - direct accountant access, synchronised PA invoices and AI-prefilled accounting codes live July 2026). Dext (HIGH - officially listed PA; existing-subscription route). Conciliator (HIGH - document AI accuracy). MyUnisoft (MEDIUM)." },
  { label: "REGULATORY FORCING FUNCTION", content: "September 2026: ALL businesses must receive e-invoices. Sage is registered PA. The mandate is the largest accountant inflection event in a generation. September 2027 extends the issuing mandate to all SMEs." },
- { label: "FY26 PRIORITIES", content: "Stand up SfA, fix GE-Active sync, train the GE practice base, drive PA registration from 50% to 100%, prepare Copilot GA before Congrès 2026, stabilise Active product reliability. Protect the base before Pennylane converts new entrants at scale." },
+ { label: "FY26 PRIORITIES", content: "Stand up SfA, fix GE-Active sync, train the GE practice base, drive PA registration from 50% to 100%, assign every Regate practice a dated migration plan, prepare Copilot GA before Congrès 2026, and stabilise Active product reliability. Protect the base while Qonto and Dext turn PA status into live accountant workflows." },
  { label: "HOW SAGE WINS", content: "Lead with the GE production suite as the platform of record. Position Active + AE as the client-facing extension. Use AKAO acquisition as the e-invoicing certification proof point. Co-present at Congrès 2026 with expert-comptable partners. Embed the 'not a migration, your data stays in GE' message in every sales conversation." }
  ]
  },
@@ -7807,8 +7874,8 @@ async function generateWeeklyBrief() {
     const verified = signals.filter(isEvidenceBacked);
     const ranked = (verified.length ? verified : signals).slice(0, 5);
     const evidenceNote = verified.length
-      ? `${verified.length} of ${signals.length} active signals have both a direct source URL and exact publication date.`
-      : `None of the ${signals.length} active signals yet meet the hub's evidence-backed standard. The items below are leads to verify, not leadership-ready facts.`;
+      ? `${verified.length} of ${signals.length} active signals pass the automated source, date, claim-match and European-relevance contract.`
+      : `None of the ${signals.length} active signals yet meet the automated quality contract. Legacy items are leads to recheck, not leadership-ready facts.`;
 
     const movedHtml = ranked.length
       ? '<p><strong>' + escapeHubHtml(evidenceNote) + '</strong></p>' + ranked.slice(0,3).map(s => `<p><strong>${escapeHubHtml(s.market || 'EU')} — ${escapeHubHtml(s.title)}</strong><br>${escapeHubHtml(s.body || '')} ${isEvidenceBacked(s) ? `<a href="${escapeHubHtml(signalSourceUrl(s))}" target="_blank" rel="noopener">Source ↗</a>` : '<span class="evidence-pill legacy">verification required</span>'}</p>`).join('')

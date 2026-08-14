@@ -1,12 +1,12 @@
 {
   "meta": {
-    "last_updated": "2026-08-13",
+    "last_updated": "2026-08-14",
     "week_label": "Week of 10 Aug - 16 Aug 2026",
-    "signal_count": 39,
+    "signal_count": 0,
     "prev_signal_count": 40,
-    "intensity": "CRITICAL",
-    "intensity_reason": "France PA mandate under 8 weeks away (1 Sept 2026) with PA registration ~50% - Cegid closes EUR 1.1bn Shine acquisition (1M+ SMBs, 15,000 accountants across 7 markets) - Pennylane now live in Germany and valued at USD 4.25bn - converging FR/ES/DE/PT compliance deadlines",
-    "ifyrne": "The French e-invoicing mandate, effective September 1, 2026, presents both a significant compliance challenge and a market opportunity for Sage Active, demanding immediate focus on client readiness and product alignment. Competitors like Pennylane are aggressively expanding into key European markets, notably Spain, with substantial funding, directly threatening Sage's market position and requiring a swift response to ensure Sage for Accountants Spain launches ahead of their entry. Germany's upcoming XRechnung mandate in January 2028, alongside Portugal's SAF-T deadline in January 2027, necessitates proactive product development and partner engagement to maintain competitive parity. Given these converging deadlines and competitive pressures, Sage must prioritize resolving the GE-Active sync issue this week to unlock critical market access and enable a unified go-to-market strategy across Europe.",
+    "intensity": "BASELINE",
+    "intensity_reason": "No active record yet meets the v3 evidence contract; do not rank market intensity until the first successful v3 scan.",
+    "ifyrne": "The legacy feed is quarantined. Use the first successful v3 scan, its source links and exact dates as the next current readout.",
     "pa_registration_pct": 50,
     "pa_registration_status": "amber",
     "pa_registration_label": "In progress - 50% registered",
@@ -29,23 +29,145 @@
     "eu_competitive_status": "green",
     "eu_competitive_label": "Live",
     "last_scan": "2026-08-13T17:47:21.036098Z",
-    "last_scan_summary": "Automated evidence scan completed: 1 new signal passed source, date and quality checks.",
+    "last_scan_summary": "Quality migration: 40 legacy records archived pending direct-source and exact-date re-verification.",
     "scan_status": {
-      "date": "2026-08-13",
-      "markets_scanned": [
+      "date": "2026-08-14",
+      "status": "partial",
+      "markets_scanned": [],
+      "markets_skipped": [
         "FR",
-        "DE"
+        "ES",
+        "DE",
+        "PT",
+        "EU",
+        "GB",
+        "US"
       ],
-      "markets_skipped": [],
-      "signals_added": 1,
-      "quality_filtered": 0,
-      "summaries": {
-        "FR": "Market signals in France show critical regulatory pressure from the upcoming e-invoicing mandate, strong competitive moves by Pennylane and Cegid, and a growing focus on AI and channel engagement.",
-        "DE": "Recent market signals in Germany indicate significant competitive activity with Cegid's acquisition of sevdesk, a clear regulatory push with the XRechnung mandate, and technological shifts with DATEV's cloud migration."
+      "signals_added": 0,
+      "quality_filtered": 40,
+      "quality_version": 3,
+      "coverage": {
+        "FR": {
+          "status": "pending",
+          "error": "awaiting_first_v3_scan",
+          "found": 0,
+          "accepted": 0,
+          "filtered": 0,
+          "lenses_checked": [],
+          "lenses_missing": [
+            "hiring",
+            "marketing",
+            "launches",
+            "pricing",
+            "messaging",
+            "expansion_investment"
+          ]
+        },
+        "ES": {
+          "status": "pending",
+          "error": "awaiting_first_v3_scan",
+          "found": 0,
+          "accepted": 0,
+          "filtered": 0,
+          "lenses_checked": [],
+          "lenses_missing": [
+            "hiring",
+            "marketing",
+            "launches",
+            "pricing",
+            "messaging",
+            "expansion_investment"
+          ]
+        },
+        "DE": {
+          "status": "pending",
+          "error": "awaiting_first_v3_scan",
+          "found": 0,
+          "accepted": 0,
+          "filtered": 0,
+          "lenses_checked": [],
+          "lenses_missing": [
+            "hiring",
+            "marketing",
+            "launches",
+            "pricing",
+            "messaging",
+            "expansion_investment"
+          ]
+        },
+        "PT": {
+          "status": "pending",
+          "error": "awaiting_first_v3_scan",
+          "found": 0,
+          "accepted": 0,
+          "filtered": 0,
+          "lenses_checked": [],
+          "lenses_missing": [
+            "hiring",
+            "marketing",
+            "launches",
+            "pricing",
+            "messaging",
+            "expansion_investment"
+          ]
+        },
+        "EU": {
+          "status": "pending",
+          "error": "awaiting_first_v3_scan",
+          "found": 0,
+          "accepted": 0,
+          "filtered": 0,
+          "lenses_checked": [],
+          "lenses_missing": [
+            "hiring",
+            "marketing",
+            "launches",
+            "pricing",
+            "messaging",
+            "expansion_investment"
+          ]
+        },
+        "GB": {
+          "status": "pending",
+          "error": "awaiting_first_v3_scan",
+          "found": 0,
+          "accepted": 0,
+          "filtered": 0,
+          "lenses_checked": [],
+          "lenses_missing": [
+            "hiring",
+            "marketing",
+            "launches",
+            "pricing",
+            "messaging",
+            "expansion_investment"
+          ]
+        },
+        "US": {
+          "status": "pending",
+          "error": "awaiting_first_v3_scan",
+          "found": 0,
+          "accepted": 0,
+          "filtered": 0,
+          "lenses_checked": [],
+          "lenses_missing": [
+            "hiring",
+            "marketing",
+            "launches",
+            "pricing",
+            "messaging",
+            "expansion_investment"
+          ]
+        }
       }
     },
-    "archived_count": 1,
-    "ifyrne_updated": "2026-08-10"
+    "archived_count": 40,
+    "ifyrne_updated": "2026-08-14",
+    "legacy_quarantine": {
+      "date": "2026-08-14",
+      "records": 40,
+      "policy": "Pre-v3 records are excluded from active intelligence until a direct source and exact dates are reverified."
+    }
   },
   "signals": [
     {
@@ -62,8 +184,11 @@
       "source": "Cegid",
       "source_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEPBmzcOJHA3gFWBOHbgy9vf6FChmvDPk6gOzRMx8RNtf5Dzq-E93AxukqdoGf-CM4SrjzScb3IgdUM3iNV12YsTokKI8y3DXftf-JcPR97MsaSyv3Xro746bwZ3EipAIw3eGIrI3ZEGrS6DV5hfM3tYMsbcw==",
       "source_type": "primary",
-      "evidence_status": "verified",
-      "confidence": "high"
+      "evidence_status": "legacy_unverified",
+      "confidence": "high",
+      "archived": true,
+      "archived_at": "2026-08-14",
+      "archive_reason": "legacy_unverified"
     },
     {
       "id": "pennylane-es-launch-imminent",
@@ -79,8 +204,11 @@
       "source": "Pennylane Investor Relations Update",
       "source_url": "https://www.pennylane.com/investors/updates/h2-2026-spain-launch",
       "source_type": "primary",
-      "evidence_status": "verified",
-      "confidence": "high"
+      "evidence_status": "legacy_unverified",
+      "confidence": "high",
+      "archived": true,
+      "archived_at": "2026-08-14",
+      "archive_reason": "legacy_unverified"
     },
     {
       "id": "cegid-expands-sales-team-ge",
@@ -96,8 +224,11 @@
       "source": "Cegid Press Release",
       "source_url": "https://www.cegid.com/en/news-room/press-releases/cegid-strengthens-its-presence-in-germany-with-100-new-sales-representatives/",
       "source_type": "primary",
-      "evidence_status": "verified",
-      "confidence": "high"
+      "evidence_status": "legacy_unverified",
+      "confidence": "high",
+      "archived": true,
+      "archived_at": "2026-08-14",
+      "archive_reason": "legacy_unverified"
     },
     {
       "id": "pennylane-comptatech-2026-paris",
@@ -113,8 +244,11 @@
       "source": "Pennylane",
       "source_url": "https://www.pennylane.com/evenements/comptatech-2026",
       "source_type": "primary",
-      "evidence_status": "verified",
-      "confidence": "high"
+      "evidence_status": "legacy_unverified",
+      "confidence": "high",
+      "archived": true,
+      "archived_at": "2026-08-14",
+      "archive_reason": "legacy_unverified"
     },
     {
       "id": "fr-pa-mandate-guide-july2026",
@@ -130,9 +264,12 @@
       "source": "GHR",
       "source_url": "https://www.ghr.fr/actualites/facturation-electronique-publication-par-la-dgfip-du-guide-pratique-de-demarrage/",
       "source_type": "secondary",
-      "evidence_status": "verified",
+      "evidence_status": "legacy_unverified",
       "confidence": "high",
-      "calendar_tag": true
+      "calendar_tag": true,
+      "archived": true,
+      "archived_at": "2026-08-14",
+      "archive_reason": "legacy_unverified"
     },
     {
       "id": "contasol-verifactu-readiness",
@@ -148,8 +285,11 @@
       "source": "ComparaSoftware",
       "source_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH_vnild9pRxBtPn4X8ZJbuUYakLB8K9ertOSHa1o7Kh-wK1OCWvjTxf1sdourniksLcxqkeAFA1RiiOhv4D_GNJNeG7weB3kU2hnCRA0DxEucbS3TK6aS-lFeJLWIunH5hev0alA==",
       "source_type": "secondary",
-      "evidence_status": "verified",
-      "confidence": "high"
+      "evidence_status": "legacy_unverified",
+      "confidence": "high",
+      "archived": true,
+      "archived_at": "2026-08-14",
+      "archive_reason": "legacy_unverified"
     },
     {
       "id": "lexoffice-aws-migration-performance",
@@ -165,8 +305,11 @@
       "source": "AWS Case Study: Haufe-Lexware",
       "source_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHdQzfwao1edBXUujbel9U7f0wZ6H_F1dmSh5IKQQrrX5akqGwio92Q61FkxoXrKPwB7Y8lGMh5u4xstVRI0cqW4aGnmvJI42MpdmrGsvbClPfqgpzyAXMdEKVMy6e0zwT5wTfeAC7yTUoxrrIyGWaOYdNUB7Acow==",
       "source_type": "secondary",
-      "evidence_status": "verified",
-      "confidence": "high"
+      "evidence_status": "legacy_unverified",
+      "confidence": "high",
+      "archived": true,
+      "archived_at": "2026-08-14",
+      "archive_reason": "legacy_unverified"
     },
     {
       "id": "portugal-b2g-e-invoicing-sme-deadline",
@@ -182,9 +325,12 @@
       "source": "Basware",
       "source_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFf-T73LuNn6sT0jerlAGH6EaBrpPZ7OP-RfFHIW3LIZQo87Fte4qZACHzfkcL2mOqvQ1H46FloW9WkvMv7L8wQq0M24E2dOH1UOFyU5YMQRenRkwW1Yz7Suoava8A_e9scFEbueMRWZ4WXk8b_",
       "source_type": "secondary",
-      "evidence_status": "verified",
+      "evidence_status": "legacy_unverified",
       "confidence": "high",
-      "calendar_tag": true
+      "calendar_tag": true,
+      "archived": true,
+      "archived_at": "2026-08-14",
+      "archive_reason": "legacy_unverified"
     },
     {
       "id": "pennylane-comptatech-2026-event-2026-06-16",
@@ -200,8 +346,11 @@
       "source": "Pennylane",
       "source_url": "https://comptatech.pennylane.com/",
       "source_type": "primary",
-      "evidence_status": "verified",
-      "confidence": "high"
+      "evidence_status": "legacy_unverified",
+      "confidence": "high",
+      "archived": true,
+      "archived_at": "2026-08-14",
+      "archive_reason": "legacy_unverified"
     },
     {
       "id": "lexware-e-invoicing-training-2026",
@@ -217,9 +366,12 @@
       "source": "Lexware Akademie",
       "source_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFGVUYkyCukrMiPRJMp6rkbhXZixZOFG55Os6A9U4XqhjhEfXS83In3YW_a5qxnOPElbmR4NQfcqNcXsTCQjvEDj6Yu5YtjSyCJcuNcuNR5Vfd_EkpaDg==",
       "source_type": "secondary",
-      "evidence_status": "verified",
+      "evidence_status": "legacy_unverified",
       "confidence": "high",
-      "calendar_tag": true
+      "calendar_tag": true,
+      "archived": true,
+      "archived_at": "2026-08-14",
+      "archive_reason": "legacy_unverified"
     },
     {
       "id": "pennylane-expands-fr-accountant-market-aug-2026",
@@ -235,8 +387,11 @@
       "source": "Pennylane",
       "source_url": "https://www.pennylane.com/evenements/rendez-vous-pennylane-2026-toulouse/",
       "source_type": "primary",
-      "evidence_status": "verified",
-      "confidence": "high"
+      "evidence_status": "legacy_unverified",
+      "confidence": "high",
+      "archived": true,
+      "archived_at": "2026-08-14",
+      "archive_reason": "legacy_unverified"
     },
     {
       "id": "fr-pa-mandate-prep-aug-2026",
@@ -252,9 +407,12 @@
       "source": "impots.gouv.fr / economie.gouv.fr",
       "source_url": "https://www.impots.gouv.fr/partenaire/facturation-electronique-et-plateformes-partenaires",
       "source_type": "primary",
-      "evidence_status": "verified",
+      "evidence_status": "legacy_unverified",
       "confidence": "high",
-      "calendar_tag": true
+      "calendar_tag": true,
+      "archived": true,
+      "archived_at": "2026-08-14",
+      "archive_reason": "legacy_unverified"
     },
     {
       "id": "cegid-primavera-cloud-launch-2026",
@@ -270,8 +428,11 @@
       "source": "HeraPrime (Cegid Primavera Partner)",
       "source_url": "https://heraprime.pt/software-erp-cegid-primavera/cegid-primavera-evolution-cloud-saas/",
       "source_type": "secondary",
-      "evidence_status": "verified",
-      "confidence": "medium"
+      "evidence_status": "legacy_unverified",
+      "confidence": "medium",
+      "archived": true,
+      "archived_at": "2026-08-14",
+      "archive_reason": "legacy_unverified"
     },
     {
       "id": "germany-e-invoicing-b2b-mandate-2027-2028",
@@ -287,9 +448,12 @@
       "source": "Tradeshift",
       "source_url": "https://tradeshift.com/insights/germany-b2b-e-invoicing-deadline-2027/",
       "source_type": "secondary",
-      "evidence_status": "verified",
+      "evidence_status": "legacy_unverified",
       "confidence": "high",
-      "calendar_tag": true
+      "calendar_tag": true,
+      "archived": true,
+      "archived_at": "2026-08-14",
+      "archive_reason": "legacy_unverified"
     },
     {
       "id": "fr-pa-mandate-readiness-q3-2026",
@@ -305,9 +469,12 @@
       "source": "impots.gouv.fr",
       "source_url": "https://www.impots.gouv.fr/professionnel/facturation-electronique-et-plateformes-agreees",
       "source_type": "primary",
-      "evidence_status": "verified",
+      "evidence_status": "legacy_unverified",
       "confidence": "high",
-      "calendar_tag": true
+      "calendar_tag": true,
+      "archived": true,
+      "archived_at": "2026-08-14",
+      "archive_reason": "legacy_unverified"
     },
     {
       "id": "fr-pa-mandate-guidance-jul26",
@@ -319,7 +486,11 @@
       "body": "The French Tax Authorities (DGFiP) released guidance on July 10, 2026, detailing the initial phase of the e-invoicing mandate starting September 1, 2026. Simplification measures are included, and legacy invoice formats will not be rejected during the initial phase, provided they relate to genuine transactions. Companies must demonstrate active remediation efforts towards compliance.",
       "implication": "This provides clarity on the upcoming mandate, allowing Sage to refine its compliance strategy and messaging for Sage Active and Sage for Accountants in France. It also highlights the need to support customers in demonstrating active remediation.",
       "source": "French Tax Authorities guidance, July 26, 2026",
-      "calendar_tag": true
+      "calendar_tag": true,
+      "archived": true,
+      "archived_at": "2026-08-14",
+      "archive_reason": "legacy_unverified",
+      "evidence_status": "legacy_unverified"
     },
     {
       "id": "sage-active-verifactu-support",
@@ -330,7 +501,11 @@
       "title": "Sage Active now offers Verifactu support in Spain",
       "body": "Sage Active, Sage's cloud accounting platform for Spain, now includes Verifactu support. Reviews from August 2026 highlight its features for accounting, invoicing, reconciliation, and accountant collaboration, specifically mentioning Verifactu support as a key component for Spanish businesses.",
       "implication": "This is a positive development for Sage's presence in Spain, directly addressing the Verifactu mandate. It's crucial to ensure this feature is fully functional and effectively marketed to the Spanish 'despachos' channel and autónomo segment.",
-      "source": "Sage Active: reviews and analysis - Serchai (August 01 2026)"
+      "source": "Sage Active: reviews and analysis - Serchai (August 01 2026)",
+      "archived": true,
+      "archived_at": "2026-08-14",
+      "archive_reason": "legacy_unverified",
+      "evidence_status": "legacy_unverified"
     },
     {
       "id": "verifactu-deadline-extension-2027",
@@ -342,7 +517,11 @@
       "body": "The mandatory Verifactu compliance deadline for Spanish SMEs and self-employed individuals has been postponed to July 1, 2027. This extension, confirmed by Real Decreto-ley 15/2025, provides additional time for businesses to adapt their invoicing systems to the new regulations.",
       "implication": "This provides a longer runway for Sage Active and Sage for Accountants to ensure full Verifactu compliance and market readiness in Spain, potentially reducing immediate pressure but also extending the competitive window for rivals.",
       "source": "Verifactu Deadline Moved to 2027: What Changed - Vamos Spanish Academy (July 01 2026)",
-      "calendar_tag": true
+      "calendar_tag": true,
+      "archived": true,
+      "archived_at": "2026-08-14",
+      "archive_reason": "legacy_unverified",
+      "evidence_status": "legacy_unverified"
     },
     {
       "id": "pennylane-comptassistant-ai-enhancements",
@@ -353,7 +532,11 @@
       "title": "Pennylane Enhances ComptAssistant AI for Accountants",
       "body": "Pennylane has been actively developing its AI capabilities, notably with its ComptAssistant feature. Recent updates (Q3 2025 and March 2026) focus on creating personalized AI agents that can analyze, synthesize, and automate daily tasks for accountants. The AI aims to transform accounting from data entry to strategic piloting, offering insights and improving productivity.",
       "implication": "Pennylane's investment in advanced AI features like ComptAssistant directly addresses the need for automation and enhanced advisory services. Sage must ensure its own AI offerings are equally sophisticated and effectively integrated to remain competitive, especially as AI becomes a key differentiator in the accounting software market.",
-      "source": "YouTube, Noxcod (Oct 2025 - Mar 2026)"
+      "source": "YouTube, Noxcod (Oct 2025 - Mar 2026)",
+      "archived": true,
+      "archived_at": "2026-08-14",
+      "archive_reason": "legacy_unverified",
+      "evidence_status": "legacy_unverified"
     },
     {
       "id": "cegid-sevdesk-expansion-2025",
@@ -364,7 +547,11 @@
       "title": "Cegid acquires sevdesk, strengthening its DACH cloud offering",
       "body": "Cegid acquired sevdesk, a German provider of cloud-based accounting and invoicing solutions for SMBs, in February 2025. This move expands Cegid's presence in German-speaking Europe, a market with over 5 million SMBs and growing demand for cloud software and e-invoicing compliance. Sevdesk serves over 130,000 customers and processes over €85 billion in transactions annually.",
       "implication": "Cegid's acquisition of sevdesk directly challenges Sage's position in the German SMB market. Sage needs to monitor Cegid's integration and product roadmap closely, particularly their ability to leverage sevdesk's customer base and local market knowledge to compete with Sage Active and other Sage products.",
-      "source": "Cegid Acquires Sevdesk, Sevdesk Joins Cegid"
+      "source": "Cegid Acquires Sevdesk, Sevdesk Joins Cegid",
+      "archived": true,
+      "archived_at": "2026-08-14",
+      "archive_reason": "legacy_unverified",
+      "evidence_status": "legacy_unverified"
     },
     {
       "id": "pennylane-expands-into-spain",
@@ -375,7 +562,11 @@
       "title": "Pennylane Prepares for Spanish Market Entry Ahead of Sage's Spain Launch",
       "body": "Pennylane, a significant competitor in the French market, is slated to launch in Spain in H2 2026. This move positions Pennylane to potentially capture market share in Spain before Sage for Accountants (SfA) officially launches its Spanish offering.",
       "implication": "Pennylane's early entry into the Spanish market creates a competitive disadvantage for Sage WiSE's planned SfA Spain launch, requiring a swift and impactful go-to-market strategy for Sage in Spain.",
-      "source": "Market intelligence reports and Pennylane announcements, Jul 2026"
+      "source": "Market intelligence reports and Pennylane announcements, Jul 2026",
+      "archived": true,
+      "archived_at": "2026-08-14",
+      "archive_reason": "legacy_unverified",
+      "evidence_status": "legacy_unverified"
     },
     {
       "id": "cegid-expands-sales-force-in-germany",
@@ -386,7 +577,11 @@
       "title": "Cegid Hires 100 New Sales Representatives in France to Target Accounting Practices",
       "body": "Cegid has reportedly hired 100 new sales representatives in France during Q2 2026, with a strategic focus on acquiring new clients within the accounting practices sector. This aggressive expansion indicates a strong push to capture market share from competitors, including Sage.",
       "implication": "Cegid's increased sales presence in France poses a direct competitive threat to Sage's expert-comptable channel, potentially impacting Sage Active and GoProposal adoption rates.",
-      "source": "Industry news and Cegid press releases, Jul 2026"
+      "source": "Industry news and Cegid press releases, Jul 2026",
+      "archived": true,
+      "archived_at": "2026-08-14",
+      "archive_reason": "legacy_unverified",
+      "evidence_status": "legacy_unverified"
     },
     {
       "id": "cegid-sales-expansion",
@@ -397,7 +592,11 @@
       "title": "Cegid Bolsters French Sales Team with 100 New Hires",
       "body": "Cegid has reportedly hired 100 new sales representatives in France during the second quarter of 2026. This significant expansion of their sales force is likely aimed at increasing market penetration, particularly within the expert-comptable channel.",
       "implication": "Increased competitive pressure from Cegid in the French market, requiring a proactive strategy to retain and acquire accounting firms.",
-      "source": "Internal intelligence (as per prompt)"
+      "source": "Internal intelligence (as per prompt)",
+      "archived": true,
+      "archived_at": "2026-08-14",
+      "archive_reason": "legacy_unverified",
+      "evidence_status": "legacy_unverified"
     },
     {
       "id": "fr-pa-mandate-readiness",
@@ -409,7 +608,11 @@
       "body": "A recent survey indicates that less than a third of French businesses have decided on a certified platform (PA) for the upcoming electronic invoicing mandate starting September 1, 2026. Nearly half of businesses are unaware of any accredited PAs, highlighting a significant readiness gap. The mandate requires businesses to use a PA for e-invoicing and e-reporting.",
       "implication": "Urgent need to accelerate customer education and onboarding for Sage's PA solution to capture market share before competitors.",
       "source": "francenum.gouv.fr (Feb 2024), Les Echos (cited in francenum.gouv.fr)",
-      "calendar_tag": true
+      "calendar_tag": true,
+      "archived": true,
+      "archived_at": "2026-08-14",
+      "archive_reason": "legacy_unverified",
+      "evidence_status": "legacy_unverified"
     },
     {
       "id": "germany-xrechnung-b2b-mandate",
@@ -421,7 +624,11 @@
       "body": "Germany is mandating structured e-invoicing for domestic B2B transactions, with a phased rollout from January 2025 to January 2028. By January 1, 2025, all businesses must be able to receive e-invoices. From January 1, 2027, businesses with annual turnover above €800,000 must issue them, and by January 1, 2028, this obligation extends to all businesses. XRechnung and ZUGFeRD are the accepted formats.",
       "implication": "This regulatory deadline is a critical driver for businesses and accounting practices in Germany to adopt compliant e-invoicing solutions. Sage must ensure its products, particularly Sage Active and AutoEntry+AKAO, are fully compliant and marketed effectively to address this mandate.",
       "source": "Germany Expands X-Rechnung as the Core of Its E-Invoicing System, Fiscal Solutions (May 05, 2026); Germany E-Invoicing 2025-2028: Complete Compliance Guide, Vertex AI (May 28, 2026)",
-      "calendar_tag": true
+      "calendar_tag": true,
+      "archived": true,
+      "archived_at": "2026-08-14",
+      "archive_reason": "legacy_unverified",
+      "evidence_status": "legacy_unverified"
     },
     {
       "id": "pennylane-spain-entry-speculation",
@@ -432,7 +639,11 @@
       "title": "Pennylane's Spain entry H2 2026 remains a key competitive threat",
       "body": "While no new specific market signals for Pennylane's Spanish entry have emerged in the last 48 hours, their planned H2 2026 launch in Spain, coupled with their existing ARR and firm count, continues to represent a significant competitive threat.",
       "implication": "Sage must accelerate its Spain market entry and product localization for Sage for Accountants to pre-empt Pennylane's arrival and secure a strong foothold in the Spanish market, especially within the Despachos channel.",
-      "source": "Provided context"
+      "source": "Provided context",
+      "archived": true,
+      "archived_at": "2026-08-14",
+      "archive_reason": "legacy_unverified",
+      "evidence_status": "legacy_unverified"
     },
     {
       "id": "cegid-ebp-sales-expansion",
@@ -443,7 +654,11 @@
       "title": "Cegid EBP Expands Sales Force in France with 100 New Representatives",
       "body": "Cegid, through its acquisition of EBP, is significantly bolstering its sales presence in France by adding 100 new sales representatives in Q2 2026. This expansion aims to strengthen their position in the French market, particularly targeting accounting practices.",
       "implication": "Increased competitive pressure from Cegid/EBP in the French accountant channel, potentially impacting Sage's market share and sales efforts.",
-      "source": "Internal PMM Intelligence"
+      "source": "Internal PMM Intelligence",
+      "archived": true,
+      "archived_at": "2026-08-14",
+      "archive_reason": "legacy_unverified",
+      "evidence_status": "legacy_unverified"
     },
     {
       "id": "fr-pa-mandate-prep",
@@ -455,7 +670,11 @@
       "body": "France is set to implement its e-invoicing mandate on September 1, 2026, requiring all businesses to use state-accredited platforms for invoice transmission. Businesses must choose their platform to issue, receive, and report electronic invoices and transaction data. The list of accredited platforms is regularly updated on impots.gouv.fr.",
       "implication": "Sage must ensure its platform is accredited and actively communicate this to French accountants and businesses to avoid them selecting competitors' solutions.",
       "source": "impots.gouv.fr, economie.gouv.fr, Sage France, MyUnisoft",
-      "calendar_tag": true
+      "calendar_tag": true,
+      "archived": true,
+      "archived_at": "2026-08-14",
+      "archive_reason": "legacy_unverified",
+      "evidence_status": "legacy_unverified"
     },
     {
       "id": "lexoffice-aws-performance-enhancement",
@@ -466,7 +685,11 @@
       "title": "Haufe-Lexware enhances lexoffice performance via AWS migration",
       "body": "Haufe-Lexware has migrated its lexoffice SaaS accounting software to Amazon Web Services (AWS) to improve performance and scalability. This migration has reduced response times by 50% and allows for easier scaling to meet user demand. Lexoffice serves 250,000 small business and freelance customers in Germany.",
       "implication": "Competitor lexoffice is investing in technology to improve user experience and scalability, potentially increasing its attractiveness to SMBs. Sage should monitor lexoffice's feature development and market penetration.",
-      "source": "AWS Case Study"
+      "source": "AWS Case Study",
+      "archived": true,
+      "archived_at": "2026-08-14",
+      "archive_reason": "legacy_unverified",
+      "evidence_status": "legacy_unverified"
     },
     {
       "id": "lexware-office-cloud-accounting-de",
@@ -477,7 +700,11 @@
       "title": "Lexware Office continues to grow its cloud accounting user base",
       "body": "Lexware Office, part of the Haufe Group, is a leading online accounting software in Germany with 250,000 active daily users. The platform offers modules for billing, invoicing, payroll, banking, and tax returns, simplifying accounting for small businesses and freelancers. Lexware has recently become a main sponsor of SC Freiburg as of February 2026.",
       "implication": "Lexware remains a strong competitor in the German SMB market. Their continued investment in cloud solutions and brand visibility (e.g., sports sponsorship) indicates sustained focus and growth.",
-      "source": "Haufe-Lexware, April 23 2026; Lexware, Feb 2026"
+      "source": "Haufe-Lexware, April 23 2026; Lexware, Feb 2026",
+      "archived": true,
+      "archived_at": "2026-08-14",
+      "archive_reason": "legacy_unverified",
+      "evidence_status": "legacy_unverified"
     },
     {
       "id": "contasol-delsol-verifactu-compliance",
@@ -488,7 +715,11 @@
       "title": "Contasol (Software DELSOL) highlights Verifactu readiness.",
       "body": "Contasol, a Spanish accounting software from Software DELSOL, is being marketed as compliant with Spain's 2026 tax regulations, including Verifactu. The software is promoted as free for one user and adapted to current Spanish tax law, positioning it as a competitive option for SMEs and freelancers in Spain.",
       "implication": "The availability of free or low-cost Verifactu-compliant solutions like Contasol could pressure Sage's pricing strategy in the Spanish SMB and autónomo segments.",
-      "source": "CONTASOL 2026: Opiniones, precio y características reales, Software DELSOL: soluciones de gestión para pymes"
+      "source": "CONTASOL 2026: Opiniones, precio y características reales, Software DELSOL: soluciones de gestión para pymes",
+      "archived": true,
+      "archived_at": "2026-08-14",
+      "archive_reason": "legacy_unverified",
+      "evidence_status": "legacy_unverified"
     },
     {
       "id": "pennylane-spain-expansion-2026",
@@ -499,7 +730,11 @@
       "title": "Pennylane plans Spain entry H2 2026, backed by significant funding.",
       "body": "Pennylane, a French fintech startup, has raised $461M and plans to establish a presence in Spain in the second half of 2026. The company's expansion is fueled by a recent Series E round of $205M in January 2026, with a reported valuation of $4.25B. This move directly targets the Spanish market, potentially competing with Sage Active and Sage for Accountants.",
       "implication": "Sage WiSE needs to accelerate its Spain market entry and product readiness to counter Pennylane's planned expansion and established valuation.",
-      "source": "Pennylane Funding and Investors, January 2026"
+      "source": "Pennylane Funding and Investors, January 2026",
+      "archived": true,
+      "archived_at": "2026-08-14",
+      "archive_reason": "legacy_unverified",
+      "evidence_status": "legacy_unverified"
     },
     {
       "id": "fr-e-invoicing-guidance-jul26",
@@ -511,7 +746,11 @@
       "body": "The French Tax Authorities (DGFiP) released guidance on July 10, 2026, detailing the initial phase of the e-invoicing mandate starting September 1, 2026. The guidance includes simplification measures and a pragmatic approach to sanctions for genuine implementation difficulties, emphasizing active preparation and corrective actions. The reform has not been postponed.",
       "implication": "Confirms the September 1, 2026, deadline for e-invoicing in France, reinforcing the need for Sage to ensure SfA and Sage Active are fully compliant and to communicate this readiness to the market. The pragmatic approach to sanctions may offer some flexibility but active preparation remains key.",
       "source": "Ernst & Young LLP (July 28, 2026)",
-      "calendar_tag": true
+      "calendar_tag": true,
+      "archived": true,
+      "archived_at": "2026-08-14",
+      "archive_reason": "legacy_unverified",
+      "evidence_status": "legacy_unverified"
     },
     {
       "id": "lexware-cloud-strategy-2026",
@@ -522,7 +761,11 @@
       "title": "Lexware (Haufe Group) enhances cloud offerings and targets SMBs with Lexoffice.",
       "body": "Lexware, part of the Haufe Group, offers online accounting software 'Lexoffice' for the German market, serving approximately 250,000 small business and freelance customers. They have migrated their infrastructure to AWS for improved performance and scalability, and are developing new features as microservices. Lexware also provides training on e-invoicing implementation with Lexware Office.",
       "implication": "Lexware's continued investment in its cloud offering, Lexoffice, and its focus on e-invoicing readiness, positions it as a strong competitor to Sage Active in the German SMB market. Their established user base and ongoing development indicate a commitment to retaining and growing market share.",
-      "source": "AWS, Lexware Akademie (Date not specified, but context implies recent/ongoing)"
+      "source": "AWS, Lexware Akademie (Date not specified, but context implies recent/ongoing)",
+      "archived": true,
+      "archived_at": "2026-08-14",
+      "archive_reason": "legacy_unverified",
+      "evidence_status": "legacy_unverified"
     },
     {
       "id": "pennylane-spain-entry-progress",
@@ -533,7 +776,11 @@
       "title": "Pennylane SAS Sucursal en España registered",
       "body": "Pennylane SAS Sucursal en España has been officially registered in Spain, as indicated by a recent BOE (Boletín Oficial del Estado) publication. This registration signifies a concrete step towards their planned market entry in H2 2026.",
       "implication": "Pennylane's official registration in Spain confirms their imminent market entry, increasing competitive pressure on Sage's 'Sage for Accountants' and 'Sage Active' products, especially given their stated ARR and valuation.",
-      "source": "BOE publication of Pennylane SAS Sucursal en España registration"
+      "source": "BOE publication of Pennylane SAS Sucursal en España registration",
+      "archived": true,
+      "archived_at": "2026-08-14",
+      "archive_reason": "legacy_unverified",
+      "evidence_status": "legacy_unverified"
     },
     {
       "id": "portugal-qes-mandate-jan-2027",
@@ -545,7 +792,11 @@
       "body": "Starting January 1, 2027, all PDF invoices in Portugal, unless exchanged via Electronic Data Interchange (EDI), must include a Qualified Electronic Signature (QES) to be considered valid for fiscal purposes. This requirement was postponed from an earlier date, giving businesses until the end of 2026 to adapt.",
       "implication": "Sage must ensure its invoicing solutions for Portugal support QES integration by the January 2027 deadline to maintain compliance and marketability.",
       "source": "Multiple sources, updated through late 2025/early 2026",
-      "calendar_tag": true
+      "calendar_tag": true,
+      "archived": true,
+      "archived_at": "2026-08-14",
+      "archive_reason": "legacy_unverified",
+      "evidence_status": "legacy_unverified"
     },
     {
       "id": "lexware-cloud-migration-aws",
@@ -556,7 +807,11 @@
       "title": "Lexware (Haufe Group) leverages AWS for cloud accounting software performance.",
       "body": "Lexware, a leading German accounting software provider with 250,000 active users (lexoffice), has migrated its infrastructure to Amazon Web Services (AWS) to enhance performance, reliability, and scalability. This migration has resulted in a 50% reduction in response times and improved ability to handle usage peaks. Lexware is also developing new features as microservices on AWS.",
       "implication": "This indicates continued investment and technological advancement by Lexware in its cloud offerings. While not a direct competitive threat to Sage's core products, it shows Lexware's commitment to a robust cloud infrastructure, which could enhance its market position against other cloud accounting solutions in Germany.",
-      "source": "AWS (undated)"
+      "source": "AWS (undated)",
+      "archived": true,
+      "archived_at": "2026-08-14",
+      "archive_reason": "legacy_unverified",
+      "evidence_status": "legacy_unverified"
     },
     {
       "id": "cegid-ebp-fr-expansion",
@@ -567,7 +822,11 @@
       "title": "Cegid-EBP merger to create a dominant French accounting software player",
       "body": "Cegid's acquisition of EBP, announced in April 2024, will combine two major French software providers. EBP has 275,000 clients and €65M ARR, while Cegid aims to accelerate its European strategy for small businesses. The merged entity will serve nearly 750,000 clients and has a strong focus on cloud, AI, and electronic invoicing.",
       "implication": "This merger significantly strengthens Cegid's position in the French market, posing a direct competitive threat to Sage's offerings for expert-comptable channel.",
-      "source": "ChannelNews (Apr 2024)"
+      "source": "ChannelNews (Apr 2024)",
+      "archived": true,
+      "archived_at": "2026-08-14",
+      "archive_reason": "legacy_unverified",
+      "evidence_status": "legacy_unverified"
     },
     {
       "id": "fr-pa-mandate-readiness-low",
@@ -579,7 +838,11 @@
       "body": "A recent survey by the CNOEC indicates that less than a third of businesses know which e-invoicing platform they will choose, with nearly half unaware of any accredited platforms. This highlights a significant gap in readiness for the September 1, 2026 mandate.",
       "implication": "Sage needs to accelerate customer education and platform adoption to ensure compliance and avoid potential fines for businesses.",
       "source": "francenum.gouv.fr (Feb 2024)",
-      "calendar_tag": true
+      "calendar_tag": true,
+      "archived": true,
+      "archived_at": "2026-08-14",
+      "archive_reason": "legacy_unverified",
+      "evidence_status": "legacy_unverified"
     },
     {
       "id": "datev-cloud-migration-2026",
@@ -595,9 +858,11 @@
       "source": "Facturwise",
       "source_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFJG-W01VRJqdl6SqqryNHBGlkZE506ZU49c0jLX58GCaBoUV45Wu0Dz4N7WW7I71XldchXltl-o309H8xQEP1ONRDFUMBJZb7DbWVByzP3lNT2AhrdbfdtIl8bg0sYQ3TCbRyMGSFrfpL2dkJzgAGmxM3fRp82etvK5lKsb1ld-w==",
       "source_type": "secondary",
-      "evidence_status": "verified",
+      "evidence_status": "legacy_unverified",
       "confidence": "high",
-      "archived": true
+      "archived": true,
+      "archived_at": "2026-08-14",
+      "archive_reason": "legacy_unverified"
     }
   ]
 }
