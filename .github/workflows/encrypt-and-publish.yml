@@ -1,27 +1,25 @@
-name: Encrypt & Publish Hub
+name: Publish Hub Source
 
-# Re-encrypts src/index.html -> root index.html whenever the source changes,
-# so the static site actually updates. The password lives ONLY in the repo
-# secret STATICRYPT_PASSWORD (Settings > Secrets and variables > Actions).
-# It is never stored in the repo and never shared with anyone.
+# The root front door embeds src_index.html. Keep that generated live page aligned
+# with the reviewed source while access remains controlled by the WiSE PMM Hub.
 
 on:
   push:
     branches: [main]
     paths:
       - 'src/index.html'
-      - '.staticrypt.json'
+      - '.github/workflows/encrypt-and-publish.yml'
   workflow_dispatch:
 
 permissions:
   contents: write
 
 concurrency:
-  group: encrypt-publish
+  group: publish-hub-source
   cancel-in-progress: true
 
 jobs:
-  encrypt:
+  publish-source:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -31,37 +29,19 @@ jobs:
           node-version: '20'
 
       - name: Validate hub trust gates
-        run: node scripts/validate-hub.mjs
+        run: npm run validate
 
-      - name: Read salt from .staticrypt.json
-        id: salt
-        run: echo "value=$(node -p "require('./.staticrypt.json').salt")" >> "$GITHUB_OUTPUT"
+      - name: Build the live hub page from source
+        run: cp src/index.html src_index.html
 
-      - name: Encrypt src/index.html -> index.html
-        env:
-          PW: ${{ secrets.STATICRYPT_PASSWORD }}
+      - name: Commit live hub page if it changed
         run: |
-          if [ -z "$PW" ]; then
-            echo "::error::STATICRYPT_PASSWORD secret is not set. Add it under Settings > Secrets and variables > Actions."
-            exit 1
-          fi
-          cp src/index.html index.html
-          # Reuses the existing salt so your current password keeps working.
-          # To preserve the Sage-branded password gate, add: --template path/to/your-template.html
-          npx --yes staticrypt index.html \
-            --password "$PW" \
-            --salt "${{ steps.salt.outputs.value }}" \
-            --short \
-            -d .
-
-      - name: Commit re-encrypted index.html if it changed
-        run: |
-          if ! git diff --quiet index.html; then
+          if ! git diff --quiet src_index.html; then
             git config user.name "wise-hub-bot"
             git config user.email "actions@users.noreply.github.com"
-            git add index.html
-            git commit -m "Re-encrypt index.html from src [skip ci]"
+            git add src_index.html
+            git commit -m "Publish src_index.html from reviewed source [skip ci]"
             git push
           else
-            echo "index.html unchanged - nothing to publish."
+            echo "Live hub page unchanged - nothing to publish."
           fi
