@@ -2,7 +2,7 @@
   "meta": {
     "last_updated": "2026-08-15",
     "week_label": "Week of 10 Aug - 16 Aug 2026",
-    "signal_count": 40,
+    "signal_count": 35,
     "prev_signal_count": 40,
     "intensity": "CRITICAL",
     "intensity_reason": "France PA mandate under 8 weeks away (1 Sept 2026) with PA registration ~50% - Cegid closes EUR 1.1bn Shine acquisition (1M+ SMBs, 15,000 accountants across 7 markets) - Pennylane now live in Germany and valued at USD 4.25bn - converging FR/ES/DE/PT compliance deadlines",
@@ -28,111 +28,24 @@
     "eu_competitive_pct": 100,
     "eu_competitive_status": "green",
     "eu_competitive_label": "Live",
-    "last_scan": "2026-08-15T07:28:07.624952Z",
-    "last_scan_summary": "Automated evidence scan completed: 6 new signals passed source, date and quality checks.",
+    "last_scan": "2026-08-15T17:10:28.946919Z",
+    "last_scan_summary": "Automated evidence scan completed: 0 new signals passed source, date and quality checks.",
     "scan_status": {
       "date": "2026-08-15",
       "markets_scanned": [
-        "FR",
-        "DE"
+        "ES"
       ],
       "markets_skipped": [],
-      "signals_added": 6,
+      "signals_added": 0,
       "quality_filtered": 0,
       "summaries": {
-        "FR": "Market signals show continued regulatory pressure with the upcoming French e-invoicing mandate, significant competitive consolidation with Cegid's acquisition of EBP, and ongoing product development from Sage focusing on cloud and AI solutions.",
-        "DE": "The German market shows significant activity with DATEV's major cloud migration in 2026, Cegid's strategic acquisition of sevDesk, and ongoing competition from Haufe Group's cloud offerings, indicating a dynamic and evolving landscape."
+        "ES": "No new market signals for Spain were detected in the past 48 hours."
       }
     },
-    "archived_count": 0,
+    "archived_count": 1,
     "ifyrne_updated": "2026-08-10"
   },
   "signals": [
-    {
-      "id": "lexware-office-vs-haufe-x360",
-      "category": "Competitive",
-      "market": "DE",
-      "date": "2022-01-26",
-      "published_at": "2022-01-26",
-      "accessed_at": "2026-08-15",
-      "priority": "watch",
-      "title": "Comparison of cloud solutions: Lexware Office vs. Haufe X360",
-      "body": "This article compares Lexware Office and Haufe X360, two cloud-based business software solutions from the Haufe Group targeting the German market. Lexware Office is highlighted for its ease of use in billing, banking, and accounting for freelancers and small businesses, while Haufe X360 is presented as a more comprehensive solution for productivity. Both emphasize cloud benefits like device independence and automatic updates.",
-      "implication": "Understanding the competitive landscape, including offerings from Haufe Group like Lexware Office and Haufe X360, is crucial for Sage's product positioning and differentiation in the German SMB and accountant market.",
-      "source": "Haufe",
-      "source_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFWTmkB9qPjm5BzPz9fIRG9VJM1uy_-4zRfluB6haJcoNgnBem5YEhIc-0Rco-DLxebeJuBbPqcuc1-lN7Ha69X0yx56g9yxB7KD8WNP23duNLa-vsfO_dHTtlb1KsZJgZW-c1Y7_3RMPAwrsPvLf4oKhRpqjMYeYSWpFMy7SGvAeJWp53d2zAfLb_9Ww==",
-      "source_type": "secondary",
-      "evidence_status": "verified",
-      "confidence": "medium"
-    },
-    {
-      "id": "cegid-acquires-sevdesk",
-      "category": "Competitive",
-      "market": "DE",
-      "date": "2025-02-06",
-      "published_at": "2025-02-06",
-      "accessed_at": "2026-08-15",
-      "priority": "high",
-      "title": "Cegid acquires sevDesk, strengthening its cloud offering in German-speaking Europe",
-      "body": "Cegid has acquired sevDesk, a leading provider of cloud-based accounting and e-invoicing solutions for SMBs in the DACH region. This acquisition, valued at over €85 billion in processed transactions, aims to accelerate Cegid's international growth and expand its presence in the German market, which is experiencing rapid demand for cloud solutions and e-invoicing compliance.",
-      "implication": "This acquisition positions Cegid as a stronger competitor in the German market, directly challenging Sage's existing and planned offerings for accountants and SMBs. Sage needs to monitor sevDesk's integration and Cegid's strategy closely.",
-      "source": "Cegid",
-      "source_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH3J2l0qdx90EV_B9gdKQFoNiwImdW9ytFgQO9X26B1N8XO1f8kC04j5KmX0X5cQiTOmyDbPzhSRWDuzKlNSya7oMamsoW9g-5p45ADG1lGbC6y89SH8o4vel0_P0eUn807ZmZwQspsaD0vx6RnJaHS6Gfz8A==",
-      "source_type": "primary",
-      "evidence_status": "corroborated",
-      "confidence": "high"
-    },
-    {
-      "id": "datev-cloud-migration-2026",
-      "category": "Regulatory|AI & Tech",
-      "market": "DE",
-      "date": "2026-04-23",
-      "published_at": "2026-04-23",
-      "accessed_at": "2026-08-15",
-      "priority": "high",
-      "title": "DATEV initiates major cloud migration in 2026, impacting all core applications",
-      "body": "DATEV is undertaking its largest portfolio transformation, moving all core applications to the cloud starting in 2026. This phased migration, expected to take 24-36 months, will affect every core application, work routine, and client interface. The company is introducing a \"DATEV Umstellungscockpit\" to guide users through the process, offering checklists and learning content. This move aims to increase efficiency and enable digital collaboration with clients.",
-      "implication": "This significant shift by DATEV presents an opportunity for Sage to position its cloud solutions as a modern alternative or complementary offering, especially for firms looking to leverage AI and automation during this transition.",
-      "source": "Clara by Intoconvo",
-      "source_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFnWyxUaOLmZjMdTwIXWO8vnPCz5JaMUSc6BFAttvg3e_9enzX9mMgkcu1pRCCiE1FPv8cwl31lT9_gt6Ru2PA8VTY_lTid-uPgsASUNHrrmkxMyJ3ZJOAjnqwBN_cxIkG8Al3csxK2MuY6I7uSrePol5Bf5XYIAVLWBI8= ",
-      "source_type": "secondary",
-      "evidence_status": "corroborated",
-      "confidence": "high"
-    },
-    {
-      "id": "sage-active-fr-compliance",
-      "category": "AI & Tech",
-      "market": "FR",
-      "date": "2023-02-23",
-      "published_at": "2023-02-23",
-      "accessed_at": "2026-08-15",
-      "priority": "watch",
-      "title": "Sage Active launches in France, emphasizing cloud-based accounting and AI, with future e-invoicing compliance.",
-      "body": "Sage Active, a new cloud-based business management solution, has begun its rollout in France, with plans for Spain and Germany. It offers accounting modules and is designed for SMEs. Sage highlights its cloud strategy with Microsoft Azure and mentions that Sage Active will progressively offer new modules, including features for e-invoicing compliance.",
-      "implication": "While Sage Active is positioned for future compliance, its current readiness and specific features for the September 2026 mandate need to be clearly communicated to the French market to assure accountants and businesses.",
-      "source": "Sage lance Sage Active | La profession comptable",
-      "source_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE5CShm_GLOSkQPFqFs0bA4ZCHmRjv4ozmofwZPH1BVrU79wFUYTgUELnTwfnn-pOmyixfe5BCYl62XQ3TRqxHRcnm0iFv-Bb91cQaJ_6-5FBzMiIlv5DVMkVrVyWS5HBnFGPusPIanZ22JA6XaPAWX3PzmPv9slRuRvLDdUL8C0T7GTAL1pHqeYJuTP8eLLvNG0dS2Wg==",
-      "source_type": "secondary",
-      "evidence_status": "verified",
-      "confidence": "high"
-    },
-    {
-      "id": "cegid-ebp-fr-accountant-focus",
-      "category": "Competitive",
-      "market": "FR",
-      "date": "2024-04-23",
-      "published_at": "2024-04-23",
-      "accessed_at": "2026-08-15",
-      "priority": "high",
-      "title": "Cegid strengthens French market position with EBP acquisition, targeting TPE/PME and accounting firms.",
-      "body": "Cegid's potential acquisition of EBP, a major player in French TPE/PME management solutions, aims to bolster its European leadership in invoicing and accounting. This move, following investments in Iberia and Benelux, positions the combined entity to capitalize on the e-invoicing reform. EBP brings a strong understanding of small and medium-sized businesses and a user-centric approach, complementing Cegid's existing offerings.",
-      "implication": "This consolidation intensifies competition in the French market, particularly for accounting firms and SMBs. Sage needs to highlight its unique value proposition and local expertise to counter this combined force.",
-      "source": "Cegid x EBP | La profession comptable",
-      "source_url": "https://www.laprofessioncomptable.com/article/cegid-x-ebp",
-      "source_type": "secondary",
-      "evidence_status": "verified",
-      "confidence": "high"
-    },
     {
       "id": "fr-pa-mandate-2026-update",
       "category": "Regulatory",
@@ -632,6 +545,24 @@
       "implication": "Confirms the September 1, 2026, deadline for e-invoicing in France, reinforcing the need for Sage to ensure SfA and Sage Active are fully compliant and to communicate this readiness to the market. The pragmatic approach to sanctions may offer some flexibility but active preparation remains key.",
       "source": "Ernst & Young LLP (July 28, 2026)",
       "calendar_tag": true
+    },
+    {
+      "id": "datev-cloud-migration-2026",
+      "category": "Regulatory|AI & Tech",
+      "market": "DE",
+      "date": "2026-04-23",
+      "published_at": "2026-04-23",
+      "accessed_at": "2026-08-15",
+      "priority": "high",
+      "title": "DATEV initiates major cloud migration in 2026, impacting all core applications",
+      "body": "DATEV is undertaking its largest portfolio transformation, moving all core applications to the cloud starting in 2026. This phased migration, expected to take 24-36 months, will affect every core application, work routine, and client interface. The company is introducing a \"DATEV Umstellungscockpit\" to guide users through the process, offering checklists and learning content. This move aims to increase efficiency and enable digital collaboration with clients.",
+      "implication": "This significant shift by DATEV presents an opportunity for Sage to position its cloud solutions as a modern alternative or complementary offering, especially for firms looking to leverage AI and automation during this transition.",
+      "source": "Clara by Intoconvo",
+      "source_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFnWyxUaOLmZjMdTwIXWO8vnPCz5JaMUSc6BFAttvg3e_9enzX9mMgkcu1pRCCiE1FPv8cwl31lT9_gt6Ru2PA8VTY_lTid-uPgsASUNHrrmkxMyJ3ZJOAjnqwBN_cxIkG8Al3csxK2MuY6I7uSrePol5Bf5XYIAVLWBI8= ",
+      "source_type": "secondary",
+      "evidence_status": "corroborated",
+      "confidence": "high",
+      "archived": true
     }
   ]
 }
