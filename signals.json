@@ -1,6 +1,6 @@
 {
   "meta": {
-    "last_updated": "2026-08-14",
+    "last_updated": "2026-08-15",
     "week_label": "Week of 10 Aug - 16 Aug 2026",
     "signal_count": 40,
     "prev_signal_count": 40,
@@ -28,24 +28,129 @@
     "eu_competitive_pct": 100,
     "eu_competitive_status": "green",
     "eu_competitive_label": "Live",
-    "last_scan": "2026-08-14T17:42:45.884728Z",
-    "last_scan_summary": "Automated evidence scan completed: 3 new signals passed source, date and quality checks.",
+    "last_scan": "2026-08-15T07:28:07.624952Z",
+    "last_scan_summary": "Automated evidence scan completed: 6 new signals passed source, date and quality checks.",
     "scan_status": {
-      "date": "2026-08-14",
+      "date": "2026-08-15",
       "markets_scanned": [
-        "Pennylane"
+        "FR",
+        "DE"
       ],
       "markets_skipped": [],
-      "signals_added": 3,
+      "signals_added": 6,
       "quality_filtered": 0,
       "summaries": {
-        "Pennylane": "Pennylane is aggressively expanding across Europe, fueled by substantial funding, and is heavily investing in AI capabilities and key market hires, posing a significant competitive threat to Sage."
+        "FR": "Market signals show continued regulatory pressure with the upcoming French e-invoicing mandate, significant competitive consolidation with Cegid's acquisition of EBP, and ongoing product development from Sage focusing on cloud and AI solutions.",
+        "DE": "The German market shows significant activity with DATEV's major cloud migration in 2026, Cegid's strategic acquisition of sevDesk, and ongoing competition from Haufe Group's cloud offerings, indicating a dynamic and evolving landscape."
       }
     },
     "archived_count": 0,
     "ifyrne_updated": "2026-08-10"
   },
   "signals": [
+    {
+      "id": "lexware-office-vs-haufe-x360",
+      "category": "Competitive",
+      "market": "DE",
+      "date": "2022-01-26",
+      "published_at": "2022-01-26",
+      "accessed_at": "2026-08-15",
+      "priority": "watch",
+      "title": "Comparison of cloud solutions: Lexware Office vs. Haufe X360",
+      "body": "This article compares Lexware Office and Haufe X360, two cloud-based business software solutions from the Haufe Group targeting the German market. Lexware Office is highlighted for its ease of use in billing, banking, and accounting for freelancers and small businesses, while Haufe X360 is presented as a more comprehensive solution for productivity. Both emphasize cloud benefits like device independence and automatic updates.",
+      "implication": "Understanding the competitive landscape, including offerings from Haufe Group like Lexware Office and Haufe X360, is crucial for Sage's product positioning and differentiation in the German SMB and accountant market.",
+      "source": "Haufe",
+      "source_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFWTmkB9qPjm5BzPz9fIRG9VJM1uy_-4zRfluB6haJcoNgnBem5YEhIc-0Rco-DLxebeJuBbPqcuc1-lN7Ha69X0yx56g9yxB7KD8WNP23duNLa-vsfO_dHTtlb1KsZJgZW-c1Y7_3RMPAwrsPvLf4oKhRpqjMYeYSWpFMy7SGvAeJWp53d2zAfLb_9Ww==",
+      "source_type": "secondary",
+      "evidence_status": "verified",
+      "confidence": "medium"
+    },
+    {
+      "id": "cegid-acquires-sevdesk",
+      "category": "Competitive",
+      "market": "DE",
+      "date": "2025-02-06",
+      "published_at": "2025-02-06",
+      "accessed_at": "2026-08-15",
+      "priority": "high",
+      "title": "Cegid acquires sevDesk, strengthening its cloud offering in German-speaking Europe",
+      "body": "Cegid has acquired sevDesk, a leading provider of cloud-based accounting and e-invoicing solutions for SMBs in the DACH region. This acquisition, valued at over €85 billion in processed transactions, aims to accelerate Cegid's international growth and expand its presence in the German market, which is experiencing rapid demand for cloud solutions and e-invoicing compliance.",
+      "implication": "This acquisition positions Cegid as a stronger competitor in the German market, directly challenging Sage's existing and planned offerings for accountants and SMBs. Sage needs to monitor sevDesk's integration and Cegid's strategy closely.",
+      "source": "Cegid",
+      "source_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH3J2l0qdx90EV_B9gdKQFoNiwImdW9ytFgQO9X26B1N8XO1f8kC04j5KmX0X5cQiTOmyDbPzhSRWDuzKlNSya7oMamsoW9g-5p45ADG1lGbC6y89SH8o4vel0_P0eUn807ZmZwQspsaD0vx6RnJaHS6Gfz8A==",
+      "source_type": "primary",
+      "evidence_status": "corroborated",
+      "confidence": "high"
+    },
+    {
+      "id": "datev-cloud-migration-2026",
+      "category": "Regulatory|AI & Tech",
+      "market": "DE",
+      "date": "2026-04-23",
+      "published_at": "2026-04-23",
+      "accessed_at": "2026-08-15",
+      "priority": "high",
+      "title": "DATEV initiates major cloud migration in 2026, impacting all core applications",
+      "body": "DATEV is undertaking its largest portfolio transformation, moving all core applications to the cloud starting in 2026. This phased migration, expected to take 24-36 months, will affect every core application, work routine, and client interface. The company is introducing a \"DATEV Umstellungscockpit\" to guide users through the process, offering checklists and learning content. This move aims to increase efficiency and enable digital collaboration with clients.",
+      "implication": "This significant shift by DATEV presents an opportunity for Sage to position its cloud solutions as a modern alternative or complementary offering, especially for firms looking to leverage AI and automation during this transition.",
+      "source": "Clara by Intoconvo",
+      "source_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFnWyxUaOLmZjMdTwIXWO8vnPCz5JaMUSc6BFAttvg3e_9enzX9mMgkcu1pRCCiE1FPv8cwl31lT9_gt6Ru2PA8VTY_lTid-uPgsASUNHrrmkxMyJ3ZJOAjnqwBN_cxIkG8Al3csxK2MuY6I7uSrePol5Bf5XYIAVLWBI8= ",
+      "source_type": "secondary",
+      "evidence_status": "corroborated",
+      "confidence": "high"
+    },
+    {
+      "id": "sage-active-fr-compliance",
+      "category": "AI & Tech",
+      "market": "FR",
+      "date": "2023-02-23",
+      "published_at": "2023-02-23",
+      "accessed_at": "2026-08-15",
+      "priority": "watch",
+      "title": "Sage Active launches in France, emphasizing cloud-based accounting and AI, with future e-invoicing compliance.",
+      "body": "Sage Active, a new cloud-based business management solution, has begun its rollout in France, with plans for Spain and Germany. It offers accounting modules and is designed for SMEs. Sage highlights its cloud strategy with Microsoft Azure and mentions that Sage Active will progressively offer new modules, including features for e-invoicing compliance.",
+      "implication": "While Sage Active is positioned for future compliance, its current readiness and specific features for the September 2026 mandate need to be clearly communicated to the French market to assure accountants and businesses.",
+      "source": "Sage lance Sage Active | La profession comptable",
+      "source_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE5CShm_GLOSkQPFqFs0bA4ZCHmRjv4ozmofwZPH1BVrU79wFUYTgUELnTwfnn-pOmyixfe5BCYl62XQ3TRqxHRcnm0iFv-Bb91cQaJ_6-5FBzMiIlv5DVMkVrVyWS5HBnFGPusPIanZ22JA6XaPAWX3PzmPv9slRuRvLDdUL8C0T7GTAL1pHqeYJuTP8eLLvNG0dS2Wg==",
+      "source_type": "secondary",
+      "evidence_status": "verified",
+      "confidence": "high"
+    },
+    {
+      "id": "cegid-ebp-fr-accountant-focus",
+      "category": "Competitive",
+      "market": "FR",
+      "date": "2024-04-23",
+      "published_at": "2024-04-23",
+      "accessed_at": "2026-08-15",
+      "priority": "high",
+      "title": "Cegid strengthens French market position with EBP acquisition, targeting TPE/PME and accounting firms.",
+      "body": "Cegid's potential acquisition of EBP, a major player in French TPE/PME management solutions, aims to bolster its European leadership in invoicing and accounting. This move, following investments in Iberia and Benelux, positions the combined entity to capitalize on the e-invoicing reform. EBP brings a strong understanding of small and medium-sized businesses and a user-centric approach, complementing Cegid's existing offerings.",
+      "implication": "This consolidation intensifies competition in the French market, particularly for accounting firms and SMBs. Sage needs to highlight its unique value proposition and local expertise to counter this combined force.",
+      "source": "Cegid x EBP | La profession comptable",
+      "source_url": "https://www.laprofessioncomptable.com/article/cegid-x-ebp",
+      "source_type": "secondary",
+      "evidence_status": "verified",
+      "confidence": "high"
+    },
+    {
+      "id": "fr-pa-mandate-2026-update",
+      "category": "Regulatory",
+      "market": "FR",
+      "date": "2026-08-06",
+      "published_at": "2026-08-06",
+      "accessed_at": "2026-08-15",
+      "priority": "critical",
+      "title": "DGFiP releases guide for Sept 2026 e-invoicing mandate, addressing platform issues and penalties.",
+      "body": "The DGFiP has published a 35-page guide to clarify the upcoming e-invoicing reform starting September 1, 2026. The guide addresses critical questions regarding platform failures, handling non-compliant invoices (PDF/paper), directory errors, e-reporting regularization, and late submissions by providers. It also clarifies penalties and grace periods for good faith non-compliance.",
+      "implication": "Sage must ensure its solutions are fully compliant and that clear communication channels are established to address potential platform issues and client concerns regarding the mandate.",
+      "source": "YouTube - DGFiP Guide on E-invoicing Reform",
+      "source_url": "https://www.youtube.com/watch?v=GLLO6ec4HZ5L1g_0dhhCZ4-xA0Aq-MMJFFM-SuzjDKjvjmBtgZeAEVDjhGwuIHjiVuchCN00PvrsJqp-NRunVeMfMgqhrpH-sGeMbq3OP35xLXsrOkWAtWla1Yos3h6n4WMaI1PNM=",
+      "source_type": "secondary",
+      "evidence_status": "verified",
+      "confidence": "high",
+      "calendar_tag": true
+    },
     {
       "id": "pennylane-hiring-germany-spain-2026",
       "category": "Hiring|Market",
@@ -61,40 +166,6 @@
       "source_url": "https://www.pennylane.com/jobs/field-marketing-manager-event-germany-remote",
       "source_type": "primary",
       "evidence_status": "verified",
-      "confidence": "high"
-    },
-    {
-      "id": "pennylane-ai-product-enhancements-2026",
-      "category": "AI & Tech|Product",
-      "market": "EU",
-      "date": "2026-01-20",
-      "published_at": "2026-01-20",
-      "accessed_at": "2026-08-14",
-      "priority": "high",
-      "title": "Pennylane enhances AI capabilities with new funding, including an analysis co-pilot",
-      "body": "With its recent funding, Pennylane plans to intensify R&D investments in generative AI tools, including an analysis-assistant co-pilot for accountants to boost their advisory services. They are also focusing on product localization for German regulatory requirements and enriching payment and cash management offerings.",
-      "implication": "Pennylane's focus on AI development, particularly an AI co-pilot for accountants, directly challenges Sage's AI offerings and could provide a competitive edge in advisory services.",
-      "source": "EU-Startups",
-      "source_url": "https://www.eu-startups.com/2026/01/sequoia-backed-french-accounting-unicorn-pennylane-secures-e175-million-as-it-nears-profitability/",
-      "source_type": "secondary",
-      "evidence_status": "corroborated",
-      "confidence": "high"
-    },
-    {
-      "id": "pennylane-funding-expansion-2026",
-      "category": "Funding|Brand|Market",
-      "market": "EU",
-      "date": "2026-01-20",
-      "published_at": "2026-01-20",
-      "accessed_at": "2026-08-14",
-      "priority": "critical",
-      "title": "Pennylane secures €175M funding, plans aggressive EU expansion and AI development",
-      "body": "Pennylane raised €175 million in a Series E funding round led by TCV and Blackstone Growth, valuing the company at €3.5 billion. The funds will be used to accelerate R&D, focusing on AI tools for accountants, and to expand its presence across Europe, with plans to enter a third country in the second half of 2026. The company also aims to grow its workforce to 1,200 employees.",
-      "implication": "Pennylane's significant funding and aggressive expansion plans pose a direct threat to Sage's market share in Europe, particularly in Germany and Spain, as they aim to become the leading financial OS for SMEs.",
-      "source": "Maddyness UK",
-      "source_url": "https://www.maddyness.com/en/2026/01/20/pennylane-new-175-million-funding-round-for-the-french-unicorn/",
-      "source_type": "secondary",
-      "evidence_status": "corroborated",
       "confidence": "high"
     },
     {
@@ -561,51 +632,6 @@
       "implication": "Confirms the September 1, 2026, deadline for e-invoicing in France, reinforcing the need for Sage to ensure SfA and Sage Active are fully compliant and to communicate this readiness to the market. The pragmatic approach to sanctions may offer some flexibility but active preparation remains key.",
       "source": "Ernst & Young LLP (July 28, 2026)",
       "calendar_tag": true
-    },
-    {
-      "id": "lexware-cloud-strategy-2026",
-      "category": "Competitive",
-      "market": "DE",
-      "date": "Jul 2026",
-      "priority": "high",
-      "title": "Lexware (Haufe Group) enhances cloud offerings and targets SMBs with Lexoffice.",
-      "body": "Lexware, part of the Haufe Group, offers online accounting software 'Lexoffice' for the German market, serving approximately 250,000 small business and freelance customers. They have migrated their infrastructure to AWS for improved performance and scalability, and are developing new features as microservices. Lexware also provides training on e-invoicing implementation with Lexware Office.",
-      "implication": "Lexware's continued investment in its cloud offering, Lexoffice, and its focus on e-invoicing readiness, positions it as a strong competitor to Sage Active in the German SMB market. Their established user base and ongoing development indicate a commitment to retaining and growing market share.",
-      "source": "AWS, Lexware Akademie (Date not specified, but context implies recent/ongoing)"
-    },
-    {
-      "id": "pennylane-spain-entry-progress",
-      "category": "Competitive",
-      "market": "ES",
-      "date": "H2 2026",
-      "priority": "high",
-      "title": "Pennylane SAS Sucursal en España registered",
-      "body": "Pennylane SAS Sucursal en España has been officially registered in Spain, as indicated by a recent BOE (Boletín Oficial del Estado) publication. This registration signifies a concrete step towards their planned market entry in H2 2026.",
-      "implication": "Pennylane's official registration in Spain confirms their imminent market entry, increasing competitive pressure on Sage's 'Sage for Accountants' and 'Sage Active' products, especially given their stated ARR and valuation.",
-      "source": "BOE publication of Pennylane SAS Sucursal en España registration"
-    },
-    {
-      "id": "portugal-qes-mandate-jan-2027",
-      "category": "Regulatory",
-      "market": "PT",
-      "date": "2027-01-01",
-      "priority": "critical",
-      "title": "Qualified Electronic Signature (QES) Mandatory for PDF Invoices in Portugal from Jan 2027",
-      "body": "Starting January 1, 2027, all PDF invoices in Portugal, unless exchanged via Electronic Data Interchange (EDI), must include a Qualified Electronic Signature (QES) to be considered valid for fiscal purposes. This requirement was postponed from an earlier date, giving businesses until the end of 2026 to adapt.",
-      "implication": "Sage must ensure its invoicing solutions for Portugal support QES integration by the January 2027 deadline to maintain compliance and marketability.",
-      "source": "Multiple sources, updated through late 2025/early 2026",
-      "calendar_tag": true
-    },
-    {
-      "id": "lexware-cloud-migration-aws",
-      "category": "AI & Tech",
-      "market": "DE",
-      "date": "undated",
-      "priority": "watch",
-      "title": "Lexware (Haufe Group) leverages AWS for cloud accounting software performance.",
-      "body": "Lexware, a leading German accounting software provider with 250,000 active users (lexoffice), has migrated its infrastructure to Amazon Web Services (AWS) to enhance performance, reliability, and scalability. This migration has resulted in a 50% reduction in response times and improved ability to handle usage peaks. Lexware is also developing new features as microservices on AWS.",
-      "implication": "This indicates continued investment and technological advancement by Lexware in its cloud offerings. While not a direct competitive threat to Sage's core products, it shows Lexware's commitment to a robust cloud infrastructure, which could enhance its market position against other cloud accounting solutions in Germany.",
-      "source": "AWS (undated)"
     }
   ]
 }
