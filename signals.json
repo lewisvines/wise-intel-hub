@@ -1,8 +1,8 @@
 {
   "meta": {
-    "last_updated": "2026-08-18",
+    "last_updated": "2026-08-19",
     "week_label": "Week of 17 Aug - 23 Aug 2026",
-    "signal_count": 40,
+    "signal_count": 37,
     "prev_signal_count": 40,
     "intensity": "CRITICAL",
     "intensity_reason": "France PA mandate under 8 weeks away (1 Sept 2026) with PA registration ~50% - Cegid closes EUR 1.1bn Shine acquisition (1M+ SMBs, 15,000 accountants across 7 markets) - Pennylane now live in Germany and valued at USD 4.25bn - converging FR/ES/DE/PT compliance deadlines",
@@ -28,80 +28,59 @@
     "eu_competitive_pct": 100,
     "eu_competitive_status": "green",
     "eu_competitive_label": "Live",
-    "last_scan": "2026-08-18T17:16:38.895164Z",
-    "last_scan_summary": "Automated evidence scan completed: 9 new signals passed source, date and quality checks.",
+    "last_scan": "2026-08-19T07:36:48.265105Z",
+    "last_scan_summary": "Automated evidence scan completed: 2 new signals passed source, date and quality checks.",
     "scan_status": {
-      "date": "2026-08-18",
+      "date": "2026-08-19",
       "markets_scanned": [
         "FR",
-        "ES",
-        "PT"
+        "DE"
       ],
       "markets_skipped": [],
-      "signals_added": 9,
+      "signals_added": 2,
       "quality_filtered": 0,
       "summaries": {
-        "FR": "Market signals in France show a critical focus on the upcoming September 1, 2026, e-invoicing mandate, with competitors like Cegid/EBP and Sage actively positioning their solutions for compliance.",
-        "ES": "Market signals for Spain show a strong focus on Verifactu compliance, with key players like Holded, Sage Active, and Software DELSOL actively preparing their offerings. Sage Active is also highlighting its AI capabilities, positioning itself against competitors.",
-        "PT": "Portugal shows continued regulatory evolution with SAF-T and e-signature deadlines, while Cegid solidifies its market position through integration and strong revenue growth."
+        "FR": "No new market signals were detected in the past 48 hours for France related to the specified search terms.",
+        "DE": "The German market shows significant activity with Cegid's acquisition of sevdesk, a clear timeline for B2B e-invoicing mandates, and Lexoffice's rebranding to Lexware Office, indicating a dynamic competitive and regulatory landscape."
       }
     },
-    "archived_count": 0,
+    "archived_count": 1,
     "ifyrne_updated": "2026-08-17"
   },
   "signals": [
     {
-      "id": "cegid-primavera-integration-and-market-position",
+      "id": "lexware-office-rebrand-lexoffice",
       "category": "Competitive",
-      "market": "PT",
-      "date": "2026-04-27",
-      "published_at": "2026-04-27",
-      "accessed_at": "2026-08-18",
-      "priority": "high",
-      "title": "Cegid Group reports €85M revenue in Portugal in 2025, post-PHC acquisition",
-      "body": "Cegid Group generated €85 million in revenue in Portugal in 2025, the year it acquired PHC Software. The company expects a 10% growth in 2026, leveraging its integrated operations of Cegid Primavera and Cegid PHC.",
-      "implication": "Cegid's strong financial performance and integrated offerings in Portugal, combining Primavera and PHC, indicate a significant competitive presence that Sage WiSE must counter.",
-      "source": "ECO SAPO",
-      "source_url": "https://eco.sapo.pt/2026/04/27/grupo-cegid-fatura-85-milhoes-em-portugal-em-ano-de-compra-da-phc/",
-      "source_type": "secondary",
+      "market": "DE",
+      "date": "2025-12-06",
+      "published_at": "2025-12-06",
+      "accessed_at": "2026-08-19",
+      "priority": "watch",
+      "title": "Lexoffice rebrands to Lexware Office as part of Haufe Group's strategy",
+      "body": "Lexoffice, the cloud SMB accounting product from Haufe Group, has been rebranded to Lexware Office. This change aligns it with the broader Lexware brand, known for its accounting software solutions for freelancers and small businesses. The core functionalities, including simple operation, automation, and cloud-based working, remain the same.",
+      "implication": "While a rebranding, this signifies Haufe Group's commitment to consolidating its accounting offerings under the strong Lexware brand. This could lead to increased market penetration and a more unified competitive offering against Sage's SMB solutions in Germany.",
+      "source": "Lexware",
+      "source_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEc-GMMyHsfBoAQFCC2ikBHs_YakvtB0AUNf-Iaow7-DP4_kd6cqWE80EejfL9fSqZfwWNRZHr9Yh40rLrhvYlHA2mkWujbfylva98hMRqVgUXI_fQFYfk6kQYQLrRzBam7OaTODTjrMn-N2YzCMy7IF0RsLYvHBg==",
+      "source_type": "primary",
       "evidence_status": "verified",
       "confidence": "high"
     },
     {
-      "id": "portugal-accounting-saf-t-submission-postponed-to-2028",
-      "category": "Regulatory",
-      "market": "PT",
-      "date": "2025-11-27",
-      "published_at": "2025-11-27",
-      "accessed_at": "2026-08-18",
+      "id": "cegid-sevdesk-acquisition-germany",
+      "category": "Competitive",
+      "market": "DE",
+      "date": "2025-02-06",
+      "published_at": "2025-02-06",
+      "accessed_at": "2026-08-19",
       "priority": "high",
-      "title": "Portugal postpones mandatory accounting SAF-T file submission to 2028 (FY 2027)",
-      "body": "The mandatory periodic submission of the accounting SAF-T file in Portugal has been postponed to 2028, applying to the fiscal year 2027. This is the latest in a series of delays for this requirement.",
-      "implication": "This delay provides additional time for Sage to ensure its solutions are fully compliant with the accounting SAF-T requirements for Portugal, but the on-demand reporting obligation remains.",
-      "source": "Comarch",
-      "source_url": "https://www.comarch.com/media/news/portugal-delays-e-signature-and-accounting-saf-t-requirements-to-2027-and-2028/",
-      "source_type": "secondary",
+      "title": "Cegid completes acquisition of sevdesk, strengthening DACH presence",
+      "body": "Cegid has finalized its acquisition of sevdesk, a German provider of cloud-based accounting software for SMBs. This move expands Cegid's footprint in the DACH region, integrating sevdesk's solutions for invoicing, expense management, and tax reporting. Marco Reinbold, co-founder and CEO of sevdesk, has been appointed General Manager for Cegid's DACH operations.",
+      "implication": "Increased competition in the German market, particularly for cloud SMB solutions. Cegid's established presence and sevdesk's user base pose a direct threat to Sage Active and Sage for Accountants in Germany.",
+      "source": "Cegid",
+      "source_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGE3F1kLnAsJ7hAi-QgLl7mTR5z8iitAxtak-bzx6m8YddIH4TvOK_w70FeZ8-FqIrf922_sYddsxMUH0Cp13xxqvlU93s2kSWaBY41Qnb2a0eGwtjMzhaVqWw2EBT6SZkjVvTznPSJ4iCouJ5N6qI5EkR2ykI=",
+      "source_type": "primary",
       "evidence_status": "verified",
-      "confidence": "high",
-      "calendar_tag": true
-    },
-    {
-      "id": "portugal-saf-t-qes-deadline-extension",
-      "category": "Regulatory",
-      "market": "PT",
-      "date": "2025-12-01",
-      "published_at": "2025-12-01",
-      "accessed_at": "2026-08-18",
-      "priority": "high",
-      "title": "Portugal extends PDF invoice validity to Dec 31, 2026; QES mandatory from Jan 1, 2027",
-      "body": "Portugal has extended the validity of standard PDF invoices until December 31, 2026. From January 1, 2027, all electronic invoices not exchanged via EDI must include a Qualified Electronic Signature (QES) to be considered valid by tax authorities.",
-      "implication": "Sage Active and SfA need to ensure full QES compliance for Portuguese clients by the January 1, 2027 deadline, impacting invoicing solutions.",
-      "source": "EDICOM",
-      "source_url": "https://www.edicom.com/en/blog/portugal-saf-t-accounting-file-qualified-electronic-signature-deadlines",
-      "source_type": "secondary",
-      "evidence_status": "verified",
-      "confidence": "high",
-      "calendar_tag": true
+      "confidence": "high"
     },
     {
       "id": "contasol-delsol-verifactu-readiness",
@@ -139,24 +118,6 @@
       "confidence": "high"
     },
     {
-      "id": "holded-verifactu-readiness-update",
-      "category": "Regulatory",
-      "market": "ES",
-      "date": "2026-01-15",
-      "published_at": "2026-01-15",
-      "accessed_at": "2026-08-18",
-      "priority": "high",
-      "title": "Holded confirms Verifactu compliance and readiness for Spanish tax regulations",
-      "body": "Holded has updated its platform to ensure compliance with the Verifactu regulation and upcoming electronic invoicing requirements in Spain. The company states that its invoicing software is prepared for these changes, aiming to simplify the transition for its users. This includes adherence to Royal Decree 1007/2023, which establishes requirements for invoicing IT systems.",
-      "implication": "Holded is proactively addressing the Verifactu mandate, potentially gaining a competitive advantage in the Spanish market by offering a compliant solution early. Sage needs to ensure Sage Active Spain is equally prepared and marketed effectively.",
-      "source": "Holded Academy",
-      "source_url": "https://www.holded.com/academy/verifactu-setup-for-pos",
-      "source_type": "primary",
-      "evidence_status": "verified",
-      "confidence": "high",
-      "calendar_tag": true
-    },
-    {
       "id": "sage-active-france-compliance",
       "category": "Regulatory",
       "market": "FR",
@@ -173,23 +134,6 @@
       "evidence_status": "verified",
       "confidence": "high",
       "calendar_tag": true
-    },
-    {
-      "id": "cegid-ebp-strengthens-fr-market-position",
-      "category": "Competitive",
-      "market": "FR",
-      "date": "2024-07-01",
-      "published_at": "2024-07-01",
-      "accessed_at": "2026-08-18",
-      "priority": "high",
-      "title": "Cegid's acquisition of EBP enhances its French market presence and e-invoicing capabilities.",
-      "body": "Cegid acquired EBP in July 2024, integrating EBP's software with Cegid's own approved e-invoicing platform (PA Cegid - PA-0005). This integration ensures EBP software users are compliant with the 2026 e-invoicing reform without additional modules or costs. Cegid, a major European player in business management solutions, aims to leverage this acquisition to strengthen its position in France and Europe, particularly in the accounting sector.",
-      "implication": "The combined strength of Cegid and EBP presents a significant competitive challenge in the French market, especially for accounting practices. Sage needs to monitor their joint go-to-market strategies and product integrations.",
-      "source": "EBP.com",
-      "source_url": "https://www.ebp.com/actualites/ebp-facturation-2026-notre-test-complet",
-      "source_type": "secondary",
-      "evidence_status": "corroborated",
-      "confidence": "high"
     },
     {
       "id": "fr-pa-mandate-deadline-approaching",
@@ -689,6 +633,24 @@
       "implication": "This regulatory deadline is a critical driver for businesses and accounting practices in Germany to adopt compliant e-invoicing solutions. Sage must ensure its products, particularly Sage Active and AutoEntry+AKAO, are fully compliant and marketed effectively to address this mandate.",
       "source": "Germany Expands X-Rechnung as the Core of Its E-Invoicing System, Fiscal Solutions (May 05, 2026); Germany E-Invoicing 2025-2028: Complete Compliance Guide, Vertex AI (May 28, 2026)",
       "calendar_tag": true
+    },
+    {
+      "id": "cegid-primavera-integration-and-market-position",
+      "category": "Competitive",
+      "market": "PT",
+      "date": "2026-04-27",
+      "published_at": "2026-04-27",
+      "accessed_at": "2026-08-18",
+      "priority": "high",
+      "title": "Cegid Group reports €85M revenue in Portugal in 2025, post-PHC acquisition",
+      "body": "Cegid Group generated €85 million in revenue in Portugal in 2025, the year it acquired PHC Software. The company expects a 10% growth in 2026, leveraging its integrated operations of Cegid Primavera and Cegid PHC.",
+      "implication": "Cegid's strong financial performance and integrated offerings in Portugal, combining Primavera and PHC, indicate a significant competitive presence that Sage WiSE must counter.",
+      "source": "ECO SAPO",
+      "source_url": "https://eco.sapo.pt/2026/04/27/grupo-cegid-fatura-85-milhoes-em-portugal-em-ano-de-compra-da-phc/",
+      "source_type": "secondary",
+      "evidence_status": "verified",
+      "confidence": "high",
+      "archived": true
     }
   ]
 }
