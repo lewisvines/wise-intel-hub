@@ -2,7 +2,7 @@
   "meta": {
     "last_updated": "2026-09-03",
     "week_label": "Week of 31 Aug - 6 Sep 2026",
-    "signal_count": 33,
+    "signal_count": 35,
     "prev_signal_count": 40,
     "intensity": "CRITICAL",
     "intensity_reason": "France PA mandate under 8 weeks away (1 Sept 2026) with PA registration ~50% - Cegid closes EUR 1.1bn Shine acquisition (1M+ SMBs, 15,000 accountants across 7 markets) - Pennylane now live in Germany and valued at USD 4.25bn - converging FR/ES/DE/PT compliance deadlines",
@@ -28,24 +28,60 @@
     "eu_competitive_pct": 100,
     "eu_competitive_status": "green",
     "eu_competitive_label": "Live",
-    "last_scan": "2026-09-03T11:55:44.392368Z",
-    "last_scan_summary": "Automated evidence scan completed: 0 new signals passed source, date and quality checks.",
+    "last_scan": "2026-09-03T19:29:39.787979Z",
+    "last_scan_summary": "Automated evidence scan completed: 2 new signals passed source, date and quality checks.",
     "scan_status": {
       "date": "2026-09-03",
       "markets_scanned": [
-        "FR"
+        "FR",
+        "ES"
       ],
       "markets_skipped": [],
-      "signals_added": 0,
+      "signals_added": 2,
       "quality_filtered": 0,
       "summaries": {
-        "FR": "No new market signals were detected in the French market within the past 48 hours."
+        "FR": "The French market shows high activity around the upcoming e-invoicing mandate, with significant competitive moves and product positioning.",
+        "ES": "No new market signals for Spain were found in the past 48 hours."
       }
     },
-    "archived_count": 6,
+    "archived_count": 5,
     "ifyrne_updated": "2026-08-31"
   },
   "signals": [
+    {
+      "id": "cegid-ebp-fr-accountant-focus",
+      "category": "Competitive",
+      "market": "FR",
+      "date": "2024-04-23",
+      "published_at": "2024-04-23",
+      "accessed_at": "2026-09-03",
+      "priority": "high",
+      "title": "Cegid Strengthens French Market Position with Potential EBP Acquisition",
+      "body": "Cegid, a European leader in cloud management solutions, is set to acquire EBP, a major player in French accounting and management software for SMEs. This move aims to bolster Cegid's leadership in the rapidly growing French market, particularly with the advent of e-invoicing, and enhance its offerings for TPEs and SMEs.",
+      "implication": "Significant competitive consolidation in the French market. Cegid/EBP will be a formidable competitor, especially targeting the expert-comptable channel. Sage needs to monitor their combined strategy and market penetration.",
+      "source": "Cegid",
+      "source_url": "https://fr.cegid.com/presse/cegid-x-ebp-la-profession-comptable",
+      "source_type": "primary",
+      "evidence_status": "verified",
+      "confidence": "high"
+    },
+    {
+      "id": "sage-active-fr-launch-readiness",
+      "category": "Brand",
+      "market": "FR",
+      "date": "2026-05-28",
+      "published_at": "2026-05-28",
+      "accessed_at": "2026-09-03",
+      "priority": "high",
+      "title": "Sage Active Positioned as Cloud Accounting Solution for French SMEs",
+      "body": "Sage Active is presented as an online accounting solution for small and medium-sized businesses in France, aiming to simplify daily tasks and provide financial visibility. It is highlighted for its ability to manage invoicing, accounting, payroll, and HR, and is compliant with e-invoicing regulations.",
+      "implication": "Sage Active is being actively marketed in France. Need to ensure its readiness and compliance with the upcoming PA mandate and competitive positioning against local players.",
+      "source": "GetApp France",
+      "source_url": "https://www.getapp.fr/sage-active-260205",
+      "source_type": "secondary",
+      "evidence_status": "verified",
+      "confidence": "high"
+    },
     {
       "id": "autoentry-sage-integration-fr-readiness",
       "category": "AI & Tech",
@@ -710,24 +746,6 @@
       "implication": "Cegid's strong revenue and client base in Portugal, bolstered by the PHC acquisition, indicates significant market penetration and a solidified competitive position. This aggressive growth strategy requires Sage to monitor Cegid's product roadmap and market approach closely.",
       "source": "ECO",
       "source_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHg61kRNNgNwJpd8DoqdiVnvuc8DBf0HnfLWjLldxyLtfSMj1SLALvESf8ono6mMc5m-OBNUIJPMIWT6gRRoKqcwNKSz9IMqvST8UOgMKsyUSbfOJ2J0uc_oeJ8mRXiMcG2N19-2yVrFyINQDTNS5tlu-sN3p2bBEbS-yVtK5TdB7PhHBhWKRn2f4-dj4aatOHLQ79oX2EoKqtaIQ==",
-      "source_type": "secondary",
-      "evidence_status": "verified",
-      "confidence": "high",
-      "archived": true
-    },
-    {
-      "id": "datev-cloud-migration-accelerates",
-      "category": "Competitive|AI & Tech",
-      "market": "DE",
-      "date": "2026-04-23",
-      "published_at": "2026-04-23",
-      "accessed_at": "2026-08-31",
-      "priority": "high",
-      "title": "DATEV begins major cloud transformation in 2026, impacting core applications",
-      "body": "DATEV is undergoing its largest portfolio transformation, migrating all core on-premise applications to the cloud, including client management (Autumn 2026), payroll, and financial accounting. This transition aims to enhance efficiency and digital collaboration with clients, with a projected 24-36 month implementation period for tax firms. DATEV is also integrating AI tools, with DATEV Copilot and AI-driven document management highlighted.",
-      "implication": "DATEV's cloud migration and AI integration could strengthen its position as a dominant player for tax advisors, potentially creating a more integrated cloud ecosystem that Sage needs to compete with, especially if DATEV offers a compelling cloud layer above its traditional offerings.",
-      "source": "Clara by Intoconvo",
-      "source_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH8xYRV3hwQW3xMP0uJvkAFynX5h5ilUdqL1kvVMY-38d0rXdKasWI2cYuY_X26HvsoonzCAkimCl6MEb8l8_4akXa55CkGPv4ce9In_vLfOV7JWniiEnznpqSv7MvziJp7krOa1XyRmcTzlRXUHsQtfZVOkGsoehKuK0GY",
       "source_type": "secondary",
       "evidence_status": "verified",
       "confidence": "high",
