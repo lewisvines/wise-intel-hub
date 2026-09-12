@@ -2,7 +2,7 @@
   "meta": {
     "last_updated": "2026-09-12",
     "week_label": "Week of 7 Sep - 13 Sep 2026",
-    "signal_count": 38,
+    "signal_count": 35,
     "prev_signal_count": 40,
     "intensity": "CRITICAL",
     "intensity_reason": "France PA mandate under 8 weeks away (1 Sept 2026) with PA registration ~50% - Cegid closes EUR 1.1bn Shine acquisition (1M+ SMBs, 15,000 accountants across 7 markets) - Pennylane now live in Germany and valued at USD 4.25bn - converging FR/ES/DE/PT compliance deadlines",
@@ -28,79 +28,24 @@
     "eu_competitive_pct": 100,
     "eu_competitive_status": "green",
     "eu_competitive_label": "Live",
-    "last_scan": "2026-09-12T11:28:05.320897Z",
-    "last_scan_summary": "Automated evidence scan completed: 3 new signals passed source, date and quality checks.",
+    "last_scan": "2026-09-12T18:50:24.380394Z",
+    "last_scan_summary": "Automated evidence scan completed: 0 new signals passed source, date and quality checks.",
     "scan_status": {
       "date": "2026-09-12",
       "markets_scanned": [
-        "FR",
-        "ES",
-        "PT"
+        "ES"
       ],
       "markets_skipped": [],
-      "signals_added": 3,
+      "signals_added": 0,
       "quality_filtered": 0,
       "summaries": {
-        "FR": "No new market signals were found for France in the past 48 hours.",
-        "ES": "Market signals for Spain show continued focus on Verifactu compliance with updated deadlines and competitor readiness, alongside AI feature rollouts.",
-        "PT": "Recent market signals for Portugal indicate regulatory shifts with postponed SAF-T accounting and QES deadlines, and significant competitive consolidation with Cegid's acquisition of PHC and its merger with Primavera."
+        "ES": "No new market signals for Spain were found in the past 48 hours."
       }
     },
-    "archived_count": 0,
+    "archived_count": 1,
     "ifyrne_updated": "2026-09-07"
   },
   "signals": [
-    {
-      "id": "cegid-primavera-phc-merger-2025",
-      "category": "Competitive",
-      "market": "PT",
-      "date": "2025-01-27",
-      "published_at": "2025-01-27",
-      "accessed_at": "2026-09-12",
-      "priority": "high",
-      "title": "Cegid Acquires PHC Business Software, Merging with Primavera",
-      "body": "Cegid Group acquired PHC Business Software, a Portuguese technology company, in January 2025. This acquisition, following Cegid's merger with Primavera, aims to strengthen Cegid's position in the Iberian market for management software solutions for SMEs. PHC has a portfolio of 37,000 client companies and 170,000 users.",
-      "implication": "The consolidation of Cegid, Primavera, and PHC creates a significant competitor in Portugal, potentially impacting Sage's market share and competitive strategy.",
-      "source": "PitchBook",
-      "source_url": "https://pitchbook.com/news/releases/cegid-group-acquires-portuguese-technology-company-phc-business-software",
-      "source_type": "secondary",
-      "evidence_status": "verified",
-      "confidence": "high"
-    },
-    {
-      "id": "contasol-verifactu-compliance-2026",
-      "category": "Competitive",
-      "market": "ES",
-      "date": "2026-06-09",
-      "published_at": "2026-06-09",
-      "accessed_at": "2026-09-12",
-      "priority": "watch",
-      "title": "Contasol (Software DELSOL) updated for Spanish 2026 regulations including Verifactu",
-      "body": "Contasol, a Spanish accounting program from Software DELSOL, has been updated to comply with Spanish regulations for 2026, including Verifactu. The software offers a free version for one user and is noted as being suitable for SMEs up to 50 employees.",
-      "implication": "Contasol is positioning itself as Verifactu-ready, targeting SMEs and potentially the 'autónomo' segment. Sage Active needs to ensure its Spanish offering is competitive in terms of features and pricing for this segment.",
-      "source": "Cronomía",
-      "source_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHY_CwEmR5qSdhj4S3gMSmks6XurBEw5XQShFSFLVT0La815nj2sqSrVdiglfHNG2w_QwlkpaYll3f_W1TLF4JjfWaTJ-7dyhh68x1Lp-hV3Zdi0_vT7coQoCD-AKy8ae0qwxTXOw==",
-      "source_type": "secondary",
-      "evidence_status": "verified",
-      "confidence": "high"
-    },
-    {
-      "id": "holded-verifactu-readiness-2025",
-      "category": "Competitive",
-      "market": "ES",
-      "date": "2025-12-02",
-      "published_at": "2025-12-02",
-      "accessed_at": "2026-09-12",
-      "priority": "high",
-      "title": "Holded POS system ready for Verifactu compliance in Spain",
-      "body": "Holded's Point of Sale (POS) system is designed for operations issued in Spain and is being configured to comply with Verifactu. This includes enabling Verifactu in the POS settings and uploading an electronic certificate to ensure tickets can be sent automatically to the Tax Agency.",
-      "implication": "Holded is actively preparing its Spanish offering for Verifactu, indicating a strong competitive push in the Spanish market. Sage Active needs to ensure its POS or invoicing integrations in Spain are equally or more advanced.",
-      "source": "Holded Academy",
-      "source_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGmig3wFr0x5QQ0kByPldk4sFrtqTLNjTJZHd6dHCG0iga-VuvNZJ6onB_Tvm_Dr6pBWuDKbLblLS4N2XuArFg4EOvieAZa-Xsw3HxpZEmRHKrZwkZ9kE_Wd-SGGteXjr_wJURVAZqUWJee6pc9fmHBz2sUpaOcKR7SAgUZmxxBFlHc5oaIp-RPZqVWDQQ=",
-      "source_type": "primary",
-      "evidence_status": "verified",
-      "confidence": "high"
-    },
     {
       "id": "holded-verifactu-readiness",
       "category": "Competitive",
@@ -710,6 +655,24 @@
       "evidence_status": "verified",
       "confidence": "high",
       "calendar_tag": true
+    },
+    {
+      "id": "contasol-verifactu-compliance-2026",
+      "category": "Competitive",
+      "market": "ES",
+      "date": "2026-06-09",
+      "published_at": "2026-06-09",
+      "accessed_at": "2026-09-12",
+      "priority": "watch",
+      "title": "Contasol (Software DELSOL) updated for Spanish 2026 regulations including Verifactu",
+      "body": "Contasol, a Spanish accounting program from Software DELSOL, has been updated to comply with Spanish regulations for 2026, including Verifactu. The software offers a free version for one user and is noted as being suitable for SMEs up to 50 employees.",
+      "implication": "Contasol is positioning itself as Verifactu-ready, targeting SMEs and potentially the 'autónomo' segment. Sage Active needs to ensure its Spanish offering is competitive in terms of features and pricing for this segment.",
+      "source": "Cronomía",
+      "source_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHY_CwEmR5qSdhj4S3gMSmks6XurBEw5XQShFSFLVT0La815nj2sqSrVdiglfHNG2w_QwlkpaYll3f_W1TLF4JjfWaTJ-7dyhh68x1Lp-hV3Zdi0_vT7coQoCD-AKy8ae0qwxTXOw==",
+      "source_type": "secondary",
+      "evidence_status": "verified",
+      "confidence": "high",
+      "archived": true
     }
   ]
 }
