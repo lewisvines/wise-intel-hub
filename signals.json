@@ -1,8 +1,8 @@
 {
   "meta": {
-    "last_updated": "2026-09-16",
+    "last_updated": "2026-09-17",
     "week_label": "Week of 14 Sep - 20 Sep 2026",
-    "signal_count": 38,
+    "signal_count": 40,
     "prev_signal_count": 40,
     "intensity": "CRITICAL",
     "intensity_reason": "France PA mandate under 8 weeks away (1 Sept 2026) with PA registration ~50% - Cegid closes EUR 1.1bn Shine acquisition (1M+ SMBs, 15,000 accountants across 7 markets) - Pennylane now live in Germany and valued at USD 4.25bn - converging FR/ES/DE/PT compliance deadlines",
@@ -28,37 +28,74 @@
     "eu_competitive_pct": 100,
     "eu_competitive_status": "green",
     "eu_competitive_label": "Live",
-    "last_scan": "2026-09-16T19:47:13.922972Z",
-    "last_scan_summary": "Automated evidence scan completed: 1 new signal passed source, date and quality checks.",
+    "last_scan": "2026-09-17T12:25:08.225080Z",
+    "last_scan_summary": "Automated evidence scan completed: 3 new signals passed source, date and quality checks.",
     "scan_status": {
-      "date": "2026-09-16",
+      "date": "2026-09-17",
       "markets_scanned": [
-        "DE"
+        "DE",
+        "Pennylane"
       ],
       "markets_skipped": [],
-      "signals_added": 1,
+      "signals_added": 3,
       "quality_filtered": 0,
       "summaries": {
-        "DE": "Market signals for Germany show significant activity in competitive acquisitions and regulatory deadlines for e-invoicing, with DATEV's cloud migration also being a key development."
+        "DE": "Recent market signals in Germany indicate significant competitive activity with Cegid's acquisition of sevDesk, strategic brand consolidation by Lexware (formerly Lexoffice), and DATEV's upcoming cloud migration, all pointing to a dynamic and evolving accounting software landscape.",
+        "Pennylane": "Pennylane is aggressively expanding across Europe with significant funding, enhancing its AI capabilities, and ensuring readiness for regulatory changes like e-invoicing, positioning it as a major competitive threat to Sage."
       }
     },
-    "archived_count": 1,
+    "archived_count": 0,
     "ifyrne_updated": "2026-09-14"
   },
   "signals": [
     {
-      "id": "cegid-sevdesk-integration-2025",
-      "category": "Competitive",
-      "market": "DE",
-      "date": "2025-02-06",
-      "published_at": "2025-02-06",
-      "accessed_at": "2026-09-16",
+      "id": "pennylane-e-invoicing-readiness-2026",
+      "category": "Regulatory",
+      "market": "FR",
+      "date": "2026-04-20",
+      "published_at": "2026-04-20",
+      "accessed_at": "2026-09-17",
       "priority": "high",
-      "title": "Cegid completes acquisition of sevdesk, strengthening DACH presence",
-      "body": "Cegid has finalized its acquisition of sevdesk, a German provider of accounting and e-invoicing software. This move expands Cegid's offering in German-speaking Europe, targeting over 5 million micro and SMB businesses. Sevdesk's solutions support over €85 billion in transactions and prepare customers for e-invoicing reforms starting in 2025.",
-      "implication": "Cegid's strengthened position in the German market through sevdesk acquisition poses a direct competitive threat, especially with their focus on upcoming e-invoicing reforms. Sage should assess how this integration impacts their competitive landscape and customer acquisition strategies in Germany.",
-      "source": "Cegid",
-      "source_url": "https://www.cegid.com/en/news/cegid-completes-acquisition-of-sevdesk/",
+      "title": "Pennylane ready for French e-invoicing mandate with Factur-X and Chorus Pro integration",
+      "body": "Pennylane is positioned to meet France's mandatory e-invoicing reform in September 2026, offering Factur-X generation and Chorus Pro integration across all its plans at no additional charge. The platform provides real-time updates on invoice status and detailed rejection messages from Chorus Pro, simplifying compliance for businesses and accountants.",
+      "implication": "Pennylane's proactive readiness for the French e-invoicing mandate, including seamless integration with regulatory platforms, directly addresses a critical compliance need for French businesses. This positions Pennylane as a strong contender against Sage for Accountants in France, especially given the upcoming mandate deadlines.",
+      "source": "Pennylane E-Invoicing Review, Hayot Expertise",
+      "source_url": "https://www.pennylane.com/en/e-invoicing-review/",
+      "source_type": "secondary",
+      "evidence_status": "corroborated",
+      "confidence": "high",
+      "calendar_tag": true
+    },
+    {
+      "id": "pennylane-funding-expansion-2026",
+      "category": "Competitive",
+      "market": "EU",
+      "date": "2026-01-20",
+      "published_at": "2026-01-20",
+      "accessed_at": "2026-09-17",
+      "priority": "critical",
+      "title": "Pennylane secures €175M Series E, valued at $4.25B, for European expansion and AI development",
+      "body": "Pennylane raised €175 million in a Series E funding round led by TCV and Blackstone Growth, valuing the company at $4.25 billion. The funds will accelerate R&D, focusing on AI tools for accountants, and support expansion into new European markets. The company also plans to enhance its payment, cash management, and electronic invoicing systems. Pennylane has recently launched in Germany and aims to establish a presence in Poland, Spain, and Belgium in the second half of 2026.",
+      "implication": "Pennylane's significant funding and aggressive expansion plans, particularly into Germany and other key European markets, pose a direct competitive threat to Sage's European strategy. Their focus on AI and integrated financial services aligns with market trends and could capture market share from Sage for Accountants and Sage Active.",
+      "source": "Maddyness UK, Arabian FinTech, Tech.eu, EU-Startups, GlobalData",
+      "source_url": "https://maddyness.com/en/2026/01/20/pennylane-new-175-million-funding-round-for-the-french-unicorn/",
+      "source_type": "secondary",
+      "evidence_status": "corroborated",
+      "confidence": "high"
+    },
+    {
+      "id": "lexware-rebrands-lexoffice-2025",
+      "category": "Brand",
+      "market": "DE",
+      "date": "2025-12-06",
+      "published_at": "2025-12-06",
+      "accessed_at": "2026-09-17",
+      "priority": "watch",
+      "title": "Lexoffice rebrands to Lexware Office as part of Haufe Group strategy",
+      "body": "Lexoffice, a cloud accounting software for the German market with 250,000 customers, has been rebranded to Lexware Office. This change aligns it with the broader Lexware brand, known for its accounting software. The rebranding aims to create a unified brand experience and facilitate access to other Lexware products, while maintaining core features like ease of use, automation, and cloud-based access.",
+      "implication": "The rebranding of Lexoffice to Lexware Office consolidates the brand's presence in the German SMB market. While not a new product, this unified branding could increase customer loyalty and market penetration, posing a continued competitive challenge to Sage's cloud offerings in Germany.",
+      "source": "Lexware",
+      "source_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFqVPrYOeWmHUMJrTvjZH8PNUaCwnxt_ciELF-2YjXMAmG-XvBOXqNqcrdy1CMhtqXXdcuh2QC18mIFRq7YBVj86wXse4m-Wb60k0tBUgGkIbuFOgH4xnIYiDZOclJOfa_czcICc1pGhuYuyYOY3BDJWots89wLmg==",
       "source_type": "primary",
       "evidence_status": "verified",
       "confidence": "high"
@@ -708,24 +745,6 @@
       "source_type": "secondary",
       "evidence_status": "pending",
       "confidence": "medium"
-    },
-    {
-      "id": "datev-cloud-migration-autumn-2026",
-      "category": "AI & Tech",
-      "market": "DE",
-      "date": "2026-05-05",
-      "published_at": "2026-05-05",
-      "accessed_at": "2026-09-14",
-      "priority": "watch",
-      "title": "DATEV to migrate all on-premises software to cloud by Autumn 2026",
-      "body": "DATEV is migrating its on-premises software to cloud-based delivery, starting with the Kanzleimanagement module in Autumn 2026, followed by payroll, financial accounting, and tax modules. On-premises versions will be phased out, impacting interfaces and workflows for practices and their clients.",
-      "implication": "This migration presents an opportunity for Sage to highlight its cloud-native solutions and potentially partner with DATEV users seeking cloud alternatives. It also signals a shift in the German accounting software landscape towards cloud adoption.",
-      "source": "Facturwise",
-      "source_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQENatRtBU6Oixu5AG9beNPv3HMf-aGLRdub12SwNRwQ1k0ZoOV-UpYJmNbyujQbj2uduOq93V8WTyijVKqwoWaPIi8nK-FiBBAf5f7e7ajDc5n7WPOThkiOj7e10hoLLyraB2FKJhYBaZ5euveDkcaB1ER3zsefxkwDuO44wgJi8A==",
-      "source_type": "secondary",
-      "evidence_status": "verified",
-      "confidence": "high",
-      "archived": true
     }
   ]
 }
