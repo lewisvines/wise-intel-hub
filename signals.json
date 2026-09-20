@@ -1,8 +1,8 @@
 {
   "meta": {
-    "last_updated": "2026-09-19",
+    "last_updated": "2026-09-20",
     "week_label": "Week of 14 Sep - 20 Sep 2026",
-    "signal_count": 35,
+    "signal_count": 37,
     "prev_signal_count": 40,
     "intensity": "CRITICAL",
     "intensity_reason": "France PA mandate under 8 weeks away (1 Sept 2026) with PA registration ~50% - Cegid closes EUR 1.1bn Shine acquisition (1M+ SMBs, 15,000 accountants across 7 markets) - Pennylane now live in Germany and valued at USD 4.25bn - converging FR/ES/DE/PT compliance deadlines",
@@ -28,42 +28,77 @@
     "eu_competitive_pct": 100,
     "eu_competitive_status": "green",
     "eu_competitive_label": "Live",
-    "last_scan": "2026-09-19T19:01:28.358436Z",
-    "last_scan_summary": "Automated evidence scan completed: 1 new signal passed source, date and quality checks.",
+    "last_scan": "2026-09-20T12:01:16.058386Z",
+    "last_scan_summary": "Automated evidence scan completed: 3 new signals passed source, date and quality checks.",
     "scan_status": {
-      "date": "2026-09-19",
+      "date": "2026-09-20",
       "markets_scanned": [
         "FR",
-        "ES"
+        "DE"
       ],
       "markets_skipped": [],
-      "signals_added": 1,
+      "signals_added": 3,
       "quality_filtered": 0,
       "summaries": {
-        "FR": "No new market signals were found in the past 48 hours for France related to the specified search terms.",
-        "ES": "Market signals for Spain show confirmed Verifactu deadlines for 2027, Holded's integration of Verifactu, and Pennylane's strategic expansion into the Spanish market."
+        "FR": "No new market signals were found for France in the past 48 hours.",
+        "DE": "The German market shows significant activity with upcoming XRechnung e-invoicing mandates, DATEV's cloud migration, and increased competitive pressure from Cegid's acquisition of sevdesk."
       }
     },
-    "archived_count": 0,
+    "archived_count": 1,
     "ifyrne_updated": "2026-09-14"
   },
   "signals": [
     {
-      "id": "holded-verifactu-integration-2025",
+      "id": "cegid-acquires-sevdesk-expansion-dach",
       "category": "Competitive",
-      "market": "ES",
-      "date": "2026-05-13",
-      "published_at": "2026-05-13",
-      "accessed_at": "2026-09-19",
+      "market": "DE",
+      "date": "2025-01-07",
+      "published_at": "2025-01-07",
+      "accessed_at": "2026-09-20",
       "priority": "high",
-      "title": "Holded integrated Verifactu in 2025 for invoice issuance and receipt",
-      "body": "Holded integrated Verifactu in 2025, enabling it to generate QR codes and hashes for issued invoices and process received Verifactu invoices. The platform emphasizes that while it stores the QR code, the recipient's responsibility is to validate it against the AEAT service.",
-      "implication": "Holded is actively preparing for Verifactu, potentially gaining an early mover advantage in the Spanish market. Sage Active needs to ensure its Verifactu capabilities are robust and user-friendly, especially regarding the validation process for received invoices.",
-      "source": "ininvoice",
-      "source_url": "https://www.ininvoice.es/en/blog/holded-and-verifactu-invoices-validate-them",
+      "title": "Cegid acquires sevdesk, accelerating European expansion in DACH region",
+      "body": "French software company Cegid has acquired sevdesk, a Germany-based provider of cloud-based accounting software for small businesses, freelancers, and startups. This acquisition marks a strategic expansion for Cegid into the DACH region, enhancing its portfolio with sevdesk's financial management tools and strengthening its presence in the European market.",
+      "implication": "Cegid's acquisition of sevdesk, a cloud-native SMB accounting software provider in Germany, directly increases competitive pressure in the German market, especially for Sage Active.",
+      "source": "Cegid",
+      "source_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEUzA3QhcTQw0AH6U8XYcAixRud7dqgZJxFfM0M5nu9xqx0NZHCNon0r6dnpQRqqjKYDqoahfjdwleATm8BobUDSpH1BXIeJE3_7DJ2EP5JG2B5hJxowdW4XUAEOUlka3Zl9qltuU2pEarSrnaZq5y_CBfb3A2DxO9Hm7olBc48uZgO8dXBFsq0mQ-3dlZE0jsKSdM=",
+      "source_type": "primary",
+      "evidence_status": "verified",
+      "confidence": "high"
+    },
+    {
+      "id": "datev-cloud-migration-autumn-2026",
+      "category": "AI & Tech",
+      "market": "DE",
+      "date": "2026-10-01",
+      "published_at": "2026-10-01",
+      "accessed_at": "2026-09-20",
+      "priority": "high",
+      "title": "DATEV begins cloud migration in Autumn 2026, phasing out on-premises software",
+      "body": "DATEV is migrating its on-premises software to cloud-based delivery, starting with the Kanzleimanagement (practice management) module in Autumn 2026. This migration will be followed by payroll, financial accounting, and tax modules, with on-premises versions being phased out over the coming years. While data formats remain compatible, interfaces and workflows will change.",
+      "implication": "This cloud shift by DATEV, a dominant player, presents an opportunity for Sage to position its cloud offerings as a modern alternative or complementary solution, especially for SMBs seeking simpler, more cost-effective options compared to traditional DATEV solutions.",
+      "source": "Facturwise",
+      "source_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGlLWtcpry0yP55Q5p-OQdOq6Z5DLHrWur6CZwo3RGsRax5xGPvNY_JvbfRBLPDA5abBB88hZyet_LoSHDC3pfp_80oRmQr39bZ--eYQvot7nz3irNZdlVfNeqqiwPZcOZSizHIzET00wTf1vdyl7q05st1u3ohZZWaMnJQ9wxr",
       "source_type": "secondary",
       "evidence_status": "verified",
       "confidence": "high"
+    },
+    {
+      "id": "germany-xrechnung-mandate-expansion",
+      "category": "Regulatory",
+      "market": "DE",
+      "date": "2026-01-01",
+      "published_at": "2026-01-01",
+      "accessed_at": "2026-09-20",
+      "priority": "critical",
+      "title": "Germany's XRechnung mandate expands to B2B transactions 2025-2028",
+      "body": "Germany is expanding the role of XRechnung as a core structured e-invoicing format, moving from public-sector use to a mandatory standard for domestic B2B transactions between 2025 and 2028. By January 1, 2027, businesses with an annual turnover exceeding €800,000 must issue structured e-invoices, and by January 1, 2028, this obligation extends to all businesses.",
+      "implication": "Sage Active's PA-certified FR and Verifactu-certified ES products need to be adapted for XRechnung compliance in Germany to avoid missing a critical market opportunity and potential penalties.",
+      "source": "Fiscal Solutions",
+      "source_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHngtcOptwA2BJVKoYfxM10HTLsyEQ7IETTeaBD1a9pOeu0ki1-U7GaTyMedjjlNzUcaNBYywiTKPekkaX_42dO_RPhThfyStk-NcsIIvHSovgK3ZUi7ECMzmCJSEj1kWxiwijr--2rPsylq6SL5BBAmKG0HTQ0o8I37C9fCoBnScZB5yC35DCK6SLnXndXS8yRU3pinnk_MY_JYEv4B2Jw82gW6AGuT9U=",
+      "source_type": "secondary",
+      "evidence_status": "corroborated",
+      "confidence": "high",
+      "calendar_tag": true
     },
     {
       "id": "cegid-dominance-portugal-erp-market",
@@ -658,6 +693,24 @@
       "source_type": "primary",
       "evidence_status": "verified",
       "confidence": "high"
+    },
+    {
+      "id": "holded-verifactu-integration-2025",
+      "category": "Competitive",
+      "market": "ES",
+      "date": "2026-05-13",
+      "published_at": "2026-05-13",
+      "accessed_at": "2026-09-19",
+      "priority": "high",
+      "title": "Holded integrated Verifactu in 2025 for invoice issuance and receipt",
+      "body": "Holded integrated Verifactu in 2025, enabling it to generate QR codes and hashes for issued invoices and process received Verifactu invoices. The platform emphasizes that while it stores the QR code, the recipient's responsibility is to validate it against the AEAT service.",
+      "implication": "Holded is actively preparing for Verifactu, potentially gaining an early mover advantage in the Spanish market. Sage Active needs to ensure its Verifactu capabilities are robust and user-friendly, especially regarding the validation process for received invoices.",
+      "source": "ininvoice",
+      "source_url": "https://www.ininvoice.es/en/blog/holded-and-verifactu-invoices-validate-them",
+      "source_type": "secondary",
+      "evidence_status": "verified",
+      "confidence": "high",
+      "archived": true
     }
   ]
 }
