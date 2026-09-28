@@ -10,7 +10,7 @@ import json, os, datetime, urllib.request, re
 GEMINI_KEY = os.environ["GEMINI_API_KEY"]
 SENDGRID_KEY = os.environ["SENDGRID_API_KEY"]
 TO_EMAIL = os.environ["DIGEST_TO_EMAIL"]
-FROM_EMAIL = "wise-intel@lewisvines.github.io"
+FROM_EMAIL = os.environ.get("DIGEST_TO_EMAIL", "lewis.vines@sage.com")  # send from verified sender
 FROM_NAME = "WiSE Intel Hub"
 
 TODAY = datetime.date.today()
